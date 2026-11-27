@@ -1,0 +1,347 @@
+[
+ {
+  "id": "mulberry-leaf-breath",
+  "name": "Mulberry Leaf Breath (Tang Diệp Tức)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": [
+   "moc",
+   "hoa"
+  ],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {
+    "key": "health_regen_inc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "attack_pct",
+    "value": 3,
+    "scope": [
+     "moc"
+    ]
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "spin-a-strand",
+    "unlock_layer": 1
+   },
+   {
+    "ability_id": "warm-shed",
+    "unlock_layer": 2
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "mulberry-leaf-breath",
+  "family": "wood",
+  "owner": "chuc_ha",
+  "rank": "ngoai_mon",
+  "concept": "The weavers' first method, breathed in the worm sheds among the trays of mulberry leaves, where the air is warm and green. Wood qi is drawn in as the worms draw in the leaf, and a little warmth is kept in the belly as the sheds keep it for the worms. It makes patient, steady hands.",
+  "lore": "The silk families of Tang Điền have breathed this way in the worm sheds since the mulberry fields were planted (A300). Thân Vân Cẩm wrote it down in 1150."
+ },
+ {
+  "id": "unbroken-thread-canon",
+  "name": "Unbroken Thread Canon (Bất Đoạn Ti Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": [
+   "moc"
+  ],
+  "layers": 9,
+  "bonuses": [
+   {
+    "stat": "linh_luc_pct",
+    "value": 12
+   }
+  ],
+  "passives": [
+   {
+    "key": "stack_duration_pct",
+    "value": 12,
+    "scope": [
+     "moc",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 10,
+    "scope": [
+     "moc",
+     "debuff"
+    ]
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 8,
+    "scope": [
+     "curse"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 6,
+    "scope": [
+     "moc"
+    ]
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "reel-in",
+    "unlock_layer": 1
+   },
+   {
+    "ability_id": "warp-and-weft",
+    "unlock_layer": 2
+   }
+  ],
+  "effects": [
+   {
+    "name": "When the Thread Breaks",
+    "unlock_layer": 3,
+    "passive_art": true,
+    "rule": "Your thread on the foe (a Reel In bind) breaks when the foe fires a heavy or slow art; when it breaks you lose 4 % of your maximum linh lực (the recoil). A thread that runs its whole time unbroken ties a Knot (a self-counter, no cap, kept for the fight): each Knot makes your thread arts lay one more Wood stack, and Burning Thread lay 2 more Burn stacks."
+   }
+  ],
+  "origin": "authored",
+  "suite": "unbroken-thread-canon",
+  "family": "wood",
+  "owner": "chuc_ha",
+  "rank": "noi_mon",
+  "concept": "A reeler's method. The cultivator draws her qi out as one thread that must never break, the way a reeler draws a cocoon's single filament; each layer is a longer, stronger thread. In a fight she spins threads that bind, cut and carry her arts along them, and a foe caught in several threads is pulled and slowed. If her thread breaks, her qi recoils.",
+  "lore": "The reelers of Hỏa Ti Trấn cultivated by this method before the town burned in 590 (V165); its survivors carried it to Tang Điền's sheds. It has no Fire in it: the fire was always the vent's."
+ },
+ {
+  "id": "fire-in-the-thread",
+  "name": "Fire in the Thread (Hỏa Chức Quyết)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": [
+   "hoa"
+  ],
+  "layers": 9,
+  "bonuses": [
+   {
+    "stat": "attack_pct",
+    "value": 10
+   }
+  ],
+  "passives": [
+   {
+    "key": "attack_pct",
+    "value": 6,
+    "scope": [
+     "hoa"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 14,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   },
+   {
+    "key": "resist_pct",
+    "value": 60,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 6,
+    "scope": [
+     "hoa"
+    ]
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "burning-thread",
+    "unlock_layer": 1
+   },
+   {
+    "ability_id": "fire-silk-weave",
+    "unlock_layer": 2
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "fire-in-the-thread",
+  "family": "fire",
+  "owner": "chuc_ha",
+  "rank": "noi_mon",
+  "concept": "Thân Vân Cẩm's art: putting fire into silk with the weaver's own Fire rather than the vent's. The weaver runs her Fire along the thread as she weaves, layer by layer, so the cloth holds it. Silk made this way burns without burning and wards against fire, but holds the heat only a season before it chars. In a fight the holder's threads catch fire along their length.",
+  "lore": "Made by Thân Vân Cẩm between 1148 and 1150, after her mother Hầu Tố Cẩm burned her hands trying the same thing without a method. It is why the pavilion exists (V172)."
+ },
+ {
+  "id": "indigo-vat-canon",
+  "name": "Indigo Vat Canon (Thanh Đỉnh Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": [
+   "thuy",
+   "moc"
+  ],
+  "layers": 9,
+  "bonuses": [
+   {
+    "stat": "linh_luc_pct",
+    "value": 12
+   }
+  ],
+  "passives": [
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "healing_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "attack_pct",
+    "value": 4,
+    "scope": [
+     "cold"
+    ]
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "indigo-steep",
+    "unlock_layer": 1
+   },
+   {
+    "ability_id": "mordant-fix",
+    "unlock_layer": 2
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "indigo-vat-canon",
+  "family": "water",
+  "owner": "chuc_ha",
+  "rank": "khach_khanh",
+  "concept": "The lake-shore indigo dyer's Water method brought by guest elder Nhiễm Thanh Lam from Lam Điện. She learned to keep qi as patient and deep as a cold vat, fixing colour and mending meridians rather than rushing to strike.",
+  "lore": "Passed by a lake-shore hermit of Lam Điện to Nhiễm Thanh Lam; she teaches only its vat-work to her helpers and never takes Chức Hà's lineage."
+ },
+ {
+  "id": "vat-stirring-breath",
+  "name": "Vat-Stirring Breathing (Khuấy Đỉnh Pháp)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": [
+   "thuy",
+   "moc"
+  ],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {
+    "key": "health_regen_inc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "status_resist_pct",
+    "value": 5,
+    "scope": []
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "vat-rinse",
+    "unlock_layer": 1
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "vat-stirring-breath",
+  "family": "water",
+  "owner": "chuc_ha",
+  "rank": "tap_dich",
+  "concept": "The cold-water breathing taught to vat-stirrers at Lam Điện's dye houses: steady breath over steaming indigo pots to keep the lungs and hands whole without entering any sect's inner gate.",
+  "lore": "Mặc Lam Y brought it from Lam Điện when she followed Nhiễm Thanh Lam to Chức Hà Các."
+ },
+ {
+  "id": "mulberry-row-breath",
+  "name": "Mulberry-Row Breathing (Tang Lũng Tức)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": [
+   "tho",
+   "thuy"
+  ],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {
+    "key": "khi_huyet_pct",
+    "value": 5,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 3,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "leaf-basket-guard",
+    "unlock_layer": 1
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "mulberry-row-breath",
+  "family": "earth",
+  "owner": "chuc_ha",
+  "rank": "tap_dich",
+  "concept": "A plain Earth breathing passed among the pavilion's leaf-pickers and basket-carriers in the mulberry rows, keeping back and breath steady through frost and rain without Wood or Fire.",
+  "lore": "Used by the servant leaf-pickers of Chức Hà Các, who work the mulberry rows outside the loom halls."
+ }
+]

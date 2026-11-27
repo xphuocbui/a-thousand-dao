@@ -19,8 +19,8 @@
    "tier": 0, "tech_kind": "main", "names": ["moc", "hoa"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The weavers' first method, breathed in the worm sheds among the trays of mulberry leaves, where the air is warm and green. Wood qi is drawn in as the worms draw in the leaf, and a little warmth is kept in the belly as the sheds keep it for the worms. It makes patient, steady hands.",
    "arts": [
-    {"new": "Spin a Strand (Thổ Ti)", "concept": "Throws a fine thread that clings to a foe: a light Wood hit that slows them slightly for a few seconds."},
-    {"new": "Warm Shed (Ôn Xá)", "concept": "A small heal over time on the holder."}
+    {"id": "spin-a-strand", "new": "Spin a Strand (Thổ Ti)", "concept": "Throws a fine thread that clings to a foe: a light Wood hit that slows them slightly for a few seconds."},
+    {"id": "warm-shed", "new": "Warm Shed (Ôn Xá)", "concept": "A small heal over time on the holder."}
    ],
    "lore": "The silk families of Tang Điền have breathed this way in the worm sheds since the mulberry fields were planted (A300). Thân Vân Cẩm wrote it down in 1150.",
    "status": "proposal"
@@ -31,8 +31,8 @@
    "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
    "concept": "A reeler's method. The cultivator draws her qi out as one thread that must never break, the way a reeler draws a cocoon's single filament; each layer is a longer, stronger thread. In a fight she spins threads that bind, cut and carry her arts along them, and a foe caught in several threads is pulled and slowed. If her thread breaks, her qi recoils.",
    "arts": [
-    {"new": "Reel In (Trừu Ti)", "concept": "Binds a foe with a thread: it is slowed and its soonest art waits 0.3 s; a second bind means it cannot evade for 1 s."},
-    {"new": "Warp and Weft (Kinh Vĩ)", "concept": "Weaves a net of threads (a Field) for a few seconds: while it is up, blows lose force and the foe gains Wood stacks."},
+    {"id": "reel-in", "new": "Reel In (Trừu Ti)", "concept": "Binds a foe with a thread: it is slowed and its soonest art waits 0.3 s; a second bind means it cannot evade for 1 s."},
+    {"id": "warp-and-weft", "new": "Warp and Weft (Kinh Vĩ)", "concept": "Weaves a net of threads (a Field) for a few seconds: while it is up, blows lose force and the foe gains Wood stacks."},
     {"new": "When the Thread Breaks (Đoạn Ti)", "concept": "A passive art. Your thread on the foe (a Reel In bind) breaks when the foe fires a `heavy` or `slow` art; when it breaks you lose 4 % of your maximum linh lực (the recoil). A thread that runs its whole time unbroken ties a Knot (a self-counter, no cap, kept for the fight): each Knot makes your thread arts lay one more Wood stack, and Burning Thread lay 2 more Burn stacks.", "effect": "when-the-thread-breaks", "unlock_layer": 3, "authored": "d37"}
    ],
    "lore": "The reelers of Hỏa Ti Trấn cultivated by this method before the town burned in 590 (V165); its survivors carried it to Tang Điền's sheds. It has no Fire in it: the fire was always the vent's.",
@@ -45,11 +45,45 @@
    "tier": 1, "tech_kind": "secret", "names": ["hoa"], "layers": 9, "rank": "noi_mon",
    "concept": "Thân Vân Cẩm's art: putting fire into silk with the weaver's own Fire rather than the vent's. The weaver runs her Fire along the thread as she weaves, layer by layer, so the cloth holds it. Silk made this way burns without burning and wards against fire, but holds the heat only a season before it chars. In a fight the holder's threads catch fire along their length.",
    "arts": [
-    {"new": "Burning Thread (Phần Ti)", "concept": "Sets her threads alight: the foe bound by a thread takes Fire damage over time and gains Fire stacks."},
-    {"new": "Fire-Silk Weave (Hỏa Cẩm)", "concept": "Out of combat, a craft: weaves fire-silk cloth that wards against Fire; it decays after a season."}
+    {"id": "burning-thread", "new": "Burning Thread (Phần Ti)", "concept": "Sets her threads alight: the foe bound by a thread takes Fire damage over time and gains Fire stacks."},
+    {"id": "fire-silk-weave", "new": "Fire-Silk Weave (Hỏa Cẩm)", "concept": "Out of combat, a craft: weaves fire-silk cloth that wards against Fire; it decays after a season."}
    ],
    "lore": "Made by Thân Vân Cẩm between 1148 and 1150, after her mother Hầu Tố Cẩm burned her hands trying the same thing without a method. It is why the pavilion exists (V172).",
    "status": "proposal"
+  },
+  {
+   "id": "indigo-vat-canon",
+   "name": "Indigo Vat Canon (Thanh Đỉnh Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 9, "rank": "khach_khanh",
+   "concept": "The lake-shore indigo dyer's Water method brought by guest elder Nhiễm Thanh Lam from Lam Điện. She learned to keep qi as patient and deep as a cold vat, fixing colour and mending meridians rather than rushing to strike.",
+   "arts": [
+    {"id": "indigo-steep", "new": "Indigo Steep (Thanh Tẩm)", "concept": "A patient Water palm drawn from the indigo vat: deals Cold damage, grants 1 Water buff stack, and restores 2 % of maximum linh lực."},
+    {"id": "mordant-fix", "new": "Mordant Fix (Cố Sắc)", "concept": "Fixes the colour like alum in the vat: restores health, cleanses 1 debuff stack, and grants 1 Water buff."}
+   ],
+   "lore": "Passed by a lake-shore hermit of Lam Điện to Nhiễm Thanh Lam; she teaches only its vat-work to her helpers and never takes Chức Hà's lineage.",
+   "status": "authored"
+  },
+  {
+   "id": "vat-stirring-breath",
+   "name": "Vat-Stirring Breathing (Khuấy Đỉnh Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 6, "rank": "tap_dich",
+   "concept": "The cold-water breathing taught to vat-stirrers at Lam Điện's dye houses: steady breath over steaming indigo pots to keep the lungs and hands whole without entering any sect's inner gate.",
+   "arts": [
+    {"id": "vat-rinse", "new": "Vat Rinse (Tẩy Đỉnh)", "concept": "A quick splash of chilled vat water: deals Cold damage and grants 1 Water buff."}
+   ],
+   "lore": "Mặc Lam Y brought it from Lam Điện when she followed Nhiễm Thanh Lam to Chức Hà Các.",
+   "status": "authored"
+  },
+  {
+   "id": "mulberry-row-breath",
+   "name": "Mulberry-Row Breathing (Tang Lũng Tức)",
+   "tier": 0, "tech_kind": "main", "names": ["tho", "thuy"], "layers": 6, "rank": "tap_dich",
+   "concept": "A plain Earth breathing passed among the pavilion's leaf-pickers and basket-carriers in the mulberry rows, keeping back and breath steady through frost and rain without Wood or Fire.",
+   "arts": [
+    {"id": "leaf-basket-guard", "new": "Leaf-Basket Palm (Tang Lũng Chưởng)", "concept": "A steady palm from hauling mulberry baskets along the rows: deals Physical damage and grants 1 Earth buff."}
+   ],
+   "lore": "Used by the servant leaf-pickers of Chức Hà Các, who work the mulberry rows outside the loom halls.",
+   "status": "authored"
   }
  ]
 }

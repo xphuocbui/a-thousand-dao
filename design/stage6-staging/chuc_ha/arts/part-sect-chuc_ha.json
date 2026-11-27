@@ -1,0 +1,759 @@
+[
+ {
+  "id": "spin-a-strand",
+  "name": "Spin a Strand (Thổ Ti)",
+  "element": "wood",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "mulberry-leaf-breath",
+  "tags": [
+   "wood",
+   "thread",
+   "quick"
+  ],
+  "c_art": 1.3,
+  "cost_share": 0.03,
+  "cooldown": 3.0,
+  "kind": "elem",
+  "debuff": [
+   1,
+   6
+  ],
+  "statuses": [
+   {
+    "id": "slowed_time",
+    "stacks": 1,
+    "dur": 2
+   }
+  ],
+  "rule": "Throws a fine Wood thread that clings to the foe, dealing light Chaos damage, laying 1 Wood stack for 6 s, and slowing the foe with 1 Slowed Time for 2 s.",
+  "hooks": [
+   "wood stacks",
+   "slowed time",
+   "thread"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "warm-shed",
+  "name": "Warm Shed (Ôn Xá)",
+  "element": "wood",
+  "role": "heal",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "mulberry-leaf-breath",
+  "tags": [
+   "wood",
+   "heal"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "buff": [
+   1,
+   6
+  ],
+  "counters": [
+   {
+    "id": "warm_shed_ttl",
+    "cap": 4
+   }
+  ],
+  "effects": [
+   {
+    "id": "warm-shed-start",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "warm-shed"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "warm_shed_ttl",
+       "set": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "warm-shed-pulse",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.warm_shed_ttl",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "heal": {
+       "share": 0.02
+      }
+     },
+     {
+      "counter": {
+       "id": "warm_shed_ttl",
+       "add": -1
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Keeps shed warmth in the belly: grants 1 Wood buff stack for 6 s and restores 2 % of maximum health each second for 4 s.",
+  "hooks": [
+   "healing",
+   "wood buff",
+   "health regeneration"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "reel-in",
+  "name": "Reel In (Trừu Ti)",
+  "element": "wood",
+  "role": "control",
+  "tier": "authored",
+  "power": "engine",
+  "group": "unbroken-thread-canon",
+  "tags": [
+   "wood",
+   "thread",
+   "control"
+  ],
+  "c_art": 1.2,
+  "cost_share": 0.04,
+  "cooldown": 3.5,
+  "kind": "elem",
+  "debuff": [
+   1,
+   6
+  ],
+  "statuses": [
+   {
+    "id": "slowed_time",
+    "stacks": 1,
+    "dur": 3
+   }
+  ],
+  "counters": [
+   {
+    "id": "thread_t1",
+    "cap": 5
+   },
+   {
+    "id": "thread_t2",
+    "cap": 5
+   },
+   {
+    "id": "thread_ended",
+    "cap": 2
+   }
+  ],
+  "effects": [
+   {
+    "id": "reel-in-delay",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "reel-in"
+    },
+    "do": [
+     {
+      "timer": {
+       "side": "foe",
+       "which": "next",
+       "by": 0.3
+      }
+     }
+    ]
+   },
+   {
+    "id": "reel-in-bind-t2",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "reel-in"
+    },
+    "if": [
+     {
+      "read": "own.counter.thread_t1",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thread_t2",
+       "set": 5
+      }
+     },
+     {
+      "status": {
+       "id": "off_guard",
+       "stacks": 1,
+       "dur": 1,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "reel-in-bind-t1",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "reel-in"
+    },
+    "if": [
+     {
+      "read": "own.counter.thread_t1",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.thread_t2",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "off_guard",
+       "stacks": 1,
+       "dur": 1,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "reel-in-bind-t1-set",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "reel-in"
+    },
+    "if": [
+     {
+      "read": "own.counter.thread_t1",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thread_t1",
+       "set": 5
+      }
+     }
+    ]
+   },
+   {
+    "id": "reel-in-clear-ended",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.thread_ended",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thread_ended",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "reel-in-t1-end",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.thread_t1",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thread_t1",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "thread_ended",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "reel-in-t1-tick",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.thread_t1",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thread_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "reel-in-t2-end",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.thread_t2",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thread_t2",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "thread_ended",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "reel-in-t2-tick",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.thread_t2",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thread_t2",
+       "add": -1
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Binds the foe with a 5 s Wood thread (up to two concurrent binds), slowing it with 1 Slowed Time for 3 s, laying 1 Wood stack for 6 s, and delaying its next ready art by 0.3 s. Binding a foe already held by a thread applies Off Guard for 1 s (evade 0).",
+  "hooks": [
+   "thread",
+   "slowed time",
+   "timer delay",
+   "off_guard",
+   "wood stacks"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "warp-and-weft",
+  "name": "Warp and Weft (Kinh Vĩ)",
+  "element": "wood",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "unbroken-thread-canon",
+  "tags": [
+   "wood",
+   "thread",
+   "field",
+   "stance"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "guards": [
+   {
+    "read": "own.field_up",
+    "op": "<",
+    "value": 1
+   }
+  ],
+  "states": [
+   {
+    "id": "warp-and-weft",
+    "tags": [
+     "field"
+    ],
+    "mods": {
+     "dampen_taken": 15
+    }
+   }
+  ],
+  "counters": [
+   {
+    "id": "warp_weft_ttl",
+    "cap": 4
+   }
+  ],
+  "effects": [
+   {
+    "id": "warp-and-weft-open",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "warp-and-weft"
+    },
+    "do": [
+     {
+      "state": {
+       "set": "warp-and-weft"
+      }
+     },
+     {
+      "counter": {
+       "id": "warp_weft_ttl",
+       "set": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "warp-and-weft-pulse",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.warp_weft_ttl",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.state.warp-and-weft",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 1,
+       "for": 6,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "warp_weft_ttl",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "warp-and-weft-close",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.warp_weft_ttl",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.state.warp-and-weft",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Weaves a Field net of threads for 4 s: while up, incoming hits are dampened (15 % dampen_taken) and the foe gains 1 Wood stack (6 s) each second.",
+  "hooks": [
+   "field",
+   "dampen",
+   "wood stacks",
+   "thread"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "burning-thread",
+  "name": "Burning Thread (Phần Ti)",
+  "element": "fire",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "fire-in-the-thread",
+  "tags": [
+   "fire",
+   "thread"
+  ],
+  "c_art": 1.2,
+  "cost_share": 0.04,
+  "cooldown": 5.0,
+  "kind": "elem",
+  "debuff": [
+   2,
+   6
+  ],
+  "counters": [
+   {
+    "id": "thread_t1",
+    "cap": 5
+   },
+   {
+    "id": "thread_t2",
+    "cap": 5
+   }
+  ],
+  "empower": [
+   {
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.thread_t1",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "own.counter.thread_t2",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "c_mult": 1.4,
+    "debuff": [
+     4,
+     6
+    ]
+   }
+  ],
+  "rule": "Runs Fire along her thread: deals Fire damage and lays 2 Fire stacks for 6 s; against a foe bound by her thread, deals 40 % more damage and lays 4 Fire stacks instead.",
+  "hooks": [
+   "fire stacks",
+   "burn",
+   "thread"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "fire-silk-weave",
+  "name": "Fire-Silk Weave (Hỏa Cẩm)",
+  "element": "fire",
+  "role": "ward",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "fire-in-the-thread",
+  "tags": [
+   "fire",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 8.0,
+  "kind": "elem",
+  "buff": [
+   1,
+   8
+  ],
+  "effects": [
+   {
+    "id": "fire-silk-weave-ward",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "fire-silk-weave"
+    },
+    "do": [
+     {
+      "mod": {
+       "resist": 60,
+       "dtype": "fire",
+       "for": 5
+      }
+     },
+     {
+      "ward_grow": {
+       "share": 0.05,
+       "of": "hp"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Weaves a brief fire-silk ward around the caster: +60 Fire resistance for 5 s, a 5 % health stance ward, and 1 Fire buff for 8 s. Out of combat, weaves fire-silk cloth that wards against Fire for a season before charring.",
+  "hooks": [
+   "fire resist",
+   "ward_grow",
+   "fire buff"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "indigo-steep",
+  "name": "Indigo Steep (Thanh Tẩm)",
+  "element": "water",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "indigo-vat-canon",
+  "tags": [
+   "cold"
+  ],
+  "c_art": 1.5,
+  "cost_share": 0.04,
+  "cooldown": 4.0,
+  "kind": "elem",
+  "buff": [
+   1,
+   8
+  ],
+  "effects": [
+   {
+    "id": "indigo-steep-draw",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "indigo-steep"
+    },
+    "do": [
+     {
+      "gain_qi": {
+       "share": 0.02
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A patient Water palm drawn from the indigo vat: deals Cold damage, grants 1 Water buff stack for 8 s, and restores 2 % of maximum linh lực.",
+  "hooks": [
+   "cold damage",
+   "water buff",
+   "linh lực restore"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "mordant-fix",
+  "name": "Mordant Fix (Cố Sắc)",
+  "element": "water",
+  "role": "heal",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "indigo-vat-canon",
+  "tags": [
+   "cold",
+   "heal"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "c_heal": 1.2,
+  "cleanse": 1,
+  "buff": [
+   1,
+   8
+  ],
+  "rule": "Fixes the colour like alum in the vat: restores health, cleanses 1 debuff stack, and grants 1 Water buff for 8 s.",
+  "hooks": [
+   "healing",
+   "cleanse",
+   "water buff"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "vat-rinse",
+  "name": "Vat Rinse (Tẩy Đỉnh)",
+  "element": "water",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "vat-stirring-breath",
+  "tags": [
+   "cold"
+  ],
+  "c_art": 1.4,
+  "cost_share": 0.03,
+  "cooldown": 3.5,
+  "kind": "elem",
+  "buff": [
+   1,
+   6
+  ],
+  "rule": "A quick splash of chilled vat water: deals Cold damage and grants 1 Water buff for 6 s.",
+  "hooks": [
+   "cold damage",
+   "water buff"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ },
+ {
+  "id": "leaf-basket-guard",
+  "name": "Leaf-Basket Palm (Tang Lũng Chưởng)",
+  "element": "earth",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "mulberry-row-breath",
+  "tags": [
+   "physical"
+  ],
+  "c_art": 1.3,
+  "cost_share": 0.03,
+  "cooldown": 3.5,
+  "kind": "phys",
+  "buff": [
+   1,
+   6
+  ],
+  "rule": "A steady palm from hauling mulberry baskets along the rows: deals Physical damage and grants 1 Earth buff for 6 s.",
+  "hooks": [
+   "physical damage",
+   "earth buff"
+  ],
+  "sources": [
+   "world-depth:chuc_ha"
+  ]
+ }
+]

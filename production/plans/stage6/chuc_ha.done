@@ -1,0 +1,31 @@
+{
+ "owner": "chuc_ha",
+ "minutes": 8,
+ "written": {
+  "techniques": 6,
+  "arts": 10,
+  "items": 3,
+  "sets": 1,
+  "effects": 4,
+  "stand_ins": 3,
+  "beasts": 0
+ },
+ "deviations": 5,
+ "decisions": [
+  "Used explicit pulse-counted thread slots (thread_t1, thread_t2, thread_ended, thread_snapped) instead of each_for or decay_per_pulse so natural 5 s expiration ties Knots and leaps Burn while heavy/slow snaps recoil without negative qi.",
+  "Scoped When the Thread Breaks Knot bonuses on art_fired (Wood thread arts +1 Wood, burning-thread +2 Fire) because stack_grant lacks tags/art_id context, and gated 4% qi recoil on own.qi_share >= 0.04 per_pulse: 1.",
+  "Gave burning-thread an empower on thread_t1/thread_t2 instead of a hard guard so standalone fire-in-the-thread suites fire cleanly, and gave fire-silk-weave a combat Fire ward (+60 Fire resist 5 s, 5% HP ward_grow, 1 Fire buff) alongside its seasonal craft lore.",
+  "Marked Chars in a Season (chc-first-weave-robe) not_run as an out-of-fight seasonal reweaving/decay rule.",
+  "Authored 3 chuc_ha non-lineage techniques (indigo-vat-canon, vat-stirring-breath, mulberry-row-breath) for the 3 stand-ins (nhiem_thanh_lam, mac_lam_y, nguu_thai_diep) with R6 exceptions and unique: true on all 3 items."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Chars in a Season: out-of-fight seasonal craft/upkeep rule on chc-first-weave-robe (not a combat duel mechanic)."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial step: merge design/stage6-staging/chuc_ha/ into design/ and assets/data/combat_effects.json, then run exporters and parity checks.",
+  "Chars in a Season awaits seasonal item upkeep/decay outside combat.",
+  "R6 signature item common art/ward exceptions on chc-red-cloud-shuttle, chc-first-weave-robe, and chc-season-woven-robe."
+ ]
+}

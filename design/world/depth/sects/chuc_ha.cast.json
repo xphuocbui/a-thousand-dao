@@ -248,7 +248,7 @@
    "build": {
     "archetype": "dan_su",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "indigo-vat-canon",
      "layer": 8
     },
     "aux": [],
@@ -929,7 +929,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "mulberry-row-breath",
      "layer": 4
     },
     "aux": [],

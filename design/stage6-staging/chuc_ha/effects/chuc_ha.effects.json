@@ -1,0 +1,576 @@
+{
+ "_doc": "Chức Hà Các's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:chuc_ha by the serial step. Unpriced. Every Effect declares all counters it reads or writes in its own counters array for standalone GDScript compilation.",
+ "source": "world-depth:chuc_ha",
+ "effects": {
+  "When the Thread Breaks": {
+   "rule": "When the Thread Breaks (Đoạn Ti, unbroken-thread-canon L3 passive art, d37): your Reel In thread on the foe breaks when the foe fires a heavy or slow art, costing 4 % of your maximum linh lực (the recoil, when you have it). A thread that runs its whole 5 s unbroken ties a Knot (no cap): each Knot makes your thread arts lay 1 more Wood stack and Burning Thread lay 2 more Fire stacks.",
+   "counters": [
+    {
+     "id": "thread_t1",
+     "cap": 5
+    },
+    {
+     "id": "thread_t2",
+     "cap": 5
+    },
+    {
+     "id": "thread_ended",
+     "cap": 2
+    },
+    {
+     "id": "thread_snapped",
+     "cap": 1
+    },
+    {
+     "id": "thread_knot"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:When the Thread Breaks clear snap",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.thread_snapped",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "thread_snapped",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks tie knot",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.thread_ended",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.thread_ended",
+      "per": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "thread_knot",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks snap hit t2",
+     "on": "was_hit",
+     "filter": {
+      "tags": [
+       "heavy",
+       "slow"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_t2",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.thread_snapped",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "thread_t2",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "thread_snapped",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks snap hit t1",
+     "on": "was_hit",
+     "filter": {
+      "tags": [
+       "heavy",
+       "slow"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_t1",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.thread_t2",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.thread_snapped",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "thread_t1",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "thread_snapped",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks snap evade t2",
+     "on": "evaded",
+     "filter": {
+      "tags": [
+       "heavy",
+       "slow"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_t2",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.thread_snapped",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "thread_t2",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "thread_snapped",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks snap evade t1",
+     "on": "evaded",
+     "filter": {
+      "tags": [
+       "heavy",
+       "slow"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_t1",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.thread_t2",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.thread_snapped",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "thread_t1",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "thread_snapped",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks recoil hit",
+     "on": "was_hit",
+     "filter": {
+      "tags": [
+       "heavy",
+       "slow"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_snapped",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.qi_share",
+       "op": ">=",
+       "value": 0.04
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "gain_qi": {
+        "share": -0.04
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks recoil evade",
+     "on": "evaded",
+     "filter": {
+      "tags": [
+       "heavy",
+       "slow"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_snapped",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.qi_share",
+       "op": ">=",
+       "value": 0.04
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "gain_qi": {
+        "share": -0.04
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks wood knot",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "thread"
+      ],
+      "element": "wood"
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_knot",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.thread_knot",
+      "per": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:When the Thread Breaks burn knot",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "burning-thread"
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_knot",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.thread_knot",
+      "per": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 2,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Thread Catches": {
+   "rule": "Red Cloud Shuttle (chc-red-cloud-shuttle): when a foe is bound by two of the holder's threads at once, both threads catch fire: 2 Fire stacks (6 s) and a short burn (1 Fire stack for 3 s).",
+   "counters": [
+    {
+     "id": "thread_t1",
+     "cap": 5
+    },
+    {
+     "id": "thread_t2",
+     "cap": 5
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Thread Catches",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "reel-in"
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_t1",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.thread_t2",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 2,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 3,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Chars in a Season": {
+   "rule": "Robe of the First Weave (chc-first-weave-robe): the robe must be rewoven each season; unrewoven, its modifiers fall by a quarter each season until it is ash.",
+   "not_run": "out-of-fight seasonal craft/upkeep rule: reweaving and seasonal decay occur between seasons, not inside a duel",
+   "records": []
+  },
+  "Fire Runs the Thread": {
+   "rule": "The Unbroken Thread (chc-unbroken-thread, 2 pieces): while a foe is bound by your thread, each Wood stack on them also burns as a Fire hit (c 0.03 per Wood stack each second). When the binding ends, the fire leaps back along the thread and lays one Fire stack (6 s) for every three Wood stacks it held.",
+   "counters": [
+    {
+     "id": "thread_t1",
+     "cap": 5
+    },
+    {
+     "id": "thread_t2",
+     "cap": 5
+    },
+    {
+     "id": "thread_ended",
+     "cap": 2
+    },
+    {
+     "id": "thread_snapped",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Fire Runs the Thread burn",
+     "on": "pulse",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.counter.thread_t1",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.counter.thread_t2",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      },
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "foe.debuff.wood",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.03,
+        "dtype": "fire"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fire Runs the Thread end",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.thread_ended",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "scale": {
+      "read": "foe.debuff.wood",
+      "per": 3
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fire Runs the Thread snap hit",
+     "on": "was_hit",
+     "filter": {
+      "tags": [
+       "heavy",
+       "slow"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_snapped",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "scale": {
+      "read": "foe.debuff.wood",
+      "per": 3
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fire Runs the Thread snap evade",
+     "on": "evaded",
+     "filter": {
+      "tags": [
+       "heavy",
+       "slow"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.thread_snapped",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "scale": {
+      "read": "foe.debuff.wood",
+      "per": 3
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
