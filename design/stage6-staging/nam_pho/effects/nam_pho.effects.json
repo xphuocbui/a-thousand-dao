@@ -26,7 +26,7 @@
   },
   "Paper Laid at Dawn": {
    "rule": "The Dawn Half, full set (3 pieces): talismans you lay cost no linh lực up to the engine's 95 % cap until they fire, and for every 10 s a laid talisman stays unspent you gain 1 Dawn Growth: each growth gives your talisman arts 10 % more damage and 1 extra Wood stack on hit (once per firing), and costs 2 % of your maximum linh lực when a talisman fires.",
-   "approx": "cost reduction stops at cost_red_cap (0.95); growth ticks once every 10 s while laid_talisman >= 1, scales all talisman arts, and subtracts 2 % max linh lực per growth when a talisman fires while qi_share >= 0.06.",
+   "approx": "cost reduction stops at cost_red_cap (0.95); growth ticks by laid_talisman talisman-seconds per pulse (converting every 10 s into +1 dawn_growth), scales all talisman arts, and subtracts 2 % max linh lực per growth when a talisman fires while qi_share >= 0.06.",
    "counters": [
     {"id": "laid_talisman", "each_for": 20},
     {"id": "dawn_unspent_s"},
@@ -44,6 +44,7 @@
      "id": "eff:Paper Laid at Dawn tick",
      "on": "pulse",
      "if": [{"read": "own.counter.laid_talisman", "op": ">=", "value": 1}],
+     "scale": {"read": "own.counter.laid_talisman", "per": 1},
      "do": [
       {"counter": {"id": "dawn_unspent_s", "add": 1}}
      ]
@@ -93,6 +94,7 @@
   },
   "Roll Up the Western Rain": {
    "rule": "The Dusk Half, full set (3 pieces): when the foe is Broken, or sheds your Wood stacks (by cleanse or natural expiry), each stack shed heals you for 1 % of your health and removes 1 debuff stack.",
+   "approx": "cleansed in the engine carries only event.amount with no element field, so eff:Roll Up the Western Rain cleanse triggers on any debuff stack or curse cleansed by the foe.",
    "records": [
     {
      "id": "eff:Roll Up the Western Rain end",

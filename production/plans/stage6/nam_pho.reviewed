@@ -1,0 +1,12 @@
+{
+ "owner": "nam_pho",
+ "minutes": 10,
+ "must_fix": 1,
+ "should": 2,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Stage 7 / serial merge closes nam_pho cross_owner technique refs (gian_van_lo in loose-south, trinh_hong_tien and trinh_chu_sa in market-folk), N-nam_pho-01..04, and chau_phi_van tie cap",
+  "Outside write set: production/plans/stage6/nam_pho-review.md and nam_pho.done reflect pre-fix sect_fight numbers before the 10-pulse fix and Paper Laid at Dawn tick scaling"
+ ]
+}

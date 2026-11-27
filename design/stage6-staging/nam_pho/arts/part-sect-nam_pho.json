@@ -73,10 +73,10 @@
   "cooldown": 4.0,
   "kind": "elem",
   "guards": [
-   {"read": "own.counter.morning_cloud", "op": "<=", "value": 1}
+   {"read": "own.counter.morning_cloud", "op": "<=", "value": 0}
   ],
   "counters": [
-   {"id": "morning_cloud", "decay_per_pulse": 1},
+   {"id": "morning_cloud"},
    {"id": "laid_talisman", "each_for": 20}
   ],
   "states": [
@@ -107,7 +107,8 @@
     "if": [{"read": "own.counter.morning_cloud", "op": ">=", "value": 1}],
     "do": [
      {"stacks": {"el": "wood", "n": 1, "for": 5, "side": "foe", "mark": "talisman"}},
-     {"heal": {"share": 0.01}}
+     {"heal": {"share": 0.01}},
+     {"counter": {"id": "morning_cloud", "add": -1}}
     ]
    },
    {
@@ -234,10 +235,10 @@
   "cooldown": 5.0,
   "kind": "elem",
   "guards": [
-   {"read": "own.counter.dawn_flight", "op": "<=", "value": 1}
+   {"read": "own.counter.dawn_flight", "op": "<=", "value": 0}
   ],
   "counters": [
-   {"id": "dawn_flight", "decay_per_pulse": 1},
+   {"id": "dawn_flight"},
    {"id": "laid_talisman", "each_for": 20}
   ],
   "states": [
@@ -268,7 +269,8 @@
     "if": [{"read": "own.counter.dawn_flight", "op": ">=", "value": 1}],
     "do": [
      {"stacks": {"el": "wood", "n": 2, "for": 4, "side": "foe", "mark": "talisman"}},
-     {"status": {"id": "slowed_time", "stacks": 1, "dur": 2, "side": "foe"}}
+     {"status": {"id": "slowed_time", "stacks": 1, "dur": 2, "side": "foe"}},
+     {"counter": {"id": "dawn_flight", "add": -1}}
     ]
    },
    {
