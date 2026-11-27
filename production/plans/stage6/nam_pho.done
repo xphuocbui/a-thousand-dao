@@ -1,0 +1,30 @@
+{
+ "owner": "nam_pho",
+ "minutes": 8,
+ "written": {
+  "techniques": 3,
+  "arts": 7,
+  "items": 6,
+  "sets": 2,
+  "effects": 3,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 10,
+ "decisions": [
+  "Guard Field cloud stances on own.state.any == 0 with counter-driven pulses so marching-dirge never overwrites them",
+  "Track laid talisman charges via shared laid_talisman (each_for 20) declared on every Effect and art that touches it",
+  "Model Three Wet Sheets as fixed Wood (Chaos) three-hit split because engine lacks own.purity dynamic element switch",
+  "Cap Dusk Curtain Wood burst at 5 stacks and size cloud Wood batches to 4-5 s so Roll Up the Western Rain and Dawn Ink fire reliably",
+  "Size new technique bonuses and passives to tier peers (8.0/8, 15.9/16, 23.9/24 W) and mark 5 weapon/robe items with R6 exception"
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Dawn Ink (gap 0 default slotting only): chau_phi_van wins in 11.1 s before 7.5 s early Wood batches expire; runs 19x at gap 1 and 190x with dawn-flight/dusk-curtain slotted"
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial merge closes 3 cross-owner technique refs (gian_van_lo in loose-south, trinh_hong_tien and trinh_chu_sa in market-folk)",
+  "Stage 7 world export closes N-nam_pho-01..04 and chau_phi_van tie cap"
+ ]
+}

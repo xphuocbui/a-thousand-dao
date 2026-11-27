@@ -1,0 +1,92 @@
+[
+ {
+  "id": "mulberry-ink-primer",
+  "name": "Mulberry Ink Primer (Tang Mặc Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["moc", "thuy"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "attack_pct", "value": 3, "scope": ["talisman"]},
+   {"key": "art_speed_pct", "value": 5, "scope": ["talisman"]},
+   {"key": "status_duration_pct", "value": 4, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 3, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "three-wet-sheets", "unlock_layer": 1},
+   {"ability_id": "blotting-paper", "unlock_layer": 3}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "mulberry-ink-primer",
+  "family": "wood",
+  "owner": "nam_pho",
+  "rank": "ngoai_mon",
+  "concept": "The outer gate's method: grinding ink. The disciple grinds an ink stick in spring water for an hour before dawn, drawing Water out of the well and Wood out of the mulberry bark the paper is made from, and learns to put a thread of qi into each stroke. It takes either element. In a fight it is a beginner's talisman method: cheap, quick paper charms that sting and ward, thrown three at a time.",
+  "lore": "Written for the outer gate in 882 by the founder Nghiêm Họa Đống, who said a scribe who cannot grind ink cannot hold a brush."
+ },
+ {
+  "id": "southern-shore-cloud-canon",
+  "name": "Southern Shore Cloud Canon (Nam Phố Vân Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": ["moc"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "linh_luc_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "attack_pct", "value": 6, "scope": ["talisman"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["talisman"]},
+   {"key": "status_duration_pct", "value": 8, "scope": []},
+   {"key": "stack_effect_pct", "value": 6, "scope": ["moc", "debuff"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 4, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "catch-the-morning-cloud", "unlock_layer": 1},
+   {"ability_id": "painted-rain", "unlock_layer": 2},
+   {"ability_id": "paper-beam", "unlock_layer": 4}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "southern-shore-cloud-canon",
+  "family": "wood",
+  "owner": "nam_pho",
+  "rank": "noi_mon",
+  "concept": "The hall's canon, from Vương Bột's line: the painted beams at dawn fly with the clouds of the southern shore. The hall paints at first light by custom: the scribe paints the morning cloud as it comes off the river, and draws the Wood qi of the waking forest into the brush. Scribes swear a talisman painted at dawn holds longer than one painted at noon; the canon turns at any hour, and its layers are counted in the clouds a scribe has caught. In a fight the scribe lays talismans ahead of time and lets them work: Wood stacks that bind and seed, wards that heal, and a long fight in which the paper does the fighting.",
+  "lore": "Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon in the margins of the paintings. The hall still keeps them."
+ },
+ {
+  "id": "painted-beams-dawn-flight",
+  "name": "Painted Beams, Dawn Flight (Họa Đống Triêu Phi)",
+  "tier": 2,
+  "tech_kind": "secret",
+  "names": ["moc", "thuy"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "linh_luc_pct", "value": 12},
+   {"stat": "than_thuc_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "attack_pct", "value": 8, "scope": ["talisman"]},
+   {"key": "art_speed_pct", "value": 8, "scope": ["talisman"]},
+   {"key": "stack_duration_pct", "value": 16, "scope": ["moc", "debuff"]},
+   {"key": "healing_pct", "value": 10, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 6, "scope": []},
+   {"key": "status_resist_pct", "value": 6, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "dawn-flight", "unlock_layer": 1},
+   {"ability_id": "dusk-curtain", "unlock_layer": 3}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "painted-beams-dawn-flight",
+  "family": "wood",
+  "owner": "nam_pho",
+  "rank": "truong_lao",
+  "concept": "The founders' art, in two halves like Vương Bột's couplet: the painted beams at dawn fly with the southern shore's clouds; the pearl curtains at dusk roll up the western hills' rain. The dawn half, Wood, binds and seeds. The dusk half, Water, washes and heals. A scribe who holds both can turn a fight from one to the other. No one at the hall has held both since the founders, and the dusk half has been half-lost since 1060.",
+  "lore": "The dawn half belongs to Nghiêm Họa Đống's line and the dusk half to Ôn Châu Liêm's. He took most of the dusk half with him to Châu Liêm Trấn when he died there in 1060."
+ }
+]

@@ -1,0 +1,334 @@
+[
+ {
+  "id": "three-wet-sheets",
+  "name": "Three Wet Sheets (Tam Thấp Chỉ)",
+  "element": "wood",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "mulberry-ink-primer",
+  "tags": ["talisman", "quick"],
+  "c_art": 1.5,
+  "cost_share": 0.02,
+  "cooldown": 1.5,
+  "kind": "elem",
+  "split": [0.33, 0.33, 0.34],
+  "rule": "Throws three quick ink-wet talismans at once, dealing three light Wood (Chaos) hits.",
+  "hooks": ["talisman damage", "art speed", "split hits", "crit"],
+  "sources": ["world-depth:nam_pho"]
+ },
+ {
+  "id": "blotting-paper",
+  "name": "Blotting Paper (Hấp Mặc Chỉ)",
+  "element": "water",
+  "role": "ward",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "mulberry-ink-primer",
+  "tags": ["talisman", "ward"],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "counters": [
+   {"id": "blot_ready", "cap": 1},
+   {"id": "laid_talisman", "each_for": 20}
+  ],
+  "effects": [
+   {
+    "id": "blot-cast",
+    "on": "art_fired",
+    "filter": {"art_id": "blotting-paper"},
+    "do": [
+     {"ward_grow": {"share": 0.08, "of": "hp"}},
+     {"counter": {"id": "blot_ready", "set": 1}},
+     {"counter": {"id": "laid_talisman", "add": 1}}
+    ]
+   },
+   {
+    "id": "blot-return",
+    "on": "ward_absorbed",
+    "if": [{"read": "own.counter.blot_ready", "op": ">=", "value": 1}],
+    "do": [
+     {"gain_qi": {"share": 0.04}},
+     {"counter": {"id": "blot_ready", "set": 0}}
+    ]
+   }
+  ],
+  "rule": "Lays a blotting-paper ward talisman (8 % of maximum health as a stance ward, plus 1 laid talisman charge for 20 s). The next hit the ward absorbs returns 4 % of your maximum linh lực.",
+  "hooks": ["stance ward", "linh lực return", "talisman count"],
+  "sources": ["world-depth:nam_pho"]
+ },
+ {
+  "id": "catch-the-morning-cloud",
+  "name": "Catch the Morning Cloud (Thủ Triêu Vân)",
+  "element": "wood",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "southern-shore-cloud-canon",
+  "tags": ["talisman", "formation", "stance"],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 4.0,
+  "kind": "elem",
+  "guards": [
+   {"read": "own.counter.morning_cloud", "op": "<=", "value": 1}
+  ],
+  "counters": [
+   {"id": "morning_cloud", "decay_per_pulse": 1},
+   {"id": "laid_talisman", "each_for": 20}
+  ],
+  "states": [
+   {"id": "morning-cloud", "tags": ["field"], "mods": {}}
+  ],
+  "effects": [
+   {
+    "id": "morning-cloud-open",
+    "on": "art_fired",
+    "filter": {"art_id": "catch-the-morning-cloud"},
+    "do": [
+     {"counter": {"id": "morning_cloud", "set": 10}},
+     {"counter": {"id": "laid_talisman", "add": 1}}
+    ]
+   },
+   {
+    "id": "morning-cloud-stance",
+    "on": "art_fired",
+    "filter": {"art_id": "catch-the-morning-cloud"},
+    "if": [{"read": "own.state.any", "op": "==", "value": 0}],
+    "do": [
+     {"state": {"set": "morning-cloud"}}
+    ]
+   },
+   {
+    "id": "morning-cloud-pulse",
+    "on": "pulse",
+    "if": [{"read": "own.counter.morning_cloud", "op": ">=", "value": 1}],
+    "do": [
+     {"stacks": {"el": "wood", "n": 1, "for": 5, "side": "foe", "mark": "talisman"}},
+     {"heal": {"share": 0.01}}
+    ]
+   },
+   {
+    "id": "morning-cloud-end",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.morning_cloud", "op": "==", "value": 0},
+     {"read": "own.state.morning-cloud", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"state": {"set": null}}
+    ]
+   }
+  ],
+  "rule": "Lays a morning-cloud talisman for 10 s (a Field stance when no other stance holds, plus 1 laid talisman charge for 20 s). Each second while it lasts, the foe takes 1 Wood debuff stack for 5 s and you heal 1 % of your health.",
+  "hooks": ["field", "wood stacks", "healing", "talisman count"],
+  "sources": ["world-depth:nam_pho"]
+ },
+ {
+  "id": "painted-rain",
+  "name": "Painted Rain (Họa Vũ)",
+  "element": "wood",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "southern-shore-cloud-canon",
+  "tags": ["talisman"],
+  "c_art": 2.2,
+  "cost_share": 0.04,
+  "cooldown": 5.0,
+  "kind": "elem",
+  "guards": [
+   {"read": "own.counter.laid_talisman", "op": ">=", "value": 1}
+  ],
+  "counters": [
+   {"id": "laid_talisman", "each_for": 20}
+  ],
+  "effects": [
+   {
+    "id": "painted-rain-scale",
+    "on": "always",
+    "scale": {"read": "foe.debuff.wood", "per": 1},
+    "do": [
+     {"mod": {"dmg_more": 0.05, "art_id": "painted-rain"}}
+    ]
+   },
+   {
+    "id": "painted-rain-burst",
+    "on": "art_fired",
+    "filter": {"art_id": "painted-rain"},
+    "if": [{"read": "own.counter.laid_talisman", "op": ">=", "value": 1}],
+    "scale": {"read": "own.counter.laid_talisman", "per": 1},
+    "do": [
+     {"free_hit": {"c": 0.7, "dtype": "chaos"}}
+    ]
+   },
+   {
+    "id": "painted-rain-spend",
+    "on": "art_fired",
+    "filter": {"art_id": "painted-rain"},
+    "if": [{"read": "own.counter.laid_talisman", "op": ">=", "value": 1}],
+    "do": [
+     {"counter": {"id": "laid_talisman", "set": 0}}
+    ]
+   }
+  ],
+  "rule": "Spends every talisman charge you have laid: deals a Wood (Chaos) hit (+5 % more per Wood stack on the foe) plus a 0.70 Chaos burst per laid talisman spent.",
+  "hooks": ["wood stacks", "talisman count", "trigger damage", "crit"],
+  "sources": ["world-depth:nam_pho"]
+ },
+ {
+  "id": "paper-beam",
+  "name": "Paper Beam (Chỉ Đống)",
+  "element": "wood",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "southern-shore-cloud-canon",
+  "tags": ["talisman", "ward"],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "counters": [
+   {"id": "paper_beam", "cap": 1},
+   {"id": "laid_talisman", "each_for": 20}
+  ],
+  "effects": [
+   {
+    "id": "paper-beam-cast",
+    "on": "art_fired",
+    "filter": {"art_id": "paper-beam"},
+    "do": [
+     {"ward_grow": {"share": 0.12, "of": "hp"}},
+     {"counter": {"id": "paper_beam", "set": 1}},
+     {"counter": {"id": "laid_talisman", "add": 1}}
+    ]
+   },
+   {
+    "id": "paper-beam-heal",
+    "on": "ward_absorbed",
+    "if": [{"read": "own.counter.paper_beam", "op": ">=", "value": 1}],
+    "do": [
+     {"heal": {"of": "amount", "share": 0.4}},
+     {"counter": {"id": "paper_beam", "set": 0}}
+    ]
+   }
+  ],
+  "rule": "Lays a paper-beam ward talisman (12 % of maximum health as a stance ward, plus 1 laid talisman charge for 20 s). The next hit the ward absorbs heals you for 40 % of the damage soaked.",
+  "hooks": ["stance ward", "healing", "talisman count"],
+  "sources": ["world-depth:nam_pho"]
+ },
+ {
+  "id": "dawn-flight",
+  "name": "Dawn Flight (Triêu Phi)",
+  "element": "wood",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "painted-beams-dawn-flight",
+  "tags": ["talisman", "formation", "stance"],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 5.0,
+  "kind": "elem",
+  "guards": [
+   {"read": "own.counter.dawn_flight", "op": "<=", "value": 1}
+  ],
+  "counters": [
+   {"id": "dawn_flight", "decay_per_pulse": 1},
+   {"id": "laid_talisman", "each_for": 20}
+  ],
+  "states": [
+   {"id": "dawn-flight", "tags": ["field"], "mods": {}}
+  ],
+  "effects": [
+   {
+    "id": "dawn-flight-open",
+    "on": "art_fired",
+    "filter": {"art_id": "dawn-flight"},
+    "do": [
+     {"counter": {"id": "dawn_flight", "set": 10}},
+     {"counter": {"id": "laid_talisman", "add": 1}}
+    ]
+   },
+   {
+    "id": "dawn-flight-stance",
+    "on": "art_fired",
+    "filter": {"art_id": "dawn-flight"},
+    "if": [{"read": "own.state.any", "op": "==", "value": 0}],
+    "do": [
+     {"state": {"set": "dawn-flight"}}
+    ]
+   },
+   {
+    "id": "dawn-flight-pulse",
+    "on": "pulse",
+    "if": [{"read": "own.counter.dawn_flight", "op": ">=", "value": 1}],
+    "do": [
+     {"stacks": {"el": "wood", "n": 2, "for": 4, "side": "foe", "mark": "talisman"}},
+     {"status": {"id": "slowed_time", "stacks": 1, "dur": 2, "side": "foe"}}
+    ]
+   },
+   {
+    "id": "dawn-flight-end",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.dawn_flight", "op": "==", "value": 0},
+     {"read": "own.state.dawn-flight", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"state": {"set": null}}
+    ]
+   }
+  ],
+  "rule": "Lays a great cloud talisman for 10 s (a Field stance when no other stance holds, plus 1 laid talisman charge for 20 s). Each second while it lasts, the foe takes 2 Wood debuff stacks for 4 s and 1 stack of Slowed Time for 2 s.",
+  "hooks": ["field", "wood stacks", "slowed time", "talisman count"],
+  "sources": ["world-depth:nam_pho"]
+ },
+ {
+  "id": "dusk-curtain",
+  "name": "Dusk Curtain (Mộ Quyển)",
+  "element": "water",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "painted-beams-dawn-flight",
+  "tags": ["talisman", "heal"],
+  "c_art": 1.8,
+  "cost_share": 0.05,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "c_heal": 0.8,
+  "cleanse": 1,
+  "counters": [
+   {"id": "laid_talisman", "each_for": 20}
+  ],
+  "effects": [
+   {
+    "id": "dusk-curtain-rain",
+    "on": "art_fired",
+    "filter": {"art_id": "dusk-curtain"},
+    "if": [{"read": "own.counter.laid_talisman", "op": ">=", "value": 1}],
+    "scale": {"read": "own.counter.laid_talisman", "per": 1},
+    "do": [
+     {"heal": {"share": 0.02}},
+     {"counter": {"id": "laid_talisman", "set": 0}}
+    ]
+   },
+   {
+    "id": "dusk-curtain-burst",
+    "on": "art_fired",
+    "filter": {"art_id": "dusk-curtain"},
+    "if": [{"read": "foe.debuff.wood", "op": ">=", "value": 1}],
+    "do": [
+     {"consume": {"el": "wood", "side": "foe", "kind": "debuff", "n": 5, "per": 1, "then": [{"free_hit": {"c": 0.45, "dtype": "cold"}}]}}
+    ]
+   }
+  ],
+  "rule": "Rolls up your laid talismans into rain: heals you and cleanses 1 debuff (+2 % health per laid talisman rolled up), deals a Cold hit, and bursts up to 5 Wood stacks on the foe for 0.45 Cold damage per stack consumed.",
+  "hooks": ["healing", "cleanse", "consume stacks", "trigger damage", "talisman count"],
+  "sources": ["world-depth:nam_pho"]
+ }
+]

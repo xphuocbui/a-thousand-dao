@@ -20,8 +20,8 @@
    "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The outer gate's method: grinding ink. The disciple grinds an ink stick in spring water for an hour before dawn, drawing Water out of the well and Wood out of the mulberry bark the paper is made from, and learns to put a thread of qi into each stroke. It takes either element. In a fight it is a beginner's talisman method: cheap, quick paper charms that sting and ward, thrown three at a time.",
    "arts": [
-    {"new": "Three Wet Sheets (Tam Thấp Chỉ)", "concept": "Throws three quick talismans that each deal light Wood or Water damage, the holder's stronger element.", "tags": ["talisman"], "authored": "b4"},
-    {"new": "Blotting Paper (Hấp Mặc Chỉ)", "concept": "A ward talisman that soaks up the next hit and returns a little linh lực.", "tags": ["talisman"], "authored": "b4"}
+    {"id": "three-wet-sheets", "new": "Three Wet Sheets (Tam Thấp Chỉ)", "concept": "Throws three quick talismans that each deal light Wood or Water damage, the holder's stronger element.", "tags": ["talisman"], "authored": "b4"},
+    {"id": "blotting-paper", "new": "Blotting Paper (Hấp Mặc Chỉ)", "concept": "A ward talisman that soaks up the next hit and returns a little linh lực.", "tags": ["talisman"], "authored": "b4"}
    ],
    "lore": "Written for the outer gate in 882 by the founder Nghiêm Họa Đống, who said a scribe who cannot grind ink cannot hold a brush.",
    "status": "proposal",
@@ -38,9 +38,9 @@
    "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
    "concept": "The hall's canon, from Vương Bột's line: the painted beams at dawn fly with the clouds of the southern shore. The hall paints at first light by custom: the scribe paints the morning cloud as it comes off the river, and draws the Wood qi of the waking forest into the brush. Scribes swear a talisman painted at dawn holds longer than one painted at noon; the canon turns at any hour, and its layers are counted in the clouds a scribe has caught. In a fight the scribe lays talismans ahead of time and lets them work: Wood stacks that bind and seed, wards that heal, and a long fight in which the paper does the fighting.",
    "arts": [
-    {"new": "Catch the Morning Cloud (Thủ Triêu Vân)", "concept": "Gains a cloud talisman charge (a Field); while it is up, the foe gains Wood stacks each second and you heal a little.", "tags": ["talisman"], "authored": "b4"},
-    {"new": "Painted Rain (Họa Vũ)", "concept": "Spends the talismans the holder has laid: each bursts for Wood damage, more for every Wood stack on the foe.", "tags": ["talisman"], "authored": "b4"},
-    {"new": "Paper Beam (Chỉ Đống)", "concept": "A ward talisman that holds a beam of qi over the holder: it blocks the next heavy hit and then heals the holder for part of it.", "tags": ["talisman"], "authored": "b4"}
+    {"id": "catch-the-morning-cloud", "new": "Catch the Morning Cloud (Thủ Triêu Vân)", "concept": "Gains a cloud talisman charge (a Field); while it is up, the foe gains Wood stacks each second and you heal a little.", "tags": ["talisman"], "authored": "b4"},
+    {"id": "painted-rain", "new": "Painted Rain (Họa Vũ)", "concept": "Spends the talismans the holder has laid: each bursts for Wood damage, more for every Wood stack on the foe.", "tags": ["talisman"], "authored": "b4"},
+    {"id": "paper-beam", "new": "Paper Beam (Chỉ Đống)", "concept": "A ward talisman that holds a beam of qi over the holder: it blocks the next heavy hit and then heals the holder for part of it.", "tags": ["talisman"], "authored": "b4"}
    ],
    "lore": "Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon in the margins of the paintings. The hall still keeps them.",
    "status": "proposal",
@@ -57,8 +57,8 @@
    "tier": 2, "tech_kind": "secret", "names": ["moc", "thuy"], "layers": 12, "rank": "truong_lao",
    "concept": "The founders' art, in two halves like Vương Bột's couplet: the painted beams at dawn fly with the southern shore's clouds; the pearl curtains at dusk roll up the western hills' rain. The dawn half, Wood, binds and seeds. The dusk half, Water, washes and heals. A scribe who holds both can turn a fight from one to the other. No one at the hall has held both since the founders, and the dusk half has been half-lost since 1060.",
    "arts": [
-    {"new": "Dawn Flight (Triêu Phi)", "concept": "A great cloud talisman (a Field): while it is up, the foe gains several Wood stacks and is slowed.", "tags": ["talisman"], "authored": "b4"},
-    {"new": "Dusk Curtain (Mộ Quyển)", "concept": "Rolls up the holder's talismans into rain: you heal and lose one debuff, and the foe's Wood stacks burst for Water damage.", "tags": ["talisman"], "authored": "b4"}
+    {"id": "dawn-flight", "new": "Dawn Flight (Triêu Phi)", "concept": "A great cloud talisman (a Field): while it is up, the foe gains several Wood stacks and is slowed.", "tags": ["talisman"], "authored": "b4"},
+    {"id": "dusk-curtain", "new": "Dusk Curtain (Mộ Quyển)", "concept": "Rolls up the holder's talismans into rain: you heal and lose one debuff, and the foe's Wood stacks burst for Water damage.", "tags": ["talisman"], "authored": "b4"}
    ],
    "lore": "The dawn half belongs to Nghiêm Họa Đống's line and the dusk half to Ôn Châu Liêm's. He took most of the dusk half with him to Châu Liêm Trấn when he died there in 1060.",
    "status": "proposal",
