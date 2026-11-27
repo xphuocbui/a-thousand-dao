@@ -1,0 +1,86 @@
+[
+ {
+  "id": "water-ends-primer",
+  "name": "Walking to Where the Water Ends (Hành Đáo Thủy Cùng Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": [],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "evade_pct", "value": 2, "scope": []},
+   {"key": "than_thuc_pct", "value": 2, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 3, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "not-counting-the-steps", "unlock_layer": 1}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "water-ends-primer",
+  "family": "soul-song-seal",
+  "owner": "van_khoi",
+  "rank": "ngoai_mon",
+  "concept": "The novice's method is a walk. Each morning a novice follows a stream uphill toward its source, breathing with their steps and counting nothing, until the water ends in moss or rock. Then they sit. It cultivates no element. It trains the breath and the soul to go on without a goal, so any root can learn it. The sixth layer is reached on the day a novice walks to the source of Thủy Cùng Phong's spring without once wondering how far it is.",
+  "lore": "Tống Tọa Vân taught it to his first novices in 540 by walking them up the mountain and not saying why (C114). It was written down only in 830, by the prior Mâu Hành Đáo."
+ },
+ {
+  "id": "sitting-cloud-canon",
+  "name": "Sit and Watch the Clouds Rise (Tọa Khán Vân Khởi Kinh)",
+  "tier": 2,
+  "tech_kind": "main",
+  "names": [],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "than_thuc_pct", "value": 12},
+   {"stat": "tam_ma_resist_pct", "value": 12}
+  ],
+  "passives": [
+   {"key": "soul_res_pct", "value": 15, "scope": []},
+   {"key": "status_resist_pct", "value": 15, "scope": []},
+   {"key": "x_soul", "value": 6, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 5, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "lamp-oil-lance", "unlock_layer": 1},
+   {"ability_id": "clouds-rise", "unlock_layer": 2},
+   {"ability_id": "the-water-has-ended", "unlock_layer": 4}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "sitting-cloud-canon",
+  "family": "soul-song-seal",
+  "owner": "van_khoi",
+  "rank": "noi_mon",
+  "concept": "The abbey's method and its name, from the second half of Vương Duy's couplet: walk to where the water ends, then sit and watch the clouds rise (hành đáo thủy cùng xứ, tọa khán vân khởi thời). The practitioner sits until thought rises and passes like cloud off a peak, and draws qi through the soul (thần hồn) rather than through any element. In a fight it is patient and very hard to unsettle. The holder's divine sense hardens against soul attacks and status, and their arts grow stronger the longer they hold still.",
+  "lore": "Tống Tọa Vân made it between 540 and 600 at Vân Khởi Quán (place 10), from what Thôi Bất Kiến taught him and from the abbey Rule of Bão Nhất Quán, whose last abbot came down to Không Sơn Viện as a guest in 488 (V022). Tống has said it is the Empty Mountain Sutra with the mountain taken out."
+ },
+ {
+  "id": "cloud-mother-seal",
+  "name": "Cloud Mother Seal (Vân Mẫu Ấn)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": [],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "defense_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "ward_efficiency_pct", "value": 8, "scope": []},
+   {"key": "status_duration_pct", "value": 10, "scope": ["curse"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["seal"]}
+  ],
+  "abilities": [
+   {"ability_id": "frozen-hour-seal", "unlock_layer": 1},
+   {"ability_id": "cloud-in-the-pane", "unlock_layer": 3}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "cloud-mother-seal",
+  "family": "soul-song-seal",
+  "owner": "van_khoi",
+  "rank": "truong_lao",
+  "concept": "A seal art cut into panes of mica, which the abbey calls the mother of clouds (vân mẫu). A seal stamped on mica holds a ward. Stamped on a foe, it fixes them for a moment the way a cloud is fixed in glass. The abbey uses it to seal its windows against winter and its scriptures against damp. Its elders use it in a fight to stop a foe's arts and to keep their own wards whole.",
+  "lore": "The monks opened the mica mine of Vân Mẫu Khoáng in 560 and said the stone was cloud made solid (A039). The seal was made from it in the 600s. The mine has run thin since 1080 (A046), and every pane cut now is counted."
+ }
+]
