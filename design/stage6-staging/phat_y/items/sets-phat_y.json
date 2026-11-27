@@ -27,7 +27,7 @@
      {"key": "khi_huyet_pct", "value": 6, "scope": []},
      {"key": "health_regen_inc_pct", "value": 10, "scope": []}
     ],
-    "effect": "Paid in Full (Thanh Toán)",
+    "effect": "Hired Sword's Full Pay (Dung Kiếm Thanh Toán)",
     "rule": "while you protect a hirer, each crit you land heals you 2 % of your health; if the hirer leaves the fight alive, you are healed in full once."
    }
   ],

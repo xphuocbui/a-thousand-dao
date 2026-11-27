@@ -13,7 +13,7 @@
   {
    "id": "py-contract-seal", "name": "Contract Seal of the Valley (Cốc Khế Ấn)", "family": "metal", "kind": "artifact", "base": "an", "grade": 3,
    "modifiers": [{"key": "attack_pct", "value": 16, "scope": ["sword"]}, {"key": "leech_health_pct", "value": 15, "scope": []}, {"key": "khi_van", "value": 1, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
-   "effects": [{"new": true, "id": "paid-in-full", "name": "Paid in Full (Thanh Toán)", "rule": "While you fight to protect someone who has hired you, you take a fifth less damage from foes that attack them, and you heal when you strike those foes."}],
+   "effects": [{"new": true, "id": "contract-paid-in-full", "name": "Contract Paid in Full (Khế Thanh Toán)", "rule": "While you fight to protect someone who has hired you, you take a fifth less damage from foes that attack them, and you heal when you strike those foes."}],
    "lore": "The bronze seal the valley stamps on every hire: a sleeve and a sword. Whoever holds it decides which caravans, mines and sects Phất Y swords will guard. Lam Khế Ngôn has held it since 1147 and has stamped more contracts with it than the two heads before her together.",
    "build_use": "A hired guard's seal: sustain while protecting a client.",
    "holder": "lam_khe_ngon", "made_by": "lieu_hanh_van", "made_year": 800, "set": "py-hired-pair", "status": "proposal"
@@ -47,7 +47,7 @@
   {
    "id": "py-hired-pair", "name": "Hired Sword's Pair (Dung Kiếm Song Bảo)", "pieces": ["py-contract-seal", "py-contract-blade"],
    "bonuses": [
-    {"pieces": 2, "modifiers": [{"key": "khi_huyet_pct", "value": 6, "scope": []}, {"key": "health_regen_inc_pct", "value": 10, "scope": []}], "effect": "Paid in Full (Thanh Toán): while you protect a hirer, each crit you land heals you 2 % of your health; if the hirer leaves the fight alive, you are healed in full once."}
+    {"pieces": 2, "modifiers": [{"key": "khi_huyet_pct", "value": 6, "scope": []}, {"key": "health_regen_inc_pct", "value": 10, "scope": []}], "effect": "Hired Sword's Full Pay (Dung Kiếm Thanh Toán): while you protect a hirer, each crit you land heals you 2 % of your health; if the hirer leaves the fight alive, you are healed in full once."}
    ],
    "story": "The contract keeper's seal and sword: one signs the hire, the other keeps it. They pass with the post."
   }

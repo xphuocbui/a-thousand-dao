@@ -49,7 +49,7 @@
     "name": "Serve a Term",
     "unlock_layer": 1,
     "passive_art": true,
-    "rule": "Each pulse you are Pressing and landed no art hit serves 1 Term (Khoản); each enemy art hit you take strikes 1 Term off."
+    "rule": "Each pulse you are Pressing (or evade an attack, at most 1 per pulse) and landed no art hit serves 1 Term (Khoản); each enemy art hit you take strikes 1 Term off."
    }
   ],
   "origin": "authored",

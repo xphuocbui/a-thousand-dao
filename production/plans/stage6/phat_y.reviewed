@@ -1,0 +1,13 @@
+{
+ "owner": "phat_y",
+ "minutes": 7,
+ "must_fix": 2,
+ "should": 1,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Serial merge & export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py); closes 2 cross_owner refs on dry-road-sword-primer.",
+  "dry-road-sword-primer names [kim, hoa] vs CongPhap.usable() all-elements check on hua_ngan_son and dieu_thiet_tien (Stage 7/9).",
+  "khi_van out-of-fight reader (py-contract-seal) and multi-ally hirer-survival full-heal clause (Hired Sword's Full Pay) if multi-fighter charge mechanics are built later."
+ ]
+}

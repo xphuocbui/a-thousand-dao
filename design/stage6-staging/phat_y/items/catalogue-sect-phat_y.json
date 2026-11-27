@@ -38,7 +38,7 @@
    {"key": "khi_van", "value": 1, "scope": []},
    {"key": "khi_huyet_pct", "value": 10, "scope": []}
   ],
-  "effects": ["Paid in Full"],
+  "effects": ["Contract Paid in Full"],
   "arts": [],
   "sources": ["npc"],
   "lore": "The bronze seal the valley stamps on every hire: a sleeve and a sword. Whoever holds it decides which caravans, mines and sects Phất Y swords will guard. Lam Khế Ngôn has held it since 1147 and has stamped more contracts with it than the two heads before her together.",

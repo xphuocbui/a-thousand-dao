@@ -3,11 +3,12 @@
  "source": "world-depth:phat_y",
  "effects": {
   "Serve a Term": {
-   "rule": "Contract Sword Canon (layer 1): each second (pulse) you are Pressing and strike nothing (no damaging art hit landed or evaded since the previous pulse) serves 1 Term (Khoản); each enemy art hit you take strikes 1 Term off.",
-   "approx": "Tracks art hits on hit_landed/was_evaded (filter kind: art) rather than basic attacks (matching Return to the Scabbard and The Called Blow); strips 1 Term on enemy art hits (was_hit, filter kind: art, cooldown 3.0 s) so basic attacks do not zero out Terms every second.",
+   "rule": "Contract Sword Canon (layer 1): each pulse you are Pressing (or evade an attack, at most 1 per pulse) and landed no art hit serves 1 Term (Khoản); each enemy art hit you take strikes 1 Term off.",
+   "approx": "Tracks art hits on hit_landed/was_evaded (filter kind: art) rather than basic attacks (matching Return to the Scabbard and The Called Blow); caps Terms served via term_served at 1 per pulse across Pressing and evaded, and strips 1 Term on enemy art hits (was_hit, filter kind: art, cooldown 3.0 s) so basic attacks do not zero out Terms every second.",
    "counters": [
     {"id": "term"},
-    {"id": "term_struck"}
+    {"id": "term_struck"},
+    {"id": "term_served", "cap": 1}
    ],
    "records": [
     {
@@ -27,22 +28,37 @@
      "on": "pulse",
      "if": [
       {"read": "own.pressing", "op": ">=", "value": 1},
-      {"read": "own.counter.term_struck", "op": "==", "value": 0}
+      {"read": "own.counter.term_struck", "op": "==", "value": 0},
+      {"read": "own.counter.term_served", "op": "==", "value": 0}
      ],
-     "do": [{"counter": {"id": "term", "add": 1}}]
+     "do": [
+      {"counter": {"id": "term", "add": 1}},
+      {"counter": {"id": "term_served", "set": 1}}
+     ]
     },
     {
      "id": "eff:Serve a Term:serve_evade",
      "on": "evaded",
-     "limit": {"per_pulse": 1},
-     "if": [{"read": "own.counter.term_struck", "op": "==", "value": 0}],
-     "do": [{"counter": {"id": "term", "add": 1}}]
+     "if": [
+      {"read": "own.counter.term_struck", "op": "==", "value": 0},
+      {"read": "own.counter.term_served", "op": "==", "value": 0}
+     ],
+     "do": [
+      {"counter": {"id": "term", "add": 1}},
+      {"counter": {"id": "term_served", "set": 1}}
+     ]
     },
     {
      "id": "eff:Serve a Term:clear",
      "on": "pulse",
      "if": [{"read": "own.counter.term_struck", "op": ">=", "value": 1}],
      "do": [{"counter": {"id": "term_struck", "set": 0}}]
+    },
+    {
+     "id": "eff:Serve a Term:clear_served",
+     "on": "pulse",
+     "if": [{"read": "own.counter.term_served", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "term_served", "set": 0}}]
     },
     {
      "id": "eff:Serve a Term:take_hit",
@@ -85,18 +101,24 @@
     }
    ]
   },
-  "Paid in Full": {
-   "rule": "Contract Seal of the Valley (py-contract-seal) & Hired Sword's Pair (py-hired-pair, 2 pieces): while protecting a hirer, take 20 % less damage and heal on critical hits (2 % of max health).",
-   "approx": "Single-side 1v1 duel adaptation (no allied hirer NPC exists in 1v1 combat; spatial_words_check marked paid-in-full postponed): applies contract-guard protection directly in duels with idempotent limits so wearing both the Seal and the 2-piece set never doubles. On was_hit (cooldown 4 s): +20 dampen_taken for 2 s; on crit (per_pulse 1): heal 2 % max health. Post-fight full heal if hirer survives is unmodelled in 1v1.",
+  "Contract Paid in Full": {
+   "rule": "Contract Seal of the Valley (py-contract-seal): while protecting a hirer, take 20 % less damage and heal when you strike (carried by the Seal's 15 % leech).",
+   "approx": "Renamed from Paid in Full to avoid colliding with market-folk's Golden Valley Ledger Seal (Paid in Full), and separated from Hired Sword's Pair (2pc) so the Seal alone does not grant the 2pc crit heal. Single-side 1v1 duel adaptation (no allied hirer NPC exists in 1v1 combat): on was_hit (cooldown 4 s): +20 dampen_taken for 2 s; py-contract-seal's own leech_health_pct 15 provides heal on strike.",
    "records": [
     {
-     "id": "eff:Paid in Full:guard",
+     "id": "eff:Contract Paid in Full:guard",
      "on": "was_hit",
      "limit": {"cooldown": 4.0},
      "do": [{"mod": {"dampen_taken": 20, "for": 2.0}}]
-    },
+    }
+   ]
+  },
+  "Hired Sword's Full Pay": {
+   "rule": "Hired Sword's Pair (py-hired-pair, 2 pieces): while protecting a hirer, each critical hit you land heals 2 % of your health; if the hirer leaves the fight alive, you are healed in full once.",
+   "approx": "Renamed from Paid in Full to avoid colliding with market-folk's Paid in Full and separated from py-contract-seal's 1-piece Effect. Single-side 1v1 duel adaptation: on crit (per_pulse 1): heal 2 % max health. Post-fight full heal if hirer survives is unmodelled in 1v1.",
+   "records": [
     {
-     "id": "eff:Paid in Full:crit",
+     "id": "eff:Hired Sword's Full Pay:crit",
      "on": "crit",
      "limit": {"per_pulse": 1},
      "do": [{"heal": {"share": 0.02}}]
@@ -187,7 +209,7 @@
     {
      "id": "eff:The Last Step:sure_cut",
      "on": "art_fired",
-     "filter": {"tags": ["sword"]},
+     "filter": {"tags": ["sword"], "not_art_id": "step-back"},
      "if": [
       {"read": "own.counter.first_sword_done", "op": "==", "value": 0},
       {"read": "own.since_act", "op": "<=", "value": 0}
