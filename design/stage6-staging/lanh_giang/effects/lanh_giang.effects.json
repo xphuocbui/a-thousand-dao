@@ -1,0 +1,251 @@
+{
+ "_doc": "Lãnh Giang Phái's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:lanh_giang by the serial step. Unpriced. Every Effect declares all counters it reads or writes in its own counters array for standalone GDScript compilation.",
+ "source": "world-depth:lanh_giang",
+ "effects": {
+  "A Bite on the Line": {
+   "rule": "Ice Hook: while your Line Through the Ice holds a foe and you hold your Sitting in the Snow stance, each second they lose 1 % of their maximum linh lực to you, banked as Catch for Landing the Fish.",
+   "counters": [
+    {
+     "id": "ice_line",
+     "cap": 1,
+     "each_for": 6.0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:A Bite on the Line",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.ice_line",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.state.sitting-in-the-snow",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "burn_qi": {
+        "of": "qi_max",
+        "share": 0.01,
+        "to_self": 1.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Line Is Patient": {
+   "rule": "Lone Line, full set (2 pieces): while you hold the sitting stance, your linh lực leech also heals you for half as much (3 % health leech matching the set's 6 % linh lực leech), and every 5 s you hold the sitting stance your next hook art is a sure hit.",
+   "approx": "The engine has no own.leech_qi readable, so 'half as much' uses leech_hp 3 (half of the Lone Line gear's 6 % leech_linh_luc_pct).",
+   "counters": [
+    {
+     "id": "patient_sec"
+    },
+    {
+     "id": "patient_sure",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Line Is Patient leech",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.state.sitting-in-the-snow",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "leech_hp": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Line Is Patient tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.sitting-in-the-snow",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.patient_sure",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "patient_sec",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Line Is Patient arm",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.patient_sec",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "patient_sec",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "patient_sure",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Line Is Patient clear",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.sitting-in-the-snow",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.patient_sec",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "patient_sec",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Line Is Patient sure",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "hook"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.patient_sure",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "acc": 500
+       }
+      },
+      {
+       "counter": {
+        "id": "patient_sure",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Answers Twice": {
+   "rule": "Heap of Snow, full set (3 pieces): while you hold the sitting stance, your stance ward grows by 2 % of your maximum health each second; when a foe breaks a ward shield or your stance ward, your next counter or seal art fires twice.",
+   "counters": [
+    {
+     "id": "answers_twice_ready",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Answers Twice grow",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.sitting-in-the-snow",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.02,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Answers Twice broken",
+     "on": "shield_broken",
+     "do": [
+      {
+       "counter": {
+        "id": "answers_twice_ready",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Answers Twice reply",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "counter",
+       "seal"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.answers_twice_ready",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "fire_art": {
+        "which": "last",
+        "share": 1.0
+       }
+      },
+      {
+       "counter": {
+        "id": "answers_twice_ready",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

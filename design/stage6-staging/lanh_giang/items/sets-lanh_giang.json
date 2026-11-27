@@ -1,0 +1,62 @@
+[
+ {
+  "id": "lg-lone-line",
+  "name": "Lone Line (Cô Tuyến)",
+  "pieces": [
+   "lg-ice-hook",
+   "lg-sitting-robe"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "leech_linh_luc_pct",
+      "value": 2,
+      "scope": []
+     },
+     {
+      "key": "linh_luc_regen_inc_pct",
+      "value": 6,
+      "scope": []
+     }
+    ],
+    "effect": "The Line Is Patient (Tuyến Năng Nhẫn)",
+    "rule": "while you hold the sitting stance, your linh lực leech also heals you for half as much, and every 5 s you hold it your next hook art is a sure hit."
+   }
+  ],
+  "story": "The bone hook that was the school's first made thing and the robe he wore while he pieced the method back together."
+ },
+ {
+  "id": "lg-heap-of-snow",
+  "name": "Heap of Snow (Tuyết Đôi)",
+  "pieces": [
+   "lg-snow-cape",
+   "lg-old-sitter-gourd",
+   "lg-river-bottom-stone"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "linh_luc_pct",
+      "value": 6,
+      "scope": []
+     },
+     {
+      "key": "health_regen_inc_pct",
+      "value": 10,
+      "scope": []
+     }
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "Answers Twice (Lưỡng Ứng)",
+    "rule": "while you sit, your ward gains 2 % of its value each second; when a foe breaks it, your next counter art fires twice."
+   }
+  ],
+  "story": "The straw cape, the old men's gourd and a stone from under the ice: the river's own set, made by no smith. Bồ means them to go to the first disciple who reaches the ninth layer."
+ }
+]

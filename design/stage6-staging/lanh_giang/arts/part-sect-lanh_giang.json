@@ -1,0 +1,336 @@
+[
+ {
+  "id": "oar-stroke",
+  "name": "Oar Stroke (Trạo Kích)",
+  "element": "water",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "ice-fish-boat-breath",
+  "tags": [
+   "water",
+   "cold",
+   "quick"
+  ],
+  "c_art": 1.4,
+  "cost_share": 0.03,
+  "cooldown": 3.0,
+  "kind": "elem",
+  "qi_restore": 0.05,
+  "effects": [
+   {
+    "id": "oar-stroke-slow",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "oar-stroke"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "timer": {
+       "side": "foe",
+       "which": "next",
+       "by": 0.3
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A sweeping Water blow that delays the foe's soonest ready art by 0.3 s on hit and restores 5 % of maximum linh lực.",
+  "hooks": [
+   "cold damage",
+   "timer delay",
+   "linh lực restore",
+   "art speed"
+  ],
+  "sources": [
+   "world-depth:lanh_giang"
+  ]
+ },
+ {
+  "id": "line-through-the-ice",
+  "name": "Line Through the Ice (Xuyên Băng Tuyến)",
+  "element": "water",
+  "role": "control",
+  "tier": "authored",
+  "power": "engine",
+  "group": "lone-line-sitting-canon",
+  "tags": [
+   "water",
+   "cold",
+   "hook"
+  ],
+  "c_art": 0.8,
+  "cost_share": 0.03,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "ice_line",
+    "cap": 1,
+    "each_for": 6.0
+   }
+  ],
+  "effects": [
+   {
+    "id": "line-through-ice-hook",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "line-through-the-ice"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "ice_line",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "ice_line",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "line-through-ice-drain",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.ice_line",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "burn_qi": {
+       "of": "qi_max",
+       "share": 0.015,
+       "to_self": 1.0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A thin Water line that hooks a foe for 6 s and drains 1.5 % of their maximum linh lực to you each second it holds; what it drains raises Catch for Landing the Fish.",
+  "hooks": [
+   "linh lực drain",
+   "hook",
+   "catch"
+  ],
+  "sources": [
+   "world-depth:lanh_giang",
+   "e5"
+  ]
+ },
+ {
+  "id": "sitting-in-the-snow",
+  "name": "Sitting in the Snow (Tọa Tuyết)",
+  "element": "water",
+  "role": "utility",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "lone-line-sitting-canon",
+  "tags": [
+   "water",
+   "cold",
+   "stance"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 4.0,
+  "kind": "elem",
+  "guards": [
+   {
+    "read": "own.state.sitting-in-the-snow",
+    "op": "<",
+    "value": 1
+   }
+  ],
+  "states": [
+   {
+    "id": "sitting-in-the-snow",
+    "tags": [
+     "composed"
+    ],
+    "mods": {
+     "regen": 0.025
+    }
+   }
+  ],
+  "effects": [
+   {
+    "id": "sitting-enter",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "sitting-in-the-snow"
+    },
+    "do": [
+     {
+      "state": {
+       "set": "sitting-in-the-snow"
+      }
+     }
+    ]
+   },
+   {
+    "id": "sitting-cold-ward",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.state.sitting-in-the-snow",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "dampen_taken": 20,
+       "dtype": "cold"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Enters a Composed sitting stance that stays up for the fight: linh lực regenerates 2.5 % of maximum faster each second and Cold damage taken is reduced by 20 %.",
+  "hooks": [
+   "composed",
+   "linh lực regen",
+   "cold dampen",
+   "stance"
+  ],
+  "sources": [
+   "world-depth:lanh_giang"
+  ]
+ },
+ {
+  "id": "landing-the-fish",
+  "name": "Landing the Fish (Thu Tuyến)",
+  "element": "water",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "lone-line-sitting-canon",
+  "tags": [
+   "water",
+   "hook",
+   "heavy"
+  ],
+  "c_art": 0.6,
+  "cost_share": 0.04,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "catch"
+   }
+  ],
+  "effects": [
+   {
+    "id": "catch-bank",
+    "on": "qi_drained",
+    "do": [
+     {
+      "counter": {
+       "id": "catch",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "catch-landed",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "landing-the-fish"
+    },
+    "if": [
+     {
+      "read": "own.counter.catch",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.qi_share",
+      "op": ">=",
+      "value": 0.2
+     }
+    ],
+    "scale": {
+     "read": "own.counter.catch",
+     "per": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.35,
+       "dtype": "elem",
+       "outside_budget": true
+      }
+     },
+     {
+      "counter": {
+       "id": "catch",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "catch-landed-dry",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "landing-the-fish"
+    },
+    "if": [
+     {
+      "read": "own.counter.catch",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.qi_share",
+      "op": "<",
+      "value": 0.2
+     }
+    ],
+    "scale": {
+     "read": "own.counter.catch",
+     "per": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.7,
+       "dtype": "elem",
+       "outside_budget": true
+      }
+     },
+     {
+      "counter": {
+       "id": "catch",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A short pull on the line (a small Water hit). Every linh lực drain your Line Through the Ice or A Bite on the Line lands banks 1 Catch, with no cap. Landing this pull spends all Catch as one free Water hit of 0.35 c per Catch, doubled to 0.70 c per Catch if the foe is below 20 % linh lực.",
+  "hooks": [
+   "linh lực drain",
+   "sitting stance",
+   "patience",
+   "foe linh lực low"
+  ],
+  "notes": "Adapted from auth-tech.json e5 (ra-LG1) to existing engine words: uses qi_drained -> catch count and scale-driven free_hit.c (0.35 / 0.70, outside_budget) instead of unbuilt counter.add_amount, free_hit.amount, and qi_drained.source.",
+  "sources": [
+   "ra-LG1",
+   "world-depth:lanh_giang"
+  ]
+ }
+]

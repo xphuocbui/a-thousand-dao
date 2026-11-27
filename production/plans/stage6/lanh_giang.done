@@ -1,0 +1,27 @@
+{
+ "owner": "lanh_giang",
+ "minutes": 10,
+ "written": {
+  "techniques": 2,
+  "arts": 4,
+  "items": 5,
+  "sets": 2,
+  "effects": 3,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 5,
+ "decisions": [
+  "Adapted auth-tech.json e5 landing-the-fish to existing engine words (qi_drained -> +1 catch counter, scale on catch -> free_hit c 0.35 / 0.70 outside_budget on hit_landed) instead of unbuilt counter.add_amount, free_hit.amount, and qi_drained.source so the full Catch loop runs in both engines today without pending words.",
+  "Tracked line-through-the-ice 6 s tether with a 1-charge each_for: 6.0 counter refreshed via set 0 + add 1 so A Bite on the Line never misses the 6th pulse from pulse decrement ordering.",
+  "Made sitting-in-the-snow a permanent Composed stance (guards own.state.sitting-in-the-snow < 1) with no aux-stance conflicts and moved its Cold dampen_taken 20 into an always Effect because state.mods does not accept dtype.",
+  "Modelled The Line Is Patient half linh luc leech as leech_hp 3 while sitting (half of Lone Line's 6 % leech_linh_luc_pct, since engine lacks own.leech_qi readable) and spent the 5 s sure-hit charge as 1 ms acc 500 on art_fired [hook].",
+  "Modelled Answers Twice with ward_grow {share: 0.02, of: hp} (creating sward for bo_toa_tuyet) and fire_art {which: last, share: 1.0} on art_fired [counter, seal] so backwash-seal fires twice on shield_broken."
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to close techniques (2), arts_new (4), items (5), sets (2), effects (3), and events (3 structured: N-lanh_giang-01..03)."
+ ]
+}
