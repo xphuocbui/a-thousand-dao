@@ -1,0 +1,229 @@
+[
+ {
+  "id": "wash-the-hat-strings",
+  "name": "Wash the Hat Strings (Trạc Anh)",
+  "element": "",
+  "role": "heal",
+  "tier": "authored",
+  "power": "engine",
+  "group": "canglang-body-canon",
+  "tags": ["physical", "body", "heal", "ward"],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 6.0,
+  "kind": "phys",
+  "effects": [
+   {
+    "id": "wash-the-hat-strings-regen",
+    "on": "art_fired",
+    "filter": {"art_id": "wash-the-hat-strings"},
+    "do": [{"mod": {"hregen": 0.025, "for": 4.0}}]
+   },
+   {
+    "id": "wash-the-hat-strings-cold",
+    "on": "art_fired",
+    "filter": {"art_id": "wash-the-hat-strings"},
+    "do": [{"mod": {"dampen_taken": 100, "dtype": "cold", "for": 4.0}}]
+   }
+  ],
+  "rule": "A breath held under pressure: for 4 s your health regenerates by 2.5 % of your maximum health each second and Cold damage taken is halved.",
+  "hooks": ["health regeneration", "cold defence", "dampen taken"],
+  "sources": ["world-depth:trac_anh"]
+ },
+ {
+  "id": "wash-the-feet",
+  "name": "Wash the Feet (Trạc Túc)",
+  "element": "",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "canglang-body-canon",
+  "tags": ["physical", "body", "stance", "ward"],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 6.0,
+  "kind": "phys",
+  "guards": [{"read": "own.state.wash-the-feet", "op": "<", "value": 1}],
+  "states": [{"id": "wash-the-feet", "tags": ["composed"], "mods": {"block": 10}}],
+  "counters": [{"id": "wash_feet_armed", "cap": 1}],
+  "effects": [
+   {
+    "id": "wash-the-feet-enter",
+    "on": "art_fired",
+    "filter": {"art_id": "wash-the-feet"},
+    "do": [
+     {"state": {"set": "wash-the-feet"}},
+     {"counter": {"id": "wash_feet_armed", "set": 0}}
+    ]
+   },
+   {
+    "id": "wash-the-feet-convert",
+    "on": "was_hit",
+    "if": [
+     {"read": "own.state.wash-the-feet", "op": ">=", "value": 1},
+     {"read": "own.counter.wash_feet_armed", "op": ">=", "value": 1},
+     {"read": "event.amount", "op": ">", "value": 0}
+    ],
+    "do": [
+     {"heal": {"of": "amount", "share": 1.0, "ignore_taken": true}},
+     {"heal": {"of": "amount", "share": 1.0, "body_shield": true}},
+     {"counter": {"id": "wash_feet_armed", "set": 0}},
+     {"state": {"set": null}}
+    ]
+   },
+   {
+    "id": "wash-the-feet-arm",
+    "on": "was_hit",
+    "if": [
+     {"read": "own.state.wash-the-feet", "op": ">=", "value": 1},
+     {"read": "own.counter.wash_feet_armed", "op": "==", "value": 0},
+     {"read": "event.amount", "op": ">", "value": 0}
+    ],
+    "do": [
+     {"counter": {"id": "wash_feet_armed", "set": 1}}
+    ]
+   }
+  ],
+  "rule": "A low Composed stance (+10 block): after a damaging hit lands on you in the stance, the next damaging hit taken is turned into body shield (restoring the health lost and adding that amount to your body shield), ending the stance.",
+  "hooks": ["stance", "composed", "block", "body shield"],
+  "sources": ["world-depth:trac_anh"]
+ },
+ {
+  "id": "ninth-fathom",
+  "name": "Ninth Fathom (Cửu Tầm)",
+  "element": "",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "canglang-body-canon",
+  "tags": ["physical", "body", "ward", "cleanse"],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 6.0,
+  "kind": "phys",
+  "guards": [{"read": "own.counter.ninth_fathom_used", "op": "==", "value": 0}],
+  "counters": [
+   {"id": "ninth_fathom_used", "cap": 1},
+   {"id": "ninth_fathom_sec", "cap": 1, "each_for": 1.0}
+  ],
+  "effects": [
+   {
+    "id": "ninth-fathom-cast",
+    "on": "art_fired",
+    "filter": {"art_id": "ninth-fathom"},
+    "limit": {"per_fight": 1},
+    "do": [
+     {"counter": {"id": "ninth_fathom_used", "set": 1}},
+     {"counter": {"id": "ninth_fathom_sec", "set": 1}},
+     {"cleanse": {"status": "slowed_time"}},
+     {"cleanse": {"status": "drunk"}},
+     {"mod": {"dampen_taken": 10000, "for": 1.0}}
+    ]
+   },
+   {
+    "id": "ninth-fathom-hit",
+    "on": "was_hit",
+    "if": [
+     {"read": "own.counter.ninth_fathom_sec", "op": ">=", "value": 1},
+     {"read": "event.amount", "op": ">", "value": 0}
+    ],
+    "do": [{"heal": {"of": "amount", "share": 1.0, "ignore_taken": true}}]
+   },
+   {
+    "id": "ninth-fathom-tick",
+    "on": "tick_taken",
+    "if": [
+     {"read": "own.counter.ninth_fathom_sec", "op": ">=", "value": 1},
+     {"read": "event.amount", "op": ">", "value": 0}
+    ],
+    "do": [{"heal": {"of": "amount", "share": 1.0, "ignore_taken": true}}]
+   },
+   {
+    "id": "ninth-fathom-soul",
+    "on": "soul_taken",
+    "if": [
+     {"read": "own.counter.ninth_fathom_sec", "op": ">=", "value": 1},
+     {"read": "event.reflected", "op": "==", "value": 0},
+     {"read": "event.amount", "op": ">", "value": 0}
+    ],
+    "do": [{"heal": {"of": "amount", "share": 1.0, "ignore_taken": true}}]
+   }
+  ],
+  "rule": "Once a fight: sinks into deep-water calm, clearing every Slowed Time and Drunk stack and taking no damage for 1 s.",
+  "hooks": ["cleanse", "slowed time", "ward"],
+  "sources": ["world-depth:trac_anh"]
+ },
+ {
+  "id": "throw-the-iron",
+  "name": "Throw the Iron (Phóng Lao)",
+  "element": "",
+  "role": "curse",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "whale-line-harpoon",
+  "tags": ["physical", "harpoon"],
+  "c_art": 1.35,
+  "cost_share": 0.04,
+  "cooldown": 4.0,
+  "kind": "phys",
+  "statuses": [
+   {"id": "bound", "stacks": 1, "dur": 3},
+   {"id": "slowed_time", "stacks": 1, "dur": 2}
+  ],
+  "rule": "Throws the harpoon on its qi-woven line for Physical damage, binding the foe (Bound, 3 s, it cannot flee) and slowing its timers (Slowed Time, 2 s).",
+  "hooks": ["bound", "slowed time", "physical", "curse duration"],
+  "sources": ["world-depth:trac_anh"]
+ },
+ {
+  "id": "haul-in",
+  "name": "Haul In (Kéo Tác)",
+  "element": "",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "whale-line-harpoon",
+  "tags": ["physical", "harpoon", "haul_in"],
+  "c_art": 2.2,
+  "cost_share": 0.05,
+  "cooldown": 5.0,
+  "kind": "phys",
+  "counters": [{"id": "line_held"}],
+  "empower": [
+   {
+    "if": [{"read": "foe.status.bound", "op": ">=", "value": 1}],
+    "pay": [{"timer": {"side": "foe", "which": "next", "by": 0.3}}],
+    "c_mult": 1.6
+   }
+  ],
+  "effects": [
+   {
+    "id": "haul-in-clear",
+    "on": "pulse",
+    "if": [
+     {"read": "foe.status.bound", "op": "==", "value": 0},
+     {"read": "own.counter.line_held", "op": ">=", "value": 1}
+    ],
+    "do": [{"counter": {"id": "line_held", "set": 0}}]
+   },
+   {
+    "id": "haul-in-hold",
+    "on": "pulse",
+    "if": [{"read": "foe.status.bound", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "line_held", "add": 1}}]
+   },
+   {
+    "id": "haul-in-scale",
+    "on": "always",
+    "if": [
+     {"read": "foe.status.bound", "op": ">=", "value": 1},
+     {"read": "own.counter.line_held", "op": ">=", "value": 1}
+    ],
+    "scale": {"read": "own.counter.line_held", "per": 1},
+    "do": [{"mod": {"dmg_more": 0.15, "tags": ["haul_in"]}}]
+   }
+  ],
+  "rule": "Tightens the harpoon line for Physical damage; if the foe is Bound, delays its soonest ready art by 0.3 s and deals 60 % more base damage plus 15 % more damage for each second Bound has held.",
+  "hooks": ["bound", "timer delay", "physical", "dmg more"],
+  "sources": ["world-depth:trac_anh"]
+ }
+]

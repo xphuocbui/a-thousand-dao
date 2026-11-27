@@ -1,0 +1,65 @@
+{
+ "_doc": "Trạc Anh Đài's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:trac_anh. Unpriced. Every Effect declares all counters it reads or writes for standalone GDScript compilation.",
+ "source": "world-depth:trac_anh",
+ "effects": {
+  "The Line Holds": {
+   "rule": "Canglang Harpoon: while the foe is Bound (it cannot flee), your hits that deal damage heal you for 3 % of the damage dealt.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:The Line Holds",
+     "on": "hit_landed",
+     "if": [
+      {"read": "foe.status.bound", "op": ">=", "value": 1},
+      {"read": "event.amount", "op": ">", "value": 0}
+     ],
+     "do": [
+      {"heal": {"of": "amount", "share": 0.03}}
+     ]
+    }
+   ]
+  },
+  "Drag It to the Ice": {
+   "rule": "Old Ivory Hunt, full set (3 pieces): while the foe is Bound (it cannot flee), each second Bound holds you heal 1 % of your health and the foe takes 4 % more Physical damage from you; the bonus lasts while Bound holds and ends when Bound ends.",
+   "counters": [
+    {"id": "ivory_bind"}
+   ],
+   "records": [
+    {
+     "id": "eff:Drag It to the Ice:clear",
+     "on": "pulse",
+     "if": [
+      {"read": "foe.status.bound", "op": "==", "value": 0},
+      {"read": "own.counter.ivory_bind", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "ivory_bind", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:Drag It to the Ice:tick",
+     "on": "pulse",
+     "if": [
+      {"read": "foe.status.bound", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"heal": {"share": 0.01}},
+      {"counter": {"id": "ivory_bind", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:Drag It to the Ice:more",
+     "on": "always",
+     "if": [
+      {"read": "foe.status.bound", "op": ">=", "value": 1},
+      {"read": "own.counter.ivory_bind", "op": ">=", "value": 1}
+     ],
+     "scale": {"read": "own.counter.ivory_bind", "per": 1},
+     "do": [
+      {"mod": {"dmg_more": 0.04, "dtype": "phys"}}
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "owner": "trac_anh",
+ "minutes": 8,
+ "written": {
+  "techniques": 2,
+  "arts": 5,
+  "items": 4,
+  "sets": 1,
+  "effects": 2,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 4,
+ "decisions": [
+  "Keep names: [] on element-free secret method whale-line-harpoon as well as body method canglang-body-canon (supported by b02 lint-element-free-techniques).",
+  "Size canglang-body-canon (khi_huyet_pct 12; 15.9 W passives) and whale-line-harpoon (attack_pct 8; 14.8 W passives) to Profound tier 1 budget (16.0 W).",
+  "Set ninth-fathom unlock_layer: 6 (within suite <= 6 rule) and cooldown: 6.0 (guarded per_fight: 1) so all L6+ holders fire it once in both gap 0 and gap 1 fights.",
+  "Rewrite throw-the-iron non-spatially (bound 3 s + slowed_time 2 s, c_art 1.35, cd 4.0) and reword haul-in rule ('tightens the harpoon line') for spatial_words_check parity.",
+  "Split wash-the-hat-strings into two art_fired records to avoid multi-mod clobber; order convert before arm on wash-the-feet was_hit and use each_for: 1.0 timer counter + dampen_taken 10000 + hit/tick/soul refunds on ninth-fathom.",
+  "Set rarity: 4 on treasure ta-goose-bone-beads, unique: true and sources: [npc] on all 4 items, R6 exception on mao/giap, and split Drag It to the Ice rule text out of sets-trac_anh.json effect name."
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py --sect trac_anh) to close techniques (2), arts_new (5), items (4), sets (1), effects (2), beasts (2: lang_nhi, tiem_nhi already wired on doan_to_ba), and events (2 structured)."
+ ]
+}
