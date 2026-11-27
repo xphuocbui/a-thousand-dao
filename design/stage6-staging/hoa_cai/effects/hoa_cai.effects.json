@@ -135,7 +135,7 @@
   },
   "Nine Stars over the Fire": {
    "rule": "Canopy Furnace (Hoa Cái Lô): in a fight, while a foe carries any of your debuffs, your wards gain +20 % ward strength and your stance ward regains 2 % of its peak each second. Out-of-fight pill refining batch-preservation awaits alchemy crafting Effect hooks.",
-   "approx": "Out-of-fight failed-batch preservation has no crafting Effect hook in src/ yet; fight half runs live (+20 % ward_pct and 2 % peak ward_grow while the foe carries Earth, Metal, Wood, or Fire debuffs).",
+   "approx": "Out-of-fight failed-batch preservation has no crafting Effect hook in src/ yet; fight half runs live (+20 % ward_pct and 2 % peak ward_grow while the foe carries Earth, Metal, Wood, Fire, Ice, Thunder, or Wind debuffs).",
    "records": [
     {
      "id": "eff:Nine Stars over the Fire ward",
@@ -160,6 +160,21 @@
         },
         {
          "read": "foe.debuff.fire",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.ice",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.thunder",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.wind",
          "op": ">=",
          "value": 1
         }
@@ -202,6 +217,21 @@
         },
         {
          "read": "foe.debuff.fire",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.ice",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.thunder",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.wind",
          "op": ">=",
          "value": 1
         }
@@ -257,7 +287,8 @@
      "filter": {
       "tags": [
        "fan"
-      ]
+      ],
+      "not_art_id": "fan-gust"
      },
      "do": [
       {

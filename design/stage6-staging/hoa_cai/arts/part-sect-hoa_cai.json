@@ -465,8 +465,7 @@
   "group": "sulphur-lung-breath",
   "tags": [
    "body",
-   "heal",
-   "cleanse"
+   "heal"
   ],
   "kind": "phys",
   "c_art": 0.0,

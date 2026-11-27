@@ -1,0 +1,14 @@
+{
+  "owner": "hoa_cai",
+  "minutes": 5,
+  "must_fix": 0,
+  "should": 3,
+  "fixed": 3,
+  "words": {},
+  "open": [
+    "Serial step merge/export of design/stage6-staging/hoa_cai/ via stage6_merge.py and put_effects.py",
+    "export_named.py support for kind == treasure (hc-nine-cycle-gourd, grade 4, rarity 5)",
+    "Out-of-fight alchemy crafting Effect consumer in src/ for Nine Stars over the Fire (failed-batch preservation)",
+    "Full pill combat support in src/ for pill-smoke (currently smoke-only via burn_pill)"
+  ]
+}
