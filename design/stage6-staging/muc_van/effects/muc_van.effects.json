@@ -143,7 +143,32 @@
         "id": "companion_present",
         "set": 1
        }
-      },
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together mark comp",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.counter.hr_own_hit",
+         "op": "==",
+         "value": 0
+        },
+        {
+         "read": "own.counter.horse_tired",
+         "op": "==",
+         "value": 0
+        }
+       ]
+      }
+     ],
+     "do": [
       {
        "counter": {
         "id": "hr_comp_hit",
@@ -176,6 +201,12 @@
         "id": "horse_tired",
         "set": 0
        }
+      },
+      {
+       "counter": {
+        "id": "hr_own_hit",
+        "set": 0
+       }
       }
      ]
     },
@@ -185,21 +216,22 @@
      "filter": {
       "kind": "art"
      },
-     "do": [
+     "if": [
       {
-       "counter": {
-        "id": "hr_own_hit",
-        "set": 1
-       }
+       "any": [
+        {
+         "read": "own.counter.hr_comp_hit",
+         "op": "==",
+         "value": 0
+        },
+        {
+         "read": "own.counter.horse_tired",
+         "op": "==",
+         "value": 0
+        }
+       ]
       }
-     ]
-    },
-    {
-     "id": "eff:Horse and Rider Bear It Together basic",
-     "on": "hit_landed",
-     "filter": {
-      "kind": "basic"
-     },
+     ],
      "do": [
       {
        "counter": {
@@ -233,6 +265,43 @@
         "id": "horse_tired",
         "set": 0
        }
+      },
+      {
+       "counter": {
+        "id": "hr_comp_hit",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together basic",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "basic"
+     },
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.counter.hr_comp_hit",
+         "op": "==",
+         "value": 0
+        },
+        {
+         "read": "own.counter.horse_tired",
+         "op": "==",
+         "value": 0
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "hr_own_hit",
+        "set": 1
+       }
       }
      ]
     },
@@ -258,6 +327,12 @@
       {
        "counter": {
         "id": "horse_tired",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "hr_comp_hit",
         "set": 0
        }
       }
@@ -330,53 +405,26 @@
      "id": "otw_comp_hit",
      "cap": 1,
      "each_for": 1.0
+    },
+    {
+     "id": "otw_pulse_lock",
+     "cap": 1
     }
    ],
    "records": [
-    {
-     "id": "eff:One Thread of Wind joint comp",
-     "on": "hit_landed",
-     "filter": {
-      "kind": "companion"
-     },
-     "limit": {
-      "per_pulse": 1
-     },
-     "if": [
-      {
-       "read": "own.counter.otw_own_hit",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "otw_own_hit",
-        "set": 0
-       }
-      },
-      {
-       "heal": {
-        "share": 0.02
-       }
-      },
-      {
-       "stacks": {
-        "el": "wind",
-        "n": 1,
-        "for": 10.0,
-        "side": "own"
-       }
-      }
-     ]
-    },
     {
      "id": "eff:One Thread of Wind mark comp",
      "on": "hit_landed",
      "filter": {
       "kind": "companion"
      },
+     "if": [
+      {
+       "read": "own.counter.otw_own_hit",
+       "op": "==",
+       "value": 0
+      }
+     ],
      "do": [
       {
        "counter": {
@@ -387,26 +435,34 @@
      ]
     },
     {
-     "id": "eff:One Thread of Wind joint art",
+     "id": "eff:One Thread of Wind joint comp",
      "on": "hit_landed",
      "filter": {
-      "kind": "art"
-     },
-     "limit": {
-      "per_pulse": 1
+      "kind": "companion"
      },
      "if": [
       {
-       "read": "own.counter.otw_comp_hit",
+       "read": "own.counter.otw_own_hit",
        "op": ">=",
        "value": 1
+      },
+      {
+       "read": "own.counter.otw_pulse_lock",
+       "op": "==",
+       "value": 0
       }
      ],
      "do": [
       {
        "counter": {
-        "id": "otw_comp_hit",
+        "id": "otw_own_hit",
         "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "otw_pulse_lock",
+        "set": 1
        }
       },
       {
@@ -430,6 +486,13 @@
      "filter": {
       "kind": "art"
      },
+     "if": [
+      {
+       "read": "own.counter.otw_comp_hit",
+       "op": "==",
+       "value": 0
+      }
+     ],
      "do": [
       {
        "counter": {
@@ -440,19 +503,21 @@
      ]
     },
     {
-     "id": "eff:One Thread of Wind joint basic",
+     "id": "eff:One Thread of Wind joint art",
      "on": "hit_landed",
      "filter": {
-      "kind": "basic"
-     },
-     "limit": {
-      "per_pulse": 1
+      "kind": "art"
      },
      "if": [
       {
        "read": "own.counter.otw_comp_hit",
        "op": ">=",
        "value": 1
+      },
+      {
+       "read": "own.counter.otw_pulse_lock",
+       "op": "==",
+       "value": 0
       }
      ],
      "do": [
@@ -460,6 +525,12 @@
        "counter": {
         "id": "otw_comp_hit",
         "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "otw_pulse_lock",
+        "set": 1
        }
       },
       {
@@ -483,11 +554,83 @@
      "filter": {
       "kind": "basic"
      },
+     "if": [
+      {
+       "read": "own.counter.otw_comp_hit",
+       "op": "==",
+       "value": 0
+      }
+     ],
      "do": [
       {
        "counter": {
         "id": "otw_own_hit",
         "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind joint basic",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "basic"
+     },
+     "if": [
+      {
+       "read": "own.counter.otw_comp_hit",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.otw_pulse_lock",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "otw_comp_hit",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "otw_pulse_lock",
+        "set": 1
+       }
+      },
+      {
+       "heal": {
+        "share": 0.02
+       }
+      },
+      {
+       "stacks": {
+        "el": "wind",
+        "n": 1,
+        "for": 10.0,
+        "side": "own"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind pulse reset",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.otw_pulse_lock",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "otw_pulse_lock",
+        "set": 0
        }
       }
      ]
@@ -574,7 +717,7 @@
      ]
     },
     {
-     "id": "eff:Ninety Thousand Li gust",
+     "id": "eff:Ninety Thousand Li guard",
      "on": "art_fired",
      "filter": {
       "element": "wind",
@@ -596,7 +739,27 @@
         "dampen_taken": 25,
         "for": 2.0
        }
-      },
+      }
+     ]
+    },
+    {
+     "id": "eff:Ninety Thousand Li gust",
+     "on": "art_fired",
+     "filter": {
+      "element": "wind",
+      "tags": [
+       "escape",
+       "step"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.buff.wind",
+       "op": ">=",
+       "value": 8
+      }
+     ],
+     "do": [
       {
        "consume": {
         "el": "wind",

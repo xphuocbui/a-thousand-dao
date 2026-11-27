@@ -223,9 +223,12 @@
    },
    {
     "id": "run-herd-spend",
-    "on": "art_fired",
+    "on": "hit_landed",
     "filter": {
      "art_id": "run-with-the-herd"
+    },
+    "limit": {
+     "per_pulse": 1
     },
     "if": [
      {
@@ -382,11 +385,6 @@
      {
       "mod": {
        "companion_speed": 15,
-       "for": 3.0
-      }
-     },
-     {
-      "mod": {
        "status_resist": 15,
        "for": 3.0
       }
@@ -454,15 +452,24 @@
       }
      },
      {
-      "mod": {
-       "companion_speed": 25,
-       "for": 5.0
-      }
-     },
-     {
       "counter": {
        "id": "herd_turns",
        "set": 5
+      }
+     }
+    ]
+   },
+   {
+    "id": "herd-turns-speed",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-herd-turns"
+    },
+    "do": [
+     {
+      "mod": {
+       "companion_speed": 25,
+       "for": 5.0
       }
      }
     ]
