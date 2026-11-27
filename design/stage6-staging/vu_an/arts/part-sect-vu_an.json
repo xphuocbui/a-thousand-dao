@@ -507,7 +507,8 @@
     "on": "was_hit",
     "filter": {
      "not_tags": [
-      "wind"
+      "wind",
+      "phong"
      ]
     },
     "if": [
@@ -558,7 +559,8 @@
     "on": "was_hit",
     "filter": {
      "not_tags": [
-      "wind"
+      "wind",
+      "phong"
      ]
     },
     "if": [
@@ -597,7 +599,8 @@
     "on": "was_hit",
     "filter": {
      "not_tags": [
-      "wind"
+      "wind",
+      "phong"
      ]
     },
     "if": [
@@ -642,7 +645,8 @@
     "on": "was_hit",
     "filter": {
      "not_tags": [
-      "wind"
+      "wind",
+      "phong"
      ]
     },
     "if": [
@@ -681,7 +685,8 @@
     "on": "was_hit",
     "filter": {
      "not_tags": [
-      "wind"
+      "wind",
+      "phong"
      ]
     },
     "if": [
@@ -726,7 +731,8 @@
     "on": "was_hit",
     "filter": {
      "not_tags": [
-      "wind"
+      "wind",
+      "phong"
      ]
     },
     "if": [

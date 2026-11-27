@@ -15,12 +15,39 @@
      "cap": 3
     },
     {
+     "id": "lantern_wear",
+     "cap": 6
+    },
+    {
      "id": "road_mist",
      "cap": 1,
      "each_for": 4.0
+    },
+    {
+     "id": "wind_lifted",
+     "cap": 1
     }
    ],
    "records": [
+    {
+     "id": "eff:The Wind Lifts the Mist:pulse-reset",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.wind_lifted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "wind_lifted",
+        "set": 0
+       }
+      }
+     ]
+    },
     {
      "id": "eff:The Wind Lifts the Mist:hit-breath",
      "on": "was_hit",
@@ -33,6 +60,11 @@
      },
      "if": [
       {
+       "read": "own.counter.wind_lifted",
+       "op": "==",
+       "value": 0
+      },
+      {
        "read": "own.counter.mist_field",
        "op": "==",
        "value": 0
@@ -44,6 +76,12 @@
       }
      ],
      "do": [
+      {
+       "counter": {
+        "id": "wind_lifted",
+        "set": 1
+       }
+      },
       {
        "counter": {
         "id": "road_mist",
@@ -64,6 +102,11 @@
      },
      "if": [
       {
+       "read": "own.counter.wind_lifted",
+       "op": "==",
+       "value": 0
+      },
+      {
        "read": "own.counter.mist_field",
        "op": ">=",
        "value": 1
@@ -75,6 +118,12 @@
       }
      ],
      "do": [
+      {
+       "counter": {
+        "id": "wind_lifted",
+        "set": 1
+       }
+      },
       {
        "counter": {
         "id": "mist_field",
@@ -95,6 +144,11 @@
      },
      "if": [
       {
+       "read": "own.counter.wind_lifted",
+       "op": "==",
+       "value": 0
+      },
+      {
        "read": "own.counter.mist_field",
        "op": ">=",
        "value": 1
@@ -108,8 +162,20 @@
      "do": [
       {
        "counter": {
+        "id": "wind_lifted",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
         "id": "lantern_stone",
         "add": -1
+       }
+      },
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "add": -2
        }
       }
      ]
@@ -126,6 +192,11 @@
      },
      "if": [
       {
+       "read": "own.counter.wind_lifted",
+       "op": "==",
+       "value": 0
+      },
+      {
        "read": "own.counter.mist_field",
        "op": "==",
        "value": 0
@@ -137,6 +208,12 @@
       }
      ],
      "do": [
+      {
+       "counter": {
+        "id": "wind_lifted",
+        "set": 1
+       }
+      },
       {
        "counter": {
         "id": "road_mist",
@@ -157,6 +234,11 @@
      },
      "if": [
       {
+       "read": "own.counter.wind_lifted",
+       "op": "==",
+       "value": 0
+      },
+      {
        "read": "own.counter.mist_field",
        "op": ">=",
        "value": 1
@@ -168,6 +250,12 @@
       }
      ],
      "do": [
+      {
+       "counter": {
+        "id": "wind_lifted",
+        "set": 1
+       }
+      },
       {
        "counter": {
         "id": "mist_field",
@@ -188,10 +276,15 @@
      },
      "if": [
       {
+       "read": "own.counter.wind_lifted",
+       "op": "==",
+       "value": 0
+      },
+      {
        "read": "own.counter.mist_field",
        "op": ">=",
        "value": 1
-     },
+      },
       {
        "read": "own.counter.lantern_stone",
        "op": ">=",
@@ -201,8 +294,20 @@
      "do": [
       {
        "counter": {
+        "id": "wind_lifted",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
         "id": "lantern_stone",
         "add": -1
+       }
+      },
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "add": -2
        }
       }
      ]
@@ -495,6 +600,35 @@
    ],
    "records": [
     {
+     "id": "eff:Out of the Mist:watch-fire",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "lock_road"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.out_mist_seen",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "out_mist_seen",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
      "id": "eff:Out of the Mist:watch",
      "on": "pulse",
      "if": [
@@ -701,6 +835,30 @@
     }
    ],
    "records": [
+    {
+     "id": "eff:Nobody Looked:extend-clear-cast",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "lock_road"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.nobody_ext_given",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "nobody_ext_given",
+        "set": 0
+       }
+      }
+     ]
+    },
     {
      "id": "eff:Nobody Looked:extend",
      "on": "pulse",

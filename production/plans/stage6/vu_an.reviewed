@@ -1,0 +1,14 @@
+{
+ "owner": "vu_an",
+ "minutes": 7,
+ "must_fix": 2,
+ "should": 3,
+ "fixed": 5,
+ "words": {},
+ "open": [
+  "cast_ward_duration_pct (+20 on va-mist-lock-lantern): valid in lint_items/modifiers.md, no CHARACTER_MODS/cast_wards reader yet (depth_gap lines: 1 open)",
+  "Passive arts lost-on-the-road and the-wind-lifts-the-mist stay without active art ids in vu_an.techniques.json (promoted via technique-effects)",
+  "R6 exception kept on va-bobtail-axe (phu, weapon) until an authored art or ward is ruled",
+  "5 structured events (N-vu_an-01..05) in design/world/depth/events/vu_an.events.json close at Stage 8 export"
+ ]
+}
