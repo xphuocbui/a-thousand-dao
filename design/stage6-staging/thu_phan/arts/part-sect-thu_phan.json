@@ -1,0 +1,682 @@
+[
+ {
+  "id": "sweep-the-stones",
+  "name": "Sweep the Stones (Tảo Thạch)",
+  "element": "",
+  "role": "soul",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "grave-sweeping-chant",
+  "tags": [
+   "song"
+  ],
+  "soul_pct": 0.03,
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 3.0,
+  "kind": "elem",
+  "effects": [
+   {
+    "id": "sweep-the-stones-slacken",
+    "on": "soul_hit",
+    "filter": {
+     "art_id": "sweep-the-stones"
+    },
+    "do": [
+     {
+      "status": {
+       "id": "slackened_soul",
+       "stacks": 1,
+       "dur": 4,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A low chant that strikes the foe for light soul damage (3 % of the soul bar) and lowers its soul resistance with Slackened Soul for 4 s.",
+  "hooks": [
+   "soul damage",
+   "song",
+   "Slackened Soul"
+  ],
+  "sources": [
+   "world-depth:thu_phan"
+  ],
+  "notes": "Uses soul_hit Effect instead of art.statuses because soul_hit() in engine.py and fight.gd does not apply art.statuses."
+ },
+ {
+  "id": "ghosts-sing-old-poems",
+  "name": "Ghosts Sing Old Poems (Quỷ Xướng)",
+  "element": "",
+  "role": "soul",
+  "tier": "authored",
+  "power": "engine",
+  "group": "autumn-grave-canon",
+  "tags": [
+   "song"
+  ],
+  "soul_pct": 0.035,
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 4.0,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "chorus"
+   }
+  ],
+  "effects": [
+   {
+    "id": "ghosts-sing-chorus-bonus",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "ghosts-sing-old-poems"
+    },
+    "if": [
+     {
+      "read": "own.counter.chorus",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.chorus"
+    },
+    "do": [
+     {
+      "mod": {
+       "x_soul": 25
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A song art that deals soul damage (3.5 % of the soul bar), gaining +25 % soul damage for each voice in the chorus.",
+  "hooks": [
+   "soul damage",
+   "song",
+   "chorus"
+  ],
+  "sources": [
+   "world-depth:thu_phan"
+  ]
+ },
+ {
+  "id": "add-a-voice",
+  "name": "Add a Voice (Thêm Thanh)",
+  "element": "",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "autumn-grave-canon",
+  "tags": [],
+  "c_art": 0.0,
+  "cost_share": 0.02,
+  "cooldown": 8.0,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "chorus"
+   }
+  ],
+  "effects": [
+   {
+    "id": "add-voice-80",
+    "on": "pulse",
+    "limit": {
+     "per_fight": 1
+    },
+    "if": [
+     {
+      "read": "foe.hp_share",
+      "op": "<=",
+      "value": 0.8
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-60",
+    "on": "pulse",
+    "limit": {
+     "per_fight": 1
+    },
+    "if": [
+     {
+      "read": "foe.hp_share",
+      "op": "<=",
+      "value": 0.6
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-40",
+    "on": "pulse",
+    "limit": {
+     "per_fight": 1
+    },
+    "if": [
+     {
+      "read": "foe.hp_share",
+      "op": "<=",
+      "value": 0.4
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-20",
+    "on": "pulse",
+    "limit": {
+     "per_fight": 1
+    },
+    "if": [
+     {
+      "read": "foe.hp_share",
+      "op": "<=",
+      "value": 0.2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-broken",
+    "on": "broken",
+    "limit": {
+     "per_fight": 1
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-wounded",
+    "on": "wounded",
+    "limit": {
+     "per_fight": 1
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Gains 1 chorus voice the first time the foe's health falls to or below 80, 60, 40 and 20 %, when the foe is Broken, and when you are first Wounded.",
+  "hooks": [
+   "chorus",
+   "broken",
+   "wounded"
+  ],
+  "sources": [
+   "world-depth:thu_phan"
+  ]
+ },
+ {
+  "id": "autumn-comes",
+  "name": "Autumn Comes (Thu Lai)",
+  "element": "",
+  "role": "soul",
+  "tier": "authored",
+  "power": "engine",
+  "group": "autumn-grave-canon",
+  "tags": [
+   "song"
+  ],
+  "soul_pct": 0.032,
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "chorus"
+   }
+  ],
+  "effects": [
+   {
+    "id": "autumn-comes-soul",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "autumn-comes"
+    },
+    "if": [
+     {
+      "read": "own.counter.chorus",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.chorus"
+    },
+    "do": [
+     {
+      "mod": {
+       "x_soul": 30
+      }
+     }
+    ]
+   },
+   {
+    "id": "autumn-comes-silence",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "autumn-comes"
+    },
+    "if": [
+     {
+      "read": "own.counter.chorus",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "scale": {
+     "read": "own.counter.chorus",
+     "per": 2
+    },
+    "do": [
+     {
+      "stop_clock": {
+       "side": "foe",
+       "seconds": 1.0
+      }
+     }
+    ]
+   },
+   {
+    "id": "autumn-comes-spend",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "autumn-comes"
+    },
+    "if": [
+     {
+      "read": "own.counter.chorus",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Spends the chorus: stops the foe's clock for 1 s per two voices spent and strikes for soul damage (3.2 % of the soul bar, +30 % per voice spent).",
+  "hooks": [
+   "soul damage",
+   "song",
+   "chorus",
+   "stop clock"
+  ],
+  "sources": [
+   "world-depth:thu_phan"
+  ],
+  "notes": "Uses stop_clock 1 s per 2 chorus voices because silence in engine.py requires a single tag rather than silencing all foe arts."
+ },
+ {
+  "id": "hold-it-down",
+  "name": "Hold It Down (Trấn Hận)",
+  "element": "",
+  "role": "control",
+  "tier": "authored",
+  "power": "engine",
+  "group": "jade-of-resentment-ward",
+  "tags": [
+   "seal",
+   "curse"
+  ],
+  "c_art": 1.0,
+  "cost_share": 0.05,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "effects": [
+   {
+    "id": "hold-it-down-base",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "hold-it-down"
+    },
+    "if": [
+     {
+      "read": "foe.curses",
+      "op": "<=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     },
+     {
+      "status": {
+       "id": "sundered",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hold-it-down-mid",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "hold-it-down"
+    },
+    "if": [
+     {
+      "read": "foe.curses",
+      "op": ">=",
+      "value": 2
+     },
+     {
+      "read": "foe.curses",
+      "op": "<=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     },
+     {
+      "status": {
+       "id": "sundered",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hold-it-down-deep",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "hold-it-down"
+    },
+    "if": [
+     {
+      "read": "foe.curses",
+      "op": ">=",
+      "value": 4
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 4,
+       "side": "foe"
+      }
+     },
+     {
+      "status": {
+       "id": "sundered",
+       "stacks": 1,
+       "dur": 4,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Lays a seal that slows the foe's arts (Slowed Time) and weakens its guard (Sundered); lasts 2 s base, 3 s if the foe carries 2-3 curses, or 4 s at 4+ curses.",
+  "hooks": [
+   "seal",
+   "curse",
+   "Slowed Time",
+   "Sundered"
+  ],
+  "sources": [
+   "world-depth:thu_phan"
+  ],
+  "notes": "Approximation: engine curses act on whole foe readiness (slowed_time) and defence (sundered) rather than weakening a single foe art; stepped duration branches (3/5/7 s) scale with foe.curses."
+ },
+ {
+  "id": "a-thousand-years",
+  "name": "A Thousand Years (Thiên Niên)",
+  "element": "",
+  "role": "control",
+  "tier": "authored",
+  "power": "engine",
+  "group": "jade-of-resentment-ward",
+  "tags": [
+   "curse"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "thousand_timer"
+   },
+   {
+    "id": "thousand_age"
+   },
+   {
+    "id": "jade_mark"
+   }
+  ],
+  "effects": [
+   {
+    "id": "thousand-years-cast",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "a-thousand-years"
+    },
+    "do": [
+     {
+      "status": {
+       "id": "heavy_breath",
+       "stacks": 1,
+       "dur": 4,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "thousand_timer",
+       "set": 4
+      }
+     },
+     {
+      "counter": {
+       "id": "thousand_age",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "thousand-years-cleansed",
+    "on": "cleansed",
+    "if": [
+     {
+      "read": "own.counter.thousand_timer",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.status.heavy_breath",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thousand_timer",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "thousand_age",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "thousand-years-grow",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.thousand_timer",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.status.heavy_breath",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thousand_age",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "thousand_timer",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "thousand-years-hit",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.thousand_age",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.status.heavy_breath",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.thousand_age"
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.35,
+       "dtype": "soul"
+      }
+     }
+    ]
+   },
+   {
+    "id": "thousand-years-complete",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.thousand_age",
+      "op": ">=",
+      "value": 4
+     },
+     {
+      "read": "own.counter.thousand_timer",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "thousand_age",
+       "set": 0
+      }
+     },
+     {
+      "stop_clock": {
+       "side": "foe",
+       "seconds": 1.0
+      }
+     },
+     {
+      "counter": {
+       "id": "jade_mark",
+       "add": 1
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Lays a Heavy Breath curse (4 s) that deals no initial damage and deals escalating soul damage each pulse (0.35 c x age). When all 4 pulses complete un-cleansed, stops the foe's clock for 1 s and leaves 1 jade mark.",
+  "hooks": [
+   "curse",
+   "Heavy Breath",
+   "stop clock",
+   "jade_mark"
+  ],
+  "sources": [
+   "world-depth:thu_phan"
+  ]
+ }
+]

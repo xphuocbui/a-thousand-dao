@@ -19,7 +19,7 @@
    "tier": 0, "tech_kind": "main", "names": [], "layers": 6, "rank": "ngoai_mon",
    "concept": "The outer gate's method. Disciples sweep the graves of Lôi Trạch with bamboo brooms and sing the sweeping chant as they go, and the method is in the singing: it draws no element, only breath and attention, and trains the ear of the soul (thần hồn) to hear what lies under the earth. Most who learn it hear nothing for years. Those who hear something are taken into the inner gate.",
    "arts": [
-    {"new": "Sweep the Stones (Tảo Thạch)", "concept": "A low chant that strikes the foe for light soul damage and lowers its soul resistance for a few seconds.", "tags": ["song"], "authored": "b2"}
+    {"id": "sweep-the-stones", "new": "Sweep the Stones (Tảo Thạch)", "concept": "A low chant that strikes the foe for light soul damage and lowers its soul resistance for a few seconds.", "tags": ["song"], "authored": "b2"}
    ],
    "lore": "Lý Hận Bích set it down in 961, from the chant the cave hunters of Thủ Động Trại sang when they swept Khải Lôi's dead on the day of Kinh Trập (V152).",
    "status": "proposal",
@@ -31,9 +31,9 @@
    "tier": 1, "tech_kind": "main", "names": [], "layers": 9, "rank": "noi_mon",
    "concept": "The Pavilion's canon: to sing with the dead. The cultivator learns the songs the graves of Lôi Trạch sing in autumn and sings them back, so that the dead join in. In a fight the canon raises a chorus around the singer. While the chorus is up, the foe who falls adds a voice, and the chorus strikes the soul, not the body. It is weak at the start of a fight and grows as the fight grows deadly. Against a foe below half health, it is very strong.",
    "arts": [
-    {"new": "Ghosts Sing Old Poems (Quỷ Xướng)", "concept": "A song art that deals soul damage to the foe; its damage rises with each voice in the chorus.", "tags": ["song"], "authored": "b2"},
-    {"new": "Add a Voice (Thêm Thanh)", "concept": "The chorus gains a voice each time the foe's health first falls below 80, 60, 40 and 20 %, when the foe is Broken and when you are first Wounded.", "authored": "d7, a1"},
-    {"new": "Autumn Comes (Thu Lai)", "concept": "Spends the chorus: the foe is silenced for 1 s per two voices spent and takes soul damage.", "tags": ["song"], "authored": "b2"}
+    {"id": "ghosts-sing-old-poems", "new": "Ghosts Sing Old Poems (Quỷ Xướng)", "concept": "A song art that deals soul damage to the foe; its damage rises with each voice in the chorus.", "tags": ["song"], "authored": "b2"},
+    {"id": "add-a-voice", "new": "Add a Voice (Thêm Thanh)", "concept": "The chorus gains a voice each time the foe's health first falls below 80, 60, 40 and 20 %, when the foe is Broken and when you are first Wounded.", "authored": "d7, a1"},
+    {"id": "autumn-comes", "new": "Autumn Comes (Thu Lai)", "concept": "Spends the chorus: the foe is silenced for 1 s per two voices spent and takes soul damage.", "tags": ["song"], "authored": "b2"}
    ],
    "lore": "Written by Lý Hận Bích between 960 and 1000, at the graves (C197). The Pavilion holds that she did not write it, only heard it.",
    "status": "proposal",
@@ -49,8 +49,8 @@
    "tier": 2, "tech_kind": "secret", "names": [], "layers": 12, "rank": "truong_lao",
    "concept": "The founder's grave ward, after the old line: the blood of the wronged, a thousand years in the earth, turns to jade. A ward is laid over a grave to hold its dead's resentment in the ground, where it slowly hardens into grave jade, instead of rising. In a fight it lays seals that hold a foe the same way: each seal holds back one of their arts, and a foe sealed long enough is stilled. The ward is what keeps the graves of Lôi Trạch singing and not walking.",
    "arts": [
-    {"new": "Hold It Down (Trấn Hận)", "concept": "Lays a seal on the foe: one of their arts is slowed and weakened; the seal lasts longer the more curses the foe already carries."},
-    {"new": "A Thousand Years (Thiên Niên)", "concept": "A curse that deals nothing at first and grows each second; when it runs its full length it stuns the foe and leaves a jade mark."}
+    {"id": "hold-it-down", "new": "Hold It Down (Trấn Hận)", "concept": "Lays a seal on the foe: one of their arts is slowed and weakened; the seal lasts longer the more curses the foe already carries."},
+    {"id": "a-thousand-years", "new": "A Thousand Years (Thiên Niên)", "concept": "A curse that deals nothing at first and grows each second; when it runs its full length it stuns the foe and leaves a jade mark."}
    ],
    "lore": "Taught only to the head and her elders. Lý Hận Bích laid the first ward over the graves in 960 and renews them every autumn. Lương Thanh Mộ knew it, and went into the deepest grave in 1110 to renew the oldest ward from inside.",
    "status": "proposal"

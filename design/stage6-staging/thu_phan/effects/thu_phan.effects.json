@@ -1,0 +1,903 @@
+{
+ "_doc": "World-depth Stage 6 Effects for thu_phan (Thu Phần Các / Pavilion of the Autumn Graves).",
+ "source": "world-depth:thu_phan",
+ "effects": {
+  "Toll for the Dead": {
+   "source": "world-depth:thu_phan",
+   "counters": [
+    {
+     "id": "bell_toll_soul"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Toll for the Dead broken",
+     "on": "broken",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "timer": {
+        "side": "own",
+        "which": "all",
+        "by": -999
+       }
+      },
+      {
+       "counter": {
+        "id": "bell_toll_soul",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Toll for the Dead wounded",
+     "on": "wounded",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "timer": {
+        "side": "own",
+        "which": "all",
+        "by": -999
+       }
+      },
+      {
+       "counter": {
+        "id": "bell_toll_soul",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Toll for the Dead boost",
+     "on": "art_fired",
+     "filter": {
+      "dtype": "soul"
+     },
+     "if": [
+      {
+       "read": "own.counter.bell_toll_soul",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "x_soul": 30
+       }
+      },
+      {
+       "counter": {
+        "id": "bell_toll_soul",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "rule": "When the foe is Broken or you are first Wounded, your slotted arts come ready (not sooner than cooldown_min) and your next soul art deals +30 % soul damage.",
+   "approx": "Uses timer which='all' by=-999 because timer cannot filter to dtype 'soul' only; the +30 % x_soul charge still consumes only on a soul art firing."
+  },
+  "Blood Turns to Jade": {
+   "source": "world-depth:thu_phan",
+   "counters": [
+    {
+     "id": "jade_mark"
+    },
+    {
+     "id": "jade_spending"
+    },
+    {
+     "id": "jw_slowed_time"
+    },
+    {
+     "id": "jw_sundered"
+    },
+    {
+     "id": "jw_slackened_soul"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Blood Turns to Jade watch slowed_time",
+     "on": "status_applied",
+     "filter": {
+      "status": "slowed_time"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "jw_slowed_time",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade watch sundered",
+     "on": "status_applied",
+     "filter": {
+      "status": "sundered"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "jw_sundered",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade watch slackened_soul",
+     "on": "status_applied",
+     "filter": {
+      "status": "slackened_soul"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "jw_slackened_soul",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade cleansed slowed_time",
+     "on": "cleansed",
+     "if": [
+      {
+       "read": "own.counter.jw_slowed_time",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.slowed_time",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "jw_slowed_time",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade cleansed sundered",
+     "on": "cleansed",
+     "if": [
+      {
+       "read": "own.counter.jw_sundered",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.sundered",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "jw_sundered",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade cleansed slackened_soul",
+     "on": "cleansed",
+     "if": [
+      {
+       "read": "own.counter.jw_slackened_soul",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.slackened_soul",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "jw_slackened_soul",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade expire slowed_time",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.jw_slowed_time",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.slowed_time",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "jw_slowed_time",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "jade_mark",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade expire sundered",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.jw_sundered",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.sundered",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "jw_sundered",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "jade_mark",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade expire slackened_soul",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.jw_slackened_soul",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.slackened_soul",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "jw_slackened_soul",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "jade_mark",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade spend check",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "seal"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.jade_mark",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "jade_spending",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "jade_mark",
+        "add": -5
+       }
+      },
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade spend bonus",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "seal"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.jade_spending",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.jade_mark",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.jade_mark"
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.45,
+        "dtype": "soul"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Blood Turns to Jade spend clear",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "seal"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.jade_spending",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "jade_mark",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "jade_spending",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "rule": "Watched curses (Slowed Time, Sundered, Slackened Soul) that expire un-cleansed leave 1 jade mark on the foe. At 5 or more, your next seal art spends all marks, stops the foe's clock for 1 s, and deals a light soul hit (0.45 c) for each mark past 5.",
+   "approx": "Watches slowed_time, sundered, and slackened_soul via pulse-expiry detection (heavy_breath is left to A Thousand Years so it is not double-counted); stuns via stop_clock 1.0 s."
+  },
+  "The Dead Sing Along": {
+   "source": "world-depth:thu_phan",
+   "counters": [
+    {
+     "id": "resentment_mark"
+    },
+    {
+     "id": "resentment_presses"
+    },
+    {
+     "id": "resentment_debt"
+    },
+    {
+     "id": "resentment_just_paid"
+    },
+    {
+     "id": "resentment_need_debt"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Dead Sing Along debt slowed_time",
+     "on": "status_applied",
+     "filter": {
+      "status": "slowed_time"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_debt",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_debt",
+        "add": -1
+       }
+      },
+      {
+       "counter": {
+        "id": "resentment_just_paid",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along mark slowed_time",
+     "on": "status_applied",
+     "filter": {
+      "status": "slowed_time"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_just_paid",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_mark",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along clr slowed_time",
+     "on": "status_applied",
+     "filter": {
+      "status": "slowed_time"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_just_paid",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_just_paid",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along debt sundered",
+     "on": "status_applied",
+     "filter": {
+      "status": "sundered"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_debt",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_debt",
+        "add": -1
+       }
+      },
+      {
+       "counter": {
+        "id": "resentment_just_paid",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along mark sundered",
+     "on": "status_applied",
+     "filter": {
+      "status": "sundered"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_just_paid",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_mark",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along clr sundered",
+     "on": "status_applied",
+     "filter": {
+      "status": "sundered"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_just_paid",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_just_paid",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along debt heavy_breath",
+     "on": "status_applied",
+     "filter": {
+      "status": "heavy_breath"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_debt",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_debt",
+        "add": -1
+       }
+      },
+      {
+       "counter": {
+        "id": "resentment_just_paid",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along mark heavy_breath",
+     "on": "status_applied",
+     "filter": {
+      "status": "heavy_breath"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_just_paid",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_mark",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along clr heavy_breath",
+     "on": "status_applied",
+     "filter": {
+      "status": "heavy_breath"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_just_paid",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_just_paid",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along debt slackened_soul",
+     "on": "status_applied",
+     "filter": {
+      "status": "slackened_soul"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_debt",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_debt",
+        "add": -1
+       }
+      },
+      {
+       "counter": {
+        "id": "resentment_just_paid",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along mark slackened_soul",
+     "on": "status_applied",
+     "filter": {
+      "status": "slackened_soul"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_just_paid",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_mark",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along clr slackened_soul",
+     "on": "status_applied",
+     "filter": {
+      "status": "slackened_soul"
+     },
+     "if": [
+      {
+       "read": "own.counter.resentment_just_paid",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_just_paid",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along press",
+     "on": "status_applied",
+     "if": [
+      {
+       "read": "own.counter.resentment_mark",
+       "op": ">=",
+       "value": 7
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_mark",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "resentment_presses",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "resentment_need_debt",
+        "set": 1
+       }
+      },
+      {
+       "status": {
+        "id": "sealed_meridian",
+        "stacks": 1,
+        "dur": 3,
+        "layer": 1,
+        "side": "foe"
+       }
+      },
+      {
+       "free_hit": {
+        "c": 1.6,
+        "dtype": "soul"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Dead Sing Along debt add",
+     "on": "status_applied",
+     "if": [
+      {
+       "read": "own.counter.resentment_need_debt",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.resentment_presses"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "resentment_debt",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "resentment_need_debt",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "rule": "Each curse you lay (Slowed Time, Sundered, Heavy Breath, Slackened Soul) adds a Resentment mark. At 7 marks (plus 1 extra per earlier press in the fight), the seal presses: applies Sealed Meridian (layer 1, 3 s) and deals soul damage (1.6 c).",
+   "approx": "Uses fixed layer 1 for Sealed Meridian (highest standard layer value in fight builds) and fixed soul free_hit c=1.6 because Darkness (own.purity.am) is not readable in engine.py."
+  },
+  "The Cadence Like a Drum": {
+   "source": "world-depth:thu_phan",
+   "counters": [
+    {
+     "id": "drum_cadence"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Cadence Like a Drum count",
+     "on": "soul_hit",
+     "filter": {
+      "tags": [
+       "song"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "drum_cadence",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Cadence Like a Drum half",
+     "on": "soul_hit",
+     "filter": {
+      "tags": [
+       "song"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.drum_cadence",
+       "op": ">=",
+       "value": 3
+      },
+      {
+       "read": "foe.curses",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "drum_cadence",
+        "set": 0
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.85,
+        "dtype": "soul"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Cadence Like a Drum full",
+     "on": "soul_hit",
+     "filter": {
+      "tags": [
+       "song"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.drum_cadence",
+       "op": ">=",
+       "value": 3
+      },
+      {
+       "read": "foe.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "drum_cadence",
+        "set": 0
+       }
+      },
+      {
+       "free_hit": {
+        "c": 1.7,
+        "dtype": "soul"
+       }
+      }
+     ]
+    }
+   ],
+   "rule": "Every third soul song hit triggers the drum's echo: deals a bonus soul hit (0.85 c, or 1.70 c when the foe carries at least one curse).",
+   "approx": "Uses free_hit dtype 'soul' (0.85 c / 1.70 c) instead of fire_art because fire_art skips soul_pct arts in engine.py and effect_runner.gd."
+  }
+ }
+}

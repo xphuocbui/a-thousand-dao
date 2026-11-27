@@ -1,0 +1,35 @@
+{
+ "owner": "thu_phan",
+ "minutes": 45,
+ "written": {
+  "techniques": 3,
+  "arts": 6,
+  "items": 6,
+  "sets": 2,
+  "effects": 4,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 9,
+ "decisions": [
+  "names: ['thuy'] proxy on all 3 techniques because lint_techniques rejects names: [] on tech_kind != 'body' while arts stay element: '' (R3 no-lean)",
+  "scope: ['song'] mapped to [] on autumn-grave-canon x_soul and ['soul'] on item art_speed_pct because 'song' is outside Modifier TIER (b2)",
+  "Added new tier-matched bonuses and passives to grave-sweeping-chant (8.0W/8), autumn-grave-canon (15.0W/16), and jade-of-resentment-ward (22.4W/24)",
+  "Set autumn-grave-canon unlock layers to [1, 2, 4] (<=6 Truc Co rule) so inner disciples at layer 4+ slot the full chorus loop and layer-2 inner slots ghosts+add-a-voice",
+  "Declared every read/written counter inside each Effect's own counters array so standalone engine validation and fighter_profile_loader.gd pass",
+  "Set rarity: 5 (omitting grade) on tp-autumn-grave-bell and tp-resentment-jade-seal so grade-4 treasure items satisfy lint_items.py",
+  "Used stop_clock 1.0 s for autumn-comes silence, a-thousand-years stun, and Blood Turns to Jade stun because engine silence requires one specific tag (R4)",
+  "Used free_hit dtype 'soul' (0.85 c / 1.70 c when cursed) for The Cadence Like a Drum because fire_art skips soul_pct arts in both engines",
+  "Left heavy_breath counting to a-thousand-years and set hold-it-down to cd 6.0 s, dur 2/3/4 s so Blood Turns to Jade curses expire between casts instead of refreshing forever"
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "body-element-free-names: restore names: [] on grave-sweeping-chant, autumn-grave-canon, jade-of-resentment-ward once element-free main/secret techniques are allowed in lint_techniques",
+  "b2 ['song'] scope: restore ['song'] on autumn-grave-canon passive and tp-autumn-grave-bell, tp-nine-graves-zither, tp-grave-drum once 'song' enters Modifier TIER",
+  "Darkness readable (own.purity.am): replace fixed c=1.6 Darkness approximation on The Dead Sing Along once purity is readable in engine.py/fighter_compiler.gd",
+  "R6 common arts/wards: signature chuong, an, cam, dao_bao items carry exception until authored signature item arts are ruled",
+  "events: 4 (N-thu_phan-01..04) remain structured for Stage 8"
+ ]
+}

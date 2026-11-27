@@ -1,0 +1,278 @@
+[
+ {
+  "id": "tp-autumn-grave-bell",
+  "name": "Bell of the Autumn Graves (Thu Phần Chung)",
+  "family": "soul-song-seal",
+  "kind": "treasure",
+  "base": "chuong",
+  "rarity": 5,
+  "modifiers": [
+   {
+    "key": "x_soul",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "soul_res_pct",
+    "value": 30,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "soul"
+    ]
+   }
+  ],
+  "effects": [
+   "Toll for the Dead"
+  ],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "A small bronze bell cast by Ân Thanh Linh of Vũ Linh Đường in 1062, to Lý Hận Bích's measure, from bronze that had lain a year in the oldest grave. It rings when no one moves, and the Pavilion says that is when the dead do. The head wears it at her wrist.",
+  "build_use": "The head's ward bell: soul resistance, and a free soul art when someone falls.",
+  "holder": "ly_han_bich",
+  "made_by": "an_thanh_linh",
+  "made_year": 1062,
+  "set": "tp-autumn-graves",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "notes": "Depth gives art_speed_pct scope [\"song\"]; staged with [\"soul\"] until \"song\" joins Modifier TIER (b2).",
+  "unique": true
+ },
+ {
+  "id": "tp-resentment-jade-seal",
+  "name": "Seal of the Jade of Resentment (Hận Bích Ấn)",
+  "family": "soul-song-seal",
+  "kind": "treasure",
+  "base": "an",
+  "rarity": 5,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 20,
+    "scope": [
+     "seal"
+    ]
+   },
+   {
+    "key": "x_soul",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 15,
+    "scope": [
+     "curse"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "Blood Turns to Jade"
+  ],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "Carved by the head from the first fleck of grave jade the beds gave up, in 1000: green, small and very hard, with a dead man's thumbprint in it. It is the Pavilion's seal, and the proof of its teaching.",
+  "build_use": "Curse and seal: the long hold that ends in a stun.",
+  "holder": "ly_han_bich",
+  "made_by": "ly_han_bich",
+  "made_year": 1000,
+  "set": "tp-autumn-graves",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "tp-nine-graves-zither",
+  "name": "Zither of the Nine Graves (Cửu Phần Cầm)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "cam",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "x_soul",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "soul"
+    ]
+   },
+   {
+    "key": "healing_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "A zither of tribulation bamboo strung with nine strings, one for each of the oldest graves by the river. Lương Thanh Mộ made it and played it at the graves for a hundred years. She left it at the grave's mouth in 1110, and Bào Thu Xướng has played it since.",
+  "build_use": "The singing master's instrument: faster soul songs and a little healing for a long chant.",
+  "holder": "bao_thu_xuong",
+  "made_by": "luong_thanh_mo",
+  "made_year": 990,
+  "set": null,
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "notes": "Depth gives art_speed_pct scope [\"song\"]; staged with [\"soul\"] until \"song\" joins Modifier TIER (b2).",
+  "unique": true
+ },
+ {
+  "id": "tp-barred-door-robe",
+  "name": "Robe of the Barred Door (Bế Môn Bào)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 4,
+  "modifiers": [
+   {
+    "key": "soul_res_pct",
+    "value": 25,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 12,
+    "scope": [
+     "curse"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "Undyed hemp with the hunters' bar painted across the back in grave ash. She wove it the year she founded the Pavilion, from the cloth she wore the night the cave door was barred behind her.",
+  "build_use": "A grave-ward mistress's guard, and longer curses.",
+  "holder": "ly_han_bich",
+  "made_by": "ly_han_bich",
+  "made_year": 960,
+  "set": "tp-autumn-graves",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "tp-grave-drum",
+  "name": "Grave Drum (Phần Cổ)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "co",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "x_soul",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 8,
+    "scope": [
+     "soul"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 3,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "A small drum of tribulation bamboo and goat hide that the singers beat at the oldest graves. He has played the drum passages' cadence on it once, and something under the ridge answered.",
+  "build_use": "Sings what he has written: soul damage and faster soul arts.",
+  "holder": "co_ky_am",
+  "made_by": "luong_thanh_mo",
+  "made_year": 1000,
+  "set": "tp-second-copy",
+  "notes": "Depth gives art_speed_pct scope [\"song\"]; staged with [\"soul\"] until \"song\" joins Modifier TIER (b2).",
+  "unique": true
+ },
+ {
+  "id": "tp-lined-winter-robe",
+  "name": "Lined Winter Robe (Lót Đông Bào)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "soul_res_pct",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "A copyist's quilted winter robe. The second copy of the drum passages is sewn into its lining.",
+  "build_use": "A scholar's guard, careful and long.",
+  "holder": "co_ky_am",
+  "made_by": "co_ky_am",
+  "made_year": 1190,
+  "set": "tp-second-copy",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ }
+]
