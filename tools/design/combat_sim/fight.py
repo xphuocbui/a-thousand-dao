@@ -785,8 +785,9 @@ def to_build(d, r, notes, who):
             raise BadInput("%s.curses: %r is not one of %s" % (who, c, ", ".join(CURSES)))
         kw[CURSES[c]] = True
     pur = d.get("purity", {})
-    check_keys(pur, ELEMENTS - {""}, who + ".purity")
-    kw["purity"] = dict(pur)
+    # light is a root, not a stack element: it is read by root gates (expand_library) and has no purity in the engine
+    check_keys(pur, (ELEMENTS - {""}) | {"light"}, who + ".purity")
+    kw["purity"] = {k: v for k, v in pur.items() if k != "light"}
     arts = []
     base_x = list(d["layers"]) + [0] * 5
     lo, hi = C["cost_share"]
