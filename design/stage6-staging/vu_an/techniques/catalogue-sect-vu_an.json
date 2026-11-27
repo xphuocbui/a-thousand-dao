@@ -1,0 +1,188 @@
+[
+ {
+  "id": "road-mist-primer",
+  "name": "Road Mist Primer (Lộ Vụ Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "origin": "authored",
+  "suite": "road-mist-primer",
+  "family": "wood",
+  "owner": "vu_an",
+  "rank": "ngoai_mon",
+  "names": [
+   "moc",
+   "thuy"
+  ],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {
+    "key": "evade_pct",
+    "value": 3,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 3,
+    "scope": []
+   },
+   {
+    "key": "accuracy_pct",
+    "value": 2,
+    "scope": []
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "a-breath-of-road-mist",
+    "unlock_layer": 1
+   }
+  ],
+  "effects": [
+   {
+    "name": "The Wind Lifts the Mist",
+    "unlock_layer": 1,
+    "passive_art": true,
+    "rule": "A passive art. When the foe fires an art with the `wind` element tag, it lifts one mist of yours: your newest Field tagged `mist` ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss."
+   }
+  ],
+  "notes": "Stage 6 vu_an record pass. Tier-0 Wood/Water outer-gate method; [NEW] 3 tier-0 passives sized to 7.9 W / 8.0 budget. Passive art The Wind Lifts the Mist (d49) wired via technique-effects at layer 1.",
+  "concept": "A guard's method for walking a road at dawn. A Wood root breathes the damp off the forest edge and a Water root the mist off the river, and either learns to let a breath of it out again, enough to cover one traveller's back. It is mostly walking, watching and breathing. The sixth layer is the first lantern: the guard hangs a mist lantern at a crossroads and keeps it lit until a stranger passes under it unseen.",
+  "lore": "Hàm Thủ Lộ (ham_thu_lo) made it for the carriers and tea-pickers he hired in 1050, men who could not have learned the Haze Walk. They needed a first step toward it."
+ },
+ {
+  "id": "mist-lock-array-canon",
+  "name": "Mist-Lock Array Canon (Tỏa Vụ Trận Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "origin": "authored",
+  "suite": "mist-lock-array-canon",
+  "family": "wood",
+  "owner": "vu_an",
+  "rank": "noi_mon",
+  "names": [
+   "moc",
+   "thuy"
+  ],
+  "layers": 9,
+  "bonuses": [
+   {
+    "stat": "linh_luc_pct",
+    "value": 12
+   }
+  ],
+  "passives": [
+   {
+    "key": "evade_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 5,
+    "scope": []
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 5,
+    "scope": [
+     "moc",
+     "thuy"
+    ]
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 5,
+    "scope": [
+     "curse"
+    ]
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "lock-the-road",
+    "unlock_layer": 1
+   },
+   {
+    "ability_id": "lantern-stone",
+    "unlock_layer": 2
+   },
+   {
+    "ability_id": "deep-lake-stance",
+    "unlock_layer": 4
+   }
+  ],
+  "effects": [
+   {
+    "name": "The Wind Lifts the Mist",
+    "unlock_layer": 1,
+    "passive_art": true,
+    "rule": "A passive art. When the foe fires an art with the `wind` element tag, it lifts one mist of yours: your newest Field tagged `mist` ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss."
+   },
+   {
+    "name": "Lost on the Road",
+    "unlock_layer": 5,
+    "passive_art": true,
+    "rule": "A passive art. Each foe art that misses you, evaded or avoided, while your mist field is up adds one Lost; at five, your escape art comes ready at once and cannot fail, and the Lost are spent."
+   }
+  ],
+  "notes": "Stage 6 vu_an record pass. Tier-1 Wood/Water inner-gate method; [NEW] tier-1 bonus (linh_luc_pct 12) and 4 passives sized <= 16.0 W budget. Reuses deep-lake-stance from family-water.json at layer 4. Passive arts The Wind Lifts the Mist (d49, L1) and Lost on the Road (d2, L5) wired via technique-effects.",
+  "concept": "The founder's method: the Haze Walk turned outward. The walker thins one body into haze. The array-layer lays haze on a stretch of road and locks it there with lantern-stones, so everyone inside is hidden while it holds. It cultivates by laying and holding the lock day after day on the cape's roads. In a fight it makes a hidden ground. While the mist (a Field) is up, you are hard to see and hard to hit. The foe loses its way and its aim, and when the Field ends you strike first. By the sect's rule it never strikes from the mist itself.",
+  "lore": "Hàm Thủ Lộ worked it out on the cape's roads between 1048 and 1050, after his sworn brother Tất Hành Vụ (tat_hanh_vu) taught him the Haze Walk (N-thuy_vi-07, V015). Tất reads it and says it is better than the walk. Thúy Vi's elders read it and say that is what theft looks like."
+ },
+ {
+  "id": "hidden-gate-array",
+  "name": "Gate Hidden in Mist (Vụ Ẩn Môn Trận)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "origin": "authored",
+  "suite": "hidden-gate-array",
+  "family": "wood",
+  "owner": "vu_an",
+  "rank": "tong_chu",
+  "names": [
+   "moc"
+  ],
+  "layers": 9,
+  "bonuses": [
+   {
+    "stat": "than_thuc_pct",
+    "value": 10
+   }
+  ],
+  "passives": [
+   {
+    "key": "evade_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 6,
+    "scope": [
+     "moc"
+    ]
+   },
+   {
+    "key": "status_resist_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "accuracy_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "the-gate-is-not-there",
+    "unlock_layer": 1
+   }
+  ],
+  "effects": [],
+  "notes": "Stage 6 vu_an record pass. Tier-1 Wood sect-head secret method; [NEW] tier-1 bonus (than_thuc_pct 10) and 4 passives sized <= 15.8 W / 16.0 budget.",
+  "concept": "The array the sect is named for, which hides its own seat. A traveller who does not know the way walks past the gate in the black pines and never sees it. The head keeps it and lays it new each spring. In a fight the holder can step into a fold of mist and come out somewhere else, and a foe who follows has its soonest art wait 0.3 s.",
+  "lore": "Laid in 1050 over the founder's hut and relaid every spring since. Bàng Yên Tỏa (bang_yen_toa) has laid it fifty-four times, and from 1146 he added one thing the founder never knew he needed: it hid a grave under the gate, until the frost of 1198 cracked the threshold."
+ }
+]

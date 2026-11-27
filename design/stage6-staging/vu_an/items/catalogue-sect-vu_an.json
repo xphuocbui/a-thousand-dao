@@ -1,0 +1,124 @@
+[
+ {
+  "id": "va-mist-lock-lantern",
+  "name": "Mist-Lock Lantern (Tỏa Vụ Đăng)",
+  "family": "wood",
+  "kind": "treasure",
+  "base": "dang",
+  "rarity": 4,
+  "unique": true,
+  "modifiers": [
+   {
+    "key": "evade_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "cast_ward_duration_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "accuracy_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "The Mist Does Not Ask"
+  ],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "holder": "bang_yen_toa",
+  "lore": "A pole-lantern of horn panes and black pine, the first mist lantern, hung by Hàm Thủ Lộ at the Trà Viên crossroads in 1050 (N-vu_an-01). In 1146 it was found burning on the road by empty Đồng Sơn Trấn, and nothing else of him was (N-vu_an-03). Bàng Yên Tỏa carries it. Hàm Thanh Đăng, the founder's daughter, wants it.",
+  "build_use": "Holds the Mist-Lock field steady and keeps its keeper hard to hit.",
+  "notes": "Stage 6 vu_an record pass: depth treasure grade 3 staged as rarity 4. cast_ward_duration_pct (+20) kept verbatim as open stat-sheet line (no fight/stat-sheet reader yet, same as vu_linh)."
+ },
+ {
+  "id": "va-bobtail-axe",
+  "name": "Bobtail Axe (Đoản Vĩ Phủ)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "phu",
+  "grade": 3,
+  "unique": true,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 18,
+    "scope": [
+     "moc"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "block_rating",
+    "value": 10,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "Out of the Mist"
+  ],
+  "arts": [],
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "sources": [
+   "npc"
+  ],
+  "holder": "trieu_ngu_lang",
+  "lore": "A woodsman's axe re-hafted in lynx-bone, carried by the robbers of Đoản Vĩ Cương (1043). Its owner brought it with him when the founder hid him from Thúy Vi's patrol in 1081 (N-vu_an-02). It has killed men on both sides of the law.",
+  "build_use": "The road captain's: hits hard coming out of the mist and stands in the road.",
+  "notes": "Stage 6 vu_an record pass."
+ },
+ {
+  "id": "va-milestone-flag",
+  "name": "Milestone Flag (Lý Bia Kỳ)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "ky",
+  "grade": 2,
+  "unique": true,
+  "modifiers": [
+   {
+    "key": "evade_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 12,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "holder": "bang_yen_toa",
+  "lore": "A grey road-flag painted with the same mist seal as the milestones; set in the ground, it is one more pin of the array.",
+  "build_use": "Holding a mist field: evasion and linh lực.",
+  "notes": "Stage 6 vu_an record pass."
+ }
+]

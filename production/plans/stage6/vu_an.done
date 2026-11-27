@@ -1,0 +1,88 @@
+{
+ "owner": "vu_an",
+ "batch": "b04",
+ "staged": "design/stage6-staging/vu_an",
+ "counts": {
+  "techniques": 3,
+  "arts": 4,
+  "effects": 5,
+  "items": 3,
+  "sets": 1,
+  "cast": 17,
+  "refused": 0,
+  "findings": 0
+ },
+ "new_items": [
+  "va-mist-lock-lantern",
+  "va-bobtail-axe",
+  "va-milestone-flag"
+ ],
+ "stand_ins": 0,
+ "cross_owner": [
+  {
+   "tech": "haze-walk",
+   "owner": "thuy_vi",
+   "state": "catalogue",
+   "holders": 7
+  }
+ ],
+ "pending": [],
+ "open": [
+  "cast_ward_duration_pct (+20 on va-mist-lock-lantern) has no fight or stat-sheet reader yet (depth_gap lines: 1 open)",
+  "Passive arts lost-on-the-road and the-wind-lifts-the-mist stay without active art ids in vu_an.techniques.json (promoted via technique-effects)",
+  "R6 exception kept on va-bobtail-axe (phu, weapon) until an authored art or ward is ruled",
+  "5 structured events (N-vu_an-01..05) in design/world/depth/events/vu_an.events.json close at Stage 8"
+ ],
+ "never_ran": [
+  {
+   "effect": "The Wind Lifts the Mist",
+   "why": "typical casts no wind-element arts; verified in a 10-seed Wind-foe probe (thai_van_xa wind_runs=26: evade-stone 7, hit-stone 6, hit-field 10, evade-field 3; 17.16s vs 18.89s without)"
+  }
+ ],
+ "decisions": [
+  {
+   "what": "Coexist lock-the-road with deep-lake-stance via counter mist_field and free-slot state mist-lock-field",
+   "why": "mist-lock-array-canon carries both lock-the-road (L1) and deep-lake-stance (L4); following thinh_vu keeps deep-lake untouched on the single stance slot"
+  },
+  {
+   "what": "Declare every read/written counter explicitly on each Effect in vu_an.effects.json",
+   "why": "Required for standalone engine.validate and GDScript effect_compiler.gd compilation parity"
+  },
+  {
+   "what": "Set lock-the-road cooldown to 8.0 s with guard mist_field == 0",
+   "why": "Matches the 8 s field duration and allows Luyen Khi holder khuyet_lac_vu to cast lock-the-road before dying at --gap 1 (8.6-9.4 s)"
+  },
+  {
+   "what": "Model lantern-stone wear as 2 hits per stone via lantern_wear (not_tags: [wind]) ordered 1..6",
+   "why": "Preserves 'worn by the foe's hits' without single-hit shatter, same-event cascades, or double-spend on Wind lifts"
+  },
+  {
+   "what": "Model lock-the-road foe accuracy loss as +2 own evade per mist_field_age pulse",
+   "why": "engine.py forbids mod side:'foe' and computes evade chance symmetrically from dfn.evade - att.acc"
+  },
+  {
+   "what": "Map The Mist Does Not Ask stand/leave condition to own.composed >= 1 vs == 0",
+   "why": "Non-spatial fight rules (DECISIONS-2026-11-26); Composed holds mist_field via mist_lantern=1 while stepping/evading doubles fade to -2/pulse"
+  },
+  {
+   "what": "Size [NEW] technique bonuses/passives to tier 0/1 budgets and place Lost on the Road at unlock_layer 5",
+   "why": "Depth lists no bonuses/passives or Lost unlock_layer; sized within 8/16 W budgets and unlocked Lost on all Truc Co+ disciples"
+  },
+  {
+   "what": "Set rarity: 4 on treasure va-mist-lock-lantern, unique: true on all 3 items, and R6 exception on va-bobtail-axe",
+   "why": "lint_items.py schema requires rarity 4-5 for grade 3-4 treasures, npc source for uniques, and R6 exception for phu weapon base"
+  }
+ ],
+ "lint": {
+  "techniques": "checked 3 techniques, 0 findings",
+  "arts": "checked 4 arts in 1 files, 0 findings",
+  "items": "checked 3 items, 22 bases, 9 common arts, 0 findings",
+  "depth_check": "findings: none",
+  "spatial_words": "0 hits in rule fields (2 non-rule ties.note hits)"
+ },
+ "sect_fight": {
+  "gap0": "17 living holders ran (0 REFUSED); 5/5 wins for bang_yen_toa, trieu_ngu_lang, ham_thanh_dang, chuc_minh_lo, luyen_to_y, thai_van_xa; 0/5 for 11 outer/Luyen Khi holders; all active arts fired",
+  "gap1": "17 living holders ran (0 REFUSED); 0/5 wins across all realms; all active arts fired"
+ },
+ "notes": "production/plans/stage6/vu_an-review.md"
+}

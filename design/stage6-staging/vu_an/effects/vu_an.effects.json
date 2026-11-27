@@ -1,0 +1,782 @@
+{
+ "_doc": "Vụ Ẩn Môn's Effect engine records (world-depth Stage 6; ADR-0009), staged by the record pass. Source world-depth:vu_an. Unpriced. Rule text from design/world/depth/sects/vu_an.techniques.json, vu_an.items.json, and authored wishes d2, d49.",
+ "source": "world-depth:vu_an",
+ "effects": {
+  "The Wind Lifts the Mist": {
+   "rule": "Passive art (road-mist-primer L1, mist-lock-array-canon L1; authored wish d49): when the foe fires an art with the wind element tag, it lifts one mist of yours: your newest Field tagged mist ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss.",
+   "approx": "engine.py fires events on resolution (was_hit/evaded) rather than pre-roll, and decoy_struck drops element; reacts to wind-element art hits/evades once per pulse in reverse priority (road_mist -> mist_field -> lantern_stone) without retroactively re-rolling that strike.",
+   "counters": [
+    {
+     "id": "mist_field",
+     "cap": 20
+    },
+    {
+     "id": "lantern_stone",
+     "cap": 3
+    },
+    {
+     "id": "road_mist",
+     "cap": 1,
+     "each_for": 4.0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Wind Lifts the Mist:hit-breath",
+     "on": "was_hit",
+     "filter": {
+      "element": "wind",
+      "kind": "art"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.road_mist",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "road_mist",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Wind Lifts the Mist:hit-field",
+     "on": "was_hit",
+     "filter": {
+      "element": "wind",
+      "kind": "art"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Wind Lifts the Mist:hit-stone",
+     "on": "was_hit",
+     "filter": {
+      "element": "wind",
+      "kind": "art"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_stone",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Wind Lifts the Mist:evade-breath",
+     "on": "evaded",
+     "filter": {
+      "element": "wind",
+      "kind": "art"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.road_mist",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "road_mist",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Wind Lifts the Mist:evade-field",
+     "on": "evaded",
+     "filter": {
+      "element": "wind",
+      "kind": "art"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Wind Lifts the Mist:evade-stone",
+     "on": "evaded",
+     "filter": {
+      "element": "wind",
+      "kind": "art"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+     },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_stone",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Lost on the Road": {
+   "rule": "Passive art (mist-lock-array-canon L5; authored wish d2): each foe art that misses you, evaded or avoided, while your mist field is up adds one Lost; at five, your escape art comes ready at once and cannot fail, and the Lost are spent.",
+   "approx": "timer lacks a tag filter in engine.py so cooldown reset uses which: 'all' (-99 s) alongside setting lost_ready = 1 (+100 escape mod until an escape art fires; escape_channel still respects bound/escape_max 0.95).",
+   "counters": [
+    {
+     "id": "mist_field",
+     "cap": 20
+    },
+    {
+     "id": "lost",
+     "cap": 5
+    },
+    {
+     "id": "lost_ready",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Lost on the Road:evade-spend",
+     "on": "evaded",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lost",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lost",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "lost_ready",
+        "set": 1
+       }
+      },
+      {
+       "timer": {
+        "side": "own",
+        "which": "all",
+        "by": -99
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lost on the Road:evade-count",
+     "on": "evaded",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lost_ready",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.lost",
+       "op": "<=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lost",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lost on the Road:decoy-spend",
+     "on": "decoy_struck",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lost",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lost",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "lost_ready",
+        "set": 1
+       }
+      },
+      {
+       "timer": {
+        "side": "own",
+        "which": "all",
+        "by": -99
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lost on the Road:decoy-count",
+     "on": "decoy_struck",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lost_ready",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.lost",
+       "op": "<=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lost",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lost on the Road:escape-mod",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.lost_ready",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "escape": 100
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lost on the Road:escape-spend",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "escape"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.lost_ready",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "escape": 100,
+        "for": 2.0
+       }
+      },
+      {
+       "counter": {
+        "id": "lost_ready",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Mist Does Not Ask": {
+   "rule": "Mist-Lock Lantern: while you stand inside your own mist field, your mist does not fade; if you leave it, it fades twice as fast.",
+   "approx": "Standing inside vs leaving in non-spatial fight.py is read via own.composed >= 1 vs == 0: sets mist_lantern = 1 at fight start so Lock the Road skips normal pulse decay while Composed, and deducts an extra 1 s on pulse while own.composed == 0.",
+   "counters": [
+    {
+     "id": "mist_field",
+     "cap": 20
+    },
+    {
+     "id": "mist_lantern",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Mist Does Not Ask:hold-flag",
+     "on": "fight_start",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "mist_lantern",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Mist Does Not Ask:double-fade",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.composed",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Out of the Mist": {
+   "rule": "Bobtail Axe: your first hit after your mist field ends strikes 20 % harder. By the sect's rule it is never struck while the mist is up.",
+   "approx": "Tracks mist_field active -> 0 transitions on pulse, art_fired, was_hit, and evaded (so even a mid-pulse lift or Lantern-Stone break arms immediately), applies +20 % dmg_more (0.2) only while mist_field == 0, and spends the charge on hit_landed.",
+   "counters": [
+    {
+     "id": "mist_field",
+     "cap": 20
+    },
+    {
+     "id": "out_mist_seen",
+     "cap": 1
+    },
+    {
+     "id": "out_mist_armed",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Out of the Mist:watch",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.out_mist_seen",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "out_mist_seen",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Out of the Mist:arm-pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.out_mist_seen",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "out_mist_seen",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "out_mist_armed",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Out of the Mist:arm-hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.out_mist_seen",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "out_mist_seen",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "out_mist_armed",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Out of the Mist:arm-evade",
+     "on": "evaded",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.out_mist_seen",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "out_mist_seen",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "out_mist_armed",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Out of the Mist:arm-fire",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.out_mist_seen",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "out_mist_seen",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "out_mist_armed",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Out of the Mist:dmg",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.out_mist_armed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.2
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Out of the Mist:spend",
+     "on": "hit_landed",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.out_mist_armed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "out_mist_armed",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Nobody Looked": {
+   "rule": "Road Mist (2 pieces: va-mist-lock-lantern, va-milestone-flag): while your mist formation holds, the first art aimed at you every 8 s misses; the mist holds 3 s longer.",
+   "approx": "Adds +3 to mist_field once per active mist field on first pulse (avoids art_fired listener-order dependence); grants 1 decoy every 8 s via pulse cooldown (hit() consumes decoy on next direct attack since decoys cannot filter strictly to kind: 'art').",
+   "counters": [
+    {
+     "id": "mist_field",
+     "cap": 20
+    },
+    {
+     "id": "nobody_ext_given",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Nobody Looked:extend",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.nobody_ext_given",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field",
+        "add": 3
+       }
+      },
+      {
+       "counter": {
+        "id": "nobody_ext_given",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Nobody Looked:extend-reset",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.nobody_ext_given",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "nobody_ext_given",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Nobody Looked:avoid",
+     "on": "pulse",
+     "limit": {
+      "cooldown": 8.0
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

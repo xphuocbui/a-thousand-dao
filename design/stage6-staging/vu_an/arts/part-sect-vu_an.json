@@ -1,0 +1,889 @@
+[
+ {
+  "id": "a-breath-of-road-mist",
+  "name": "A Breath of Road Mist (Lộ Vụ Nhất Tức)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "road-mist-primer",
+  "tags": [
+   "wood",
+   "mist",
+   "breath_mist"
+  ],
+  "cost_share": 0.03,
+  "cooldown": 5.0,
+  "kind": "elem",
+  "c_art": 0.0,
+  "guards": [
+   {
+    "read": "own.counter.road_mist",
+    "op": "==",
+    "value": 0
+   }
+  ],
+  "counters": [
+   {
+    "id": "road_mist",
+    "cap": 1,
+    "each_for": 4.0
+   }
+  ],
+  "effects": [
+   {
+    "id": "road-mist-arm",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "breath_mist"
+     ]
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "road_mist",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "road-mist-evade",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.road_mist",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "evade": 65
+      }
+     }
+    ]
+   },
+   {
+    "id": "road-mist-spend-hit",
+    "on": "was_hit",
+    "filter": {
+     "kind": "art"
+    },
+    "if": [
+     {
+      "read": "own.counter.road_mist",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "road_mist",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "road-mist-spend-evade",
+    "on": "evaded",
+    "filter": {
+     "kind": "art"
+    },
+    "if": [
+     {
+      "read": "own.counter.road_mist",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "road_mist",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "road-mist-spend-decoy",
+    "on": "decoy_struck",
+    "filter": {
+     "kind": "art"
+    },
+    "if": [
+     {
+      "read": "own.counter.road_mist",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "road_mist",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Breathes out mist over yourself for 4 s: grants +65 evade against the next art aimed at you, then clears.",
+  "sources": [
+   "road-mist-primer"
+  ]
+ },
+ {
+  "id": "lock-the-road",
+  "name": "Lock the Road (Tỏa Lộ)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "mist-lock-array-canon",
+  "tags": [
+   "wood",
+   "mist",
+   "field",
+   "lock_road"
+  ],
+  "cost_share": 0.05,
+  "cooldown": 8.0,
+  "kind": "elem",
+  "c_art": 0.0,
+  "guards": [
+   {
+    "read": "own.counter.mist_field",
+    "op": "==",
+    "value": 0
+   }
+  ],
+  "states": [
+   {
+    "id": "mist-lock-field",
+    "tags": [
+     "field"
+    ]
+   }
+  ],
+  "counters": [
+   {
+    "id": "mist_field",
+    "cap": 20
+   },
+   {
+    "id": "mist_field_age",
+    "cap": 20
+   },
+   {
+    "id": "lantern_stone",
+    "cap": 3
+   },
+   {
+    "id": "mist_lantern",
+    "cap": 1
+   }
+  ],
+  "effects": [
+   {
+    "id": "lock-road-cast",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "lock_road"
+     ]
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "mist_field",
+       "set": 8
+      }
+     },
+     {
+      "counter": {
+       "id": "mist_field_age",
+       "set": 0
+      }
+     },
+     {
+      "decoy": {
+       "n": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-enter-state",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "lock_road"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.state.any",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "mist-lock-field"
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-evade",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "evade": 18
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-age-evade",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.mist_field_age",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.mist_field_age",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "evade": 2
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-age-tick",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "mist_field_age",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-fade-pressing",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "mist_field",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-fade-unheld",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_stone",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.mist_lantern",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "mist_field",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-reenter-state",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.state.any",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "mist-lock-field"
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-clear-state",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.state.mist-lock-field",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   },
+   {
+    "id": "lock-road-clear-age",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.mist_field_age",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "mist_field_age",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Lays a mist field for 8 s: grants +18 evade (+2 evade per second elapsed, matching the foe's fading aim) and 1 avoid for the foe's first strike. Uses the single stance slot when free so Deep Lake can stay active.",
+  "sources": [
+   "mist-lock-array-canon"
+  ]
+ },
+ {
+  "id": "lantern-stone",
+  "name": "Lantern-Stone (Đăng Thạch)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "mist-lock-array-canon",
+  "tags": [
+   "wood",
+   "lantern",
+   "mist",
+   "stone_art"
+  ],
+  "cost_share": 0.04,
+  "cooldown": 8.0,
+  "kind": "elem",
+  "c_art": 0.0,
+  "guards": [
+   {
+    "read": "own.counter.lantern_stone",
+    "op": "<",
+    "value": 2
+   }
+  ],
+  "counters": [
+   {
+    "id": "lantern_stone",
+    "cap": 3
+   },
+   {
+    "id": "lantern_wear",
+    "cap": 6
+   },
+   {
+    "id": "mist_field",
+    "cap": 20
+   }
+  ],
+  "effects": [
+   {
+    "id": "lantern-stone-gain",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "stone_art"
+     ]
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_stone",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "add": 2
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-wear-1",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "wind"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_stone",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "lantern_stone",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "mist_field",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-wear-2",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "wind"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_stone",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-wear-3",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "wind"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_stone",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": "==",
+      "value": 3
+     },
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 2
+      }
+     },
+     {
+      "counter": {
+       "id": "lantern_stone",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-wear-4",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "wind"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_stone",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": "==",
+      "value": 4
+     },
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-wear-5",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "wind"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_stone",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": "==",
+      "value": 5
+     },
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 4
+      }
+     },
+     {
+      "counter": {
+       "id": "lantern_stone",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-wear-6",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "wind"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.mist_field",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_stone",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": ">=",
+      "value": 6
+     },
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 5
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-sync-0",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.lantern_stone",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-sync-1",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.lantern_stone",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 2
+      }
+     }
+    ]
+   },
+   {
+    "id": "lantern-stone-sync-2",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.lantern_stone",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "read": "own.counter.lantern_wear",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lantern_wear",
+       "set": 4
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Gains 1 Lantern-Stone charge (2 hits of wear each, cap 3): while you hold one and are Composed, your mist field does not fade; damaging non-wind hits wear the stones and ending the last stone ends the mist field.",
+  "sources": [
+   "mist-lock-array-canon"
+  ]
+ },
+ {
+  "id": "the-gate-is-not-there",
+  "name": "The Gate Is Not There (Môn Bất Tại)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "hidden-gate-array",
+  "tags": [
+   "wood",
+   "mist",
+   "movement",
+   "gate_fold"
+  ],
+  "cost_share": 0.04,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "c_art": 0.0,
+  "effects": [
+   {
+    "id": "hidden-gate-fold",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "gate_fold"
+     ]
+    },
+    "do": [
+     {
+      "decoy": {
+       "n": 1
+      }
+     },
+     {
+      "timer": {
+       "side": "foe",
+       "which": "next",
+       "by": 0.3
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Steps into a fold of mist: grants 1 avoid so the foe loses your target, and delays the foe's soonest art by 0.3 s.",
+  "sources": [
+   "hidden-gate-array"
+  ]
+ }
+]
