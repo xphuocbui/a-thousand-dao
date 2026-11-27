@@ -1,0 +1,46 @@
+[
+ {
+  "id": "nt-out-of-the-grey",
+  "name": "Out of the Grey (Xuất Hôi Tam Bảo)",
+  "pieces": [
+   "nt-first-file-banner",
+   "nt-breath-cloth",
+   "nt-rear-guard-shield"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "khi_huyet_pct", "value": 6, "scope": []},
+     {"key": "block_rating", "value": 8, "scope": []}
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "Last Man in the File (Mạt Hàng Nhân)",
+    "rule": "while the Banner's spread holds, your hits taken are blocked as though you had raised the shield, and each blocked hit lets you shed one poison or miasma stack (once every 3 s)."
+   }
+  ],
+  "story": "The banner, the cloth and the shield of the file of forty. Mục Hàn Nhạn holds all three. The shared-damage half is the closest line until targets-tl/geese-line exists."
+ },
+ {
+  "id": "nt-point-of-file",
+  "name": "Point of the File (Hàng Đầu Song Bảo)",
+  "pieces": [
+   "nt-point-sword",
+   "nt-point-felt-coat"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "block_rating", "value": 6, "scope": []},
+     {"key": "khi_huyet_pct", "value": 5, "scope": []}
+    ],
+    "effect": "Take the Wind (Đương Phong)",
+    "rule": "you take 10 % less damage, and each block you make gives you a small ward."
+   }
+  ],
+  "story": "The sword and the coat of the point, handed to each holder in turn. Mục Tân Vũ is the tenth to hold both."
+ }
+]

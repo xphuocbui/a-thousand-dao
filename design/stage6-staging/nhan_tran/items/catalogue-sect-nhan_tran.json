@@ -1,0 +1,150 @@
+[
+ {
+  "id": "nt-first-file-banner",
+  "name": "Banner of the First File (Đầu Hàng Kỳ)",
+  "family": "general",
+  "kind": "treasure",
+  "base": "ky",
+  "rarity": 5,
+  "modifiers": [
+   {"key": "defense_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 12, "scope": []},
+   {"key": "status_resist_pct", "value": 15, "scope": []},
+   {"key": "block_rating", "value": 15, "scope": []},
+   {"key": "than_thuc_pct", "value": 4, "scope": []}
+  ],
+  "effects": [
+   "One Goose",
+   "Geese Line"
+  ],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A long grey felt banner with one goose stitched on it in undyed wool, carried at the head of Thạch Liệt Hàng's file when it walked out of Chiết Kích Nguyên in 803 (N-nhan_tran-01). It has been mended so often that hardly any of the felt is the felt of 803. Every head of the gate has carried it at the spring levy.",
+  "build_use": "The head's banner: a file that shares its damage.",
+  "holder": "muc_han_nhan",
+  "made_by": "the levy of Nhạn Thanh Thành, for Lạc Hà's war of 790",
+  "made_year": 795,
+  "set": "nt-out-of-the-grey",
+  "unique": true
+ },
+ {
+  "id": "nt-breath-cloth",
+  "name": "The Founder's Breath Cloth (Hoán Tức Cân)",
+  "family": "general",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 3,
+  "modifiers": [
+   {"key": "dan_doc_resist_pct", "value": 15, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 20, "scope": []},
+   {"key": "status_resist_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "The wet hemp cloth Thạch Liệt Hàng's file breathed through in turns, one breath each, as it walked out of the grey (N-nhan_tran-01). It was sewn into the lining of the head's robe in 1040. Mục Hàn Nhạn wears it and says it still tastes of the plain.",
+  "build_use": "Poison resistance and sustain for a long file fight.",
+  "holder": "muc_han_nhan",
+  "made_by": "thach_liet_hang",
+  "made_year": 803,
+  "set": "nt-out-of-the-grey",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "nt-lake-drum",
+  "name": "Drum of Lạc Nhạn Hồ (Lạc Nhạn Cổ)",
+  "family": "general",
+  "kind": "artifact",
+  "base": "co",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 12, "scope": ["physical"]},
+   {"key": "art_speed_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []},
+   {"key": "status_duration_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "The gate has drummed the levy on the lake shore every spring since 807, and on this drum since 860, when Quản Tề Phong had the frame cut from a lightning-struck elm. The head is buffalo hide from the rice farms of Hòa Lũng Thôn, re-skinned eleven times. Đổng Kiên Lũy will not let anyone else carry it.",
+  "build_use": "Pace for the file: attack and art speed.",
+  "holder": "dong_kien_luy",
+  "made_by": "quan_te_phong",
+  "made_year": 860,
+  "unique": true
+ },
+ {
+  "id": "nt-point-sword",
+  "name": "Point of the File (Hàng Đầu Kiếm)",
+  "family": "general",
+  "kind": "artifact",
+  "base": "phi_kiem",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 12, "scope": ["physical"]},
+   {"key": "crit_chance_pct", "value": 4, "scope": ["physical"]},
+   {"key": "block_rating", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A plain short flying sword given to whoever holds the point of the first file. It has had nine holders. Mục Tân Vũ is the first to use it at night.",
+  "build_use": "The point's sword: strike and block at the head of the line.",
+  "holder": "muc_tan_vu",
+  "made_by": "Lạc Hà's armoury at Tử Điện Thành",
+  "made_year": 1050,
+  "set": "nt-point-of-file",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "nt-rear-guard-shield",
+  "name": "Shield of the Rear Guard (Hậu Vệ Thuẫn)",
+  "family": "general",
+  "kind": "artifact",
+  "base": "thuan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "block_rating", "value": 15, "scope": []},
+   {"key": "defense_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "The levy shield the last man of Thạch Liệt Hàng's file carried facing back as the file walked out of the grey. Its face is still stained green.",
+  "build_use": "The file's last share: block and health.",
+  "holder": "muc_han_nhan",
+  "made_by": "nhan_tran",
+  "made_year": 803,
+  "set": "nt-out-of-the-grey",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "nt-point-felt-coat",
+  "name": "Felt Coat of the Point (Hàng Đầu Chiên Giáp)",
+  "family": "general",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 2,
+  "modifiers": [
+   {"key": "khi_huyet_pct", "value": 10, "scope": []},
+   {"key": "block_rating", "value": 12, "scope": []},
+   {"key": "defense_pct", "value": 6, "scope": []}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "The heavy felt coat the point of the first file wears into the wind. It has been cut down for each of its nine holders; hers is the smallest.",
+  "build_use": "The point takes the wind: health and block.",
+  "holder": "muc_tan_vu",
+  "made_by": "nhan_tran",
+  "made_year": 1050,
+  "set": "nt-point-of-file",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ }
+]
