@@ -1,0 +1,14 @@
+{
+ "owner": "loose-south",
+ "minutes": 7,
+ "must_fix": 1,
+ "should": 1,
+ "fixed": 2,
+ "words": {},
+ "open": [
+  "do_liet_co (loose-south.cast.json) slots demonic's black-wind-blood-sabre (tech_kind: 'main') in build.aux (CongPhap.set_slot rejects main in aux; kept referencing demonic cleanly without duplication per b06 serial plan) — open Stage 7/9 cleanup.",
+  "gian_van_lo (loose-south.cast.json) slots pre-existing committed techniques southern-shore-cloud-canon (catch-the-morning-cloud -> morning-cloud) and thorn-and-ink-verses (marching-dirge -> march) sharing one stance slot — open Stage 7/9 cleanup.",
+  "Stamp of Trust on ls-false-cloud-seal remains not_run (out-of-fight forgery and social inspection rule).",
+  "Serial merge and export (stage6_merge.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to close items, sets, effects, and bat_phe."
+ ]
+}

@@ -51,9 +51,9 @@
    "id": "ls-unlit-sail", "name": "Unlit Sail (Vô Đăng Phàm)", "family": "water", "kind": "artifact", "base": "ky", "grade": 2,
    "modifiers": [{"key": "evade_pct", "value": 8, "scope": []}, {"key": "ward_efficiency_pct", "value": 10, "scope": []},
                  {"key": "stack_effect_pct", "value": 14, "scope": ["thuy", "debuff"]}],
-   "effects": [{"new": true, "id": "dark-on-dark-water", "name": "Dark on Dark Water (Ám Thủy)", "rule": "Out of combat the holder and her boat cannot be seen past a bowshot on the water; in a fight, the first art aimed at her from range misses."}, {"new": false, "id": "know-the-way-out", "name": "Know the Way Out (Thức Lộ)", "rule": "Each escape you fail this fight makes your next escape 10 % likelier; a success clears it.", "authored": "d2"}],
+   "effects": [{"new": true, "id": "dark-on-dark-water", "name": "Dark on Dark Water (Ám Thủy)", "rule": "Out of combat the holder and her boat cannot be seen past a bowshot on the water; in a fight, the first art aimed at her misses."}, {"new": false, "id": "know-the-way-out", "name": "Know the Way Out (Thức Lộ)", "rule": "Each escape you fail this fight makes your next escape 10 % likelier; a success clears it.", "authored": "d2"}],
    "lore": "A square of sailcloth dyed in mangrove bark and stitched to the way Thôn Hải's captives remembered it in 782. Biện Ám Phàm flies it as a pennant; the rest of the sail is plain black.",
-   "build_use": "A smuggler's evasion flag.",
+   "build_use": "A smuggler's evasion pennant.",
    "holder": "bien_am_pham", "made_by": "bien_am_pham", "made_year": 1170, "set": null, "status": "proposal",
    "authored": "d2"
   },
@@ -135,7 +135,7 @@
    ],
    "effects": [],
    "lore": "Her husband's snare coins: bronze discs strung on hunting wire, which she learned to throw after he did not come back.",
-   "build_use": "Metal curses and slows from range that bite harder and do not miss.",
+   "build_use": "Metal curses and slows that bite harder and do not miss.",
    "holder": "sam_van_nuong",
    "made_by": null,
    "made_year": null,
@@ -160,14 +160,14 @@
   {
    "id": "ls-stockade-pair", "name": "Stockade Mistress (Thạch Môn Song Bảo)", "pieces": ["ls-arrow-scarred-armour", "ls-thunder-pendant"],
    "bonuses": [
-    {"pieces": 2, "modifiers": [{"key": "khi_huyet_pct", "value": 6, "scope": []}, {"key": "attack_pct", "value": 6, "scope": ["lightning"]}], "effect": "Tempered by Arrows (Tiễn Luyện): each hit you take from range gives you one Thunder buff stack, and the stacks fall away one every 2 s; your next hook strike spends them, striking once more with Thunder for each."}
+    {"pieces": 2, "modifiers": [{"key": "khi_huyet_pct", "value": 6, "scope": []}, {"key": "attack_pct", "value": 6, "scope": ["lightning"]}], "effect": "Tempered by Arrows (Tiễn Luyện): each hit you take gives you one Thunder buff stack, and the stacks fall away one every 2 s; your next hook strike spends them, striking once more with Thunder for each."}
    ],
    "story": "What she took from the ridge besides the Black Wind Hook: her mail and the lightning sand. She wears them beside the hook, whose twin is with her brother."
   },
   {
    "id": "ls-free-crossing", "name": "The Free Crossing (Nghĩa Độ Song Vật)", "pieces": ["ls-thuy-khau-stern-lamp", "ls-ferry-anchor"],
    "bonuses": [
-    {"pieces": 2, "modifiers": [{"key": "health_regen_inc_pct", "value": 8, "scope": []}, {"key": "block_rating", "value": 6, "scope": []}], "effect": "No One Drowns (Vô Nhân Nịch): while you have a companion or are Still, your ward regains 2 % each second; the first time each fight you would fall below a quarter of your health, the lamp heals you 15 %."}
+    {"pieces": 2, "modifiers": [{"key": "health_regen_inc_pct", "value": 8, "scope": []}, {"key": "block_rating", "value": 6, "scope": []}], "effect": "No One Drowns (Vô Nhân Nịch): while you have a companion or are Composed, your ward regains 2 % each second; the first time each fight you would fall below a quarter of your health, the lamp heals you 15 %."}
    ],
    "story": "His stern lamp, lit since 1174, and the crossing's stone anchor, older than any ferryman there. They will pass with the boat.",
    "authored": "a1"

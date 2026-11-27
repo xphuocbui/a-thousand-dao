@@ -950,7 +950,7 @@
     },
     "tree": {
      "start": "kim",
-     "intent": "Metal curses and slows from range; she keeps things away from her door.",
+     "intent": "Metal curses and slows; she keeps things away from her door.",
      "targets": [
       4207,
       4214,

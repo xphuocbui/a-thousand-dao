@@ -406,7 +406,7 @@
   },
   "Tempered by Arrows": {
    "rule": "Stockade Mistress, full set (2 pieces): each hit you take gives you one Thunder buff stack, and the stacks fall away one every 2 s; your next hook strike spends them, striking once more with Thunder for each.",
-   "approx": "Non-spatial duel drops 'from range', triggering on any damaging hit taken (was_hit, event.amount > 0); spends arrow_thunder stacks on the next sword or saber hit_landed (tags: [sword, saber]) for a Lightning free_hit of 0.4 c per stack.",
+   "approx": "Non-spatial duel drops 'from range', triggering on any damaging hit taken (was_hit, event.amount > 0) and granting a fight-long Thunder buff stack that decays 1 per 2 s via pulse; spends arrow_thunder stacks on the next sword or saber hit_landed (tags: [sword, saber]) for a Lightning free_hit of 0.4 c per stack.",
    "counters": [
     {
      "id": "arrow_thunder"
@@ -429,7 +429,6 @@
        "stacks": {
         "el": "thunder",
         "n": 1,
-        "for": 8,
         "side": "own",
         "kind": "buff"
        }
@@ -509,8 +508,7 @@
        "consume": {
         "el": "thunder",
         "side": "own",
-        "kind": "buff",
-        "n": 99
+        "kind": "buff"
        }
       }
      ]
