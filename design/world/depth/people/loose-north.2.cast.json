@@ -9,7 +9,7 @@
   "backstory": "A stonecutter's son of Thạch Công Thôn who ran to the ridge after he killed a tax clerk; he led the 1190 raid under the mist (N-vu_an-04), burned a charcoal village's tea shed last winter to teach it the new rate, and wants the band to stop feeding the hill villages and start taking from them.",
   "ties": [{"to": "khau_thien_tu", "kind": "master", "note": "his chief; too soft, he thinks"}, {"to": "boi_truong_dinh", "kind": "enemy", "note": "found the mist-holder by his voice in 1190"}],
   "master": "khau_thien_tu",
-  "build": {"archetype": "the_tu", "main": {"tech": "hoang_kim", "layer": 6}, "aux": [], "gear": [{"base": "phu", "grade": 2, "element": "kim"}], "skills": {}, "tree": {"start": "kim", "intent": "Axe crits and bleeding."}, "note": "A robber's axe."}
+  "build": {"archetype": "the_tu", "main": {"tech": "nine-temper-scripture", "layer": 6}, "aux": [], "gear": [{"base": "phu", "grade": 2, "element": "kim"}], "skills": {}, "tree": {"start": "kim", "intent": "Axe crits and bleeding."}, "note": "A robber's axe."}
  },
  {
   "key": "hau_tieu_luc", "name_hv": "Hầu Tiểu Lục", "name_han": "侯小六", "gloss": "Little Sixth",
@@ -21,7 +21,7 @@
   "backstory": "A tea-picker's sixth child, given to the camp in a hungry winter, he held the horses in the 1190 raid at twelve; he leaves a bowl of rice at Bối Trường Đình's (boi_truong_dinh) milestone every month and wonders whether the mist would take a robber twice.",
   "ties": [{"to": "khau_thien_tu", "kind": "master", "note": "the chief who fed him"}, {"to": "ky_that_lo", "kind": "debt", "note": "held the horses the night the boy's caravan died"}],
   "master": "khau_thien_tu",
-  "build": {"archetype": "tan_tu", "main": {"tech": "hoang_moc", "layer": 3}, "aux": [], "gear": [{"base": "phu", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Run and hide."}, "note": "A boy with an axe he has never swung at a man."}
+  "build": {"archetype": "tan_tu", "main": {"tech": "road-mist-primer", "layer": 3}, "aux": [], "gear": [{"base": "phu", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Run and hide."}, "note": "A boy with an axe he has never swung at a man."}
  },
  {
   "key": "te_doan_vi", "name_hv": "Tề Đoản Vĩ", "name_han": "齊短尾", "gloss": "Bobtail, named for the ridge he held",
@@ -41,7 +41,7 @@
   "appearance": "Hemp fibre grey in the stubble of his chin; a rope-burn bracelet at each wrist.",
   "backstory": "Since the Ferry War closed the border he has brought Tang Ma Thành's hemp (A201) across by night for Sài Kết Lãm (sai_ket_lam), with Mao Đinh Lang (mao_dinh_lang) running it over the toll line. He shorts every bale by a fifth and blames the river, so that Sài's ropewalk hands are docked for the missing hemp.",
   "ties": [{"to": "sai_ket_lam", "kind": "friend", "note": "his one buyer, who tells his head the hemp comes from elsewhere"}, {"to": "mao_dinh_lang", "kind": "friend", "note": "the Lạc Hà-side runner; they have never crossed the same bank"}, {"to": "lieu_tay_sa", "kind": "spouse", "note": "keeps his ledger"}, {"to": "giang_hoi_lan", "kind": "enemy", "note": "wants the war fought again, which would end the trade"}],
-  "build": {"archetype": "phap_tu", "main": {"tech": "huyen_thuy", "layer": 4}, "aux": [], "gear": [{"base": "ho_lo", "grade": 2, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Water evasion: a man who is never on the boat when it is searched."}, "note": "A smuggler's gourd."}
+  "build": {"archetype": "phap_tu", "main": {"tech": "idle-cloud-reflection-canon", "layer": 4}, "aux": [], "gear": [{"base": "ho_lo", "grade": 2, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Water evasion: a man who is never on the boat when it is searched."}, "note": "A smuggler's gourd."}
  },
  {
   "key": "lieu_tay_sa", "name_hv": "Liêu Tẩy Sa", "name_han": "廖洗沙", "gloss": "Washes the sand",
@@ -52,7 +52,7 @@
   "appearance": "One gold tooth she says she found. Hands bleached wrinkled, as if she had just come out of the river.",
   "backstory": "She has washed the river sand a thousand times for its gold (A076) since girlhood and keeps Đinh Vạn Tác's (dinh_van_tac) ledger in the false bottom of her pan; Thường Thiên Đào (thuong_thien_dao), who keeps the washers' tally, has started counting her pan twice. She sells him one page in ten of her husband's ledger to make him stop, and Đinh has lost two bales to the tally for it.",
   "ties": [{"to": "dinh_van_tac", "kind": "spouse", "note": ""}, {"to": "thuong_thien_dao", "kind": "rival", "note": "counts her pan twice"}],
-  "build": {"archetype": "phap_tu", "main": {"tech": "hoang_thuy", "layer": 4}, "aux": [], "gear": [{"base": "kinh", "grade": 1, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Water sustain."}, "note": "A washer's patience."}
+  "build": {"archetype": "phap_tu", "main": {"tech": "brook-wash-breath", "layer": 4}, "aux": [], "gear": [{"base": "kinh", "grade": 1, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Water sustain."}, "note": "A washer's patience."}
  },
  {
   "key": "lien_bat_ngu", "name_hv": "Liên Bất Ngữ", "name_han": "連不語", "gloss": "Says nothing",
@@ -63,7 +63,7 @@
   "appearance": "Smells of brine. His left eye wanders when he lies, which is often.",
   "backstory": "He buys Ice beast cores from coast hunters and from Phàn Cổ Đăng's (phan_co_dang) crew, packs them in the bellies of ice-fish, and ships them past the escort to Mộc Lan for a Thiên Bảo Trai buyer; Sử Phá Băng (su_pha_bang) has been hunting him for two winters. He lets a deckhand freeze each winter rather than light the hold.",
   "ties": [{"to": "su_pha_bang", "kind": "enemy", "note": "the escort captain looking for him"}, {"to": "phan_co_dang", "kind": "friend", "note": "her crew's cores"}],
-  "build": {"archetype": "phap_tu", "main": {"tech": "huyen_thuy", "layer": 5}, "aux": [], "gear": [{"base": "nhan", "grade": 2, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Escape and soul defence."}, "note": "A fence's ring."}
+  "build": {"archetype": "phap_tu", "main": {"tech": "still-moon-tide-scripture", "layer": 5}, "aux": [], "gear": [{"base": "nhan", "grade": 2, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Escape and soul defence."}, "note": "A fence's ring."}
  },
  {
   "key": "thieu_tan_dang", "name_hv": "Thiệu Tàn Đăng", "name_han": "邵殘燈", "gloss": "A guttering lamp",
@@ -94,7 +94,7 @@
   "appearance": "Flushed, soft face; chewed thumbnail. In every dice house his is the candle that gutters, whatever the draught.",
   "backstory": "Luyện Tố Y's (luyen_to_y) younger brother has lost at Cát Châu Nương's (cat_chau_nuong) dice house for forty years; in 1192 she bought his debts on Tùng Đào's silver, and the price is the Mist-Lock Lantern's key, which his sister holds each spring while her head relays the gate. He tells his sister each spring exactly how much he owes.",
   "ties": [{"to": "luyen_to_y", "kind": "sibling", "note": "the sister paying for him"}, {"to": "cat_chau_nuong", "kind": "debt", "note": "forty years of losses"}],
-  "build": {"archetype": "tan_tu", "main": {"tech": "hoang_moc", "layer": 3}, "aux": [], "gear": [{"base": "nhan", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Luck and escape."}, "note": "A lucky ring that is not."}
+  "build": {"archetype": "tan_tu", "main": {"tech": "road-mist-primer", "layer": 3}, "aux": [], "gear": [{"base": "nhan", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Luck and escape."}, "note": "A lucky ring that is not."}
  },
  {
   "key": "cu_lo_nhi", "name_hv": "Cù Lô Nhi", "name_han": "瞿蘆兒", "gloss": "Reed child",
@@ -106,7 +106,7 @@
   "backstory": "Found as a baby in the reeds of drowned Lô Khẩu Trấn (V025), she has poled Nhâm Độ Hàn's (nham_do_han) second boat since she was twelve and is starting to remember the faces he tells her to forget.",
   "ties": [{"to": "nham_do_han", "kind": "master", "note": "the ferryman who found her"}],
   "master": "nham_do_han",
-  "build": {"archetype": "phap_tu", "main": {"tech": "hoang_thuy", "layer": 3}, "aux": [], "gear": [{"base": "mao", "grade": 1, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Water evasion."}, "note": "A small anchor and a long pole."}
+  "build": {"archetype": "phap_tu", "main": {"tech": "ferry-pole-primer", "layer": 3}, "aux": [], "gear": [{"base": "mao", "grade": 1, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Water evasion."}, "note": "A small anchor and a long pole."}
  },
  {
   "key": "mach_phuc_linh", "name_hv": "Mạch Phục Linh", "name_han": "麥茯苓", "gloss": "Poria, the fungus on old pine roots",
@@ -117,7 +117,7 @@
   "appearance": "Seamed like dried ginseng root; the children of the apes' ridge call her the Root. Soil under every nail.",
   "backstory": "She digs ginseng on the apes' ridge above dead Thải Sâm Trấn, where the diggers of 979 went too high (V040), sells it at Bì Tứ Nương's (bi_tu_nuong) table, and hates the Thúy Vi martens that find in a season what she finds in ten. She bait-poisons their trails, and a Thúy Vi herb-boy who followed them lost his hand to it.",
   "ties": [{"to": "bi_tu_nuong", "kind": "friend", "note": "buys her roots"}, {"to": "lo_da_huong", "kind": "rival", "note": "the marten-keeper whose beasts undercut her"}],
-  "build": {"archetype": "linh_thuc_su", "main": {"tech": "hoang_moc", "layer": 5}, "aux": [], "gear": [{"base": "ho_lo", "grade": 1, "element": "moc"}], "skills": {"linh_thuc": 3}, "tree": {"start": "moc", "intent": "Wood sustain and poison resistance."}, "note": "A digger's gourd."}
+  "build": {"archetype": "linh_thuc_su", "main": {"tech": "seed-and-soil-primer", "layer": 5}, "aux": [], "gear": [{"base": "ho_lo", "grade": 1, "element": "moc"}], "skills": {"linh_thuc": 3}, "tree": {"start": "moc", "intent": "Wood sustain and poison resistance."}, "note": "A digger's gourd."}
  },
  {
   "key": "bi_tu_nuong", "name_hv": "Bì Tứ Nương", "name_han": "皮四娘", "gloss": "Fourth Daughter Bì",
@@ -128,7 +128,7 @@
   "appearance": "Pine needle behind her ear, never the same needle. Round face flushed from the stove.",
   "backstory": "A wine-maker's daughter who came down to the market in 1150 and set one long table under a pine; every loose cultivator of the pine sea has drunk at it, and the foundation pills in the jar behind her counter come with no promise, as Lâm Dã Hạc (lam_da_hac) knows. She sells the jar pills at cost to anyone the pines' gate has turned away.",
   "ties": [{"to": "lam_da_hac", "kind": "friend", "note": "sold him his foundation pill"}, {"to": "thu_phieu_binh", "kind": "friend", "note": ""}, {"to": "gia_chi_lo", "kind": "creditor", "note": "three years of wine"}, {"to": "hua_van_cung", "kind": "friend", "note": "drank at her table thirty years; now drinks on the hill"}, {"to": "mach_phuc_linh", "kind": "friend", "note": "buys her ginseng"}],
-  "build": {"archetype": "dan_su", "main": {"tech": "hoang_moc", "layer": 4}, "aux": [], "gear": [{"base": "huong_lo", "grade": 1, "element": "hoa"}], "skills": {"dan_dao": 2}, "tree": {"start": "moc", "intent": "Healing and sustain."}, "note": "A wine-warmer's censer."}
+  "build": {"archetype": "dan_su", "main": {"tech": "warm-hearth-breath", "layer": 4}, "aux": [], "gear": [{"base": "huong_lo", "grade": 1, "element": "hoa"}], "skills": {"dan_dao": 2}, "tree": {"start": "moc", "intent": "Healing and sustain."}, "note": "A wine-warmer's censer."}
  },
  {
   "key": "ha_tieu_bang", "name_hv": "Hà Tiểu Băng", "name_han": "何小冰", "gloss": "Little ice",
@@ -170,7 +170,7 @@
   "appearance": "Bald crown ringed with long grey hair. His voice cracks on the vowels, carries no further than the next table; dogs sleep through his stories.",
   "backstory": "Tested in 1135 by the Desert Pavilion, Trấn Sa's guard families and Dạ Quang's riders, he holds a little of every element and enough of none, so he tells the Desert Road War (C142) at the caravan inns for his supper and can light any talisman a customer hands him. He is at the first inn before the stoves are lit.",
   "ties": [{"to": "ho_dien_liet", "kind": "friend", "note": "tells his stories better than he does"}, {"to": "on_sa_ngoc", "kind": "friend", "note": "tested him in 1135 and still buys his supper"}],
-  "build": {"archetype": "tan_tu", "main": {"tech": "hoang_tho", "layer": 5}, "aux": [], "gear": [{"base": "an", "grade": 1, "element": "tho"}], "skills": {"phu_luc": 3}, "tree": {"start": "tho", "intent": "A little of everything: talisman and ward nodes."}, "note": "A root of five and a pocket of talismans."}
+  "build": {"archetype": "tan_tu", "main": {"tech": "sand-wall-primer", "layer": 5}, "aux": [], "gear": [{"base": "an", "grade": 1, "element": "tho"}], "skills": {"phu_luc": 3}, "tree": {"start": "tho", "intent": "A little of everything: talisman and ward nodes."}, "note": "A root of five and a pocket of talismans."}
  },
  {
   "key": "nhung_tu_dieu", "name_hv": "Nhung Tử Điêu", "name_han": "戎紫貂", "gloss": "Purple sable",
@@ -181,7 +181,7 @@
   "appearance": "Nose broken twice, red with cold. Sable gloves with the fingers worn through.",
   "backstory": "The sables were trapped out of the hills long ago (V005), and he still runs his lines from Hàn Yên Thôn; in 1189 he helped Quản Tuyết Tung (quan_tuyet_tung) dig the wolf-king's cub out of Quần Lang Lâm for a tithe of fur, and he has fed the starved mate in the pit each night since, and drinks every winter the wolves howl.",
   "ties": [{"to": "quan_tuyet_tung", "kind": "friend", "note": "the cub, 1189"}],
-  "build": {"archetype": "linh_thuc_su", "main": {"tech": "hoang_thuy", "layer": 5}, "aux": [], "gear": [{"base": "giap", "grade": 1, "element": "thuy"}], "skills": {"linh_thuc": 3}, "tree": {"start": "thuy", "intent": "Water endurance."}, "note": "A trapper's fur coat."}
+  "build": {"archetype": "linh_thuc_su", "main": {"tech": "raft-and-root-primer", "layer": 5}, "aux": [], "gear": [{"base": "giap", "grade": 1, "element": "thuy"}], "skills": {"linh_thuc": 3}, "tree": {"start": "thuy", "intent": "Water endurance."}, "note": "A trapper's fur coat."}
  },
  {
   "key": "au_van_chieu", "name_hv": "Âu Vãn Chiếu", "name_han": "歐晚照", "gloss": "Evening light",
@@ -192,7 +192,7 @@
   "appearance": "A frost-white streak through his black hair that does not melt indoors.",
   "backstory": "In 1192 he followed the white moon-fox's tracks off the lake (A016) into Phản Cảnh Lâm, where footprints go in and not out (A012), and came out three days later with frost in his hair; hunters pay him to bring them out by the lingering dusk (A008). He left one of Quản Tuyết Tung's (quan_tuyet_tung) buyers, who laughed at his hair, to find his own way out, frostbitten.",
   "ties": [{"to": "quan_tuyet_tung", "kind": "friend", "note": "his best customer"}],
-  "build": {"archetype": "tan_tu", "main": {"tech": "hoang_moc", "layer": 2}, "aux": [], "gear": [{"base": "dang", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Wood sustain and soul defence."}, "note": "A guide's lantern he never lights."}
+  "build": {"archetype": "tan_tu", "main": {"tech": "straw-sandal-step-primer", "layer": 2}, "aux": [], "gear": [{"base": "dang", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Wood sustain and soul defence."}, "note": "A guide's lantern he never lights."}
  },
  {
   "key": "lo_kinh_thach", "name_hv": "Lỗ Kinh Thạch", "name_han": "魯驚石", "gloss": "Startled stone",
@@ -214,7 +214,7 @@
   "appearance": "Windburnt pink cheeks; snow-lotus pollen yellowing her sleeves.",
   "backstory": "She climbs the ice above the hermitage gate for snow lotus each summer, with the grey sister Hướng Thiết Lan's (huong_thiet_lan) leave on the lower paths, and sells it to the Pavilion's guest alchemist Viên Chước (vien_chuoc), who still owes her for last year.",
   "ties": [{"to": "huong_thiet_lan", "kind": "friend", "note": "lets her pass the gate paths"}, {"to": "vien_chuoc", "kind": "creditor", "note": "owes her for last year's lotus"}, {"to": "khong_vong_bang", "kind": "lover", "note": "comes south every autumn"}],
-  "build": {"archetype": "linh_thuc_su", "main": {"tech": "hoang_thuy", "layer": 4}, "aux": [], "gear": [{"base": "dao_bao", "grade": 1, "element": "thuy"}], "skills": {"linh_thuc": 2}, "tree": {"start": "thuy", "intent": "Cold resistance and sustain."}, "note": "A climber's quilted robe."}
+  "build": {"archetype": "linh_thuc_su", "main": {"tech": "dew-gathering-breath", "layer": 4}, "aux": [], "gear": [{"base": "dao_bao", "grade": 1, "element": "thuy"}], "skills": {"linh_thuc": 2}, "tree": {"start": "thuy", "intent": "Cold resistance and sustain."}, "note": "A climber's quilted robe."}
  },
  {
   "key": "yen_luu_huy", "name_hv": "Yến Lưu Huy", "name_han": "燕流輝", "gloss": "Flowing radiance",
@@ -225,7 +225,7 @@
   "appearance": "Eyelashes dusted pale with jade grit; squints at any lamp.",
   "backstory": "A snow-jade miner's daughter, she sat three years in the Pivot's outer gate and failed the Level Beam each spring with Metal forty, five short, under Chử Bình Quân's (chu_binh_quan) steady hand; she left in 1198, because no one there could teach the light that comes off the jade into her at dawn.",
   "ties": [{"to": "chu_binh_quan", "kind": "rival", "note": "held the beam steady"}, {"to": "ha_hau_thach", "kind": "friend", "note": "taught her to hold the weights; begged her to stay"}],
-  "build": {"archetype": "phap_tu", "main": {"tech": "hoang_kim", "layer": 3}, "aux": [], "gear": [{"base": "ngoc_boi", "grade": 1, "element": "kim"}], "skills": {}, "tree": {"start": "quang", "intent": "Light's first nodes, felt for alone."}, "note": "A snow-jade pendant she cut herself."}
+  "build": {"archetype": "phap_tu", "main": {"tech": "weighing-stone-primer", "layer": 3}, "aux": [], "gear": [{"base": "ngoc_boi", "grade": 1, "element": "kim"}], "skills": {}, "tree": {"start": "quang", "intent": "Light's first nodes, felt for alone."}, "note": "A snow-jade pendant she cut herself."}
  },
  {
   "key": "mac_than_nuong", "name_hv": "Mặc Thán Nương", "name_han": "墨炭娘", "gloss": "The ink-charcoal girl",
@@ -236,6 +236,6 @@
   "appearance": "Soot in the creases of her knuckles that never washes out. Her eyes widen in daylight.",
   "backstory": "Born in the ash village beside the dark gorge of Tuyến Thiên Hạp, she sees better in kiln smoke than in daylight; at Lam Yên Thị in 1199 a woman in a red robe bought her charcoal, looked at her a long time, and said she would come back with a book.",
   "ties": [{"to": "trieu_huyet_y", "kind": "friend", "note": "the woman in red; she does not know her name"}],
-  "build": {"archetype": "tan_tu", "main": {"tech": "hoang_tho", "layer": 2}, "aux": [], "gear": [{"base": "huong_lo", "grade": 1, "element": "tho"}], "skills": {}, "tree": {"start": "am", "intent": "Darkness, found by herself in the smoke."}, "note": "A charcoal pot."}
+  "build": {"archetype": "tan_tu", "main": {"tech": "hearth-ash-breath", "layer": 2}, "aux": [], "gear": [{"base": "huong_lo", "grade": 1, "element": "tho"}], "skills": {}, "tree": {"start": "am", "intent": "Darkness, found by herself in the smoke."}, "note": "A charcoal pot."}
  }
 ]}

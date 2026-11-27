@@ -629,7 +629,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "verdant-cycle-scripture",
      "layer": 7
     },
     "aux": [],
@@ -736,7 +736,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "lone-line-sitting-canon",
      "layer": 5
     },
     "aux": [],
@@ -852,7 +852,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "moon-holding-scripture",
      "layer": 8
     },
     "aux": [],
@@ -1092,7 +1092,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "verdant-cycle-scripture",
      "layer": 6
     },
     "aux": [
@@ -1128,7 +1128,10 @@
      "targets_note": "Seedling's health, Beast Den for the lynx, Grove Shade for cover, Bamboo Staff's accuracy for the darts."
     },
     "note": "Darts, a lynx, and a hunter's method bought at the ice market."
-   }
+   },
+   "beasts": [
+    "tiem_anh"
+   ]
   },
   {
    "key": "gia_chi_lo",
@@ -1219,7 +1222,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "straw-sandal-step-primer",
      "layer": 5
     },
     "aux": [],

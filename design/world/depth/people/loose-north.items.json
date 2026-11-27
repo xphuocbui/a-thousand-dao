@@ -21,7 +21,7 @@
    {"key": "status_resist_pct", "value": 10, "scope": []},
    {"key": "ward_efficiency_pct", "value": 6, "scope": []}
   ],
-  "effects": ["In a sealed or buried place, the lamp's flame leans toward the nearest hollow or door, and it gutters before a live ward or trap array is touched."],
+  "effects": [{"new": true, "id": "flame-leans", "name": "Flame Leans (Đăng Diễm Khuynh)", "rule": "In a sealed or buried place, the lamp's flame leans toward the nearest hollow or door, and it gutters before a live ward or trap array is touched."}],
   "lore": "A temple lamp of green bronze dug out of the ice of Lẫm Đông Thành (V079) by Phàn Cổ Đăng when she was a girl. It has burned on seal fat for 180 years and has never gone out in a ruin. Thiệu Tàn Đăng carried its twin into Băng Hỏa Môn's fire hall in 1171 (N-loose_north-01); that one went out.",
   "build_use": "Soul sense and resistances for a digger who must see a ward before it sees her.",
   "holder": "phan_co_dang", "made_by": "unknown (a temple of Lẫm Đông Thành)", "made_year": 600, "set": "ln-digger-kit", "status": "proposal"
@@ -47,7 +47,7 @@
    {"key": "attack_pct", "value": 6, "scope": ["hoa"]},
    {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}
   ],
-  "effects": ["Fed with the holder's Fire qi, it thaws a hand's depth of old ice an hour and keeps a frozen hall's air breathable while it burns.", {"new": true, "id": "thaw", "name": "Thaw (Giải Băng)", "rule": "Each Fire hit you land removes one Ice stack from you; each stack removed heals you 0.5 % of your maximum health and gives you one Fire buff stack for 5 s.", "authored": "d48"}],
+  "effects": [{"new": true, "id": "thaw-ice", "name": "Thaw the Ice (Dung Băng)", "rule": "Fed with the holder's Fire qi, it thaws a hand's depth of old ice an hour and keeps a frozen hall's air breathable while it burns."}, {"new": true, "id": "thaw", "name": "Thaw (Giải Băng)", "rule": "Each Fire hit you land removes one Ice stack from you; each stack removed heals you 0.5 % of your maximum health and gives you one Fire buff stack for 5 s.", "authored": "d48"}],
   "lore": "A copper censer from a Tống Khách Thị stall that Phàn Cổ Đăng bought Dư Chúc Nhi in 1195 with the Scorch Fist Primer. The girl cut its vents wider herself so it would burn hotter.",
   "build_use": "A small Fire attack and linh lực recovery for a Luyện Khí fist fighter.",
   "holder": "du_chuc_nhi", "made_by": "a coppersmith of Tống Khách Thị", "made_year": 1190, "set": "ln-thaw-girl-fire", "status": "proposal",
