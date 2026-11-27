@@ -1,0 +1,694 @@
+{
+ "_doc": "Loose cultivators of the south (loose-south) Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:loose-south. Know the Way Out is owned by world-depth:thien_xu and referenced without redefinition.",
+ "source": "world-depth:loose-south",
+ "effects": {
+  "The Goat Knows": {
+   "rule": "Thụ Âm Goat Bell (ls-thu-am-goat-bell): the bell rings once before the holder steps onto ground that would poison them; in a fight, the first poison or curse stack applied to the holder each fight is refused.",
+   "approx": "Out-of-fight warning is narrative; in combat there is no pre-application stack-refusal hook, so on was_hit or pulse once per fight when own.debuff.wood >= 1 or own.curses >= 1 it immediately cleanses 1 Wood Poison stack or 1 curse.",
+   "counters": [
+    {
+     "id": "goat_refused",
+     "cap": 1
+    }
+   ],
+   "states": [],
+   "records": [
+    {
+     "id": "eff:The Goat Knows hit wood",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.goat_refused",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "goat_refused",
+        "set": 1
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "wood"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Goat Knows hit curse",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.goat_refused",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "goat_refused",
+        "set": 1
+       }
+      },
+      {
+       "cleanse": {
+        "curses": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Goat Knows pulse wood",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.goat_refused",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "goat_refused",
+        "set": 1
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "wood"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Goat Knows pulse curse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.goat_refused",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "goat_refused",
+        "set": 1
+       }
+      },
+      {
+       "cleanse": {
+        "curses": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "No Fare": {
+   "rule": "Stern Lamp of Thủy Khẩu (ls-thuy-khau-stern-lamp): while you have a companion, you regain 1 % of your health each second.",
+   "approx": "No live own.companions readable exists, so has_companion (cap 1) latches on the first companion hit_landed or was_evaded event.",
+   "counters": [
+    {
+     "id": "has_companion",
+     "cap": 1
+    }
+   ],
+   "states": [],
+   "records": [
+    {
+     "id": "eff:No Fare comp hit",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.has_companion",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "has_companion",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:No Fare comp evade",
+     "on": "was_evaded",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.has_companion",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "has_companion",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:No Fare heal",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.has_companion",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.01
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Stamp of Trust": {
+   "rule": "False Cloud Seal (ls-false-cloud-seal): a paper or map stamped with this seal passes for Nam Phố's work to anyone who does not hold the true Southern Shore Cloud Seal; to the one who does, it reads as a forgery at a glance.",
+   "not_run": "out-of-fight forgery and social inspection rule, no combat record",
+   "counters": [],
+   "states": [],
+   "records": []
+  },
+  "Dark on Dark Water": {
+   "rule": "Unlit Sail (ls-unlit-sail): out of combat the holder and her boat cannot be seen past a bowshot on the water; in a fight, the first art aimed at her misses.",
+   "approx": "Non-spatial duel has no range; grants decoy {n: 1} on fight_start so the first incoming non-trigger hit is avoided.",
+   "counters": [],
+   "states": [],
+   "records": [
+    {
+     "id": "eff:Dark on Dark Water",
+     "on": "fight_start",
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Walked Out of Chiết Kích": {
+   "rule": "Miasma Walker, full set (3 pieces): each poison or curse stack that lands on you thickens your ward by 2 % of your health instead of its harm, and the ward loses a twentieth of itself each second; while that ward holds, your escape channel is a third shorter.",
+   "approx": "On was_hit or pulse, cleanses Wood Poison stacks and curses while growing the stance ward by 2 % max HP per stack/curse; no escape_channel modifier exists, so while own.ward_share > 0 grants escape +15.",
+   "counters": [],
+   "states": [],
+   "records": [
+    {
+     "id": "eff:Walked Out of Chiết Kích hit wood",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.debuff.wood",
+      "per": 1
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.02,
+        "of": "hp"
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "wood"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Walked Out of Chiết Kích hit curse",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.curses",
+      "per": 1
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.02,
+        "of": "hp"
+       }
+      },
+      {
+       "cleanse": {
+        "curses": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Walked Out of Chiết Kích pulse wood",
+     "on": "pulse",
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.debuff.wood",
+      "per": 1
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.02,
+        "of": "hp"
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "wood"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Walked Out of Chiết Kích pulse curse",
+     "on": "pulse",
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.curses",
+      "per": 1
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.02,
+        "of": "hp"
+       }
+      },
+      {
+       "cleanse": {
+        "curses": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Walked Out of Chiết Kích decay",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.ward_share",
+      "per": 1.0,
+      "floor": false
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": -0.05,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Walked Out of Chiết Kích escape",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "escape": 15
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Tempered by Arrows": {
+   "rule": "Stockade Mistress, full set (2 pieces): each hit you take gives you one Thunder buff stack, and the stacks fall away one every 2 s; your next hook strike spends them, striking once more with Thunder for each.",
+   "approx": "Non-spatial duel drops 'from range', triggering on any damaging hit taken (was_hit, event.amount > 0); spends arrow_thunder stacks on the next sword or saber hit_landed (tags: [sword, saber]) for a Lightning free_hit of 0.4 c per stack.",
+   "counters": [
+    {
+     "id": "arrow_thunder"
+    }
+   ],
+   "states": [],
+   "records": [
+    {
+     "id": "eff:Tempered by Arrows gain",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "thunder",
+        "n": 1,
+        "for": 8,
+        "side": "own",
+        "kind": "buff"
+       }
+      },
+      {
+       "counter": {
+        "id": "arrow_thunder",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Tempered by Arrows decay",
+     "on": "pulse",
+     "limit": {
+      "cooldown": 2
+     },
+     "if": [
+      {
+       "read": "own.counter.arrow_thunder",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "arrow_thunder",
+        "add": -1
+       }
+      },
+      {
+       "consume": {
+        "el": "thunder",
+        "side": "own",
+        "kind": "buff",
+        "n": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Tempered by Arrows spend",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword",
+       "saber"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.arrow_thunder",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.arrow_thunder",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.4,
+        "dtype": "lightning"
+       }
+      },
+      {
+       "counter": {
+        "id": "arrow_thunder",
+        "set": 0
+       }
+      },
+      {
+       "consume": {
+        "el": "thunder",
+        "side": "own",
+        "kind": "buff",
+        "n": 99
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "No One Drowns": {
+   "rule": "The Free Crossing, full set (2 pieces): while you have a companion or are Composed, your ward regains 2 % of your health each second; the first time each fight you would fall below a quarter of your health, the lamp heals you 15 %.",
+   "approx": "Uses own.composed >= 1 ('Still' renamed Composed) or latched has_companion >= 1; grows stance ward via ward_grow {share: 0.02, of: 'hp'}.",
+   "counters": [
+    {
+     "id": "has_companion",
+     "cap": 1
+    }
+   ],
+   "states": [],
+   "records": [
+    {
+     "id": "eff:No One Drowns comp hit",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.has_companion",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "has_companion",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:No One Drowns comp evade",
+     "on": "was_evaded",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.has_companion",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "has_companion",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:No One Drowns ward",
+     "on": "pulse",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.counter.has_companion",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.composed",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.02,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:No One Drowns save",
+     "on": "wounded",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.15
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Leave While It Burns": {
+   "rule": "Night Rain Stall, full set (2 pieces): when a curse you laid is cleansed or one of your talismans burns out, you cannot be targeted for 1 s (once every 6 s).",
+   "approx": "Fires on cleansed or batch_ended with a shared 6 s burn_vanish_cd charge; 'cannot be targeted for 1 s' runs as decoy {n: 1} + evade +40 for 1 s.",
+   "counters": [
+    {
+     "id": "burn_vanish_cd",
+     "cap": 1,
+     "each_for": 6.0
+    }
+   ],
+   "states": [],
+   "records": [
+    {
+     "id": "eff:Leave While It Burns cleansed",
+     "on": "cleansed",
+     "if": [
+      {
+       "read": "own.counter.burn_vanish_cd",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      },
+      {
+       "mod": {
+        "evade": 40,
+        "for": 1.0
+       }
+      },
+      {
+       "counter": {
+        "id": "burn_vanish_cd",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Leave While It Burns expired",
+     "on": "batch_ended",
+     "if": [
+      {
+       "read": "own.counter.burn_vanish_cd",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      },
+      {
+       "mod": {
+        "evade": 40,
+        "for": 1.0
+       }
+      },
+      {
+       "counter": {
+        "id": "burn_vanish_cd",
+        "add": 1
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

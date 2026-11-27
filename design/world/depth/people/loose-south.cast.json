@@ -287,7 +287,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "huyen_loi",
+     "tech": "opening-thunder-canon",
      "layer": 8
     },
     "aux": [
@@ -1208,7 +1208,10 @@
      "targets_note": "Spear Thrust and Long Spear for the Metal pins, Beast Den in the Wood land for the hound."
     },
     "note": "A hunter's canon, an iron-hide body manual, and a grey ridge hound."
-   }
+   },
+   "beasts": [
+    "bat_phe"
+   ]
   },
   {
    "key": "bien_am_pham",
@@ -1302,7 +1305,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "still-moon-tide-scripture",
      "layer": 6
     },
     "aux": [
@@ -1426,7 +1429,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "pearl-diver-breath",
      "layer": 5
     },
     "aux": [

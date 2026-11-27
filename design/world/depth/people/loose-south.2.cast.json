@@ -70,7 +70,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "duckweed-drift-primer",
      "layer": 5
     },
     "aux": [],
@@ -145,7 +145,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "vat-stirring-breath",
      "layer": 5
     },
     "aux": [],
@@ -288,7 +288,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "duckweed-drift-primer",
      "layer": 2
     },
     "aux": [],
@@ -444,7 +444,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "seed-and-soil-primer",
      "layer": 5
     },
     "aux": [],
@@ -519,7 +519,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "straw-sandal-step-primer",
      "layer": 4
     },
     "aux": [],
@@ -591,7 +591,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "black-toad-venom-manual",
      "layer": 4
     },
     "aux": [],
@@ -893,7 +893,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_kim",
+     "tech": "nine-temper-scripture",
      "layer": 4
     },
     "aux": [],
@@ -965,7 +965,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "weighing-stone-primer",
      "layer": 5
     },
     "aux": [],
@@ -1033,7 +1033,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_hoa",
+     "tech": "yoke-and-axle-breath",
      "layer": 5
     },
     "aux": [],
@@ -1102,7 +1102,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "pearl-diver-breath",
      "layer": 4
     },
     "aux": [],
@@ -1245,7 +1245,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_hoa",
+     "tech": "red-sun-scripture",
      "layer": 6
     },
     "aux": [],
@@ -1315,7 +1315,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "dew-gathering-breath",
      "layer": 6
     },
     "aux": [],
@@ -1386,7 +1386,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "lingzhi-pickers-song",
      "layer": 4
     },
     "aux": [],

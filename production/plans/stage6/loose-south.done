@@ -1,0 +1,34 @@
+{
+ "owner": "loose-south",
+ "minutes": 0,
+ "written": {
+  "techniques": 0,
+  "arts": 0,
+  "items": 13,
+  "sets": 5,
+  "effects": 8,
+  "stand_ins": 16,
+  "beasts": 1
+ },
+ "deviations": [
+  "Resolved clash: 2 by marking Know the Way Out new=false in design/world/depth/people/loose-south.items.json (owned by world-depth:thien_xu) and referencing it without redefinition.",
+  "Kept do_liet_co aux black-wind-blood-sabre staged under demonic per b06 serial merge plan; probed together in memory.",
+  "Adapted spatial 'from range' wording on Dark on Dark Water and Tempered by Arrows and updated 'Still' to 'Composed' on No One Drowns.",
+  "Approximated The Goat Knows (post-application cleanse once per fight), No Fare / No One Drowns (companion latch on first companion hit/evade), Walked Out of Chiết Kích (escape +15 while ward holds), Tempered by Arrows (damaging hit -> sword/saber free_hit), Leave While It Burns (decoy + evade +40 for 1 s on 6 s shared cooldown)."
+ ],
+ "decisions": [
+  "Stamp of Trust marked not_run (out-of-fight forgery rule).",
+  "10 signature items carry R6 common-art/ward exception; ls-thuy-khau-stern-lamp, ls-unlit-sail, and ls-thunder-pendant omit it.",
+  "Added beasts: [\"bat_phe\"] to an_thu_son in loose-south.cast.json."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Stamp of Trust",
+  "The Goat Knows (in default sect_fight vs typical Fire foe; verified in Probe 1 vs Wood/curse foe)",
+  "Walked Out of Chiết Kích (in default sect_fight vs typical Fire foe; verified in Probe 1 vs Wood/curse foe)",
+  "Know the Way Out (no escape art in khau_bach_thu/bien_am_pham default build; verified in Probe 4)",
+  "No Fare (no companion in yen_hoi_do solo build; verified in Probe 2)"
+ ],
+ "early_promotions": [],
+ "open": []
+}
