@@ -1,9 +1,17 @@
-{"owner": "lac_ha", "minutes": 35, "must_fix": 2, "should": 3, "fixed": 4,
- "words": {"technique-effects": "build"},
+{
+ "owner": "lac_ha",
+ "minutes": 55,
+ "must_fix": 6,
+ "should": 6,
+ "fixed": 12,
+ "words": {
+  "technique-effects": "build"
+ },
  "open": [
-  "lineage names vs CongPhap.usable: evening-dust-primer (16/34 living holders), sunset-cloud-canon (4/16), and evening-song-of-the-boats (5/16) hold incompatible roots under CongPhap.usable; left unchanged pending Stage 7/9 ruling",
-  "dao_tam and breakthrough_chance restored in catalogue-sect-lac_ha.json (NOT_PRICED notes only after adc5978a); ensure Stage 7 combat_engine.json out_of_fight and cong_phap.gd StatSheet consume them outside fights",
-  "serial step: build technique-effects in fight.py and Godot compilers for sunset-cloud-canon / The Glow Deepens",
-  "library (family-earth.json): mountain-stance unconditionally overwrites sunset-cloud on quach_tiep_van (benign here since he carries no field_up Effect)",
-  "carried over: parked long-sky-one-colour + Geese in File (multi-fighter combat); export_named.py skips kind treasure (lh-tu-dien, lh-thanh-suong); WIRED held items (d11/d12/sai_thanh_phong aux); The Treasury Key out-of-fight half"
- ]}
+  "engine / CongPhap.usable (Stage 7, CongPhap rule 8): usable() requires every element in names, flagging 25 living lac_ha cast slots (evening-dust-primer 16/26, sunset-cloud-canon 4/16, evening-song-of-the-boats 5/16) despite depth text stating either root carries the primer; same game-wide issue as bang_tam and thien_xu (do not strip moc from sunset-cloud-canon: breaks lint_techniques ELEMENT for second-spring)",
+  "serial step: build technique-effects (fight.py tech_layers, GDScript FighterCompiler / build_file_compiler.gd, export_techniques.py, sect_fight.py) so sunset-cloud-canon attaches The Glow Deepens at layer 3; record is already self-contained in design/stage6-staging/lac_ha/effects/lac_ha.effects.json",
+  "tools: sect_fight.py slots technique arts only (not item base common arts fan-gust, needle-rain, flying-sword-strike, anchor-drop) and counts only Fight.do calls (showing runs 0 for on: always Effects like Colour of the Hour); verified with focused real-kit probes",
+  "not applied (outside this job's write set): production/plans/stage6/lac_ha-review.md and lac_ha.done are stale from the record pass",
+  "carried over / parked: Geese in File (lh-cold-geese-sword) and Geese Line (long-sky-one-colour) stay parked per postponed-2026-11-26.json (targets-tl); export_named.py skips kind treasure (lh-tu-dien, lh-thanh-suong); out-of-fight halves (Lone Duck Ring treasury key, Twin Swords office/lost lore)"
+ ]
+}

@@ -71,13 +71,12 @@
    {
     "read": "own.counter.sunset_cloud",
     "op": "<=",
-    "value": 1
+    "value": 0
    }
   ],
   "counters": [
    {
-    "id": "sunset_cloud",
-    "decay_per_pulse": 1
+    "id": "sunset_cloud"
    },
    {
     "id": "glow_clock"
@@ -177,6 +176,25 @@
        "stacks": 1,
        "dur": 2,
        "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "sunset-cloud-step",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.sunset_cloud",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "sunset_cloud",
+       "add": -1
       }
      }
     ]
@@ -349,8 +367,7 @@
   "kind": "elem",
   "counters": [
    {
-    "id": "van_quy",
-    "decay_per_pulse": 1
+    "id": "van_quy"
    },
    {
     "id": "stern_lamp"
@@ -429,6 +446,12 @@
      {
       "gain_qi": {
        "share": 0.02
+      }
+     },
+     {
+      "counter": {
+       "id": "van_quy",
+       "add": -1
       }
      }
     ]
@@ -561,8 +584,7 @@
     "id": "ninth_used"
    },
    {
-    "id": "ninth_verse",
-    "decay_per_pulse": 1
+    "id": "ninth_verse"
    },
    {
     "id": "stern_lamp"
@@ -665,6 +687,12 @@
      {
       "heal": {
        "share": 0.01
+      }
+     },
+     {
+      "counter": {
+       "id": "ninth_verse",
+       "add": -1
       }
      }
     ]

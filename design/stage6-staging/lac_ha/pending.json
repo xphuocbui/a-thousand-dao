@@ -10,10 +10,10 @@
     "The Glow Deepens"
    ],
    "decision": "build",
-   "decision_reason": "Matches thien_xu's Stage 6 checkpoint decision ('build'). The Glow Deepens stays in design/stage6-staging/lac_ha/effects/lac_ha.effects.json with its pending note until technique-effects is wired in the serial build step (fight.py tech_layers + GDScript FighterCompiler / build_file_compiler.gd)."
+   "decision_reason": "checkpoint 2026-11-27 (Neon audit): matches thien_xu-checkpoint.md ('build'). Passive arts exist across ~20 world-depth owners' technique files, and no existing word attaches a technique's named Effects by unlock layer (passives carry plain stat lines only). The Glow Deepens stays in design/stage6-staging/lac_ha/effects/lac_ha.effects.json (now self-contained with glow-clock-pulse / glow-clock-hit, deduplicated by id) with its pending note until technique-effects is wired in the serial build step (fight.py tech_layers + GDScript FighterCompiler / build_file_compiler.gd)."
   }
  ],
- "_checkpoint": "Checkpoint review 2026-11-27: technique-effects marked 'build' to align with thien_xu-checkpoint.md. No new pending words opened.",
+ "_checkpoint": "Checkpoint review 2026-11-27 (Neon audit): technique-effects confirmed 'build' (aligned with thien_xu-checkpoint.md). No new pending words opened.",
  "arts": [],
  "effects": {}
 }
