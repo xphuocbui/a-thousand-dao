@@ -1,0 +1,12 @@
+{
+ "owner": "suong_tung",
+ "minutes": 5,
+ "must_fix": 2,
+ "should": 1,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Serial step: merge design/stage6-staging/suong_tung/ into design/ and assets/data/combat_effects.json, and run Stage 7 exporters (closing N-suong_tung-01..03)",
+  "Add 'foreseen' to assets/data/combat_engine.json REQUEST_TAGS when foreseen fights are wired"
+ ]
+}
