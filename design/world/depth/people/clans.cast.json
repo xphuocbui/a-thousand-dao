@@ -173,7 +173,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "locust-shade-breathing",
      "layer": 9
     },
     "aux": [],
@@ -306,7 +306,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "locust-shade-breathing",
      "layer": 6
     },
     "aux": [],
@@ -404,7 +404,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "locust-shade-breathing",
      "layer": 3
     },
     "aux": [],
@@ -505,7 +505,7 @@
    "build": {
     "archetype": "dan_su",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "locust-shade-breathing",
      "layer": 5
     },
     "aux": [],
@@ -614,7 +614,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "locust-shade-breathing",
      "layer": 4
     },
     "aux": [],
@@ -695,7 +695,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "locust-shade-breathing",
      "layer": 4
     },
     "aux": [],
@@ -776,7 +776,7 @@
    "build": {
     "archetype": "dan_su",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "locust-shade-breathing",
      "layer": 3
     },
     "aux": [],
@@ -862,7 +862,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "locust-shade-breathing",
      "layer": 2
     },
     "aux": [],
@@ -1162,7 +1162,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "twin-span-pillar-method",
      "layer": 6
     },
     "aux": [],
@@ -1279,7 +1279,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "twin-span-pillar-method",
      "layer": 6
     },
     "aux": [],
@@ -1389,7 +1389,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "twin-span-pillar-method",
      "layer": 6
     },
     "aux": [],
@@ -1470,7 +1470,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "twin-span-pillar-method",
      "layer": 3
     },
     "aux": [],
@@ -1551,7 +1551,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "twin-span-pillar-method",
      "layer": 3
     },
     "aux": [],
@@ -1637,7 +1637,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "twin-span-pillar-method",
      "layer": 4
     },
     "aux": [],
@@ -1713,7 +1713,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "twin-span-pillar-method",
      "layer": 2
     },
     "aux": [],
@@ -1881,7 +1881,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "returning-swallow-breath",
      "layer": 9
     },
     "aux": [
@@ -2008,7 +2008,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "returning-swallow-breath",
      "layer": 6
     },
     "aux": [],
@@ -2102,7 +2102,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "returning-swallow-breath",
      "layer": 3
     },
     "aux": [],
@@ -2197,7 +2197,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "returning-swallow-breath",
      "layer": 5
     },
     "aux": [],
@@ -2277,7 +2277,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "returning-swallow-breath",
      "layer": 3
     },
     "aux": [],
@@ -2367,7 +2367,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "returning-swallow-breath",
      "layer": 5
     },
     "aux": [],
@@ -2453,7 +2453,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "returning-swallow-breath",
      "layer": 2
     },
     "aux": [],
@@ -2538,7 +2538,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "returning-swallow-breath",
      "layer": 2
     },
     "aux": [],

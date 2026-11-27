@@ -1,0 +1,115 @@
+[
+  {
+    "id": "cl-locust-shade",
+    "name": "Locust-Shade Regalia (Hòe Âm Trang)",
+    "pieces": ["cl-old-locust-seal", "cl-locust-dye-robe", "cl-fathers-rope-knot"],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "modifiers": [
+          {"key": "ward_efficiency_pct", "value": 8, "scope": []},
+          {"key": "health_regen_inc_pct", "value": 10, "scope": []}
+        ]
+      },
+      {
+        "pieces": 3,
+        "effect": "He Waited",
+        "rule": "For every 10 s you hold Composed and do not stop being Composed, gain +5% ward potency (up to +15%) and your next art cannot be evaded. Drops 1 stack per pulse if you stop being Composed."
+      }
+    ],
+    "story": "Carried by the Tiêu elders who remember the boatman's silence under the courtyard locust."
+  },
+  {
+    "id": "cl-twin-bridges",
+    "name": "Twin Bridges Watch (Song Kiều Giáp)",
+    "pieces": ["cl-keystone-toll-seal", "cl-east-pillar-shield", "cl-flood-year-coat"],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "modifiers": [
+          {"key": "block_rating", "value": 15, "scope": []},
+          {"key": "defense_pct", "value": 6, "scope": []}
+        ]
+      },
+      {
+        "pieces": 3,
+        "effect": "Pillar in the Flood",
+        "rule": "While above 50% HP, gain delay and push immunity. Every fifth block burns 3% of the foe's max linh lực into your pool."
+      }
+    ],
+    "story": "Worn together only when the bridge watch closes the span."
+  },
+  {
+    "id": "cl-set-old-hall",
+    "name": "Swallow's Dispatch (Quy Yến Trang)",
+    "pieces": ["cl-swallow-hall-fan", "cl-returning-ink-pendant", "cl-ta-hall-seal"],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "modifiers": [
+          {"key": "evade_pct", "value": 6, "scope": []},
+          {"key": "art_speed_pct", "value": 8, "scope": ["moc"]}
+        ]
+      },
+      {
+        "pieces": 3,
+        "effect": "The Swallow Returns to Its Nest",
+        "rule": "Every third Wood art fired grants a follow-up soul hit (c = 1.4)."
+      }
+    ],
+    "story": "Tạ Hall's dispatch kit — fan, ink-jade, and dispatch seal."
+  },
+  {
+    "id": "cl-granary",
+    "name": "Granary Store (Tàng Lương Trang)",
+    "pieces": ["cl-first-sheaf-bell", "cl-granary-seal", "cl-seed-store-gourd"],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "modifiers": [
+          {"key": "healing_pct", "value": 10, "scope": []},
+          {"key": "khi_huyet_pct", "value": 8, "scope": []}
+        ]
+      },
+      {
+        "pieces": 3,
+        "effect": "Outlast the Drought",
+        "rule": "Starting at 10 s, each 10 s stores one Seed stack (up to 4). When you drop below 20% HP, consume all Seed stacks to heal 8% max HP per stack."
+      }
+    ],
+    "story": "Bell, steward seal, and winter seed-gourd kept together by the granary elders."
+  },
+  {
+    "id": "cl-ho-fleet",
+    "name": "White-Sand Fleet (Bạch Sa Chu Trang)",
+    "pieces": ["cl-misty-wave-mirror", "cl-captains-ring", "cl-white-sand-robe"],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "modifiers": [
+          {"key": "evade_pct", "value": 6, "scope": []},
+          {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}
+        ]
+      },
+      {
+        "pieces": 3,
+        "effect": "Leave With the Tide",
+        "rule": "Once per fight, dropping below 50% HP reduces incoming damage by 99% for 2 s, restores 10% max linh lực, and makes your next art certain."
+      }
+    ],
+    "story": "Mirror, captain's ring, and salt-proof robe of the Hỗ river pilots."
+  },
+  {
+    "id": "cl-reeling-thread",
+    "name": "Silk-Reeler's Kit (Sào Ti Trang)",
+    "pieces": ["cl-golden-reeling-needle", "cl-mulberry-thimble"],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "effect": "Pulled Tight",
+        "rule": "When a foe carries 6 or more of your Fire debuff stacks, casting a needle art consumes all Fire debuff stacks to deal immediate fire damage (c = 0.114 per stack)."
+      }
+    ],
+    "story": "Gold filament needle and worn brass thimble of the Đới elders."
+  }
+]

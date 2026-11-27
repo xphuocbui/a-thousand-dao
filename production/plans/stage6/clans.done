@@ -1,0 +1,30 @@
+{
+  "owner": "clans",
+  "minutes": 18,
+  "written": {
+    "techniques": 5,
+    "arts": 6,
+    "items": 17,
+    "sets": 6,
+    "effects": 12,
+    "stand_ins": 46,
+    "beasts": 0
+  },
+  "deviations": 5,
+  "decisions": [
+    "Rewrite spatial wording into non-spatial engine equivalents: pillar-in-the-current delays foe's next ready art by 0.5 s on the next 3 hits before exiting stance; The Harvest Bell targets self only in 1v1; He Waited maps Still/no-move to own.composed and decays 1 wait_ward/pulse when un-Composed; Pillar in the Flood uses delay_immune + unmoved while >50% HP in one mod dict.",
+    "Keep shade-of-the-road slot-independent via counter road_shade (cap 5) + own.composed check on pulse so it never clobbers stances.",
+    "Approximate item/set Effects using existing DSL words with zero pending words (Under the Locust: un-scoped ward_pct 20 + water/wood ward_grow 0.015 HP <=10 s; The Toll & Pillar in the Flood: burn_qi scaling on qi_max; The Swallow Returns: which 'last' 0.4 share after 3 pulses; Reading the Weather: decoy n=1 every 12 s; Leave With the Tide: dampen_taken 9900 for 2 s + acc 1000 until hit; Pulled Tight: consume foe fire debuffs at c=0.114/stack on needle-rain or needle-tagged art).",
+    "Assign rarity 4 to the 3 grade-3 unique treasures (cl-old-locust-seal, cl-keystone-toll-seal, cl-first-sheaf-bell) and apply the R6 common-art/ward exception to all 12 items with common-art bases (leaving arts [] and omitting exception on kinh/nhan/ngoc_boi items).",
+    "Replace all 46 cast stand-ins across clans.cast.json (23) and clans.2.cast.json (23): Tieu -> locust-shade-breathing (8), On -> twin-span-pillar-method (7), Ta -> returning-swallow-breath (8), Luc -> seed-store-method (7), Tong Thanh Mieu -> nine-temper-scripture (1), Ho -> still-moon-tide-scripture (6) & Man Tu Chi -> verdant-cycle-scripture (1), Doi -> reeling-thread-breath (8)."
+  ],
+  "pending_words": [],
+  "never_ran": [
+    "The Swallow Returns to Its Nest (cl-set-old-hall 3pc): split worn 2/3 on ta_cuu_duong and 1/3 on ta_tri_xuan by design; verified firing (strike=10/5 seeds) via targeted 3pc probe on ta_cuu_duong.",
+    "Pulled Tight (cl-reeling-thread 2pc): doi_tam_nuong slots red-sun-scripture without auto-slotting cl-golden-reeling-needle's needle-rain; verified firing (Pulled Tight:rain=5/5 seeds) via targeted probe with needle-rain slotted."
+  ],
+  "early_promotions": [],
+  "open": [
+    "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to close techniques, arts_new, items, sets, effects, and the 9 structured events."
+  ]
+}

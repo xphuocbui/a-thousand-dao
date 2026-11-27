@@ -16,10 +16,12 @@
    "concept": "Sat at noon in the shade of a living locust. The leaves cool the air and the breath, and the root learns to draw Water qi down through Wood the way a tree draws water up. Slow and steady; it builds linh lực sustain and Wood regrowth, and it is useless while the holder burns: a Fire stack on her stops the regrowth until it clears.",
    "arts": [
     {
+     "id": "falling-locust-flowers",
      "new": "Falling Locust Flowers (Hòe Hoa Lạc)",
      "concept": "A spray of yellow flower-darts that heal the caster a little for each that lands."
     },
     {
+     "id": "shade-of-the-road",
      "new": "Shade of the Road (Lộ Âm)",
      "concept": "A cool ward that thickens while the caster stands still."
     }
@@ -42,6 +44,7 @@
    "concept": "A mason's method: the cultivator stands waist-deep in moving water and sinks their qi into the riverbed like a pillar, so the current breaks around them. It trains health, block and the body's weight more than art power.",
    "arts": [
     {
+     "id": "pillar-in-the-current",
      "new": "Pillar in the Current (Trụ Lập Lưu)",
      "concept": "A stance that turns the next three hits taken into blocks and pushes the attacker back."
     }
@@ -64,6 +67,7 @@
    "concept": "The breath goes out and comes back as swallows leave and return: each cycle sends qi out to the limbs and draws it home with a little more. Its arts echo, striking once and again. The manual stops at the ninth layer, and the clan believes a second half stayed in the old hall.",
    "arts": [
     {
+     "id": "swallows-return",
      "new": "Swallow's Return (Yến Hồi)",
      "concept": "A Wood dart that comes back to hit the same foe a second time at half power."
     }
@@ -85,6 +89,7 @@
    "concept": "Qi is put away like seed grain over winter: gathered in the autumn sittings, sealed, and drawn on only when needed. Slow to build, nothing wasted; it gives health and linh lực pools and a late surge.",
    "arts": [
     {
+     "id": "opened-granary",
      "new": "Opened Granary (Khai Thương)",
      "concept": "Release the stored qi at once: a large heal and a short burst of art speed, once a fight."
     }
@@ -107,6 +112,7 @@
    "concept": "A breath drawn as fine and unbroken as a thread reeled from a cocoon in hot water: Fire heat, Earth patience. It builds long debuffs rather than hard hits. Sung, not read: the layers are verses of the Hỏa Ti reeling songs.",
    "arts": [
     {
+     "id": "unbroken-thread",
      "new": "Unbroken Thread (Bất Đoạn Ti)",
      "concept": "A Fire thread that binds a foe, lowering evade for as long as the caster keeps it drawn."
     }
