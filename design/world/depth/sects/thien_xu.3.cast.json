@@ -2331,7 +2331,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "water-clock-breath",
      "layer": 2
     },
     "aux": [],

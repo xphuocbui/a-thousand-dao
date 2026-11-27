@@ -1,0 +1,50 @@
+{"owner": "thien_xu", "minutes": 240,
+ "written": {"techniques": 6, "arts": 9, "items": 30, "sets": 10, "effects": 22, "stand_ins": 8, "beasts": 0},
+ "deviations": 41,
+ "decisions": [
+  "The Pole Draws from the Vein (d8) is a passive art: a technique Effect on the Pivot canon, not an art record; it takes no slot and never fires (pending word technique-effects attaches it).",
+  "The Pole Draws unlocks at layer 4, not 7: d8's own holder list (six people) holds the canon at layers 4-6.",
+  "The Dipper Handle is paced, one star a breath: a second Metal art within 1 s moves no star, a non-Metal damaging art loses the count, and recovery comes after 3 s with no damaging art. As written, the always-fire sim lost the count about 10 times a fight and the handle pointed about 0.1 times.",
+  "The Pivot's still stance is a self-state counter, not a stance slot, so it never overwrites Mountain Stance in the same kit.",
+  "A 'Weight' is an Earth debuff stack on the foe (the Pivot canon's own definition); Weighed lays one and Sentence Stands reads it.",
+  "'Your ward' is your main ward (ward_pct), which every fighter holds; The Door Stays Shut grows the stance ward, which ward_grow creates if none exists.",
+  "'Breaks the foe's ward' is Exposed (an existing curse), not a new break_ward word: an existing word that keeps the intent wins; 'ignores the ward' on a hit is bypass 0.5, as in Băng Tâm.",
+  "'Strike nothing' or 'wait' is the Composed clock (own.since_act): companions, summons and the basic attack do not break it.",
+  "Signature items: base common art or ward with the R6 exception on weapons and body gear; all unique.",
+  "Treasures keep kind treasure and get rarity 5 (grade + 1) for lint_items; the tally gets base phu; the spears stay on phi_kiem as the depth note says.",
+  "Stand-ins: the 5 Earth-rooted servants take the Weighing-Stone Primer (its text admits a one-element root); the 3 Water and Wood servants take a new method, Water-Clock Breathing (the seat keeps time by water clock).",
+  "Retunes after Băng Tâm's baseline (all under the art lint): Handle cut 2.3, Weigh the Heart 3.0, North Star Writ 1.4, Pivot +4 % per Weight, the Dipper's damage_more 3 [kim], the Pivot trades ward efficiency for linh lực regeneration +16 % (sustain was the elders' bottleneck).",
+  "Plant the Stele needs a fifth of linh lực in hand, so its rising refund cost cannot drive linh lực below 0; there is no cap on charges.",
+  "The Weakest File's 'pierce a fifth of its resistances' is pen 40 scoped to spear arts and companions (the engine's pierce only cuts realm suppression)."
+ ],
+ "pending_words": [
+  "technique-effects: a technique's effects [{name, unlock_layer}] attached by the loader as always-on library Effects (passive arts)",
+  "darkness-element: Darkness (am) debuff and buff piles, readables and the scope tag; its stack effect needs a ruling",
+  "curse-fast: a mod flag; the curses you lay cannot be cleansed while it holds (Sentence Stands)",
+  "curse-reflect: mod charges; the next curse that would land on you lands on its caster (A Fair Copy)"
+ ],
+ "never_ran": [
+  "Know the Way Out: no holder slots an escape art",
+  "True Gold Shows: out of fight (an appraisal rule), not_run",
+  "The Banner Is Raised: no holder (lost in abode A-3) and no Darkness element; not_run, the full record is in pending.json",
+  "Seal and Weight in One Hand: no real holder (the Regalia is split by design); it ran on a synthetic kit (4 judgements in 10 fights)",
+  "The Army That Waits: no holder (lost); it ran on a synthetic kit (20 runs)",
+  "Sentence Stands: an always record (no runs counted); +50 % on 2 s Withering, with Heavy Breath already at the 5 s clamp, does not show",
+  "A Fair Copy: ran (10), but the typical foe casts no soul art",
+  "The Pole Draws from the Vein: the loader does not attach technique Effects; it ran through tree_effects (Phương 52.3 s 43 % to 45.8 s 54 %)",
+  "the-pivot-does-not-turn movement clause: no holder has a movement art",
+  "hinh_thu_tinh, thinh_ham_quang: fight.py refuses Light purity (REFUSED)",
+  "flying-blade-retinue, stone-warden-call at --gap 1: the fights (8-14 s) end before their 9 s cooldowns"
+ ],
+ "early_promotions": [],
+ "open": [
+  "serial step: build the 4 pending words (technique-effects, darkness-element, curse-fast, curse-reflect) and swap in the full Sentence Stands, A Fair Copy and The Banner Is Raised records from pending.json",
+  "serial step: fight.py to_build should accept purity 'light' (the engine has the element)",
+  "export: export_named.py skips kind treasure (4 Thiên Xu items: tx-bac-than-an, tx-heavenly-weight, tx-iron-horse-banner, tx-iron-horse-tally)",
+  "Item DB: no spear base; tx-pha-quan-spear and tx-marshal-spear sit on phi_kiem",
+  "library arts: mountain-stance and mountain-root-stance overwrite each other (mountain-root toggles on any stance tag), as in quy_thu_luy's kit; a combined state needs an edit outside this pass",
+  "tools: sect_fight.py slots main-technique arts first, 6 at every realm, technique arts only, so aux spears and swords and item common arts never slot; real-kit probes were used",
+  "balance (Stage 11): weak same-realm kits thien_thua_cu 3 of 10 and nhiep_minh_tien 2 of 10; Luyện Khí lose as Băng Tâm's do",
+  "user: WIRED b13 war-flag companion lines, the stale build_use on tx-miasma-root-charm, the Way-Out Knot choice for phong_bach_ke",
+  "out of fight: Weighed's lie-knowing (NPC Interaction & Dialogue); The Army That Waits' realm (world event); True Gold Shows (market and item screens)"
+ ]}

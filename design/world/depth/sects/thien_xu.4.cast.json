@@ -2824,7 +2824,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "weighing-stone-primer",
      "layer": 3
     },
     "aux": [],
@@ -2887,7 +2887,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "water-clock-breath",
      "layer": 2
     },
     "aux": [],
@@ -2950,7 +2950,7 @@
    "build": {
     "archetype": "tran_su",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "weighing-stone-primer",
      "layer": 1
     },
     "aux": [],
@@ -3013,7 +3013,7 @@
    "build": {
     "archetype": "tran_su",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "weighing-stone-primer",
      "layer": 2
     },
     "aux": [],
@@ -3082,7 +3082,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "weighing-stone-primer",
      "layer": 3
     },
     "aux": [],
@@ -3150,7 +3150,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_hoa",
+     "tech": "weighing-stone-primer",
      "layer": 1
     },
     "aux": [],
@@ -3213,7 +3213,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "water-clock-breath",
      "layer": 2
     },
     "aux": [],
