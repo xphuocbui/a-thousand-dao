@@ -158,7 +158,7 @@ def lint(techs, fname, arts, pool, tiers, notes):
             elif key in PRICE:
                 price = PRICE[key]
             else:
-                out.append("NOT_PRICED\t%s\tpassives[%d] %r has no W price (modifiers.md Formulas A)" % (where, i, key))
+                (notes if unpriced else out).append("NOT_PRICED\t%s\tpassives[%d] %r has no W price (modifiers.md Formulas A)" % (where, i, key))
                 priced = False
                 continue
             tags = scope + ([IMPLIED[key]] if key in IMPLIED and IMPLIED[key] not in scope else [])
