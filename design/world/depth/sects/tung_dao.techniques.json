@@ -78,7 +78,7 @@
    "id": "hearth-simmer-breath",
    "name": "Hearth-Simmer Breath (Táo Hạ Văn Hỏa Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["hoa"], "layers": 6, "rank": "tap_dich",
-   "concept": "A smokeless Yellow-tier stove-tending breath used by the palace kitchen's Fire-rooted cooks (Bành Táo Nhi, Phùng Quế Chi) under the pines.",
+   "concept": "A smokeless Yellow-tier stove-tending breath used by the palace kitchen's Fire-root cooks (Bành Táo Nhi, Phùng Quế Chi) under the pines.",
    "arts": [
     {"id": "simmered-broth", "new": "Simmered Broth (Văn Hỏa Dưỡng Canh)", "concept": "Slow-simmered stove breath: restores a little health and gives 1 Fire buff stack."}
    ],
@@ -89,7 +89,7 @@
    "id": "bark-and-timber-breath",
    "name": "Bark-and-Timber Breath (Mộc Thạch Phụ Trọng Công)",
    "tier": 0, "tech_kind": "main", "names": ["tho"], "layers": 6, "rank": "tap_dich",
-   "concept": "A plain Yellow-tier hauling and loom-steadying breath practiced by Earth-rooted servants of the outer terrace (Sầm Chức Nương, Mạc Đốn Mộc).",
+   "concept": "A plain Yellow-tier carrying and loom-steadying breath practiced by Earth-root servants of the outer terrace (Sầm Chức Nương, Mạc Đốn Mộc).",
    "arts": [
     {"id": "steady-shoulder", "new": "Steady Shoulder (Kiên Phụ Trọng)", "concept": "Braces shoulders and strikes once for plain Earth damage and 1 Earth buff stack."}
    ],

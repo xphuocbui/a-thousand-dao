@@ -1,0 +1,16 @@
+{
+ "owner": "tung_dao",
+ "minutes": 16,
+ "must_fix": 8,
+ "should": 8,
+ "fixed": 16,
+ "words": {
+  "technique-effects": "build"
+ },
+ "open": [
+  "Partial-set Effect loading (fight.py:393, sect_fight.py:138, build_file_compiler.gd:415): td-cold-ford-charge is a 3-piece set with a 2-piece Effect (Hold the Quay) and a 3-piece Effect (Light on the Quay); compilers currently require n == len(pieces) so nhiep_co_tan (2/3) does not receive Hold the Quay yet",
+  "Serial step: build technique-effects (shared) to wire Answering Wave (L4) and The Fifteenth Layer (L15) on pine-wave-true-canon",
+  "Pre-existing cast/lineage/item tensions: tan_mac_bach (no thuy) fails CongPhap.usable on pine-wave-true-canon; startled-goose-step omits Wind swallow-stance; td-broken-ice-flags carries verbatim stack_effect_pct 18 [thuy, debuff] with no DEBUFF[water] stat",
+  "Carried over: cross-owner ref market-folk khau_phuc_linh (listening-pine-primer) closes at serial merge; export_named.py kind treasure handling (td-wandering-dragon-sash); out-of-combat not_run (One Stick of Listening, Heard Once, travel cultivation on The Road in a Dream)"
+ ]
+}

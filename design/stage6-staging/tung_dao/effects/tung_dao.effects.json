@@ -6,6 +6,7 @@
    "rule": "Pine Wave True Canon layer 4 passive art: each heal from your arts lays one Wood stack on the foe per 1 % of your health restored and gives you one Water stack.",
    "source": "world-depth:tung_dao",
    "pending": "technique-effects: Pine Wave True Canon's passive art at layer 4; runs once technique-effects attaches technique Effects by layer",
+   "approx": "Fires on any heal_restored (at most once a pulse) because art heals (a.heal) emit before s.cur_ev is populated; Wood stacks scale uncapped by floor(event.share / 0.01) while Water buff is always 1 stack per heal.",
    "records": [
     {
      "id": "eff:Answering Wave",
@@ -15,8 +16,7 @@
      },
      "scale": {
       "read": "event.share",
-      "per": 0.01,
-      "cap": 10
+      "per": 0.01
      },
      "do": [
       {
@@ -26,7 +26,16 @@
         "for": 8,
         "side": "foe"
        }
-      },
+      }
+     ]
+    },
+    {
+     "id": "eff:Answering Wave water",
+     "on": "heal_restored",
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
       {
        "stacks": {
         "el": "water",
@@ -45,8 +54,7 @@
    "pending": "technique-effects: Pine Wave True Canon layer 15 Effect; runs once technique-effects attaches technique Effects by layer",
    "counters": [
     {
-     "id": "fifteenth_waves",
-     "cap": 6
+     "id": "fifteenth_waves"
     }
    ],
    "records": [
@@ -114,7 +122,7 @@
   "Supple as a Swimming Dragon": {
    "rule": "Wandering Dragon Sash: once every 15 s, when a single hit would take more than a tenth of your health, you slip half of it.",
    "source": "world-depth:tung_dao",
-   "approx": "was_hit passes raw amount without share and hp_max varies by realm; threshold set to 6000 HP (exact 10 % of Thôi Khinh Hồng's 60,348 Hóa Thần health) and restores 50 % of event.amount while logging dragon_slipped for Swan Goose and Swimming Dragon.",
+   "approx": "was_hit passes raw amount without share and hp_max varies by realm; threshold set to 6000 HP (exact 10 % of Thôi Khinh Hồng's 60,348 Hóa Thần health) and restores 50 % of event.amount (scaled by healing %) while logging dragon_slipped for Swan Goose and Swimming Dragon.",
    "counters": [
     {
      "id": "dragon_slipped",
@@ -146,7 +154,7 @@
       {
        "counter": {
         "id": "dragon_slipped",
-        "add": 1
+        "set": 1
        }
       }
      ]
@@ -182,53 +190,16 @@
   "Hear It Coming": {
    "rule": "Robe of the Listening Dawn: the first art each fight that would stun or root you is heard before it lands, and fails.",
    "source": "world-depth:tung_dao",
-   "approx": "Grants status_immune to sleep, charmed, bound, off_guard and delay_immune for the opening 15 s via hear_ticks countdown (engine does not emit a blocked-status event).",
-   "counters": [
-    {
-     "id": "hear_ticks",
-     "cap": 15
-    }
-   ],
+   "approx": "Grants status_immune to sleep, charmed, bound, off_guard and delay_immune for the opening 15 s (time <= 15) because the engine does not emit a blocked-status event to spend a one-shot ward.",
    "records": [
     {
-     "id": "eff:Hear It Coming start",
-     "on": "fight_start",
-     "do": [
-      {
-       "counter": {
-        "id": "hear_ticks",
-        "set": 15
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Hear It Coming tick",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "own.counter.hear_ticks",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "hear_ticks",
-        "add": -1
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Hear It Coming hold",
+     "id": "eff:Hear It Coming",
      "on": "always",
      "if": [
       {
-       "read": "own.counter.hear_ticks",
-       "op": ">=",
-       "value": 1
+       "read": "time",
+       "op": "<=",
+       "value": 15
       }
      ],
      "do": [
@@ -295,10 +266,10 @@
   "The Ninth Bend": {
    "rule": "Ring of the Nine Bends: every ninth Water art you cast bends back and strikes again at half strength.",
    "source": "world-depth:tung_dao",
+   "approx": "Ninth-art return strikes as a fixed Cold free_hit (c 1.1) on the pulse the ninth count is reached so utility Water arts (Gathering Wave, The Wave Comes Back) still return a blow and the Relics set's double-count runs first.",
    "counters": [
     {
-     "id": "bend_count",
-     "cap": 12
+     "id": "bend_count"
     },
     {
      "id": "ninth_bent",
@@ -357,77 +328,27 @@
   "Roots Under the Field": {
    "rule": "Banner of the Coiled Roots: when the foe has been Composed for 2 s, it cannot evade for 1 s; once every 10 s.",
    "source": "world-depth:tung_dao",
-   "counters": [
-    {
-     "id": "root_watch",
-     "cap": 5
-    }
-   ],
    "records": [
     {
-     "id": "eff:Roots Under the Field watch",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "foe.composed",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "root_watch",
-        "add": 1
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Roots Under the Field reset",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "foe.composed",
-       "op": "==",
-       "value": 0
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "root_watch",
-        "set": 0
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Roots Under the Field snap",
+     "id": "eff:Roots Under the Field",
      "on": "pulse",
      "limit": {
       "cooldown": 10
      },
      "if": [
       {
-       "read": "own.counter.root_watch",
+       "read": "foe.composed_time",
        "op": ">=",
        "value": 2
       }
      ],
      "do": [
       {
-       "counter": {
-        "id": "root_watch",
-        "set": 0
-       }
-      },
-      {
        "status": {
         "id": "off_guard",
         "side": "foe",
         "stacks": 1,
-        "for": 1.0
+        "dur": 1.0
        }
       }
      ]
@@ -468,63 +389,17 @@
    "not_run": "Out-of-combat manual/voice art learning is outside fight simulations."
   },
   "Crack the Ice": {
-   "rule": "Flags That Broke the Ice: while you hold the Flag charges, a foe that has been Composed for 3 s cannot evade for 2 s and takes a Water stack each second.",
+   "rule": "Flags That Broke the Ice: while you hold the Flag charges, a foe that has been Composed for 3 s cannot evade for 2 s and takes an Ice stack (Water's debuff, Effects rule 9a) each second.",
    "source": "world-depth:tung_dao",
+   "approx": "Flag charges are treated as standing while the Flags are worn (no authored Flag art); lays Ice debuff stacks (Water's debuff under Effects GDD rule 9a, scaling with Water purity via water_ice_share) and refreshes a 6 s ice_chill array marker for Ground Set Before.",
    "counters": [
     {
-     "id": "ice_watch",
-     "cap": 5
-    },
-    {
      "id": "ice_chill",
+     "each_for": 6,
      "cap": 1
     }
    ],
    "records": [
-    {
-     "id": "eff:Crack the Ice watch",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "foe.composed",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "ice_watch",
-        "add": 1
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Crack the Ice reset",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "foe.composed",
-       "op": "==",
-       "value": 0
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "ice_watch",
-        "set": 0
-       }
-      },
-      {
-       "counter": {
-        "id": "ice_chill",
-        "set": 0
-       }
-      }
-     ]
-    },
     {
      "id": "eff:Crack the Ice lock",
      "on": "pulse",
@@ -533,7 +408,7 @@
      },
      "if": [
       {
-       "read": "own.counter.ice_watch",
+       "read": "foe.composed_time",
        "op": ">=",
        "value": 3
       }
@@ -542,7 +417,7 @@
       {
        "counter": {
         "id": "ice_chill",
-        "set": 1
+        "add": 1
        }
       },
       {
@@ -550,7 +425,7 @@
         "id": "off_guard",
         "side": "foe",
         "stacks": 1,
-        "for": 2.0
+        "dur": 2.0
        }
       }
      ]
@@ -560,15 +435,21 @@
      "on": "pulse",
      "if": [
       {
-       "read": "own.counter.ice_watch",
+       "read": "foe.composed_time",
        "op": ">=",
        "value": 3
       }
      ],
      "do": [
       {
+       "counter": {
+        "id": "ice_chill",
+        "add": 1
+       }
+      },
+      {
        "stacks": {
-        "el": "water",
+        "el": "ice",
         "n": 1,
         "for": 8,
         "side": "foe"
@@ -606,7 +487,7 @@
    ]
   },
   "The Sea Answers": {
-   "rule": "Pine Waves Regalia, full set: while you stay Composed, every 3 s a wave goes out from you (you heal 2 % health and the foe gains one Wood stack); each wave is stronger than the last, waves past the fifth cost 2 % maximum linh lực, and waves break if you stop being Composed.",
+   "rule": "Pine Waves Regalia, full set: while you stay Composed, every 3 s a wave goes out from you (wave 1 heals 2 % health and lays 1 Wood stack; each wave after adds +0.4 % heal and +1 Wood stack, uncapped); every wave after the fifth costs 2 % of your maximum linh lực, and waves break if you stop being Composed or cannot pay.",
    "source": "world-depth:tung_dao",
    "counters": [
     {
@@ -614,8 +495,7 @@
      "cap": 3
     },
     {
-     "id": "sea_wave",
-     "cap": 10
+     "id": "sea_wave"
     }
    ],
    "records": [
@@ -664,7 +544,124 @@
      ]
     },
     {
+     "id": "eff:The Sea Answers dry",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.sea_tick",
+       "op": ">=",
+       "value": 3
+      },
+      {
+       "read": "own.counter.sea_wave",
+       "op": ">=",
+       "value": 5
+      },
+      {
+       "read": "own.qi_share",
+       "op": "<",
+       "value": 0.02
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "sea_tick",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "sea_wave",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Sea Answers cost",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.sea_tick",
+       "op": ">=",
+       "value": 3
+      },
+      {
+       "read": "own.counter.sea_wave",
+       "op": ">=",
+       "value": 5
+      },
+      {
+       "read": "own.qi_share",
+       "op": ">=",
+       "value": 0.02
+      }
+     ],
+     "do": [
+      {
+       "gain_qi": {
+        "share": -0.02
+       }
+      }
+     ]
+    },
+    {
      "id": "eff:The Sea Answers wave",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.sea_tick",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "sea_wave",
+        "add": 1
+       }
+      },
+      {
+       "heal": {
+        "share": 0.016
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Sea Answers surge",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.sea_tick",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "scale": {
+      "read": "own.counter.sea_wave",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.004
+       }
+      },
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Sea Answers reset",
      "on": "pulse",
      "if": [
       {
@@ -679,95 +676,33 @@
         "id": "sea_tick",
         "set": 0
        }
-      },
-      {
-       "counter": {
-        "id": "sea_wave",
-        "add": 1
-       }
-      },
-      {
-       "heal": {
-        "share": 0.02
-       }
-      },
-      {
-       "stacks": {
-        "el": "wood",
-        "n": 1,
-        "for": 8,
-        "side": "foe"
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:The Sea Answers surge",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "own.counter.sea_tick",
-       "op": "==",
-       "value": 0
-      },
-      {
-       "read": "own.counter.sea_wave",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "scale": {
-      "read": "own.counter.sea_wave",
-      "per": 1,
-      "cap": 10
-     },
-     "do": [
-      {
-       "free_hit": {
-        "c": 0.15,
-        "dtype": "phys"
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:The Sea Answers cost",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "own.counter.sea_tick",
-       "op": "==",
-       "value": 0
-      },
-      {
-       "read": "own.counter.sea_wave",
-       "op": ">=",
-       "value": 6
-      }
-     ],
-     "do": [
-      {
-       "burn_qi": {
-        "share": 0.02
-       }
       }
      ]
     }
    ]
   },
   "Hold the Quay": {
-   "rule": "The Governor's Charge (2 pieces): while Composed, you take 12 % less damage and your Off-Guard roots last 1 s longer.",
+   "rule": "The Governor's Charge (2 pieces): after 3 s Composed (no damaging/movement act or 3 s in a Composed stance), you take 12 % less damage and your Off-Guard/Bound roots last 1 s longer.",
    "source": "world-depth:tung_dao",
-   "approx": "Uses own.composed (2 s after last act / stance) for 'not moved for 3 s', dampen_taken: 12 for 12 % less damage taken, and status_dur: 100 on curses to extend 1 s Off-Guard roots by 1 s.",
+   "approx": "Uses own.since_act >= 3 or own.composed_time >= 3 for 3 s without moving, dampen_taken: 12 for 12 % less damage taken, and status_dur: 100 scoped to [off_guard, bound] to extend 1 s roots by 1 s. Note: fight.py and build_file_compiler.gd currently attach set Effects only on full sets (3/3), so 2/3 activation on nhiep_co_tan awaits partial-set Effect support.",
    "records": [
     {
      "id": "eff:Hold the Quay",
      "on": "always",
      "if": [
       {
-       "read": "own.composed",
-       "op": ">=",
-       "value": 1
+       "any": [
+        {
+         "read": "own.since_act",
+         "op": ">=",
+         "value": 3
+        },
+        {
+         "read": "own.composed_time",
+         "op": ">=",
+         "value": 3
+        }
+       ]
       }
      ],
      "do": [
@@ -780,7 +715,8 @@
        "mod": {
         "status_dur": 100,
         "tags": [
-         "curse"
+         "off_guard",
+         "bound"
         ]
        }
       }
@@ -791,6 +727,7 @@
   "Light on the Quay": {
    "rule": "The Governor's Charge, full set (3 pieces): while you hold all three and stay Composed, the lantern lights a Field around you: you heal 1 % of your health each second and the foe is Slowed; a foe that cannot evade for 2 s is struck by a palm counter.",
    "source": "world-depth:tung_dao",
+   "approx": "Runs the lantern's Field directly on own.composed >= 1 without claiming the single stance slot so Rooted Form stays active.",
    "counters": [
     {
      "id": "quay_root",
@@ -819,7 +756,7 @@
         "id": "slowed_time",
         "side": "foe",
         "stacks": 1,
-        "for": 1.5
+        "dur": 1.5
        }
       }
      ]
@@ -883,9 +820,18 @@
      "on": "pulse",
      "if": [
       {
-       "read": "foe.status.off_guard",
-       "op": "==",
-       "value": 0
+       "any": [
+        {
+         "read": "foe.status.off_guard",
+         "op": "==",
+         "value": 0
+        },
+        {
+         "read": "own.composed",
+         "op": "==",
+         "value": 0
+        }
+       ]
       }
      ],
      "do": [
@@ -986,7 +932,7 @@
         "id": "off_guard",
         "side": "foe",
         "stacks": 1,
-        "for": 1.0
+        "dur": 1.0
        }
       }
      ]
@@ -1050,7 +996,7 @@
    "records": [
     {
      "id": "eff:Light as a Startled Goose watch",
-     "on": "pulse",
+     "on": "was_hit",
      "if": [
       {
        "read": "own.counter.dragon_slipped",
@@ -1076,7 +1022,7 @@
         "id": "off_guard",
         "side": "foe",
         "stacks": 1,
-        "for": 1.0
+        "dur": 1.0
        }
       }
      ]
@@ -1110,6 +1056,7 @@
   "The River Keeps Its Bed": {
    "rule": "Relics of Still Water, full set: each Water art the Lamp makes free counts twice toward the Ring's ninth bend, and when the ninth wave bends back it also heals you for 3 % of your maximum linh lực.",
    "source": "world-depth:tung_dao",
+   "approx": "Engine heal scales on hp_max rather than qi_max; 3 % of maximum linh lực is modelled as heal share 0.015 of hp_max when ninth_bent fires.",
    "records": [
     {
      "id": "eff:The River Keeps Its Bed free",
@@ -1134,7 +1081,7 @@
      ]
     },
     {
-     "id": "eff:The River Keeps Its Bed qi",
+     "id": "eff:The River Keeps Its Bed heal",
      "on": "pulse",
      "if": [
       {
@@ -1151,8 +1098,8 @@
        }
       },
       {
-       "gain_qi": {
-        "share": 0.03
+       "heal": {
+        "share": 0.015
        }
       }
      ]
@@ -1222,50 +1169,21 @@
    ]
   },
   "Keep Singing": {
-   "rule": "The Unwritten Score, full set: while you cast Wood arts within 3.5 s of the previous one, each art gives one Song stack (+2 % Wood art speed and +3 % soul resistance each, fading 8 s after gained). A soul hit or Silence spends 4 Song to negate/mend.",
+   "rule": "The Unwritten Score, full set: while you cast Wood arts with no gap over 1.5 s, each chained art gives one Song stack (+2 % Wood art speed and +3 % soul resistance each, fading 8 s after gained, uncapped). A soul hit or Silence takes 4 Song instead.",
    "source": "world-depth:tung_dao",
-   "approx": "Uses a 3.5 s gap tracker (matching Vi Thanh Âm's Wood cast cadence) and refunds event.amount on soul_taken when spending 4 Song.",
+   "approx": "Uses a 1.5 s charge counter (song_gap, refreshed via add: 1) so only consecutive Wood casts within 1.5 s grant Song; on unreflected soul_taken, spends 4 Song to restore health equal to event.amount (linh lực loss not refunded); at 4+ Song, grants Silence immunity without spending Song because the engine emits no blocked-status event.",
    "counters": [
     {
      "id": "song",
-     "each_for": 8,
-     "cap": 10
+     "each_for": 8
     },
     {
      "id": "song_gap",
-     "each_for": 3.5,
+     "each_for": 1.5,
      "cap": 1
     }
    ],
    "records": [
-    {
-     "id": "eff:Keep Singing start",
-     "on": "art_fired",
-     "filter": {
-      "element": "wood"
-     },
-     "if": [
-      {
-       "read": "own.counter.song_gap",
-       "op": "==",
-       "value": 0
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "song_gap",
-        "set": 1
-       }
-      },
-      {
-       "counter": {
-        "id": "song",
-        "add": 1
-       }
-      }
-     ]
-    },
     {
      "id": "eff:Keep Singing chain",
      "on": "art_fired",
@@ -1283,7 +1201,7 @@
       {
        "counter": {
         "id": "song_gap",
-        "set": 1
+        "add": 1
        }
       },
       {
@@ -1295,12 +1213,33 @@
      ]
     },
     {
+     "id": "eff:Keep Singing start",
+     "on": "art_fired",
+     "filter": {
+      "element": "wood"
+     },
+     "if": [
+      {
+       "read": "own.counter.song_gap",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "song_gap",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
      "id": "eff:Keep Singing scale",
      "on": "always",
      "scale": {
       "read": "own.counter.song",
-      "per": 1,
-      "cap": 10
+      "per": 1
      },
      "do": [
       {
@@ -1340,6 +1279,11 @@
      "on": "soul_taken",
      "if": [
       {
+       "read": "event.reflected",
+       "op": "==",
+       "value": 0
+      },
+      {
        "read": "own.counter.song",
        "op": ">=",
        "value": 4
@@ -1364,58 +1308,23 @@
    ]
   },
   "Ground Set Before": {
-   "rule": "The Ice-Breaker's Array, full set: arrays and curses you lay in the first 5 s of a fight last 50 % longer, and while your array (a Field) is up, a foe that stays cursed for 3 s cannot evade for 1.5 s and takes a Water stack; once every 10 s.",
+   "rule": "The Ice-Breaker's Array, full set: arrays and curses you lay in the first 5 s of a fight last 50 % longer, and while your array (a Field) is up, a foe that stays cursed for 3 s cannot evade for 1.5 s and takes an Ice stack (Water's debuff, Effects rule 9a); once every 10 s.",
    "source": "world-depth:tung_dao",
+   "approx": "Uses time <= 5 for opening +50 % curse duration (arrays have no duration mod); accepts either own.field_up >= 1 or Crack the Ice's 6 s ice_chill marker as the set's array being up; lays an Ice debuff stack (Water's debuff under Effects GDD rule 9a).",
    "counters": [
     {
-     "id": "open_5",
-     "cap": 5
-    },
-    {
-     "id": "curse_watch",
-     "cap": 5
+     "id": "curse_watch"
     }
    ],
    "records": [
-    {
-     "id": "eff:Ground Set Before start",
-     "on": "fight_start",
-     "do": [
-      {
-       "counter": {
-        "id": "open_5",
-        "set": 5
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Ground Set Before tick",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "own.counter.open_5",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "open_5",
-        "add": -1
-       }
-      }
-     ]
-    },
     {
      "id": "eff:Ground Set Before opening",
      "on": "always",
      "if": [
       {
-       "read": "own.counter.open_5",
-       "op": ">=",
-       "value": 1
+       "read": "time",
+       "op": "<=",
+       "value": 5
       }
      ],
      "do": [
@@ -1485,11 +1394,6 @@
          "read": "own.counter.ice_chill",
          "op": ">=",
          "value": 1
-        },
-        {
-         "read": "foe.curses",
-         "op": ">=",
-         "value": 1
         }
        ]
       },
@@ -1511,12 +1415,12 @@
         "id": "off_guard",
         "side": "foe",
         "stacks": 1,
-        "for": 1.5
+        "dur": 1.5
        }
       },
       {
        "stacks": {
-        "el": "water",
+        "el": "ice",
         "n": 1,
         "for": 8,
         "side": "foe"
