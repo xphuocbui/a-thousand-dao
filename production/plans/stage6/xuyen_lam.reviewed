@@ -1,0 +1,12 @@
+{
+ "owner": "xuyen_lam",
+ "minutes": 7,
+ "must_fix": 1,
+ "should": 0,
+ "fixed": 1,
+ "words": {},
+ "open": [
+  "body-element-free-names (Stage 7/9 cultivation/schema ruling, carried from thinh_vu.reviewed): allow names: [] on element-free main/secret methods for R3 no-lean sects (all 3 xuyen_lam techniques carry temporary lint proxy ['kim','moc','tho'])",
+  "Item DB base gap (pre-existing in xuyen_lam.items.json): no dedicated staff base in design/items/bases.json; xl-bamboo-staff sits on loi_truong (utility)"
+ ]
+}
