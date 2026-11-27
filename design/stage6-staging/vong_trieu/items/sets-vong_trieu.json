@@ -1,7 +1,7 @@
 [
  {
   "id": "vtd-lamp-chain",
-  "name": "The Lamp Chain (Liên Đăng Tam Bảo)",
+  "name": "The Lamp Chain (Đăng Liên Tam Bảo)",
   "pieces": ["vtd-unsleeping-lamp", "vtd-kim-sa-seal", "vtd-pearl-diver-robe"],
   "bonuses": [
    {
@@ -21,7 +21,7 @@
  },
  {
   "id": "vtd-breakwater",
-  "name": "The Breakwater (Trùng Đê Tam Bảo)",
+  "name": "The Breakwater (Phá Lãng Tam Bảo)",
   "pieces": ["vtd-breakwater-seal", "vtd-sea-wall-shield", "vtd-jetty-stone"],
   "bonuses": [
    {

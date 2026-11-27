@@ -18,19 +18,22 @@
   ],
   "counters": [
    {"id": "seal", "cap": 9},
-   {"id": "seal_blows", "cap": 20},
-   {"id": "seal_turned", "cap": 20},
-   {"id": "seal_last_turned", "cap": 20},
+   {"id": "seal_blows"},
+   {"id": "seal_turned"},
+   {"id": "seal_last_turned"},
    {"id": "seal_popped", "cap": 1},
+   {"id": "seal_burned_out", "cap": 1},
    {"id": "seal_just_emptied", "cap": 1},
    {"id": "seal_ttl", "cap": 14},
    {"id": "seal_wall", "cap": 1},
    {"id": "seal_fuse", "cap": 1},
    {"id": "has_lamp_ward", "cap": 1},
+   {"id": "lamp_ward_t1"},
+   {"id": "lamp_ward_t2"},
    {"id": "has_unsleeping_lamp", "cap": 1},
    {"id": "not_one_lamp", "cap": 1},
    {"id": "lamp_escaped", "cap": 1},
-   {"id": "seal_pass_turns", "cap": 20}
+   {"id": "seal_pass_turns"}
   ],
   "effects": [
    {
@@ -42,7 +45,10 @@
      {"counter": {"id": "seal_blows", "set": 3}},
      {"counter": {"id": "seal_turned", "set": 0}},
      {"counter": {"id": "seal_popped", "set": 0}},
-     {"counter": {"id": "seal_just_emptied", "set": 0}}
+     {"counter": {"id": "seal_burned_out", "set": 0}},
+     {"counter": {"id": "seal_just_emptied", "set": 0}},
+     {"counter": {"id": "lamp_ward_t1", "set": 0}},
+     {"counter": {"id": "lamp_ward_t2", "set": 0}}
     ]
    },
    {
@@ -70,12 +76,37 @@
     ]
    },
    {
+    "id": "set-the-lamp-bank-ward-3",
+    "on": "art_fired",
+    "filter": {"art_id": "set-the-lamp"},
+    "if": [
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": ">=", "value": 3}
+    ],
+    "do": [
+     {"counter": {"id": "lamp_ward_t1", "add": 1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-bank-ward-6",
+    "on": "art_fired",
+    "filter": {"art_id": "set-the-lamp"},
+    "if": [
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": ">=", "value": 6}
+    ],
+    "do": [
+     {"counter": {"id": "lamp_ward_t2", "add": 1}}
+    ]
+   },
+   {
     "id": "set-the-lamp-gain",
     "on": "art_fired",
     "filter": {"art_id": "set-the-lamp"},
     "do": [
      {"counter": {"id": "seal", "add": 1}},
-     {"counter": {"id": "seal_ttl", "set": 10}}
+     {"counter": {"id": "seal_ttl", "set": 10}},
+     {"counter": {"id": "seal_burned_out", "set": 0}}
     ]
    },
    {
@@ -111,6 +142,7 @@
     "if": [{"read": "own.counter.seal", "op": ">=", "value": 1}],
     "do": [
      {"counter": {"id": "seal_popped", "set": 0}},
+     {"counter": {"id": "seal_burned_out", "set": 0}},
      {"counter": {"id": "seal_just_emptied", "set": 0}},
      {"counter": {"id": "seal_turned", "add": 1}}
     ]
@@ -183,6 +215,7 @@
     ],
     "do": [
      {"counter": {"id": "seal_popped", "set": 1}},
+     {"counter": {"id": "seal_burned_out", "set": 1}},
      {"counter": {"id": "seal_turned", "set": 0}},
      {"counter": {"id": "seal", "add": -1}}
     ]
@@ -196,7 +229,9 @@
      {"read": "own.counter.seal", "op": "==", "value": 0}
     ],
     "do": [
-     {"counter": {"id": "seal_just_emptied", "set": 1}}
+     {"counter": {"id": "seal_just_emptied", "set": 1}},
+     {"counter": {"id": "lamp_ward_t1", "set": 0}},
+     {"counter": {"id": "lamp_ward_t2", "set": 0}}
     ]
    },
    {
@@ -226,29 +261,138 @@
     ]
    },
    {
-    "id": "set-the-lamp-reload-ward-3",
+    "id": "set-the-lamp-reload-ward-t1-1",
     "on": "was_hit",
     "filter": {"not_tags": ["trigger"]},
     "if": [
      {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
-     {"read": "own.counter.seal", "op": ">=", "value": 3},
-     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1}
+     {"read": "own.counter.seal", "op": "==", "value": 1},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 1}
     ],
     "do": [
-     {"counter": {"id": "seal_blows", "add": 1}}
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
     ]
    },
    {
-    "id": "set-the-lamp-reload-ward-6",
+    "id": "set-the-lamp-reload-ward-t1-2",
     "on": "was_hit",
     "filter": {"not_tags": ["trigger"]},
     "if": [
      {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
-     {"read": "own.counter.seal", "op": ">=", "value": 6},
-     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1}
+     {"read": "own.counter.seal", "op": "==", "value": 2},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 2}
     ],
     "do": [
-     {"counter": {"id": "seal_blows", "add": 1}}
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-3",
+    "on": "was_hit",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 3},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 3}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-4",
+    "on": "was_hit",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 4},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 4}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-5",
+    "on": "was_hit",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 5},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 5}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-6",
+    "on": "was_hit",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 6},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 6}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t2-1",
+    "on": "was_hit",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 1},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t2", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t2", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t2-2",
+    "on": "was_hit",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 2},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t2", "op": ">=", "value": 2}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t2", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t2-3",
+    "on": "was_hit",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.seal_popped", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 3},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t2", "op": ">=", "value": 3}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t2", "add": -1}}
     ]
    },
    {
@@ -291,7 +435,8 @@
      {"read": "own.counter.seal_ttl", "op": ">=", "value": 1}
     ],
     "do": [
-     {"counter": {"id": "seal_ttl", "add": -1}}
+     {"counter": {"id": "seal_ttl", "add": -1}},
+     {"counter": {"id": "seal_burned_out", "set": 0}}
     ]
    },
    {
@@ -309,13 +454,28 @@
     "do": [
      {"counter": {"id": "seal", "add": -1}},
      {"counter": {"id": "seal_turned", "set": 0}},
-     {"counter": {"id": "seal_blows", "set": 0}}
+     {"counter": {"id": "seal_blows", "set": 0}},
+     {"counter": {"id": "seal_burned_out", "set": 1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-empty",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 0}
+    ],
+    "do": [
+     {"counter": {"id": "seal_just_emptied", "set": 1}},
+     {"counter": {"id": "lamp_ward_t1", "set": 0}},
+     {"counter": {"id": "lamp_ward_t2", "set": 0}}
     ]
    },
    {
     "id": "set-the-lamp-tick-reload",
     "on": "pulse",
     "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
      {"read": "own.counter.seal", "op": ">=", "value": 1},
      {"read": "own.counter.seal_ttl", "op": "==", "value": 0},
      {"read": "own.counter.seal_blows", "op": "==", "value": 0},
@@ -330,6 +490,7 @@
     "id": "set-the-lamp-tick-reload-ward",
     "on": "pulse",
     "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
      {"read": "own.counter.seal", "op": ">=", "value": 1},
      {"read": "own.counter.seal_ttl", "op": "==", "value": 10},
      {"read": "own.counter.seal_blows", "op": "==", "value": 3},
@@ -337,6 +498,157 @@
     ],
     "do": [
      {"counter": {"id": "seal_blows", "add": 1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-1",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 1},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-2",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 2},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 2}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-3",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 3},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 3}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-4",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 4},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 4}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-5",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 5},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 5}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-6",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 6},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t1", "op": ">=", "value": 6}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t1", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t2-1",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 1},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t2", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t2", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t2-2",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 2},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t2", "op": ">=", "value": 2}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t2", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t2-3",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": "==", "value": 3},
+     {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1},
+     {"read": "own.counter.lamp_ward_t2", "op": ">=", "value": 3}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": 1}},
+     {"counter": {"id": "lamp_ward_t2", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-fuse",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": ">=", "value": 1},
+     {"read": "own.counter.seal_fuse", "op": ">=", "value": 1},
+     {"read": "own.counter.seal_blows", "op": ">=", "value": 2}
+    ],
+    "do": [
+     {"counter": {"id": "seal_blows", "add": -1}}
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-lamp",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.seal_burned_out", "op": ">=", "value": 1},
+     {"read": "own.counter.seal", "op": ">=", "value": 1},
+     {"read": "own.counter.has_unsleeping_lamp", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"counter": {"id": "seal_ttl", "add": 4}}
     ]
    }
   ],
@@ -496,7 +808,6 @@
     "id": "bind-the-flame-cost",
     "on": "was_hit",
     "filter": {"not_tags": ["trigger"]},
-    "limit": {"per_pulse": 2},
     "if": [
      {"read": "own.counter.seal_wall", "op": ">=", "value": 1},
      {"read": "own.counter.seal", "op": ">=", "value": 1}
@@ -508,7 +819,7 @@
   ],
   "rule": "Chosen when slotted (Wall mode in standard slot; Fuse mode via seal_fuse build variant). Wall: for the rest of the fight your Ward Seals never burn out, and each blow they turn costs you a 0.15 Soul self-hit. Fuse: each Seal turns 1 blow fewer and The Lamp Flares strikes twice as hard.",
   "hooks": ["seal", "self_hit", "soul"],
-  "notes": "Self-hit is filtered on not_tags: [trigger] with per_pulse: 2 to avoid recursion and multi-hit spikes.",
+  "notes": "Trigger self-hits are filtered out on was_hit (not_tags: [trigger]) to avoid recursion.",
   "sources": ["world-depth:vong_trieu"]
  },
  {
