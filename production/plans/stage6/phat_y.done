@@ -1,0 +1,22 @@
+{"owner": "phat_y", "minutes": 8,
+ "written": {"techniques": 3, "arts": 5, "items": 4, "sets": 2, "effects": 4, "stand_ins": 0, "beasts": 0},
+ "deviations": 6,
+ "decisions": [
+  "Serve a Term wired as layer-1 technique Effect on contract-sword-canon and filtered to art hits (cooldown 3 s on enemy art was_hit) so basic attacks do not zero out Terms and holders reach 5+ Terms.",
+  "brushed-sleeve-step arts (brush-the-sleeve, a-thousand-sleeves) and all Effects use counters/decoys/timed mods rather than states so thang_vo_ta's flurry-stance never collides.",
+  "noon-guard authored as element-free Physical (element: \"\") so both Metal miners and Fire steppe disciples benefit equally.",
+  "Gone Before Thanks triggers on broken (25 % HP) in 1v1 duels since foe death/flight ends the fight immediately.",
+  "Paid in Full adapted to 1v1 combat (contract protection active in duel with idempotent limits across py-contract-seal and py-hired-pair); post-fight hirer-survival full heal left unmodelled.",
+  "The Last Step bundles Return to the Scabbard (Quy Sao) under py-grey-seal's Effect key without colliding with thinh_vu's Return to the Scabbard."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Marked Prey (blade-thousand-cut-sword): on always mod Effect from catalogue-blade.json; Fight.do() logs 0 runs for always records though it shifts thang_vo_ta's fight time (12.1 s vs 12.3 s).",
+  "Gone Before Thanks (--gap 1 only): thang_vo_ta falls to the nguyen_anh typical foe at 15.2 s before bringing it to 25 % broken; runs 5 times across 5 seeds at --gap 0."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial merge & export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py).",
+  "khi_van out-of-fight reader (py-contract-seal).",
+  "Paid in Full post-fight hirer-survival clause if multi-ally fights return."
+ ]}

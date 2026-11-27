@@ -1,0 +1,101 @@
+[
+ {
+  "id": "py-grey-sleeve",
+  "name": "The Grey Sleeve (Phất Y Bào)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 4,
+  "modifiers": [
+   {"key": "evade_pct", "value": 8, "scope": []},
+   {"key": "art_speed_pct", "value": 12, "scope": ["sword"]},
+   {"key": "khi_huyet_pct", "value": 14, "scope": []},
+   {"key": "basic_speed_pct", "value": 12, "scope": []},
+   {"key": "than_thuc_pct", "value": 4, "scope": []}
+  ],
+  "effects": ["Gone Before Thanks"],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A plain grey robe with one long sleeve, left in the valley hall by the founder Quách Lĩnh Thù when he walked out in 790, with the Brushed Sleeve Step folded inside it. Thang Vô Tạ wears it. On the third day of the duel on Cùng Mục Phong (C186) its left sleeve was cut through; he had it mended the same night and has not let anyone see the seam.",
+  "build_use": "A Wind swordsman's robe: evade, speed, and a vanishing after the finishing cut.",
+  "holder": "thang_vo_ta",
+  "made_by": "quach_linh_thu",
+  "made_year": 600,
+  "set": "py-grey-seal",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "py-contract-seal",
+  "name": "Contract Seal of the Valley (Cốc Khế Ấn)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 16, "scope": ["sword"]},
+   {"key": "leech_health_pct", "value": 15, "scope": []},
+   {"key": "khi_van", "value": 1, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["Paid in Full"],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "The bronze seal the valley stamps on every hire: a sleeve and a sword. Whoever holds it decides which caravans, mines and sects Phất Y swords will guard. Lam Khế Ngôn has held it since 1147 and has stamped more contracts with it than the two heads before her together.",
+  "build_use": "A hired guard's seal: sustain while protecting a client.",
+  "holder": "lam_khe_ngon",
+  "made_by": "lieu_hanh_van",
+  "made_year": 800,
+  "set": "py-hired-pair",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "py-sleeve-token",
+  "name": "Token from the Hall of Sleeves (Tụ Đường Phù)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 3,
+  "modifiers": [
+   {"key": "evade_pct", "value": 6, "scope": []},
+   {"key": "art_speed_pct", "value": 10, "scope": ["phong"]},
+   {"key": "than_thuc_pct", "value": 4, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A scrap of grey sleeve in a wooden case, taken from the beams of the hall of the dead. Each head carries one sleeve down.",
+  "build_use": "Wind behind the blade: the evade after the cut.",
+  "holder": "thang_vo_ta",
+  "made_by": "phat_y",
+  "made_year": 1090,
+  "set": "py-grey-seal",
+  "unique": true
+ },
+ {
+  "id": "py-contract-blade",
+  "name": "Blade of the Signed Contract (Thiêm Khế Kiếm)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "phi_kiem",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 12, "scope": ["sword"]},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []},
+   {"key": "linh_luc_on_crit_pct", "value": 0.8, "scope": []}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A plain sword with the valley's contract mark on the tang; the keeper of contracts draws it only when a hirer is in danger.",
+  "build_use": "Linh lực on crit for a guard who has to last the hire.",
+  "holder": "lam_khe_ngon",
+  "made_by": "phat_y",
+  "made_year": 1160,
+  "set": "py-hired-pair",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ }
+]

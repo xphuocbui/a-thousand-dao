@@ -1,0 +1,228 @@
+[
+ {
+  "id": "noon-guard",
+  "name": "Noon Guard (Ngọ Vệ)",
+  "element": "",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "dry-road-sword-primer",
+  "tags": ["sword", "stance"],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 4.0,
+  "kind": "phys",
+  "guards": [
+   {"read": "own.state.noon-guard", "op": "<", "value": 1}
+  ],
+  "states": [
+   {"id": "noon-guard", "mods": {"dampen_taken": 18}}
+  ],
+  "counters": [
+   {"id": "heat"}
+  ],
+  "effects": [
+   {
+    "id": "noon-guard-enter",
+    "on": "art_fired",
+    "filter": {"art_id": "noon-guard"},
+    "do": [{"state": {"set": "noon-guard"}}]
+   },
+   {
+    "id": "noon-guard-hit",
+    "on": "was_hit",
+    "if": [{"read": "own.state.noon-guard", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "heat", "add": 1}}]
+   },
+   {
+    "id": "noon-guard-heat",
+    "on": "always",
+    "if": [{"read": "own.counter.heat", "op": ">=", "value": 1}],
+    "scale": {"read": "own.counter.heat", "per": 1},
+    "do": [{"mod": {"dmg_more": 0.12}}]
+   },
+   {
+    "id": "noon-guard-spend",
+    "on": "hit_landed",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [{"read": "own.counter.heat", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "heat", "set": 0}}]
+   }
+  ],
+  "rule": "A stance kept on the caravan road: while it holds, incoming damage is reduced (18 dampen_taken), and each hit you take grants 1 Heat stack; your next direct cut deals 12 % more damage per Heat stack and spends them all.",
+  "hooks": ["stance", "dampen_taken", "heat counter", "damage more"],
+  "sources": ["world-depth:phat_y"]
+ },
+ {
+  "id": "final-count",
+  "name": "Final Count (Tận Số)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "contract-sword-canon",
+  "tags": ["kim", "sword", "heavy"],
+  "c_art": 2.2,
+  "cost_share": 0.05,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "debuff": [2, 6],
+  "counters": [
+   {"id": "term"},
+   {"id": "term_struck"}
+  ],
+  "empower": [
+   {
+    "if": [{"read": "own.counter.term", "op": ">=", "value": 5}],
+    "bypass": 0.4,
+    "c_mult": 1.6
+   }
+  ],
+  "effects": [
+   {
+    "id": "final-count-scale",
+    "on": "always",
+    "if": [{"read": "own.counter.term", "op": ">=", "value": 1}],
+    "scale": {"read": "own.counter.term", "per": 1},
+    "do": [{"mod": {"dmg_more": 0.18, "crit": 6, "art_id": "final-count"}}]
+   },
+   {
+    "id": "final-count-pen",
+    "on": "always",
+    "if": [{"read": "own.counter.term", "op": ">=", "value": 5}],
+    "do": [{"mod": {"pen": 80, "art_id": "final-count"}}]
+   },
+   {
+    "id": "final-count-spend-hit",
+    "on": "hit_landed",
+    "filter": {"art_id": "final-count"},
+    "if": [{"read": "own.counter.term", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "term", "set": 0}}]
+   },
+   {
+    "id": "final-count-spend-evaded",
+    "on": "was_evaded",
+    "filter": {"art_id": "final-count"},
+    "if": [{"read": "own.counter.term", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "term", "set": 0}}]
+   }
+  ],
+  "rule": "A finishing Metal strike that lays 2 Metal debuff stacks for 6 s and spends all served Terms: each Term adds 18 % damage and 6 % crit chance to the strike. At 5 or more Terms, the strike hits 1.6 times as hard, bypasses 40 % of ward shields and penetrates 80 points of defence.",
+  "hooks": ["metal debuff", "term counter", "crit", "bypass", "resistance penetration"],
+  "sources": ["world-depth:phat_y"]
+ },
+ {
+  "id": "step-back",
+  "name": "Step Back (Thoái Bộ)",
+  "element": "metal",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "contract-sword-canon",
+  "tags": ["kim", "sword", "movement"],
+  "c_art": 0.0,
+  "cost_share": 0.02,
+  "cooldown": 1.55,
+  "kind": "elem",
+  "effects": [
+   {
+    "id": "step-back-move",
+    "on": "art_fired",
+    "filter": {"art_id": "step-back"},
+    "do": [{"mod": {"evade": 18, "for": 1.5}}]
+   },
+   {
+    "id": "step-back-broken",
+    "on": "broken",
+    "do": [{"mod": {"evade": 35, "for": 1.0}}]
+   },
+   {
+    "id": "step-back-ward-break",
+    "on": "hit_landed",
+    "limit": {"per_fight": 1},
+    "if": [{"read": "foe.qi_share", "op": "<=", "value": 0.05}],
+    "do": [{"mod": {"evade": 35, "for": 1.0}}]
+   }
+  ],
+  "rule": "A quick movement step back: puts you in Pressing and grants 18 evade for 1.5 s. After your hit makes the foe Broken or drains the foe's main ward (linh lực at or below 5 %, once per fight), you gain 35 evade for 1 s.",
+  "hooks": ["movement", "pressing", "evade", "broken"],
+  "sources": ["world-depth:phat_y"]
+ },
+ {
+  "id": "brush-the-sleeve",
+  "name": "Brush the Sleeve (Phất Y)",
+  "element": "wind",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "brushed-sleeve-step",
+  "tags": ["phong", "ward", "movement"],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 5.0,
+  "kind": "elem",
+  "effects": [
+   {
+    "id": "brush-the-sleeve-turn",
+    "on": "art_fired",
+    "filter": {"art_id": "brush-the-sleeve"},
+    "do": [{"decoy": {"n": 1}}]
+   },
+   {
+    "id": "brush-the-sleeve-haste",
+    "on": "decoy_struck",
+    "do": [{"mod": {"art_speed": 25, "element": "metal", "for": 2.0}}]
+   }
+  ],
+  "rule": "A sweep of the grey sleeve grants 1 decoy that turns the next attack aimed at you; when a decoy takes a hit, your Metal arts cast 25 % faster for 2 s.",
+  "hooks": ["decoy", "decoy_struck", "art speed", "metal"],
+  "sources": ["world-depth:phat_y"]
+ },
+ {
+  "id": "a-thousand-sleeves",
+  "name": "A Thousand Sleeves (Thiên Tụ)",
+  "element": "wind",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "brushed-sleeve-step",
+  "tags": ["phong", "sword", "movement"],
+  "c_art": 1.5,
+  "cost_share": 0.04,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "debuff": [2, 6],
+  "counters": [
+   {"id": "thousand_sleeves"}
+  ],
+  "effects": [
+   {
+    "id": "a-thousand-sleeves-enter",
+    "on": "art_fired",
+    "filter": {"art_id": "a-thousand-sleeves"},
+    "do": [
+     {"counter": {"id": "thousand_sleeves", "set": 4}},
+     {"decoy": {"n": 1}},
+     {"mod": {"evade": 20, "dampen_taken": 15, "for": 4.0}}
+    ]
+   },
+   {
+    "id": "a-thousand-sleeves-echo",
+    "on": "hit_landed",
+    "filter": {"not_tags": ["trigger"]},
+    "limit": {"per_pulse": 2},
+    "if": [{"read": "own.counter.thousand_sleeves", "op": ">=", "value": 1}],
+    "do": [{"free_hit": {"c": 0.4, "dtype": "force"}}]
+   },
+   {
+    "id": "a-thousand-sleeves-tick",
+    "on": "pulse",
+    "if": [{"read": "own.counter.thousand_sleeves", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "thousand_sleeves", "add": -1}}]
+   }
+  ],
+  "rule": "A sweeping Wind cut (2 Wind debuffs for 6 s) that fills the air with sleeves for 4 s: grants 1 decoy, +20 evade and 15 dampen_taken, and each direct hit you land (up to 2 per pulse) triggers an afterimage Force strike (c 0.4).",
+  "hooks": ["wind debuff", "decoy", "evade", "free hits", "force"],
+  "sources": ["world-depth:phat_y"]
+ }
+]
