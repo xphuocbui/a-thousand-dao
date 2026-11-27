@@ -1,0 +1,587 @@
+{
+ "_doc": "Vạn Hác Viện Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:van_hac. Unpriced.",
+ "source": "world-depth:van_hac",
+ "effects": {
+  "The Earned Rest": {
+   "rule": "The Monk's Rest (passive art, layer 4, authored d28): When your Marching Dirge finale ends a march, The Held Rest starts at once and lasts 0.5 s for each Measure the finale spent instead of 2 s, and each later finale's rest this fight is half as long as the one before; while it holds, the foe carries one Heavy Breath stack (its arts cost 25 % more).",
+   "counters": [
+    {
+     "id": "held_rest"
+    },
+    {
+     "id": "earned_measures"
+    },
+    {
+     "id": "earned_halvings"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Earned Rest track",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.march",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "earned_measures",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest prep",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest h4",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.earned_halvings",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "scale": {
+      "read": "own.counter.earned_measures",
+      "per": 32
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest h3",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.earned_halvings",
+       "op": "==",
+       "value": 3
+      }
+     ],
+     "scale": {
+      "read": "own.counter.earned_measures",
+      "per": 16
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest h2",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.earned_halvings",
+       "op": "==",
+       "value": 2
+      }
+     ],
+     "scale": {
+      "read": "own.counter.earned_measures",
+      "per": 8
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest h1",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.earned_halvings",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.earned_measures",
+      "per": 4
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest h0",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.earned_halvings",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.earned_measures",
+      "per": 2
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest min",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.held_rest",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest finish",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "earned_measures",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "earned_halvings",
+        "add": 1
+       }
+      },
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 1,
+        "side": "foe",
+        "cap": 1
+       }
+      },
+      {
+       "status": {
+        "id": "heavy_breath",
+        "stacks": 1,
+        "dur": 1,
+        "side": "foe",
+        "cap": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest held",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "the-held-rest"
+     },
+     "do": [
+      {
+       "status": {
+        "id": "heavy_breath",
+        "stacks": 1,
+        "dur": 2,
+        "side": "foe",
+        "cap": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.held_rest",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 1,
+        "side": "foe",
+        "cap": 1
+       }
+      },
+      {
+       "status": {
+        "id": "heavy_breath",
+        "stacks": 1,
+        "dur": 1,
+        "side": "foe",
+        "cap": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Pines in Ten Thousand Ravines": {
+   "rule": "Pine-Wind Zither (vh-tung-phong-cam): Each song art you play echoes once on the next pulse as a 0.8 c Force strike (about half a note's strength) and adds 1 Resonance stack to the foe. Echoes cannot themselves echo.",
+   "counters": [
+    {
+     "id": "cam_echo"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Pines in Ten Thousand Ravines queue",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "song"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "cam_echo",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Pines in Ten Thousand Ravines echo",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.cam_echo",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.cam_echo",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.8,
+        "dtype": "force"
+       }
+      },
+      {
+       "counter": {
+        "id": "resonance",
+        "side": "foe",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Pines in Ten Thousand Ravines clear",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.cam_echo",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "cam_echo",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Unplayed Note": {
+   "rule": "The Stringless Zither of Cầm Tượng (vh-stringless-zither): While you hold the Monk's Rest silence, this zither plays the note you did not: the next song art you cast after the silence ends costs no linh lực.",
+   "counters": [
+    {
+     "id": "held_rest"
+    },
+    {
+     "id": "unplayed_armed",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Unplayed Note arm art",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.held_rest",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "unplayed_armed",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Unplayed Note arm pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.held_rest",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "unplayed_armed",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Unplayed Note grant",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.unplayed_armed",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.held_rest",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "next_art_cost": 0,
+        "tags": [
+         "song"
+        ]
+       }
+      },
+      {
+       "counter": {
+        "id": "unplayed_armed",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Silence After the Twelfth": {
+   "rule": "The Monk's Things, full set (3 pieces): each echo the Zither sounds adds one Resonance to its foe; when you stop playing (The Held Rest), a foe with 6 or more Resonance falls into the silence: its clock stops for 1 s and its casting is 30 % slower for 3 s.",
+   "approx": "Uses stop_clock (foe, 1.0 s) + 3 stacks of Slowed Time for 3 s instead of single-tag Silence so all foe arts stall and slow.",
+   "counters": [
+    {
+     "id": "held_rest"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Silence After the Twelfth rest",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "the-held-rest"
+     },
+     "if": [
+      {
+       "read": "foe.counter.resonance",
+       "op": ">=",
+       "value": 6
+      }
+     ],
+     "limit": {
+      "cooldown": 5
+     },
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.0
+       }
+      },
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 3,
+        "dur": 3,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Silence After the Twelfth finale",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.state.march",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.held_rest",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.counter.resonance",
+       "op": ">=",
+       "value": 6
+      }
+     ],
+     "limit": {
+      "cooldown": 5
+     },
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.0
+       }
+      },
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 3,
+        "dur": 3,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

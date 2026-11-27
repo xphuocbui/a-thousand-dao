@@ -1,0 +1,29 @@
+{
+ "owner": "van_hac",
+ "minutes": 10,
+ "written": {
+  "techniques": 3,
+  "arts": 5,
+  "items": 4,
+  "sets": 1,
+  "effects": 4,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 4,
+ "decisions": [
+  "Sized unauthored bonuses/passives on all 3 techniques to tier budgets with names: [] and valid scope tags ([], ['soul'], ['curse']) so all lines compile and run.",
+  "Represented Resonance as foe.counter.resonance (like Shao) and computed Ten Thousand Ravines' floor(R/2) via res_keep (scale per: 2).",
+  "Implemented Echo Wall via a 4 s charge counter (each_for: 4.0, cap: 1) to avoid clobbering marching-dirge's march stance, guarding heals on event.amount > 0.",
+  "Set Plucked Pitch cooldown to 1.5 s (c_art 1.4) so Thorn Lullaby lands inside the 1 s plucked_echo window.",
+  "Implemented Empty Ravine with strip (3 stacks from largest pile) + silence (tag: 'song', 3 s) + Force hit (c_art 1.4) since target.buffs does not track source art tags.",
+  "Added rarity: 5 on treasure vh-tung-phong-cam, unique: true on all 4 items, and R6 exception marks on cam/dao_bao pieces."
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "Serial step: promote design/stage6-staging/van_hac/ files into design/ and merge effects/van_hac.effects.json into assets/data/combat_effects.json.",
+  "Note: export_named.py currently skips kind: treasure (vh-tung-phong-cam) until treasure export is supported; 3 structured events (N-van_hac-01..03) close at Stage 7."
+ ]
+}
