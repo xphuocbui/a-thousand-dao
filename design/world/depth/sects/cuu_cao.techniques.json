@@ -19,7 +19,7 @@
    "name": "Reed Marsh Breath (Lô Đãng Tức Pháp)",
    "tier": 0, "tech_kind": "main", "names": ["moc"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The grooms' method, breathed standing knee-deep in the reeds where the cranes feed. It draws Wood qi from the marsh slowly and steadily, and the grooms say a crane will not startle at someone who breathes it. In a fight it is a patient, binding method: reeds and roots slow the foe and mend the holder a little at a time.",
-   "arts": [{"new": "Reed Bed (Lô Sàng)", "concept": "Raises a bed of reeds (a Field) around the holder: while it is up, the foe is slowed and takes light Wood damage over time, and the holder regains health."}],
+   "arts": [{"id": "reed-bed", "new": "Reed Bed (Lô Sàng)", "concept": "Raises a bed of reeds (a Field) around the holder: while it is up, the foe is slowed and takes light Wood damage over time, and the holder regains health."}],
    "lore": "Older than the sect: the marsh villagers of Hạc Quy used it to stand still for hours while the cranes came down. The founder Tần Minh Cao wrote it down for the grooms in 700.",
    "status": "proposal"
   },
@@ -29,8 +29,8 @@
    "tier": 1, "tech_kind": "secret", "names": ["phong", "moc"], "layers": 9, "rank": "noi_mon",
    "concept": "The rider's bond with one crane, sworn by sharing breath on the bird's first flight with them. The rider's Wind lifts the crane higher and the crane's strength holds the rider steady. In a fight the bonded crane is called in to strike, and while it is in the air the rider is faster and harder to hit.",
    "arts": [
-    {"new": "Crane Descends (Hạc Giáng)", "concept": "Calls the bonded crane down on a foe: a Wind strike that knocks them back and leaves them open; while the crane circles, the holder gains evade and speed."},
-    {"new": "Cry in the Nine Marshes (Cửu Cao Minh)", "concept": "The crane's cry: a brief Wind burst around the holder that breaks the foe's concentration and lengthens the holder's buffs. The Pivot does not count it as music, and the riders do not ask."},
+    {"id": "crane-descends", "new": "Crane Descends (Hạc Giáng)", "concept": "Calls the bonded crane down on a foe: a Wind strike that knocks them back and leaves them open; while the crane circles, the holder gains evade and speed."},
+    {"id": "cry-in-the-nine-marshes", "new": "Cry in the Nine Marshes (Cửu Cao Minh)", "concept": "The crane's cry: a brief Wind burst around the holder that breaks the foe's concentration and lengthens the holder's buffs. The Pivot does not count it as music, and the riders do not ask."},
     {"new": "A Crane for the Rider (Hạc Linh)", "concept": "A passive art. Each hit your crane companion lands gives you one Wind buff stack for 4 s. When you fire Crane Descends with no companion beside you, it calls a crane spirit that fights beside you as a companion for 8 s (companion coefficient 0.5, Wind strikes, tag `crane`), once every 20 s.", "effect": "a-crane-for-the-rider", "unlock_layer": 2, "authored": "d32"}
    ],
    "lore": "From the founding night of 700, when the first riders shared breath with the first cranes of the nine marshes (C140). A crane bonds once. When a rider dies the crane does not take another.",

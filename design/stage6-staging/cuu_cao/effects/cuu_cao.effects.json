@@ -1,0 +1,324 @@
+{
+ "_doc": "Cửu Cao Phái's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:cuu_cao. Unpriced. Rule text from design/world/depth/sects/cuu_cao.techniques.json and cuu_cao.items.json.",
+ "source": "world-depth:cuu_cao",
+ "effects": {
+  "A Crane for the Rider": {
+   "rule": "Crane Bond Rite (passive art, layer 2): each hit your crane companion lands gives you 1 Wind buff stack for 4 s, at most 2 a pulse. When you fire Crane Descends with no bonded crane companion, it calls a crane spirit that fights with you as a companion for 8 s (coefficient 0.5, Wind strikes), once every 20 s.",
+   "approx": "Engine summon actions do not carry tags and there is no live own.companions readable; crane_bonded latches on the first crane-tagged companion hit or evade, and while crane_bonded == 0 a 20 s cooldown summon from Crane Descends grants Wind stacks via crane_spirit (each_for 8).",
+   "counters": [
+    {
+     "id": "crane_bonded",
+     "cap": 1
+    },
+    {
+     "id": "crane_spirit",
+     "each_for": 8
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:A Crane for the Rider bonded",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion",
+      "tags": [
+       "crane"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.crane_bonded",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "crane_bonded",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:A Crane for the Rider bonded evade",
+     "on": "was_evaded",
+     "filter": {
+      "kind": "companion",
+      "tags": [
+       "crane"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.crane_bonded",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "crane_bonded",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:A Crane for the Rider wind",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion",
+      "tags": [
+       "crane"
+      ]
+     },
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "wind",
+        "n": 1,
+        "for": 4,
+        "side": "own"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:A Crane for the Rider spirit",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "crane-descends"
+     },
+     "if": [
+      {
+       "read": "own.counter.crane_bonded",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "cooldown": 20
+     },
+     "do": [
+      {
+       "summon": {
+        "c": 0.5,
+        "dtype": "force",
+        "cd": 1.0,
+        "for": 8
+       }
+      },
+      {
+       "counter": {
+        "id": "crane_spirit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:A Crane for the Rider spirit wind",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.crane_bonded",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.crane_spirit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "wind",
+        "n": 1,
+        "for": 4,
+        "side": "own"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The King Answers": {
+   "rule": "Green Field Bell: once a fight, on your first crane art, ringing the bell calls the crane king Thanh Điền to strike the foe with Wind (1.2 coefficient Force hit) and for 8 s any crane art you use strikes twice.",
+   "approx": "Triggers on the first crane-tagged art fired so the 8 s window is never spent before crane arts come off cooldown; fire_art repeats the art's damage hit at 1.0x.",
+   "counters": [
+    {
+     "id": "king_answers",
+     "each_for": 8
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The King Answers ring",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "crane"
+      ]
+     },
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 1.2,
+        "dtype": "force"
+       }
+      },
+      {
+       "counter": {
+        "id": "king_answers",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The King Answers echo",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "crane"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.king_answers",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "fire_art": {
+        "which": "last",
+        "share": 1.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Rider and King": {
+   "rule": "Rider of the Green Field, full set (2 pieces): while a bonded crane companion fights with you, each attack you evade is answered by one Wind strike at the attacker (0.6 coefficient Force free hit, at most once a second), and you regain 1 % of your health each second.",
+   "approx": "Latches king_beside on the first crane-tagged companion hit or evade (Thanh Điền in the world export) because the engine has no live own.companions readable.",
+   "counters": [
+    {
+     "id": "king_beside",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Rider and King beside",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion",
+      "tags": [
+       "crane"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.king_beside",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "king_beside",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Rider and King beside evade",
+     "on": "was_evaded",
+     "filter": {
+      "kind": "companion",
+      "tags": [
+       "crane"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.king_beside",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "king_beside",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Rider and King answer",
+     "on": "evaded",
+     "if": [
+      {
+       "read": "own.counter.king_beside",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.6,
+        "dtype": "force"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Rider and King mend",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.king_beside",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.01
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

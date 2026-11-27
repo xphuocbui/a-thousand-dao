@@ -309,6 +309,9 @@
    "items": [
     "cc-winter-terrace-cloak"
    ],
+   "beasts": [
+    "han_vu"
+   ],
    "wants": "A Wind-born child from the mine this winter, found before Phất Y's head can reach the family.",
    "secret": "Each winter he tells the families of the children he takes that they will be home by spring, and keeps a tin of the children's toys in his terrace hut, sending one back every year so that it seems true. Mộ Cao Yến (mo_cao_yen) has begun to ask why her mother's toy never came."
   },
@@ -439,6 +442,9 @@
     },
     "note": "The mother of the flock."
    },
+   "beasts": [
+    "bat_phi"
+   ],
    "wants": "To bring the old cranes home from the circuit to die on the reeds, not the road.",
    "secret": "She has hidden the three most worn-out cranes in a reed bed no one else knows, so the circuit cannot ask for them again, and Ngụy Hà Lô (nguy_ha_lo), who keeps the second ledger, has written them down as buried."
   },

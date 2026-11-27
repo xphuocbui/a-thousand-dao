@@ -1,0 +1,29 @@
+{
+ "owner": "cuu_cao",
+ "minutes": 7,
+ "written": {
+  "techniques": 2,
+  "arts": 3,
+  "items": 3,
+  "sets": 1,
+  "effects": 3,
+  "stand_ins": 0,
+  "beasts": 3
+ },
+ "deviations": 5,
+ "decisions": [
+  "Sized marsh-reed-breath (7.7 W of 8) and crane-bond-rite (14.7 W of 16, khi_huyet_pct 10 bonus) within tier budgets and unlocked cry-in-the-nine-marshes at layer 4 so tong_phi_thu and banh_da_hang cast the full suite.",
+  "Modelled reed-bed as an 8-pulse Field state (reed_bed counter decremented before <= 0 exit) applying slowed_time, Wood stacks, and 1.5 % HP/s heal.",
+  "Mapped crane-descends knockback to 0.3 s timer delay + off_guard 1 s + 4 s evade/art_speed mod, and cry-in-the-nine-marshes to 0.8 s timer delay + refresh own buffs; tagged both crane and omitted song on Cry in the Nine Marshes.",
+  "Implemented A Crane for the Rider (crane-bond-rite L2 passive) and Rider and King using crane_bonded / king_beside latches on crane-tagged companion strikes/evades plus an 8 s each_for crane_spirit summon fallback when crane_bonded == 0.",
+  "Triggered The King Answers on the first crane-tagged art fired (1.2 force free_hit + 8 s king_answers double-cast via fire_art) and marked all 3 signature items unique: true with R6 exception and rarity: 5 on treasure cc-green-field-bell."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Rider and King: sect_fight.py does not populate companions from cuu_cao.beasts.json until Stage 7 export (verified active in 20-seed ung_hac_minh + thanh_dien probe: 274 runs, 7.3 s vs 7.6 s without at gap 0; 394 runs, 10.5 s vs 11.2 s without at gap 1)."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial merge of design/stage6-staging/cuu_cao/ into design/ and assets/data/combat_effects.json, plus exporters (noting cc-green-field-bell is kind: treasure) and Stage 7 world export for cuu_cao beasts (han_vu, bat_phi, thanh_dien) and events (N-cuu_cao-01..03)."
+ ]
+}

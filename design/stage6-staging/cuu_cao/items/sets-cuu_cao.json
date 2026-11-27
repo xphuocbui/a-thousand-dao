@@ -1,0 +1,32 @@
+[
+ {
+  "id": "cc-green-field-riders",
+  "name": "Rider of the Green Field (Thanh Điền Kỵ Cụ)",
+  "pieces": [
+   "cc-green-field-bell",
+   "cc-crane-down-robe"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "evade_pct",
+      "value": 4,
+      "scope": []
+     },
+     {
+      "key": "attack_pct",
+      "value": 8,
+      "scope": [
+       "companion"
+      ]
+     }
+    ],
+    "effect": "Rider and King (Kỵ Vương Đồng Phong)",
+    "rule": "while you wear both pieces and a bonded crane companion fights with you, each attack you evade is answered by one Wind strike at the attacker (at most once a second), and you regain 1 % of your health each second."
+   }
+  ],
+  "story": "The founder's bell, which the king wears on its leg, and the robe of the marsh's down. Whole only while the king lets her ride: if Thanh Điền chooses another rider, the bell goes with him. She fights with the catalogue's Heron Fan with them."
+ }
+]
