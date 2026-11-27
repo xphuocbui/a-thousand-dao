@@ -1,0 +1,327 @@
+{
+ "_doc": "Trúc Thực Viên's Effect engine records (world-depth Stage 6; ADR-0009). Staged for tools/design/combat_sim/put_effects.py under source world-depth:truc_thuc. Unpriced. Rule text from design/world/depth/sects/truc_thuc.items.json.",
+ "source": "world-depth:truc_thuc",
+ "effects": {
+  "Warm the Grove": {
+   "rule": "Seed-Warming Censer (1v1 rewrite of allies -> you): Wood buff stacks you lay last 25 % longer (+2 to 2.5 s on 8-10 s batches), and when you gain Wood buff stacks (once per pulse) you also gain 1 Fire buff stack for 6 s and +0.5 % max health regeneration per second for 6 s.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Warm the Grove dur",
+     "on": "always",
+     "do": [
+      {
+       "mod": {
+        "stack_dur": 25,
+        "element": "wood",
+        "kind": "buff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Warm the Grove warmth",
+     "on": "buff_gained",
+     "filter": {
+      "element": "wood"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "own",
+        "kind": "buff"
+       }
+      },
+      {
+       "mod": {
+        "hregen": 0.005,
+        "for": 6
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Measured Flood": {
+   "rule": "Rain-Measure Gourd: Water field floods you lay (Open the Sluice or any Water field art) last 3 s longer (+3 flood_sec), and when the flood ends the foe keeps its slow (3 stacks of Slowed Time) for 1 more second.",
+   "counters": [
+    {
+     "id": "flood_sec",
+     "decay_per_pulse": 1
+    },
+    {
+     "id": "flood_was_up"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Measured Flood extend",
+     "on": "art_fired",
+     "filter": {
+      "element": "water",
+      "tags": [
+       "field"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "flood_sec",
+        "add": 3
+       }
+      },
+      {
+       "counter": {
+        "id": "flood_was_up",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Measured Flood linger",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.flood_sec",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "own.counter.flood_was_up",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 3,
+        "dur": 1,
+        "cap": 3,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "flood_was_up",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Forced to Seed": {
+   "rule": "The Yearly Seed, full set (3 pieces): each Fire art you cast resets the dry clock, refreshes every Wood buff stack on you, and adds 1 Wood buff stack for 10 s. If you go 10 s without casting a Fire art while carrying Wood buff stacks, all your Wood buff stacks flower at once: each heals 3 % of maximum health, they are consumed, and the 10 s clock restarts.",
+   "counters": [
+    {
+     "id": "no_fire_sec"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Forced to Seed fire",
+     "on": "art_fired",
+     "filter": {
+      "element": "fire"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "no_fire_sec",
+        "set": 0
+       }
+      },
+      {
+       "refresh": {
+        "el": "wood",
+        "side": "own",
+        "kind": "buff"
+       }
+      },
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 10,
+        "side": "own",
+        "kind": "buff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Forced to Seed tick",
+     "on": "pulse",
+     "do": [
+      {
+       "counter": {
+        "id": "no_fire_sec",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Forced to Seed flower",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.no_fire_sec",
+       "op": ">=",
+       "value": 10
+      },
+      {
+       "read": "own.buff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "consume": {
+        "el": "wood",
+        "side": "own",
+        "kind": "buff",
+        "per": 1,
+        "then": [
+         {
+          "heal": {
+           "share": 0.03
+          }
+         }
+        ]
+       }
+      },
+      {
+       "counter": {
+        "id": "no_fire_sec",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Flood Feeds the Garden": {
+   "rule": "The Rain Record, full set (3 pieces): each second your flood (flood_sec) or a Field stance is up, you gain 1 Wood buff stack for 6 s. When the flood ends, each Wood buff stack on you heals you for 1 % of your maximum health.",
+   "counters": [
+    {
+     "id": "flood_sec",
+     "decay_per_pulse": 1
+    },
+    {
+     "id": "flood_fed_up"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Flood Feeds the Garden grow",
+     "on": "pulse",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.counter.flood_sec",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.field_up",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 6,
+        "side": "own",
+        "kind": "buff"
+       }
+      },
+      {
+       "counter": {
+        "id": "flood_fed_up",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Flood Feeds the Garden heal",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.flood_sec",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "own.field_up",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "own.counter.flood_fed_up",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.buff.wood",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.01
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Flood Feeds the Garden reset",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.flood_sec",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "own.field_up",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "own.counter.flood_fed_up",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "flood_fed_up",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
