@@ -1,0 +1,30 @@
+{
+ "owner": "suong_tung",
+ "minutes": 8,
+ "written": {
+  "techniques": 3,
+  "arts": 4,
+  "items": 3,
+  "sets": 1,
+  "effects": 3,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 5,
+ "decisions": [
+  "Use self-counters rather than stances on laid-ward, frost-on-the-pine, and cold-night-lamp so marching-dirge (thorn-and-ink-verses) keeps the stance slot without collision.",
+  "Trigger laid-ward crossings on pulse via foe_pressed/since_act <= 1 with outside_budget Chaos free_hit (0.5, 0.7 lit) and ward_spared gating to avoid listener races with The Light That Stays and Ward Written Inside.",
+  "Put cold-night-lamp (cd 5.0) on a decay_per_pulse: 1 lantern counter (9 pulses, doubled to 17 by The Light That Stays) so it lights before laid-ward (cd 7.0).",
+  "Pin frost-sheet at unlock_layer 2 on pine-paper-talisman-primer with a 10 s frost_sheet stick and 1.75x empower on re-cast so all 4 outer disciples fire both arts.",
+  "Size Tier 0/1 bonuses and passives to budget (7.2/8, 15.8/16, 15.4/16 W), mark all 3 items unique: true with R6 exception on st-lantern-maker-brush, and set outside_budget: true on Sheets in the Wind."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "laid-ward-foreseen (inside laid-ward): awaits 'foreseen' in REQUEST_TAGS (shared open item with minh_loan)"
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial step: merge design/stage6-staging/suong_tung/ into design/ and assets/data/combat_effects.json, and run Stage 7 exporters (closing N-suong_tung-01..03)",
+  "Add 'foreseen' to assets/data/combat_engine.json REQUEST_TAGS when foreseen fights are wired"
+ ]
+}

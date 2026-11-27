@@ -1,0 +1,113 @@
+{
+ "_doc": "Sương Tùng Các's Effect engine records (world-depth Stage 6; ADR-0009). Input to put_effects.py under source world-depth:suong_tung. Unpriced. Rule text from design/world/depth/sects/suong_tung.items.json.",
+ "source": "world-depth:suong_tung",
+ "effects": {
+  "The Light That Stays": {
+   "rule": "The Lamp on a Cold Night: your Cold Night Lamp lantern charge lasts twice as long (16 pulses instead of 8), and while you hold it, the first Laid Ward charge the foe crosses does not burn out.",
+   "counters": [
+    {
+     "id": "lantern_double"
+    },
+    {
+     "id": "ward_save"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Light That Stays init",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_double",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Light That Stays arm",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "cold-night-lamp"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "ward_save",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Sheets in the Wind": {
+   "rule": "Flag of a Hundred Wards: each time you fire a [ward] art, one blank birch sheet flies to the foe (0.35 Physical free hit, outside the trigger budget) and slows it briefly (1 Slowed Time stack for 2 s).",
+   "records": [
+    {
+     "id": "eff:Sheets in the Wind",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "ward"
+      ]
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.35,
+        "dtype": "phys",
+        "outside_budget": true
+       }
+      },
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 2,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Ward Written Inside": {
+   "rule": "Lamp and Brush, full set (2 pieces): Laid Ward charges you lay while your Cold Night Lamp lantern charge is active are written twice, so each burns out only after a second foe crossing.",
+   "counters": [
+    {
+     "id": "lantern",
+     "decay_per_pulse": 1
+    },
+    {
+     "id": "ward_twice"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Ward Written Inside",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "laid-ward"
+     },
+     "if": [
+      {
+       "read": "own.counter.lantern",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "ward_twice",
+        "add": 3
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
