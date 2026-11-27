@@ -1,0 +1,197 @@
+{
+ "_doc": "Trấn Sa Đường's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:tran_sa by the serial step. Unpriced. Rule text from design/world/depth/sects/tran_sa.items.json.",
+ "source": "world-depth:tran_sa",
+ "effects": {
+  "Smoke on the Road": {
+   "rule": "Lone Smoke (ts-lone-smoke-sabre): while your Hold the Sand ring (a Field) is up, when you are struck, your next Answering Cut against that attacker cannot miss.",
+   "approx": "acc +100 is read without art context in both engines, so it holds from was_hit while Hold the Sand (a Field) is up until Answering Cut lands.",
+   "counters": [
+    {
+     "id": "smoke_road",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Smoke on the Road:arm",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.field_up",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "smoke_road",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Smoke on the Road:acc",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.smoke_road",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "acc": 100
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Smoke on the Road:clear",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "answering-cut"
+     },
+     "if": [
+      {
+       "read": "own.counter.smoke_road",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "smoke_road",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Rider Comes In": {
+   "rule": "Father's Road, full set (2 pieces): after you block, the attacker gains an Earth slow stack (Earth debuff, 8 s), and your next counter-cut (Answering Cut) deals 25 % more damage to a slowed foe.",
+   "counters": [
+    {
+     "id": "rider_counter_cut",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Rider Comes In:block",
+     "on": "blocked",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "earth",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "rider_counter_cut",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Rider Comes In:dmg",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.rider_counter_cut",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "foe.debuff.earth",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.status.slowed_time",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.25,
+        "art_id": "answering-cut"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Rider Comes In:spend_hit",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "answering-cut"
+     },
+     "if": [
+      {
+       "read": "own.counter.rider_counter_cut",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "rider_counter_cut",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Rider Comes In:spend_evade",
+     "on": "was_evaded",
+     "filter": {
+      "art_id": "answering-cut"
+     },
+     "if": [
+      {
+       "read": "own.counter.rider_counter_cut",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "rider_counter_cut",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

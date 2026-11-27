@@ -1,0 +1,140 @@
+[
+ {
+  "id": "ts-lone-smoke-sabre",
+  "name": "Lone Smoke (Cô Yên Đao)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "phi_kiem",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 16,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "block_rating",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 20,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   }
+  ],
+  "effects": [
+   "Smoke on the Road"
+  ],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "A broad sabre with a hilt of grey horn. Tống Thối Kim forged it in 1125 for the founding of the hall, from the sabre Viên Trường Hà was carrying the day Dạ Quang's raiders killed him.",
+  "build_use": "The guard's sabre: block, defence and Earth slow, for a counter-cutter.",
+  "holder": "vien_co_yen",
+  "made_by": "tong_thoi_kim",
+  "made_year": 1125,
+  "set": "ts-fathers-road",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "ts-quench-hammer",
+  "name": "Quenching Hammer (Thối Kim Chùy)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 14,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 14,
+    "scope": [
+     "kim",
+     "buff"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 120,
+    "scope": [
+     "fire"
+    ]
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "A square iron seal-hammer with a face worn smooth by sixty years of blades. Tống Thối Kim fights with it the way he forges: one stroke, then the quench.",
+  "build_use": "The smith's slam: temper stacks and health for a slow Metal fighter.",
+  "holder": "tong_thoi_kim",
+  "made_by": "tong_thoi_kim",
+  "made_year": 1140,
+  "set": null,
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "ts-caravan-shield",
+  "name": "Caravan Shield (Thương Đội Thuẫn)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "thuan",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "defense_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "block_rating",
+    "value": 16,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "The tailboard of her father's last wagon, faced with sand-iron at Trấn Sa's first forge in 1125.",
+  "build_use": "The guard who waits: block and defence.",
+  "holder": "vien_co_yen",
+  "made_by": "tran_sa",
+  "made_year": 1125,
+  "set": "ts-fathers-road",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ }
+]

@@ -1,0 +1,29 @@
+{
+ "owner": "tran_sa",
+ "minutes": 6,
+ "written": {
+  "techniques": 3,
+  "arts": 4,
+  "items": 3,
+  "sets": 1,
+  "effects": 2,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 2,
+ "decisions": [
+  "Size passives and unlock layers for sand-wall-primer (7.8 W of 8, hold-the-line L1), sand-holding-sabre-canon (bonus defense_pct 10, 14.8 W of 16, answering-cut L1, hold-the-sand L2), and sword-washing-temper (bonus attack_pct 10, 14.7 W of 16, spring-quench L1) against same-tier Earth/Metal methods so every holder accesses their arts.",
+  "Author hold-the-line as a c_art 0.0 ward art (8% body shield + 1 Earth buff + dampen_taken 12 while Composed) with no stance so guards stay Composed and avoid stance conflicts with loose-north's ho_dien_liet.",
+  "Give hold-the-sand a combined hold-the-sand-iron stance with iron-hide-stance for vien_co_yen and ninh_ha_vien, re-merging iron-hide on pulse and duplicating iron-hide-temper on was_hit, and express 'charges stopped' via foe.pressing / own.foe_pressed timer next +0.4 s delay.",
+  "Implement answering-cut using blocked (event.amount > 0) -> answering_guard -> empower (c_mult 1.5, off_guard 2 s).",
+  "Use unique art id spring-quench (quench exists in part-a.json) and carry sword-washing-temper's hit-taken Earth skin / hit-landed Metal weapon temper triggers on spring-quench, consuming all Metal buffs (+15% dmg_more each) with pen 150, pierce 35, and bypass 0.25.",
+  "Approximate Smoke on the Road with acc +100 from was_hit (own.field_up >= 1, event.amount > 0) until Answering Cut lands because neither engine filters acc by art_id; scope The Rider Comes In +25% dmg_more to answering-cut when foe has Earth debuff or Slowed Time.",
+  "Mark all 3 signature items unique: true, sources: [npc], with the R6 exception on ts-lone-smoke-sabre, ts-quench-hammer, and ts-caravan-shield."
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to close techniques, arts_new, items, sets, effects, and the 2 structured events (N-tran_sa-01, N-tran_sa-02)."
+ ]
+}
