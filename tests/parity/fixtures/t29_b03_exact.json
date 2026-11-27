@@ -1,0 +1,2631 @@
+{
+  "name": "t29_b03_exact",
+  "slice": 29,
+  "chance_free": true,
+  "seed": 291,
+  "doc": "World-depth Stage 6 batch b03 (2026-11-27), chance-free: representative b03 arts and Effects in exact parity — Side A runs Vu Linh (bank-the-kiln-stance, hang-a-bell, pour-molten-bronze) + Hong Dau (the-second-cup, a-branch-in-spring, gather-more, The Second Cup Is Poured) + Chan Kim (Nothing False Survives, Touchstone, True Gold Does Not Fear the Furnace) + Thai Chi (Banked Coals, Cut to the Root) against Side B Le Hoa (lay-the-seal, sit-against-the-door, eighth-month-snow, one-branch-of-pear, Until It Stops Wanting, Toll of the Frozen Bolt, + shatter-palm) + Thai Chi (grain-rain, lingzhi-spores, Bitter Medicine, Rain on the Sown Field) + Yen Quang (dusk-haze, Haze Held All Night, Unlit) + Chan Kim (assay) + Nhan Tran (One Goose).",
+  "a": {
+    "name": "b03-kit-a",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 0.5,
+    "n_body": 1.1,
+    "n_qi": 1.1,
+    "arts": [
+      {
+        "name": "bank-the-kiln-stance",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 5.0,
+        "element": "fire",
+        "dtype": "elem",
+        "tags": [
+          "fire",
+          "stance"
+        ],
+        "group": "charcoal-burners-primer"
+      },
+      {
+        "name": "hang-a-bell",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "bell",
+          "formation"
+        ],
+        "group": "canopy-bell-canon"
+      },
+      {
+        "name": "pour-molten-bronze",
+        "c": 1.5,
+        "cost": 0.08,
+        "cd": 3.0,
+        "element": "fire",
+        "dtype": "elem",
+        "tags": [
+          "fire"
+        ],
+        "debuff": [
+          1,
+          6.0
+        ],
+        "group": "molten-bronze-litany"
+      },
+      {
+        "name": "the-second-cup",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 12.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "charm",
+          "curse"
+        ],
+        "guards": [
+          {
+            "read": "foe.status.charmed",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "group": "canon-of-longing"
+      },
+      {
+        "name": "a-branch-in-spring",
+        "c": 1.2,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "poison"
+        ],
+        "debuff": [
+          1,
+          10
+        ],
+        "group": "canon-of-longing"
+      },
+      {
+        "name": "gather-more",
+        "c": 1.8,
+        "cost": 0.1,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "poison",
+          "heavy"
+        ],
+        "guards": [
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 4
+          }
+        ],
+        "group": "canon-of-longing"
+      }
+    ],
+    "counters": [
+      {
+        "id": "kiln_ember",
+        "cap": 1
+      },
+      {
+        "id": "canopy_bell",
+        "upkeep": {
+          "pool": "qi",
+          "per_stack": 0.003
+        }
+      },
+      {
+        "id": "bronze",
+        "each_for": 12.0
+      },
+      {
+        "id": "cup_weaken",
+        "cap": 1
+      },
+      {
+        "id": "branch_on",
+        "cap": 1
+      },
+      {
+        "id": "branch_feed",
+        "cap": 4
+      },
+      {
+        "id": "branch_self",
+        "cap": 1
+      },
+      {
+        "id": "poison_age"
+      },
+      {
+        "id": "touchstone_stripped"
+      },
+      {
+        "id": "assay_did_strip",
+        "cap": 1
+      },
+      {
+        "id": "dross",
+        "each_for": 4
+      },
+      {
+        "id": "coal_flare"
+      }
+    ],
+    "states": [
+      {
+        "id": "kiln-banked",
+        "tags": [
+          "composed"
+        ],
+        "mods": {}
+      }
+    ],
+    "effects": [
+      {
+        "id": "kiln-banked-regen",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.state.kiln-banked",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "regen": 0.007
+            }
+          }
+        ]
+      },
+      {
+        "id": "kiln-leave-ember",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "bank-the-kiln-stance"
+        },
+        "if": [
+          {
+            "read": "own.state.kiln-banked",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "kiln_ember",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "kiln-toggle",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "bank-the-kiln-stance"
+        },
+        "do": [
+          {
+            "state": {
+              "set": "kiln-banked",
+              "toggle": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "kiln-fire-boost",
+        "on": "art_fired",
+        "filter": {
+          "element": "fire",
+          "not_art_id": "bank-the-kiln-stance"
+        },
+        "if": [
+          {
+            "read": "own.counter.kiln_ember",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.3,
+              "kind": "art",
+              "element": "fire"
+            }
+          },
+          {
+            "counter": {
+              "id": "kiln_ember",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "hang-bell-add",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "hang-a-bell"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "canopy_bell",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "hang-bell-mods",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.canopy_bell",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.canopy_bell",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "evade": 3,
+              "acc": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "pour-bronze-stack",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "pour-molten-bronze"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "bronze",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "pour-bronze-slow",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "pour-molten-bronze"
+        },
+        "if": [
+          {
+            "read": "own.counter.bronze",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-cup-charm",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-second-cup"
+        },
+        "do": [
+          {
+            "status": {
+              "id": "charmed",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "cup_weaken",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-cup-weaken",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.cup_weaken",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.status.charmed",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 25,
+              "kind": "art"
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-cup-weaken-hit",
+        "on": "was_hit",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.cup_weaken",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "cup_weaken",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-cup-weaken-evade",
+        "on": "evaded",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.cup_weaken",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "cup_weaken",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "branch-plant",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "a-branch-in-spring"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "branch_on",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "branch_feed",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "branch-clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.branch_on",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.debuff.wood",
+            "op": "<=",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "branch_on",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "branch_feed",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "branch-grow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.branch_on",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.branch_feed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "branch_self",
+              "set": 1
+            }
+          },
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 10,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "branch_self",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "branch_feed",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "branch-stop",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.branch_on",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.branch_feed",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "branch_on",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "branch-feed",
+        "on": "status_applied",
+        "filter": {
+          "element": "wood"
+        },
+        "if": [
+          {
+            "read": "own.counter.branch_on",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.branch_self",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "branch_feed",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "gather-age-up",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "poison_age",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "gather-age-clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "foe.debuff.wood",
+            "op": "<=",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "poison_age",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "gather-harvest-age",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "gather-more"
+        },
+        "if": [
+          {
+            "read": "own.counter.poison_age",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.poison_age",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.12,
+              "dtype": "chaos",
+              "pass_shields": true,
+              "outside_budget": true
+            }
+          },
+          {
+            "heal": {
+              "share": 0.004
+            }
+          }
+        ]
+      },
+      {
+        "id": "gather-harvest-stacks",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "gather-more"
+        },
+        "if": [
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "consume": {
+              "el": "wood",
+              "side": "foe",
+              "kind": "debuff",
+              "per": 1,
+              "then": [
+                {
+                  "free_hit": {
+                    "c": 0.18,
+                    "dtype": "chaos",
+                    "pass_shields": true,
+                    "outside_budget": true
+                  }
+                },
+                {
+                  "heal": {
+                    "share": 0.004
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "counter": {
+              "id": "poison_age",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nothing False Survives ward",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "ward_bill": 100
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nothing False Survives buff",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 2
+        },
+        "if": [
+          {
+            "read": "foe.buff_elements",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "strip": {
+              "n": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "touchstone_stripped",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Touchstone",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "if": [
+          {
+            "read": "foe.buff_elements",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "strip": {
+              "n": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "touchstone_stripped",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:True Gold Does Not Fear the Furnace assay",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "assay"
+        },
+        "if": [
+          {
+            "read": "own.counter.assay_did_strip",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.015
+            }
+          },
+          {
+            "counter": {
+              "id": "dross",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "assay_did_strip",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:True Gold Does Not Fear the Furnace strip",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.touchstone_stripped",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.touchstone_stripped",
+          "per": 1
+        },
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.015
+            }
+          },
+          {
+            "counter": {
+              "id": "dross",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:True Gold Does Not Fear the Furnace clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.touchstone_stripped",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "touchstone_stripped",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Second Cup Is Poured poison",
+        "on": "tick_dealt",
+        "filter": {
+          "element": "wood"
+        },
+        "if": [
+          {
+            "read": "time",
+            "op": ">",
+            "value": 20
+          }
+        ],
+        "do": [
+          {
+            "return_damage": {
+              "share": 0.1,
+              "dtype": "soul"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Second Cup Is Poured charm",
+        "on": "always",
+        "if": [
+          {
+            "read": "time",
+            "op": ">",
+            "value": 20
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "status_dur": 50,
+              "tags": [
+                "charmed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Banked Coals:cast",
+        "on": "art_fired",
+        "filter": {
+          "element": "fire"
+        },
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 2,
+              "for": 4,
+              "side": "own",
+              "kind": "debuff"
+            }
+          },
+          {
+            "counter": {
+              "id": "coal_flare",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Banked Coals:double",
+        "on": "status_applied",
+        "filter": {
+          "element": "fire"
+        },
+        "if": [
+          {
+            "read": "own.counter.coal_flare",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "event.stacks",
+          "per": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "coal_flare",
+              "set": 0
+            }
+          },
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Cut to the Root",
+        "on": "down",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "refuse_down": {
+              "hp_share": 0.15
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "b03-kit-b",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 0.5,
+    "n_body": 0.9,
+    "n_qi": 1.0,
+    "arts": [
+      {
+        "name": "lay-the-seal",
+        "c": 1.2,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "ice",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "seal"
+        ],
+        "statuses": [
+          {
+            "id": "slowed_time",
+            "stacks": 1,
+            "dur": 4
+          }
+        ],
+        "group": "sealed-cold-sutra"
+      },
+      {
+        "name": "sit-against-the-door",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 7.0,
+        "element": "ice",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "ward",
+          "stance"
+        ],
+        "group": "sealed-cold-sutra"
+      },
+      {
+        "name": "eighth-month-snow",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 6.0,
+        "element": "ice",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "sword",
+          "field"
+        ],
+        "group": "pear-blossom-snow-sword"
+      },
+      {
+        "name": "shatter-palm",
+        "c": 1.5,
+        "cost": 0.1,
+        "cd": 5.0,
+        "element": "ice",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "palm",
+          "shatter",
+          "heavy"
+        ],
+        "debuff": [
+          3,
+          6
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "foe.debuff.ice",
+                "op": ">=",
+                "value": 10
+              },
+              {
+                "read": "own.counter.frost",
+                "op": ">=",
+                "value": 2
+              }
+            ],
+            "pay": [
+              {
+                "consume": {
+                  "el": "ice",
+                  "side": "foe",
+                  "kind": "debuff",
+                  "then": [
+                    {
+                      "free_hit": {
+                        "c": 0.3,
+                        "dtype": "cold"
+                      }
+                    }
+                  ],
+                  "per": 1
+                }
+              }
+            ],
+            "c_art": 3.5
+          },
+          {
+            "if": [
+              {
+                "any": [
+                  {
+                    "read": "foe.status.slowed_time",
+                    "op": ">=",
+                    "value": 2
+                  },
+                  {
+                    "read": "foe.hp_share",
+                    "op": "<=",
+                    "value": 0.3
+                  },
+                  {
+                    "read": "own.state.deep-winter",
+                    "op": ">=",
+                    "value": 1
+                  }
+                ]
+              }
+            ],
+            "pay": [
+              {
+                "consume": {
+                  "el": "ice",
+                  "side": "foe",
+                  "kind": "debuff",
+                  "n": 5
+                }
+              }
+            ],
+            "c_art": 3.0
+          }
+        ],
+        "group": "winter-toll-canon"
+      },
+      {
+        "name": "one-branch-of-pear",
+        "c": 2.0,
+        "cost": 0.08,
+        "cd": 4.0,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "physical",
+          "sword",
+          "pierce"
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "foe.debuff.ice",
+                "op": ">=",
+                "value": 5
+              }
+            ],
+            "pay": [
+              {
+                "mod": {
+                  "pen": 120,
+                  "tags": [
+                    "pierce"
+                  ],
+                  "kind": "art"
+                }
+              }
+            ],
+            "bypass": 0.5,
+            "c_mult": 1.3
+          }
+        ],
+        "group": "pear-blossom-snow-sword"
+      },
+      {
+        "name": "grain-rain",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 9.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "field",
+          "heal"
+        ],
+        "heal": 0.5,
+        "guards": [
+          {
+            "read": "own.counter.grain_rain",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "group": "grain-rain-canon"
+      },
+      {
+        "name": "lingzhi-spores",
+        "c": 1.0,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "seed",
+          "over_time",
+          "heal"
+        ],
+        "debuff": [
+          2,
+          6
+        ],
+        "group": "shang-mountain-lingzhi-canon"
+      },
+      {
+        "name": "dusk-haze",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "field"
+        ],
+        "guards": [
+          {
+            "read": "own.counter.haze_sec",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "group": "evening-haze-furnace"
+      },
+      {
+        "name": "assay",
+        "c": 1.2,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "seal",
+          "control"
+        ],
+        "group": "true-gold-canon"
+      }
+    ],
+    "counters": [
+      {
+        "id": "seal_hold",
+        "decay_per_pulse": 1
+      },
+      {
+        "id": "seal_count"
+      },
+      {
+        "id": "sit_door",
+        "decay_per_pulse": 1
+      },
+      {
+        "id": "petal_field",
+        "decay_per_pulse": 1
+      },
+      {
+        "id": "frost"
+      },
+      {
+        "id": "grain_rain"
+      },
+      {
+        "id": "lingzhi_spores"
+      },
+      {
+        "id": "spore_ripened",
+        "each_for": 0.5
+      },
+      {
+        "id": "haze_sec"
+      },
+      {
+        "id": "assay_did_strip",
+        "cap": 1
+      },
+      {
+        "id": "assay_crit",
+        "cap": 1
+      },
+      {
+        "id": "vigil_toll",
+        "each_for": 10
+      },
+      {
+        "id": "bell_toll"
+      },
+      {
+        "id": "furnace_lit"
+      },
+      {
+        "id": "dusk_no_lit_cost"
+      },
+      {
+        "id": "dusk_heal_store",
+        "decay_share": 0.05
+      },
+      {
+        "id": "dusk_released"
+      },
+      {
+        "id": "furnace_burn"
+      },
+      {
+        "id": "furnace_hp_cost",
+        "upkeep": {
+          "pool": "hp",
+          "per_stack": 0.1
+        }
+      },
+      {
+        "id": "banner_planted"
+      }
+    ],
+    "states": [
+      {
+        "id": "grain-rain",
+        "tags": [
+          "field"
+        ],
+        "mods": {}
+      }
+    ],
+    "effects": [
+      {
+        "id": "lay-seal-delay",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "lay-the-seal"
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "lay-seal-hold",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "lay-the-seal"
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_hold",
+            "op": "<",
+            "value": 7
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_hold",
+              "set": 7
+            }
+          }
+        ]
+      },
+      {
+        "id": "lay-seal-sit",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "lay-the-seal"
+        },
+        "if": [
+          {
+            "read": "own.counter.sit_door",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_hold",
+            "op": "<",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_hold",
+              "set": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "lay-seal-dampen",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.seal_hold",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 12
+            }
+          }
+        ]
+      },
+      {
+        "id": "lay-seal-count",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "lay-the-seal"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "seal_count",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lay-seal-fourth",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "lay-the-seal"
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_count",
+            "op": ">=",
+            "value": 4
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_count",
+              "set": 0
+            }
+          },
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "sit-door-enter",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "sit-against-the-door"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "sit_door",
+              "set": 7
+            }
+          },
+          {
+            "ward_grow": {
+              "share": 0.04,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sit-door-regen",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.sit_door",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sit-door-ward",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.sit_door",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "ward_pct": 15
+            }
+          }
+        ]
+      },
+      {
+        "id": "sit-door-seals",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.sit_door",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "status_dur": 30,
+              "tags": [
+                "curse"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eighth-snow-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "eighth-month-snow"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "petal_field",
+              "set": 5
+            }
+          },
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eighth-snow-press",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.petal_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.fired",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "own.foe_pressed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.pressing",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.since_act",
+                "op": "<=",
+                "value": 1.0
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eighth-snow-light",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.petal_field",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "evade": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eighth-snow-speed",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.petal_field",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "art_speed": 8
+            }
+          }
+        ]
+      },
+      {
+        "id": "shatter-frost",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "shatter-palm"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "frost",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-rain-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "grain-rain"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "grain_rain",
+              "set": 6
+            }
+          },
+          {
+            "state": {
+              "set": "grain-rain"
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-rain-heal",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_rain",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.025
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-rain-grow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_rain",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-rain-close",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_rain",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "read": "own.state.grain-rain",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-rain-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_rain",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "grain_rain",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "spores-seed",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "lingzhi-spores"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "lingzhi_spores",
+              "add": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "spores-ripen",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.lingzhi_spores",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "heal": {
+              "share": 0.015
+            }
+          },
+          {
+            "counter": {
+              "id": "lingzhi_spores",
+              "add": -1
+            }
+          },
+          {
+            "counter": {
+              "id": "spore_ripened",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "dusk-haze-start",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "dusk-haze"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "haze_sec",
+              "set": 6
+            }
+          }
+        ]
+      },
+      {
+        "id": "dusk-haze-pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.haze_sec",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "own",
+              "kind": "buff"
+            }
+          },
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "foe",
+              "kind": "debuff"
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 1,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "haze_sec",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "assay-reset",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "assay"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "assay_did_strip",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "assay-strip-buff",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "assay"
+        },
+        "if": [
+          {
+            "read": "foe.buff_elements",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "strip": {
+              "n": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "assay_did_strip",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "assay-strip-ward",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "assay"
+        },
+        "if": [
+          {
+            "read": "foe.buff_elements",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "foe.qi_share",
+            "op": ">",
+            "value": 0.05
+          }
+        ],
+        "do": [
+          {
+            "burn_qi": {
+              "of": "qi_max",
+              "share": 0.04
+            }
+          },
+          {
+            "mod": {
+              "pen": 30,
+              "for": 4.0
+            }
+          },
+          {
+            "counter": {
+              "id": "assay_did_strip",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "assay-none-crit",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "assay"
+        },
+        "if": [
+          {
+            "read": "foe.buff_elements",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "foe.qi_share",
+            "op": "<=",
+            "value": 0.05
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "assay_crit",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "assay-sure-crit",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.assay_crit",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "sure_crit": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "assay-spend-crit",
+        "on": "crit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.assay_crit",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "assay_crit",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Bitter Medicine",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.debuff.wood",
+            "op": "<",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "tick_to_heal": 50,
+              "element": "wood"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rain on the Sown Field:hold",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.grain-rain",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "refresh": {
+              "el": "wood",
+              "side": "foe",
+              "kind": "debuff",
+              "at_least": 6
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rain on the Sown Field:ripen",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.grain-rain",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.spore_ripened",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.02
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Until It Stops Wanting toll",
+        "on": "art_fired",
+        "filter": {
+          "group": "winter-toll-canon"
+        },
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.counter.seal_hold",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.status.heavy_breath",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.status.slowed_time",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_hold",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "vigil_toll",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Until It Stops Wanting damp",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.vigil_toll",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.vigil_toll",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 5.26
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Toll of the Frozen Bolt count",
+        "on": "art_fired",
+        "filter": {
+          "group": "winter-toll-canon"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "bell_toll",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Toll of the Frozen Bolt ring",
+        "on": "art_fired",
+        "filter": {
+          "group": "winter-toll-canon"
+        },
+        "if": [
+          {
+            "read": "own.counter.bell_toll",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "bell_toll",
+              "set": 0
+            }
+          },
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 2,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Haze Held All Night:waive",
+        "on": "fight_start",
+        "do": [
+          {
+            "counter": {
+              "id": "dusk_no_lit_cost",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Haze Held All Night:dampen",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.furnace_lit",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "heal_taken": -50
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Haze Held All Night:store_restored",
+        "on": "heal_restored",
+        "if": [
+          {
+            "read": "own.counter.furnace_lit",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "event.share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "event.share",
+          "per": 0.01,
+          "floor": false
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "dusk_heal_store",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Haze Held All Night:store_overflow",
+        "on": "heal_overflow",
+        "if": [
+          {
+            "read": "own.counter.furnace_lit",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "event.share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "event.share",
+          "per": 0.01,
+          "floor": false
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "dusk_heal_store",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Haze Held All Night:release_hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.furnace_lit",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.dusk_released",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.dusk_heal_store",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.counter.dusk_heal_store",
+          "per": 1,
+          "floor": false
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.01,
+              "ignore_taken": true
+            }
+          },
+          {
+            "counter": {
+              "id": "dusk_heal_store",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "dusk_released",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Haze Held All Night:release_pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.furnace_lit",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.dusk_released",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.dusk_heal_store",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.counter.dusk_heal_store",
+          "per": 1,
+          "floor": false
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.01,
+              "ignore_taken": true
+            }
+          },
+          {
+            "counter": {
+              "id": "dusk_heal_store",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "dusk_released",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unlit:hit_cost",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.4
+          },
+          {
+            "read": "own.counter.furnace_lit",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.dusk_no_lit_cost",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "furnace_hp_cost",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unlit:hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.4
+          },
+          {
+            "read": "own.counter.furnace_lit",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "furnace_lit",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "furnace_burn",
+              "set": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unlit:clear_cost",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.furnace_hp_cost",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "furnace_hp_cost",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unlit:tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.furnace_burn",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "furnace_burn",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unlit:pulse_cost",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.4
+          },
+          {
+            "read": "own.counter.furnace_lit",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.dusk_no_lit_cost",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "furnace_hp_cost",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unlit:pulse_trigger",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.4
+          },
+          {
+            "read": "own.counter.furnace_lit",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "furnace_lit",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "furnace_burn",
+              "set": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unlit:double_stacks",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.furnace_burn",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "stack_more": 1.0,
+              "element": "wood",
+              "kind": "buff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unlit:double_regen",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.furnace_burn",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "hregen_inc": 100
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:One Goose plant",
+        "on": "fight_start",
+        "do": [
+          {
+            "counter": {
+              "id": "banner_planted",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:One Goose dampen",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.banner_planted",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 15
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:One Goose first share",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.banner_planted",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "cooldown": 6
+        },
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.3
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

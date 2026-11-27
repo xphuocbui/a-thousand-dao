@@ -1,0 +1,3 @@
+[
+ {"id": "chc-unbroken-thread", "name": "The Unbroken Thread (Bất Đoạn Ti)", "pieces": ["chc-red-cloud-shuttle", "chc-season-woven-robe"], "bonuses": [{"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 8, "scope": ["over_time"]}, {"key": "stack_duration_pct", "value": 10, "scope": ["moc", "debuff"]}], "effect": "Fire Runs the Thread (Hỏa Tẩu Ti)", "rule": "While a foe is bound by your thread, each Wood stack on them also burns as a Fire hit (c 0.03 per Wood stack each second). When the binding ends, the fire leaps back along the thread and lays one Fire stack (6 s) for every three Wood stacks it held."}], "story": "The shuttle and the robe it wove. She wears both. The set will be whole for a season at a time, until she weaves silk that lasts."}
+]

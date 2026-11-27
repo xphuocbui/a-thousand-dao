@@ -1,0 +1,205 @@
+{
+ "_doc": "Nhạn Trận Môn's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:nhan_tran. Unpriced. Rule text from design/world/depth/sects/nhan_tran.items.json.",
+ "source": "world-depth:nhan_tran",
+ "effects": {
+  "One Goose": {
+   "rule": "Standard of the First File: the standard is raised at the start of the fight; while it stands you take 15 % less damage, and every 6 s it takes the first share of the next blow that deals health damage (30 % of the hit healed back).",
+   "counters": [
+    {
+     "id": "banner_planted"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:One Goose plant",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "banner_planted",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Goose dampen",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.banner_planted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 15
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Goose first share",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.banner_planted",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "cooldown": 6
+     },
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 0.3
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Geese Line": {
+   "rule": "Standard of the First File (d17): while the standard stands (+8) and while Geese Stance holds (+8), you gain +8 block rating for each anchor of the file.",
+   "counters": [
+    {
+     "id": "banner_planted"
+    },
+    {
+     "id": "geese_stance"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Geese Line banner",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.banner_planted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "block": 8
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Geese Line file",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.geese_stance",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "block": 8
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Last Man in the File": {
+   "rule": "Out of the Grey, full set (3 pieces): while the raised standard stands, you gain +20 block rating as though you had raised the shield, and each blocked hit lets you shed 1 Wood poison stack and 1 Corpse Rot miasma stack (once every 3 s).",
+   "counters": [
+    {
+     "id": "banner_planted"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Last Man in the File shield",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.banner_planted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "block": 20
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Last Man in the File shed",
+     "on": "blocked",
+     "if": [
+      {
+       "read": "own.counter.banner_planted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "cooldown": 3
+     },
+     "do": [
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "wood"
+       }
+      },
+      {
+       "cleanse": {
+        "status": "corpse_rot"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Take the Wind": {
+   "rule": "Point of the File, full set (2 pieces): you take 10 % less damage, and each block you make raises a stance ward worth 1.5 % of your health.",
+   "records": [
+    {
+     "id": "eff:Take the Wind guard",
+     "on": "always",
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 10
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Take the Wind ward",
+     "on": "blocked",
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.015,
+        "of": "hp"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

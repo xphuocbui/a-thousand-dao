@@ -1,0 +1,20 @@
+{
+  "tag": "b03",
+  "minutes": 8,
+  "words_built": [],
+  "words_avoided": [],
+  "gdd_lines": 0,
+  "tests": 1,
+  "fixture": "t29_b03_exact",
+  "records_moved": 0,
+  "decisions": [
+    "No engine code changes needed for b03: Python and GDScript standalone compilation and runtime parity matched across all 10 owners (43 active Effects, 52 arts, 0 errors/warnings).",
+    "Included shatter-palm alongside le_hoa arts and set acc: 0.5 / crit: 0.0 on both sides in t29_b03_exact so hang-a-bell stays chance-free while one-branch-of-pear empower, Toll of the Frozen Bolt, Until It Stops Wanting, Unlit, and The Second Cup Is Poured all fire deterministically."
+  ],
+  "open": [
+    "Carried over from b03 checkpoints: export_named.py support for kind == 'treasure' (hc-nine-cycle-gourd, hd-phi-hong, nt-first-file-banner, yq-evening-glow-furnace, yq-cold-furnace, lh-bolt-ice-bell, tc-purple-lingzhi-gourd).",
+    "Carried over from vu_linh checkpoint: cast_ward_duration_pct (+15 on vl-clear-bell) has no CHARACTER_MODS/cast_wards reader yet.",
+    "Carried over from phat_y / thai_chi checkpoints: OR-vs-AND element usability in CongPhap.usable() for multi-element techniques (dry-road-sword-primer, lingzhi-pickers-song, shang-mountain-lingzhi-canon).",
+    "Carried over from thai_chi checkpoint: out-of-fight herb_growth_pct / dan_doc_resist_pct keys on technique passives (StatSheet reads bonuses only)."
+  ]
+}
