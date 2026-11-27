@@ -2192,7 +2192,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "dia_kim",
+     "tech": "bich-ngoc-chisel-canon",
      "layer": 8
     },
     "aux": [],

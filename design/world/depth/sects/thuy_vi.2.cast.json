@@ -2238,7 +2238,7 @@
    "build": {
     "archetype": "dan_su",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "thanh-nang-balm-canon",
      "layer": 8
     },
     "aux": [],
@@ -2258,7 +2258,7 @@
      "start": "moc",
      "intent": "Wood healing."
     },
-    "note": "Outside method (R5): Thanh Nang Đường's healing method (generated stand-in huyen_moc)."
+    "note": "Outside method (R5): Thanh Nang Đường's healing method (thanh-nang-balm-canon)."
    }
   },
   {

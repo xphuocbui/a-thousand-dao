@@ -1,0 +1,269 @@
+[
+ {
+  "id": "seed-and-soil-primer",
+  "name": "Seed and Soil Primer (Chủng Thổ Khải Mông Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["moc", "tho"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "health_regen_inc_pct", "value": 4, "scope": []},
+   {"key": "breakthrough_chance", "value": 2, "scope": []},
+   {"key": "cultivation_speed_pct", "value": 4, "scope": []},
+   {"key": "herb_growth_pct", "value": 4, "scope": []},
+   {"key": "khi_huyet_pct", "value": 4, "scope": []},
+   {"key": "stack_duration_pct", "value": 8, "scope": ["moc", "debuff"]}
+  ],
+  "abilities": [
+   {"ability_id": "seed-of-spring", "unlock_layer": 1},
+   {"ability_id": "furrow-palm", "unlock_layer": 3}
+  ],
+  "effects": [],
+  "suite": "seed-and-soil-primer",
+  "lore": "The primer taught to Thúy Vi's outer gate and vassal farmers: grow a field, hold a furrow, keep a sprout alive through winter."
+ },
+ {
+  "id": "emerald-haze-canon",
+  "name": "Emerald Haze Canon (Thúy Vụ Chân Kinh)",
+  "tier": 2,
+  "tech_kind": "main",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["moc"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "khi_huyet_pct", "value": 10},
+   {"stat": "herb_growth_pct", "value": 18}
+  ],
+  "passives": [
+   {"key": "health_regen_inc_pct", "value": 8, "scope": []},
+   {"key": "breakthrough_chance", "value": 5, "scope": []},
+   {"key": "cultivation_speed_pct", "value": 8, "scope": []},
+   {"key": "herb_growth_pct", "value": 12, "scope": []},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []},
+   {"key": "healing_pct", "value": 8, "scope": []},
+   {"key": "linh_luc_pct", "value": 6, "scope": []},
+   {"key": "stack_effect_pct", "value": 10, "scope": ["moc", "buff"]},
+   {"key": "stack_duration_pct", "value": 10, "scope": ["moc", "debuff"]}
+  ],
+  "abilities": [
+   {"ability_id": "second-spring", "unlock_layer": 1},
+   {"ability_id": "rooted-form", "unlock_layer": 2},
+   {"ability_id": "empty-green-wets-the-robe", "unlock_layer": 4},
+   {"ability_id": "moss-in-the-returning-light", "unlock_layer": 6}
+  ],
+  "effects": [],
+  "suite": "emerald-haze-canon",
+  "lore": "Thúy Vi's main Earth-rank lineage canon: living mist, steady growth, and moss that blooms when struck."
+ },
+ {
+  "id": "haze-walk",
+  "name": "Haze Walk (Thúy Vụ Bộ)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["moc"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "stealth", "value": 8}
+  ],
+  "passives": [
+   {"key": "health_regen_inc_pct", "value": 6, "scope": []},
+   {"key": "breakthrough_chance", "value": 3, "scope": []},
+   {"key": "cultivation_speed_pct", "value": 6, "scope": []},
+   {"key": "herb_growth_pct", "value": 8, "scope": []},
+   {"key": "evade_pct", "value": 4, "scope": []},
+   {"key": "art_speed_pct", "value": 6, "scope": ["moc"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 6, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "step-into-the-green", "unlock_layer": 1},
+   {"ability_id": "haze-on-the-path", "unlock_layer": 4}
+  ],
+  "effects": [],
+  "suite": "haze-walk",
+  "lore": "The sect's river-and-mist footwork: slip aside under thin fog, hide the path behind you, and arrive without footsteps."
+ },
+ {
+  "id": "rock-splitting-root",
+  "name": "Rock-Splitting Root (Liệt Thạch Căn)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["moc"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "attack_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "health_regen_inc_pct", "value": 6, "scope": []},
+   {"key": "breakthrough_chance", "value": 3, "scope": []},
+   {"key": "cultivation_speed_pct", "value": 6, "scope": []},
+   {"key": "herb_growth_pct", "value": 6, "scope": []},
+   {"key": "attack_pct", "value": 6, "scope": ["physical"]},
+   {"key": "defense_pct", "value": 6, "scope": []},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "root-in-the-crack", "unlock_layer": 2},
+   {"ability_id": "pine-against-the-wind", "unlock_layer": 5}
+  ],
+  "effects": [],
+  "suite": "rock-splitting-root",
+  "lore": "The Cliff Hall's wedge and stance: a root takes years to split limestone, and one breath of weight finishes the crack."
+ },
+ {
+  "id": "green-furnace-canon",
+  "name": "Green Furnace Canon (Thanh Lô Chân Kinh)",
+  "tier": 2,
+  "tech_kind": "secret",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["moc", "tho"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "alchemy_success", "value": 7},
+   {"stat": "linh_luc_pct", "value": 12}
+  ],
+  "passives": [
+   {"key": "herb_growth_pct", "value": 12, "scope": []},
+   {"key": "alchemy_success", "value": 6, "scope": []},
+   {"key": "attack_pct", "value": 8, "scope": ["over_time"]},
+   {"key": "stack_effect_pct", "value": 12, "scope": ["moc", "debuff"]},
+   {"key": "healing_pct", "value": 6, "scope": []},
+   {"key": "status_resist_pct", "value": 8, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "harvest-bloom", "unlock_layer": 1},
+   {"ability_id": "green-fire-eats-dead-wood", "unlock_layer": 3},
+   {"ability_id": "pill-smoke-ward", "unlock_layer": 5}
+  ],
+  "effects": [
+   {
+    "name": "The Empty Mountain's Answer (Không Sơn Đáp)",
+    "unlock_layer": 8,
+    "passive_art": true,
+    "rule": "The Furnace Spills Over / The Empty Mountain's Answer (d5 passive art): healing lost to full health is stored and fades by a tenth each second, falling as Wood damage every 3 s when the foe cannot evade or holds 5+ Wood stacks (pending technique-effects)."
+   }
+  ],
+  "suite": "green-furnace-canon",
+  "lore": "The Furnace Hall's sealed canon: green wood fire that consumes rot, pill-smoke wards, and surplus life spilling outward."
+ },
+ {
+  "id": "empty-mountain-sutra",
+  "name": "Empty Mountain Sutra (Không Sơn Kinh)",
+  "tier": 3,
+  "tech_kind": "secret",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["tho", "moc"],
+  "layers": 15,
+  "bonuses": [
+   {"stat": "linh_luc_pct", "value": 16},
+   {"stat": "than_thuc_pct", "value": 12},
+   {"stat": "tam_ma_resist_pct", "value": 12}
+  ],
+  "passives": [
+   {"key": "linh_luc_pct", "value": 8, "scope": []},
+   {"key": "than_thuc_pct", "value": 6, "scope": []},
+   {"key": "evade_pct", "value": 4, "scope": []},
+   {"key": "healing_taken_pct", "value": 6, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "status_resist_pct", "value": 8, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "no-one-is-seen", "unlock_layer": 1},
+   {"ability_id": "returning-light", "unlock_layer": 4},
+   {"ability_id": "voices-on-the-empty-mountain", "unlock_layer": 6}
+  ],
+  "effects": [
+   {
+    "name": "The Empty Mountain's Answer (Không Sơn Đáp)",
+    "unlock_layer": 6,
+    "passive_art": true,
+    "rule": "The Empty Mountain's Answer (d5 passive art): healing lost to full health is stored and fades by a tenth each second, falling as Wood damage every 3 s when the foe cannot evade or holds 5+ Wood stacks (pending technique-effects)."
+   }
+  ],
+  "suite": "empty-mountain-sutra",
+  "lore": "The Heaven-tier sutra kept solely by Ngu Lam Sơn: no killing art at all, only absence, returning light, and the mountain's answer."
+ },
+ {
+  "id": "thanh-nang-balm-canon",
+  "name": "Thanh Nang Balm Canon (Thanh Nang Dưỡng Sinh Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["moc", "thuy"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "herb_growth_pct", "value": 15}
+  ],
+  "passives": [
+   {"key": "healing_pct", "value": 8, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 8, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []},
+   {"key": "alchemy_success", "value": 4, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "seed-of-spring", "unlock_layer": 1},
+   {"ability_id": "second-spring", "unlock_layer": 4}
+  ],
+  "effects": [],
+  "lore": "Stand-in replacement for huyen_moc: Thanh Nang Đường's quiet healing lineage carried to Thúy Vi by Dư Tục Đoạn and kept by Ngải Thanh Hao."
+ },
+ {
+  "id": "bich-ngoc-chisel-canon",
+  "name": "Bich Ngoc Chisel Canon (Bích Ngọc Trác Thạch Công)",
+  "tier": 2,
+  "tech_kind": "main",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["kim", "tho"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "attack_pct", "value": 12},
+   {"stat": "defense_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "attack_pct", "value": 8, "scope": ["physical"]},
+   {"key": "defense_pct", "value": 6, "scope": []},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []},
+   {"key": "pierce_pct", "value": 6, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "whetstone-pass", "unlock_layer": 1},
+   {"ability_id": "sundering-wedge", "unlock_layer": 3},
+   {"ability_id": "shatter-edge-cleave", "unlock_layer": 5}
+  ],
+  "effects": [],
+  "lore": "Stand-in replacement for dia_kim: the jade-cutter and furnace-mender craft kept by Lã Trác Thạch at Bích Ngọc Khoáng."
+ },
+ {
+  "id": "cliff-hearth-breath",
+  "name": "Cliff Hearth Breath (Nhai Táo Tức Công)",
+  "tier": 0,
+  "tech_kind": "main",
+  "origin": "authored",
+  "owner": "thuy_vi",
+  "names": ["kim"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "khi_huyet_pct", "value": 3, "scope": []},
+   {"key": "defense_pct", "value": 3, "scope": []},
+   {"key": "attack_pct", "value": 3, "scope": ["physical"]}
+  ],
+  "abilities": [
+   {"ability_id": "iron-hide-stance", "unlock_layer": 1},
+   {"ability_id": "whetstone-pass", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "lore": "Stand-in replacement for hoang_kim: the Cliff Hall servants' steady work-breath for cleavers, buckets, and stone steps."
+ }
+]

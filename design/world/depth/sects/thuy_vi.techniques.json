@@ -1,130 +1,375 @@
 {
- "sect": "thuy_vi",
- "_doc": "Thúy Vi Tông lineage (rules-proposals R5). Elements Wood first, then Earth: inner disciples and above hold Wood at 45 or more. Outer gate: seed-and-soil-primer (Wood or Earth; the field method). Inner gate: verdant-cycle-scripture (Wood; existing). True disciples and elders: emerald-haze-canon (the founder's method). Secret arts by rank: haze-walk (inner gate), rock-splitting-root (inner gate, taught only at the Cliff Hall on the old seat), green-furnace-canon (elders; the sect's alchemy), empty-mountain-sutra (head; Không Sơn Viện's gift of 500). Body: mountain-bone-body-art (existing; the Field Hall). Forbidden in the sect: rotting-canopy-canon (existing). Proposals are unpriced.",
- "lineage": {
-  "outer": "seed-and-soil-primer",
-  "inner": "verdant-cycle-scripture",
-  "main": "emerald-haze-canon",
-  "secret": [
-   {"id": "haze-walk", "rank": "noi_mon"},
-   {"id": "rock-splitting-root", "rank": "noi_mon", "note": "taught only at the Cliff Hall (old seat, place 1)"},
-   {"id": "green-furnace-canon", "rank": "truong_lao"},
-   {"id": "empty-mountain-sutra", "rank": "tong_chu"}
-  ],
-  "body": "mountain-bone-body-art",
-  "elements": ["moc", "tho"],
-  "forbidden": ["rotting-canopy-canon"],
-  "tree_route": [6299, 6103],
-  "tree_route_note": "Growth Rings (Niên Luân) and New Leaf (Tân Diệp): the head's first two, regeneration and the spirit fields; the Emerald Haze is grown in a garden before it is carried into a fight."
- },
- "techniques": [
-  {
-   "id": "seed-and-soil-primer",
-   "name": "Seed and Soil Primer (Chủng Thổ Quyết)",
-   "tier": 0, "tech_kind": "main", "names": ["moc", "tho"], "layers": 6, "rank": "ngoai_mon",
-   "concept": "The outer gate's method, practised with the hands in the spirit fields. A Wood root breathes as the seed and an Earth root as the soil; either alone will carry a disciple through its six layers, and a root that holds both moves faster. Each layer is tied to a season of field work, so an outer disciple cannot rush it. Its sixth layer is the First Leaf: the life tree the disciple planted on the day they joined puts out its first spirit leaf. Then, if their Wood holds, the inner gate opens.",
-   "arts": [
-    "seed-of-spring",
-    {"new": "Furrow Palm (Lũng Chưởng)", "concept": "A low, dragging palm that lays one Earth stack and one Wood stack together; a foe carrying both casts a little slower. The outer gate's only fighting art, and a field tool first."}
-   ],
-   "lore": "Quyền Thanh Lam rewrote it in 1006, the year the sect came down to Cổ Dịch Trấn (N-thuy_vi-03). The old primer had been written for rock gardens on the ridge and would not take in the deep loam of the post town's lost gardens.",
-   "status": "proposal",
-   "passives": [
-    {"key": "health_regen_pct", "value": 0.2, "scope": []},
-    {"key": "breakthrough_chance", "value": 0.4, "scope": []},
-    {"key": "cultivation_speed_pct", "value": 0.9, "scope": []},
-    {"key": "herb_growth_pct", "value": 2.2, "scope": []}
-   ],
-   "authored": "b1"
+  "sect": "thuy_vi",
+  "_doc": "Thúy Vi Tông lineage (rules-proposals R5). Elements Wood first, then Earth: inner disciples and above hold Wood at 45 or more. Outer gate: seed-and-soil-primer (Wood or Earth; the field method). Inner gate: verdant-cycle-scripture (Wood; existing). True disciples and elders: emerald-haze-canon (the founder's method). Secret arts by rank: haze-walk (inner gate), rock-splitting-root (inner gate, taught only at the Cliff Hall on the old seat), green-furnace-canon (elders; the sect's alchemy), empty-mountain-sutra (head; Không Sơn Viện's gift of 500). Body: mountain-bone-body-art (existing; the Field Hall). Forbidden in the sect: rotting-canopy-canon (existing). Proposals are unpriced.",
+  "lineage": {
+    "outer": "seed-and-soil-primer",
+    "inner": "verdant-cycle-scripture",
+    "main": "emerald-haze-canon",
+    "secret": [
+      {
+        "id": "haze-walk",
+        "rank": "noi_mon"
+      },
+      {
+        "id": "rock-splitting-root",
+        "rank": "noi_mon",
+        "note": "taught only at the Cliff Hall (old seat, place 1)"
+      },
+      {
+        "id": "green-furnace-canon",
+        "rank": "truong_lao"
+      },
+      {
+        "id": "empty-mountain-sutra",
+        "rank": "tong_chu"
+      }
+    ],
+    "body": "mountain-bone-body-art",
+    "elements": [
+      "moc",
+      "tho"
+    ],
+    "forbidden": [
+      "rotting-canopy-canon"
+    ],
+    "tree_route": [
+      6299,
+      6103
+    ],
+    "tree_route_note": "Growth Rings (Niên Luân) and New Leaf (Tân Diệp): the head's first two, regeneration and the spirit fields; the Emerald Haze is grown in a garden before it is carried into a fight."
   },
-  {
-   "id": "emerald-haze-canon",
-   "name": "Emerald Haze True Canon (Thúy Vi Chân Kinh)",
-   "tier": 2, "tech_kind": "main", "names": ["moc", "tho"], "layers": 12, "rank": "chan_truyen",
-   "concept": "The founder's method and the sect's name. Thúy vi is the green breath of a mountain's middle slope, the haze that rises from living leaves over wet soil. Vương Duy wrote that on a mountain road with no rain, the empty green wet the travellers' clothes. The practitioner draws qi from growing things and breathes it back out as that haze. While it is up, you mend and the foe slowly cannot evade. Like every method, it cultivates faster on land that matches it, here where Wood is strong in the place's qi, and slowly where it is not. On the Metal ridge it was slow for five centuries, and that is why the sect left the ridge.",
-   "arts": [
-    "second-spring",
-    "rooted-form",
-    {"new": "Empty Green Wets the Robe (Không Thúy Thấp Y)", "concept": "Lays a haze field around the holder for 8 s: you regain health and linh lực each second, the foe gains a Wood stack each second; a foe with five Wood stacks takes an Earth stack and cannot evade for 1 s."},
-    {"new": "Moss in the Returning Light (Phản Cảnh Thanh Đài)", "concept": "Plants a slow heal on you that blooms the next time you are struck, healing for twice what it would have given over time."}
-   ],
-   "lore": "Phùng Yên Hà wrote it in her first ten years on the empty mountain (500-510), from Không Sơn Viện's quiet and her own love of landscape (yên hà). The first copy was written on mulberry paper that the haze kept damp for five centuries. It is kept at the new seat, and it is still damp.",
-   "status": "proposal",
-   "passives": [
-    {"key": "health_regen_pct", "value": 0.4, "scope": []},
-    {"key": "breakthrough_chance", "value": 0.8, "scope": []},
-    {"key": "cultivation_speed_pct", "value": 1.8, "scope": []},
-    {"key": "herb_growth_pct", "value": 4.4, "scope": []}
-   ],
-   "authored": "b1"
-  },
-  {
-   "id": "haze-walk",
-   "name": "Haze Walk (Vụ Bộ)",
-   "tier": 1, "tech_kind": "secret", "names": ["moc"], "layers": 9, "rank": "noi_mon",
-   "concept": "A walking art. The body thins into the green haze of a forest slope, so the walker is hard to see, hard to strike and hard to follow. It is taught to the inner gate for travel and for leaving a fight. By sect rule it is never used to come at a foe unseen. In a fight it gives evasion and a short concealment, and it can lay haze on a path behind the walker to blind pursuers.",
-   "arts": [
-    {"new": "Step into the Green (Nhập Thúy Bộ)", "concept": "A step that hides the holder for 1.5 s: the next hit aimed at them misses, and their next art is cast at full speed."},
-    {"new": "Haze on the Path (Vụ Tỏa Kính)", "concept": "Lays a haze strip for 6 s; while it is up, the foe loses accuracy and cannot see hidden things."}
-   ],
-   "lore": "This is the art in annal V015. Tất Hành Vụ taught it in 1048 to his sworn brother, a road guard. The man took it to the cape and founded Vụ Ẩn Môn on it (N-thuy_vi-07). The sect still argues over whether that was a gift or a theft.",
-   "status": "proposal",
-   "passives": [
-    {"key": "health_regen_pct", "value": 0.4, "scope": []},
-    {"key": "breakthrough_chance", "value": 0.8, "scope": []},
-    {"key": "cultivation_speed_pct", "value": 1.8, "scope": []},
-    {"key": "herb_growth_pct", "value": 4.4, "scope": []}
-   ],
-   "authored": "b1"
-  },
-  {
-   "id": "rock-splitting-root",
-   "name": "Rock-Splitting Root (Liệt Thạch Căn Quyết)",
-   "tier": 1, "tech_kind": "secret", "names": ["moc"], "layers": 9, "rank": "noi_mon",
-   "concept": "The cliff pine's art. It teaches Wood to grow through stone the way a pine root splits a cliff, slowly and without stopping. It hardens the body against Metal, and its arts send roots into a foe's guard to crack it. It is slower than the haze and harsher. It is taught only on the old seat, by Cù Thúy Bách and those she allows.",
-   "arts": [
-    {"new": "Root in the Crack (Căn Nhập Khích)", "concept": "A hit that lays two Wood stacks; while the foe carries them its defence falls a little with each. At six of your Wood stacks the cliff splits: the foe is Sundered for 4 s, and if you hold Pine Against the Wind, the stance ends and leans into one Physical Wood blow that grows with every hit it took (once every 8 s).", "authored": "d13"},
-    {"new": "Pine Against the Wind (Tùng Kháng Phong)", "concept": "A stance: while the holder does not move, Metal and physical hits on them are weakened, and each hit taken grows their next art's damage."}
-   ],
-   "lore": "Cù Thúy Bách wrote it on the ridge in 1010, four years after the sect went down without her. Its first line: 'The tree that grows on the cliff does not envy the tree in the garden.'",
-   "status": "proposal",
-   "authored": "d13, b1",
-   "passives": [
-    {"key": "health_regen_pct", "value": 0.4, "scope": []},
-    {"key": "breakthrough_chance", "value": 0.8, "scope": []},
-    {"key": "cultivation_speed_pct", "value": 1.8, "scope": []},
-    {"key": "herb_growth_pct", "value": 4.4, "scope": []}
-   ]
-  },
-  {
-   "id": "green-furnace-canon",
-   "name": "Green Furnace Canon (Thanh Lô Kinh)",
-   "tier": 2, "tech_kind": "secret", "names": ["moc", "tho"], "layers": 12, "rank": "truong_lao",
-   "concept": "Alchemy without a volcano. Wood begets Fire: the alchemist lights spirit wood in a clay furnace (Earth holds the heat) and feeds the flame with their own Wood qi until it burns green. Green fire is gentle on herbs and slow to spoil a batch, which is why Thúy Vi's pills are trusted from the cape to the Pivot. In a fight it is a method of slow fire and fast pills: green flame that eats the wounded faster than the whole, and a holder whose own pills and heals act sooner.",
-   "arts": [
-    "harvest-bloom",
-    {"new": "Green Fire Eats Dead Wood (Thanh Hỏa Thực Khô)", "concept": "A green burn over 6 s that deals half again as much to a foe below half health; if the foe is Broken while it burns, the burn is laid on it again at half strength.", "authored": "a1"},
-    {"new": "Pill Smoke Ward (Đan Yên Hộ)", "concept": "Breathes out the smoke of the last pill taken: a ward for 5 s that also cuts the next debuff's duration by half."},
-    {"new": "The Furnace Spills Over (Lô Dật)", "concept": "A passive art. Healing lost to your full health is stored, and the store fades by a tenth each second; when the foe cannot evade or carries five of your Wood stacks, it falls on the foe as Wood damage, once every 3 s.", "effect": "the-empty-mountains-answer", "authored": "d5"}
-   ],
-   "lore": "Âu Dương Thanh Lô wrote it in the 520s, when the sect was too poor to buy volcano fire from the isles. He died in 932 at Bách Thảo Viện trying to tame a fire cauldron that green flame could not hold (V029). The Furnace Hall keeps the method's last page burned at the edge, as he left it.",
-   "status": "proposal",
-   "authored": "d5, a1"
-  },
-  {
-   "id": "empty-mountain-sutra",
-   "name": "Empty Mountain Sutra (Không Sơn Kinh)",
-   "tier": 3, "tech_kind": "secret", "names": ["tho", "moc"], "layers": 15, "rank": "tong_chu",
-   "concept": "Không Sơn Viện's highest teaching, given with the hills in 500 (C100). It is built on Vương Duy's quatrain: on the empty mountain no one is seen, only voices heard; the returning light enters the deep wood and shines again on the green moss. The holder grows still until they cannot be found. Harm that reaches them is held a moment, then returns to them as healing, the way light returns to the moss at evening. It has no killing art, which Ngu Lam Sơn says is why Thôi Bất Kiến could give it away.",
-   "arts": [
-    {"new": "No One Is Seen (Bất Kiến Nhân)", "concept": "While the holder casts nothing for 2 s, they are hidden; the first art cast from hiding is cast instantly."},
-    {"new": "Returning Light (Phản Cảnh)", "concept": "For 6 s, a third of the damage the holder takes is stored and returns as healing over the next 6 s."},
-    {"new": "Voices on the Empty Mountain (Không Sơn Nhân Ngữ)", "concept": "An echo: the holder's last art repeats once at half strength from where they stood, after they have moved."},
-    {"new": "The Empty Mountain's Answer (Không Sơn Đáp)", "concept": "A passive art. Healing lost to your full health is stored as Green, and the Green fades by a tenth each second; when the foe cannot evade or carries five of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.", "effect": "the-empty-mountains-answer", "authored": "d5"}
-   ],
-   "lore": "Thôi Bất Kiến gave it to Phùng Yên Hà with the hills, his whisk and his only student (C100). Only the founder and Ngu Lam Sơn have read past its ninth layer. The traveller who heard someone reading aloud in the empty academy in 1195 (A048) heard its first lines.",
-   "status": "proposal",
-   "authored": "d5"
-  }
- ]
+  "techniques": [
+    {
+      "id": "seed-and-soil-primer",
+      "name": "Seed and Soil Primer (Chủng Thổ Quyết)",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "moc",
+        "tho"
+      ],
+      "layers": 6,
+      "rank": "ngoai_mon",
+      "concept": "The outer gate's method, practised with the hands in the spirit fields. A Wood root breathes as the seed and an Earth root as the soil; either alone will carry a disciple through its six layers, and a root that holds both moves faster. Each layer is tied to a season of field work, so an outer disciple cannot rush it. Its sixth layer is the First Leaf: the life tree the disciple planted on the day they joined puts out its first spirit leaf. Then, if their Wood holds, the inner gate opens.",
+      "arts": [
+        "seed-of-spring",
+        {
+          "new": "Furrow Palm (Lũng Chưởng)",
+          "concept": "A low, dragging palm that lays one Earth stack and one Wood stack together; a foe carrying both casts a little slower. The outer gate's only fighting art, and a field tool first.",
+          "id": "furrow-palm"
+        }
+      ],
+      "lore": "Quyền Thanh Lam rewrote it in 1006, the year the sect came down to Cổ Dịch Trấn (N-thuy_vi-03). The old primer had been written for rock gardens on the ridge and would not take in the deep loam of the post town's lost gardens.",
+      "status": "proposal",
+      "passives": [
+        {
+          "key": "health_regen_pct",
+          "value": 0.2,
+          "scope": []
+        },
+        {
+          "key": "breakthrough_chance",
+          "value": 0.4,
+          "scope": []
+        },
+        {
+          "key": "cultivation_speed_pct",
+          "value": 0.9,
+          "scope": []
+        },
+        {
+          "key": "herb_growth_pct",
+          "value": 2.2,
+          "scope": []
+        }
+      ],
+      "authored": "b1"
+    },
+    {
+      "id": "emerald-haze-canon",
+      "name": "Emerald Haze True Canon (Thúy Vi Chân Kinh)",
+      "tier": 2,
+      "tech_kind": "main",
+      "names": [
+        "moc",
+        "tho"
+      ],
+      "layers": 12,
+      "rank": "chan_truyen",
+      "concept": "The founder's method and the sect's name. Thúy vi is the green breath of a mountain's middle slope, the haze that rises from living leaves over wet soil. Vương Duy wrote that on a mountain road with no rain, the empty green wet the travellers' clothes. The practitioner draws qi from growing things and breathes it back out as that haze. While it is up, you mend and the foe slowly cannot evade. Like every method, it cultivates faster on land that matches it, here where Wood is strong in the place's qi, and slowly where it is not. On the Metal ridge it was slow for five centuries, and that is why the sect left the ridge.",
+      "arts": [
+        "second-spring",
+        "rooted-form",
+        {
+          "new": "Empty Green Wets the Robe (Không Thúy Thấp Y)",
+          "concept": "Lays a haze field around the holder for 8 s: you regain health and linh lực each second, the foe gains a Wood stack each second; a foe with five Wood stacks takes an Earth stack and cannot evade for 1 s.",
+          "id": "empty-green-wets-the-robe"
+        },
+        {
+          "new": "Moss in the Returning Light (Phản Cảnh Thanh Đài)",
+          "concept": "Plants a slow heal on you that blooms the next time you are struck, healing for twice what it would have given over time.",
+          "id": "moss-in-the-returning-light"
+        }
+      ],
+      "lore": "Phùng Yên Hà wrote it in her first ten years on the empty mountain (500-510), from Không Sơn Viện's quiet and her own love of landscape (yên hà). The first copy was written on mulberry paper that the haze kept damp for five centuries. It is kept at the new seat, and it is still damp.",
+      "status": "proposal",
+      "passives": [
+        {
+          "key": "health_regen_pct",
+          "value": 0.4,
+          "scope": []
+        },
+        {
+          "key": "breakthrough_chance",
+          "value": 0.8,
+          "scope": []
+        },
+        {
+          "key": "cultivation_speed_pct",
+          "value": 1.8,
+          "scope": []
+        },
+        {
+          "key": "herb_growth_pct",
+          "value": 4.4,
+          "scope": []
+        }
+      ],
+      "authored": "b1"
+    },
+    {
+      "id": "haze-walk",
+      "name": "Haze Walk (Vụ Bộ)",
+      "tier": 1,
+      "tech_kind": "secret",
+      "names": [
+        "moc"
+      ],
+      "layers": 9,
+      "rank": "noi_mon",
+      "concept": "A walking art. The body thins into the green haze of a forest slope, so the walker is hard to see, hard to strike and hard to follow. It is taught to the inner gate for travel and for leaving a fight. By sect rule it is never used to come at a foe unseen. In a fight it gives evasion and a short concealment, and it can lay haze on a path behind the walker to blind pursuers.",
+      "arts": [
+        {
+          "new": "Step into the Green (Nhập Thúy Bộ)",
+          "concept": "A step that hides the holder for 1.5 s: the next hit aimed at them misses, and their next art is cast at full speed.",
+          "id": "step-into-the-green"
+        },
+        {
+          "new": "Haze on the Path (Vụ Tỏa Kính)",
+          "concept": "Lays a haze strip for 6 s; while it is up, the foe loses accuracy and cannot see hidden things.",
+          "id": "haze-on-the-path"
+        }
+      ],
+      "lore": "This is the art in annal V015. Tất Hành Vụ taught it in 1048 to his sworn brother, a road guard. The man took it to the cape and founded Vụ Ẩn Môn on it (N-thuy_vi-07). The sect still argues over whether that was a gift or a theft.",
+      "status": "proposal",
+      "passives": [
+        {
+          "key": "health_regen_pct",
+          "value": 0.4,
+          "scope": []
+        },
+        {
+          "key": "breakthrough_chance",
+          "value": 0.8,
+          "scope": []
+        },
+        {
+          "key": "cultivation_speed_pct",
+          "value": 1.8,
+          "scope": []
+        },
+        {
+          "key": "herb_growth_pct",
+          "value": 4.4,
+          "scope": []
+        }
+      ],
+      "authored": "b1"
+    },
+    {
+      "id": "rock-splitting-root",
+      "name": "Rock-Splitting Root (Liệt Thạch Căn Quyết)",
+      "tier": 1,
+      "tech_kind": "secret",
+      "names": [
+        "moc"
+      ],
+      "layers": 9,
+      "rank": "noi_mon",
+      "concept": "The cliff pine's art. It teaches Wood to grow through stone the way a pine root splits a cliff, slowly and without stopping. It hardens the body against Metal, and its arts send roots into a foe's guard to crack it. It is slower than the haze and harsher. It is taught only on the old seat, by Cù Thúy Bách and those she allows.",
+      "arts": [
+        {
+          "new": "Root in the Crack (Căn Nhập Khích)",
+          "concept": "A hit that lays two Wood stacks; while the foe carries them its defence falls a little with each. At six of your Wood stacks the cliff splits: the foe is Sundered for 4 s, and if you hold Pine Against the Wind, the stance ends and leans into one Physical Wood blow that grows with every hit it took (once every 8 s).",
+          "authored": "d13",
+          "id": "root-in-the-crack"
+        },
+        {
+          "new": "Pine Against the Wind (Tùng Kháng Phong)",
+          "concept": "A stance: while the holder does not move, Metal and physical hits on them are weakened, and each hit taken grows their next art's damage.",
+          "id": "pine-against-the-wind"
+        }
+      ],
+      "lore": "Cù Thúy Bách wrote it on the ridge in 1010, four years after the sect went down without her. Its first line: 'The tree that grows on the cliff does not envy the tree in the garden.'",
+      "status": "proposal",
+      "authored": "d13, b1",
+      "passives": [
+        {
+          "key": "health_regen_pct",
+          "value": 0.4,
+          "scope": []
+        },
+        {
+          "key": "breakthrough_chance",
+          "value": 0.8,
+          "scope": []
+        },
+        {
+          "key": "cultivation_speed_pct",
+          "value": 1.8,
+          "scope": []
+        },
+        {
+          "key": "herb_growth_pct",
+          "value": 4.4,
+          "scope": []
+        }
+      ]
+    },
+    {
+      "id": "green-furnace-canon",
+      "name": "Green Furnace Canon (Thanh Lô Kinh)",
+      "tier": 2,
+      "tech_kind": "secret",
+      "names": [
+        "moc",
+        "tho"
+      ],
+      "layers": 12,
+      "rank": "truong_lao",
+      "concept": "Alchemy without a volcano. Wood begets Fire: the alchemist lights spirit wood in a clay furnace (Earth holds the heat) and feeds the flame with their own Wood qi until it burns green. Green fire is gentle on herbs and slow to spoil a batch, which is why Thúy Vi's pills are trusted from the cape to the Pivot. In a fight it is a method of slow fire and fast pills: green flame that eats the wounded faster than the whole, and a holder whose own pills and heals act sooner.",
+      "arts": [
+        "harvest-bloom",
+        {
+          "new": "Green Fire Eats Dead Wood (Thanh Hỏa Thực Khô)",
+          "concept": "A green burn over 6 s that deals half again as much to a foe below half health; if the foe is Broken while it burns, the burn is laid on it again at half strength.",
+          "authored": "a1",
+          "id": "green-fire-eats-dead-wood"
+        },
+        {
+          "new": "Pill Smoke Ward (Đan Yên Hộ)",
+          "concept": "Breathes out the smoke of the last pill taken: a ward for 5 s that also cuts the next debuff's duration by half.",
+          "id": "pill-smoke-ward"
+        },
+        {
+          "new": "The Furnace Spills Over (Lô Dật)",
+          "concept": "A passive art. Healing lost to your full health is stored, and the store fades by a tenth each second; when the foe cannot evade or carries five of your Wood stacks, it falls on the foe as Wood damage, once every 3 s.",
+          "effect": "the-empty-mountains-answer",
+          "authored": "d5",
+          "id": "the-furnace-spills-over"
+        }
+      ],
+      "lore": "Âu Dương Thanh Lô wrote it in the 520s, when the sect was too poor to buy volcano fire from the isles. He died in 932 at Bách Thảo Viện trying to tame a fire cauldron that green flame could not hold (V029). The Furnace Hall keeps the method's last page burned at the edge, as he left it.",
+      "status": "proposal",
+      "authored": "d5, a1"
+    },
+    {
+      "id": "empty-mountain-sutra",
+      "name": "Empty Mountain Sutra (Không Sơn Kinh)",
+      "tier": 3,
+      "tech_kind": "secret",
+      "names": [
+        "tho",
+        "moc"
+      ],
+      "layers": 15,
+      "rank": "tong_chu",
+      "concept": "Không Sơn Viện's highest teaching, given with the hills in 500 (C100). It is built on Vương Duy's quatrain: on the empty mountain no one is seen, only voices heard; the returning light enters the deep wood and shines again on the green moss. The holder grows still until they cannot be found. Harm that reaches them is held a moment, then returns to them as healing, the way light returns to the moss at evening. It has no killing art, which Ngu Lam Sơn says is why Thôi Bất Kiến could give it away.",
+      "arts": [
+        {
+          "new": "No One Is Seen (Bất Kiến Nhân)",
+          "concept": "While the holder casts nothing for 2 s, they are hidden; the first art cast from hiding is cast instantly.",
+          "id": "no-one-is-seen"
+        },
+        {
+          "new": "Returning Light (Phản Cảnh)",
+          "concept": "For 6 s, a third of the damage the holder takes is stored and returns as healing over the next 6 s.",
+          "id": "returning-light"
+        },
+        {
+          "new": "Voices on the Empty Mountain (Không Sơn Nhân Ngữ)",
+          "concept": "An echo: the holder's last art repeats once at half strength from where they stood, after they have moved.",
+          "id": "voices-on-the-empty-mountain"
+        },
+        {
+          "new": "The Empty Mountain's Answer (Không Sơn Đáp)",
+          "concept": "A passive art. Healing lost to your full health is stored as Green, and the Green fades by a tenth each second; when the foe cannot evade or carries five of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.",
+          "effect": "the-empty-mountains-answer",
+          "authored": "d5",
+          "id": "the-empty-mountains-answer"
+        }
+      ],
+      "lore": "Thôi Bất Kiến gave it to Phùng Yên Hà with the hills, his whisk and his only student (C100). Only the founder and Ngu Lam Sơn have read past its ninth layer. The traveller who heard someone reading aloud in the empty academy in 1195 (A048) heard its first lines.",
+      "status": "proposal",
+      "authored": "d5"
+    },
+    {
+      "id": "thanh-nang-balm-canon",
+      "name_hv": "Thanh Nang Dưỡng Sinh Kinh",
+      "tier": 1,
+      "tech_kind": "main",
+      "names": [
+        "moc",
+        "thuy"
+      ],
+      "stand_in_for": "huyen_moc",
+      "holders": [
+        "ngai_thanh_hao"
+      ],
+      "arts": [
+        "seed-of-spring",
+        "second-spring"
+      ]
+    },
+    {
+      "id": "bich-ngoc-chisel-canon",
+      "name_hv": "Bích Ngọc Trác Thạch Công",
+      "tier": 2,
+      "tech_kind": "main",
+      "names": [
+        "kim",
+        "tho"
+      ],
+      "stand_in_for": "dia_kim",
+      "holders": [
+        "la_trac_thach"
+      ],
+      "arts": [
+        "whetstone-pass",
+        "sundering-wedge",
+        "shatter-edge-cleave",
+        "millstone-palm"
+      ]
+    },
+    {
+      "id": "cliff-hearth-breath",
+      "name_hv": "Nhai Táo Tức Công",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "kim"
+      ],
+      "stand_in_for": "hoang_kim",
+      "holders": [
+        "dinh_lao_hoe",
+        "dinh_tieu_tung",
+        "o_ngoc_truc",
+        "han_son_duoc"
+      ],
+      "arts": [
+        "iron-hide-stance",
+        "whetstone-pass"
+      ]
+    }
+  ]
 }

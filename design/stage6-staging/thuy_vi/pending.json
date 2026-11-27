@@ -1,0 +1,24 @@
+{
+ "words": [
+  {
+   "name": "technique-effects",
+   "kind": "field",
+   "spec": "Technique `effects` list (`{\"name\": <Effect>, \"unlock_layer\": n, \"passive_art\": true, \"rule\": ...}`) attached by fight.py / FighterCompiler when layer >= unlock_layer.",
+   "used_by": ["green-furnace-canon", "empty-mountain-sutra", "The Empty Mountain's Answer"],
+   "ref": "design/stage6-staging/thien_xu/pending.json",
+   "decision": "build",
+   "decision_reason": "Already approved in thien_xu checkpoint (2026-11-27). Both green-furnace-canon (d5 the-furnace-spills-over) and empty-mountain-sutra (d5 the-empty-mountains-answer) attach The Empty Mountain's Answer via `effects`; the runtime Effect itself lives in effects/thuy_vi.effects.json so tv-green-moss-mirror also runs it today."
+  },
+  {
+   "name": "heal-overflow",
+   "kind": "event_rule",
+   "spec": "In engine.py heal() (line 1593), emit `heal_restored` (or `heal_overflow`) with `overflow=amount - got` even when `s.hp == top` (`got == 0`, `amount > 0`), including pulse health regeneration or explicit over-heals, so effects listening on full-HP wasted healing receive every overflow tick.",
+   "gdd_text": "The Empty Mountain's Answer (d5): healing lost to your full health is stored as Green and falls every 3 s.",
+   "used_by": ["The Empty Mountain's Answer", "tv-green-moss-mirror", "green-furnace-canon", "empty-mountain-sutra"],
+   "decision": "build",
+   "decision_reason": "Today engine.py line 1593 only raises `heal_restored` when `got > 0`, so healing cast at 100% HP raises nothing and only partial overshoots raise `event.overflow`. Adding a 2-line emit when `amount > got` lets The Empty Mountain's Answer run faithfully at full health. Until built, effects/thuy_vi.effects.json runs its `heal_restored` `event.overflow` half and logs this gap in `approx`."
+  }
+ ],
+ "arts": [],
+ "effects": {}
+}

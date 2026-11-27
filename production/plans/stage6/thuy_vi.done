@@ -1,0 +1,32 @@
+{
+ "owner": "thuy_vi",
+ "pass": "record",
+ "finished_at": "2026-11-27T10:56:00+01:00",
+ "staged": [
+  "design/stage6-staging/thuy_vi/techniques/catalogue-sect-thuy_vi.json",
+  "design/stage6-staging/thuy_vi/arts/part-sect-thuy_vi.json",
+  "design/stage6-staging/thuy_vi/effects/thuy_vi.effects.json",
+  "design/stage6-staging/thuy_vi/items/catalogue-sect-thuy_vi.json",
+  "design/stage6-staging/thuy_vi/items/sets-thuy_vi.json",
+  "design/stage6-staging/thuy_vi/pending.json"
+ ],
+ "depth_edited": [
+  "design/world/depth/sects/thuy_vi.techniques.json",
+  "design/world/depth/sects/thuy_vi.cast.json",
+  "design/world/depth/sects/thuy_vi.2.cast.json",
+  "design/world/depth/sects/thuy_vi.3.cast.json",
+  "design/world/depth/sects/thuy_vi.4.cast.json"
+ ],
+ "foreign_promotions": [],
+ "review": "production/plans/stage6/thuy_vi-review.md",
+ "progress": "production/plans/stage6/thuy_vi.md",
+ "counts": {
+  "techniques": 9,
+  "arts": 12,
+  "effects": 18,
+  "items": 28,
+  "sets": 10,
+  "stand_ins_cleared": 6,
+  "pending_words": 2
+ }
+}
