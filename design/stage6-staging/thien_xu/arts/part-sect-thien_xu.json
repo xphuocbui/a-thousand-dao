@@ -19,15 +19,66 @@
   "counters": [
    {
     "id": "pan"
+   },
+   {
+    "id": "pan_hit"
    }
   ],
   "effects": [
    {
+    "id": "counterweight-read-clear",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "counterweight-palm"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "pan_hit",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "counterweight-read",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "counterweight-palm"
+    },
+    "if": [
+     {
+      "read": "own.counter.pan",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pan_hit",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "counterweight-pan-clear",
+    "on": "art_fired",
+    "do": [
+     {
+      "counter": {
+       "id": "pan",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
     "id": "counterweight-pan-earth",
     "on": "art_fired",
     "filter": {
-     "element": "earth",
-     "not_art_id": "counterweight-palm"
+     "element": "earth"
     },
     "do": [
      {
@@ -84,7 +135,7 @@
     },
     "if": [
      {
-      "read": "own.counter.pan",
+      "read": "own.counter.pan_hit",
       "op": ">=",
       "value": 1
      }
@@ -140,7 +191,7 @@
     ]
    }
   ],
-  "rule": "A balancing palm. Its hit lays 1 Earth stack for 8 s; if your last art before it was an Earth or a Metal art (you have been filling a pan), it lays 1 Metal stack as well, so the foe carries the other pan too (\"or the reverse\": after Earth the Metal is the counterweight, after Metal the Earth is). Against a foe that then carries at least one Earth and one Metal stack, the foe's soonest art waits 0.3 s and the foe gains 1 Slowed Time for 2 s.",
+  "rule": "A balancing palm. Its hit lays 1 Earth stack for 8 s; if the art you fired just before it was an Earth or a Metal art (this palm counts: it is Earth; a Water heal or any other art in between empties the pans; the basic attack is not an art), it lays 1 Metal stack as well, so the foe carries the other pan too (\"or the reverse\": after Earth the Metal is the counterweight, after Metal the Earth is). Against a foe that then carries at least one Earth and one Metal stack, the foe's soonest art waits 0.3 s and the foe gains 1 Slowed Time for 2 s.",
   "hooks": [
    "earth stacks",
    "metal stacks",
@@ -420,7 +471,7 @@
     ]
    }
   ],
-  "rule": "The Dipper Handle's own cut, and the handle's count (with the authored wish d9, When the Handle Loses Count). Each damaging Metal art you fire moves the handle one star, one star a breath at most: a second Metal art within 1 s of the last star moves none. Before the seventh star the handle loses count, and its stars are cleared, when you fire a damaging art that is not Metal (the basic attack, wards and heals never count); after a lost count it counts again once you have gone 3 s with no damaging or movement art. With seven stars or more this cut points east: it spends every star, strikes twice (two hits, twice the force in all) and each of its hits lays 1 Metal stack for 8 s; if one of those hits makes the foe Broken, the handle keeps 3 stars.",
+  "rule": "The Dipper Handle's own cut, and the handle's count (with the authored wish d9, When the Handle Loses Count). Each damaging Metal art you fire moves the handle one star, one star a breath at most: a second Metal art within 1 s of the last star moves none. Before the seventh star the handle loses count, and its stars are cleared, when you fire a damaging art that is not Metal (the basic attack, wards and heals never count, except that a ward or heal fired in the very instant of an evade or another strike reads as damaging: about 0.2 times a fight on a Stele kit); after a lost count it counts again once you have gone 3 s with no damaging or movement art and no evade (the Composed clock). With seven stars or more this cut points east: it spends every star, strikes twice (two hits, twice the force in all) and each of its hits lays 1 Metal stack for 8 s; if one of those hits makes the foe Broken, the handle keeps 3 stars.",
   "hooks": [
    "counted stars",
    "metal stacks",
@@ -671,6 +722,23 @@
       }
      }
     ]
+   },
+   {
+    "id": "pivot-turned-done",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "movement"
+     ]
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "pivot_half",
+       "set": 0
+      }
+     }
+    ]
    }
   ],
   "rule": "A still stance, held as a self-state (it takes no stance slot, so it lives beside Mountain Stance). Once raised it stays for the fight: while you are Composed, the foe gains 1 Earth stack (a Weight) for 10 s every 2 s, and each hit of your companions and summons lays 1 more (once a second: the flying edges orbiting the fixed point); your Metal arts deal 4 % more for each Earth stack on the foe, with no cap. Firing a movement art ends it, and the foe keeps only half of its Earth stacks (rounded down, laid again for 10 s). Each firing counts as a formation art.",
@@ -831,6 +899,42 @@
     ]
    },
    {
+    "id": "weigh-water",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.water",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-light",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.light",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
     "id": "weigh-no-luck",
     "on": "always",
     "do": [
@@ -862,7 +966,7 @@
     ]
    }
   ],
-  "rule": "A judgement art: a Metal (Physical) hit that deals 3 % more for every element stack the foe carries (Fire, Earth, Metal, Wood, Ice, Thunder and Wind debuff stacks, no cap), then strips 2 stacks from the foe's largest buff pile (the engine's reading of \"its two longest buffs\"). It cannot crit; the sect says a verdict should not be lucky.",
+  "rule": "A judgement art: a Metal (Physical) hit that deals 3 % more for every element stack the foe carries (Fire, Water, Earth, Metal, Wood, Ice, Thunder, Wind and Light debuff stacks: every engine element pile, no cap), then strips 2 stacks from the foe's largest buff pile (the engine's reading of \"its two longest buffs\"). It cannot crit; the sect says a verdict should not be lucky.",
   "hooks": [
    "element stacks",
    "strip buffs",
@@ -1600,7 +1704,7 @@
     ]
    }
   ],
-  "rule": "The Army-Breaker's waited thrust, and the spear's Momentum (with the authored wish d21, The Army Fights, the Marshal Waits). Each full second in which you fire no damaging or movement art adds 1 Momentum, and each second one of your companions' or summons' hits lands while you wait adds 1 more (their hits are not yours, so they keep your wait). Momentum loses a twentieth of itself each second; each second of waiting past the fifth costs 1 % of your linh lực. This thrust deals 5 % more for each Momentum, ignores the foe's block and passes half of its ward shields (bypass 0.5, the engine's cap), then spends all the Momentum. With full Momentum (10 or more) it also breaks the foe's guard open: Exposed for 3 s (the engine's reading of \"breaks one formation link or summoned ward\"). The basic attack does not break the wait (the Composed clock's rule).",
+  "rule": "The Army-Breaker's waited thrust, and the spear's Momentum (with the authored wish d21, The Army Fights, the Marshal Waits). Each full second in which you fire no damaging or movement art and evade nothing (the Composed clock: an evade is an act) adds 1 Momentum, and each second one of your companions' or summons' hits lands while you wait adds 1 more (their hits are not yours, so they keep your wait). Momentum loses a twentieth of itself each second; each second of waiting past the fifth costs 1 % of your linh lực. This thrust deals 5 % more for each Momentum, ignores the foe's block and passes half of its ward shields (bypass 0.5, the engine's cap), then spends all the Momentum. With full Momentum (10 or more) it also breaks the foe's guard open: Exposed for 3 s (the engine's reading of \"breaks one formation link or summoned ward\"). The basic attack does not break the wait (the Composed clock's rule).",
   "hooks": [
    "momentum",
    "waiting",

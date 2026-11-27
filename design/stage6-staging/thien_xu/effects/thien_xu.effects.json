@@ -1,5 +1,5 @@
 {
- "_doc": "Thiên Xu Tông's Effect engine records (world-depth Stage 6; ADR-0009), staged by the record pass. The input to tools/design/combat_sim/put_effects.py, which merges them into assets/data/combat_effects.json under source world-depth:thien_xu. Unpriced. Rule text from design/world/depth/sects/thien_xu.items.json and the authored wish d8; each rule pins its vague words. A 'Weight' is an Earth debuff stack on the foe (the Heavenly Pivot True Canon's own definition). 'Your ward' is your main ward (the one every fighter holds while it has linh lực) unless a rule says the stance ward. 'Strike nothing' is the Composed clock's reading: no damaging or movement art (the basic attack and your companions do not count).",
+ "_doc": "Thiên Xu Tông's Effect engine records (world-depth Stage 6; ADR-0009), staged by the record pass. The input to tools/design/combat_sim/put_effects.py, which merges them into assets/data/combat_effects.json under source world-depth:thien_xu. Unpriced. Rule text from design/world/depth/sects/thien_xu.items.json and the authored wish d8; each rule pins its vague words. A 'Weight' is an Earth debuff stack on the foe (the Heavenly Pivot True Canon's own definition). 'Your ward' is your main ward (the one every fighter holds while it has linh lực) unless a rule says the stance ward. 'Strike nothing' is the Composed clock's reading (Combat rule 25, ruling 2026-11-26): no damaging or movement art and no evade (an evade is an act and a move); the basic attack, wards, heals and your companions do not count.",
  "source": "world-depth:thien_xu",
  "effects": {
   "The Pole Draws from the Vein": {
@@ -200,7 +200,7 @@
    ]
   },
   "The Called Blow": {
-   "rule": "Army-Breaker Spear (authored wish d21): after 3 s in which you strike nothing (no damaging or movement art; your companions', summons' and the basic attack's hits do not count), your next spear art is a certain crit and ignores block. If its hit leaves a ward of the foe broken (its main ward down for want of linh lực, or a stance ward it raised gone), the wait for the next called blow is halved to 1.5 s.",
+   "rule": "Army-Breaker Spear (authored wish d21): after 3 s in which you strike nothing (no damaging or movement art and no evade, the Composed clock; your companions', summons' and the basic attack's hits do not count), your next spear art is a certain crit and ignores block. If its hit leaves a ward of the foe broken (its main ward down for want of linh lực, or a stance ward it raised gone), the wait for the next called blow (that one only) is halved to 1.5 s.",
    "counters": [
     {
      "id": "called_blow"
@@ -249,6 +249,12 @@
        "counter": {
         "id": "called_blow",
         "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "called_half",
+        "set": 0
        }
       }
      ]
@@ -589,7 +595,7 @@
   },
   "The Banner Is Raised": {
    "rule": "Armoured Horse Banner: while you hold the banner, each hit of your companions and summons lays a Darkness stack on the foe. (\"Your summons take a quarter less damage\" is dropped: companions and summons are never struck, Combat rule 19.)",
-   "not_run": "no holder (the banner is lost in abode A-3) and Darkness is not an engine element yet (pending word darkness-element); the full record is in pending.json",
+   "not_run": "no holder (the banner is lost in abode A-3) and Darkness is not an engine element (darkness-element: decision not_run, checkpoint 2026-11-27, until Darkness's stack effect is ruled); the full record is kept in production/plans/stage6/thien_xu-checkpoint.md",
    "records": []
   },
   "Seal and Weight in One Hand": {
@@ -707,8 +713,8 @@
    ]
   },
   "The Called Thrust": {
-   "rule": "Army-Breaker's Harness, full set: each full second in which you strike nothing (no damaging or movement art) lays 1 Earth stack for 12 s on the foe. The Army-Breaker's waited thrust (The Seventh Star Falls) spends them all; if it spends 5 or more, it first breaks the foe's guard entirely: Exposed for 4 s, laid before its hit lands (the engine's reading of \"breaks the foe's ward entirely\").",
-   "approx": "\"breaks the foe's ward entirely\" is Exposed for 4 s",
+   "rule": "Army-Breaker's Harness, full set: each full second in which you strike nothing (no damaging or movement art and no evade: the Composed clock, Combat rule 25) lays 1 Earth stack for 12 s on the foe. The Army-Breaker's waited thrust (The Seventh Star Falls) spends them all as it fires, before it strikes; if it spends 5 or more, it first breaks the foe's guard entirely: Exposed for 4 s, laid before its hit lands (the engine's reading of \"breaks the foe's ward entirely\"). Spent before the strike, they no longer weigh on the thrust's own hit (the Pivot's Metal bonus per Earth stack reads 0 for it). The engine cannot tell which Earth stacks the waiting laid, so the thrust counts and spends every Earth stack on the foe, the Pivot's Weights too.",
+   "approx": "\"breaks the foe's ward entirely\" is Exposed for 4 s; \"them all\" is every Earth stack on the foe, not only those the waiting laid",
    "records": [
     {
      "id": "eff:The Called Thrust",
@@ -862,10 +868,13 @@
    ]
   },
   "Words Before Needles": {
-   "rule": "Envoy's Credentials, full set: each attack you evade loads one needle into the fan, and each second in which you strike (fire a damaging or movement art) one needle falls out. Your next fan art (an art tagged needle, such as Needle Rain, or the fan's own Fan Gust, tagged artifact) throws them all: a free Physical hit of 0.1 per needle, no cap. Leaving the fight when you have struck no one is the Envoy's Jade Tally's rule (Envoys Are Not Struck), a piece of this set.",
+   "rule": "Envoy's Credentials, full set: each attack you evade loads one needle into the fan, and each second in which you strike (fire a damaging or movement art; an evade alone is not a strike, though a ward or heal fired in the very instant of an evade reads as one) one needle falls out. Your next fan art (an art tagged needle, such as Needle Rain, or the fan's own Fan Gust, tagged artifact) throws them all: a free Physical hit of 0.1 per needle, no cap. Leaving the fight when you have struck no one is the Envoy's Jade Tally's rule (Envoys Are Not Struck), a piece of this set.",
    "counters": [
     {
      "id": "needles"
+    },
+    {
+     "id": "needle_strike"
     }
    ],
    "records": [
@@ -882,12 +891,31 @@
      ]
     },
     {
+     "id": "eff:Words Before Needles struck",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "needle_strike",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
      "id": "eff:Words Before Needles drop",
      "on": "pulse",
      "if": [
       {
-       "read": "own.since_act",
-       "op": "<",
+       "read": "own.counter.needle_strike",
+       "op": ">=",
        "value": 1
       },
       {
@@ -901,6 +929,18 @@
        "counter": {
         "id": "needles",
         "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Words Before Needles clear",
+     "on": "pulse",
+     "do": [
+      {
+       "counter": {
+        "id": "needle_strike",
+        "set": 0
        }
       }
      ]
@@ -1267,9 +1307,8 @@
    ]
   },
   "A Fair Copy": {
-   "rule": "Copyist's Pair, full set (2 pieces): once a fight, the first soul art that would land on you does nothing to you and strikes its caster as Cold damage equal to its own (the soul reflect, W2: the engine's reading of \"copied, and your next seal art carries it back\"). The curse half (the first curse cast on you copied back) waits for the pending word curse-reflect.",
-   "approx": "the soul art is reflected at once, not carried back by your next seal art",
-   "pending": "the first curse cast on you needs the pending word curse-reflect (pending.json)",
+   "rule": "Copyist's Pair, full set (2 pieces): once a fight, the first soul art that would land on you does nothing to you and strikes its caster as Cold damage equal to its own (the soul reflect, W2: the engine's reading of \"copied, and your next seal art carries it back\"). The curse half (the first curse cast on you copied back) is not run: the curse-reflect word was not built (checkpoint 2026-11-27: one half of one Effect, no other owner asks for it).",
+   "approx": "the soul art is reflected at once, not carried back by your next seal art; the curse half is not run (curse-reflect: decision not_run, checkpoint 2026-11-27)",
    "records": [
     {
      "id": "eff:A Fair Copy",

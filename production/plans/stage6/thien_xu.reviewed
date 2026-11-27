@@ -1,0 +1,11 @@
+{"owner": "thien_xu", "minutes": 100, "must_fix": 4, "should": 5, "fixed": 11,
+ "words": {"technique-effects": "build", "darkness-element": "not_run", "curse-fast": "build", "curse-reflect": "not_run"},
+ "open": [
+  "user: mau_tri_vien slots no escape art, so Know the Way Out and the escape half of Envoys Are Not Struck never run (an envoy 'fights only to leave'); a kit choice",
+  "library (Stage 11): mountain-root-stance kits finish at 95-100 % health in sect_fight (hinh_thu_tinh, quy_thu_luy and the Mountain Root Dipper holders); the overwrite with mountain-stance also stands for the two Pivot holders",
+  "tools: sect_fight slots main-technique arts first, so aux spears and swords and item common arts rarely slot (Called Blow, True Line, full Momentum show little); in-memory kits used",
+  "not applied (outside this job's write set): the record review's holder table and thien_xu.done are stale; the fight.py Light purity gap is closed (a39bf4e1), so hinh_thu_tinh and thinh_ham_quang now run",
+  "serial step: build technique-effects and curse-fast; move pending.json 'effects' (Sentence Stands only); The Banner Is Raised stays not_run (its Darkness record is kept in thien_xu-checkpoint.md)",
+  "engine: no filter tells a damaging art from a ward or heal at art_fired; the since_act <= 0 test leaks about 0.2 a fight (pinned in the handle's and the needles' rules)",
+  "carried over: export_named.py skips kind treasure (4 items); no spear base; out-of-fight halves (Weighed's lie, Thiết Mã realm, True Gold Shows); WIRED b13, the miasma-root build_use, the Way-Out Knot"
+ ]}
