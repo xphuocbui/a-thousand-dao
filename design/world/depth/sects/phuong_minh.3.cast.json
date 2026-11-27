@@ -1002,7 +1002,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "hearth-ash-breath",
      "layer": 3
     },
     "aux": [],
@@ -1215,7 +1215,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "hearth-ash-breath",
      "layer": 6
     },
     "aux": [],

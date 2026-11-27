@@ -1,0 +1,315 @@
+[
+ {
+  "id": "pm-five-virtue",
+  "name": "Five-Virtue Regalia (Ngũ Đức Nghi)",
+  "pieces": [
+   "pm-morning-sun-fan",
+   "pm-five-colour-robe",
+   "pm-wutong-seal"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "linh_luc_pct",
+      "value": 8,
+      "scope": []
+     },
+     {
+      "key": "attack_pct",
+      "value": 8,
+      "scope": [
+       "fire"
+      ]
+     }
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "The Phoenix Comes with Stately Grace (Phượng Hoàng Lai Nghi)",
+    "rule": "while you hold all three, each full five-colour plumage you spend heals you for 5 % of your health, and the next plumage starts with two colours."
+   }
+  ],
+  "story": "The founder made the robe in 505 and the seal in 485, and in 1100 the fan to go with them. The fan and robe went to the Fire Court with the head in 1162 (N-phuong_minh-12); the seal stayed on the ridge with Vu Ngô Đồng, because the founder said it stays with the tree. The Regalia is whole only if the head takes the seal from the Wutong Court, which the ridge would call a theft, or goes back up the ridge to wear it."
+ },
+ {
+  "id": "pm-twin-wings",
+  "name": "Twin Wings (Song Dực Phiến)",
+  "pieces": [
+   "pm-left-wing-fan",
+   "pm-right-wing-fan"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "crit_chance_pct",
+      "value": 6,
+      "scope": []
+     },
+     {
+      "key": "attack_pct",
+      "value": 8,
+      "scope": [
+       "fire"
+      ]
+     }
+    ],
+    "effect": "Two Wings Beat (Song Dực Phấn)",
+    "rule": "fan arts alternate wings; every third fan art throws its feathers twice."
+   }
+  ],
+  "story": "Made for Sử Hoành Dực and Dụ Đan Huỳnh in 1100; parted at Đan Sơn Mạch in 1154."
+ },
+ {
+  "id": "pm-ash-seat",
+  "name": "The Ash Seat (Tro Tọa Tam Bảo)",
+  "pieces": [
+   "pm-ash-seat-censer",
+   "pm-vent-ash-robe",
+   "pm-siege-line-fan"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "health_regen_inc_pct",
+      "value": 15,
+      "scope": []
+     },
+     {
+      "key": "stack_duration_pct",
+      "value": 15,
+      "scope": [
+       "hoa",
+       "debuff"
+      ]
+     }
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "The Censer Remembers (Lô Ức)",
+    "rule": "each second a foe burns under your Fire, the censer banks 0.5 % of your health, and the bank leaks 2 % of itself each second you deal no Fire. When you rise from the ash, the bank returns as a ward. With no rebirth left, you may spend the bank once a fight as a heal when you fall below a quarter of your health."
+   }
+  ],
+  "story": "The fan from the siege of 724, the censer lit in 952 and the robe that has lain in the vent's ash since. The grand elder has held all three for two hundred years, and the palace's breakthroughs happen beside them."
+ },
+ {
+  "id": "pm-hall-stands",
+  "name": "The Hall Stands (Nghĩa Đường Song Bảo)",
+  "pieces": [
+   "pm-righteous-hall-mail",
+   "pm-dan-huynh-pendant"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "crit_chance_pct",
+      "value": 4,
+      "scope": []
+     },
+     {
+      "key": "attack_pct",
+      "value": 8,
+      "scope": [
+       "fire"
+      ]
+     }
+    ],
+    "effect": "Burning Feathers (Hỏa Vũ)",
+    "rule": "each fan crit lays one more Burn batch. Against a foe who carries ten or more of your Burn batches, your Fire crit chance rises by 10 %."
+   }
+  ],
+  "story": "What Sử Hoành Dực carries in place of the fan that was taken: the mail he had made after the pass and her pendant. He wears them beside the left wing, and the Twin Wings stay parted until the Tower gives the right one back."
+ },
+ {
+  "id": "pm-wutong-court",
+  "name": "The Wutong Court (Ngô Đồng Đình)",
+  "pieces": [
+   "pm-writ-bird-banner",
+   "pm-wutong-leaf-robe"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10,
+      "scope": [
+       "companion"
+      ]
+     },
+     {
+      "key": "health_regen_inc_pct",
+      "value": 12,
+      "scope": []
+     }
+    ],
+    "effect": "The Birds Fight First (Điểu Tiên)",
+    "rule": "each hit your companion birds land lays one Wood buff stack on you. Your fan arts spend them all, for 6 % more damage each."
+   }
+  ],
+  "story": "The first elder made both for the ridge after the court left it in 1162. They are the Wutong Court's, not the palace's, and he fights in them with the Ashen Phoenix fan. The Seal of the Wutong belongs to the Five-Virtue Regalia; it stays on the tree's altar at the Court, not on his belt."
+ },
+ {
+  "id": "pm-nest-array",
+  "name": "The Nest Array (Sào Trận Tam Bảo)",
+  "pieces": [
+   "pm-nest-thread-banner",
+   "pm-nest-lattice-seal",
+   "pm-first-silk-robe"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "ward_efficiency_pct",
+      "value": 4,
+      "scope": []
+     },
+     {
+      "key": "linh_luc_pct",
+      "value": 6,
+      "scope": []
+     }
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "Fire Down the Thread (Hỏa Hành Ti)",
+    "rule": "while an array you laid (a Field) is up, each Fire buff stack you gain also lays a ward thread on you worth 2 % of your health, and each new thread costs 1 % of your linh lực. A hit that breaks a thread deals its value back to the striker as Fire damage."
+   }
+  ],
+  "story": "The Tang family's keeping since 592: the robe, the banner hemmed with the founder's strand, and the seal Tang Kế Ti cut herself. The set passes with the Nest Array, not with the family, though it has never yet left the family."
+ },
+ {
+  "id": "pm-seven-movements",
+  "name": "The Seven Movements (Thất Chương)",
+  "pieces": [
+   "pm-remnant-score-zither",
+   "pm-rites-drum",
+   "pm-score-archive-robe"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "x_soul",
+      "value": 4,
+      "scope": []
+     },
+     {
+      "key": "status_duration_pct",
+      "value": 6,
+      "scope": []
+     }
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "Never the Eighth (Bất Tấu Đệ Bát)",
+    "rule": "each movement of the Remnant Score you play lays one Slowed Time stack. When you play the seventh in a fight, the foe takes 5 Slowed Time stacks, and the score begins again from the first with your soul arts 20 % faster. There is no eighth."
+   }
+  ],
+  "story": "The zither of 760, the drum it was played with and the robe that holds the score. Liên Thiều Nghi holds all three at the Wutong Court. The eighth string has never been restrung, and the set's rule is that it never will be."
+ },
+ {
+  "id": "pm-small-morning",
+  "name": "The Small Morning (Tiểu Triêu Tam Bảo)",
+  "pieces": [
+   "pm-dawn-plume-fan",
+   "pm-virtue-hall-robe",
+   "pm-dawn-jade"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "linh_luc_pct",
+      "value": 6,
+      "scope": []
+     },
+     {
+      "key": "healing_pct",
+      "value": 6,
+      "scope": []
+     }
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "A Copy in Small (Tiểu Nghi)",
+    "rule": "each full plumage you spend gives you a ward worth 4 % of your health. While that ward holds, your plumage stacks build 25 % faster."
+   }
+  ],
+  "story": "The head gave all three to her chief disciple, a smaller copy of her own Five-Virtue Regalia. The palace reads it as a promise of succession, and so does he."
+ },
+ {
+  "id": "pm-dawn-call",
+  "name": "The Morning the Birds Fell Silent (Điểu Tịch Chi Triêu)",
+  "pieces": [
+   "pm-dawn-call-pipe",
+   "pm-morning-light-robe"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "x_soul",
+      "value": 3,
+      "scope": []
+     },
+     {
+      "key": "linh_luc_pct",
+      "value": 4,
+      "scope": []
+     }
+    ],
+    "effect": "Light on the Pipe (Quản Thượng Quang)",
+    "rule": "every fifth soul art you play on the pipe also lays Exposed on the foe."
+   }
+  ],
+  "story": "Her brother's flute and the head's robe: what she was left, and what she was given. She wears both. Only Light can open the set, and she is the only Light in the palace."
+ },
+ {
+  "id": "pm-yellow-chrysanthemum",
+  "name": "Yellow Chrysanthemums (Hoàng Cúc)",
+  "pieces": [
+   "pm-chrysanthemum-fan",
+   "pm-cuc-vien-leather"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "art_speed_pct",
+      "value": 5,
+      "scope": [
+       "fire"
+      ]
+     },
+     {
+      "key": "evade_pct",
+      "value": 3,
+      "scope": []
+     }
+    ],
+    "effect": "Petal Feint (Hoa Hư)",
+    "rule": "after you evade a hit, your next fan art fires 30 % faster and its Burns last 2 s longer."
+   }
+  ],
+  "story": "His mother painted the fan and stitched the jerkin, both for the day he went up to the palace. He wears both to every duel."
+ }
+]

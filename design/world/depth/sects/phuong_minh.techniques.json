@@ -53,6 +53,7 @@
    "arts": [
     "seed-of-spring",
     {
+     "id": "dawn-call-palm",
      "new": "Dawn Call (Triêu Minh Chưởng)",
      "concept": "An open palm that carries a breath of heat: a light Fire hit that also lays one Wood stack on the striker, which the next Fire art spends for extra damage. The outer disciples' only art for years."
     }
@@ -75,15 +76,18 @@
    "arts": [
     "furnace-heart",
     {
+     "id": "five-colour-plumage",
      "new": "Five-Colour Plumage (Ngũ Thải Vũ)",
      "concept": "Each art lays the plumage colour of its kind: a Fire art of this canon, a fan art, a song art, a heal or Wood art, a ward. A colour you hold does not count again, and two Fire arts that add no colour lay one repeat colour. At five colours the plumage is spent: your next art deals more and heals you for part of its damage, at half if any colour was a repeat.",
      "authored": "d1"
     },
     {
+     "id": "phoenix-sings-high-ridge",
      "new": "The Phoenix Sings on the High Ridge (Minh Ư Cao Cương)",
      "concept": "A sung burst of Fire around the holder that spends every plumage stack; each stack spent burns the foe and gives the holder linh lực."
     },
     {
+     "id": "perch-on-the-wutong",
      "new": "Perch on the Wutong (Thê Ngô Đồng)",
      "concept": "A stance: while standing still the holder draws Wood qi into a ward of warm bark; the first Fire art after it consumes the ward for damage."
     },
@@ -107,10 +111,12 @@
    "arts": [
     "flint-volley",
     {
+     "id": "hundred-plumes",
      "new": "Hundred Plumes (Bách Vũ)",
      "concept": "A sweep that throws a spread of burning feathers; each feather that lands lays one Fire stack, and the foe with five stacks is set alight."
     },
     {
+     "id": "wing-screen",
      "new": "Wing Screen (Dực Bình)",
      "concept": "The fan opened as a screen: the next hit taken is reduced, and the attacker takes a Fire stack."
     }
@@ -132,6 +138,7 @@
    "arts": [
     "thorn-lullaby",
     {
+     "id": "dawn-clouds-take-the-colour",
      "new": "Dawn Clouds Take the Colour (Triêu Hà Nhiễm Sắc)",
      "concept": "A sustained note: you regain linh lực while it plays, the foe's art speed falls; it ends when a hit gets past the player's ward or body shield (A250).",
      "tags": ["song"],
@@ -161,19 +168,23 @@
    "concept": "The head's method, written by the founder from the Tiêu Thiều Quản itself after he found it in 485 (C097). The Thư Kinh line is its whole teaching: when the Shao is played nine times, the phoenix comes with stately grace. Each movement is an art; each lifts the player's Fire and lays the music in every hearer. The ninth movement is the art Thiên Xu destroyed Cửu Thiều for: while it plays, no hearer of lower realm can raise a hand or a thought against the player. The founder wrote the ninth movement down and told his heir never to play it in full (C182).",
    "arts": [
     {
+     "id": "nine-shao-first-movement",
      "new": "First Movement: The Pipes Wake (Tiêu Tỉnh)",
      "concept": "A short phrase that lays one Shao stack on the foe and gives the player a Fire buff."
     },
     {
+     "id": "nine-shao-fifth-movement",
      "new": "Fifth Movement: The Hundred Beasts Dance (Bách Thú Suất Vũ)",
      "concept": "The foe with three or more Shao stacks presses and casts more slowly for as long as the phrase lasts."
     },
     {
+     "id": "nine-shao-eighth-movement",
      "new": "Eighth Movement: The Phoenix Is Near (Phượng Cận)",
      "concept": "A held note: the foe with eight Shao stacks cannot target the player with an art for two seconds. Played in its turn, after the seventh movement, it takes effect without the eight stacks.",
      "authored": "e4"
     },
     {
+     "id": "nine-shao-ninth-movement",
      "new": "Ninth Movement: The Phoenix Comes (Phượng Hoàng Lai Nghi)",
      "concept": "Forbidden. While it plays, every hearer of lower realm cannot act against the player. Not an art the game should let the player or an NPC use lightly; a story weapon."
     },
@@ -182,6 +193,27 @@
    "lore": "Only two people have read it whole: the founder and Hoa Triêu Dương. The ninth movement lives in the fifteenth layer, and the palace's own rule says no head cultivates past the twelfth.",
    "status": "proposal",
    "authored": "e4"
+  },
+  {
+   "id": "hearth-ash-breath",
+   "name": "Hearth-Ash Breathing (Lô Hôi Thổ Nạp Pháp)",
+   "tier": 0,
+   "tech_kind": "main",
+   "names": [
+    "tho"
+   ],
+   "layers": 6,
+   "rank": "tap_dich",
+   "concept": "An Earth breathing method passed among the servants tending the palace hearths and lower terrace beds, keeping the body steady beside the Fire halls above without entering the lineage.",
+   "arts": [
+    {
+     "id": "ash-sweep-palm",
+     "new": "Ash-Sweep Palm (Tảo Hôi Chưởng)",
+     "concept": "A steady Earth palm from the ash-sweepers of the palace hearths, dealing Physical Earth damage and laying 1 Earth stack."
+    }
+   ],
+   "lore": "Kept by the sweepers and porters below the Fire Court; teaches no Fire and opens no inner gate.",
+   "status": "authored"
   }
  ],
  "existing_used": {

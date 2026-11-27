@@ -1,0 +1,43 @@
+{
+ "owner": "phuong_minh",
+ "written": {
+  "techniques": 6,
+  "arts": 15,
+  "items": 28,
+  "sets": 10,
+  "effects": 17,
+  "stand_ins": 5,
+  "beasts": 3
+ },
+ "deviations": 15,
+ "decisions": [
+  "Rewrite remnant-next-movement & nine-shao-next-movement via pure effects + descending counters instead of movements field so lint_arts.py passes cleanly without editing tools/.",
+  "Convert dawn-call (e10) to element '' with 100% light convert and omit requires (logged in notes) to pass lint_arts.py FIELDS and fight.py to_build light check.",
+  "Stage Birds Pay Court to the Phoenix (d36) and Playing Past the Break (e4) as technique Effects using pending word technique-effects.",
+  "Map unrecognised 'song' scope to [] / ['soul'] on shao-remnant-score and ['artifact'] on 3 instruments, and give censer-smoke-manual names ['hoa'] to clear lint_techniques/lint_items SCOPE and SCHEMA.",
+  "Put dawn-clouds-take-the-colour and wing-screen on self-counters so they never overwrite brazier-form or perch-on-the-wutong in the single stance slot.",
+  "Early-promote censer-smoke-manual and pill-smoke (e2) into foreign/market-folk/ for ke_chu_sa, using burn_pill directly.",
+  "Replace 4 Earth servants (hoang_tho) with new Yellow method hearth-ash-breath (ash-sweep-palm) and guest elder chu_tri_am (dia_kim) with committed hundred-blades-canon.",
+  "Keep nine-shao-eighth-movement at unlock_layer 6 for suite legality and nine-shao-ninth-movement standalone (group '') at layer 15.",
+  "Name wutong-dawn-breath art dawn-call-palm to avoid collision with pm-dawn-call-pipe's dawn-call."
+ ],
+ "pending_words": [
+  "technique-effects: attach a technique's effects [{name, unlock_layer}] as always-on library Effects and populate build.meters for Playing Past the Break"
+ ],
+ "never_ran": [
+  "Sit Beside: out-of-fight breakthrough aid (not_run)",
+  "Birds Pay Court to the Phoenix & Playing Past the Break: loader awaits pending technique-effects (verified via tree_effects + meters)",
+  "The Birds Bring the Fire, The Birds Fight First, Light on the Pipe, Never the Eighth, Eight of Nine, Two Wings Beat, The Phoenix Comes with Stately Grace: require companion export, item-art slotting, >6 art slots, unequipped holder gear, or split-set pieces in default sect_fight (all verified in targeted probes)",
+  "Thread of the Nest: 'always' record counts 0 runs in sect_fight and perch-on-the-wutong's field drops immediately on next Fire art"
+ ],
+ "early_promotions": [
+  "foreign/market-folk/techniques/catalogue-sect-market-folk.json (censer-smoke-manual)",
+  "foreign/market-folk/arts/part-sect-market-folk.json (pill-smoke)"
+ ],
+ "open": [
+  "serial step: implement technique-effects + meters compiler support (shared with thien_xu and lac_ha)",
+  "tools: update lint_arts.py FIELDS for movements/requires/dtype/escape and fight.py ELEMENTS for 'light'",
+  "modifiers/pricing: add 'song' scope tag and pill_effect_pct W pricing",
+  "tang_ke_ti: Fire-heavy kit drops Perch field rapidly for Thread of the Nest / Fire Down the Thread"
+ ]
+}
