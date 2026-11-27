@@ -84,6 +84,11 @@
   "kind": "elem",
   "guards": [
    {
+    "read": "own.counter.sand_ring_up",
+    "op": "<",
+    "value": 1
+   },
+   {
     "read": "own.field_up",
     "op": "<",
     "value": 1
@@ -186,6 +191,131 @@
     ]
    },
    {
+    "id": "hold-the-sand-leave-iron",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "iron-hide-stance"
+    },
+    "if": [
+     {
+      "read": "own.state.hold-the-sand-iron",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "iron-hide"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hold-the-sand-sync-iron-hit",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "iron-hide-stance"
+    },
+    "if": [
+     {
+      "read": "own.counter.sand_ring_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.state.iron-hide",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "hold-the-sand-iron"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hold-the-sand-sync-iron-miss",
+    "on": "was_evaded",
+    "filter": {
+     "art_id": "iron-hide-stance"
+    },
+    "if": [
+     {
+      "read": "own.counter.sand_ring_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.state.iron-hide",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "hold-the-sand-iron"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hold-the-sand-sync-plain-hit",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "iron-hide-stance"
+    },
+    "if": [
+     {
+      "read": "own.counter.sand_ring_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.state.any",
+      "op": "<",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "hold-the-sand"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hold-the-sand-sync-plain-miss",
+    "on": "was_evaded",
+    "filter": {
+     "art_id": "iron-hide-stance"
+    },
+    "if": [
+     {
+      "read": "own.counter.sand_ring_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.state.any",
+      "op": "<",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "hold-the-sand"
+      }
+     }
+    ]
+   },
+   {
     "id": "hold-the-sand-merge",
     "on": "pulse",
     "if": [
@@ -204,6 +334,29 @@
      {
       "state": {
        "set": "hold-the-sand-iron"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hold-the-sand-restore",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.sand_ring_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.state.any",
+      "op": "<",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "hold-the-sand"
       }
      }
     ]
