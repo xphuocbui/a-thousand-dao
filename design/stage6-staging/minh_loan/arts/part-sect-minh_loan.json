@@ -1,0 +1,809 @@
+[
+ {
+  "id": "fired-mould",
+  "name": "Fired Mould (Thiêu Phạm)",
+  "element": "earth",
+  "role": "ward",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "clay-mould-primer",
+  "tags": [
+   "earth",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 5,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "mould_ward"
+   }
+  ],
+  "effects": [
+   {
+    "id": "fired-mould-set",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "fired-mould"
+    },
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.08,
+       "of": "hp"
+      }
+     },
+     {
+      "mod": {
+       "block": 20,
+       "for": 3
+      }
+     },
+     {
+      "counter": {
+       "id": "mould_ward",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "fired-mould-break",
+    "on": "shield_broken",
+    "if": [
+     {
+      "read": "own.counter.mould_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "event.stance_ward",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "mould_ward",
+       "set": 0
+      }
+     },
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Sets the holder's skin like baked clay without displacing Mountain Stance: raises a clay stance ward of 8 % of maximum health and adds +20 block for 3 s. When the stance ward breaks, it rings and lays 1 Earth debuff stack on the foe for 8 s.",
+  "hooks": [
+   "stance ward",
+   "block",
+   "earth stacks",
+   "shield broken"
+  ],
+  "sources": [
+   "world-depth:minh_loan"
+  ]
+ },
+ {
+  "id": "carriage-bell",
+  "name": "Carriage Bell (Loan Linh)",
+  "element": "metal",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "singing-luan-bell-canon",
+  "tags": [
+   "metal",
+   "bell",
+   "song"
+  ],
+  "c_art": 1.2,
+  "cost_share": 0.04,
+  "cooldown": 6,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "carriage_bell",
+    "cap": 1,
+    "each_for": 6
+   }
+  ],
+  "effects": [
+   {
+    "id": "carriage-bell-open",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "carriage-bell"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "carriage_bell",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "carriage-bell-press",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.carriage_bell",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "time",
+      "op": ">",
+      "value": 1
+     },
+     {
+      "any": [
+       {
+        "read": "own.foe_pressed",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "foe.pressing",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "foe.since_act",
+        "op": "<=",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "summon": {
+       "c": 0.45,
+       "dtype": "phys",
+       "cd": 0.5,
+       "for": 0.6
+      }
+     },
+     {
+      "stacks": {
+       "el": "metal",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "carriage-bell-dodge",
+    "on": "was_evaded",
+    "if": [
+     {
+      "read": "own.counter.carriage_bell",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "summon": {
+       "c": 0.45,
+       "dtype": "phys",
+       "cd": 0.5,
+       "for": 0.6
+      }
+     },
+     {
+      "stacks": {
+       "el": "metal",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Sounds an opening Metal note (1.2 Physical) and keeps the carriage bell ringing for 6 s: each second the foe presses (acts or is Pressing) and each time the foe evades your hit (at most once a second), the bell rings for a 0.45 Physical note and 1 Metal debuff stack for 8 s.",
+  "hooks": [
+   "metal stacks",
+   "foe pressed",
+   "pressing",
+   "was evaded",
+   "free hits"
+  ],
+  "sources": [
+   "world-depth:minh_loan"
+  ]
+ },
+ {
+  "id": "ward-peal",
+  "name": "Ward Peal (Hộ Hưởng)",
+  "element": "metal",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "singing-luan-bell-canon",
+  "tags": [
+   "metal",
+   "bell",
+   "song",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 7,
+  "kind": "phys",
+  "effects": [
+   {
+    "id": "ward-peal-delay",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "ward-peal"
+    },
+    "do": [
+     {
+      "timer": {
+       "side": "foe",
+       "which": "next",
+       "by": 2.0
+      }
+     },
+     {
+      "ward_grow": {
+       "share": 0.06,
+       "of": "hp"
+      }
+     }
+    ]
+   },
+   {
+    "id": "ward-peal-scale",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "ward-peal"
+    },
+    "scale": {
+     "read": "foe.debuff.metal",
+     "per": 1
+    },
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.015,
+       "of": "hp"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "One long ward note: delays the foe's soonest art by 2 s (driving off beasts in lore; applies to any foe in duels) and raises your stance ward by 6 % of maximum health plus 1.5 % for every Metal debuff stack on the foe, with no cap.",
+  "hooks": [
+   "timer delay",
+   "stance ward",
+   "metal stacks",
+   "ward strength"
+  ],
+  "sources": [
+   "world-depth:minh_loan",
+   "a1"
+  ]
+ },
+ {
+  "id": "hang-the-bells",
+  "name": "Hang the Bells (Huyền Linh)",
+  "element": "metal",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "hanging-bells-array",
+  "tags": [
+   "metal",
+   "bell",
+   "formation",
+   "song"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 8,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "bell",
+    "each_for": 10
+   },
+   {
+    "id": "bell_escalate"
+   }
+  ],
+  "effects": [
+   {
+    "id": "hang-bells-foreseen",
+    "on": "fight_start",
+    "if": [
+     {
+      "read": "tag.foreseen",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "bell",
+       "add": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "hang-bells-lay",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "hang-the-bells"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "bell",
+       "add": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "hang-bells-ring-step",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.bell",
+      "op": ">=",
+      "value": 2
+     },
+     {
+      "read": "time",
+      "op": ">",
+      "value": 1
+     },
+     {
+      "any": [
+       {
+        "read": "own.foe_pressed",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "foe.since_act",
+        "op": "<=",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "bell_escalate",
+       "add": 1
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hang-bells-ring-metal",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.bell",
+      "op": ">=",
+      "value": 2
+     },
+     {
+      "read": "time",
+      "op": ">",
+      "value": 1
+     },
+     {
+      "any": [
+       {
+        "read": "own.foe_pressed",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "foe.since_act",
+        "op": "<=",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "scale": {
+     "read": "own.counter.bell_escalate",
+     "per": 1
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "metal",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hang-bells-quiet",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.bell",
+      "op": "<",
+      "value": 2
+     },
+     {
+      "read": "own.counter.bell_escalate",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "bell_escalate",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Gains 4 Bell charges, each lasting 10 s (with no cap). While you hold 2 or more Bell charges, each second the foe acts (foe_pressed) it gains 1 Slowed Time stack for 3 s and escalating Metal debuff stacks for 8 s (1 on the first ring, 2 on the second, and one more each ring while 2+ bells stay hung). In a foreseen fight (tag.foreseen), 4 Bell charges are hung at fight start at no cost.",
+  "hooks": [
+   "bell charges",
+   "metal stacks",
+   "slowed time",
+   "foe pressed",
+   "formation"
+  ],
+  "sources": [
+   "world-depth:minh_loan",
+   "d15",
+   "a1"
+  ]
+ },
+ {
+  "id": "alarm-line",
+  "name": "Alarm Line (Cảnh Tuyến)",
+  "element": "earth",
+  "role": "control",
+  "tier": "authored",
+  "power": "engine",
+  "group": "hanging-bells-array",
+  "tags": [
+   "earth",
+   "bell",
+   "formation",
+   "song"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 7,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "bell",
+    "each_for": 10
+   }
+  ],
+  "effects": [
+   {
+    "id": "alarm-line-stop",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "alarm-line"
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 2,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "stop_clock": {
+       "side": "foe",
+       "seconds": 0.5
+      }
+     }
+    ]
+   },
+   {
+    "id": "alarm-line-ring",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "alarm-line"
+    },
+    "if": [
+     {
+      "read": "own.counter.bell",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.bell",
+     "per": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.25,
+       "dtype": "phys",
+       "outside_budget": true
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Rings all your hung Bell charges at once without spending them: lays 2 Earth debuff stacks for 8 s on the foe, stops the foe's clock for 0.5 s (arts coming ready wait until it ends), and strikes the foe for 0.25 Physical per Bell charge held.",
+  "hooks": [
+   "bell charges",
+   "earth stacks",
+   "clock stop",
+   "free hits",
+   "formation"
+  ],
+  "sources": [
+   "world-depth:minh_loan",
+   "a1"
+  ]
+ },
+ {
+  "id": "struck-it-answers",
+  "name": "Struck, It Answers (Kích Tắc Ứng)",
+  "element": "metal",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "unstruck-bell-canon",
+  "tags": [
+   "metal",
+   "bell",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 8,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "unstruck_answer",
+    "cap": 1,
+    "each_for": 8
+   }
+  ],
+  "effects": [
+   {
+    "id": "struck-answers-open",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "struck-it-answers"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "unstruck_answer",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "struck-answers-hit",
+    "on": "was_hit",
+    "if": [
+     {
+      "read": "own.counter.unstruck_answer",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "return_damage": {
+       "share": 0.35,
+       "dtype": "phys"
+      }
+     },
+     {
+      "stacks": {
+       "el": "metal",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "struck-answers-ward",
+    "on": "ward_absorbed",
+    "if": [
+     {
+      "read": "own.counter.unstruck_answer",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "return_damage": {
+       "share": 0.35,
+       "dtype": "phys"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "For 8 s, each hit you take returns 35 % of its damage (including the share absorbed by your wards) back to the striker as Physical damage and lays 1 Metal debuff stack on them for 8 s.",
+  "hooks": [
+   "return damage",
+   "metal stacks",
+   "hits taken",
+   "ward absorbed"
+  ],
+  "sources": [
+   "world-depth:minh_loan"
+  ]
+ },
+ {
+  "id": "the-bell-that-rings-itself",
+  "name": "The Bell That Rings Itself (Tự Minh)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "unstruck-bell-canon",
+  "tags": [
+   "metal",
+   "bell",
+   "song"
+  ],
+  "c_art": 1.2,
+  "cost_share": 0.05,
+  "cooldown": 8,
+  "kind": "phys",
+  "debuff": [
+   2,
+   8
+  ],
+  "counters": [
+   {
+    "id": "self_ring"
+   }
+  ],
+  "empower": [
+   {
+    "if": [
+     {
+      "read": "foe.debuff.metal",
+      "op": ">=",
+      "value": 8
+     }
+    ],
+    "c_mult": 1.6
+   }
+  ],
+  "effects": [
+   {
+    "id": "self-ring-arm",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "foe.debuff.metal",
+      "op": ">=",
+      "value": 8
+     },
+     {
+      "read": "own.counter.self_ring",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "self_ring",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "self-ring-toll",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.self_ring",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.debuff.metal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "summon": {
+       "c": 0.45,
+       "dtype": "phys",
+       "cd": 0.5,
+       "for": 0.6
+      }
+     }
+    ]
+   },
+   {
+    "id": "self-ring-end",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.self_ring",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.debuff.metal",
+      "op": "<",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "self_ring",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Tolls for 1.2 Physical and lays 2 Metal debuff stacks for 8 s (1.6x damage when the foe already carries 8+ Metal stacks). Passively while slotted: once the foe reaches 8 Metal debuff stacks, the bell rings on its own every second for a 0.45 Physical hit until all Metal stacks on the foe are gone.",
+  "hooks": [
+   "metal stacks",
+   "stack duration",
+   "free hits",
+   "self ringing"
+  ],
+  "sources": [
+   "world-depth:minh_loan"
+  ]
+ }
+]

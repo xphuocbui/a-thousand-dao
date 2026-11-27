@@ -1,0 +1,121 @@
+[
+ {
+  "id": "clay-mould-primer",
+  "name": "Clay Mould Primer (Phạm Thổ Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["tho", "kim"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "defense_pct", "value": 3, "scope": []},
+   {"key": "block_rating", "value": 5, "scope": []},
+   {"key": "stack_duration_pct", "value": 8, "scope": ["tho", "debuff"]},
+   {"key": "khi_huyet_pct", "value": 2, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "fired-mould", "unlock_layer": 1},
+   {"ability_id": "mountain-stance", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "clay-mould-primer",
+  "family": "earth",
+  "owner": "minh_loan",
+  "rank": "ngoai_mon",
+  "concept": "The outer gate makes the moulds a bell is cast in, and this is the method it makes them by. The novice packs clay round a core with her palms, breath by breath, until the clay holds the shape of a note before any bronze is poured. The Earth it draws is the mountain's, and the little Metal it touches is the ore dust in the clay. In a fight it hardens the skin like a fired mould and answers a blow with a dull ring.",
+  "lore": "Written at the coast in 962 by Hoa Minh Hòa, who said a caster who cannot make a mould will crack every bell she pours. Since 1188 it has been taught on the casting floor of Tằng Loan Phong, where the clay is better."
+ },
+ {
+  "id": "singing-luan-bell-canon",
+  "name": "Singing Luan Bell Canon (Minh Loan Chung Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": ["kim"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "defense_pct", "value": 8}
+  ],
+  "passives": [
+   {"key": "stack_effect_pct", "value": 12, "scope": ["kim", "debuff"]},
+   {"key": "stack_duration_pct", "value": 16, "scope": ["kim", "debuff"]},
+   {"key": "ward_efficiency_pct", "value": 3, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 4, "scope": []},
+   {"key": "attack_pct", "value": 4, "scope": ["kim"]}
+  ],
+  "abilities": [
+   {"ability_id": "carriage-bell", "unlock_layer": 1},
+   {"ability_id": "ward-peal", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "singing-luan-bell-canon",
+  "family": "metal",
+  "owner": "minh_loan",
+  "rank": "noi_mon",
+  "concept": "The caster casts herself. Metal qi is poured into the dantian like bronze into a mould and tuned there, layer by layer, until it rings at one true note. A cultivator of the canon fights by sounding that note. The luan bells of a lord's carriage ring because the carriage moves, and the canon's bell works the same way: it rings when the foe presses, and each ring lays Metal on it. The note drives off beasts and carries a warning a long way, which is what the pavilion sells.",
+  "lore": "Yến Bội Ngọc and Hoa Minh Hòa wrote it at the coast between 960 and 1000, from the ship bells they cast. Its upper layers were rewritten on Tằng Loan Phong after 1188, because the note rang truer there."
+ },
+ {
+  "id": "hanging-bells-array",
+  "name": "Hanging Bells Array (Huyền Chung Trận)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": ["kim", "tho"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "than_thuc_pct", "value": 8}
+  ],
+  "passives": [
+   {"key": "status_duration_pct", "value": 10, "scope": ["curse"]},
+   {"key": "stack_duration_pct", "value": 15, "scope": ["kim", "debuff"]},
+   {"key": "stack_effect_pct", "value": 12, "scope": ["tho", "debuff"]},
+   {"key": "art_cost_pct", "value": -6, "scope": ["formation"]},
+   {"key": "defense_pct", "value": 4, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "hang-the-bells", "unlock_layer": 1},
+   {"ability_id": "alarm-line", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "hanging-bells-array",
+  "family": "metal",
+  "owner": "minh_loan",
+  "rank": "noi_mon",
+  "concept": "The art of hanging bells so that they guard a place: on a ship's rail, a caravan's poles, a city gate or Lạc Hà's Cloud Bridge. Each bell is set in Earth so that it hears the ground, and tuned in Metal so that the others answer it. A line of them rings when anything crosses it, and rings louder the harder it is pushed. In a fight the ringer gains Bell charges, and while she holds them the foe is slowed by the ringing.",
+  "lore": "The pavilion's trade since 960 (V102). In 1184 Thẩm Hưởng Nhi hung forty of its bells on Quách Tiếp Vân's Cloud Bridge Array at Vân Kiều Trấn (N-lac_ha-04)."
+ },
+ {
+  "id": "unstruck-bell-canon",
+  "name": "Canon of the Unstruck Bell (Bất Kích Chung Kinh)",
+  "tier": 2,
+  "tech_kind": "secret",
+  "names": ["kim"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "khi_huyet_pct", "value": 10},
+   {"stat": "defense_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "block_rating", "value": 12, "scope": []},
+   {"key": "ward_efficiency_pct", "value": 6, "scope": []},
+   {"key": "stack_effect_pct", "value": 16, "scope": ["kim", "debuff"]},
+   {"key": "stack_duration_pct", "value": 16, "scope": ["kim", "debuff"]},
+   {"key": "health_regen_inc_pct", "value": 12, "scope": []},
+   {"key": "status_resist_pct", "value": 6, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "struck-it-answers", "unlock_layer": 1},
+   {"ability_id": "the-bell-that-rings-itself", "unlock_layer": 4}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "unstruck-bell-canon",
+  "family": "metal",
+  "owner": "minh_loan",
+  "rank": "truong_lao",
+  "concept": "Hoa Minh Hòa believed that the best bell is never struck: it rings from what is done to it. He died in 1121 before he could cast one, and Yến Bội Ngọc finished his canon on paper. The cultivator becomes a bell that the foe's own blows ring. Each hit she takes sounds back into the striker as Metal, and a bell that has been struck enough answers on its own.",
+  "lore": "Taught to the head and the casting master. Ngụy Trầm Âm has spent forty years trying to cast it in bronze as well as hold it in the body."
+ }
+]

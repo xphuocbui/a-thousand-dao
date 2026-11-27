@@ -1,0 +1,202 @@
+{
+ "_doc": "Minh Loan Các's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:minh_loan by the serial step. Unpriced. Rule text from design/world/depth/sects/minh_loan.items.json.",
+ "source": "world-depth:minh_loan",
+ "effects": {
+  "Rings as It Moves": {
+   "rule": "Singing Luan Bell (Minh Loan Linh): whenever the foe presses (acts or is Pressing, read each second) or dodges (evades your hit), the bell rings for a 0.4 Physical hit and 1 Metal debuff stack for 8 s, at most once per second.",
+   "counters": [
+    {
+     "id": "luan_bell_cd",
+     "cap": 1,
+     "each_for": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Rings as It Moves press",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.luan_bell_cd",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "time",
+       "op": ">",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "own.foe_pressed",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.pressing",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.since_act",
+         "op": "<=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "luan_bell_cd",
+        "add": 1
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.4,
+        "dtype": "phys",
+        "outside_budget": true
+       }
+      },
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Rings as It Moves dodge",
+     "on": "was_evaded",
+     "if": [
+      {
+       "read": "own.counter.luan_bell_cd",
+       "op": "<",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "luan_bell_cd",
+        "add": 1
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.4,
+        "dtype": "phys",
+        "outside_budget": true
+       }
+      },
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Struck, She Rings": {
+   "rule": "Pendant and Bell, full set (3 pieces): each hit you take rings the Luan Bell as though the attacker had moved (a 0.4 Physical hit and 1 Metal debuff stack for 8 s), and the Jade Pendants chime back to heal you for 1 % of maximum health, at most once per second.",
+   "records": [
+    {
+     "id": "eff:Struck, She Rings",
+     "on": "was_hit",
+     "limit": {
+      "cooldown": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.4,
+        "dtype": "phys",
+        "outside_budget": true
+       }
+      },
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "heal": {
+        "share": 0.01
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Forty Answer": {
+   "rule": "Bridge Bells, full set (2 pieces): bells hung with Hang the Bells answer your hand bell: each second the foe acts (foe_pressed), every Bell charge you hold rings once for 0.25 Physical, at most once per second.",
+   "counters": [
+    {
+     "id": "bell",
+     "each_for": 10
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Forty Answer",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.bell",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "time",
+       "op": ">",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "own.foe_pressed",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.since_act",
+         "op": "<=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "scale": {
+      "read": "own.counter.bell",
+      "per": 1
+     },
+     "limit": {
+      "cooldown": 1
+     },
+     "do": [
+      {
+       "summon": {
+        "c": 0.25,
+        "dtype": "phys",
+        "cd": 0.5,
+        "for": 0.6
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

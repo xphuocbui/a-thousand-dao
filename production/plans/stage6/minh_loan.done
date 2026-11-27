@@ -1,0 +1,33 @@
+{
+  "owner": "minh_loan",
+  "minutes": 18,
+  "written": {
+    "techniques": 4,
+    "arts": 7,
+    "items": 6,
+    "sets": 2,
+    "effects": 3,
+    "stand_ins": 0,
+    "beasts": 0
+  },
+  "deviations": 7,
+  "decisions": [
+    "fired-mould uses ward_grow (8% HP) and timed block (+20 for 3 s) without taking the stance slot so it coexists cleanly with mountain-stance (clay-mould-primer L2)",
+    "ward-peal applies its 2.0 s next-art delay to any foe in duels because neither engine has a foe.creature readable, keeping creature-fleeing in lore and rule text",
+    "carriage-bell, hang-the-bells, Rings as It Moves, and Forty Answer check own.foe_pressed >= 1 or foe.since_act <= 1 (with time > 1) on pulse so foes with exact-integer cooldowns trigger reliably in both engines",
+    "pulse-driven bell tolls (carriage-bell, the-bell-that-rings-itself, Forty Answer) use one-shot summon (cd 0.5, for 0.6) while item/set free_hit rings use outside_budget: true to avoid pulse trig_budget clipping",
+    "struck-it-answers returns 35% Physical damage on both was_hit and ward_absorbed (laying 1 Metal stack on was_hit only) with cooldown 8 s so ward-heavy builds return the full blow and fire even in short --gap 1 fights",
+    "hang-the-bells gates its free foreseen-fight start on tag.foreseen >= 1, which compiles cleanly in both engines and activates automatically once foreseen is added to REQUEST_TAGS",
+    "set rarity: 5 on ml-luan-bell (kind treasure, grade 4) to satisfy lint_items.py without changing modifiers"
+  ],
+  "pending_words": [],
+  "never_ran": [
+    "hang-bells-foreseen (tag.foreseen): awaits foreseen in combat_engine.json REQUEST_TAGS; Hang the Bells active cast runs in full",
+    "carriage-bell-dodge and Rings as It Moves dodge (was_evaded): typical enemy has 0 evade; the pressing trigger runs in full"
+  ],
+  "early_promotions": [],
+  "open": [
+    "serial step / export: ensure export_named.py exports kind == treasure items so ml-luan-bell exports at Stage 7",
+    "Combat rule 12: add foreseen to combat_engine.json REQUEST_TAGS when foreseen fights are wired so hang-bells-foreseen triggers at fight start"
+  ]
+}
