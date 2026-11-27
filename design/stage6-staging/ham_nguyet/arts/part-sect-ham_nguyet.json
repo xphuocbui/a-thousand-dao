@@ -15,6 +15,13 @@
   "cost_share": 0.03,
   "cooldown": 8,
   "kind": "elem",
+  "counters": [
+   {
+    "id": "empty_lungs_t",
+    "cap": 1,
+    "each_for": 5
+   }
+  ],
   "effects": [
    {
     "id": "empty-lungs-hold",
@@ -30,31 +37,74 @@
        "status_resist": 50,
        "for": 5
       }
+     },
+     {
+      "counter": {
+       "id": "empty_lungs_t",
+       "add": 1
+      }
      }
     ]
    },
    {
-    "id": "empty-lungs-immune",
-    "on": "art_fired",
-    "filter": {
-     "art_id": "empty-lungs"
-    },
+    "id": "empty-lungs-immune-breath",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.empty_lungs_t",
+      "op": ">=",
+      "value": 1
+     }
+    ],
     "do": [
      {
       "mod": {
        "status_immune": 1,
-       "tags": [
-        "heavy_breath",
-        "silence",
-        "sealed_meridian"
-       ],
-       "for": 5
+       "status": "heavy_breath"
+      }
+     }
+    ]
+   },
+   {
+    "id": "empty-lungs-immune-silence",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.empty_lungs_t",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "status_immune": 1,
+       "status": "silence"
+      }
+     }
+    ]
+   },
+   {
+    "id": "empty-lungs-immune-sealed",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.empty_lungs_t",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "status_immune": 1,
+       "status": "sealed_meridian"
       }
      }
     ]
    }
   ],
-  "rule": "For 5 s the diver holds an empty-lung breath: immune to Heavy Breath, Silence, Sealed Meridian and timer delays, +50 status resistance against poison and curses, and +3 percentage-point linh lực regeneration bonus.",
+  "rule": "For 5 s the diver holds an empty-lung breath: immune to Heavy Breath, Silence, Sealed Meridian and timer delays, +50 status resistance against statuses and curses, and +3 percentage-point linh lực regeneration bonus.",
   "hooks": [
    "linh lực regeneration",
    "status immunity",
@@ -118,7 +168,7 @@
      {
       "counter": {
        "id": "refl_t",
-       "set": 4
+       "add": 4
       }
      }
     ]
@@ -539,7 +589,7 @@
   ],
   "rule": "Spends 1 Pearl to cast the wrapped blow back as Water damage (c 2.0, fixed half-heavy-art coefficient proxy because active casts cannot read a prior foe art's coefficient).",
   "hooks": [
-   "cold damage",
+   "water damage",
    "pearl"
   ],
   "sources": [
