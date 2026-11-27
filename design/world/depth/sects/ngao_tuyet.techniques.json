@@ -19,7 +19,7 @@
    "name": "Cold Plum Sword Primer (Hàn Mai Kiếm Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["kim", "moc"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The outer gate's method is practised barefoot in the snow under the plum trees of the old seat above Hàn Mai, at dawn in the coldest month. The cold drives the student's qi inward to the bone, where Metal qi hardens it, and the plum's Wood gives it a little spring. It teaches five straight thrusts and nothing else for six years.",
-   "arts": [{"new": "First Petal (Sơ Biện)", "concept": "A fast thrust that deals Metal damage and gives the holder a Petal stack; five Petals make her next thrust a critical hit."}],
+   "arts": [{"id": "first-petal", "new": "First Petal (Sơ Biện)", "concept": "A fast thrust that deals Metal damage and gives the holder a Petal stack; five Petals make her next thrust a critical hit."}],
    "lore": "Lăng Đạp Tuyết's own training, made into a method when he opened the school in 1105 (V051). He still teaches the first winter himself.",
    "status": "proposal"
   },
@@ -28,7 +28,7 @@
    "name": "Plum Through Snow Sword Canon (Mai Xuyên Tuyết Kiếm Kinh)",
    "tier": 1, "tech_kind": "main", "names": ["kim", "moc"], "layers": 9, "rank": "noi_mon",
    "concept": "The school's canon, which the founder learned watching a winter plum bloom through the snow: a hard branch that holds and a flower that opens at the worst moment. The cultivator tempers her meridians with Metal qi until they will not bend, then lets a thread of Wood qi run along them. The sword forms are five petals; each opens on a hit, and the fifth opens when the holder is most hurt. It rewards those who stand in the cold and keep fighting.",
-   "arts": ["flying-sword", {"new": "Five Petals (Ngũ Biện)", "concept": "Five quick thrusts; each lands a Metal hit and leaves a Wood bleed stack on the foe."}, {"new": "Bloom in the Snow (Tuyết Trung Khai)", "concept": "While the holder is below half health, her sword arts strike critically more often and each critical heals her a little."}],
+   "arts": ["flying-sword", {"id": "five-petals", "new": "Five Petals (Ngũ Biện)", "concept": "Five quick thrusts; each lands a Metal hit and leaves a Wood bleed stack on the foe."}, {"id": "bloom-in-the-snow", "new": "Bloom in the Snow (Tuyết Trung Khai)", "concept": "While the holder is below half health, her sword arts strike critically more often and each critical heals her a little."}],
    "lore": "Lăng Đạp Tuyết made it between 1105 and 1162 and reworked it after the school moved up to the iron town, when the tiger-stripe ore gave it the hard branch it lacked.",
    "status": "proposal"
   },
@@ -37,7 +37,7 @@
    "name": "Lone Branch Sword (Độc Chi Kiếm)",
    "tier": 1, "tech_kind": "secret", "names": ["kim"], "layers": 9, "rank": "truong_lao",
    "concept": "The head's own art: one branch that blooms when every other tree is bare. The holder fights better with no companion than in company; with no companion, her sword arts cost less and strike harder, and the first killing blow she would take in a fight leaves her one breath to answer it.",
-   "arts": [{"new": "Bare Winter (Đông Lõa)", "concept": "While you fight with no companion, your sword arts cost less linh lực and deal more damage.", "authored": "a1"}, {"new": "Last Blossom (Tàn Mai)", "concept": "Once per fight, a killing blow leaves the holder at 1 health for one second, during which her next sword art deals double damage."}],
+   "arts": [{"id": "bare-winter", "new": "Bare Winter (Đông Lõa)", "concept": "While you fight with no companion, your sword arts cost less linh lực and deal more damage.", "authored": "a1"}, {"id": "last-blossom", "new": "Last Blossom (Tàn Mai)", "concept": "Once per fight, a killing blow leaves the holder at 1 health for one second, during which her next sword art deals double damage."}],
    "lore": "Made after his daughter Lăng Nhược Mai died to the tiger of Thạch Khẩu in 1162. He has taught it to Trác Thiết Cán and Phó Ngạo Sương and to no one else.",
    "status": "proposal",
    "authored": "a1"

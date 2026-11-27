@@ -1,0 +1,240 @@
+{
+ "_doc": "Ngạo Tuyết Phái Effect engine records (world-depth Stage 6; ADR-0009). The input to tools/design/combat_sim/put_effects.py, which merges them into assets/data/combat_effects.json under source world-depth:ngao_tuyet. Unpriced. Rule text from design/world/depth/sects/ngao_tuyet.items.json.",
+ "source": "world-depth:ngao_tuyet",
+ "effects": {
+  "One Flower on Iron": {
+   "rule": "Plum in the Snow: each Petal stack you hold makes your next sword critical hit leave 1 Wood debuff stack for 8 s; at 5 or more Petals the Wood debuff stacks are doubled, and the Petals are spent.",
+   "counters": [
+    {
+     "id": "plum_petal",
+     "each_for": 12
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:One Flower on Iron",
+     "on": "crit",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.plum_petal",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.plum_petal",
+       "op": "<",
+       "value": 5
+      }
+     ],
+     "scale": {
+      "read": "own.counter.plum_petal",
+      "per": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "plum_petal",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Flower on Iron five",
+     "on": "crit",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.plum_petal",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "scale": {
+      "read": "own.counter.plum_petal",
+      "per": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 2,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "plum_petal",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Tiger's Weight": {
+   "rule": "Hide of the Thạch Khẩu Tiger: beasts of Luyện Khí and Trúc Cơ strength hesitate before attacking the wearer: their first attack each fight is delayed by 1 s (applied to non-boss duel foes in combat).",
+   "approx": "Neither fight engine exposes foe.creature or foe.realm; gates on foe.boss == 0 and delays the foe's opening clock by 1.0 s via stop_clock at fight_start.",
+   "records": [
+    {
+     "id": "eff:The Tiger's Weight",
+     "on": "fight_start",
+     "if": [
+      {
+       "read": "foe.boss",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Bare Branch Blooms": {
+   "rule": "Plum and Snow, full set (2 pieces): while you fight with no companion and are below half health, each Petal you hold adds 6 % sword critical damage; when Last Blossom saves you, you gain 5 Petals.",
+   "approx": "No live own.companions readable exists; has_companion latches on kind: companion hit/evade while own.since.flying-sword >= 12 so the canon's own Flying Sword summon does not disable the set.",
+   "counters": [
+    {
+     "id": "plum_petal",
+     "each_for": 12
+    },
+    {
+     "id": "has_companion",
+     "cap": 1
+    },
+    {
+     "id": "last_blossom_saved",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Bare Branch Blooms comp hit",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.since.flying-sword",
+       "op": ">=",
+       "value": 12
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "has_companion",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Bare Branch Blooms comp evade",
+     "on": "was_evaded",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.since.flying-sword",
+       "op": ">=",
+       "value": 12
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "has_companion",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Bare Branch Blooms crit",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.has_companion",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.plum_petal",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.plum_petal",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "crit_mult": 6,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Bare Branch Blooms save",
+     "on": "refused",
+     "if": [
+      {
+       "read": "own.counter.last_blossom_saved",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "plum_petal",
+        "add": 5
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

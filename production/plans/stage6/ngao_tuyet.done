@@ -1,0 +1,31 @@
+{
+ "owner": "ngao_tuyet",
+ "minutes": 8,
+ "written": {
+  "techniques": 3,
+  "arts": 5,
+  "items": 3,
+  "sets": 1,
+  "effects": 3,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 7,
+ "decisions": [
+  "Narrow staged names on cold-plum-sword-primer and plum-through-snow-sword-canon to [kim] so the 5 Metal+Earth holders pass CongPhap.usable under the school's Metal-only gate rule.",
+  "Author bloom-in-the-snow and bare-winter as active Metal sword arts (unlocking bloom-in-the-snow and last-blossom at layer 4) so all 6 of lang_dap_tuyet's arts fit MAX_ARTS=6 and arts_new reaches 0 rule text.",
+  "Unify plum_petal (each_for 12) across first-petal, five-petals, One Flower on Iron, and Bare Branch Blooms, arming first_petal_ready on art_fired so hit #5's natural crit never steals the sure-crit charge.",
+  "Map 'Wood bleed stack' on five-petals and One Flower on Iron to Wood debuff stacks (poison) matching the tree notes (Falling Leaves) and item modifier scope [moc, debuff].",
+  "Latch has_companion on kind: companion hit/evade with own.since.flying-sword >= 12 on bare-winter and Bare Branch Blooms so plum-through-snow-sword-canon's Flying Sword summon does not disable lone-branch-sword or ngt-plum-and-snow.",
+  "Pair Last Blossom's refuse_down {} (1 HP) with stop_clock foe 1.0 s and sword dmg_more 1.0 for 1.0 s (plus last_blossom_saved=1) so min_hit=1.0 never kills at 1 HP and Bare Branch Blooms triggers only on Last Blossom's save.",
+  "Gate The Tiger's Weight on foe.boss == 0 with stop_clock foe 1.0 s at fight_start (approx, since no foe.creature/foe.realm readable exists) and mark all 3 signature items unique with R6 exception."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Bare Branch Blooms: 0 runs at gap 0 on lang_dap_tuyet (wins at 90% HP without dropping below 50% HP); ran 5 times at gap 1 and raised wins from 12/20 (25.40s) to 14/20 (25.20s) in a 20-seed mid-hard truc_co probe."
+ ],
+ "early_promotions": [],
+ "open": [
+  "serial step / Stage 7: merge design/stage6-staging/ngao_tuyet/ and run export_techniques.py, export_named.py, export_combat_library.py, and export_world.py --sect ngao_tuyet (closes the 3 structured events in depth_gap.py)."
+ ]
+}

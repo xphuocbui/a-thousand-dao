@@ -1,0 +1,22 @@
+[
+ {
+  "id": "ngt-plum-and-snow",
+  "name": "Plum and Snow (Mai Tuyết Song Bảo)",
+  "pieces": [
+   "ngt-plum-in-snow-sword",
+   "ngt-han-mai-snow-cloak"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "crit_chance_pct", "value": 3, "scope": ["sword"]},
+     {"key": "khi_huyet_pct", "value": 5, "scope": []}
+    ],
+    "effect": "Bare Branch Blooms (Khô Chi Khai Hoa)",
+    "rule": "while you fight with no companion and are below half health, each Petal you hold adds 6 % sword crit damage; when Last Blossom saves you, you gain five Petals."
+   }
+  ],
+  "story": "His sworn brother's sword and his village's cloak. Lăng Đạp Tuyết holds both."
+ }
+]
