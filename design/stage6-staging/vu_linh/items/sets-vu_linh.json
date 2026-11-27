@@ -1,0 +1,22 @@
+[
+ {
+  "id": "vl-bell-lines",
+  "name": "Bells on the Roads (Đạo Linh Tam Bảo)",
+  "pieces": ["vl-clear-bell", "vl-root-line-banner", "vl-casters-apron"],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "than_thuc_pct", "value": 4, "scope": []},
+     {"key": "evade_pct", "value": 4, "scope": []}
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "The Line Is Tuned (Điệu Tuyến)",
+    "rule": "your ward bells are linked. When any of them turns a hit, the striker gains one Slowed Time stack for each bell you hold. A foe at 5 Slowed Time stacks takes the pour: Fire damage worth your apron's attack, and the stacks are spent."
+   }
+  ],
+  "story": "The Clear Bell of 1128, the map of every line and the apron she cast them all in. The mistress holds all three. The line of bells inside Thu Trì's walls that no one knows of is on the banner too, and the set is how she hears it."
+ }
+]

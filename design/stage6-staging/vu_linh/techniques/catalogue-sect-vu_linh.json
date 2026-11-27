@@ -1,0 +1,128 @@
+[
+ {
+  "id": "charcoal-burners-primer",
+  "name": "Charcoal-Burner's Primer (Thiêu Thán Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["hoa", "moc"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "linh_luc_regen_inc_pct", "value": 5, "scope": []},
+   {"key": "attack_pct", "value": 3, "scope": ["fire"]},
+   {"key": "resist_pct", "value": 75, "scope": ["fire"]}
+  ],
+  "abilities": [
+   {"ability_id": "bank-the-kiln-stance", "unlock_layer": 1}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "charcoal-burners-primer",
+  "family": "fire",
+  "owner": "vu_linh",
+  "rank": "ngoai_mon",
+  "concept": "The foundry's first method. Outer disciples burn the hall's charcoal in earth kilns and work the bellows for the pour, and the primer is learned at the kiln mouth: draw the wood's qi as it chars and the fire's qi as it rises, and hold the heat even for a day and a night. A disciple who can keep a kiln steady can keep a casting fire steady, and a bell is only as good as its pour.",
+  "lore": "Written by the founder Chung Thiết Liên in 930, when he brought his lamp-casters south and had to make charcoal before he could make bells (V149)."
+ },
+ {
+  "id": "canopy-bell-canon",
+  "name": "Canon of the Bells in the Canopy (Lâm Linh Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": ["moc"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "defense_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "evade_pct", "value": 4, "scope": []},
+   {"key": "art_speed_pct", "value": 6, "scope": ["moc"]},
+   {"key": "status_duration_pct", "value": 10, "scope": ["curse"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 4.5, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "hang-a-bell", "unlock_layer": 1},
+   {"ability_id": "the-line-rings", "unlock_layer": 2}
+  ],
+  "effects": [
+   {
+    "name": "Heard Through the Roots",
+    "unlock_layer": 4,
+    "passive_art": true,
+    "rule": "The first strike each fight against you while you hold a Bell charge is warned (+30 pp evade) and partly evaded (if it still lands, it deals half damage)."
+   }
+  ],
+  "origin": "authored",
+  "suite": "canopy-bell-canon",
+  "family": "wood",
+  "owner": "vu_linh",
+  "rank": "noi_mon",
+  "concept": "The hall's canon and its art of warning. A bell is hung in a living tree, and the cultivator's Wood qi joins it to the tree's roots. When the bell rings, the roots carry the note to every other tree in the line and to the cultivator's feet. A line of rain bells across a forest is a single array that hears. In a fight the canon hangs small bells in the air around the holder: they warn of every strike before it lands, and their ringing slows and confuses a foe.",
+  "lore": "Chung Thiết Liên's canon, completed by Chung Tàn Hưởng in 1080 and given its ninth layer by Ân Thanh Linh in 1105, the year the hall hung its first bell line over the forest road (N-vu_linh-02)."
+ },
+ {
+  "id": "molten-bronze-litany",
+  "name": "Molten Bronze Litany (Dung Đồng Kệ)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": ["hoa"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "attack_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "attack_pct", "value": 8, "scope": ["fire"]},
+   {"key": "stack_effect_pct", "value": 10, "scope": ["hoa", "debuff"]},
+   {"key": "stack_duration_pct", "value": 10, "scope": ["hoa", "debuff"]},
+   {"key": "defense_pct", "value": 6, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "pour-molten-bronze", "unlock_layer": 1},
+   {"ability_id": "hard-as-a-bell", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "molten-bronze-litany",
+  "family": "fire",
+  "owner": "vu_linh",
+  "rank": "noi_mon",
+  "concept": "The casters' fighting art. The litany is sung at the pour to keep the bronze running, and the same breath throws a gout of molten bronze from the hand. It burns and then hardens: a foe struck often enough is encased and slowed. Inner disciples learn it at their first pour and are scarred by it at their second.",
+  "lore": "The founder brought it from the lamp foundries of Thanh Đăng Trấn, where it was a work song before it was an art."
+ },
+ {
+  "id": "listening-bell-seal",
+  "name": "Seal of the Listening Bell (Văn Linh Ấn)",
+  "tier": 2,
+  "tech_kind": "secret",
+  "names": ["moc"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "than_thuc_pct", "value": 12},
+   {"stat": "defense_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "soul_res_pct", "value": 15, "scope": []},
+   {"key": "status_resist_pct", "value": 12, "scope": []},
+   {"key": "evade_pct", "value": 4, "scope": []},
+   {"key": "art_speed_pct", "value": 10, "scope": ["seal"]}
+  ],
+  "abilities": [
+   {"ability_id": "it-rings-for-you", "unlock_layer": 1}
+  ],
+  "effects": [
+   {
+    "name": "Tuned Bronze",
+    "unlock_layer": 4,
+    "passive_art": true,
+    "rule": "Your bells and wards resist soul (+15 % soul resistance) and charm (+20 % status resistance against Charmed) arts; each soul art that lands on you or charm art you evade or stop rings and slows its caster (1 Slowed Time stack for 3 s, and +0.5 s delay on their next art)."
+   }
+  ],
+  "origin": "authored",
+  "suite": "listening-bell-seal",
+  "family": "wood",
+  "owner": "vu_linh",
+  "rank": "truong_lao",
+  "concept": "How to cast a bell that hears. The caster seals a thread of Wood qi into the bronze at the pour, tuned to one thing: a footstep, a charm, a voice, someone listening at a door. The bell rings only for that. In a fight the seal turns the holder's ward into a listening bell: it rings a moment before each art the foe casts, and the holder may answer first.",
+  "lore": "Ân Thanh Linh's art, first used in 1030 for the bell she cast the Nhiếp family at twenty, which rings only when someone listens at a door. She has taught it to no one in full."
+ }
+]

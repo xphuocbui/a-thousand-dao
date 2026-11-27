@@ -1,0 +1,300 @@
+[
+ {
+  "id": "bank-the-kiln-stance",
+  "name": "Bank the Kiln (Ủ Lò)",
+  "element": "fire",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "charcoal-burners-primer",
+  "tags": ["fire", "stance"],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 5.0,
+  "kind": "elem",
+  "counters": [
+   {"id": "kiln_ember", "cap": 1}
+  ],
+  "states": [
+   {"id": "kiln-banked", "tags": ["composed"], "mods": {}}
+  ],
+  "effects": [
+   {
+    "id": "kiln-banked-regen",
+    "on": "always",
+    "if": [
+     {"read": "own.state.kiln-banked", "op": ">=", "value": 1},
+     {"read": "own.composed", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"mod": {"regen": 0.007}}
+    ]
+   },
+   {
+    "id": "kiln-leave-ember",
+    "on": "art_fired",
+    "filter": {"art_id": "bank-the-kiln-stance"},
+    "if": [
+     {"read": "own.state.kiln-banked", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"counter": {"id": "kiln_ember", "set": 1}}
+    ]
+   },
+   {
+    "id": "kiln-toggle",
+    "on": "art_fired",
+    "filter": {"art_id": "bank-the-kiln-stance"},
+    "do": [
+     {"state": {"set": "kiln-banked", "toggle": true}}
+    ]
+   },
+   {
+    "id": "kiln-fire-boost",
+    "on": "art_fired",
+    "filter": {"element": "fire", "not_art_id": "bank-the-kiln-stance"},
+    "if": [
+     {"read": "own.counter.kiln_ember", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"mod": {"dmg_more": 0.30, "kind": "art", "element": "fire"}},
+     {"counter": {"id": "kiln_ember", "set": 0}}
+    ]
+   }
+  ],
+  "rule": "A Composed stance: while you hold it and stay Composed, your linh lực regenerates faster (+0.7 pp/s). Toggling out of the stance arms your next Fire art for 30 % more damage.",
+  "hooks": ["composed", "linh lực regen", "fire damage"],
+  "notes": "Named bank-the-kiln-stance to avoid collision with phan_vu's bank-the-kiln.",
+  "sources": ["world-depth:vu_linh"]
+ },
+ {
+  "id": "hang-a-bell",
+  "name": "Hang a Bell (Quải Linh)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "canopy-bell-canon",
+  "tags": ["wood", "bell", "formation"],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 5.0,
+  "kind": "elem",
+  "counters": [
+   {"id": "canopy_bell", "upkeep": {"pool": "qi", "per_stack": 0.003}}
+  ],
+  "effects": [
+   {
+    "id": "hang-bell-add",
+    "on": "art_fired",
+    "filter": {"art_id": "hang-a-bell"},
+    "do": [
+     {"counter": {"id": "canopy_bell", "add": 1}}
+    ]
+   },
+   {
+    "id": "hang-bell-mods",
+    "on": "always",
+    "if": [
+     {"read": "own.counter.canopy_bell", "op": ">=", "value": 1}
+    ],
+    "scale": {"read": "own.counter.canopy_bell", "per": 1},
+    "do": [
+     {"mod": {"evade": 3, "acc": 4}}
+    ]
+   }
+  ],
+  "rule": "Hangs a Canopy Bell charge for the fight: each bell gives +3 pp evade and +4 accuracy, and costs 0.6 % of maximum linh lực per second in upkeep (bells you cannot pay fall).",
+  "hooks": ["bell charges", "evade", "accuracy", "upkeep"],
+  "notes": "Uses counter canopy_bell with pulse upkeep (0.006 qi/s per bell) to bound bell count without a hard cap; +4 acc represents revealing the unseen foe in 1v1 duels.",
+  "sources": ["world-depth:vu_linh"]
+ },
+ {
+  "id": "the-line-rings",
+  "name": "The Line Rings (Tuyến Hưởng)",
+  "element": "wood",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "canopy-bell-canon",
+  "tags": ["wood", "bell", "formation"],
+  "c_art": 1.0,
+  "cost_share": 0.04,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "counters": [
+   {"id": "canopy_bell", "upkeep": {"pool": "qi", "per_stack": 0.003}}
+  ],
+  "effects": [
+   {
+    "id": "line-rings-strike",
+    "on": "art_fired",
+    "filter": {"art_id": "the-line-rings"},
+    "if": [
+     {"read": "own.counter.canopy_bell", "op": ">=", "value": 1}
+    ],
+    "scale": {"read": "own.counter.canopy_bell", "per": 1},
+    "do": [
+     {"mod": {"dmg_more": 0.35, "kind": "art"}}
+    ]
+   },
+   {
+    "id": "line-rings-slow",
+    "on": "hit_landed",
+    "filter": {"art_id": "the-line-rings"},
+    "if": [
+     {"read": "own.counter.canopy_bell", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"status": {"id": "slowed_time", "stacks": 1, "dur": 3, "side": "foe"}}
+    ]
+   }
+  ],
+  "rule": "Rings every hung bell at once: deals Chaos damage (1.0 c), +35 % more art damage per hung Canopy Bell, and while you hold hung Canopy Bells also inflicts 1 Slowed Time stack for 3 s.",
+  "hooks": ["bell charges", "slowed time", "chaos damage"],
+  "sources": ["world-depth:vu_linh"]
+ },
+ {
+  "id": "pour-molten-bronze",
+  "name": "Pour (Rót Đồng)",
+  "element": "fire",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "molten-bronze-litany",
+  "tags": ["fire"],
+  "c_art": 1.5,
+  "cost_share": 0.04,
+  "cooldown": 3.0,
+  "kind": "elem",
+  "debuff": [1, 6.0],
+  "counters": [
+   {"id": "bronze", "each_for": 12.0}
+  ],
+  "effects": [
+   {
+    "id": "pour-bronze-stack",
+    "on": "hit_landed",
+    "filter": {"art_id": "pour-molten-bronze"},
+    "do": [
+     {"counter": {"id": "bronze", "add": 1}}
+    ]
+   },
+   {
+    "id": "pour-bronze-slow",
+    "on": "hit_landed",
+    "filter": {"art_id": "pour-molten-bronze"},
+    "if": [
+     {"read": "own.counter.bronze", "op": ">=", "value": 3}
+    ],
+    "do": [
+     {"status": {"id": "slowed_time", "stacks": 1, "dur": 3, "side": "foe"}}
+    ]
+   }
+  ],
+  "rule": "A Fire strike of molten bronze that lays 1 Fire Burn stack (6 s) and 1 Bronze charge (12 s); at 3 or more Bronze charges, the foe is slowed (1 Slowed Time stack for 3 s).",
+  "hooks": ["fire stacks", "bronze charges", "slowed time"],
+  "sources": ["world-depth:vu_linh"]
+ },
+ {
+  "id": "hard-as-a-bell",
+  "name": "Hard as a Bell (Kiên Như Chung)",
+  "element": "fire",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "molten-bronze-litany",
+  "tags": ["fire", "ward", "bell"],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 9.5,
+  "kind": "elem",
+  "guards": [
+   {"read": "own.counter.bronze", "op": ">=", "value": 1}
+  ],
+  "counters": [
+   {"id": "bronze", "each_for": 12.0}
+  ],
+  "effects": [
+   {
+    "id": "hard-bell-raise",
+    "on": "art_fired",
+    "filter": {"art_id": "hard-as-a-bell"},
+    "scale": {"read": "own.counter.bronze", "per": 1},
+    "do": [
+     {"ward_grow": {"share": 0.05, "of": "hp"}},
+     {"mod": {"ward_pct": 15, "for": 4.0}}
+    ]
+   },
+   {
+    "id": "hard-bell-spend",
+    "on": "art_fired",
+    "filter": {"art_id": "hard-as-a-bell"},
+    "do": [
+     {"counter": {"id": "bronze", "set": 0}}
+    ]
+   }
+  ],
+  "rule": "Requires at least 1 Bronze charge. Spends all Bronze charges to raise your stance ward by 5 % of maximum health per stack and boost ward resistance by +15 % per stack for 4 s.",
+  "hooks": ["bronze charges", "stance ward", "ward resistance"],
+  "sources": ["world-depth:vu_linh"]
+ },
+ {
+  "id": "it-rings-for-you",
+  "name": "It Rings for You (Vị Quân Minh)",
+  "element": "wood",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "listening-bell-seal",
+  "tags": ["wood", "seal", "bell", "ward"],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 6.0,
+  "kind": "elem",
+  "guards": [
+   {"read": "own.counter.listening_mark", "op": "==", "value": 0}
+  ],
+  "counters": [
+   {"id": "listening_mark", "cap": 1}
+  ],
+  "effects": [
+   {
+    "id": "rings-for-you-mark",
+    "on": "art_fired",
+    "filter": {"art_id": "it-rings-for-you"},
+    "do": [
+     {"counter": {"id": "listening_mark", "set": 1}},
+     {"ward_grow": {"share": 0.08, "of": "hp"}}
+    ]
+   },
+   {
+    "id": "rings-for-you-hit",
+    "on": "was_hit",
+    "filter": {"kind": "art"},
+    "if": [
+     {"read": "own.counter.listening_mark", "op": ">=", "value": 1}
+    ],
+    "limit": {"cooldown": 2.5},
+    "do": [
+     {"timer": {"side": "own", "which": "next", "by": -99}}
+    ]
+   },
+   {
+    "id": "rings-for-you-evade",
+    "on": "evaded",
+    "filter": {"kind": "art"},
+    "if": [
+     {"read": "own.counter.listening_mark", "op": ">=", "value": 1}
+    ],
+    "limit": {"cooldown": 2.5},
+    "do": [
+     {"timer": {"side": "own", "which": "next", "by": -99}}
+    ]
+   }
+  ],
+  "rule": "Marks the foe for the fight and raises a stance ward worth 8 % of maximum health. While marked, each foe art that strikes at you (hit or evaded, up to once every 2.5 s) rings your listening bell and makes your next art ready at once (down to cooldown_min).",
+  "hooks": ["stance ward", "was_hit", "evaded", "timer"],
+  "sources": ["world-depth:vu_linh"]
+ }
+]

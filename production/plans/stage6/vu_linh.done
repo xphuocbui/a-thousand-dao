@@ -1,0 +1,25 @@
+{"owner": "vu_linh", "minutes": 12,
+ "written": {"techniques": 4, "arts": 6, "items": 4, "sets": 1, "effects": 5, "stand_ins": 0, "beasts": 0},
+ "deviations": 9,
+ "decisions": [
+  "Renamed bank-the-kiln to bank-the-kiln-stance to avoid duplicate art id with phan_vu",
+  "Used fight-long counter canopy_bell instead of bell to avoid colliding with minh_loan's timed bell counter",
+  "Modelled Hang a Bell's escalating reservation as pulse upkeep 0.003 qi/s per bell (scale without caps)",
+  "Promoted passive arts Heard Through the Roots and Tuned Bronze as technique-effects at unlock_layer 4",
+  "Ordered kiln-leave-ember before state toggle on bank-the-kiln-stance so toggling out arms kiln_ember (+30% Fire art damage)",
+  "Used direct dmg_more on the-line-rings (1.0 c, +35% per bell) and cooldown 2.5 s on it-rings-for-you to avoid trig_budget clipping and 28 s qi drain",
+  "Sized [NEW] tier 0/1/2 bonuses and passives (8.0 / 15.0 / 15.8 / 23.8 W) to Wood/Fire defence, evasion, curse duration, and casting speed",
+  "Set rarity 5 on treasure vl-clear-bell and unique true on all 4 signature items"
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Tuned Bronze (listening-bell-seal): typical foe casts no soul or charmed art; verified in 10-seed soul+charm probe (191 runs, 75% vs 71% HP)"
+ ],
+ "early_promotions": [],
+ "open": [
+  "cast_ward_duration_pct (+15 on vl-clear-bell): in lint_techniques.PRICE and modifiers.md, no CHARACTER_MODS/cast_wards reader yet",
+  "Passive arts Heard Through the Roots and Tuned Bronze remain without active art id in vu_linh.techniques.json because they live in technique.effects",
+  "R6 exception kept on vl-clear-bell (chuong) and vl-casters-apron (dao_bao) until authored signature item arts/wards are ruled",
+  "3 structured events (N-vu_linh-01..03) close at Stage 8 export"
+ ]
+}
