@@ -1,0 +1,45 @@
+{"owner": "lac_ha", "minutes": 25,
+ "written": {"techniques": 6, "arts": 10, "items": 30, "sets": 10, "effects": 21, "stand_ins": 9, "beasts": 0},
+ "deviations": 31,
+ "decisions": [
+  "Hold wish b1 non-fight passives (dao_tam, breakthrough_chance) out of staged passives because lint_techniques.py fails them as NOT_PRICED; kept intact in lac_ha.techniques.json.",
+  "Park long-sky-one-colour (technique and 3 arts) and Geese in File (lh-cold-geese-sword Effect) per postponed-2026-11-26.json; stage lh-cold-geese-sword with effects: [] so its set works.",
+  "Make The Glow Deepens (d3) a passive art (technique Effect on sunset-cloud-canon at layer 3, pending word technique-effects) using uncapped dmg_more 0.04 per 6 s on glow_clock (+1.5 s per damaging blow).",
+  "Keep Sunset Cloud's Field stance from overwriting another stance (sets sunset-cloud only when state.any == 0, ticks off counter sunset_cloud) so Quách Tiếp Vân keeps Mountain Stance; cd 4 with guard so it opens at --gap 1.",
+  "Interpret Coming Home at Dusk's 3 % as cast cost (not per-second drain, which contradicted the sustain-song concept), running 6 s (8 s with Stern Lamp) for +2 % linh lực/s, +33 % timer_resist and +15 % status_resist.",
+  "Set The Ninth Verse cooldown to 2 s (guarded by own.wounded >= 1 and once per fight) so it fires when Wounded even in short --gap 1 fights.",
+  "Stand-ins: Ngụy Thụ Căn to evening-dust-primer; 3 Water/Wood servants to new evening-ferry-breath; 4 Fire/Metal/Earth servants to new bellows-and-hearth-breath; guest elder Vưu Chước Kim to new Earth-tier anvil-thunder-canon.",
+  "Model The Lightning Sleeps' 1v1 fork on every 4th Lightning art hit (c 0.7) or sword art hit when Twin Swords wake it (c 0.35), filtered to kind: art so forks never self-trigger.",
+  "Approximate Every Debt Written and Every Debt Called per tallied damaging blow (and blocked blow for the 3-piece set): c 0.35 outside_budget return and 0.02 max HP body shield per mark.",
+  "Model Price on the Ribs (-5 % defence per Earth stack) as pen +25 per Earth stack for 4 s on Fan Gust, and Eight Marks' guard break as Exposed + bypass 0.30 for 4 s.",
+  "Rewrite The Flame Turns Green and Outlast the Grey non-spatially: burns green when carrying Wood debuff or Corpse Rot (cleansing 1 Wood/s to feed Outlast the Grey); 6-Earth lock becomes stop_clock 1.5 s + bound 2 s.",
+  "Have Geese in the Cold read own.field_up (standing ruling R1) so Cảnh Trường Thiên's Sunset Cloud Field activates it while long-sky-one-colour is parked.",
+  "Stage all 30 items as unique NPC signature items with R6 exception on 23 weapons/robes/armour/shields and rarity 5 on the 2 treasures (lh-tu-dien, lh-thanh-suong)."
+ ],
+ "pending_words": [
+  "technique-effects: a technique's effects [{name, unlock_layer}] attached by the loader as always-on library Effects (passive arts; shared with Thiên Xu)"
+ ],
+ "never_ran": [
+  "The Glow Deepens: loader does not attach technique Effects yet (technique-effects); probed via tree_effects (hinh_trong_son 43.5 s to 36.4 s, canh_truong_thien 41.5 s to 33.4 s)",
+  "The Lightning Sleeps: Tô Vãn Chiếu lacks Thunder and Thanh Sương (sleeps by lore); probed on Vưu Chước Kim (60 runs) and Tô Vãn Chiếu with Twin Swords (78 forks / 30 seeds)",
+  "Frost on the Field: lh-thanh-suong is lost (holder null); probed on Twin Swords and Scabbard synthetic kits (68-72 awake Ice grants)",
+  "The Treasury Key, The Sky Goes One Colour: lh-lone-duck-ring is pledged to Phan Vật Hoa (thien_bao); probed on Tô Vãn Chiếu full Regalia (48.7/49.8 s past 30 s; Treasury Key 23.1/20.2 s at gap 1)",
+  "Lightning and Frost: Twin Swords are split (lh-thanh-suong lost); probed on Tô Vãn Chiếu (22.4/25.1 s, 132 runs)",
+  "Waits for Its Blade: Cảnh Trường Thiên wears the scabbard empty; probed with Thanh Sương (27.6/33.1 s, 10 wakes)",
+  "Geese in the Cold (gap 0): always shelter record counts no runs and Cảnh is never Wounded at gap 0; runs at gap 1 (17.5/16.3 s) and with flying-sword-strike (15.4/13.8 s, blades fire)",
+  "Price on the Ribs, Eight Marks: sect_fight never slots fan-gust; probed on Hách Ánh Hà with fan-gust (Eight Marks 24.0/25.9 s; Price on the Ribs 20.7/30.8 s vs 300-res body foe)",
+  "Breath Held: typical foe lays no poison and sect_fight never slots flying-sword-strike; probed on Hình Lạc Nhạn vs poison foe (28.2/29.7 s, 153 runs)",
+  "The Flame Turns Green: typical foe lays no poison; probed on Hình Trọng Sơn vs poison foe (44.6/48.7 s, 344 runs feeding Outlast the Grey)",
+  "Glow After Dark: Tô Mộ Vân wears 1 item at Luyện Khí (Trúc Cơ growth goal); probed at Trúc Cơ wearing both (38.2/39.2 s, 46 % vs 40 % HP, 23 expiry hits)",
+  "the-ninth-verse (gap 0): singers win at 94 % HP without being Wounded; fires at gap 1 when Wounded"
+ ],
+ "early_promotions": [],
+ "open": [
+  "serial step: build technique-effects (shared with Thiên Xu) so The Glow Deepens attaches to sunset-cloud-canon at layer 3",
+  "serial step / tools: lint_techniques.py treats NOT_PRICED as a finding even on unpriced catalogue-sect-* files, blocking b1's non-fight passives (dao_tam, breakthrough_chance) and later batch owners' non-fight keys; restore b1's 6 held lines once accepted",
+  "parked (postponed-2026-11-26.json): long-sky-one-colour (technique + 3 arts) and Geese in File on lh-cold-geese-sword await multi-fighter combat",
+  "export: export_named.py skips kind treasure (2 Lạc Hà items: lh-tu-dien, lh-thanh-suong)",
+  "tools: sect_fight.py slots technique arts first (up to 6), so item common arts (fan-gust, needle-rain, flying-sword-strike, anchor-drop, seal-slam) need real-kit probes",
+  "user: WIRED.md held items d11 Debt Stone (mountain-heart-canon + lh-nails-of-dao-sa), d12 Written in the Ledger (ruin-ledger-scripture), and sai_thanh_phong aux evening-song-of-the-boats",
+  "out of fight: The Treasury Key's opening of Lạc Hà's treasury arrays at Vân Kiều Trấn"
+ ]}

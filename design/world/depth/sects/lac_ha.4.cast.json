@@ -2157,7 +2157,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_hoa",
+     "tech": "bellows-and-hearth-breath",
      "layer": 1
     },
     "aux": [],
@@ -2917,7 +2917,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_hoa",
+     "tech": "bellows-and-hearth-breath",
      "layer": 3
     },
     "aux": [],
@@ -2981,7 +2981,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "evening-ferry-breath",
      "layer": 2
     },
     "aux": [],
@@ -3044,7 +3044,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "evening-dust-primer",
      "layer": 3
     },
     "aux": [],

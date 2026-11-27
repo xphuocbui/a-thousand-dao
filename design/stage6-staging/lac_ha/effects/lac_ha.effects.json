@@ -1,0 +1,1826 @@
+{
+ "_doc": "Lạc Hà Tông's Effect engine records (world-depth Stage 6; ADR-0009). The input to tools/design/combat_sim/put_effects.py, which merges them into assets/data/combat_effects.json under source world-depth:lac_ha. Unpriced. Rule text from design/world/depth/sects/lac_ha.items.json and lac_ha.techniques.json. Geese in File (lh-cold-geese-sword) and Geese Line (long-sky-one-colour) are parked per design/world/depth/builds/postponed-2026-11-26.json and omitted.",
+ "source": "world-depth:lac_ha",
+ "effects": {
+  "The Glow Deepens": {
+   "rule": "Drifting Sunset Cloud True Canon (passive art, layer 3, authored wish d3): your glow clock is the fight's time plus 1.5 s per damaging blow taken this fight (approximating 1 s per 2 % max health lost to blows; healing never lowers it). For every 6 s on your glow clock, your Earth arts deal 4 % more damage, with no cap.",
+   "approx": "blows advance glow_clock by 1.5 s per damaging hit (was_hit carries raw HP, not HP share); attaching this technique Effect at layer 3 waits on pending word technique-effects",
+   "pending": "technique-effects: loader does not yet attach a technique's Effects; runs when supplied via tree_effects",
+   "counters": [
+    {
+     "id": "glow_clock"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Glow Deepens",
+     "on": "always",
+     "scale": {
+      "read": "own.counter.glow_clock",
+      "per": 6
+     },
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.04,
+        "element": "earth"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Lightning Sleeps": {
+   "rule": "Tử Điện, Purple Lightning: without Thunder, the sword's lightning modifiers sleep and it strikes as a plain pierce sword. Every fourth Lightning hit you land forks into a bonus Lightning hit (c 0.7) on the foe; if both Twin Swords are held together (Lightning and Frost), every fourth sword hit instead wakes a half-strength fork (c 0.35 Lightning).",
+   "approx": "one-on-one fight: the fork strikes the single foe instead of a second foe (ruling 2026-11-26); wakes on Lightning hits (Thunder builds) or on sword hits when the Twin Swords set sets twins_awake",
+   "counters": [
+    {
+     "id": "td_fork"
+    },
+    {
+     "id": "twins_awake"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Lightning Sleeps count",
+     "on": "hit_landed",
+     "filter": {
+      "dtype": "lightning",
+      "kind": "art"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "td_fork",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Lightning Sleeps fork",
+     "on": "hit_landed",
+     "filter": {
+      "dtype": "lightning",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.td_fork",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "td_fork",
+        "set": 0
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.7,
+        "dtype": "lightning"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Lightning Sleeps twins count",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ],
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.twins_awake",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "td_fork",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Lightning Sleeps twins fork",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ],
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.twins_awake",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.td_fork",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "td_fork",
+        "set": 0
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.35,
+        "dtype": "lightning"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Frost on the Field": {
+   "rule": "Thanh Sương, Blue Frost: without Ice, the sword's cold modifiers sleep. Against a slowed foe (Slowed Time), each Ice debuff grant you lay adds 1 extra Ice stack (doubling single-stack grants), and when woken by its scabbard or twin sword, sword hits on a slowed foe lay 1 Ice stack (8 s).",
+   "counters": [
+    {
+     "id": "has_thanh_suong"
+    },
+    {
+     "id": "frost_awake"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Frost on the Field mark",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "has_thanh_suong",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Frost on the Field double",
+     "on": "always",
+     "if": [
+      {
+       "read": "foe.status.slowed_time",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "stack_grant": 1,
+        "element": "ice",
+        "kind": "debuff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Frost on the Field awake",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.frost_awake",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.slowed_time",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Colour of the Hour": {
+   "rule": "Robe of the Drifting Glow: from the 20th second of a fight, your health regeneration and healing are 15 % stronger, and stronger again by 15 % (+30 % total) from the 40th second.",
+   "records": [
+    {
+     "id": "eff:Colour of the Hour 20",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "time",
+       "op": ">=",
+       "value": 20
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "hregen_inc": 15,
+        "healing": 15,
+        "for": 1.5
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Colour of the Hour 40",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "time",
+       "op": ">=",
+       "value": 40
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "hregen_inc": 15,
+        "healing": 15,
+        "for": 1.5
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Treasury Key": {
+   "rule": "Lone Duck Ring: once per fight, when you fall to half health or below, you gain a stance ward equal to 20 % of your maximum health (created if you hold none). Out of fights, opens Lạc Hà's treasury arrays at the seat.",
+   "counters": [
+    {
+     "id": "treasury_key_used"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Treasury Key hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.treasury_key_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "treasury_key_used",
+        "set": 1
+       }
+      },
+      {
+       "ward_grow": {
+        "share": 0.2,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Treasury Key pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.treasury_key_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "treasury_key_used",
+        "set": 1
+       }
+      },
+      {
+       "ward_grow": {
+        "share": 0.2,
+        "of": "hp"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Every Debt Written": {
+   "rule": "Vô Định Tally: each damaging blow you take adds 1 mark to your tally. Once per fight, when the tally reaches 8 marks or you fall to half health (with at least 1 mark), you call the tally: the foe takes a Physical Earth-ledger strike of c 0.35 per tallied mark (outside the trigger budget), and the tally resets.",
+   "approx": "return_damage cannot read an accumulated damage counter, so a third of damage dealt is approximated as c 0.35 per tallied blow (outside_budget) auto-called at 8 marks or <= 50 % HP",
+   "counters": [
+    {
+     "id": "debt_tally"
+    },
+    {
+     "id": "debt_calls"
+    },
+    {
+     "id": "debt_shield_due"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Every Debt Written tally",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "debt_tally",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Debt Written call",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.debt_calls",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.debt_tally",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "own.counter.debt_tally",
+         "op": ">=",
+         "value": 8
+        },
+        {
+         "read": "own.hp_share",
+         "op": "<=",
+         "value": 0.5
+        }
+       ]
+      }
+     ],
+     "scale": {
+      "read": "own.counter.debt_tally",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.35,
+        "dtype": "phys",
+        "outside_budget": true
+       }
+      },
+      {
+       "counter": {
+        "id": "debt_shield_due",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Debt Written reset",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.debt_calls",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.debt_shield_due",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "debt_tally",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "debt_calls",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Waits for Its Blade": {
+   "rule": "Empty Frost Scabbard: while Thanh Sương is worn with this scabbard, the scabbard rises to grade 4 (+5 % ward strength, +4 % status resistance, +30 Cold resistance) and Thanh Sương's cold modifiers wake for any holder (+20 % attack and +10 % art speed on sword arts, and Frost on the Field wakes on sword hits).",
+   "counters": [
+    {
+     "id": "has_thanh_suong"
+    },
+    {
+     "id": "frost_awake"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Waits for Its Blade wake",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.has_thanh_suong",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "frost_awake",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Waits for Its Blade stats",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.has_thanh_suong",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "ward_pct": 5,
+        "status_resist": 4
+       }
+      },
+      {
+       "mod": {
+        "resist": 30,
+        "dtype": "cold"
+       }
+      },
+      {
+       "mod": {
+        "L1": 20,
+        "art_speed": 10,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Price on the Ribs": {
+   "rule": "Fan of the Evening Market: when the fan's art (Fan Gust) lands on a foe, your hits ignore 25 resistance points for 4 s per Earth stack the foe carries (approximating -5 % defence per Earth stack on a ~500-point typical ward, no cap).",
+   "approx": "the engine cannot apply a negative defence mod to the foe, so -5 % defence per Earth stack is modelled as resistance penetration +25 points per Earth stack on the holder for 4 s",
+   "records": [
+    {
+     "id": "eff:Price on the Ribs",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "fan-gust"
+     },
+     "scale": {
+      "read": "foe.debuff.earth",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "pen": 25,
+        "for": 4
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Span the Gap": {
+   "rule": "Cloud Bridge Flags: raises 2 Flag charges (12 s each) at fight start, and each Earth art you fire adds 1 Flag charge (12 s, once every 4 s). While you hold 2 or more Flag charges, damage you take is dampened by 10 % and every 3 s your stance ward grows by 3 % of your maximum health (created if you hold none).",
+   "counters": [
+    {
+     "id": "flag_charge",
+     "each_for": 12
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Span the Gap start",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "flag_charge",
+        "add": 2
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Span the Gap plant",
+     "on": "art_fired",
+     "filter": {
+      "element": "earth"
+     },
+     "limit": {
+      "cooldown": 4
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "flag_charge",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Span the Gap guard",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.flag_charge",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 10
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Span the Gap ward",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.flag_charge",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "limit": {
+      "cooldown": 3
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.03,
+        "of": "hp"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Flame Turns Green": {
+   "rule": "Lantern of the Miasma Watch: the lantern burns green whenever you carry a poison (Wood debuff) or miasma (Corpse Rot) stack. Each second while it burns green, 1 poison stack is shed from you (poison fades roughly twice as fast) and Corpse Rot is shed once every 3 s.",
+   "approx": "spatial 'within 30 m' rewritten to carrying Wood debuff (poison) or Corpse Rot; 'fade twice as fast' is shedding 1 Wood debuff stack each pulse",
+   "counters": [
+    {
+     "id": "poison_faded"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Flame Turns Green wood",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "wood"
+       }
+      },
+      {
+       "counter": {
+        "id": "poison_faded",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Flame Turns Green rot",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.status.corpse_rot",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "cooldown": 3
+     },
+     "do": [
+      {
+       "cleanse": {
+        "status": "corpse_rot"
+       }
+      },
+      {
+       "counter": {
+        "id": "poison_faded",
+        "add": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Lit but Not Launched": {
+   "rule": "Stern Lamp of the Evening Boats: extends every Fishing Boats Sing at Dusk art by 2 s (Coming Home at Dusk 6 to 8 s, Oars Together 4 to 6 s with 5 s curse clamp, The Ninth Verse 10 to 12 s).",
+   "counters": [
+    {
+     "id": "stern_lamp"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Lit but Not Launched",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "stern_lamp",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lit but Not Launched song",
+     "on": "art_fired",
+     "filter": {
+      "group": "evening-song-of-the-boats"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "stern_lamp",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Sky Goes One Colour": {
+   "rule": "Sunset Regalia, full set (3 pieces): once per fight, from the 30th second, the sky turns red for 8 s. On opening, the foe's Earth stacks are doubled for 8 s; while the red sky holds, each Earth debuff grant you lay adds 1 extra stack and you heal 3 % of your maximum health each second.",
+   "approx": "doubling existing Earth stacks for 8 s plus +1 Earth stack_grant during the 8 s window makes Earth stacks count double for every art",
+   "counters": [
+    {
+     "id": "red_sky",
+     "decay_per_pulse": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Sky Goes One Colour open",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "time",
+       "op": ">=",
+       "value": 30
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "scale": {
+      "read": "foe.debuff.earth",
+      "per": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "earth",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Sky Goes One Colour start",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "time",
+       "op": ">=",
+       "value": 30
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "red_sky",
+        "set": 8
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Sky Goes One Colour heal",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.red_sky",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.03
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Sky Goes One Colour grant",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.red_sky",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "stack_grant": 1,
+        "element": "earth",
+        "kind": "debuff"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Lightning and Frost": {
+   "rule": "Twin Swords of the Armoury, full set (2 pieces): wakes both swords' sleeping elements at half strength for any holder (+20 % attack, +5 % crit chance, +11 % art speed on sword arts), wakes both swords' Effects on sword hits (half-strength fork on Tử Điện, Ice stacks on slowed foes on Thanh Sương), and each sword hit lays 1 Thunder and 1 Ice debuff stack (6 s, up to twice per pulse).",
+   "counters": [
+    {
+     "id": "twins_awake"
+    },
+    {
+     "id": "frost_awake"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Lightning and Frost wake",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "twins_awake",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "frost_awake",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lightning and Frost mods",
+     "on": "always",
+     "do": [
+      {
+       "mod": {
+        "L1": 20,
+        "crit": 5,
+        "art_speed": 11,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lightning and Frost stacks",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "thunder",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Fished from the Shallows": {
+   "rule": "Nails of Đào Sa, full set (2 pieces): each needle hit (Needle Rain or any needle-tagged art) on a foe with 3 or more Earth stacks lays 1 more Earth stack (8 s); when a foe hits you, your next needle volley is a sure crit (once every 6 s).",
+   "counters": [
+    {
+     "id": "dao_sa_crit"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Fished from the Shallows pin rain",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "needle-rain"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.earth",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "limit": {
+      "per_pulse": 3
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "earth",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fished from the Shallows pin tag",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "needle"
+      ],
+      "not_art_id": "needle-rain"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.earth",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "limit": {
+      "per_pulse": 3
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "earth",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fished from the Shallows arm",
+     "on": "was_hit",
+     "limit": {
+      "cooldown": 6
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "dao_sa_crit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fished from the Shallows crit",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.dao_sa_crit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "sure_crit": 1,
+        "art_id": "needle-rain"
+       }
+      },
+      {
+       "mod": {
+        "sure_crit": 1,
+        "tags": [
+         "needle"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fished from the Shallows spend rain",
+     "on": "crit",
+     "filter": {
+      "art_id": "needle-rain"
+     },
+     "if": [
+      {
+       "read": "own.counter.dao_sa_crit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "dao_sa_crit",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fished from the Shallows spend tag",
+     "on": "crit",
+     "filter": {
+      "tags": [
+       "needle"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.dao_sa_crit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "dao_sa_crit",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Breath Held": {
+   "rule": "Three Hundred Paces, full set (2 pieces): while you carry a poison (Wood debuff) or miasma (Corpse Rot) stack, your sword arts are 15 % faster, and each sword hit sheds 1 poison stack (or Corpse Rot) from you.",
+   "records": [
+    {
+     "id": "eff:Breath Held haste",
+     "on": "always",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.debuff.wood",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.corpse_rot",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "art_speed": 15,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Breath Held shed wood",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "wood"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Breath Held shed rot",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.status.corpse_rot",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "cleanse": {
+        "status": "corpse_rot"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Glow After Dark": {
+   "rule": "Prize and Brush, full set (2 pieces): each talisman or seal art you fire loads a glow charge (10 s). When one of your debuff batches expires unspent on the foe while a glow charge holds, it spends 1 charge and fires a half-strength strike (c 1.2 Physical) at the foe.",
+   "approx": "unspent expiry is read via batch_ended on your debuffs after firing a talisman or seal art; half strength is a fixed c 1.2 Physical free hit",
+   "counters": [
+    {
+     "id": "sealed_glow",
+     "each_for": 10
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Glow After Dark load",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "talisman",
+       "seal"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "sealed_glow",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Glow After Dark expire",
+     "on": "batch_ended",
+     "if": [
+      {
+       "read": "own.counter.sealed_glow",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "sealed_glow",
+        "add": -1
+       }
+      },
+      {
+       "free_hit": {
+        "c": 1.2,
+        "dtype": "phys"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Every Debt Called": {
+   "rule": "Debt and Wall, full set (3 pieces): the Vô Định Tally also adds 1 mark each time you block damage, may be called a second time each fight (at 8 more marks or <= 40 % HP), and each call grants a body shield of 2 % of your maximum health per tallied mark.",
+   "approx": "shield size is 2 % max HP per tallied mark (matching the Tally's per-mark return approximation)",
+   "counters": [
+    {
+     "id": "debt_tally"
+    },
+    {
+     "id": "debt_calls"
+    },
+    {
+     "id": "debt_shield_due"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Every Debt Called block",
+     "on": "blocked",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "debt_tally",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Debt Called shield",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.debt_shield_due",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.debt_shield_due",
+      "per": 1
+     },
+     "do": [
+      {
+       "shield": {
+        "body": 0.02
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Debt Called shield clear",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.debt_shield_due",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "debt_shield_due",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Debt Called second",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.debt_calls",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.debt_tally",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "own.counter.debt_tally",
+         "op": ">=",
+         "value": 8
+        },
+        {
+         "read": "own.hp_share",
+         "op": "<=",
+         "value": 0.4
+        }
+       ]
+      }
+     ],
+     "scale": {
+      "read": "own.counter.debt_tally",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.35,
+        "dtype": "phys",
+        "outside_budget": true
+       }
+      },
+      {
+       "shield": {
+        "body": 0.02
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Debt Called second reset",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.debt_calls",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.debt_tally",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "own.counter.debt_tally",
+         "op": ">=",
+         "value": 8
+        },
+        {
+         "read": "own.hp_share",
+         "op": "<=",
+         "value": 0.4
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "debt_tally",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "debt_calls",
+        "set": 2
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Geese in the Cold": {
+   "rule": "What Came Off the Field, full set (3 pieces): while your Field stands (field_up, standing ruling R1), damage you take is dampened by 10 %; the first time you are Wounded while your Field stands, your sword hits gain two extra blades for the rest of the fight (a bonus c 0.16 Physical hit on each sword hit, up to twice per pulse).",
+   "approx": "long-sky-one-colour is parked, so 'One Colour field' reads own.field_up (satisfied by Sunset Cloud); two blades equal 2 x 8 % of a flying sword strike (c 0.16)",
+   "counters": [
+    {
+     "id": "geese_blades"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Geese in the Cold shelter",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.field_up",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 10
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Geese in the Cold wounded",
+     "on": "wounded",
+     "if": [
+      {
+       "read": "own.field_up",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "geese_blades",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Geese in the Cold blades",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.geese_blades",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.16,
+        "dtype": "phys"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Eight Marks": {
+   "rule": "The Envoy's Errand, full set (3 pieces): when the fan's art (Fan Gust) strikes a foe carrying 4 or more Earth stacks, its guard breaks for 4 s (Exposed -100 resistance and your hits bypass 30 % of its ward), and each guard broken this way loads a mark; your next song art heals you 2 % of your maximum health per mark and spends them.",
+   "approx": "'block and ward 30 % weaker' is Exposed (4 s) plus bypass 0.30 (4 s)",
+   "counters": [
+    {
+     "id": "eight_marks_heal"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Eight Marks break",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "fan-gust"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.earth",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "exposed",
+        "stacks": 1,
+        "dur": 4,
+        "side": "foe"
+       }
+      },
+      {
+       "mod": {
+        "bypass": 0.3,
+        "for": 4
+       }
+      },
+      {
+       "counter": {
+        "id": "eight_marks_heal",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Eight Marks heal",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "song"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.eight_marks_heal",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.eight_marks_heal",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.02
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Eight Marks spend",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "song"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.eight_marks_heal",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "eight_marks_heal",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Anchored Span": {
+   "rule": "The Cloud Bridge Works, full set (3 pieces): while you hold 2 or more Flag charges, each pulse in which the foe acted (foe_pressed) it takes 2 Earth stacks (8 s) and 1 Slowed Time stack (3 s), at most once every 2 s; while you are Composed with 2 or more Flag charges, your formation arts cost no linh lực (cost_red 0.95 cap) and you recover 1 % linh lực each second.",
+   "counters": [
+    {
+     "id": "flag_charge",
+     "each_for": 12
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Anchored Span press",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.flag_charge",
+       "op": ">=",
+       "value": 2
+      },
+      {
+       "read": "own.foe_pressed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "cooldown": 2
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "earth",
+        "n": 2,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 3,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Anchored Span upkeep",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.flag_charge",
+       "op": ">=",
+       "value": 2
+      },
+      {
+       "read": "own.composed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "cost_red": 0.95,
+        "tags": [
+         "formation"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Anchored Span qi",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.flag_charge",
+       "op": ">=",
+       "value": 2
+      },
+      {
+       "read": "own.composed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "gain_qi": {
+        "share": 0.01
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Outlast the Grey": {
+   "rule": "The Miasma Watch, full set (3 pieces): each poison or miasma stack the Lantern sheds heals you 1 % of your health over 3 s (0.33 % per pulse) and loads 1 Earth stack onto your next anchor hit (Anchor Drop). When you lay an Earth stack that brings the foe to 6 or more Earth stacks, its clock stops for 1.5 s and it is Bound for 2 s (once every 12 s).",
+   "approx": "non-spatial lock: 'locked in place for 1.5 s' is stop_clock 1.5 s plus Bound 2 s; poison-faded stacks are fed by The Flame Turns Green",
+   "counters": [
+    {
+     "id": "poison_faded"
+    },
+    {
+     "id": "grey_heal",
+     "each_for": 3
+    },
+    {
+     "id": "grey_anchor"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Outlast the Grey fade",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.poison_faded",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.poison_faded",
+      "per": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "grey_heal",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "grey_anchor",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Grey clear",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.poison_faded",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "poison_faded",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Grey heal",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.grey_heal",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.grey_heal",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.00333
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Grey anchor",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "anchor-drop"
+     },
+     "if": [
+      {
+       "read": "own.counter.grey_anchor",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.grey_anchor",
+      "per": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "earth",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Grey anchor spend",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "anchor-drop"
+     },
+     "if": [
+      {
+       "read": "own.counter.grey_anchor",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "grey_anchor",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Grey lock",
+     "on": "status_applied",
+     "filter": {
+      "element": "earth"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.earth",
+       "op": ">=",
+       "value": 6
+      }
+     ],
+     "limit": {
+      "cooldown": 12
+     },
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.5
+       }
+      },
+      {
+       "status": {
+        "id": "bound",
+        "stacks": 1,
+        "dur": 2,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

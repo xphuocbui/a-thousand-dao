@@ -1806,7 +1806,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "dia_loi",
+     "tech": "anvil-thunder-canon",
      "layer": 6
     },
     "aux": [

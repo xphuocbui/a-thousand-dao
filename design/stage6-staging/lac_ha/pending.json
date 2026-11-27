@@ -1,0 +1,16 @@
+{
+ "words": [
+  {
+   "name": "technique-effects",
+   "kind": "field",
+   "spec": "A technique's `effects` list may hold {\"name\": <library Effect name>, \"unlock_layer\": n, \"passive_art\": true, \"rule\": ...}. When a build knows the technique at layer n or above (fight.py `tech_layers`, the GDScript FighterCompiler), the loader adds that Effect from assets/data/combat_effects.json exactly as an item's named Effect is added (fight.py expand_library's add_library_effect, with its counters). Matches Thiên Xu's pending word of the same name.",
+   "gdd_text": "Công Pháp rule (passive arts): a technique may carry passive arts, each a named Effect with an unlock layer. Known to that layer, the passive art's Effect is always on in a fight; it takes no art slot and is never fired.",
+   "used_by": [
+    "sunset-cloud-canon",
+    "The Glow Deepens"
+   ]
+  }
+ ],
+ "arts": [],
+ "effects": {}
+}

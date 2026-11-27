@@ -1,0 +1,854 @@
+[
+ {
+  "id": "dust-in-the-last-light",
+  "name": "Dust in the Last Light (Tàn Chiếu Trần)",
+  "element": "earth",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "evening-dust-primer",
+  "tags": [
+   "earth",
+   "quick"
+  ],
+  "c_art": 1.5,
+  "cost_share": 0.03,
+  "cooldown": 3,
+  "kind": "phys",
+  "debuff": [
+   1,
+   8
+  ],
+  "effects": [
+   {
+    "id": "dust-light-blind",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "dust-in-the-last-light"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 2,
+       "for": 3,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A thrown handful of lit dust: a light Earth hit that lays 1 Earth stack for 8 s and 2 short Earth stacks for 3 s, lowering the target's accuracy while the dust hangs in the light.",
+  "hooks": [
+   "earth stacks",
+   "accuracy debuff",
+   "art speed"
+  ],
+  "sources": [
+   "world-depth:lac_ha"
+  ]
+ },
+ {
+  "id": "the-sunset-clouds-fly-with-the-lone-duck",
+  "name": "The Sunset Clouds Fly with the Lone Duck (Lạc Hà Cô Vụ Tề Phi)",
+  "element": "earth",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "sunset-cloud-canon",
+  "tags": [
+   "earth",
+   "formation"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 4,
+  "kind": "elem",
+  "guards": [
+   {
+    "read": "own.counter.sunset_cloud",
+    "op": "<=",
+    "value": 1
+   }
+  ],
+  "counters": [
+   {
+    "id": "sunset_cloud",
+    "decay_per_pulse": 1
+   },
+   {
+    "id": "glow_clock"
+   }
+  ],
+  "states": [
+   {
+    "id": "sunset-cloud",
+    "tags": [
+     "field"
+    ],
+    "mods": {}
+   }
+  ],
+  "effects": [
+   {
+    "id": "sunset-cloud-raise",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-sunset-clouds-fly-with-the-lone-duck"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "sunset_cloud",
+       "set": 10
+      }
+     }
+    ]
+   },
+   {
+    "id": "sunset-cloud-field",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-sunset-clouds-fly-with-the-lone-duck"
+    },
+    "if": [
+     {
+      "read": "own.state.any",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "sunset-cloud"
+      }
+     }
+    ]
+   },
+   {
+    "id": "sunset-cloud-tick",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.sunset_cloud",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 1,
+       "for": 10,
+       "side": "foe"
+      }
+     },
+     {
+      "heal": {
+       "share": 0.01
+      }
+     }
+    ]
+   },
+   {
+    "id": "sunset-cloud-slow",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.sunset_cloud",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.debuff.earth",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "sunset-cloud-end",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.sunset-cloud",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.sunset_cloud",
+      "op": "<=",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   },
+   {
+    "id": "glow-clock-pulse",
+    "on": "pulse",
+    "do": [
+     {
+      "counter": {
+       "id": "glow_clock",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "glow-clock-hit",
+    "on": "was_hit",
+    "if": [
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "glow_clock",
+       "add": 1.5
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Raises a glowing cloud (a Field) for 10 s (enters the Sunset Cloud Field stance if you hold no other stance, so it never overwrites Mountain Stance). Each second while the cloud stands, the foe gains 1 Earth stack (10 s) and you heal 1 % of your health; at 5 or more Earth stacks on the foe, it also takes 1 Slowed Time (2 s). Also keeps your glow clock: +1 s each second of the fight plus +1.5 s per damaging blow taken (never wound back by healing).",
+  "hooks": [
+   "field",
+   "earth stacks",
+   "healing",
+   "slowed time",
+   "glow clock"
+  ],
+  "sources": [
+   "world-depth:lac_ha",
+   "d3 red-sky-at-evening"
+  ]
+ },
+ {
+  "id": "last-light-on-the-field",
+  "name": "Last Light on the Field (Tàn Chiếu Điền)",
+  "element": "earth",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "sunset-cloud-canon",
+  "tags": [
+   "earth",
+   "heavy"
+  ],
+  "c_art": 1.8,
+  "cost_share": 0.06,
+  "cooldown": 7,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "glow_clock"
+   }
+  ],
+  "guards": [
+   {
+    "any": [
+     {
+      "read": "own.counter.glow_clock",
+      "op": ">=",
+      "value": 10
+     },
+     {
+      "read": "time",
+      "op": ">=",
+      "value": 10
+     },
+     {
+      "read": "foe.debuff.earth",
+      "op": ">=",
+      "value": 10
+     }
+    ]
+   }
+  ],
+  "effects": [
+   {
+    "id": "last-light-consume",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "last-light-on-the-field"
+    },
+    "do": [
+     {
+      "consume": {
+       "el": "earth",
+       "side": "foe",
+       "kind": "debuff",
+       "per": 1,
+       "then": [
+        {
+         "mod": {
+          "dmg_more": 0.12,
+          "element": "earth"
+         }
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Calls the cloud down on the foe. Cannot fire until 10 s on your glow clock (or fight time), unless the foe carries 10 or more Earth stacks. Consumes all Earth debuff stacks on the foe and deals 12 % more Earth damage per stack consumed, with no cap.",
+  "hooks": [
+   "earth stacks",
+   "consume stacks",
+   "glow clock",
+   "heavy hits",
+   "dmg_more"
+  ],
+  "sources": [
+   "world-depth:lac_ha",
+   "d3 red-sky-at-evening"
+  ]
+ },
+ {
+  "id": "coming-home-at-dusk",
+  "name": "Coming Home at Dusk (Vãn Quy)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "evening-song-of-the-boats",
+  "tags": [
+   "wood",
+   "song"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 8,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "van_quy",
+    "decay_per_pulse": 1
+   },
+   {
+    "id": "stern_lamp"
+   }
+  ],
+  "effects": [
+   {
+    "id": "van-quy-start",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "coming-home-at-dusk"
+    },
+    "if": [
+     {
+      "read": "own.counter.stern_lamp",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "van_quy",
+       "set": 6
+      }
+     },
+     {
+      "mod": {
+       "timer_resist": 33,
+       "status_resist": 15,
+       "for": 6
+      }
+     }
+    ]
+   },
+   {
+    "id": "van-quy-start-lamp",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "coming-home-at-dusk"
+    },
+    "if": [
+     {
+      "read": "own.counter.stern_lamp",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "van_quy",
+       "set": 8
+      }
+     },
+     {
+      "mod": {
+       "timer_resist": 33,
+       "status_resist": 15,
+       "for": 8
+      }
+     }
+    ]
+   },
+   {
+    "id": "van-quy-pulse",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.van_quy",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "gain_qi": {
+       "share": 0.02
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A sustain song held for 6 s (8 s with the Stern Lamp of the Evening Boats): each second you regain 2 % of your maximum linh lực, your slow and timer-delay effects run a third shorter (timer resistance +33 %), and your status resistance rises by 15 %.",
+  "hooks": [
+   "linh luc recovery",
+   "timer resistance",
+   "status resistance",
+   "song"
+  ],
+  "sources": [
+   "world-depth:lac_ha",
+   "b2 song"
+  ]
+ },
+ {
+  "id": "oars-together",
+  "name": "Oars Together (Tề Trạo)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "evening-song-of-the-boats",
+  "tags": [
+   "wood",
+   "song"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 6,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "stern_lamp"
+   }
+  ],
+  "effects": [
+   {
+    "id": "oars-together-cast",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "oars-together"
+    },
+    "if": [
+     {
+      "read": "own.counter.stern_lamp",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "art_speed": 20,
+       "for": 4
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 2,
+       "dur": 4,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "oars-together-cast-lamp",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "oars-together"
+    },
+    "if": [
+     {
+      "read": "own.counter.stern_lamp",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "art_speed": 20,
+       "for": 6
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 2,
+       "dur": 5,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A short verse: for 4 s (6 s with the Stern Lamp), your art speed rises by 20 % and the foe takes 2 stacks of Slowed Time (4 s; 5 s clamp with the Stern Lamp).",
+  "hooks": [
+   "art speed",
+   "slowed time",
+   "song"
+  ],
+  "sources": [
+   "world-depth:lac_ha",
+   "b2 song"
+  ]
+ },
+ {
+  "id": "the-ninth-verse",
+  "name": "The Ninth Verse (Đệ Cửu Khúc)",
+  "element": "wood",
+  "role": "ward",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "evening-song-of-the-boats",
+  "tags": [
+   "wood",
+   "song"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 2,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "ninth_used"
+   },
+   {
+    "id": "ninth_verse",
+    "decay_per_pulse": 1
+   },
+   {
+    "id": "stern_lamp"
+   }
+  ],
+  "guards": [
+   {
+    "read": "own.wounded",
+    "op": ">=",
+    "value": 1
+   },
+   {
+    "read": "own.counter.ninth_used",
+    "op": "==",
+    "value": 0
+   }
+  ],
+  "effects": [
+   {
+    "id": "ninth-verse-sing",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-ninth-verse"
+    },
+    "if": [
+     {
+      "read": "own.counter.stern_lamp",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "ninth_used",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "ninth_verse",
+       "set": 10
+      }
+     },
+     {
+      "mod": {
+       "dampen_taken": 10,
+       "delay_immune": 1,
+       "for": 10
+      }
+     }
+    ]
+   },
+   {
+    "id": "ninth-verse-sing-lamp",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-ninth-verse"
+    },
+    "if": [
+     {
+      "read": "own.counter.stern_lamp",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "ninth_used",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "ninth_verse",
+       "set": 12
+      }
+     },
+     {
+      "mod": {
+       "dampen_taken": 10,
+       "delay_immune": 1,
+       "for": 12
+      }
+     }
+    ]
+   },
+   {
+    "id": "ninth-verse-heal",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.ninth_verse",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "heal": {
+       "share": 0.01
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Sung once per fight, after you are Wounded: for 10 s (12 s with the Stern Lamp), damage you take is dampened by 10 %, you heal 1 % of your health each second, and the foe's timer delays on your arts do not apply.",
+  "hooks": [
+   "wounded",
+   "dampen taken",
+   "healing",
+   "delay immunity",
+   "song"
+  ],
+  "sources": [
+   "world-depth:lac_ha",
+   "b2 song",
+   "d14 the-ninth-verse"
+  ]
+ },
+ {
+  "id": "ferry-breath",
+  "name": "Ferry Breath (Độ Tức)",
+  "element": "water",
+  "role": "heal",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "evening-ferry-breath",
+  "tags": [
+   "heal"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 5,
+  "kind": "elem",
+  "c_heal": 0.5,
+  "rule": "An even breath drawn over river water: a small heal for Lạc Hà's river-born servants.",
+  "hooks": [
+   "healing",
+   "health regeneration"
+  ],
+  "sources": [
+   "world-depth:lac_ha"
+  ]
+ },
+ {
+  "id": "hearth-ember-breath",
+  "name": "Hearth-Ember Breath (Táo Dư Tức)",
+  "element": "",
+  "role": "heal",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "bellows-and-hearth-breath",
+  "tags": [
+   "heal"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 5,
+  "kind": "elem",
+  "c_heal": 0.5,
+  "rule": "Draws the slow warmth of a banked hearth or forge fire to steady the body: a small heal.",
+  "hooks": [
+   "healing",
+   "health regeneration"
+  ],
+  "sources": [
+   "world-depth:lac_ha"
+  ]
+ },
+ {
+  "id": "anvil-blow",
+  "name": "Anvil Blow (Châm Chùy Kích)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "anvil-thunder-canon",
+  "tags": [
+   "metal",
+   "heavy"
+  ],
+  "c_art": 1.9,
+  "cost_share": 0.04,
+  "cooldown": 3.5,
+  "kind": "phys",
+  "debuff": [
+   1,
+   8
+  ],
+  "effects": [
+   {
+    "id": "anvil-blow-spark",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "anvil-blow"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "thunder",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A heavy hammer strike that lays 1 Metal stack (8 s) and drives 1 Thunder spark stack (8 s) into the foe.",
+  "hooks": [
+   "metal stacks",
+   "thunder stacks",
+   "heavy hits"
+  ],
+  "sources": [
+   "world-depth:lac_ha"
+  ]
+ },
+ {
+  "id": "thunder-quench",
+  "name": "Thunder Quench (Lôi Thối)",
+  "element": "thunder",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "anvil-thunder-canon",
+  "tags": [
+   "lightning",
+   "heavy"
+  ],
+  "c_art": 2.0,
+  "cost_share": 0.05,
+  "cooldown": 6,
+  "kind": "elem",
+  "empower": [
+   {
+    "if": [
+     {
+      "any": [
+       {
+        "read": "foe.debuff.thunder",
+        "op": ">=",
+        "value": 3
+       },
+       {
+        "read": "own.buff.metal",
+        "op": ">=",
+        "value": 3
+       }
+      ]
+     }
+    ],
+    "pay": [
+     {
+      "consume": {
+       "el": "thunder",
+       "side": "foe",
+       "kind": "debuff",
+       "n": 3
+      }
+     }
+    ],
+    "c_art": 3.6,
+    "add_statuses": [
+     {
+      "id": "sundered",
+      "stacks": 1,
+      "dur": 4
+     }
+    ]
+   }
+  ],
+  "rule": "Drops a quenching bolt onto heated metal. Against a foe with 3 or more Thunder stacks, or while you hold 3 or more Metal buff stacks (as from Iron Hide), it consumes up to 3 Thunder stacks on the foe to strike much harder (3.6) and Sunder the foe for 4 s.",
+  "hooks": [
+   "thunder stacks",
+   "metal buffs",
+   "sundered",
+   "crit"
+  ],
+  "sources": [
+   "world-depth:lac_ha"
+  ]
+ }
+]

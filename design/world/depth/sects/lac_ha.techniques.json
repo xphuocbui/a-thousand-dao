@@ -24,7 +24,7 @@
    "concept": "The outer gate's method, practised facing west on the steppe at the old seat for the hour the sun takes to set. The glow of a western evening is the plain's dust lit from below, and the primer teaches an Earth root to breathe that lit dust and a Wood root to breathe the grass as it turns gold. Either root carries a disciple through its six layers. The outer gate sits for it at dusk, an hour a day, by custom; the primer itself turns at any hour. The sixth layer, Dust Holds the Glow, leaves a faint red on the palms after sunset. If the disciple's Earth is strong enough to keep it until full dark, the inner gate opens.",
    "arts": [
     "millstone-palm",
-    {"new": "Dust in the Last Light (Tàn Chiếu Trần)", "concept": "A thrown handful of lit dust: a light Earth hit that lays one Earth stack and lowers the target's accuracy a little for 3 s. The outer gate's only fighting art."}
+    {"id": "dust-in-the-last-light", "new": "Dust in the Last Light (Tàn Chiếu Trần)", "concept": "A thrown handful of lit dust: a light Earth hit that lays one Earth stack and lowers the target's accuracy a little for 3 s. The outer gate's only fighting art."}
    ],
    "lore": "Nhan Cô Vụ taught it from his first year (290) to the herders who came to watch the old man sit in the grass at sunset. It was written down only in 600, when the outer gate grew past what one voice could teach. Since the seat moved in 1185 the outer gate has stayed on the steppe for it.",
    "status": "proposal",
@@ -44,9 +44,9 @@
    "arts": [
     "sinking-weight",
     "second-spring",
-    {"new": "The Sunset Clouds Fly with the Lone Duck (Lạc Hà Cô Vụ Tề Phi)", "concept": "Raises a glowing cloud (a Field) for 10 s. Each second while it is up, the foe gains an Earth stack and you heal 1 % of your health. A foe at five Earth stacks while the cloud is up is slowed."},
-    {"new": "The Glow Deepens (Hà Thâm)", "concept": "A passive art. Your glow clock is the fight's time plus 1 s for every 2 % of your health lost to blows this fight; for every 6 s on it, your Earth arts deal 4 % more.", "authored": "d3"},
-    {"new": "Last Light on the Field (Tàn Chiếu Điền)", "concept": "Calls the cloud down on the foe. The hit is Earth damage multiplied by the foe's Earth stacks, which it consumes. It cannot fire before 10 s on your glow clock, unless the foe carries 10 or more Earth stacks.", "authored": "d3"}
+    {"id": "the-sunset-clouds-fly-with-the-lone-duck", "new": "The Sunset Clouds Fly with the Lone Duck (Lạc Hà Cô Vụ Tề Phi)", "concept": "Raises a glowing cloud (a Field) for 10 s. Each second while it is up, the foe gains an Earth stack and you heal 1 % of your health. A foe at five Earth stacks while the cloud is up is slowed."},
+    {"new": "The Glow Deepens (Hà Thâm)", "concept": "A passive art. Your glow clock is the fight's time plus 1 s for every 2 % of your health lost to blows this fight; for every 6 s on it, your Earth arts deal 4 % more.", "effect": "the-glow-deepens", "unlock_layer": 3, "authored": "d3"},
+    {"id": "last-light-on-the-field", "new": "Last Light on the Field (Tàn Chiếu Điền)", "concept": "Calls the cloud down on the foe. The hit is Earth damage multiplied by the foe's Earth stacks, which it consumes. It cannot fire before 10 s on your glow clock, unless the foe carries 10 or more Earth stacks.", "authored": "d3"}
    ],
    "lore": "Nhan Cô Vụ wrote it on the steppe in 290-330, when the founding hall stood among the maples he planted (A190). The first copy is written on hemp cloth from Tang Ma Thành and was carried up to the Cloud Bridge in 1185 in the head's own sleeve. Trầm Tịch Dương reached its fourteenth layer before the last seat maple died in 1131. No one has reached its eleventh on the old seat since.",
    "status": "proposal",
@@ -64,9 +64,9 @@
    "tier": 1, "tech_kind": "secret", "names": ["moc"], "layers": 9, "rank": "noi_mon",
    "concept": "A song art, sung in the reed and maple voice of Wood qi. The river boats of Ngư Ca Xuyên were singing their song at dusk before the sect was founded. Nhan Cô Vụ heard it from the steppe in 290, set Wood qi into it, and gave each village back one verse of the art. Each village kept its verse, and only the inner gate knows all nine. In a fight it is a sustain song: you recover linh lực and shake off fear, and the foe loses a little speed. Since 803 the sect sings it one verse short. The ninth verse is sung only over the dead.",
    "arts": [
-    {"new": "Coming Home at Dusk (Vãn Quy)", "concept": "A song held for as long as you pay 3 % of your maximum linh lực each second: you regain 2 % of your linh lực each second and your fear and slow effects run a third shorter.", "tags": ["song"], "authored": "b2"},
-    {"new": "Oars Together (Tề Trạo)", "concept": "A short verse: the next art you cast within 4 s is cast a little faster, and the foe casts a little slower for the same time.", "tags": ["song"], "authored": "b2"},
-    {"new": "The Ninth Verse (Đệ Cửu Khúc)", "concept": "Sung once, when you are first Wounded: for 10 s you take 10 % less damage, heal 1 % of your health each second, and the foe's delays on your arts do not apply. Once per fight. The sect has not sung it in a battle since 803.", "tags": ["song"], "authored": "b2, d14, a1"}
+    {"id": "coming-home-at-dusk", "new": "Coming Home at Dusk (Vãn Quy)", "concept": "A song held for as long as you pay 3 % of your maximum linh lực each second: you regain 2 % of your linh lực each second and your fear and slow effects run a third shorter.", "tags": ["song"], "authored": "b2"},
+    {"id": "oars-together", "new": "Oars Together (Tề Trạo)", "concept": "A short verse: the next art you cast within 4 s is cast a little faster, and the foe casts a little slower for the same time.", "tags": ["song"], "authored": "b2"},
+    {"id": "the-ninth-verse", "new": "The Ninth Verse (Đệ Cửu Khúc)", "concept": "Sung once, when you are first Wounded: for 10 s you take 10 % less damage, heal 1 % of your health each second, and the foe's delays on your arts do not apply. Once per fight. The sect has not sung it in a battle since 803.", "tags": ["song"], "authored": "b2, d14, a1"}
    ],
    "lore": "The silence of the boats at dusk in 803 (A197, V091, V095, V103, V104) was the villages refusing to sing the sect's song after Chiết Kích Nguyên. In 805 Nhan Cô Vụ dropped the last verse from the inner gate's teaching, so that the sect would sing one verse fewer, like its villages.",
    "status": "proposal",
@@ -92,6 +92,33 @@
    "lore": "Nhan Tề Phi wrote it in 590-610 for the War of the Petal Shore, out of her father's line and the geese of Nhạn Thanh Thành. It won the bay in 620. It also lost the field at Chiết Kích Nguyên in 803, where Quý Trường Kích fought it from inside a ring of halberds. Cảnh Trường Thiên teaches it now, and adds the geese stance Nhạn Trận Môn drills with (V096).",
    "status": "proposal",
    "authored": "d4, a1, d17"
+  },
+  {
+   "id": "evening-ferry-breath",
+   "name": "Evening Ferry Breathing (Vãn Độ Thổ Nạp Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 6, "rank": "tap_dich",
+   "concept": "A quiet Water and Wood breathing method passed among Lạc Hà's river-born servants (dyers, ferrymen, guest-house hands) who never joined the lineage (Stage 6 stand-in, auto-accepted 2026-11-27). Promoted: design/techniques/catalogue-sect-lac_ha.json.",
+   "arts": [{"id": "ferry-breath", "new": "Ferry Breath (Độ Tức)", "concept": "An even breath drawn over river water: a small heal."}],
+   "status": "proposal"
+  },
+  {
+   "id": "bellows-and-hearth-breath",
+   "name": "Bellows and Hearth Breathing (Phong Táo Thổ Nạp Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["hoa", "kim", "tho"], "layers": 6, "rank": "tap_dich",
+   "concept": "The servants' method of Lạc Hà's kitchens and the Tử Điện Thành armoury forge, for Fire, Metal and Earth hands who do not enter the steppe primer (Stage 6 stand-in, auto-accepted 2026-11-27). Promoted: design/techniques/catalogue-sect-lac_ha.json.",
+   "arts": [{"id": "hearth-ember-breath", "new": "Hearth-Ember Breath (Táo Dư Tức)", "concept": "Draws the slow warmth of a banked hearth or forge fire: a small heal."}],
+   "status": "proposal"
+  },
+  {
+   "id": "anvil-thunder-canon",
+   "name": "Anvil-Thunder Forging Canon (Châm Lôi Đoán Kinh)",
+   "tier": 2, "tech_kind": "main", "names": ["loi", "kim"], "layers": 12, "rank": "khach_khanh",
+   "concept": "Guest armourer Vưu Chước Kim's forge-hand Thunder and Metal method at Tử Điện Thành: hammer blows that lay Metal and Thunder sparks, quenched by a lightning bolt (Stage 6 stand-in, auto-accepted 2026-11-27). Promoted: design/techniques/catalogue-sect-lac_ha.json.",
+   "arts": [
+    {"id": "anvil-blow", "new": "Anvil Blow (Châm Chùy Kích)", "concept": "A heavy hammer strike laying Metal and Thunder stacks."},
+    {"id": "thunder-quench", "new": "Thunder Quench (Lôi Thối)", "concept": "A quenching bolt empowered by Thunder stacks on the foe or Metal buffs on yourself, Sundering the foe."}
+   ],
+   "status": "proposal"
   }
  ]
 }
