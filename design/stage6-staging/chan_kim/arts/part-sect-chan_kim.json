@@ -114,8 +114,15 @@
   "cooldown": 7.0,
   "kind": "phys",
   "statuses": [{"id": "exposed", "stacks": 1, "dur": 3}],
-  "counters": [{"id": "furnace_shows", "cap": 5}],
+  "counters": [{"id": "furnace_shows", "cap": 5}, {"id": "touchstone_stripped"}],
   "effects": [
+   {
+    "id": "furnace-shows-open-count",
+    "on": "hit_landed",
+    "filter": {"art_id": "the-furnace-shows"},
+    "if": [{"read": "foe.buff_elements", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "touchstone_stripped", "add": 1}}]
+   },
    {
     "id": "furnace-shows-open",
     "on": "hit_landed",
@@ -124,6 +131,15 @@
      {"strip": {"n": 99}},
      {"counter": {"id": "furnace_shows", "set": 4}}
     ]
+   },
+   {
+    "id": "furnace-shows-hold-count",
+    "on": "pulse",
+    "if": [
+     {"read": "own.counter.furnace_shows", "op": ">=", "value": 1},
+     {"read": "foe.buff_elements", "op": ">=", "value": 1}
+    ],
+    "do": [{"counter": {"id": "touchstone_stripped", "add": 1}}]
    },
    {
     "id": "furnace-shows-hold",

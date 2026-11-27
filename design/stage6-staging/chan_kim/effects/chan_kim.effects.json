@@ -3,7 +3,8 @@
  "source": "world-depth:chan_kim",
  "effects": {
   "True Gold Does Not Fear the Furnace": {
-   "rule": "True Gold Does Not Fear the Furnace (Chân Kim Bất Phạ Hỏa, true-gold-canon L4 passive art, d31): each buff stack you strip from the foe (via Assay, Touchstone or Tried and Stamped), and each ward share your Assay strips, restores 1.5 % of your maximum linh lực and adds one Part the Dross stack (4 s).",
+   "rule": "True Gold Does Not Fear the Furnace (Chân Kim Bất Phạ Hỏa, true-gold-canon L4 passive art, d31): each buff stack you strip from the foe, and each ward share your Assay strips, restores 1.5 % of your maximum linh lực and adds one Part the Dross stack (4 s).",
+   "approx": "the engine's strip action does not report exact stack count removed, so multi-stack strips (The Furnace Shows, Tried and Stamped) count 1 trigger per strip event rather than 1 per stack",
    "counters": [
     {"id": "assay_did_strip", "cap": 1},
     {"id": "touchstone_stripped"},
@@ -41,20 +42,25 @@
   },
   "Nothing False Survives": {
    "rule": "Hundred-Fold Crucible (ck-hundred-fold-crucible): every buff, ward or borrowed stat a foe gains while near you burns off twice as fast. You can tell whether any item you are shown is what its owner says it is.",
-   "approx": "\"burns off twice as fast\" is modelled as ward_bill +50 (foe drain ward burns linh lực 50 % faster) and stripping 1 buff stack every 2 s; out-of-fight item appraisal sentence is lore",
-   "counters": [],
+   "approx": "\"burns off twice as fast\" is modelled as ward_bill +100 (foe drain ward burns linh lực 2x as fast) and stripping 1 buff stack every 2 s; out-of-fight item appraisal sentence is lore",
+   "counters": [
+    {"id": "touchstone_stripped"}
+   ],
    "records": [
     {
      "id": "eff:Nothing False Survives ward",
      "on": "always",
-     "do": [{"mod": {"ward_bill": 50}}]
+     "do": [{"mod": {"ward_bill": 100}}]
     },
     {
      "id": "eff:Nothing False Survives buff",
      "on": "pulse",
      "limit": {"cooldown": 2},
      "if": [{"read": "foe.buff_elements", "op": ">=", "value": 1}],
-     "do": [{"strip": {"n": 1}}]
+     "do": [
+      {"strip": {"n": 1}},
+      {"counter": {"id": "touchstone_stripped", "add": 1}}
+     ]
     }
    ]
   },
@@ -120,6 +126,7 @@
   },
   "Tried and Stamped": {
    "rule": "Assayer's Tools, full set (3 pieces: ck-hundred-fold-crucible, ck-hallmark-seal, ck-refiner-robe): a foe your art hits while it carries a buff is stamped for 6 s; the next buff it gains burns off at once, and you gain a ward worth 5 % of your health.",
+   "approx": "the engine has no foe buff_gained event, so the 6 s stamp checks foe.buff_elements >= 1 on each pulse and consumes the stamp on burn; strip does not report exact stack count, so touchstone_stripped counts 1 per burn",
    "counters": [
     {"id": "stamped_ttl", "cap": 6},
     {"id": "touchstone_stripped"}
@@ -142,7 +149,8 @@
      "do": [
       {"strip": {"n": 99}},
       {"ward_grow": {"share": 0.05, "of": "hp"}},
-      {"counter": {"id": "touchstone_stripped", "add": 1}}
+      {"counter": {"id": "touchstone_stripped", "add": 1}},
+      {"counter": {"id": "stamped_ttl", "set": 0}}
      ]
     },
     {
