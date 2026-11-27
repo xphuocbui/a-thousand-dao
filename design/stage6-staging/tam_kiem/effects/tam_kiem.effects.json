@@ -1,0 +1,107 @@
+{
+ "_doc": "Tầm Kiếm Đường's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:tam_kiem. Unpriced. Rule text from design/world/depth/sects/tam_kiem.items.json.",
+ "source": "world-depth:tam_kiem",
+ "effects": {
+  "The Second Duel": {
+   "rule": "Evening Sword: against a foe who has already dealt a damaging hit to you this fight, your sword arts deal 10 % more damage.",
+   "counters": [
+    {
+     "id": "second_duel_hit"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Second Duel hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.counter.second_duel_hit",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "second_duel_hit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Second Duel dmg",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.second_duel_hit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.1,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Answer": {
+   "rule": "The Map Wall, full set (2 pieces): each Ask mark on the foe raises your next The Blade Answers cut's crit damage by 10 %; a The Blade Answers cut that spends 5 or more Ask marks ignores half of the foe's ward shields (bypass 0.5, the engine's bypass_cap).",
+   "approx": "\"ignores the foe's ward\" is bypass 0.5, the engine's bypass_cap; a full ward pass exists only on free hits (pass_shields)",
+   "counters": [
+    {
+     "id": "ask_mark"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Answer crit",
+     "on": "always",
+     "scale": {
+      "read": "own.counter.ask_mark",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "crit_mult": 10,
+        "art_id": "the-blade-answers"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Answer bypass",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.ask_mark",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "bypass": 0.5,
+        "art_id": "the-blade-answers"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

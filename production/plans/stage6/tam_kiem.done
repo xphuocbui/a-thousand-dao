@@ -1,0 +1,30 @@
+{
+ "owner": "tam_kiem",
+ "minutes": 5,
+ "written": {
+  "techniques": 3,
+  "arts": 4,
+  "items": 3,
+  "sets": 1,
+  "effects": 2,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 5,
+ "decisions": [
+  "Used names: [] directly on all 3 element-free techniques (b02 lint-element-free-techniques), sized Tier 0/1 bonuses and passives to budget, and set unlock_layer 1 (ask) and 2 (the-blade-answers) on asking-blade-canon.",
+  "Read 'moving foe' in where-it-will-be via Combat rule 25 (foe.pressing >= 1 or own.foe_pressed >= 1) and modeled 'cannot miss' as instant +100 pp acc (for: 0, until = t + 1 ms) alongside c_mult 1.6.",
+  "Timed ask (cd 1.4) and the-blade-answers (cd 7.2, guard ask_mark >= 1) so tieu_van_phong reaches 5+ marks; read ask_mark before hit() (always dmg_more/crit_mult/bypass; art_fired 1 ms pierce) and cleared ask_mark on hit_landed/was_evaded.",
+  "Modeled the-silent-place as a 0.0-coeff utility cast arming silent_place (always bypass 0.35, pen 80) until the next hit_landed.",
+  "Gated The Second Duel on damaging was_hit (event.amount > 0), approximated The Answer's >= 5 mark ward ignore as bypass 0.5 (bypass_cap), and marked all 3 items unique: true with R6 exception."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "The Answer (always-only Effect): sect_fight.py reports runs 0 NEVER_RAN because it counts Fight.do() calls only, but --without confirms it shifts tieu_van_phong from 34.9 s 28% HP to 30.5 s 40% HP and the probe confirms 15 ask marks across 3 answering cuts."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial merge of design/stage6-staging/tam_kiem/ into design/ and assets/data/combat_effects.json (put_effects.py under world-depth:tam_kiem).",
+  "Stage 7 export (export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py --sect tam_kiem) to close N-tam_kiem-01 and N-tam_kiem-02 events."
+ ]
+}
