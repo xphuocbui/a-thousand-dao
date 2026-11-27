@@ -18,7 +18,7 @@
    {
     "pieces": 3,
     "effect": "Last Man in the File (Mạt Hàng Nhân)",
-    "rule": "while the Banner's spread holds, your hits taken are blocked as though you had raised the shield, and each blocked hit lets you shed one poison or miasma stack (once every 3 s)."
+    "rule": "while the raised standard stands, you gain +20 block rating as though you had raised the shield, and each blocked hit lets you shed 1 Wood poison stack and 1 Corpse Rot miasma stack (once every 3 s)."
    }
   ],
   "story": "The banner, the cloth and the shield of the file of forty. Mục Hàn Nhạn holds all three. The shared-damage half is the closest line until targets-tl/geese-line exists."

@@ -20,7 +20,7 @@
   "arts": [],
   "sources": ["npc"],
   "lore": "A long grey felt banner with one goose stitched on it in undyed wool, carried at the head of Thạch Liệt Hàng's file when it walked out of Chiết Kích Nguyên in 803 (N-nhan_tran-01). It has been mended so often that hardly any of the felt is the felt of 803. Every head of the gate has carried it at the spring levy.",
-  "build_use": "The head's banner: a file that shares its damage.",
+  "build_use": "The head's standard: shared strain and block for the file.",
   "holder": "muc_han_nhan",
   "made_by": "the levy of Nhạn Thanh Thành, for Lạc Hà's war of 790",
   "made_year": 795,

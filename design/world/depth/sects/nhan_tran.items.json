@@ -41,19 +41,19 @@
      "new": true,
      "id": "one-goose",
      "name": "One Goose (Nhất Nhạn)",
-     "rule": "While the banner is planted (a Piece) and you count three or more allies, the damage you take is multiplied by (1 − X) for each ally beyond yourself, and the banner's first share is yours.",
+     "rule": "The standard is raised at the start of the fight; while it stands you take 15 % less damage, and every 6 s it takes the first share of the next blow that deals health damage (30 % of the hit healed back).",
      "authored": "a1"
     },
     {
      "new": true,
      "id": "geese-line",
      "name": "Geese Line (Nhạn Hàng)",
-     "rule": "While you count two or more allies (you, companions and Pieces), you gain 8 block for each ally beyond yourself.",
+     "rule": "While the standard stands (+8) and while Geese Stance holds (+8), you gain +8 block rating for each anchor of the file.",
      "authored": "d17"
     }
    ],
    "lore": "A long grey felt banner with one goose stitched on it in undyed wool, carried at the head of Thạch Liệt Hàng's file when it walked out of Chiết Kích Nguyên in 803 (N-nhan_tran-01). It has been mended so often that hardly any of the felt is the felt of 803. Every head of the gate has carried it at the spring levy.",
-   "build_use": "The head's banner: a file that shares its damage.",
+   "build_use": "The head's standard: shared strain and block for the file.",
    "holder": "muc_han_nhan",
    "made_by": "the levy of Nhạn Thanh Thành, for Lạc Hà's war of 790",
    "made_year": 795,
@@ -270,7 +270,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Last Man in the File (Mạt Hàng Nhân): while the Banner's spread holds, your hits taken are blocked as though you had raised the shield, and each blocked hit lets you shed one poison or miasma stack (once every 3 s)."
+     "effect": "Last Man in the File (Mạt Hàng Nhân): while the raised standard stands, you gain +20 block rating as though you had raised the shield, and each blocked hit lets you shed 1 Wood poison stack and 1 Corpse Rot miasma stack (once every 3 s)."
     }
    ],
    "story": "The banner, the cloth and the shield of the file of forty. Mục Hàn Nhạn holds all three. The shared-damage half is the closest line until targets-tl/geese-line exists.",

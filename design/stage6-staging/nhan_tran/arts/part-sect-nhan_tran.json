@@ -47,14 +47,17 @@
    {
     "id": "geese-strain-heal",
     "on": "was_hit",
-    "if": [{"read": "own.counter.geese_stance", "op": ">=", "value": 1}],
+    "if": [
+     {"read": "own.counter.geese_stance", "op": ">=", "value": 1},
+     {"read": "event.amount", "op": ">", "value": 0}
+    ],
     "limit": {"per_pulse": 1},
     "do": [
      {"heal": {"of": "amount", "share": 0.15}}
     ]
    }
   ],
-  "rule": "Forms the Geese Stance (a formation self-counter so it never clashes with body or march stances): while the file holds, you take 18 % less damage, regain 15 % of each blow taken (once a pulse, sharing strain down the file), and gain a 3 % health stance ward every 3 s.",
+  "rule": "Forms the Geese Stance (a formation self-counter so it never clashes with body or march stances): while the file holds, you take 18 % less damage, regain 15 % of each damaging blow taken (once a pulse, sharing strain down the file), and gain a 3 % health stance ward every 3 s.",
   "hooks": ["damage taken", "stance ward", "healing", "formation"],
   "sources": ["world-depth:nhan_tran"]
  },

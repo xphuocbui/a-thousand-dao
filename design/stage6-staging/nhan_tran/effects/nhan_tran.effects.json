@@ -3,19 +3,16 @@
  "source": "world-depth:nhan_tran",
  "effects": {
   "One Goose": {
-   "rule": "Banner of the First File: the banner is planted at the start of the fight; while it stands you take 15 % less damage, and every 6 s the banner takes the first share of the next blow on you (30 % of the hit healed back).",
+   "rule": "Standard of the First File: the standard is raised at the start of the fight; while it stands you take 15 % less damage, and every 6 s it takes the first share of the next blow that deals health damage (30 % of the hit healed back).",
    "counters": [
-    {"id": "banner_planted"},
-    {"id": "banner_first"},
-    {"id": "banner_first_cd"}
+    {"id": "banner_planted"}
    ],
    "records": [
     {
      "id": "eff:One Goose plant",
      "on": "fight_start",
      "do": [
-      {"counter": {"id": "banner_planted", "set": 1}},
-      {"counter": {"id": "banner_first", "set": 1}}
+      {"counter": {"id": "banner_planted", "set": 1}}
      ]
     },
     {
@@ -29,36 +26,19 @@
     {
      "id": "eff:One Goose first share",
      "on": "was_hit",
-     "if": [{"read": "own.counter.banner_first", "op": ">=", "value": 1}],
-     "do": [
-      {"heal": {"of": "amount", "share": 0.3}},
-      {"counter": {"id": "banner_first", "set": 0}},
-      {"counter": {"id": "banner_first_cd", "set": 6}}
-     ]
-    },
-    {
-     "id": "eff:One Goose rearm",
-     "on": "pulse",
-     "if": [{"read": "own.counter.banner_first_cd", "op": ">=", "value": 1}],
-     "do": [
-      {"counter": {"id": "banner_first_cd", "add": -1}}
-     ]
-    },
-    {
-     "id": "eff:One Goose ready",
-     "on": "pulse",
      "if": [
-      {"read": "own.counter.banner_first", "op": "==", "value": 0},
-      {"read": "own.counter.banner_first_cd", "op": "==", "value": 0}
+      {"read": "own.counter.banner_planted", "op": ">=", "value": 1},
+      {"read": "event.amount", "op": ">", "value": 0}
      ],
+     "limit": {"cooldown": 6},
      "do": [
-      {"counter": {"id": "banner_first", "set": 1}}
+      {"heal": {"of": "amount", "share": 0.3}}
      ]
     }
    ]
   },
   "Geese Line": {
-   "rule": "Banner of the First File (d17): while the banner is planted (+8) and while Geese Stance holds (+8), you gain +8 block rating for each anchor of the file.",
+   "rule": "Standard of the First File (d17): while the standard stands (+8) and while Geese Stance holds (+8), you gain +8 block rating for each anchor of the file.",
    "counters": [
     {"id": "banner_planted"},
     {"id": "geese_stance"}
@@ -83,7 +63,7 @@
    ]
   },
   "Last Man in the File": {
-   "rule": "Out of the Grey, full set (3 pieces): while the planted Banner stands, you gain +20 block rating as though you had raised the shield, and each blocked hit lets you shed 1 Wood poison stack and 1 Corpse Rot miasma stack (once every 3 s).",
+   "rule": "Out of the Grey, full set (3 pieces): while the raised standard stands, you gain +20 block rating as though you had raised the shield, and each blocked hit lets you shed 1 Wood poison stack and 1 Corpse Rot miasma stack (once every 3 s).",
    "counters": [
     {"id": "banner_planted"}
    ],
@@ -109,7 +89,7 @@
    ]
   },
   "Take the Wind": {
-   "rule": "Point of the File, full set (2 pieces): you take 10 % less damage, and each block you make raises a stance ward worth 1.5 % of your health (up to 2 times per pulse).",
+   "rule": "Point of the File, full set (2 pieces): you take 10 % less damage, and each block you make raises a stance ward worth 1.5 % of your health.",
    "records": [
     {
      "id": "eff:Take the Wind guard",
@@ -121,7 +101,6 @@
     {
      "id": "eff:Take the Wind ward",
      "on": "blocked",
-     "limit": {"per_pulse": 2},
      "do": [
       {"ward_grow": {"share": 0.015, "of": "hp"}}
      ]
