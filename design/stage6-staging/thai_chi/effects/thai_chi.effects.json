@@ -1,0 +1,216 @@
+{
+ "_doc": "Thải Chi Cốc Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:thai_chi.",
+ "source": "world-depth:thai_chi",
+ "effects": {
+  "Bitter Medicine": {
+   "rule": "Hundred Herbs Tasting (passive art, unlock layer 3, authored wish d33): while you carry fewer than 10 Poison (Wood debuff) stacks, each Poison tick on you deals nothing and heals you for half the damage it would have dealt; at 10 stacks or more, Poison ticks on you deal damage as usual.",
+   "records": [
+    {
+     "id": "eff:Bitter Medicine",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.debuff.wood",
+       "op": "<",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "tick_to_heal": 50,
+        "element": "wood"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Cut to the Root": {
+   "rule": "Shang Mountain Lingzhi Canon (layer 12 passive): once a fight, a killing blow cuts you only to the root: you grow back with 15 % of your maximum health.",
+   "records": [
+    {
+     "id": "eff:Cut to the Root",
+     "on": "down",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "refuse_down": {
+        "hp_share": 0.15
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Herbs Stay Alive": {
+   "rule": "Purple Lingzhi Gourd: herbs and pills carried in the gourd do not lose age or potency. In a fight, the first pill you take each fight heals half again as much, and its Wood stacks do not fade while the gourd is open.",
+   "approx": "Out-of-fight herb/pill preservation is not in combat; because fight pills are smoke-only for now, the first pill_burned raises healing by 50 % for 6 s and holds existing Wood stacks via refresh {hold: true}.",
+   "records": [
+    {
+     "id": "eff:The Herbs Stay Alive",
+     "on": "pill_burned",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "healing": 50,
+        "for": 6.0
+       }
+      },
+      {
+       "refresh": {
+        "el": "wood",
+        "side": "own",
+        "kind": "buff",
+        "hold": true
+       }
+      },
+      {
+       "refresh": {
+        "el": "wood",
+        "side": "foe",
+        "kind": "debuff",
+        "hold": true
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Banked Coals": {
+   "rule": "Cinder Censer of Lăng Tiêu: once per fight, when you cast a Fire art, the coal flares: the art's burn stacks are doubled, and you take a light burn yourself.",
+   "counters": [
+    {
+     "id": "coal_flare"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Banked Coals:cast",
+     "on": "art_fired",
+     "filter": {
+      "element": "fire"
+     },
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 2,
+        "for": 4,
+        "side": "own",
+        "kind": "debuff"
+       }
+      },
+      {
+       "counter": {
+        "id": "coal_flare",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Banked Coals:double",
+     "on": "status_applied",
+     "filter": {
+      "element": "fire"
+     },
+     "if": [
+      {
+       "read": "own.counter.coal_flare",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "event.stacks",
+      "per": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "coal_flare",
+        "set": 0
+       }
+      },
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Rain on the Sown Field": {
+   "rule": "The Herb Terraces, full set (3 pieces): while your Grain Rain falls, Lingzhi Spores on the foe do not fade, and each time a spore stack ripens it heals you for 2 % of your health.",
+   "counters": [
+    {
+     "id": "lingzhi_spores"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Rain on the Sown Field:hold",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.grain-rain",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "refresh": {
+        "el": "wood",
+        "side": "foe",
+        "kind": "debuff",
+        "at_least": 6
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Rain on the Sown Field:ripen",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.grain-rain",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lingzhi_spores",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.02
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

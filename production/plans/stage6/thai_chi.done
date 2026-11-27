@@ -1,0 +1,34 @@
+{
+ "owner": "thai_chi",
+ "minutes": 8,
+ "written": {
+  "techniques": 4,
+  "arts": 4,
+  "items": 4,
+  "sets": 1,
+  "effects": 5,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 3,
+ "decisions": [
+  "Referenced The Empty Mountain's Answer (d5) from world-depth:thuy_vi on tc-purple-lingzhi-gourd and flipped new: true -> false in thai_chi.items.json to clear the false clash without overwriting thuy_vi.",
+  "Attached Bitter Medicine (d33 passive art, unlock_layer 3) on hundred-herbs-tasting and Cut to the Root (layer 12 refuse_down from concept) on shang-mountain-lingzhi-canon via technique-effects.",
+  "Modeled The Herbs Stay Alive on first pill_burned (+50 healing for 6 s and refresh hold: true on own Wood buffs and foe Wood debuffs, marked approx since fight pills are smoke-only).",
+  "Gated weeding-hand strip on foe.buff_elements >= 1 before incrementing weeded_buffs and paired with c_art 0.8 + c_heal 0.4 + 1 % HP heal per stripped buff.",
+  "Recorded tasted_wood before cleansing 1 Wood debuff in taste-and-name (+25 Chaos resist per stack); used explicit pulse countdown in grain-rain instead of decay_per_pulse: 1.",
+  "Converted tc-purple-lingzhi-gourd to kind treasure rarity 5 (no grade) per lint_items.py and applied R6 exception to the 3 weapon/ward_gear items."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Bitter Medicine: needs a Wood/Poison-debuff foe (verified 5/5 wins, 20.27% vs 17.36% HP left in targeted probe).",
+  "The Herbs Stay Alive: needs a prepared pill and burn_pill art (verified 5 runs, 36.0 s vs 40.4 s with pill-smoke-ward).",
+  "Cut to the Root: unlock_layer 12, and highest living cast holder nghiem_linh_chi is layer 9 (verified +1.8 s survival at layer 12 vs --gap 1).",
+  "grain-rain at --gap 1: fired 3.0-3.4/fight at --gap 0, but cooldown 9.0 s exceeded the 9-11 s one-realm-up defeat window."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial step: merge design/stage6-staging/thai_chi/* into design/ and assets/data/combat_effects.json (world-depth:thai_chi).",
+  "Stage 7 export: export techniques, items, sets, combat library, and 4 translated events (thai_chi.events.json)."
+ ]
+}

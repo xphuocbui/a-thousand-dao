@@ -1,0 +1,434 @@
+[
+ {
+  "id": "weeding-hand",
+  "name": "Weeding Hand (Sừ Thảo Thủ)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "lingzhi-pickers-song",
+  "tags": [
+   "wood",
+   "heal",
+   "cleanse"
+  ],
+  "c_art": 0.8,
+  "c_heal": 0.4,
+  "cost_share": 0.03,
+  "cooldown": 5,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "weeded_buffs"
+   }
+  ],
+  "effects": [
+   {
+    "id": "weeding-strip",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "weeding-hand"
+    },
+    "if": [
+     {
+      "read": "foe.buff_elements",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "strip": {
+       "n": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "weeded_buffs",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "weeding-heal",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "weeding-hand"
+    },
+    "if": [
+     {
+      "read": "own.counter.weeded_buffs",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.weeded_buffs",
+     "per": 1
+    },
+    "do": [
+     {
+      "heal": {
+       "share": 0.01
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A light Wood strike and small heal (c_heal 0.4) that weeds away 1 buff stack from the foe's largest buff pile when it lands, then heals you for 1 % of your health for each buff stripped this fight.",
+  "hooks": [
+   "strip",
+   "healing",
+   "wood damage",
+   "counter"
+  ],
+  "sources": [
+   "world-depth:thai_chi"
+  ]
+ },
+ {
+  "id": "lingzhi-spores",
+  "name": "Lingzhi Spores (Chi Bào)",
+  "element": "wood",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "shang-mountain-lingzhi-canon",
+  "tags": [
+   "wood",
+   "seed",
+   "over_time",
+   "heal"
+  ],
+  "c_art": 1.0,
+  "cost_share": 0.04,
+  "cooldown": 5,
+  "kind": "elem",
+  "debuff": [
+   2,
+   6
+  ],
+  "counters": [
+   {
+    "id": "lingzhi_spores"
+   }
+  ],
+  "effects": [
+   {
+    "id": "spores-seed",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "lingzhi-spores"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "lingzhi_spores",
+       "add": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "spores-ripen",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.lingzhi_spores",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 1,
+       "for": 6,
+       "side": "foe"
+      }
+     },
+     {
+      "heal": {
+       "share": 0.015
+      }
+     },
+     {
+      "counter": {
+       "id": "lingzhi_spores",
+       "add": -1
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Strikes and seeds the foe with 2 Wood stacks (6 s) and 3 Lingzhi Spores. Each second a spore ripens into 1 Wood stack (6 s) on the foe and bursts to heal you for 1.5 % of your maximum health.",
+  "hooks": [
+   "wood debuff stacks",
+   "healing",
+   "over_time",
+   "counter"
+  ],
+  "sources": [
+   "world-depth:thai_chi"
+  ]
+ },
+ {
+  "id": "taste-and-name",
+  "name": "Taste and Name (Thường Danh)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "hundred-herbs-tasting",
+  "tags": [
+   "wood",
+   "cleanse"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 6,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "tasted_wood"
+   }
+  ],
+  "effects": [
+   {
+    "id": "taste-name-learn",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "taste-and-name"
+    },
+    "if": [
+     {
+      "read": "own.debuff.wood",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "tasted_wood",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "taste-name-cleanse",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "taste-and-name"
+    },
+    "if": [
+     {
+      "read": "own.debuff.wood",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "cleanse": {
+       "n": 1,
+       "el": "wood"
+      }
+     }
+    ]
+   },
+   {
+    "id": "taste-name-resist",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.tasted_wood",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.tasted_wood",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "resist": 25,
+       "dtype": "chaos"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Cleanses 1 Wood debuff (Poison) stack from you when held, and each Poison tasted adds +25 Chaos resistance for the rest of the fight.",
+  "hooks": [
+   "cleanse",
+   "chaos resistance",
+   "counter"
+  ],
+  "sources": [
+   "world-depth:thai_chi"
+  ]
+ },
+ {
+  "id": "grain-rain",
+  "name": "Grain Rain (Cốc Vũ)",
+  "element": "water",
+  "role": "heal",
+  "tier": "authored",
+  "power": "engine",
+  "group": "grain-rain-canon",
+  "tags": [
+   "water",
+   "field",
+   "heal"
+  ],
+  "c_art": 0.0,
+  "c_heal": 0.5,
+  "cost_share": 0.05,
+  "cooldown": 9,
+  "kind": "elem",
+  "guards": [
+   {
+    "read": "own.counter.grain_rain",
+    "op": "<",
+    "value": 1
+   }
+  ],
+  "counters": [
+   {
+    "id": "grain_rain"
+   }
+  ],
+  "states": [
+   {
+    "id": "grain-rain",
+    "tags": [
+     "field"
+    ],
+    "mods": {}
+   }
+  ],
+  "effects": [
+   {
+    "id": "grain-rain-open",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "grain-rain"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "grain_rain",
+       "set": 6
+      }
+     },
+     {
+      "state": {
+       "set": "grain-rain"
+      }
+     }
+    ]
+   },
+   {
+    "id": "grain-rain-heal",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.grain_rain",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "heal": {
+       "share": 0.025
+      }
+     }
+    ]
+   },
+   {
+    "id": "grain-rain-grow",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.grain_rain",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.debuff.wood",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 1,
+       "for": 6,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "grain-rain-tick",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.grain_rain",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "grain_rain",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "grain-rain-close",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.grain_rain",
+      "op": "<",
+      "value": 1
+     },
+     {
+      "read": "own.state.grain-rain",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Calls a Grain Rain Field for 6 s: each second you heal for 2.5 % of your maximum health, and if the foe carries Wood stacks, its Wood stacks grow by 1 (6 s).",
+  "hooks": [
+   "field",
+   "healing",
+   "wood debuff stacks"
+  ],
+  "sources": [
+   "world-depth:thai_chi"
+  ]
+ }
+]

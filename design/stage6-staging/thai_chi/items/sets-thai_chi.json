@@ -1,0 +1,26 @@
+[
+ {
+  "id": "tc-herb-terraces",
+  "name": "The Herb Terraces (Dược Điền Tam Bảo)",
+  "pieces": [
+   "tc-purple-lingzhi-gourd",
+   "tc-grain-rain-fan",
+   "tc-terrace-bell"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "healing_pct", "value": 6, "scope": []},
+     {"key": "health_regen_inc_pct", "value": 12, "scope": []}
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "Rain on the Sown Field (Vũ Lạc Bá Điền)",
+    "rule": "while your Grain Rain falls, Lingzhi Spores on the foe do not fade, and each time a spore stack ripens it heals you for 2 % of your health."
+   }
+  ],
+  "story": "The founder's gourd, her master's fan and the valley's bell. Nghiêm Linh Chi holds all three; they go to the next valley-mistress together, or the terraces say the year's harvest fails."
+ }
+]
