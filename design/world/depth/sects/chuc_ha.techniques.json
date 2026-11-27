@@ -80,7 +80,7 @@
    "tier": 0, "tech_kind": "main", "names": ["tho", "thuy"], "layers": 6, "rank": "tap_dich",
    "concept": "A plain Earth breathing passed among the pavilion's leaf-pickers and basket-carriers in the mulberry rows, keeping back and breath steady through frost and rain without Wood or Fire.",
    "arts": [
-    {"id": "leaf-basket-guard", "new": "Leaf-Basket Palm (Tang Lũng Chưởng)", "concept": "A steady palm from hauling mulberry baskets along the rows: deals Physical damage and grants 1 Earth buff."}
+    {"id": "leaf-basket-guard", "new": "Leaf-Basket Palm (Tang Lũng Chưởng)", "concept": "A steady palm from carrying mulberry baskets along the rows: deals Physical damage and grants 1 Earth buff."}
    ],
    "lore": "Used by the servant leaf-pickers of Chức Hà Các, who work the mulberry rows outside the loom halls.",
    "status": "authored"

@@ -19,7 +19,7 @@
     },
     {
      "id": "thread_snapped",
-     "cap": 1
+     "cap": 2
     },
     {
      "id": "thread_knot"
@@ -176,7 +176,7 @@
       {
        "counter": {
         "id": "thread_snapped",
-        "set": 1
+        "set": 2
        }
       }
      ]
@@ -217,7 +217,7 @@
       {
        "counter": {
         "id": "thread_snapped",
-        "set": 1
+        "set": 2
        }
       }
      ]
@@ -234,7 +234,7 @@
      "if": [
       {
        "read": "own.counter.thread_snapped",
-       "op": ">=",
+       "op": "==",
        "value": 1
       },
       {
@@ -266,8 +266,8 @@
      "if": [
       {
        "read": "own.counter.thread_snapped",
-       "op": ">=",
-       "value": 1
+       "op": "==",
+       "value": 2
       },
       {
        "read": "own.qi_share",
@@ -421,7 +421,7 @@
     },
     {
      "id": "thread_snapped",
-     "cap": 1
+     "cap": 2
     }
    ],
    "records": [
@@ -504,7 +504,7 @@
      "if": [
       {
        "read": "own.counter.thread_snapped",
-       "op": ">=",
+       "op": "==",
        "value": 1
       },
       {
@@ -543,8 +543,8 @@
      "if": [
       {
        "read": "own.counter.thread_snapped",
-       "op": ">=",
-       "value": 1
+       "op": "==",
+       "value": 2
       },
       {
        "read": "foe.debuff.wood",

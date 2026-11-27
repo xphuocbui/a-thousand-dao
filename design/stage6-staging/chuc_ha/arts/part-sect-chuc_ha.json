@@ -747,7 +747,7 @@
    1,
    6
   ],
-  "rule": "A steady palm from hauling mulberry baskets along the rows: deals Physical damage and grants 1 Earth buff for 6 s.",
+  "rule": "A steady palm from carrying mulberry baskets along the rows: deals Physical damage and grants 1 Earth buff for 6 s.",
   "hooks": [
    "physical damage",
    "earth buff"
