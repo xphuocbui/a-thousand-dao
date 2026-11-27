@@ -1,0 +1,14 @@
+{
+ "owner": "thai_chi",
+ "minutes": 7,
+ "must_fix": 2,
+ "should": 1,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Serial step: merge design/stage6-staging/thai_chi/* into design/ and assets/data/combat_effects.json (world-depth:thai_chi); zero clashes on shared The Empty Mountain's Answer (world-depth:thuy_vi).",
+  "Post-batch exporter: tools/design/items/export_named.py skips kind == 'treasure' (tc-purple-lingzhi-gourd, rarity 5, 61.0 W of 51.2 unpriced world-depth); update export_named.py before Stage 7 export.",
+  "Post-batch reader/exporter: herb_growth_pct on lingzhi-pickers-song passives[3] and dan_doc_resist_pct on hundred-herbs-tasting passives[4] are out-of-fight keys in passives (StatSheet reads bonuses only; lint_techniques notes NOT_PRICED); shang-mountain-lingzhi-canon and grain-rain-canon carry herb_growth_pct in bonuses.",
+  "Stage 7 CongPhap check: lingzhi-pickers-song and shang-mountain-lingzhi-canon carry names ['moc', 'thuy'] matching thai_chi.techniques.json, while 4 cast members (phung_luc_ngac, ong_kho_sam, nghiem_phuc_linh, nghiem_xuyen_khung) lack thuy under CongPhap.usable() AND-semantics."
+ ]
+}

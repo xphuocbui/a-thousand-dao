@@ -112,6 +112,10 @@
   "counters": [
    {
     "id": "lingzhi_spores"
+   },
+   {
+    "id": "spore_ripened",
+    "each_for": 0.5
    }
   ],
   "effects": [
@@ -159,6 +163,12 @@
        "id": "lingzhi_spores",
        "add": -1
       }
+     },
+     {
+      "counter": {
+       "id": "spore_ripened",
+       "set": 1
+      }
      }
     ]
    }
@@ -190,6 +200,13 @@
   "cost_share": 0.03,
   "cooldown": 6,
   "kind": "elem",
+  "guards": [
+   {
+    "read": "own.debuff.wood",
+    "op": ">=",
+    "value": 1
+   }
+  ],
   "counters": [
    {
     "id": "tasted_wood"
@@ -379,25 +396,6 @@
     ]
    },
    {
-    "id": "grain-rain-tick",
-    "on": "pulse",
-    "if": [
-     {
-      "read": "own.counter.grain_rain",
-      "op": ">=",
-      "value": 1
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "grain_rain",
-       "add": -1
-      }
-     }
-    ]
-   },
-   {
     "id": "grain-rain-close",
     "on": "pulse",
     "if": [
@@ -416,6 +414,25 @@
      {
       "state": {
        "set": null
+      }
+     }
+    ]
+   },
+   {
+    "id": "grain-rain-tick",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.grain_rain",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "grain_rain",
+       "add": -1
       }
      }
     ]

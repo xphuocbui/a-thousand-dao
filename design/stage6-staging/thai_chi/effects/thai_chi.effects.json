@@ -157,7 +157,8 @@
    "rule": "The Herb Terraces, full set (3 pieces): while your Grain Rain falls, Lingzhi Spores on the foe do not fade, and each time a spore stack ripens it heals you for 2 % of your health.",
    "counters": [
     {
-     "id": "lingzhi_spores"
+     "id": "spore_ripened",
+     "each_for": 0.5
     }
    ],
    "records": [
@@ -197,7 +198,7 @@
        "value": 1
       },
       {
-       "read": "own.counter.lingzhi_spores",
+       "read": "own.counter.spore_ripened",
        "op": ">=",
        "value": 1
       }
