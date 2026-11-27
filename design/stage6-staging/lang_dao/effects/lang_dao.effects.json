@@ -4,11 +4,12 @@
  "effects": {
   "Pay the Toll": {
    "rule": "Toll Seal of the Nine Bends: your first Water art each fight stamps the foe Tolled. A Tolled foe loses 2 % of its maximum linh lực to you each time it casts an attacking art (up to 5 tolls, a tenth of its maximum); then the stamp turns to a Pass and you take 10 % less damage from it.",
-   "approx": "Since the engine emits no foe-side art_fired event, tolls trigger on was_hit and evaded with kind: art (limit per_pulse 1 so split hits charge 1 toll per cast); Pass uses dampen_taken 11.11 (1/1.1111 = 0.90).",
+   "approx": "Since the engine emits no foe-side art_fired event, tolls trigger on was_hit and evaded with kind: art (limit per_pulse 1 plus a 1 ms toll_tick guard so a partially-evaded split-hit cast charges once); Pass uses dampen_taken 11.11 (1/1.1111 = 0.90).",
    "counters": [
     {"id": "tolled", "cap": 1},
     {"id": "toll_paid"},
-    {"id": "toll_pass", "cap": 1}
+    {"id": "toll_pass", "cap": 1},
+    {"id": "toll_tick", "each_for": 0.001, "cap": 1}
    ],
    "records": [
     {
@@ -25,10 +26,14 @@
      "on": "was_hit",
      "filter": {"kind": "art"},
      "limit": {"per_pulse": 1},
-     "if": [{"read": "own.counter.tolled", "op": ">=", "value": 1}],
+     "if": [
+      {"read": "own.counter.tolled", "op": ">=", "value": 1},
+      {"read": "own.counter.toll_tick", "op": "==", "value": 0}
+     ],
      "do": [
       {"burn_qi": {"of": "max", "share": 0.02, "to_self": 1.0}},
-      {"counter": {"id": "toll_paid", "add": 1}}
+      {"counter": {"id": "toll_paid", "add": 1}},
+      {"counter": {"id": "toll_tick", "set": 1}}
      ]
     },
     {
@@ -49,10 +54,14 @@
      "on": "evaded",
      "filter": {"kind": "art"},
      "limit": {"per_pulse": 1},
-     "if": [{"read": "own.counter.tolled", "op": ">=", "value": 1}],
+     "if": [
+      {"read": "own.counter.tolled", "op": ">=", "value": 1},
+      {"read": "own.counter.toll_tick", "op": "==", "value": 0}
+     ],
      "do": [
       {"burn_qi": {"of": "max", "share": 0.02, "to_self": 1.0}},
-      {"counter": {"id": "toll_paid", "add": 1}}
+      {"counter": {"id": "toll_paid", "add": 1}},
+      {"counter": {"id": "toll_tick", "set": 1}}
      ]
     },
     {
@@ -80,9 +89,9 @@
   },
   "The Boat That Did Not Burn": {
    "rule": "The Last White Sail: while you hold the Sail charge (standing while the Flag charge is worn), you take half damage from fire hits and reduced damage from burns, and the first time each fight a burn would kill you, you are left at 1 health instead.",
-   "approx": "Flag charge is treated as standing while worn (base ky has no Flag art). dampen_taken 100 halves Fire hit damage, while resist 200 [dtype: fire] reduces Burn ticks (defend() does not apply dampen_taken to ticks). Down survival checks recent fire tick_taken or live own.debuff.fire >= 1 with refuse_down (1 health).",
+   "approx": "Flag charge is treated as standing while worn (base ky has no Flag art). dampen_taken 100 halves Fire hit damage, while resist 200 [dtype: fire] reduces Burn ticks (defend() does not apply dampen_taken to ticks). Down survival marks a > 0 damage fire tick_taken for 1 ms (sail_burn_tick) so refuse_down (1 health) fires only when a Burn tick kills on that pulse.",
    "counters": [
-    {"id": "sail_burn_tick", "each_for": 2.0, "cap": 1}
+    {"id": "sail_burn_tick", "each_for": 0.001, "cap": 1}
    ],
    "records": [
     {
@@ -96,6 +105,7 @@
      "id": "eff:The Boat That Did Not Burn:burn_mark",
      "on": "tick_taken",
      "filter": {"element": "fire"},
+     "if": [{"read": "event.amount", "op": ">", "value": 0}],
      "do": [
       {"counter": {"id": "sail_burn_tick", "add": 1}}
      ]
@@ -105,12 +115,7 @@
      "on": "down",
      "limit": {"per_fight": 1},
      "if": [
-      {
-       "any": [
-        {"read": "own.counter.sail_burn_tick", "op": ">=", "value": 1},
-        {"read": "own.debuff.fire", "op": ">=", "value": 1}
-       ]
-      }
+      {"read": "own.counter.sail_burn_tick", "op": ">=", "value": 1}
      ],
      "do": [
       {"refuse_down": {}}
@@ -162,7 +167,7 @@
      "if": [{"read": "own.counter.anchor_bend", "op": ">=", "value": 9}],
      "do": [
       {"counter": {"id": "anchor_bend", "set": 0}},
-      {"mod": {"bypass": 0.5, "pen": 150}},
+      {"mod": {"bypass": 0.5, "pen": 150, "kind": "trigger"}},
       {"free_hit": {"c": 1.8, "dtype": "cold"}}
      ]
     }

@@ -1,0 +1,14 @@
+{
+ "owner": "lang_dao",
+ "minutes": 10,
+ "must_fix": 1,
+ "should": 3,
+ "fixed": 4,
+ "words": {},
+ "open": [
+  "Engine trap for other Stage 6 owners: held records run bank() before filter check in engine.py and effect_runner.gd (use counter arm/spend instead of held when filter is required).",
+  "The Boat That Did Not Burn reports runs 0 / NEVER_RAN in sect_fight.py against typical foes (typical foes lack Fire/Burn, always mods count 0, and refuse_down-only records bypass Fight.do); verified in targeted lethal-Burn and direct-hit negative probes.",
+  "Serial merge of design/stage6-staging/lang_dao/ into design/ and assets/data/combat_effects.json (closes loose-south cross-owner ferry-pole-primer references for trinh_tieu_do and yen_hoi_do).",
+  "Stage 7 export_named.py kind: treasure support for ld-nine-bend-toll-seal and world export for N-lang_dao-01..04."
+ ]
+}

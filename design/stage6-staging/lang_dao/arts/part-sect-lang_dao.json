@@ -12,18 +12,29 @@
   "cost_share": 0.03,
   "cooldown": 3.5,
   "kind": "elem",
+  "counters": [
+   {"id": "pole_vault_ready", "cap": 1}
+  ],
   "effects": [
    {
-    "id": "pole-vault-bank",
+    "id": "pole-vault-arm",
     "on": "art_fired",
     "filter": {"art_id": "pole-vault"},
-    "held": {"until": "hit_landed", "cap": 1},
     "do": [
-     {"timer": {"side": "foe", "which": "next", "by": 0.3}}
+     {"counter": {"id": "pole_vault_ready", "set": 1}}
+    ]
+   },
+   {
+    "id": "pole-vault-delay",
+    "on": "hit_landed",
+    "if": [{"read": "own.counter.pole_vault_ready", "op": ">=", "value": 1}],
+    "do": [
+     {"timer": {"side": "foe", "which": "next", "by": 0.3}},
+     {"counter": {"id": "pole_vault_ready", "set": 0}}
     ]
    }
   ],
-  "rule": "Vaults on the ferry pole (a movement art): deals a light Cold blow (c_art 1.45) and banks a delay so the next hit you land (including this strike) makes the foe's soonest ready art wait 0.3 s.",
+  "rule": "Vaults on the ferry pole (a movement art): deals a light Cold blow (c_art 1.45) and arms a delay so the next hit you land (including this strike) makes the foe's soonest ready art wait 0.3 s.",
   "hooks": ["cold damage", "timer delay", "movement"],
   "sources": ["world-depth:lang_dao"]
  },
