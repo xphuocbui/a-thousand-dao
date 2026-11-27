@@ -21,8 +21,8 @@
    "concept": "The founder's method, named for the old song: when the Canglang water is clear, wash your hat strings; when it is muddy, wash your feet. The disciple tempers the body in the frost sea, one dive deeper for each layer, and learns to take what the water gives: clear water washes the qi, muddy water hardens the skin. It runs on no element, so any fisher's child with good bones can learn it. In a fight it is endurance: health that rises when struck by cold or water, a grip that does not let go, and lungs that outlast the foe.",
    "arts": [
     {"id": "wash-the-hat-strings", "new": "Wash the Hat Strings (Trạc Anh)", "concept": "A breath held under pressure: for a few seconds the holder's health regenerates and cold damage taken is halved."},
-    {"id": "wash-the-feet", "new": "Wash the Feet (Trạc Túc)", "concept": "A low, rooted stance after being hit: the next hit taken is turned into body shield."},
-    {"id": "ninth-fathom", "new": "Ninth Fathom (Cửu Tầm)", "concept": "At the ninth layer, once a fight: the holder sinks into the stillness of deep water, takes no damage for 1 s and clears every slowing effect."}
+    {"id": "wash-the-feet", "new": "Wash the Feet (Trạc Túc)", "concept": "A low Composed stance after being hit: the next hit taken is turned into body shield."},
+    {"id": "ninth-fathom", "new": "Ninth Fathom (Cửu Tầm)", "concept": "At the ninth layer, once a fight: the holder sinks into deep-water calm, takes no damage for 1 s and clears every slowing effect."}
    ],
    "lore": "Khuất Thanh Anh made it in 830 from the way the frost-coast seal hunters had always trained their sons: into the sea in winter, and out again before the heart stops.",
    "status": "proposal"
@@ -33,7 +33,7 @@
    "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "noi_mon",
    "concept": "The sea hunters' harpoon art: a thrown iron on a qi-woven line that binds the foe (it cannot flee), then makes its soonest art wait 0.3 s. The hunter fights tethered to the foe and finishes with the body canon's grip. It is a force art and takes no element, only a strong back.",
    "arts": [
-    {"id": "throw-the-iron", "new": "Throw the Iron (Phóng Lao)", "concept": "A ranged throw that pins the target: their movement and art speed fall while the line holds."},
+    {"id": "throw-the-iron", "new": "Throw the Iron (Phóng Lao)", "concept": "Throws the harpoon on its qi-woven line: binds the foe (Bound, cannot flee) and slows its timers while the line holds."},
     {"id": "haul-in", "new": "Haul In (Kéo Tác)", "concept": "Makes the soonest art of a Bound foe wait 0.3 s and deals Physical damage scaled by how long the line held."}
    ],
    "lore": "Taught only on the terrace, with the line made from the founder's whale sinew, which has not frayed in 370 years.",

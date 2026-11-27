@@ -1,0 +1,11 @@
+{
+ "owner": "trac_anh",
+ "minutes": 5,
+ "must_fix": 0,
+ "should": 1,
+ "fixed": 1,
+ "words": {},
+ "open": [
+  "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py --sect trac_anh) for techniques (2), arts_new (5), items (4), sets (1), effects (2), beasts (2), and events (2)."
+ ]
+}
