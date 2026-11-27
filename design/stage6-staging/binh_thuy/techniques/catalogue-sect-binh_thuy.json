@@ -1,0 +1,28 @@
+[
+ {
+  "id": "duckweed-drift-primer",
+  "name": "Duckweed Drift Primer (Phù Bình Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["thuy", "moc"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "healing_pct", "value": 5, "scope": []},
+   {"key": "evade_pct", "value": 2, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 3, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "close-over-the-stone", "unlock_layer": 1},
+   {"ability_id": "chance-meeting", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "duckweed-drift-primer",
+  "family": "water",
+  "owner": "binh_thuy",
+  "rank": "ngoai_mon",
+  "concept": "The founders' own method, the only one the sect had for six hundred years. The disciple floats on the shallows at slack water and lets the qi of whatever is under them come up: Water from the sea, Wood from the weed and the mangrove roots. It takes either element, because the strangers who wrote it had both. In a fight it does not hold ground. It drifts, and heals a little each time it is struck, the way duckweed closes over a dropped stone.",
+  "lore": "Written down in 524 by the founder Doãn Bình Sơ from what the castaways of the first winter taught each other on Tình Sa beach. The first page says: we are all far from home here."
+ }
+]

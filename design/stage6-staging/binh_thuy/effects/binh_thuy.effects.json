@@ -1,0 +1,176 @@
+{
+ "_doc": "Bình Thủy Môn's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:binh_thuy. Unpriced. Rule text from design/world/depth/sects/binh_thuy.items.json.",
+ "source": "world-depth:binh_thuy",
+ "effects": {
+  "Every Day of the Year": {
+   "rule": "Fan of the Following Wind: while you carry a Water buff stack, slows and timer delays do not slow you, and your first evade each fight grants 2 Water buff stacks (8 s).",
+   "approx": "status_immune (slowed_time) and delay_immune apply against all foe slows and delays while carrying a Water buff stack, because the engine's status_immune and delay_immune checks do not expose the foe art's element.",
+   "records": [
+    {
+     "id": "eff:Every Day of the Year slow",
+     "on": "always",
+     "if": [
+      {"read": "own.buff.water", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"mod": {"status_immune": 1, "status": "slowed_time"}}
+     ]
+    },
+    {
+     "id": "eff:Every Day of the Year delay",
+     "on": "always",
+     "if": [
+      {"read": "own.buff.water", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"mod": {"delay_immune": 1}}
+     ]
+    },
+    {
+     "id": "eff:Every Day of the Year evade",
+     "on": "evaded",
+     "limit": {"per_fight": 1},
+     "do": [
+      {"stacks": {"el": "water", "n": 2, "for": 8, "side": "own"}}
+     ]
+    }
+   ]
+  },
+  "Slack Water": {
+   "rule": "Shell of the Claw King: when you block a hit, gain 1 Water buff stack (8 s); at 5 Water buff stacks (4 with The Tenth Layer), your next Still Moon Tide art heals you for 4 % of your health.",
+   "counters": [
+    {"id": "slack_armed"},
+    {"id": "slack_water_threshold"},
+    {"id": "slack_just_healed"}
+   ],
+   "records": [
+    {
+     "id": "eff:Slack Water block",
+     "on": "blocked",
+     "if": [
+      {"read": "event.amount", "op": ">", "value": 0}
+     ],
+     "do": [
+      {"stacks": {"el": "water", "n": 1, "for": 8, "side": "own"}}
+     ]
+    },
+    {
+     "id": "eff:Slack Water arm",
+     "on": "buff_gained",
+     "filter": {"element": "water"},
+     "if": [
+      {
+       "any": [
+        {"read": "own.buff.water", "op": ">=", "value": 5},
+        {"read": "own.counter.slack_water_threshold", "op": ">=", "value": 1}
+       ]
+      },
+      {"read": "own.buff.water", "op": ">=", "value": 4}
+     ],
+     "do": [
+      {"counter": {"id": "slack_armed", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:Slack Water heal",
+     "on": "art_fired",
+     "filter": {"group": "still-moon-tide-scripture"},
+     "if": [
+      {"read": "own.counter.slack_armed", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "slack_armed", "set": 0}},
+      {"counter": {"id": "slack_just_healed", "set": 1}},
+      {"heal": {"share": 0.04}},
+      {"counter": {"id": "slack_just_healed", "set": 0}}
+     ]
+    }
+   ]
+  },
+  "Somewhere Else by Morning": {
+   "rule": "The Crossing, full set (3 pieces): each time you evade, gain 1 Water buff stack (8 s); while you hold 5 or more Water buff stacks, your next evade spends 5 of them to raise a tide that heals you 5 % of your health (1 % per stack spent) each second for 5 s.",
+   "counters": [
+    {"id": "crossing_tide"}
+   ],
+   "records": [
+    {
+     "id": "eff:Somewhere Else by Morning tide",
+     "on": "evaded",
+     "if": [
+      {"read": "own.buff.water", "op": ">=", "value": 5}
+     ],
+     "do": [
+      {"consume": {"el": "water", "side": "own", "kind": "buff", "n": 5}},
+      {"counter": {"id": "crossing_tide", "set": 5}}
+     ]
+    },
+    {
+     "id": "eff:Somewhere Else by Morning stack",
+     "on": "evaded",
+     "do": [
+      {"stacks": {"el": "water", "n": 1, "for": 8, "side": "own"}}
+     ]
+    },
+    {
+     "id": "eff:Somewhere Else by Morning heal",
+     "on": "pulse",
+     "if": [
+      {"read": "own.counter.crossing_tide", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"heal": {"share": 0.05}},
+      {"counter": {"id": "crossing_tide", "add": -1}}
+     ]
+    }
+   ]
+  },
+  "The Tenth Layer": {
+   "rule": "Slack Water, full set (3 pieces): the Shell's heal arms at 4 Water buff stacks instead of 5, each heal the Shell makes also grants 1 Water buff stack (8 s), and while you block, your Water buff stacks refresh their duration.",
+   "counters": [
+    {"id": "slack_water_threshold"},
+    {"id": "slack_just_healed"}
+   ],
+   "records": [
+    {
+     "id": "eff:The Tenth Layer threshold",
+     "on": "fight_start",
+     "do": [
+      {"counter": {"id": "slack_water_threshold", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:The Tenth Layer heal",
+     "on": "heal_restored",
+     "if": [
+      {"read": "own.counter.slack_just_healed", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "slack_just_healed", "set": 0}},
+      {"stacks": {"el": "water", "n": 1, "for": 8, "side": "own"}}
+     ]
+    },
+    {
+     "id": "eff:The Tenth Layer heal_overflow",
+     "on": "heal_overflow",
+     "if": [
+      {"read": "own.counter.slack_just_healed", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "slack_just_healed", "set": 0}},
+      {"stacks": {"el": "water", "n": 1, "for": 8, "side": "own"}}
+     ]
+    },
+    {
+     "id": "eff:The Tenth Layer refresh",
+     "on": "blocked",
+     "if": [
+      {"read": "event.amount", "op": ">", "value": 0}
+     ],
+     "do": [
+      {"refresh": {"el": "water", "side": "own", "kind": "buff"}}
+     ]
+    }
+   ]
+  }
+ }
+}

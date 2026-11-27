@@ -1,0 +1,28 @@
+{
+ "owner": "binh_thuy",
+ "minutes": 10,
+ "written": {
+  "techniques": 1,
+  "arts": 2,
+  "items": 7,
+  "sets": 2,
+  "effects": 4,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 4,
+ "decisions": [
+  "Size duckweed-drift-primer passives at 7.9 W of 8.0 W (healing_pct 5, evade_pct 2, linh_luc_regen_inc_pct 3) and unlock close-over-the-stone at layer 1 and chance-meeting at layer 2 so all outer holders (layers 2-4) access both arts.",
+  "Author close-over-the-stone as a Wood heal art (c_heal 0.4, buff [1, 8.0]) carrying the reactive was_hit (event.amount > 0, cooldown 6.0) 3-pulse heal (1.5 %/s) so it fires usefully in sect_fight.py without clobbering active ticks.",
+  "Author chance-meeting as a Water quick strike (c_art 1.5, cooldown 2.0, buff [1, 8.0]) instead of adding an own.purity comparison word for a Yellow outer primer, keeping both Water and Wood represented across the technique's two arts.",
+  "Approximate Every Day of the Year slow/delay immunity across all foe slows/delays while carrying a Water buff stack (status_immune slowed_time + delay_immune) because engine checks do not expose the foe art's element.",
+  "Rewrite Somewhere Else by Morning non-spatially (remove 'behind the attacker') and order evaded consume-5 (own.buff.water >= 5) before evaded +1 Water buff so reaching 5 stacks waits for the next evade to trigger the 5 s healing tide.",
+  "Coordinate Slack Water and The Tenth Layer order-independently via slack_water_threshold and slack_just_healed pulse-handshake counters (declared on both Effects for standalone parity), arming Slack Water on buff_gained so empowered swelling-tide-palm still heals, and refreshing Water buffs on blocked (event.amount > 0). Mark all 7 items unique: true (sources: [npc]) with R6 exception on the 4 weapons/armour/shield."
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to close techniques, arts_new, items, sets, effects, and the 7 structured events."
+ ]
+}

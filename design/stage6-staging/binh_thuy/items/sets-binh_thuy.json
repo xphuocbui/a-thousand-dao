@@ -1,0 +1,42 @@
+[
+ {
+  "id": "bth-the-crossing",
+  "name": "The Crossing (Độ Hải Tam Bảo)",
+  "pieces": ["bth-following-wind-fan", "bth-ferry-token-ring", "bth-strait-crossing-coat"],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "evade_pct", "value": 3, "scope": []},
+     {"key": "stack_effect_pct", "value": 6, "scope": ["thuy", "buff"]}
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "Somewhere Else by Morning (Hiểu Tại Tha Phương)",
+    "rule": "each time you evade, gain 1 Water buff stack (8 s); while you hold 5 or more Water buff stacks, your next evade spends 5 of them to raise a tide that heals you 1 % of your health per stack spent each second for 5 s."
+   }
+  ],
+  "story": "The fan, the token and the coat of the first ferry, gathered by the man who has crossed every day since 1110. Bùi Phiêu Bình holds all three."
+ },
+ {
+  "id": "bth-slack-water",
+  "name": "Slack Water (Triều Đình Tam Bảo)",
+  "pieces": ["bth-claw-king-shell", "bth-phieu-bong-tide-mirror", "bth-shell-gatherer-robe"],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "block_rating", "value": 8, "scope": []},
+     {"key": "healing_pct", "value": 5, "scope": []}
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "The Tenth Layer (Đệ Thập Tầng)",
+    "rule": "the Shell's heal arms at 4 Water buff stacks instead of 5, each heal it makes also grants you 1 Water buff stack (8 s), and while you block, your Water buff stacks refresh their duration."
+   }
+  ],
+  "story": "The crab he killed for her, the abbey's mirror and her village's robe. Lương Bạch Tần holds all three. The set's name is the hour the crab died, and the hour she meets the head on the shoal."
+ }
+]
