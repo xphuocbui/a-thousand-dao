@@ -67,3 +67,15 @@ No job starts after 08:00. On a HALT: read it, fix the cause, delete HALT, and r
   run `python -I tools/headless/stage6_gate.py record thien_xu` (it commits), then the checkpoint review, then
   `--part serial`.
 
+## From 2026-11-27 08:40 (user): one owner at a time, the review through the driver, serial steps in batches
+- **No subagents** (the user: they cost a lot of tokens); the checkpoint review is a driver job
+  (`_brief-review.md`, which writes `<owner>-checkpoint.md` and `<owner>.reviewed`, and applies its fixes in
+  staging).
+- **Batches of five owners** (`stage6_jobs.py --batch N` or `--only ... --tag bNN`). Each owner runs its record job,
+  then its review job, each followed by the record gate (which commits). Then one serial step builds the batch's
+  pending words marked "build", merges the batch into `design/`, and runs the checks and commits.
+- **Measured on Thiên Xu:** the record job takes 39 min; the gate 1-2 min.
+- **Batch 1 (b01):** thien_xu (record done; its review first), lac_ha, thuy_vi, phuong_minh, thinh_vu.
+- **Launch:** `python -I tools/headless/run_jobs.py production/plans/stage6/_jobs.json production/session-logs/stage6-run --lanes 1`.
+  The orchestrating session checks each batch when the run ends, then generates and launches the next.
+

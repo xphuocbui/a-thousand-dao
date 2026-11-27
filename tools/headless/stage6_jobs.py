@@ -54,55 +54,59 @@ def waves(n):
     return out
 
 
-TAG = None   # --tag: the serial step's tag (one owner run alone: its own tag, e.g. "thien_xu")
+def owner_jobs(o):
+    """An owner's record job, then its checkpoint review-and-fix job; each followed by the record gate."""
+    env = {"DEPTH_STAGE": os.path.join(ROOT, "design", "stage6-staging", o)}
+    gate = [sys.executable, "-I", "tools/headless/stage6_gate.py", "record", o]
+    return [
+        {"id": "s6-%s" % o, "model": "opus", "timeout_min": 240, "allowed": RECORD_TOOLS, "system": SYSTEM, "env": env,
+         "expect": "production/plans/stage6/%s.done" % o, "after": gate,
+         "prompt": ("Run world-depth Stage 6's record pass for owner %s. Follow production/plans/stage6/_brief-record.md "
+                    "exactly (OWNER = %s). DEPTH_STAGE is already set for you. Finish by writing "
+                    "production/plans/stage6/%s.done." % (o, o, o))},
+        {"id": "s6-review-%s" % o, "model": "opus", "timeout_min": 120, "allowed": RECORD_TOOLS, "system": SYSTEM,
+         "env": env, "expect": "production/plans/stage6/%s.reviewed" % o, "after": gate,
+         "prompt": ("Run world-depth Stage 6's checkpoint review for owner %s. Follow "
+                    "production/plans/stage6/_brief-review.md exactly (OWNER = %s). DEPTH_STAGE is already set for you. "
+                    "Finish by writing production/plans/stage6/%s.reviewed." % (o, o, o))}]
 
 
-def jobs_for(ws, first, part="both"):
-    out = []
-    for i, w in enumerate(ws, start=first):
-        tag = TAG or "w%02d" % i
-        for o in (w if part in ("both", "record") else []):
-            out.append({
-                "id": "s6-%s" % o, "model": "opus", "timeout_min": 240, "allowed": RECORD_TOOLS, "system": SYSTEM,
-                "env": {"DEPTH_STAGE": os.path.join(ROOT, "design", "stage6-staging", o)},
-                "expect": "production/plans/stage6/%s.done" % o,
-                "prompt": ("Run world-depth Stage 6's record pass for owner %s. Follow "
-                           "production/plans/stage6/_brief-record.md exactly (OWNER = %s). DEPTH_STAGE is already set "
-                           "for you. Finish by writing production/plans/stage6/%s.done." % (o, o, o)),
-                "after": [sys.executable, "-I", "tools/headless/stage6_gate.py", "record", o]})
-        if part == "record":
-            continue
-        out.append({
-            "id": "s6-serial-%s" % tag, "model": "opus", "timeout_min": 240, "allowed": SERIAL_TOOLS, "system": SYSTEM,
+def serial_job(tag, owners):
+    return {"id": "s6-serial-%s" % tag, "model": "opus", "timeout_min": 300, "allowed": SERIAL_TOOLS, "system": SYSTEM,
             "barrier": True, "expect": "production/plans/stage6/_serial-%s.done" % tag,
             "before": [sys.executable, "-I", "tools/headless/stage6_gate.py", "snapshot", tag],
-            "prompt": ("Run world-depth Stage 6's serial step for wave %s, owners %s. Follow "
-                       "production/plans/stage6/_brief-serial.md exactly (TAG = %s). Finish by writing "
-                       "production/plans/stage6/_serial-%s.done." % (tag, ", ".join(w), tag, tag)),
-            "after": [sys.executable, "-I", "tools/headless/stage6_gate.py", "serial", tag] + w})
-    return out
+            "prompt": ("Run world-depth Stage 6's serial step for batch %s, owners %s. Follow "
+                       "production/plans/stage6/_brief-serial.md exactly (TAG = %s). Build only the pending words whose "
+                       "checkpoint decision is build. Finish by writing production/plans/stage6/_serial-%s.done."
+                       % (tag, ", ".join(owners), tag, tag)),
+            "after": [sys.executable, "-I", "tools/headless/stage6_gate.py", "serial", tag] + owners}
+
+
+def order(n):
+    """Every owner still open, one at a time (user 2026-11-27): the sects largest first, then the outside groups. An
+    owner with a .done (record pass made) stays in until its serial step merged it (n counts it as open until then)."""
+    sects = sorted((o for o in n if o not in OUTSIDE and o not in SKIP), key=lambda o: -n[o])
+    return sects + [o for o in OUTSIDE if o in n]
 
 
 def main():
+    """--batch N (1-based) of --size owners (default 5): their record and review jobs one at a time, then one serial
+    step for the batch. --only k1,k2 replaces the batch's owners; --tag names the batch (default bNN)."""
     arg = lambda k, d=None: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
-    global TAG
-    TAG = arg("--tag")
     n = sizes()
-    ws = waves(n)
-    if arg("--only"):
-        ws = [[o.strip() for o in arg("--only").split(",")]]
-    lo, hi = 1, len(ws)
-    if arg("--waves"):
-        a, _, b = arg("--waves").partition("-")
-        lo, hi = int(a), int(b or a)
+    seq = order(n)
+    size = int(arg("--size", "5"))
+    b = int(arg("--batch", "1"))
+    owners = [o.strip() for o in arg("--only").split(",")] if arg("--only") else seq[(b - 1) * size:b * size]
+    tag = arg("--tag", "b%02d" % b)
+    jobs = [j for o in owners for j in owner_jobs(o)] + [serial_job(tag, owners)]
     out = arg("--out", os.path.join(ROOT, "production", "plans", "stage6", "_jobs.json"))
-    jobs = jobs_for(ws[lo - 1:hi], lo, arg("--part", "both"))
     with open(out, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(jobs, fh, ensure_ascii=False, indent=1)
-    for i, w in enumerate(ws, start=1):
-        mark = "*" if lo <= i <= hi else " "
-        print("%s w%02d  %s" % (mark, i, "  ".join("%s(%d)" % (o, n.get(o, 0)) for o in w)))
-    print("wrote %s: %d jobs" % (os.path.relpath(out, ROOT), len(jobs)))
+    for i in range(0, len(seq), size):
+        print("%s b%02d  %s" % ("*" if seq[i:i + size] == owners else " ", i // size + 1,
+                                "  ".join("%s(%d)" % (o, n.get(o, 0)) for o in seq[i:i + size])))
+    print("tag %s, owners %s: wrote %s, %d jobs" % (tag, ", ".join(owners), os.path.relpath(out, ROOT), len(jobs)))
     return 0
 
 
