@@ -1,0 +1,222 @@
+{
+ "_doc": "Bách Vũ Các Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py.",
+ "source": "world-depth:bach_vu",
+ "effects": {
+  "Call of the Luan": {
+   "rule": "Blue Luan Whistle: once per fight when your health falls to 80 % or below, your bonded birds answer the whistle: you regain 8 % of your maximum health (companions have no HP in Combat rule 19, so the shared roosting meridian heals the holder) and your next Loose the Flock sends one more bird.",
+   "approx": "bonded birds have no health bar (Combat rule 19), so 'returns to full health' heals the holder 8 % max HP; triggers once per fight at own.hp_share <= 0.8",
+   "counters": [
+    {
+     "id": "luan_flock",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Call of the Luan",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.8
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.08
+       }
+      },
+      {
+       "counter": {
+        "id": "luan_flock",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "All Birds Bow": {
+   "rule": "The Bird Mother, full set (2 pieces): each time your bird companions strike a foe, your next fan art throws one more feather (a free Fire hit of 0.375 and 1 Fire stack per feather). When three bird companion strikes land in 2 s, the foe gains 2 Slowed Time stacks.",
+   "approx": "companion hit events carry companion tags (bird), not individual beast ids, so bird_strike_2s (each_for 2) counts 3 bird companion hits within 2 s",
+   "counters": [
+    {
+     "id": "bow_feathers"
+    },
+    {
+     "id": "bird_strike_2s",
+     "each_for": 2
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:All Birds Bow count",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion",
+      "tags": [
+       "bird"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "bow_feathers",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "bird_strike_2s",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:All Birds Bow slow",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion",
+      "tags": [
+       "bird"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.bird_strike_2s",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 2,
+        "dur": 3,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "bird_strike_2s",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:All Birds Bow fan",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "fan"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.bow_feathers",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.bow_feathers",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.375,
+        "dtype": "fire"
+       }
+      },
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "bow_feathers",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:All Birds Bow fan gust",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "fan-gust"
+     },
+     "if": [
+      {
+       "read": "own.counter.bow_feathers",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.bow_feathers",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.375,
+        "dtype": "fire"
+       }
+      },
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "bow_feathers",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Hundred-Feather Fan": {
+   "rule": "Moulted Feather Fan (passive art, layer 2): for each different feather kind in the holder's fan (counted by item grade), her Fire stacks last a little longer.",
+   "approx": "uses own.tech_layer.moulted-feather-fan (+2 % stack_dur for Fire debuffs per layer) because the combat engine has no item_grade readable",
+   "records": [
+    {
+     "id": "eff:Hundred-Feather Fan",
+     "on": "always",
+     "scale": {
+      "read": "own.tech_layer.moulted-feather-fan",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "stack_dur": 2,
+        "element": "fire",
+        "kind": "debuff"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

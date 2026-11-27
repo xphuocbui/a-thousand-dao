@@ -19,8 +19,8 @@
    "tier": 0, "tech_kind": "main", "names": ["moc", "hoa"], "layers": 6, "rank": "ngoai_mon",
    "concept": "A bird catcher's breathing, done in the canopy at dawn and dusk when the birds call. The disciple learns one call per layer and breathes with it: Wood qi drawn in as the forest breathes, a little Fire let out on the call. A catcher at the sixth layer can bring a wild bird to the hand without a net. It is a quiet method and makes quiet people.",
    "arts": [
-    {"new": "Call Down (Hô Hạ)", "concept": "Calls a wild bird to harry a foe for a few seconds: light hits and a small chance to interrupt their art."},
-    {"new": "Still on the Branch (Chi Thượng Tĩnh)", "concept": "A still stance: while you are Composed you gain evasion, and your next art's timer is 0.5 s shorter.", "authored": "a1"}
+    {"id": "call-down", "new": "Call Down (Hô Hạ)", "concept": "Calls a wild bird to harry a foe for a few seconds: light hits and a small chance to interrupt their art."},
+    {"id": "still-on-the-branch", "new": "Still on the Branch (Chi Thượng Tĩnh)", "concept": "A still stance: while you are Composed you gain evasion, and your next art's timer is 0.5 s shorter.", "authored": "a1"}
    ],
    "lore": "Tuyên Bách Minh's calls, written down by Tạ Thanh Thước in 1112 so that the catchers' children would not have to learn them only by ear.",
    "status": "proposal",
@@ -32,8 +32,8 @@
    "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
    "concept": "The pavilion's method: the cultivator makes herself a tree that spirit birds will roost in. Each layer grows one more branch of the meridians that a bonded bird can perch on, and a cultivator at the ninth layer carries three birds whose qi flows into hers and hers into theirs. In a fight the birds strike, scout and shield; when a bird is hurt, the holder feels it, and when the holder heals, so do they.",
    "arts": [
-    {"new": "Loose the Flock (Phóng Quần)", "concept": "Sends her bonded birds at a foe: several quick hits that each lay a Wood stack; more birds at higher layers."},
-    {"new": "Under the Wing (Dực Hạ)", "concept": "One bird shields you and takes your next hit (a decoy); the bird returns to the branch to heal.", "authored": "a1"}
+    {"id": "loose-the-flock", "new": "Loose the Flock (Phóng Quần)", "concept": "Sends her bonded birds at a foe: several quick hits that each lay a Wood stack; more birds at higher layers."},
+    {"id": "under-the-wing", "new": "Under the Wing (Dực Hạ)", "concept": "One bird shields you and takes your next hit (a decoy); the bird returns to the branch to heal.", "authored": "a1"}
    ],
    "lore": "Made by Tạ Thanh Loan and her sister between 1110 and 1140 from the palace's bird-keeping notes, which Vu Ngô Đồng lent them, and from what they knew of birds. It is the newest main method of any of the palace's vassals.",
    "status": "proposal",
@@ -45,11 +45,22 @@
    "tier": 1, "tech_kind": "secret", "names": ["hoa"], "layers": 9, "rank": "noi_mon",
    "concept": "A fan art made with feathers gathered only from moults. The fan's feathers keep the qi of the birds that shed them; a stroke throws them burning, and each kind of feather does a different small thing. A keeper's fan shows how many kinds she has gathered, and the art grows stronger with every new kind added.",
    "arts": [
-    {"new": "Shed Feathers Burn (Thoái Vũ Phần)", "concept": "A fan stroke that throws burning feathers in a cone: Fire hits that each lay one Fire stack."},
-    {"new": "Hundred-Feather Fan (Bách Vũ Phiến)", "concept": "Passive: for each different feather kind in the holder's fan (counted by item grade), her Fire stacks last a little longer."}
+    {"id": "shed-feathers-burn", "new": "Shed Feathers Burn (Thoái Vũ Phần)", "concept": "A fan stroke that throws burning feathers in a cone: Fire hits that each lay one Fire stack."},
+    {"new": "Hundred-Feather Fan (Bách Vũ Phiến)", "concept": "Passive: for each different feather kind in the holder's fan (counted by item grade), her Fire stacks last a little longer.", "effect": "hundred-feather-fan", "unlock_layer": 2}
    ],
    "lore": "The pavilion makes the inner gate's practice fans for Phượng Minh, and this is the fan art the palace does not teach: the palace's Morning Sun Feather Fan burns feathers it is given, and this one keeps the birds' own qi.",
    "status": "proposal"
+  },
+  {
+   "id": "woven-cage-breath",
+   "name": "Woven Cage Breath (Biên Lung Tức)",
+   "tier": 0, "tech_kind": "main", "names": ["kim", "tho"], "layers": 6, "rank": "tap_dich",
+   "concept": "The pavilion's servant craft method for the one cage-maker Bách Vũ Các permits. Metal and Earth qi are drawn steadily through the hands to temper split bamboo and wire; it opens no gate and teaches no bird calls.",
+   "arts": [
+    {"id": "wire-snare-needle", "new": "Wire Snare Needle (Lung Ti Châm)", "concept": "A cage-maker's quick wire-and-needle thrust: a Physical Metal hit that lays 1 Metal stack for 6 s."}
+   ],
+   "lore": "Passed to Hoàn Trúc Lung when he came up from the raft villages to weave training cages and travelling baskets for the lofts.",
+   "status": "authored"
   }
  ]
 }

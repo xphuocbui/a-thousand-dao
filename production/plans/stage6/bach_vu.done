@@ -1,0 +1,30 @@
+{
+ "owner": "bach_vu",
+ "minutes": 7,
+ "written": {
+  "techniques": 4,
+  "arts": 6,
+  "items": 3,
+  "sets": 1,
+  "effects": 3,
+  "stand_ins": 1,
+  "beasts": 4
+ },
+ "deviations": 5,
+ "decisions": [
+  "Create Yellow Metal+Earth servant method woven-cage-breath (wire-snare-needle) for stand-in hoan_truc_lung instead of an outside sect method.",
+  "Stage Hundred-Feather Fan as a layer-2 technique Effect on moulted-feather-fan scaled by own.tech_layer.moulted-feather-fan (+2 % Fire stack_dur per layer) since the engine lacks an item_grade readable.",
+  "Model Call of the Luan's bird-return heal as an 8 % holder heal at own.hp_share <= 0.8 (Combat rule 19: companions have no HP) plus luan_flock counter declared on both Call of the Luan and loose-the-flock.",
+  "Use bird_strike_2s (each_for 2) on companion bird hits in All Birds Bow (since companion hit events carry tags, not individual beast IDs) and match fan arts via both tags ['fan'] and art_id 'fan-gust'.",
+  "Use a 5 s branch_still pulse counter on still-on-the-branch so the Composed stance exits and refreshes its -0.5 s next-art timer reduction."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "All Birds Bow: sect_fight.py does not populate companions from bach_vu.beasts.json until Stage 7 export (verified active in 20-seed ta_thanh_loan + 3-birds probe: 17.4 s 96 % vs 22.0 s 91 % at gap 0; 12.3 s vs 8.3 s at gap 1)",
+  "Hundred-Feather Fan: 'always' record counts 0 Fight.do() runs in sect_fight.py (verified active via --without delta on ta_thanh_thuoc 46.2 s 55 % vs 48.8 s 50 % and hang_thai_vu 58.8 s 2 % vs 59.2 s 1 %)"
+ ],
+ "early_promotions": [],
+ "open": [
+  "Stage 7 world export: wire bach_vu.beasts.json (tieu_loan, que_tuoc, mac_vu, quy_thuoc) into companions in fights"
+ ]
+}

@@ -1,0 +1,32 @@
+[
+ {
+  "id": "bvc-bird-mother",
+  "name": "The Bird Mother (Điểu Mẫu)",
+  "pieces": [
+   "bvc-blue-luan-whistle",
+   "bvc-moulted-feather-fan"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 8,
+      "scope": [
+       "companion"
+      ]
+     },
+     {
+      "key": "linh_luc_regen_inc_pct",
+      "value": 6,
+      "scope": []
+     }
+    ],
+    "effect": "All Birds Bow (Bách Điểu Triều)",
+    "rule": "while you wear both pieces, each time your birds strike a foe, your next fan art throws one more feather. When three bird companion strikes land in 2 s, the foe gains 2 Slowed Time stacks."
+   }
+  ],
+  "story": "The whistle from the bird she took her name from and the fan of her flock's feathers. She wears both. The pavilion says the set is the flock's and she only carries it."
+ }
+]

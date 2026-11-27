@@ -1,0 +1,150 @@
+[
+ {
+  "id": "bvc-blue-luan-whistle",
+  "name": "Blue Luan Whistle (Thanh Loan Địch)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "cam",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 16,
+    "scope": [
+     "moc"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "moc"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "Call of the Luan"
+  ],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "A bone whistle carved from the wing of a blue-crested bird that died of age on Tạ Thanh Loan's arm in 1105. She took her name from that bird. The pavilion says every bird in the jungle below the wutong hills knows its note.",
+  "build_use": "The head's tamer piece: stronger Wood arts from her birds and a mid-fight return.",
+  "holder": "ta_thanh_loan",
+  "made_by": "ta_thanh_loan",
+  "made_year": 1106,
+  "set": "bvc-bird-mother",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "bvc-ninety-nine-feather-fan",
+  "name": "Fan of Ninety-Nine Feathers (Cửu Thập Cửu Vũ Phiến)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "phien",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 16,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 24,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 8,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 8,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "Tạ Thanh Thước's fan, with one moulted feather of each of the ninety-nine kinds of bird she has gathered in ninety years. The hundredth socket is empty. The sisters say it waits for a phoenix's feather and do not say whether they mean it.",
+  "build_use": "The loft-keeper's fan: longer Fire stacks for the Moulted Feather Fan.",
+  "holder": "ta_thanh_thuoc",
+  "made_by": "ta_thanh_thuoc",
+  "made_year": 1150,
+  "set": null,
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "bvc-moulted-feather-fan",
+  "name": "Fan of Moulted Feathers (Thoái Vũ Phiến)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "phien",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 12,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 8,
+    "scope": [
+     "companion"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 6,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": [
+   "npc"
+  ],
+  "lore": "A small fan of feathers her three bonded birds have shed, re-feathered each moult. Her sister's ninety-nine-feather fan is the grand version, and Tạ Thanh Loan says hers is the honest one.",
+  "build_use": "The fan she fights through her flock with.",
+  "holder": "ta_thanh_loan",
+  "made_by": "ta_thanh_loan",
+  "made_year": 1110,
+  "set": "bvc-bird-mother",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ }
+]
