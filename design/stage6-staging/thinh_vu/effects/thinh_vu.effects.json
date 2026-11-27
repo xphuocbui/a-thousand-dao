@@ -4,11 +4,15 @@
  "effects": {
   "Not a Drop Spilled": {
    "rule": "Rain-Chain Sword Scripture (passive art, layer 4, authored wish d10): Each second in which you fire no damaging art fills a bronze cup: each cup raises your linh lực regeneration by 5 %. Your next art with a damage part spends every cup for 3 % more damage each.",
-   "approx": "Uses own.since_act >= 0.9 on pulse to fill Cups; spends all Cups via L5 (+3 per Cup, layer cap 100 still clips) on art_fired held until hit_landed. Technique attachment awaits pending word technique-effects.",
+   "approx": "Tracks damaging-art pulses via not_a_drop_acted (immune to evades and non-damaging arts); each cup grants regen +0.00175 (= 5 * 0.00035, +5 % linh_luc_regen_inc_pct); spends all Cups via 1 ms temp_mod L5 (+3 per Cup, scoped to kind: art) on damaging art_fired (not_tags: movement, own.since_act <= 0). Technique attachment awaits pending word technique-effects.",
    "pending": "technique-effects",
    "counters": [
     {
      "id": "not_a_drop_cups"
+    },
+    {
+     "id": "not_a_drop_acted",
+     "cap": 1
     }
    ],
    "records": [
@@ -17,9 +21,9 @@
      "on": "pulse",
      "if": [
       {
-       "read": "own.since_act",
-       "op": ">=",
-       "value": 0.9
+       "read": "own.counter.not_a_drop_acted",
+       "op": "==",
+       "value": 0
       }
      ],
      "do": [
@@ -27,6 +31,25 @@
        "counter": {
         "id": "not_a_drop_cups",
         "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Not a Drop Spilled:reset_act",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.not_a_drop_acted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "not_a_drop_acted",
+        "set": 0
        }
       }
      ]
@@ -41,7 +64,7 @@
      "do": [
       {
        "mod": {
-        "regen": 5
+        "regen": 0.00175
        }
       }
      ]
@@ -49,16 +72,23 @@
     {
      "id": "eff:Not a Drop Spilled:spend",
      "on": "art_fired",
+     "filter": {
+      "not_tags": [
+       "movement"
+      ]
+     },
      "if": [
       {
        "read": "own.counter.not_a_drop_cups",
        "op": ">=",
        "value": 1
+      },
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
       }
      ],
-     "held": {
-      "until": "hit_landed"
-     },
      "scale": {
       "read": "own.counter.not_a_drop_cups",
       "per": 1
@@ -66,7 +96,8 @@
      "do": [
       {
        "mod": {
-        "L5": 3
+        "L5": 3,
+        "kind": "art"
        }
       },
       {
@@ -76,12 +107,36 @@
        }
       }
      ]
+    },
+    {
+     "id": "eff:Not a Drop Spilled:mark_act",
+     "on": "art_fired",
+     "filter": {
+      "not_tags": [
+       "movement"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "not_a_drop_acted",
+        "set": 1
+       }
+      }
+     ]
     }
    ]
   },
   "Return to the Scabbard": {
    "rule": "Rain-Chain Sword Scripture (passive art, layer 6, authored wish d29): After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty clears. Your first sword art on an unstruck foe cannot be evaded.",
-   "approx": "Uses own.since_act >= 2.9 on pulse to reset no_second_done and first_sword_done; applies off_guard (1 s) to foe when a sword art fires while first_sword_done == 0 so it cannot be evaded. Technique attachment awaits pending word technique-effects.",
+   "approx": "Tracks consecutive pulses without a damaging art via scabbard_acted + scabbard_idle (immune to evades and non-damaging arts); at 3 idle pulses resets no_second_done and first_sword_done. Grants 1 ms acc: 500 on first damaging sword art_fired (guarantees p_ev == 0 without stealing a curse slot or failing to status_resist). Technique attachment awaits pending word technique-effects.",
    "pending": "technique-effects",
    "counters": [
     {
@@ -91,17 +146,43 @@
     {
      "id": "first_sword_done",
      "cap": 1
-     }
+    },
+    {
+     "id": "scabbard_acted",
+     "cap": 1
+    },
+    {
+     "id": "scabbard_idle"
+    }
    ],
    "records": [
+    {
+     "id": "eff:Return to the Scabbard:tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.scabbard_acted",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "scabbard_idle",
+        "add": 1
+       }
+      }
+     ]
+    },
     {
      "id": "eff:Return to the Scabbard:sheathe",
      "on": "pulse",
      "if": [
       {
-       "read": "own.since_act",
+       "read": "own.counter.scabbard_idle",
        "op": ">=",
-       "value": 2.9
+       "value": 3
       }
      ],
      "do": [
@@ -120,6 +201,31 @@
      ]
     },
     {
+     "id": "eff:Return to the Scabbard:reset_act",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.scabbard_acted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "scabbard_acted",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "scabbard_idle",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
      "id": "eff:Return to the Scabbard:sure_cut",
      "on": "art_fired",
      "filter": {
@@ -132,21 +238,53 @@
        "read": "own.counter.first_sword_done",
        "op": "==",
        "value": 0
+      },
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
       }
      ],
      "do": [
       {
-       "status": {
-        "id": "off_guard",
-        "stacks": 1,
-        "dur": 1.0,
-        "side": "foe"
+       "mod": {
+        "acc": 500
        }
       },
       {
        "counter": {
         "id": "first_sword_done",
         "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Return to the Scabbard:mark_act",
+     "on": "art_fired",
+     "filter": {
+      "not_tags": [
+       "movement"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "scabbard_acted",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "scabbard_idle",
+        "set": 0
        }
       }
      ]
@@ -207,7 +345,7 @@
   },
   "Nine Cups": {
    "rule": "The Founder's Rain-Chain: Each time you are hit, one of nine bronze cups fills. When all nine are full, your next art is cast at once and costs no linh lực, and the cups empty.",
-   "approx": "Exact engine form using own.counter.nine_cups incremented on was_hit; on reaching 9, resets and runs timer next -99 + next_art_cost -1.0.",
+   "approx": "Exact engine form using own.counter.nine_cups incremented on was_hit; on reaching 9, resets and runs timer next -99 + next_art_cost 0.0 (cost multiplier 0 = free).",
    "counters": [
     {
      "id": "nine_cups"
@@ -252,7 +390,7 @@
       },
       {
        "mod": {
-        "next_art_cost": -1.0
+        "next_art_cost": 0.0
        }
       }
      ]
@@ -261,7 +399,7 @@
   },
   "Every Lamp Has a Name": {
    "rule": "Lamp of the Soul Vaults: A foe you have cursed cannot hide: concealment and evasion do not work against your arts while your curse is on them, and each time it ticks they lose a little linh lực to you.",
-   "approx": "Applies Off Guard (1 s) when you fire an art while foe.curses >= 1 so evasion fails; drains 1.5 % foe max linh lực to self on tick_dealt while foe carries a curse.",
+   "approx": "Grants 1 ms acc: 500 on art_fired while foe.curses >= 1 (evasion fails without stealing a curse slot or failing to status_resist); drains 1.5 % foe max linh lực to self on tick_dealt while foe.curses >= 1, plus once per 2 s on pulse while foe.curses >= 1 for non-tick curses.",
    "counters": [],
    "records": [
     {
@@ -276,11 +414,8 @@
      ],
      "do": [
       {
-       "status": {
-        "id": "off_guard",
-        "stacks": 1,
-        "dur": 1.0,
-        "side": "foe"
+       "mod": {
+        "acc": 500
        }
       }
      ]
@@ -288,6 +423,13 @@
     {
      "id": "eff:Every Lamp Has a Name:drain_tick",
      "on": "tick_dealt",
+     "if": [
+      {
+       "read": "foe.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
      "do": [
       {
        "burn_qi": {
@@ -325,7 +467,7 @@
   },
   "No Second Cut": {
    "rule": "Dạ Lan, the Sword of the Late Night: Your first sword hit on the foe in a fight is a guaranteed crit and pierces their guard; your later hits on the foe deal a little less.",
-   "approx": "Tracks no_second_done (cap 1): while 0, grants sure_crit: 1 and pierce: 35 to sword arts; on hit_landed (sword art), sets no_second_done = 1; while 1, later sword arts deal dmg_more: -0.10. Return to the Scabbard or One Cut Drawn Out can re-arm it.",
+   "approx": "Tracks no_second_done (cap 1): while 0, grants sure_crit: 1, bypass: 0.5 (50 % shield bypass), and pen: 150 (150 resistance penetration) to sword arts; on hit_landed (sword art), sets no_second_done = 1; while 1, later sword arts deal dmg_more: -0.10. Return to the Scabbard or One Cut Drawn Out can re-arm it.",
    "counters": [
     {
      "id": "no_second_done",
@@ -347,7 +489,8 @@
       {
        "mod": {
         "sure_crit": 1,
-        "pierce": 35,
+        "bypass": 0.5,
+        "pen": 150,
         "tags": [
          "sword"
         ]
@@ -405,7 +548,7 @@
   },
   "Glass Rings": {
    "rule": "Coloured-Glass Flying Sword: When this sword is used as a lightning rod, the bolt it draws strikes twice, and you take a twentieth of your health as Lightning damage each time.",
-   "approx": "When sword-raised-to-the-cloud lands, fires a duplicate elem bolt (c 2.2) and takes a Lightning self_hit (c 0.65); engine has no flat % max-HP self-damage action on Effects.",
+   "approx": "When sword-raised-to-the-cloud lands, fires a duplicate Lightning bolt (c 2.2, dtype lightning) and takes a Lightning self_hit (c 9.5, calibrated to ~5 % of holder max HP against an equal-realm foe after Lightning resistance; engine has no flat % max-HP self-damage action on Effects).",
    "counters": [],
    "records": [
     {
@@ -421,12 +564,12 @@
       {
        "free_hit": {
         "c": 2.2,
-        "dtype": "elem"
+        "dtype": "lightning"
        }
       },
       {
        "self_hit": {
-        "c": 0.65,
+        "c": 9.5,
         "dtype": "lightning"
        }
       }
@@ -435,8 +578,8 @@
    ]
   },
   "The Bell Hears First": {
-   "rule": "Bell Under the Eaves: An ambush cannot surprise you: an unseen foe is revealed when they come within reach, and your first art against them is cast at once.",
-   "approx": "No spatial range or stealth ambush phase exists in one-on-one fight.py; grants immediate opening cast (timer next -99) and +30 acc for 5 s at fight_start.",
+   "rule": "Bell Under the Eaves: An ambush cannot surprise you: an unseen foe is revealed at the start of a fight, and your first art against them is cast at once.",
+   "approx": "No stealth ambush phase exists in one-on-one fight.py; grants immediate opening cast (timer next -99) and +30 acc for 5 s at fight_start.",
    "counters": [],
    "records": [
     {
@@ -465,7 +608,7 @@
   },
   "It Hums": {
    "rule": "Drumstick of the Gate: Each Thunder stack you apply also gives you one charge, and each charge fades after 4 s. At four or more, your next Thunder art spends them all, sounds like a drum and stuns the foe for half a second, and a tenth of a second longer for each charge past four.",
-   "approx": "Because add_stacks emits no event, each Thunder art hit adds 1 hum_charge (each_for 4 s); at 4+ charges, stops foe clock 0.5 s (+0.1 s per extra charge) on hit_landed.",
+   "approx": "Exact engine form: listens on status_applied (element: thunder, scale event.stacks) to add hum_charge (each_for 4 s); on next Thunder art_fired with hum_charge >= 4, stops foe clock by 0.1 + 0.1 * N s (= 0.5 s at N = 4, +0.1 s per charge past 4) and zeroes hum_charge before hit_landed applies new Thunder stacks.",
    "counters": [
     {
      "id": "hum_charge",
@@ -475,10 +618,13 @@
    "records": [
     {
      "id": "eff:It Hums:gain",
-     "on": "hit_landed",
+     "on": "status_applied",
      "filter": {
-      "element": "thunder",
-      "kind": "art"
+      "element": "thunder"
+     },
+     "scale": {
+      "read": "event.stacks",
+      "per": 1
      },
      "do": [
       {
@@ -491,10 +637,9 @@
     },
     {
      "id": "eff:It Hums:stun_base",
-     "on": "hit_landed",
+     "on": "art_fired",
      "filter": {
-      "element": "thunder",
-      "kind": "art"
+      "element": "thunder"
      },
      "if": [
       {
@@ -510,23 +655,22 @@
       {
        "stop_clock": {
         "side": "foe",
-        "seconds": 0.5
+        "seconds": 0.1
        }
       }
      ]
     },
     {
      "id": "eff:It Hums:stun_extra",
-     "on": "hit_landed",
+     "on": "art_fired",
      "filter": {
-      "element": "thunder",
-      "kind": "art"
+      "element": "thunder"
      },
      "if": [
       {
        "read": "own.counter.hum_charge",
        "op": ">=",
-       "value": 5
+       "value": 4
       }
      ],
      "limit": {
@@ -547,10 +691,9 @@
     },
     {
      "id": "eff:It Hums:spend",
-     "on": "hit_landed",
+     "on": "art_fired",
      "filter": {
-      "element": "thunder",
-      "kind": "art"
+      "element": "thunder"
      },
      "if": [
       {
@@ -575,7 +718,7 @@
   },
   "The Rain Answers": {
    "rule": "Night Rain Regalia, full set: While your rain field (The Night Is Long) stands or the umbrella is open, every hit you evade rings the chain; at three rings a bolt falls on the foe who struck at you, dealing Lightning damage scaled by your Metal. A holder whose root has no Thunder can still call this bolt.",
-   "approx": "Checks own.counter.night_rain >= 1 or own.counter.umbrella_open >= 1 on evaded; every 3rd ring calls free_hit c: 1.6 elem (scales off attack).",
+   "approx": "Checks own.counter.night_rain >= 1 or own.counter.umbrella_open >= 1 on evaded; every 3rd ring calls free_hit c: 1.6 dtype: lightning (scales off holder attack; runs even for Metal/Water-only roots).",
    "counters": [
     {
      "id": "rain_rings"
@@ -637,7 +780,7 @@
       {
        "free_hit": {
         "c": 1.6,
-        "dtype": "elem"
+        "dtype": "lightning"
        }
       }
      ]
@@ -646,7 +789,7 @@
   },
   "The Wick Is Cut": {
    "rule": "Lamp and Shears of the Vaults, full set: once a fight, a cursed foe below a quarter of their health has their curse turned into a seal: they cannot cast arts for 2 s.",
-   "approx": "Exact engine form: once per fight when foe.hp_share <= 0.25 and foe.curses >= 1 on pulse, applies Silence (dur 2 s) to foe.",
+   "approx": "Uses stop_clock (foe, 2.0 s) once per fight on pulse when foe.hp_share <= 0.25 and foe.curses >= 1 (engine status `silence` requires a single art tag, whereas stop_clock blocks all arts for 2 s as in bang_tam's The Keeper's Stillness).",
    "counters": [],
    "records": [
     {
@@ -669,11 +812,9 @@
      ],
      "do": [
       {
-       "status": {
-        "id": "silence",
-        "stacks": 1,
-        "dur": 2.0,
-        "side": "foe"
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 2.0
        }
       }
      ]
@@ -682,7 +823,7 @@
   },
   "Words Before Blades": {
    "rule": "Keeper of the Old Tower, full set: for the first 5 s of each fight you take 25 % less damage while you cast no damaging art; each hit you evade in that time stores one Water buff stack, and your first sword art after it spends them all for 8 % more damage each.",
-   "approx": "Uses words_window (5 pulses at fight_start) granting dampen_taken: 25; each evade in that window adds a Water buff + words_evades; next sword art spends words_evades for dmg_more 0.08 each.",
+   "approx": "Uses words_window (5 pulses at fight_start, cleared immediately on any damaging art_fired); while words_window >= 1, always grants dampen_taken: 33 (~24.8 % less damage, 1/1.33 = 0.752) and evades store 1 Water buff + words_evades. Next damaging sword art spends words_evades via 1 ms temp_mod dmg_more 0.08 scoped to kind: art, tags: [sword].",
    "counters": [
     {
      "id": "words_window",
@@ -705,11 +846,23 @@
         "id": "words_window",
         "set": 5
        }
-      },
+      }
+     ]
+    },
+    {
+     "id": "eff:Words Before Blades:guard",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.words_window",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
       {
        "mod": {
-        "dampen_taken": 25,
-        "for": 5.0
+        "dampen_taken": 33
        }
       }
      ]
@@ -754,11 +907,13 @@
        "read": "own.counter.words_evades",
        "op": ">=",
        "value": 1
+      },
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
       }
      ],
-     "held": {
-      "until": "hit_landed"
-     },
      "scale": {
       "read": "own.counter.words_evades",
       "per": 1
@@ -766,12 +921,45 @@
      "do": [
       {
        "mod": {
-        "dmg_more": 0.08
+        "dmg_more": 0.08,
+        "kind": "art",
+        "tags": [
+         "sword"
+        ]
        }
       },
       {
        "counter": {
         "id": "words_evades",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Words Before Blades:break_window",
+     "on": "art_fired",
+     "filter": {
+      "not_tags": [
+       "movement"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.words_window",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "words_window",
         "set": 0
        }
       }
@@ -813,7 +1001,7 @@
   },
   "One Cut Drawn Out": {
    "rule": "The Undefeated, full set: each second you go without attacking adds 12 % crit damage to your next sword art. The first sword art of each fight cannot be evaded. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again: No Second Cut and the first-art clause re-arm.",
-   "approx": "Tracks drawn_out per idle pulse (since_act >= 0.9), spending it on next sword art (+12 crit_mult each); applies Off Guard (1 s) on first sword art and resets first_sword_done + no_second_done after 3 s idle.",
+   "approx": "Tracks pulses without a damaging art via drawn_acted + drawn_idle (immune to evades and non-damaging arts, separate from Return to the Scabbard's counters so both compose cleanly). Adds 1 drawn_out per idle pulse, spent on next damaging sword art via 1 ms temp_mod crit_mult +12 each (scoped to kind: art, tags: [sword]). First damaging sword art grants 1 ms acc: 500 (cannot be evaded); 3 idle pulses re-arm first_sword_done and no_second_done.",
    "counters": [
     {
      "id": "drawn_out"
@@ -825,6 +1013,13 @@
     {
      "id": "no_second_done",
      "cap": 1
+    },
+    {
+     "id": "drawn_acted",
+     "cap": 1
+    },
+    {
+     "id": "drawn_idle"
     }
    ],
    "records": [
@@ -833,15 +1028,21 @@
      "on": "pulse",
      "if": [
       {
-       "read": "own.since_act",
-       "op": ">=",
-       "value": 0.9
+       "read": "own.counter.drawn_acted",
+       "op": "==",
+       "value": 0
       }
      ],
      "do": [
       {
        "counter": {
         "id": "drawn_out",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "drawn_idle",
         "add": 1
        }
       }
@@ -852,9 +1053,9 @@
      "on": "pulse",
      "if": [
       {
-       "read": "own.since_act",
+       "read": "own.counter.drawn_idle",
        "op": ">=",
-       "value": 2.9
+       "value": 3
       }
      ],
      "do": [
@@ -873,6 +1074,31 @@
      ]
     },
     {
+     "id": "eff:One Cut Drawn Out:reset_act",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.drawn_acted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "drawn_acted",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "drawn_idle",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
      "id": "eff:One Cut Drawn Out:first",
      "on": "art_fired",
      "filter": {
@@ -885,15 +1111,17 @@
        "read": "own.counter.first_sword_done",
        "op": "==",
        "value": 0
+      },
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
       }
      ],
      "do": [
       {
-       "status": {
-        "id": "off_guard",
-        "stacks": 1,
-        "dur": 1.0,
-        "side": "foe"
+       "mod": {
+        "acc": 500
        }
       },
       {
@@ -917,11 +1145,13 @@
        "read": "own.counter.drawn_out",
        "op": ">=",
        "value": 1
+      },
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
       }
      ],
-     "held": {
-      "until": "hit_landed"
-     },
      "scale": {
       "read": "own.counter.drawn_out",
       "per": 1
@@ -929,7 +1159,11 @@
      "do": [
       {
        "mod": {
-        "crit_mult": 12
+        "crit_mult": 12,
+        "kind": "art",
+        "tags": [
+         "sword"
+        ]
        }
       },
       {
@@ -939,12 +1173,42 @@
        }
       }
      ]
+    },
+    {
+     "id": "eff:One Cut Drawn Out:mark_act",
+     "on": "art_fired",
+     "filter": {
+      "not_tags": [
+       "movement"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "drawn_acted",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "drawn_idle",
+        "set": 0
+       }
+      }
+     ]
     }
    ]
   },
   "Thin as Glass": {
    "rule": "Glass Storm, full set: while you are above half health, each Lightning crit chains one more bolt. Each time a single hit takes more than a tenth of your health, your next Lightning art fires at once. Healing on you is 20 % weaker, because the glass does not mend.",
-   "approx": "Uses always heal_taken -20 and healing -20; Lightning crits above 50 % HP trigger free_hit c: 0.45 elem; big hits (>= 10 % hp_max lost in last 1 s via lost_last.hp.1) advance next art timer.",
+   "approx": "Uses always heal_taken -20 (only heal_taken, never double-penalized with healing); Lightning crits above 50 % HP trigger free_hit c: 0.45 dtype: lightning; because engine own.lost_last.hp.1 returns raw HP (not a share of hp_max) and event.amount is raw HP, heavy single hits (>10 % HP) are approximated by enemy art crits (was_hit filter kind: art, is_crit: true, cooldown 2 s) advancing own next art timer.",
    "counters": [],
    "records": [
     {
@@ -953,7 +1217,6 @@
      "do": [
       {
        "mod": {
-        "healing": -20,
         "heal_taken": -20
        }
       }
@@ -979,7 +1242,7 @@
       {
        "free_hit": {
         "c": 0.45,
-        "dtype": "elem"
+        "dtype": "lightning"
        }
       }
      ]
@@ -987,13 +1250,10 @@
     {
      "id": "eff:Thin as Glass:shatter",
      "on": "was_hit",
-     "if": [
-      {
-       "read": "own.lost_last.hp.1",
-       "op": ">=",
-       "value": 0.1
-      }
-     ],
+     "filter": {
+      "kind": "art",
+      "is_crit": true
+     },
      "limit": {
       "cooldown": 2.0
      },
@@ -1011,7 +1271,7 @@
   },
   "Heard Before It Falls": {
    "rule": "Ears of the Hall, full set: you always evade the first art a foe casts at you each fight, and the bell rings a ward on you worth 8 % of your health. A foe you have heard is marked, and your seals on a marked foe last 2 s longer.",
-   "approx": "Grants opening decoy (1) + 8 % ward at fight_start; on decoy_struck raises evaded event and marks foe via heard_marked = 1, boosting status_dur +100 % on Silence and Sealed Meridian.",
+   "approx": "Grants opening decoy (1) + 8 % ward at fight_start (note: engine decoy avoids any first direct hit including an opening basic attack, as decoy has no kind filter); on decoy_struck raises evaded and marks foe via heard_marked = 1, granting +67 % status_dur on curses (tags: [curse], +2 s on 3 s base seals/curses up to the 5 s curse clamp).",
    "counters": [
     {
      "id": "heard_marked",
@@ -1072,10 +1332,9 @@
      "do": [
       {
        "mod": {
-        "status_dur": 100,
+        "status_dur": 67,
         "tags": [
-         "silence",
-         "sealed_meridian"
+         "curse"
         ]
        }
       }
@@ -1085,7 +1344,7 @@
   },
   "The Gate Drums": {
    "rule": "Drum of the Gate, full set: every fourth storm stack you lay beats the drum. The raised sword draws one bolt onto the foe, and the foe gains 2 Slowed Time stacks. Each beat in the same fight adds one more Slowed Time stack.",
-   "approx": "Adds 2 storm counts per Thunder art hit_landed (approximating Thunder stack application); every 4 counts beats the drum: free_hit bolt (c 1.0 elem) and 2 + (beats - 1) Slowed Time stacks.",
+   "approx": "Exact engine form: listens on status_applied (element: thunder, scale event.stacks) to count drum_storms; every 4th stack triggers extra_slow (drum_beats additional Slowed Time stacks on beats 2+) followed by beat (drum_storms -4, drum_beats +1, free_hit c: 1.0 dtype: lightning, and 2 base Slowed Time stacks -> 2, 3, 4... Slowed Time per beat).",
    "counters": [
     {
      "id": "drum_storms"
@@ -1097,26 +1356,64 @@
    "records": [
     {
      "id": "eff:The Gate Drums:charge",
-     "on": "hit_landed",
+     "on": "status_applied",
      "filter": {
-      "element": "thunder",
-      "kind": "art"
+      "element": "thunder"
+     },
+     "scale": {
+      "read": "event.stacks",
+      "per": 1
      },
      "do": [
       {
        "counter": {
         "id": "drum_storms",
-        "add": 2
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Gate Drums:extra_slow",
+     "on": "status_applied",
+     "filter": {
+      "element": "thunder"
+     },
+     "if": [
+      {
+       "read": "own.counter.drum_storms",
+       "op": ">=",
+       "value": 4
+      },
+      {
+       "read": "own.counter.drum_beats",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 2
+     },
+     "scale": {
+      "read": "own.counter.drum_beats",
+      "per": 1
+     },
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 4.0,
+        "side": "foe"
        }
       }
      ]
     },
     {
      "id": "eff:The Gate Drums:beat",
-     "on": "hit_landed",
+     "on": "status_applied",
      "filter": {
-      "element": "thunder",
-      "kind": "art"
+      "element": "thunder"
      },
      "if": [
       {
@@ -1126,7 +1423,7 @@
       }
      ],
      "limit": {
-      "per_firing": 1
+      "per_pulse": 2
      },
      "do": [
       {
@@ -1144,45 +1441,13 @@
       {
        "free_hit": {
         "c": 1.0,
-        "dtype": "elem"
+        "dtype": "lightning"
        }
       },
       {
        "status": {
         "id": "slowed_time",
-        "stacks": 1,
-        "dur": 4.0,
-        "side": "foe"
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:The Gate Drums:extra_slow",
-     "on": "hit_landed",
-     "filter": {
-      "element": "thunder",
-      "kind": "art"
-     },
-     "if": [
-      {
-       "read": "own.counter.drum_beats",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "limit": {
-      "per_firing": 1
-     },
-     "scale": {
-      "read": "own.counter.drum_beats",
-      "per": 1
-     },
-     "do": [
-      {
-       "status": {
-        "id": "slowed_time",
-        "stacks": 1,
+        "stacks": 2,
         "dur": 4.0,
         "side": "foe"
        }
@@ -1197,7 +1462,7 @@
    "counters": [
     {
      "id": "sword_raised",
-     "each_for": 3.0
+     "each_for": 1.5
     }
    ],
    "records": [
@@ -1229,7 +1494,7 @@
   },
   "After the First Blow": {
    "rule": "Hearing the Spring Rain, full set: the first hit the foe aims at you is heard. If you evade it, your next sword art at the foe is a sure crit.",
-   "approx": "Exact engine form: tracks first_blow_seen; evading the first attack sets after_blow_crit = 1, spent as sure_crit: 1 on next sword art.",
+   "approx": "Exact engine form: tracks first_blow_seen; evading the first attack sets after_blow_crit = 1, spent as a 1 ms temp_mod sure_crit: 1 (scoped to kind: art, tags: [sword]) on the next damaging sword art_fired.",
    "counters": [
     {
      "id": "first_blow_seen",
@@ -1298,15 +1563,21 @@
        "read": "own.counter.after_blow_crit",
        "op": ">=",
        "value": 1
+      },
+      {
+       "read": "own.since_act",
+       "op": "<=",
+       "value": 0
       }
      ],
-     "held": {
-      "until": "hit_landed"
-     },
      "do": [
       {
        "mod": {
-        "sure_crit": 1
+        "sure_crit": 1,
+        "kind": "art",
+        "tags": [
+         "sword"
+        ]
        }
       },
       {
@@ -1321,7 +1592,7 @@
   },
   "Formed in a Storm": {
    "rule": "Thunder on the Cone, full set: each Fire hit you land counts as half a Lightning hit for your Thunder arts' stacks and chains.",
-   "approx": "Counts Fire art hits in fire_storm_halves; every 2nd Fire hit adds 1 Thunder debuff stack (8 s) and fires a small chain bolt (c 0.45 elem).",
+   "approx": "Counts Fire art hits (element: fire, kind: art — matches both physical and elemental Fire arts) in fire_storm_halves; every 2nd Fire hit adds 1 Thunder debuff stack (8 s) and fires a small Lightning chain bolt (c 0.45, dtype: lightning).",
    "counters": [
     {
      "id": "fire_storm_halves"
@@ -1379,7 +1650,7 @@
       {
        "free_hit": {
         "c": 0.45,
-        "dtype": "elem"
+        "dtype": "lightning"
        }
       }
      ]

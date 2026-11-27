@@ -3,7 +3,7 @@
   {
    "name": "technique-effects",
    "kind": "field",
-   "spec": "A technique's `effects` list may hold {\"name\": <library Effect name>, \"unlock_layer\": n, \"passive_art\": true, \"rule\": ...}. When a build knows the technique at layer n or above (fight.py `tech_layers`, the GDScript FighterCompiler), the loader adds that Effect from assets/data/combat_effects.json and merges its counters. Matches Thiên Xu, Lạc Hà, Thủy Vị, and Phượng Minh's pending word of the same name.",
+   "spec": "A technique's `effects` list may hold {\"name\": <library Effect name>, \"unlock_layer\": n, \"passive_art\": true, \"rule\": ...}. When a build knows the technique at layer n or above (fight.py `tech_layers`, export_combat_library.py, and GDScript FighterCompiler), the loader adds that Effect from assets/data/combat_effects.json and merges its counters. Matches Thiên Xu, Lạc Hà, Thủy Vị, and Phượng Minh's pending word of the same name.",
    "gdd_text": "Công Pháp rule (passive arts): a technique may carry passive arts, each a named Effect with an unlock layer. Known to that layer, the passive art's Effect is always on in a fight; it takes no art slot and is never fired.",
    "used_by": [
     "rain-chain-sword-scripture",
@@ -11,30 +11,19 @@
     "Return to the Scabbard"
    ],
    "decision": "build",
-   "decision_reason": "Matches the shared Stage 6 decision across batch a01/b01 ('build'). Both Not a Drop Spilled and Return to the Scabbard are staged in effects/thinh_vu.effects.json with this pending note until technique-effects is wired in the serial build step."
+   "decision_reason": "Matches the unanimous batch b01 decision ('build' across thien_xu, lac_ha, thuy_vi, phuong_minh). Both Not a Drop Spilled and Return to the Scabbard are staged in effects/thinh_vu.effects.json with pending: technique-effects until the serial step wires technique.effects in both engines."
   },
   {
    "name": "lint-requires-field",
    "kind": "field",
-   "spec": "Add \"requires\" to lint_arts.py FIELDS (already supported by fight.py and authored records in auth-tech.json) so root_lacks / root_requires gates like bronze-answers (root_lacks: [\"loi\"]) and the-chain-carries-it-down (root_has: [\"loi\"]) validate in staged arts.",
-   "gdd_text": "Công Pháp lineage rule: a canon with an elemental or root prerequisite may gate an art on what root the cultivator carries.",
+   "spec": "Add \"requires\" to tools/design/arts/lint_arts.py FIELDS (already supported by fight.py root_gate, export_combat_library.py, and GDScript build_file_compiler.gd _root_gate using English engine element/variant ids against build.purity), then restore requires: {\"root_lacks\": [\"thunder\"]} on bronze-answers and requires: {\"root_has\": [\"thunder\"]} on the-chain-carries-it-down (and {\"root_has\": [\"light\"]} on phuong_minh's dawn-call).",
+   "gdd_text": "Công Pháp lineage rule: a canon with an elemental or variant prerequisite may gate an art on what root the cultivator carries (requires.root_has / requires.root_lacks, English engine element/variant ids).",
    "used_by": [
     "bronze-answers",
     "the-chain-carries-it-down"
    ],
    "decision": "build",
-   "decision_reason": "Matches phuong_minh's note on dawn-call: omit `requires` from the staged art JSON so lint_arts.py reports zero findings today, carry the gate text in `notes`, and restore `requires` once FIELDS in lint_arts.py allows it."
-  },
-  {
-   "name": "body-element-free-names",
-   "kind": "field",
-   "spec": "Cross-owner note for xuyen_lam: calm-wind-staff-canon (and Xuyên Lâm's other techniques) are authored with `tech_kind: \"main\"` and `names: []` (element-free), which lint_techniques.py currently rejects (only `tech_kind: \"body\"` allows `names: []`). Either allow `names: []` on `main`/`secret` element-free schools or treat element-free staff/footwork schools under a dedicated flag.",
-   "gdd_text": "Xuyên Lâm Môn lineage (R3): an element-free staff-and-footwork school whose main canon cultivates no element.",
-   "used_by": [
-    "calm-wind-staff-canon (foreign/xuyen_lam)"
-   ],
-   "decision": "note_for_xuyen_lam",
-   "decision_reason": "Early-promoted for uc_da_diep in foreign/xuyen_lam with temporary lint proxy `names: [\"kim\", \"moc\", \"tho\"]` (keeping `tech_kind: \"main\"` and element-free arts `element: \"\"`) so lint_techniques.py stays clean until xuyen_lam settles the schema."
+   "decision_reason": "One-token lint_arts.py FIELDS addition in s6-serial-b01; both fight engines and export_combat_library.py already execute requires. Restoring requires with English 'thunder' (not Hán-Việt 'loi', which root_gate would silently fail to match) enforces thunder-in-the-rain-canon's Metal-vs-Thunder split for all 15 elders."
   }
  ],
  "arts": [],

@@ -1,0 +1,19 @@
+{
+ "owner": "thinh_vu",
+ "minutes": 42,
+ "must_fix": 28,
+ "should": 2,
+ "fixed": 30,
+ "words": {
+  "technique-effects": "build",
+  "lint-requires-field": "build"
+ },
+ "open": [
+  "technique-effects (build): wire technique.effects passive-art loading in fight.py, export_combat_library.py, and GDScript FighterCompiler for rain-chain-sword-scripture's Not a Drop Spilled (L4) and Return to the Scabbard (L6)",
+  "lint-requires-field (build): add 'requires' to tools/design/arts/lint_arts.py FIELDS (1 token), then restore requires: {root_lacks: ['thunder']} on bronze-answers and {root_has: ['thunder']} on the-chain-carries-it-down",
+  "body-element-free-names (cultivation/schema ruling, removed from pending.json): allow names: [] on element-free body/weapon methods in CongPhap.usable and lint_techniques.py for xuyen_lam's calm-wind-staff-canon (proxied as ['kim','moc','tho']), market-folk, and the 11 R3 no-lean sects",
+  "CongPhap.usable root mismatches (Stage 7/9): rain-on-bronze-primer ['kim','hoa'] (38 LK lacking one half), thunder-in-the-rain-canon ['kim','loi'] (10 Metal-only elders/disciples cultivating first half), censer-smoke-manual ['hoa'] (o_thiem_tu)",
+  "unpriced/game-only lines (2 of 152): can_cot on thunder-in-the-rain-canon (unpriced in lint_techniques.py) and khi_van on tvl-night-market-abacus (game-only)",
+  "cross-owner techniques (2): foreign/xuyen_lam/calm-wind-staff-canon (staged under thinh_vu/foreign/xuyen_lam; lint_techniques.py resolves its 3 arts after stage6_merge or with foreign DEPTH_STAGE) and market-folk/censer-smoke-manual (already staged under phuong_minh/foreign/market-folk)"
+ ]
+}

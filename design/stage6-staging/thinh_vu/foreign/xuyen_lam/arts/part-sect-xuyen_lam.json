@@ -9,13 +9,22 @@
   "group": "calm-wind-staff-canon",
   "tags": [
    "physical",
-   "staff",
-   "movement"
+   "movement",
+   "stance"
   ],
   "c_art": 0.0,
-  "cost_share": 0.03,
-  "cooldown": 4.0,
+  "cost_share": 0.02,
+  "cooldown": 1.8,
   "kind": "phys",
+  "states": [
+   {
+    "id": "walk-slowly",
+    "tags": [
+     "pressing"
+    ],
+    "mods": {}
+   }
+  ],
   "counters": [
    {
     "id": "walk_slowly",
@@ -24,9 +33,28 @@
   ],
   "effects": [
    {
+    "id": "walk-slowly-enter",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "walk-slowly"
+    },
+    "do": [
+     {
+      "state": {
+       "set": "walk-slowly"
+      }
+     }
+    ]
+   },
+   {
     "id": "walk-slowly-step",
     "on": "pulse",
     "if": [
+     {
+      "read": "own.state.walk-slowly",
+      "op": ">=",
+      "value": 1
+     },
      {
       "read": "own.pressing",
       "op": ">=",
@@ -63,6 +91,11 @@
        "id": "walk_slowly",
        "set": 0
       }
+     },
+     {
+      "state": {
+       "set": null
+      }
      }
     ]
    },
@@ -79,6 +112,11 @@
       "counter": {
        "id": "walk_slowly",
        "set": 0
+      }
+     },
+     {
+      "state": {
+       "set": null
       }
      }
     ]
@@ -99,34 +137,83 @@
       "value": 1
      }
     ],
-    "held": {
-     "until": "hit_landed"
+    "scale": {
+     "read": "own.counter.walk_slowly",
+     "per": 1
     },
     "do": [
      {
       "mod": {
-       "dmg_more": 0.06
+       "dmg_more": 0.06,
+       "kind": "art",
+       "tags": [
+        "staff"
+       ]
       }
-     },
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-clear-hit",
+    "on": "hit_landed",
+    "filter": {
+     "tags": [
+      "staff"
+     ],
+     "kind": "art",
+     "not_art_id": "walk-slowly"
+    },
+    "if": [
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
      {
       "counter": {
        "id": "walk_slowly",
        "set": 0
       }
      }
+    ]
+   },
+   {
+    "id": "walk-slowly-clear-evaded",
+    "on": "was_evaded",
+    "filter": {
+     "tags": [
+      "staff"
+     ],
+     "kind": "art",
+     "not_art_id": "walk-slowly"
+    },
+    "if": [
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
     ],
-    "scale": {
-     "read": "own.counter.walk_slowly",
-     "per": 1
-    }
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "set": 0
+      }
+     }
+    ]
    }
   ],
-  "rule": "A stance kept while moving: each second Pressing adds a Walk Slowly stack; each stack raises Physical damage of the next staff strike by 6 % and is spent by it. Composed or running (escape) clears all stacks.",
+  "rule": "A pressing stance kept while moving: each second you stay Pressing in it adds a Walk Slowly stack; each stack raises the Physical damage of your next staff strike by 6 % and is spent by it. Becoming Composed or firing an escape art clears all stacks and leaves the stance.",
   "hooks": [
    "pressing",
    "composed",
+   "stance",
    "staff"
   ],
+  "notes": "Defines the walk-slowly pressing stance (matching xuyen_lam.techniques.json and auth-eff-1 d23 The Long Road). Applies dmg_more as an instant 1 ms temp_mod on staff art_fired and clears walk_slowly on hit_landed/was_evaded so who-is-afraid-cleanse always sees pre-spend stacks and non-staff/basic hits never steal stacks.",
   "sources": [
    "world-depth:xuyen_lam"
   ]
@@ -143,14 +230,14 @@
    "physical",
    "staff"
   ],
-  "c_art": 1.6,
+  "c_art": 1.8,
   "cost_share": 0.04,
-  "cooldown": 4.5,
+  "cooldown": 5.5,
   "kind": "phys",
   "effects": [
    {
     "id": "who-is-afraid-cleanse",
-    "on": "hit_landed",
+    "on": "art_fired",
     "filter": {
      "art_id": "who-is-afraid"
     },
@@ -170,11 +257,12 @@
     ]
    }
   ],
-  "rule": "A sweeping staff strike that deals Physical damage; with 5 or more Walk Slowly stacks, also cleanses 1 curse status from the holder.",
+  "rule": "A sweeping staff strike that deals Physical damage; with 5 or more Walk Slowly stacks, also cleanses 1 curse status (such as Slowed Time) from the holder.",
   "hooks": [
    "staff",
    "cleanse"
   ],
+  "notes": "Cooldown 5.5 s lets walk-slowly build 5 stacks between strikes; cleanse runs on art_fired before walk-slowly-clear-hit spends the stacks.",
   "sources": [
    "world-depth:xuyen_lam"
   ]
@@ -213,18 +301,21 @@
       "mod": {
        "dampen_taken": 25,
        "status_resist": 50,
+       "tick_block": 50,
        "for": 4.0
       }
      }
     ]
    }
   ],
-  "rule": "A bamboo-and-straw rain guard: raises a 10 % ward and reduces incoming damage and status impact for 4 s.",
+  "rule": "A bamboo-and-straw rain guard: raises a 10 % stance ward and for 4 s reduces incoming damage, resists status impact, and lets block meet half of incoming status ticks.",
   "hooks": [
    "ward",
    "dampen_taken",
-   "status_resist"
+   "status_resist",
+   "tick_block"
   ],
+  "notes": "Approximates field-ignoring and half-rate status ticks from xuyen_lam.techniques.json via ward_grow + dampen_taken + status_resist + tick_block 50.",
   "sources": [
    "world-depth:xuyen_lam"
   ]

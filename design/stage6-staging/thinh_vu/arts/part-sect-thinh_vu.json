@@ -9,8 +9,7 @@
   "group": "rain-on-bronze-primer",
   "tags": [
    "metal",
-   "palm",
-   "fire"
+   "palm"
   ],
   "c_art": 1.1,
   "cost_share": 0.03,
@@ -20,78 +19,33 @@
    1,
    6.0
   ],
-  "counters": [
-   {
-    "id": "bell_lit",
-    "each_for": 8.0
-   }
-  ],
   "effects": [
    {
-    "id": "bell-struck-fire-debuff",
+    "id": "bell-struck-slow",
     "on": "hit_landed",
     "filter": {
      "art_id": "bell-struck-palm"
     },
-    "do": [
-     {
-      "stacks": {
-       "el": "fire",
-       "n": 1,
-       "for": 6.0,
-       "side": "foe"
-      }
-     },
-     {
-      "counter": {
-       "id": "bell_lit",
-       "set": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "bell-struck-next-metal",
-    "on": "art_fired",
-    "filter": {
-     "element": "metal"
-    },
-    "if": [
-     {
-      "read": "own.counter.bell_lit",
-      "op": ">=",
-      "value": 1
-     },
-     {
-      "read": "foe.debuff.fire",
-      "op": ">=",
-      "value": 1
-     }
-    ],
-    "held": {
-     "until": "hit_landed"
+    "limit": {
+     "per_pulse": 1
     },
     "do": [
      {
-      "mod": {
-       "dmg_more": 0.15
-      }
-     },
-     {
-      "counter": {
-       "id": "bell_lit",
-       "set": 0
+      "timer": {
+       "side": "foe",
+       "which": "next",
+       "by": 0.5
       }
      }
     ]
    }
   ],
-  "rule": "An open-hand Metal strike that also lays one Fire stack (metal conducts fire); while the foe carries a Fire stack, your next Metal art against them deals 15 % more damage.",
+  "rule": "An open palm that rings the foe like a struck bell: deals Metal physical damage, lays 1 Metal stack for 6 s, and delays the foe's next art by 0.5 s.",
   "hooks": [
-   "fire stacks",
-   "metal damage"
+   "metal stacks",
+   "timer delay"
   ],
-  "notes": "Uses debuff: [1, 6] plus hit_landed Fire stack for conductivity; next Metal art consumes bell_lit via held: until hit_landed while foe holds a Fire stack.",
+  "notes": "Outer gate's only fighting art (rain-on-bronze-primer). Faithful to depth rule (no invented Fire stack or held mod); timer delay obeys engine delay falloff and timer resistance.",
   "sources": [
    "world-depth:thinh_vu"
   ]
@@ -128,8 +82,11 @@
   ],
   "effects": [
    {
-    "id": "drop-falls-arm",
+    "id": "drop-falls-arm-hit",
     "on": "was_hit",
+    "filter": {
+     "kind": "art"
+    },
     "do": [
      {
       "counter": {
@@ -140,12 +97,32 @@
     ]
    },
    {
-    "id": "drop-falls-spend",
+    "id": "drop-falls-arm-evade",
+    "on": "evaded",
+    "filter": {
+     "kind": "art"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "drop_ready",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "drop-falls-sure",
     "on": "art_fired",
     "filter": {
      "art_id": "where-the-drop-falls"
     },
     "do": [
+     {
+      "mod": {
+       "acc": 500
+      }
+     },
      {
       "counter": {
        "id": "drop_ready",
@@ -153,15 +130,44 @@
       }
      }
     ]
+   },
+   {
+    "id": "drop-falls-metal-scale",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "where-the-drop-falls"
+    },
+    "if": [
+     {
+      "read": "foe.debuff.metal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "foe.debuff.metal",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.08,
+       "kind": "art",
+       "element": "metal"
+      }
+     }
+    ]
    }
   ],
-  "rule": "A slow guarding stance that waits for a blow; the first hit from the foe triggers a single fast counter-cut of Metal damage.",
+  "rule": "A waiting counter-cut: when a foe's art strikes at you (hit or evaded), this cut opens for 4 s and answers with a Metal sword strike that cannot miss and deals 8 % more damage for each Metal stack on the foe.",
   "hooks": [
    "counter",
    "was_hit",
+   "evaded",
+   "metal stacks",
    "sword"
   ],
-  "notes": "Guarded by own.counter.drop_ready (set on was_hit, cleared on firing) so it fires directly with art_id 'where-the-drop-falls', feeding bronze-answers and Not a Drop Spilled cleanly.",
+  "notes": "Guarded by own.counter.drop_ready (armed when a foe art lands or is evaded, cleared on firing) so it fires directly with art_id 'where-the-drop-falls', feeding bronze-answers cleanly. Uses 1 ms acc: 500 ('cannot miss', no curse-slot theft) and uncapped dmg_more +0.08 per foe Metal stack.",
   "sources": [
    "world-depth:thinh_vu"
   ]
@@ -288,7 +294,7 @@
    "echo count",
    "sword"
   ],
-  "notes": "Authored e1 (auth-tech.json). Pending word `lint-requires-field`: `requires: {\"root_lacks\": [\"loi\"]}` is omitted from staged JSON until FIELDS in lint_arts.py adds `requires`.",
+  "notes": "Authored e1 (auth-tech.json). Pending word `lint-requires-field`: `requires: {\"root_lacks\": [\"thunder\"]}` (English engine variant id, matching fight.py root_gate and build_file_compiler.gd _root_gate) is omitted from staged JSON until FIELDS in lint_arts.py adds `requires`.",
   "sources": [
    "rb-07",
    "world-depth:thinh_vu"
@@ -304,21 +310,55 @@
   "group": "thunder-in-the-rain-canon",
   "tags": [
    "thunder",
+   "lightning",
    "rain",
    "chain"
   ],
-  "c_art": 1.3,
+  "c_art": 1.4,
   "cost_share": 0.05,
   "cooldown": 4.5,
   "kind": "elem",
+  "debuff": [
+   1,
+   8.0
+  ],
+  "counters": [
+   {
+    "id": "chain_path",
+    "cap": 1,
+    "each_for": 2.0
+   }
+  ],
   "effects": [
    {
-    "id": "chain-carries-metal-to-thunder",
+    "id": "chain-carries-open",
     "on": "hit_landed",
     "filter": {
-     "art_id": "the-chain-carries-it-down"
+     "element": "metal",
+     "kind": "art"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "chain_path",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "chain-carries-bolt",
+    "on": "hit_landed",
+    "filter": {
+     "dtype": "lightning",
+     "kind": "art"
     },
     "if": [
+     {
+      "read": "own.counter.chain_path",
+      "op": ">=",
+      "value": 1
+     },
      {
       "read": "foe.debuff.metal",
       "op": ">=",
@@ -326,56 +366,54 @@
      }
     ],
     "limit": {
-     "per_firing": 1
+     "per_pulse": 2
     },
     "do": [
      {
-      "consume": {
-       "el": "metal",
-       "side": "foe",
-       "kind": "debuff",
-       "n": 2,
-       "per": 1,
-       "then": [
-        {
-         "stacks": {
-          "el": "thunder",
-          "n": 1,
-          "for": 8.0,
-          "side": "foe"
-         }
-        },
-        {
-         "free_hit": {
-          "c": 0.35,
-          "dtype": "elem"
-         }
-        }
-       ]
+      "free_hit": {
+       "c": 0.5,
+       "dtype": "lightning"
+      }
+     }
+    ]
+   },
+   {
+    "id": "chain-carries-metal-scale",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.chain_path",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.debuff.metal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "foe.debuff.metal",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.08,
+       "kind": "trigger",
+       "dtype": "lightning"
       }
      }
     ]
    }
   ],
-  "empower": [
-   {
-    "if": [
-     {
-      "read": "foe.debuff.thunder",
-      "op": ">=",
-      "value": 2
-     }
-    ],
-    "c_mult": 1.35
-   }
-  ],
-  "rule": "Open only to a root that has formed Thunder. The canon's Lightning strike; it chains further on targets carrying Metal or Thunder stacks, converting up to two Metal stacks on the foe into Thunder stacks and an extra chain bolt.",
+  "rule": "Open only to a root that has formed Thunder. A Lightning strike (1 Thunder stack, 8 s). After any Metal art lands, the chain path stays open for 2 s: each Lightning art that hits a foe carrying a Metal stack chains a second Lightning bolt (c 0.5), dealing 8 % more damage for each Metal stack on the foe.",
   "hooks": [
    "thunder stacks",
    "metal stacks",
    "chain bolt"
   ],
-  "notes": "Pending word `lint-requires-field`: `requires: {\"root_has\": [\"loi\"]}` is omitted from staged JSON until FIELDS in lint_arts.py adds `requires`.",
+  "notes": "Pending word `lint-requires-field`: `requires: {\"root_has\": [\"thunder\"]}` (English engine variant id) is omitted from staged JSON until FIELDS in lint_arts.py adds `requires`. Faithful to depth rule: leaves Metal stacks intact and scales chained Lightning trigger bolts uncapped by foe.debuff.metal.",
   "sources": [
    "world-depth:thinh_vu"
   ]
@@ -390,25 +428,135 @@
   "group": "thunder-in-the-rain-canon",
   "tags": [
    "metal",
+   "sword",
    "thunder",
    "rain",
    "peal"
   ],
-  "c_art": 0.9,
+  "c_art": 1.0,
   "cost_share": 0.05,
   "cooldown": 6.0,
-  "kind": "elem",
+  "kind": "phys",
   "debuff": [
    3,
    8.0
   ],
   "counters": [
    {
+    "id": "gathering_rain"
+   },
+   {
     "id": "rain_peal_wait",
     "decay_per_pulse": 1
    }
   ],
   "effects": [
+   {
+    "id": "rain-peal-gather",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.pressing",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "gathering_rain",
+       "add": 2
+      }
+     }
+    ]
+   },
+   {
+    "id": "rain-peal-press-lose",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.pressing",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.gathering_rain",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "gathering_rain",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "rain-peal-spend-metal",
+    "on": "art_fired",
+    "filter": {
+     "element": "metal"
+    },
+    "if": [
+     {
+      "read": "own.counter.gathering_rain",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.gathering_rain",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.08,
+       "kind": "art",
+       "element": "metal"
+      }
+     },
+     {
+      "counter": {
+       "id": "gathering_rain",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "rain_peal_wait",
+       "set": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "rain-peal-lose-other",
+    "on": "art_fired",
+    "if": [
+     {
+      "read": "own.counter.gathering_rain",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "gathering_rain",
+       "set": 0
+      }
+     }
+    ]
+   },
    {
     "id": "rain-peal-arm",
     "on": "art_fired",
@@ -420,51 +568,6 @@
       "counter": {
        "id": "rain_peal_wait",
        "set": 3
-      }
-     }
-    ]
-   },
-   {
-    "id": "rain-peal-bolt-base",
-    "on": "pulse",
-    "if": [
-     {
-      "read": "own.counter.rain_peal_wait",
-      "op": "==",
-      "value": 1
-     },
-     {
-      "read": "own.tech_layer.lightning-rod-sword",
-      "op": "==",
-      "value": 0
-     },
-     {
-      "read": "own.tech_layer.heavenly-tribulation-scripture",
-      "op": "==",
-      "value": 0
-     },
-     {
-      "read": "foe.debuff.thunder",
-      "op": "<",
-      "value": 3
-     }
-    ],
-    "limit": {
-     "per_pulse": 1
-    },
-    "do": [
-     {
-      "free_hit": {
-       "c": 1.0,
-       "dtype": "elem"
-      }
-     },
-     {
-      "stacks": {
-       "el": "thunder",
-       "n": 2,
-       "for": 8.0,
-       "side": "foe"
       }
      }
     ]
@@ -491,9 +594,14 @@
         "value": 1
        },
        {
+        "read": "own.tech_layer.opening-thunder-canon",
+        "op": ">=",
+        "value": 1
+       },
+       {
         "read": "foe.debuff.thunder",
         "op": ">=",
-        "value": 3
+        "value": 1
        }
       ]
      }
@@ -505,7 +613,7 @@
      {
       "free_hit": {
        "c": 1.8,
-       "dtype": "elem"
+       "dtype": "lightning"
       }
      },
      {
@@ -519,13 +627,15 @@
     ]
    }
   ],
-  "rule": "Wet Metal rain strikes first, laying 3 Metal stacks; 2 s later a Thunder bolt follows, dealing heavier Lightning damage and extra Thunder stacks if the holder carries Thunder.",
+  "rule": "A Metal sword cut (3 Metal stacks, 8 s). Each half-second you stay Composed gives 1 Gathering Rain (2 per pulse); Pressing or casting any non-Metal art loses them all. Your next Metal art spends all Gathering Rain for 8 % more damage each; for a Thunder root, that cut (or this art) also lands a delayed Lightning bolt (c 1.8, 3 Thunder stacks) 2 s later.",
   "hooks": [
+   "composed",
    "metal stacks",
    "thunder stacks",
-   "delayed bolt"
+   "delayed bolt",
+   "sword"
   ],
-  "notes": "Since no own.purity.<el> readable exists, Thunder potency checks Thunder technique knowledge (lightning-rod-sword / heavenly-tribulation-scripture) or >= 3 Thunder stacks on foe.",
+  "notes": "Kind phys (Metal). Removed non-Thunder delayed bolt so Metal-only roots never call lightning ('the bronze rings, but no bolt comes'). Thunder-root check uses Thunder technique layers or active foe Thunder debuff (no own.purity readable exists). Delayed bolt uses dtype: lightning.",
   "sources": [
    "world-depth:thinh_vu"
   ]
@@ -544,14 +654,14 @@
    "lightning"
   ],
   "c_art": 0.0,
-  "cost_share": 0.06,
+  "cost_share": 0.03,
   "cooldown": 5.0,
   "charges": 2,
   "kind": "elem",
   "counters": [
    {
     "id": "sword_raised",
-    "each_for": 3.0
+    "each_for": 1.5
    },
    {
     "id": "bolt_fell",
@@ -580,7 +690,7 @@
      {
       "stacks": {
        "el": "thunder",
-       "n": 2,
+       "n": 1,
        "for": 8.0,
        "side": "foe"
       }
@@ -630,7 +740,7 @@
      {
       "timer": {
        "side": "own",
-       "which": "next",
+       "which": "longest",
        "by": 2.0
       }
      }
@@ -669,14 +779,14 @@
     ]
    }
   ],
-  "rule": "Throw the flying sword above the foe: after 1 s a bolt falls, dealing Lightning damage and 2 Thunder stacks; if the foe acted in that second, the bolt misses and the next timer is 2 s longer.",
+  "rule": "Throw the flying sword above the foe: after a beat a bolt falls, dealing Lightning damage and 1 Thunder stack; if the foe acted in that second, the bolt misses and your longest art timer is 2 s longer.",
   "hooks": [
    "fired_within",
    "thunder stacks",
    "timer delay",
    "crit"
   ],
-  "notes": "Uses charges: 2 + step_unlocked direct art hit (never free_hit) so the bolt can crit for tvl-gold-sand-pair, and counter `sword_raised` instead of `state` so overload-form is never overwritten. Checks foe.fired_within.1.all == 0 so automatic 1 s basic attacks do not permanently block the bolt.",
+  "notes": "Uses charges: 2 (cost_share 0.03 per charge = 0.06 total) + step_unlocked direct art hit (never free_hit) so the bolt can crit for tvl-gold-sand-pair, and counter `sword_raised` (each_for 1.5 s: covers the 0.5 s bolt window for The Struck Shed without bleeding into fast cycles) instead of `state` so overload-form is never overwritten. Checks foe.fired_within.1.all == 0 so automatic basic attacks do not permanently block the bolt; miss delays `longest` timer (its own 5 s cooldown).",
   "sources": [
    "a1",
    "world-depth:thinh_vu"
@@ -750,6 +860,13 @@
    {
     "id": "lotus-hear-evade",
     "on": "evaded",
+    "if": [
+     {
+      "read": "own.counter.lotus_listen",
+      "op": ">=",
+      "value": 1
+     }
+    ],
     "do": [
      {
       "counter": {
@@ -772,13 +889,16 @@
       "value": 1
      }
     ],
-    "held": {
-     "until": "hit_landed"
+    "scale": {
+     "read": "own.counter.heard",
+     "per": 1
     },
     "do": [
      {
       "mod": {
-       "dmg_more": 0.12
+       "dmg_more": 0.12,
+       "kind": "art",
+       "element": "metal"
       }
      },
      {
@@ -787,20 +907,16 @@
        "set": 0
       }
      }
-    ],
-    "scale": {
-     "read": "own.counter.heard",
-     "per": 1
-    }
+    ]
    }
   ],
-  "rule": "For 6 s the holder hears the foe: the next hit from the foe is foreseen and evaded, and each evasion gives a stack of Heard. The holder's next Metal art spends them all, dealing 12 % more damage for each.",
+  "rule": "For 6 s the holder hears the foe: the next hit from the foe is foreseen and evaded, and each evasion during those 6 s gives a stack of Heard. The holder's next Metal art spends them all, dealing 12 % more damage for each.",
   "hooks": [
    "evaded",
    "decoy",
    "metal damage"
   ],
-  "notes": "Uses decoy {n: 1} + decoy_struck -> emit {event: evaded} so foreseen hits feed evaded synergies; `heard` boosts and clears on the next Metal art hit via held: until hit_landed.",
+  "notes": "Uses decoy {n: 1} + decoy_struck -> emit {event: evaded} so foreseen hits feed evaded synergies; lotus-hear-evade is gated on lotus_listen >= 1; lotus-metal-spend uses a non-held 1 ms temp_mod scoped to kind: art, element: metal so non-Metal arts and basic attacks never steal Heard stacks.",
   "sources": [
    "world-depth:thinh_vu"
   ]
@@ -945,7 +1061,7 @@
    "stagnation",
    "qi restore"
   ],
-  "notes": "Field state guarded with own.state.any == 0 so Deep Lake is never overwritten; counter night_rain drives the rain field regardless.",
+  "notes": "Field state guarded with own.state.any == 0 so Deep Lake is never overwritten; counter night_rain drives the rain field regardless (so deep-lake-stance and the-night-is-long coexist without losing field effects; own.field_up reads 0 only while deep-lake holds the single state slot).",
   "sources": [
    "world-depth:thinh_vu"
   ]

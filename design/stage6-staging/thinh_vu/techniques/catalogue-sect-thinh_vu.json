@@ -1,7 +1,7 @@
 [
  {
   "id": "rain-on-bronze-primer",
-  "name": "Rain-on-Bronze Primer (Vũ Đả Thanh Đồng Quyết)",
+  "name": "Rain on Bronze Primer (Vũ Đả Đồng Quyết)",
   "tier": 0,
   "tech_kind": "main",
   "names": [
@@ -65,8 +65,7 @@
   "tier": 1,
   "tech_kind": "main",
   "names": [
-   "kim",
-   "loi"
+   "kim"
   ],
   "layers": 9,
   "bonuses": [
@@ -76,6 +75,20 @@
    }
   ],
   "passives": [
+   {
+    "key": "attack_pct",
+    "value": 6,
+    "scope": [
+     "loi"
+    ]
+   },
+   {
+    "key": "resist_pct",
+    "value": 150,
+    "scope": [
+     "lightning"
+    ]
+   },
    {
     "key": "attack_pct",
     "value": 5,
@@ -92,16 +105,9 @@
    },
    {
     "key": "crit_chance_pct",
-    "value": 4,
+    "value": 3,
     "scope": [
      "sword"
-    ]
-   },
-   {
-    "key": "resist_pct",
-    "value": 75,
-    "scope": [
-     "lightning"
     ]
    }
   ],
@@ -143,7 +149,7 @@
  },
  {
   "id": "thunder-in-the-rain-canon",
-  "name": "Canon of Thunder in the Rain (Vũ Trung Thính Lôi Kinh)",
+  "name": "Canon of the Thunder Heard in the Rain (Văn Lôi Kinh)",
   "tier": 2,
   "tech_kind": "main",
   "names": [
