@@ -208,7 +208,7 @@
     ],
     "guards": [
       {
-        "read": "own.counter.pillar_hits",
+        "read": "own.state.pillar-in-current",
         "op": "<",
         "value": 1
       }

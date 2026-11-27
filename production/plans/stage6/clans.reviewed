@@ -1,0 +1,11 @@
+{
+  "owner": "clans",
+  "minutes": 9,
+  "must_fix": 4,
+  "should": 1,
+  "fixed": 5,
+  "words": {},
+  "open": [
+    "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to close techniques, arts_new, items, sets, effects, and the 9 structured events."
+  ]
+}

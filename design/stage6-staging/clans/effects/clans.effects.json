@@ -1,4 +1,6 @@
 {
+  "_doc": "Clans' Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:clans.",
+  "source": "world-depth:clans",
   "effects": {
     "Under the Locust": {
       "rule": "Old Locust Seal (cl-old-locust-seal): during the first 10 s of a fight, your Water and Wood wards are 20% stronger.",
@@ -44,9 +46,9 @@
       ]
     },
     "The Swallow Returns": {
-      "rule": "Swallow-Hall Iron Fan (cl-swallow-hall-fan): once a fight, your first Wood quick art strikes again 3 s later for 40% of its damage.",
+      "rule": "Swallow Hall Fan (cl-swallow-hall-fan): once a fight, your first art is cast again 3 s later at 40% power.",
       "source": "world-depth:clans",
-      "approx": "triggers on first wood quick art and echoes which:'last' 3 pulses later at 40% share (swallow_wait decrements once per pulse).",
+      "approx": "arms on the first art_fired of the fight; fires after 3 pulses (fire ordered before tick so it waits 3 full pulses) using fire_art {which:'last', share: 0.4} (echoes the latest damaging non-soul art active at t+3 pulses rather than storing the first art id).",
       "counters": [
         {"id": "swallow_used", "start": 0, "cap": 1},
         {"id": "swallow_wait", "start": 0, "cap": 3}
@@ -55,18 +57,11 @@
         {
           "id": "eff:The Swallow Returns:arm",
           "on": "art_fired",
-          "filter": {"element": "wood", "tags": ["quick"]},
           "if": [{"read": "own.counter.swallow_used", "op": "==", "value": 0}],
           "do": [
             {"counter": {"id": "swallow_used", "set": 1}},
             {"counter": {"id": "swallow_wait", "set": 3}}
           ]
-        },
-        {
-          "id": "eff:The Swallow Returns:tick",
-          "on": "pulse",
-          "if": [{"read": "own.counter.swallow_wait", "op": ">", "value": 1}],
-          "do": [{"counter": {"id": "swallow_wait", "add": -1}}]
         },
         {
           "id": "eff:The Swallow Returns:fire",
@@ -76,6 +71,12 @@
             {"counter": {"id": "swallow_wait", "set": 0}},
             {"fire_art": {"which": "last", "share": 0.4}}
           ]
+        },
+        {
+          "id": "eff:The Swallow Returns:tick",
+          "on": "pulse",
+          "if": [{"read": "own.counter.swallow_wait", "op": ">=", "value": 1}],
+          "do": [{"counter": {"id": "swallow_wait", "add": -1}}]
         }
       ]
     },
@@ -138,10 +139,10 @@
       ]
     },
     "The Drawn Thread": {
-      "rule": "Golden Reeling Needle (cl-golden-reeling-needle): each Fire art you land draws a Thread (up to 4, 8 s each); each Thread cuts the foe's evade chance by 2%.",
+      "rule": "Golden Reeling Needle (cl-golden-reeling-needle): each hit of a Fire art draws a Thread (8 s each on its own); each Thread cuts the foe's evade chance by 2%.",
       "source": "world-depth:clans",
       "counters": [
-        {"id": "thread", "start": 0, "cap": 4, "each_for": 8}
+        {"id": "thread", "start": 0, "each_for": 8}
       ],
       "records": [
         {
@@ -159,7 +160,7 @@
       ]
     },
     "The Swallow Returns to Its Nest": {
-      "rule": "Swallow's Dispatch, full set (3 pieces): every third Wood art you cast triggers a follow-up soul strike (c = 1.4).",
+      "rule": "The Old Hall, full set (3 pieces): every third Wood art you cast triggers a follow-up soul strike (c = 1.4).",
       "source": "world-depth:clans",
       "approx": "free_hit at c = 1.4 soul damage on the 3rd wood art cast (ta_cuu_duong wears 2/3 pieces by design, verified via 3pc probe).",
       "counters": [
@@ -185,10 +186,10 @@
       ]
     },
     "Outlast the Drought": {
-      "rule": "Granary Store, full set (3 pieces): every 10 s after t = 10 s builds a Seed stack (up to 4); falling below 20% health consumes all Seed stacks to heal 8% max HP each.",
+      "rule": "The Granary, full set (3 pieces): every 10 s after t = 10 s builds a Seed stack; falling below 20% health consumes all Seed stacks to heal 8% max HP each.",
       "source": "world-depth:clans",
       "counters": [
-        {"id": "granary_seed", "start": 0, "cap": 4}
+        {"id": "granary_seed", "start": 0}
       ],
       "records": [
         {
@@ -241,7 +242,7 @@
       ]
     },
     "Leave With the Tide": {
-      "rule": "White-Sand Fleet, full set (3 pieces): once a fight, dropping below half health cuts incoming damage by 99% for 2 s, restores 10% max linh lực, and makes your next art certain.",
+      "rule": "The Hỗ Fleet, full set (3 pieces): once a fight, dropping below half health cuts incoming damage by 99% for 2 s, restores 10% max linh lực, and makes your next art certain.",
       "source": "world-depth:clans",
       "approx": "dampen_taken 9900 (99% incoming damage reduction) for 2 s models ward-piercing avoidance without extra ward mechanics, and acc 1000 makes the next art certain.",
       "counters": [
@@ -294,7 +295,7 @@
       ]
     },
     "Pulled Tight": {
-      "rule": "Silk-Reeler's Kit, full set (2 pieces): when a foe carries 6 or more of your Burn stacks, your next needle art consumes all Fire debuff stacks to deal immediate fire damage (c = 0.114 per stack).",
+      "rule": "Reeling Thread, full set (2 pieces): when a foe carries 6 or more of your Burn stacks, your next needle art consumes all Fire debuff stacks to deal immediate fire damage (c = 0.114 per stack).",
       "source": "world-depth:clans",
       "approx": "detonates all foe Fire debuff stacks via consume at c = 0.114 per stack (~6 s remaining burn tick equivalent) when a needle art or needle-rain fires with >= 6 Fire stacks on foe.",
       "records": [
@@ -335,12 +336,12 @@
       ]
     },
     "He Waited": {
-      "rule": "Locust-Shade Regalia, full set (3 pieces): every 10 s you hold Composed gives +5% ward potency (up to +15%) and your next art cannot be evaded. Stops holding Composed drops 1 stack per pulse.",
+      "rule": "Locust Shade, full set (3 pieces): for each 10 s you are Composed, your wards gain +5% strength and your first damaging art after is a sure hit; the ward gain falls away by a fifth each pulse while you are not Composed.",
       "source": "world-depth:clans",
-      "approx": "spatial 'hold Still and never move' mapped to Composed state; 'falls off in 5s if you move' approximated by dropping 1 wait_ward stack per pulse while un-Composed.",
+      "approx": "spatial 'Still / move' mapped to Composed (accumulates Composed pulses in wait_still; decays wait_ward by 1/5 per pulse via scale per:5, floor:false when un-Composed).",
       "counters": [
         {"id": "wait_still", "start": 0, "cap": 10},
-        {"id": "wait_ward", "start": 0, "cap": 3},
+        {"id": "wait_ward", "start": 0},
         {"id": "wait_sure", "start": 0, "cap": 1}
       ],
       "records": [
@@ -392,7 +393,7 @@
       ]
     },
     "Pillar in the Flood": {
-      "rule": "Twin Bridges Watch, full set (3 pieces): while above half health you gain delay and push immunity; every fifth attack you block burns 3% of the attacker's max linh lực into your own.",
+      "rule": "Twin Bridges, full set (3 pieces): while above half health you gain delay and push immunity; every fifth attack you block burns 3% of the attacker's max linh lực into your own.",
       "source": "world-depth:clans",
       "approx": "cannot be moved mapped to delay_immune + unmoved while >50% HP; every 5th block burns 3% of foe max linh lực into self (of:'qi_max').",
       "counters": [
