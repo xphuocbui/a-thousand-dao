@@ -81,7 +81,8 @@
    {"read": "own.counter.good_rain", "op": "<", "value": 1}
   ],
   "counters": [
-   {"id": "good_rain"}
+   {"id": "good_rain"},
+   {"id": "seed"}
   ],
   "states": [
    {
@@ -157,6 +158,30 @@
     "limit": {"cooldown": 2.0},
     "do": [
      {"status": {"id": "slowed_time", "stacks": 1, "dur": 2, "side": "foe"}}
+    ]
+   },
+   {
+    "id": "good-rain-rooted-creep",
+    "on": "pulse",
+    "if": [
+     {"read": "own.state.good-rain-rooted", "op": ">=", "value": 1},
+     {"read": "own.counter.good_rain", "op": ">=", "value": 2}
+    ],
+    "do": [
+     {"stacks": {"el": "wood", "n": 2, "for": 5, "side": "foe"}},
+     {"counter": {"id": "seed", "add": 1}}
+    ]
+   },
+   {
+    "id": "good-rain-rooted-sap",
+    "on": "pulse",
+    "if": [
+     {"read": "own.state.good-rain-rooted", "op": ">=", "value": 1},
+     {"read": "own.counter.good_rain", "op": ">=", "value": 2}
+    ],
+    "scale": {"read": "own.buff.wood", "per": 10},
+    "do": [
+     {"stacks": {"el": "wood", "n": 2, "for": 5, "side": "foe"}}
     ]
    },
    {

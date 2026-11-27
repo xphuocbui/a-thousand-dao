@@ -1,0 +1,12 @@
+{
+ "owner": "coc_vu",
+ "minutes": 7,
+ "must_fix": 2,
+ "should": 1,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Serial step: merge design/stage6-staging/coc_vu/* into design/ and assets/data/combat_effects.json (world-depth:coc_vu).",
+  "Stage 7 export: export techniques, items, sets, combat library, and 4 translated events (coc_vu.events.json)."
+ ]
+}

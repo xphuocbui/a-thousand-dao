@@ -17,7 +17,7 @@
   },
   "Water Wears the Stone": {
    "rule": "Canon of the Good Rain (passive art, unlock layer 6, authored wish d24): each heal restored to you (at most 3 a pulse) drips on the foe as a free Physical hit of 0.15 + 0.01 per Wood buff stack you hold.",
-   "approx": "free_hit carries dtype phys with no art tag param (d24 calls for a Physical hit tagged moc).",
+   "approx": "free_hit carries dtype phys with no art tag param (d24 calls for a Physical hit tagged moc), and base 0.15 + 0.01*wood runs as two separate free_hit records because free_hit lacks base + per_stack scaling.",
    "records": [
     {
      "id": "eff:Water Wears the Stone",
@@ -42,8 +42,8 @@
    ]
   },
   "The Good Rain Knows Its Season": {
-   "rule": "Banner That Calls the Grain Rain: for the first 10 s of a fight your heals are halved (-50 healing); from 10 s onward while held, you heal 1 % of your maximum health each second.",
-   "approx": "Banner charge is satisfied while the Banner is worn from 10 s onward.",
+   "rule": "Banner That Calls the Grain Rain: for the first 10 s of a fight your heals are halved (heal_taken -50); from 10 s onward while held, you heal 1 % of your maximum health each second.",
+   "approx": "Banner charge is satisfied while the Banner is worn from 10 s onward; heal_taken -50 halves total healing (subject to the engine's -50 % curse heal_taken floor).",
    "records": [
     {
      "id": "eff:The Good Rain Knows Its Season:early",
@@ -52,7 +52,7 @@
       {"read": "time", "op": "<", "value": 10}
      ],
      "do": [
-      {"mod": {"healing": -50}}
+      {"mod": {"heal_taken": -50}}
      ]
     },
     {
@@ -69,6 +69,7 @@
   },
   "Rain That Does Not Stop": {
    "rule": "The Grain Rain, full set (3 pieces): once your healing rain begins, it stays on the field until you fall. For every 10 s it has fallen, you gain +10 % healing and pay 1 % of your maximum health each second (unreduced upkeep).",
+   "approx": "+10 healing per 10 s of rain applies to all incoming heals rather than only the rain field's pulse heal.",
    "counters": [
     {"id": "good_rain"},
     {"id": "rain_seconds"},
