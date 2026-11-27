@@ -3,8 +3,15 @@
  "source": "world-depth:cung_tinh",
  "effects": {
   "The Twelve Hours": {
-   "rule": "Armillary Array Canon, passive art from layer 4 (authored wish d16): the armillary counts the fight in hours of 5 s, and each ring belongs to the hour it was laid. A ring deals 30 % more within its own hour. When rings of three different hours stand at once, the armillary turns: every ring is refreshed (Earth stacks refreshed and a fresh 12 s ring pulse joins), and each further hour among them adds 6 % more damage and 1 Slowed Time stack on the foe each second.",
+   "rule": "Armillary Array Canon, passive art from layer 4 (authored wish d16): the armillary counts the fight in hours of 5 s, and each ring belongs to the hour it was laid. A ring deals 30 % more within its own hour. When rings of three different hours stand at once, the armillary turns: every ring is refreshed (Earth stacks refreshed and a fresh 12 s ring pulse joins), and each further hour beyond two adds 6 % more damage and 1 Slowed Time stack on the foe each second.",
    "pending": "the loader does not attach a technique's Effects yet (pending word technique-effects); tested via sect_fight / tree_effects",
+   "approx": "within-its-own-hour +30 % applies to companion/ring hits whenever any ring was laid in the current 5 s hour (summons carry no laid-hour tag); the armillary turn refreshes foe Earth debuffs and adds a 12 s ring summon (10 s cooldown) instead of mutating live each_for timestamps so charge_hours stays intact",
+   "counters": [
+    {
+     "id": "ring",
+     "each_for": 14
+    }
+   ],
    "records": [
     {
      "id": "eff:The Twelve Hours own hour",
@@ -52,6 +59,25 @@
         "dtype": "phys",
         "cd": 1.0,
         "for": 12
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Twelve Hours hours base",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter_hours.ring",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": -0.12,
+        "kind": "companion"
        }
       }
      ]
@@ -140,7 +166,7 @@
   },
   "Keeper of the Hours": {
    "rule": "Ring of the Armillary: arrays you lay last a third longer, and the first array you lay in a fight is laid at no cost.",
-   "approx": "the first formation art is free via next_art_cost 0; +1/3 array duration extends The Stars Bow by 3 s and adds a 0.14 c / 19 s lingering ring pulse per Ring of the Hour (no duration modifier exists on summon or each_for counters)",
+   "approx": "the first formation art is free via next_art_cost 0; +1/3 array duration extends The Stars Bow to 11 s (on open and on The Handle Turns refresh) and adds a 0.10 c / 19 s lingering ring pulse per Ring of the Hour (+33.9 % total output over the 19 s window, since no duration modifier exists on summon or each_for counters)",
    "counters": [
     {
      "id": "stars_bow"
@@ -170,7 +196,7 @@
      "do": [
       {
        "summon": {
-        "c": 0.14,
+        "c": 0.1,
         "dtype": "phys",
         "cd": 1.0,
         "for": 19
@@ -192,11 +218,34 @@
        }
       }
      ]
+    },
+    {
+     "id": "eff:Keeper of the Hours bow turn",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "the-handle-turns"
+     },
+     "if": [
+      {
+       "read": "own.counter.stars_bow",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "stars_bow",
+        "set": 11
+       }
+      }
+     ]
     }
    ]
   },
   "The Field Turns": {
-   "rule": "Pole Star Court, full set (2 pieces): while your array field is up and you are Composed, every 4 s the foe gains one Earth stack and its soonest art waits 0.3 s. A foe whose first art the Mirror warded fully takes double damage from your next array art (next formation firing empowers array strikes for 6 s).",
+   "rule": "Pole Star Court, full set (2 pieces): while your array field is up and you are Composed, every 4 s the foe gains one Earth stack and its soonest art waits 0.3 s. A foe whose first art the Mirror warded fully takes double damage from your next array art (next formation firing empowers formation and ring strikes for 6 s).",
+   "approx": "double damage from your next array art is modeled as 6 s of +100 % dmg_more on formation arts and companion (ring) strikes because Củng Tinh's array arts deal damage through summons rather than c_art",
    "counters": [
     {
      "id": "mirror_warded"
@@ -240,7 +289,7 @@
      ]
     },
     {
-     "id": "eff:The Field Turns mirror",
+     "id": "eff:The Field Turns mirror art",
      "on": "art_fired",
      "filter": {
       "tags": [
@@ -263,7 +312,25 @@
         ],
         "for": 6
        }
-      },
+      }
+     ]
+    },
+    {
+     "id": "eff:The Field Turns mirror ring",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "formation"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.mirror_warded",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
       {
        "mod": {
         "dmg_more": 1.0,
@@ -283,6 +350,13 @@
   },
   "Ring Within the Ring": {
    "rule": "Rings of the Armillary, full set (3 pieces): a Ring of the Hour you lay while your ring (a Field) is up becomes a second ring; while you hold both, the foe is Bound (it cannot flee) and takes your array damage once for each ring every second (+25 % array ring damage while two rings hold).",
+   "approx": "Ring of the Hour already lays stacked ring summons by default, so the 3-piece set adds Bound plus +25 % companion/ring dmg_more while two or more rings hold",
+   "counters": [
+    {
+     "id": "ring",
+     "each_for": 14
+    }
+   ],
    "records": [
     {
      "id": "eff:Ring Within the Ring bind",

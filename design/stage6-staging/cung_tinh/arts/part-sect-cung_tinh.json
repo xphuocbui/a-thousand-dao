@@ -376,6 +376,11 @@
    2,
    8
   ],
+  "counters": [
+   {
+    "id": "pole_ready"
+   }
+  ],
   "empower": [
    {
     "if": [
@@ -385,10 +390,110 @@
       "value": 3
      }
     ],
+    "pay": [
+     {
+      "counter": {
+       "id": "pole_ready",
+       "set": 1
+      }
+     }
+    ],
     "c_mult": 1.5
    }
   ],
   "effects": [
+   {
+    "id": "fixed-pole-arm",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.composed_time",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pole_ready",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "fixed-pole-expire",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.composed_time",
+      "op": "<",
+      "value": 3
+     },
+     {
+      "read": "own.counter.pole_ready",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pole_ready",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "fixed-pole-drop",
+    "on": "evaded",
+    "if": [
+     {
+      "read": "own.counter.pole_ready",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pole_ready",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "fixed-pole-carry",
+    "on": "art_fired",
+    "if": [
+     {
+      "read": "own.counter.pole_ready",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed_time",
+      "op": "<",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "L5": 25,
+       "element": "earth"
+      }
+     },
+     {
+      "counter": {
+       "id": "pole_ready",
+       "set": 0
+      }
+     }
+    ]
+   },
    {
     "id": "fixed-pole-earth",
     "on": "always",
@@ -710,6 +815,11 @@
       "read": "own.counter.stars_bow",
       "op": ">=",
       "value": 1
+     },
+     {
+      "read": "own.counter.stars_bow",
+      "op": "<",
+      "value": 8
      }
     ],
     "do": [
