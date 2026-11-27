@@ -117,7 +117,7 @@
   },
   "Bare Branch Blooms": {
    "rule": "Plum and Snow, full set (2 pieces): while you fight with no companion and are below half health, each Petal you hold adds 6 % sword critical damage; when Last Blossom saves you, you gain 5 Petals.",
-   "approx": "No live own.companions readable exists; has_companion latches on kind: companion hit/evade while own.since.flying-sword >= 12 so the canon's own Flying Sword summon does not disable the set.",
+   "approx": "No live own.companions readable exists; has_companion latches on kind: companion hit/evade while own.since.flying-sword >= 15 so the canon's own Flying Sword summon does not disable the set even across short clock stops.",
    "counters": [
     {
      "id": "plum_petal",
@@ -143,7 +143,7 @@
       {
        "read": "own.since.flying-sword",
        "op": ">=",
-       "value": 12
+       "value": 15
       }
      ],
      "do": [
@@ -165,7 +165,7 @@
       {
        "read": "own.since.flying-sword",
        "op": ">=",
-       "value": 12
+       "value": 15
       }
      ],
      "do": [

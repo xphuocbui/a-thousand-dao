@@ -20,14 +20,14 @@
    {
     "id": "first-petal-arm",
     "on": "art_fired",
-    "filter": {"art_id": "first-petal"},
+    "filter": {"tags": ["sword"]},
     "if": [{"read": "own.counter.plum_petal", "op": ">=", "value": 5}],
     "do": [{"counter": {"id": "first_petal_ready", "set": 1}}]
    },
    {
     "id": "first-petal-disarm",
     "on": "art_fired",
-    "filter": {"art_id": "first-petal"},
+    "filter": {"tags": ["sword"]},
     "if": [{"read": "own.counter.plum_petal", "op": "<", "value": 5}],
     "do": [{"counter": {"id": "first_petal_ready", "set": 0}}]
    },
@@ -40,7 +40,10 @@
    {
     "id": "first-petal-crit",
     "on": "always",
-    "if": [{"read": "own.counter.plum_petal", "op": ">=", "value": 5}],
+    "if": [
+     {"read": "own.counter.first_petal_ready", "op": ">=", "value": 1},
+     {"read": "own.counter.plum_petal", "op": ">=", "value": 5}
+    ],
     "do": [{"mod": {"sure_crit": 1, "tags": ["sword"]}}]
    },
    {
@@ -147,14 +150,14 @@
     "id": "bare-winter-comp-hit",
     "on": "hit_landed",
     "filter": {"kind": "companion"},
-    "if": [{"read": "own.since.flying-sword", "op": ">=", "value": 12}],
+    "if": [{"read": "own.since.flying-sword", "op": ">=", "value": 15}],
     "do": [{"counter": {"id": "has_companion", "set": 1}}]
    },
    {
     "id": "bare-winter-comp-evade",
     "on": "was_evaded",
     "filter": {"kind": "companion"},
-    "if": [{"read": "own.since.flying-sword", "op": ">=", "value": 12}],
+    "if": [{"read": "own.since.flying-sword", "op": ">=", "value": 15}],
     "do": [{"counter": {"id": "has_companion", "set": 1}}]
    },
    {

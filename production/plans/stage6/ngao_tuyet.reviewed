@@ -1,0 +1,11 @@
+{
+ "owner": "ngao_tuyet",
+ "minutes": 8,
+ "must_fix": 1,
+ "should": 1,
+ "fixed": 2,
+ "words": {},
+ "open": [
+  "serial step / Stage 7: merge design/stage6-staging/ngao_tuyet/ and run export_techniques.py, export_named.py, export_combat_library.py, and export_world.py --sect ngao_tuyet (closes the 3 structured events in depth_gap.py)."
+ ]
+}
