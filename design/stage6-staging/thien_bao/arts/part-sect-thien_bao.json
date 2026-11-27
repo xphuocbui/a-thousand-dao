@@ -74,7 +74,7 @@
   ],
   "c_art": 0.0,
   "cost_share": 0.04,
-  "cooldown": 8.0,
+  "cooldown": 6.5,
   "kind": "phys",
   "buff": [
    2,
@@ -120,7 +120,7 @@
      {
       "counter": {
        "id": "crucible_t",
-       "set": 6
+       "set": 5
       }
      },
      {
@@ -216,7 +216,7 @@
     ]
    }
   ],
-  "rule": "A Composed stance lasting 6 s (+12 block, +40 resistance). Grants 2 Earth buff stacks (8 s) and a body shield of 8 % of your health; while it holds, your artifacts strike back at hits taken (c 0.45 Physical, up to twice a pulse) and lay 1 Earth stack and 1 Metal stack (8 s) on the attacker.",
+  "rule": "A Composed stance lasting 5 s (+12 block, +40 resistance). Grants 2 Earth buff stacks (8 s) and a body shield of 8 % of your health; while it holds, your artifacts strike back at hits taken (c 0.45 Physical, up to twice a pulse) and lay 1 Earth stack and 1 Metal stack (8 s) on the attacker.",
   "hooks": [
    "stance",
    "body shield",
@@ -258,6 +258,9 @@
    },
    {
     "id": "hammer_keep"
+   },
+   {
+    "id": "hammer_stacks"
    }
   ],
   "effects": [
@@ -277,6 +280,12 @@
      {
       "counter": {
        "id": "hammer_keep",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "hammer_stacks",
        "set": 0
       }
      }
@@ -361,11 +370,82 @@
        "kind": "debuff",
        "then": [
         {
-         "mod": {
-          "dmg_more": 0.14
+         "counter": {
+          "id": "hammer_stacks",
+          "add": 1
          }
         }
        ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "hammer-bonus",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.hammer_stacks",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.hammer_stacks",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.14,
+       "tags": [
+        "heavy"
+       ],
+       "kind": "art"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hammer-spend-hit",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "hammer-price"
+    },
+    "if": [
+     {
+      "read": "own.counter.hammer_stacks",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "hammer_stacks",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "hammer-spend-evade",
+    "on": "was_evaded",
+    "filter": {
+     "art_id": "hammer-price"
+    },
+    "if": [
+     {
+      "read": "own.counter.hammer_stacks",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "hammer_stacks",
+       "set": 0
       }
      }
     ]
@@ -375,9 +455,18 @@
     "on": "pulse",
     "if": [
      {
-      "read": "own.counter.hammer_big",
-      "op": ">=",
-      "value": 1
+      "any": [
+       {
+        "read": "own.counter.hammer_big",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "own.counter.hammer_stacks",
+        "op": ">=",
+        "value": 1
+       }
+      ]
      }
     ],
     "do": [
@@ -390,6 +479,12 @@
      {
       "counter": {
        "id": "hammer_keep",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "hammer_stacks",
        "set": 0
       }
      }
@@ -507,7 +602,8 @@
      {
       "mod": {
        "pen": 120,
-       "dmg_more": 0.25
+       "dmg_more": 0.25,
+       "kind": "art"
       }
      }
     ]
@@ -558,11 +654,11 @@
   ],
   "c_art": 0.0,
   "cost_share": 0.03,
-  "cooldown": 8.0,
+  "cooldown": 7.0,
   "kind": "phys",
   "effects": [
    {
-    "id": "treasure-answers-buff",
+    "id": "treasure-answers-grade",
     "on": "art_fired",
     "filter": {
      "art_id": "the-treasure-answers"
@@ -575,21 +671,30 @@
        "tags": [
         "artifact"
        ],
-       "for": 6
+       "for": 5
       }
-     },
+     }
+    ]
+   },
+   {
+    "id": "treasure-answers-stacks",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-treasure-answers"
+    },
+    "do": [
      {
       "mod": {
        "stack_dur": 50,
        "element": "metal",
        "kind": "debuff",
-       "for": 6
+       "for": 5
       }
      }
     ]
    }
   ],
-  "rule": "For 6 s every artifact art you fire strikes with the grown treasure's grade (L3 +35 and +15 % more damage on artifact arts), and Metal debuff stacks you apply last 50 % longer.",
+  "rule": "For 5 s every artifact art you fire strikes with the grown treasure's grade (L3 +35 and +15 % more damage on artifact arts), and Metal debuff stacks you apply last 50 % longer.",
   "hooks": [
    "artifact",
    "stack duration",
@@ -635,10 +740,6 @@
    },
    {
     "id": "pearl_cracked",
-    "cap": 1
-   },
-   {
-    "id": "seal_ward_protects",
     "cap": 1
    },
    {
@@ -688,11 +789,6 @@
       "value": 0
      },
      {
-      "read": "own.counter.seal_ward_protects",
-      "op": "==",
-      "value": 0
-     },
-     {
       "read": "own.counter.has_grown_pearl",
       "op": "==",
       "value": 0
@@ -729,6 +825,11 @@
       "read": "own.counter.pearl_cracked",
       "op": ">=",
       "value": 1
+     },
+     {
+      "read": "own.counter.has_grown_pearl",
+      "op": "==",
+      "value": 0
      }
     ],
     "do": [

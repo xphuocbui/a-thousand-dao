@@ -42,14 +42,15 @@
    ]
   },
   "Grown, Not Made": {
-   "rule": "The Grown Red Pearl: cannot be stolen, sold or broken out of combat. Once a fight, a blow that would put you Down is taken by the pearl instead (leaving you at 15 % health); it cracks for the rest of the fight and loses its combat modifiers (ward_pct -10, L1 -10, Metal buff stack_dur -24). Skipped while Going Once, Going Twice spends the Seal's ward instead.",
+   "rule": "The Grown Red Pearl: cannot be stolen, sold or broken out of combat. Once a fight, a blow that would put you Down is taken by the pearl instead (leaving you at 15 % health); it cracks for the rest of the fight and loses its combat modifiers (ward_pct -10, L1 -10, Metal buff stack_dur -24). Skipped while Going Once, Going Twice spends the Seal's stance ward instead.",
+   "approx": "cannot-be-stolen/sold/broken is out-of-fight; losing the pearl's static modifiers (khi_huyet_pct 15, than_thuc_pct 8, stack_effect_pct 24 [kim, buff]) mid-fight is approximated by ward_pct -10, L1 -10 and Metal buff stack_dur -24.",
    "counters": [
     {
      "id": "pearl_cracked",
      "cap": 1
     },
     {
-     "id": "seal_ward_protects",
+     "id": "has_hammer_pearl_set",
      "cap": 1
     },
     {
@@ -80,9 +81,18 @@
        "value": 0
       },
       {
-       "read": "own.counter.seal_ward_protects",
-       "op": "==",
-       "value": 0
+       "any": [
+        {
+         "read": "own.counter.has_hammer_pearl_set",
+         "op": "==",
+         "value": 0
+        },
+        {
+         "read": "own.ward_share",
+         "op": "<=",
+         "value": 0
+        }
+       ]
       }
      ],
      "limit": {
@@ -111,7 +121,7 @@
        "op": ">=",
        "value": 1
       }
-    ],
+     ],
      "do": [
       {
        "mod": {
@@ -131,8 +141,8 @@
    ]
   },
   "Going Once, Going Twice": {
-   "rule": "Hammer, Pearl and Coin, full set: when Hammer Price spends 10 or more Metal stacks, you keep a third of them on the foe; Bought Fate may flip a second crit taken per fight by spending 4 % of max health from the stance ward taken by the Seal; and while you hold that stance ward, a killing blow spends the stance ward instead of cracking the Pearl.",
-   "approx": "Effects rule 11 caps Down refusals at 1 per fight (`refusals: 1`), so while the Seal's stance ward holds, the Pearl's save spends that ward instead of cracking rather than granting a second Down refusal in the same fight; spirit stones are not in the sim.",
+   "rule": "Hammer, Pearl and Coin, full set: when Hammer Price spends 10 or more Metal stacks, you keep a third of them on the foe; Bought Fate pays 4 % of max health from the Seal's stance ward while it holds and may flip a second crit taken per fight by spending another 4 %; and while you still hold that stance ward at Down, a killing blow spends the stance ward instead of cracking the Pearl.",
+   "approx": "Effects rule 11 caps Down refusals at 1 per fight (`refusals: 1`), so while the Seal's stance ward holds at Down (for example against ticks, Soul hits or shield-bypassing strikes), the Pearl's save spends that ward instead of cracking rather than granting a second Down refusal in the same fight; spirit stones are not in the sim.",
    "counters": [
     {
      "id": "hammer_big"
@@ -145,7 +155,7 @@
      "cap": 1
     },
     {
-     "id": "seal_ward_protects",
+     "id": "has_hammer_pearl_set",
      "cap": 1
     },
     {
@@ -154,6 +164,18 @@
     }
    ],
    "records": [
+    {
+     "id": "eff:Going Once, Going Twice set_mark",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "has_hammer_pearl_set",
+        "set": 1
+       }
+      }
+     ]
+    },
     {
      "id": "eff:Going Once, Going Twice keep",
      "on": "art_fired",
@@ -178,50 +200,6 @@
         "n": 1,
         "for": 8,
         "side": "foe"
-       }
-      },
-      {
-       "counter": {
-        "id": "seal_ward_protects",
-        "set": 1
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Going Once, Going Twice ward_check",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "own.ward_share",
-       "op": ">",
-       "value": 0
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "seal_ward_protects",
-        "set": 1
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Going Once, Going Twice ward_gone",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "own.ward_share",
-       "op": "<=",
-       "value": 0
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "seal_ward_protects",
-        "set": 0
        }
       }
      ]
@@ -265,7 +243,42 @@
      ]
     },
     {
-     "id": "eff:Going Once, Going Twice fate_arm",
+     "id": "eff:Going Once, Going Twice fate_first_ward",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.crit",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.fate_flip_seen",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": -0.04,
+        "of": "hp"
+       }
+      },
+      {
+       "counter": {
+        "id": "fate_flip_seen",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Going Once, Going Twice fate_first",
      "on": "was_hit",
      "if": [
       {
@@ -311,12 +324,6 @@
        "ward_grow": {
         "share": -1.0,
         "of": "peak"
-       }
-      },
-      {
-       "counter": {
-        "id": "seal_ward_protects",
-        "set": 0
        }
       }
      ]
