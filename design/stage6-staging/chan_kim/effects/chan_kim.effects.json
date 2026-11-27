@@ -1,0 +1,182 @@
+{
+ "_doc": "Chân Kim Các's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:chan_kim by the serial step. Unpriced. Declares every counter it reads or writes in its own counters array for standalone GDScript compilation.",
+ "source": "world-depth:chan_kim",
+ "effects": {
+  "True Gold Does Not Fear the Furnace": {
+   "rule": "True Gold Does Not Fear the Furnace (Chân Kim Bất Phạ Hỏa, true-gold-canon L4 passive art, d31): each buff stack you strip from the foe (via Assay, Touchstone or Tried and Stamped), and each ward share your Assay strips, restores 1.5 % of your maximum linh lực and adds one Part the Dross stack (4 s).",
+   "counters": [
+    {"id": "assay_did_strip", "cap": 1},
+    {"id": "touchstone_stripped"},
+    {"id": "dross", "each_for": 4}
+   ],
+   "records": [
+    {
+     "id": "eff:True Gold Does Not Fear the Furnace assay",
+     "on": "art_fired",
+     "filter": {"art_id": "assay"},
+     "if": [{"read": "own.counter.assay_did_strip", "op": ">=", "value": 1}],
+     "do": [
+      {"gain_qi": {"share": 0.015}},
+      {"counter": {"id": "dross", "add": 1}},
+      {"counter": {"id": "assay_did_strip", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:True Gold Does Not Fear the Furnace strip",
+     "on": "pulse",
+     "if": [{"read": "own.counter.touchstone_stripped", "op": ">=", "value": 1}],
+     "scale": {"read": "own.counter.touchstone_stripped", "per": 1},
+     "do": [
+      {"gain_qi": {"share": 0.015}},
+      {"counter": {"id": "dross", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:True Gold Does Not Fear the Furnace clear",
+     "on": "pulse",
+     "if": [{"read": "own.counter.touchstone_stripped", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "touchstone_stripped", "set": 0}}]
+    }
+   ]
+  },
+  "Nothing False Survives": {
+   "rule": "Hundred-Fold Crucible (ck-hundred-fold-crucible): every buff, ward or borrowed stat a foe gains while near you burns off twice as fast. You can tell whether any item you are shown is what its owner says it is.",
+   "approx": "\"burns off twice as fast\" is modelled as ward_bill +50 (foe drain ward burns linh lực 50 % faster) and stripping 1 buff stack every 2 s; out-of-fight item appraisal sentence is lore",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Nothing False Survives ward",
+     "on": "always",
+     "do": [{"mod": {"ward_bill": 50}}]
+    },
+    {
+     "id": "eff:Nothing False Survives buff",
+     "on": "pulse",
+     "limit": {"cooldown": 2},
+     "if": [{"read": "foe.buff_elements", "op": ">=", "value": 1}],
+     "do": [{"strip": {"n": 1}}]
+    }
+   ]
+  },
+  "A Hair Light": {
+   "rule": "The House Weight (ck-house-weight): once a fight, you may make one roll that weighs against you come out slightly in your favour (a dodge, a resist or a crit).",
+   "approx": "when struck (a defensive roll went against you) while a charge holds, spends 1 charge to tip the next exchange in your favour (+25 evade and +25 status_resist for 3 s, and your next direct hit is a guaranteed crit)",
+   "counters": [
+    {"id": "hair_light_charges", "cap": 2},
+    {"id": "hair_light_crit", "cap": 1},
+    {"id": "hair_light_tipped", "cap": 1}
+   ],
+   "records": [
+    {
+     "id": "eff:A Hair Light init",
+     "on": "fight_start",
+     "do": [{"counter": {"id": "hair_light_charges", "add": 1}}]
+    },
+    {
+     "id": "eff:A Hair Light tip",
+     "on": "was_hit",
+     "filter": {"not_tags": ["trigger"]},
+     "if": [{"read": "own.counter.hair_light_charges", "op": ">=", "value": 1}],
+     "do": [
+      {"counter": {"id": "hair_light_charges", "add": -1}},
+      {"counter": {"id": "hair_light_crit", "set": 1}},
+      {"counter": {"id": "hair_light_tipped", "set": 1}},
+      {"mod": {"evade": 25, "status_resist": 25, "for": 3.0}}
+     ]
+    },
+    {
+     "id": "eff:A Hair Light sure crit",
+     "on": "always",
+     "if": [{"read": "own.counter.hair_light_crit", "op": ">=", "value": 1}],
+     "do": [{"mod": {"sure_crit": 1}}]
+    },
+    {
+     "id": "eff:A Hair Light spend crit",
+     "on": "crit",
+     "filter": {"not_tags": ["trigger"]},
+     "if": [{"read": "own.counter.hair_light_crit", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "hair_light_crit", "set": 0}}]
+    }
+   ]
+  },
+  "Touchstone": {
+   "rule": "Hallmark Seal (ck-hallmark-seal, d38): once per art firing, your first hit on a foe that holds buff stacks strips one of them (its largest pile, oldest batch first).",
+   "counters": [
+    {"id": "touchstone_stripped"}
+   ],
+   "records": [
+    {
+     "id": "eff:Touchstone",
+     "on": "hit_landed",
+     "filter": {"kind": "art"},
+     "limit": {"per_firing": 1},
+     "if": [{"read": "foe.buff_elements", "op": ">=", "value": 1}],
+     "do": [
+      {"strip": {"n": 1}},
+      {"counter": {"id": "touchstone_stripped", "add": 1}}
+     ]
+    }
+   ]
+  },
+  "Tried and Stamped": {
+   "rule": "Assayer's Tools, full set (3 pieces: ck-hundred-fold-crucible, ck-hallmark-seal, ck-refiner-robe): a foe your art hits while it carries a buff is stamped for 6 s; the next buff it gains burns off at once, and you gain a ward worth 5 % of your health.",
+   "counters": [
+    {"id": "stamped_ttl", "cap": 6},
+    {"id": "touchstone_stripped"}
+   ],
+   "records": [
+    {
+     "id": "eff:Tried and Stamped mark",
+     "on": "hit_landed",
+     "filter": {"kind": "art"},
+     "if": [{"read": "foe.buff_elements", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "stamped_ttl", "set": 6}}]
+    },
+    {
+     "id": "eff:Tried and Stamped burn",
+     "on": "pulse",
+     "if": [
+      {"read": "own.counter.stamped_ttl", "op": ">=", "value": 1},
+      {"read": "foe.buff_elements", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"strip": {"n": 99}},
+      {"ward_grow": {"share": 0.05, "of": "hp"}},
+      {"counter": {"id": "touchstone_stripped", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:Tried and Stamped tick",
+     "on": "pulse",
+     "if": [{"read": "own.counter.stamped_ttl", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "stamped_ttl", "add": -1}}]
+    }
+   ]
+  },
+  "A Second Lean": {
+   "rule": "Thumb on the Scale, full set (2 pieces: ck-house-weight, ck-counterweight-coin): the House Weight's tipped roll comes twice a fight; after each tipped roll you see the next art that foe will use.",
+   "approx": "grants +1 House Weight charge at fight_start; after each tipped roll, seeing the foe's next art grants +15 evade and +20 accuracy for 3 s",
+   "counters": [
+    {"id": "hair_light_charges", "cap": 2},
+    {"id": "hair_light_tipped", "cap": 1}
+   ],
+   "records": [
+    {
+     "id": "eff:A Second Lean init",
+     "on": "fight_start",
+     "do": [{"counter": {"id": "hair_light_charges", "add": 1}}]
+    },
+    {
+     "id": "eff:A Second Lean read",
+     "on": "was_hit",
+     "filter": {"not_tags": ["trigger"]},
+     "if": [{"read": "own.counter.hair_light_tipped", "op": ">=", "value": 1}],
+     "do": [
+      {"counter": {"id": "hair_light_tipped", "set": 0}},
+      {"mod": {"evade": 15, "acc": 20, "for": 3.0}}
+     ]
+    }
+   ]
+  }
+ }
+}
