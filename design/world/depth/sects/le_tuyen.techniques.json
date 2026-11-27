@@ -20,8 +20,8 @@
    "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The school's first method: the disciple walks the herb meadows and breathes in the dew from the leaves, Water carried on Wood; the school walks before dawn, when the dew is heaviest, by custom. Each layer takes a season. It makes a calm, slow body that heals itself well and others a little, and it is the method every outer disciple of the herb gardens at Lục Dã learns.",
    "arts": [
-    {"new": "Morning Dew (Triêu Lộ)", "concept": "A small heal on the holder that also clears one debuff stack."},
-    {"new": "Leaf-Drip (Diệp Tích)", "concept": "Flicks dew at a foe: a light Water hit that lays one Wood stack."}
+    {"id": "morning-dew", "new": "Morning Dew (Triêu Lộ)", "concept": "A small heal on the holder that also clears one debuff stack."},
+    {"id": "leaf-drip", "new": "Leaf-Drip (Diệp Tích)", "concept": "Flicks dew at a foe: a light Water hit that lays one Wood stack."}
    ],
    "lore": "The founder Liêm Cam Lộ wrote it in 662, the year the palace gave the school the green meadows of Lục Dã for herb gardens (A257).",
    "status": "proposal"
@@ -32,8 +32,8 @@
    "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
    "concept": "A healer's method. Each layer is learned from one family of herbs and opens one meridian the herb is said to mend, so a disciple at the ninth layer knows a hundred herbs by the way their qi moves in her own body. In a fight it is a sustain method: Wood stacks on you heal over time and strengthen as they stack, and on the foe they slow the healing of wounds.",
    "arts": [
-    {"new": "Hundred-Herb Draught (Bách Thảo Thang)", "concept": "Lays three healing Wood stacks on you; each stack heals over time and stacks stronger."},
-    {"new": "Bitter Root (Khổ Căn)", "concept": "Lays Wood stacks on a foe that halve the healing it receives while they last."}
+    {"id": "hundred-herb-draught", "new": "Hundred-Herb Draught (Bách Thảo Thang)", "concept": "Lays three healing Wood stacks on you; each stack heals over time and stacks stronger."},
+    {"id": "bitter-root", "new": "Bitter Root (Khổ Căn)", "concept": "Lays Wood stacks on a foe that halve the healing it receives while they last."}
    ],
    "lore": "Compiled by the founder and her first healers between 660 and 700 from what they learned treating the plain. Mai Lễ Tuyền added the last three layers after the fever of 812 (V136), which the school came too late for.",
    "status": "proposal"
@@ -44,12 +44,23 @@
    "tier": 1, "tech_kind": "secret", "names": ["thuy"], "layers": 9, "rank": "noi_mon",
    "concept": "The brewer's art. The holder works Water qi as a brewer works a mash: stirred, sealed, left to turn. In the cellar it makes the spirit wine (lễ tửu) that heals and steadies. In a fight it fills the air with a wine mist that heals and emboldens you and makes the foe drunk: slower to cast, quicker to miss, and slower to notice the Water stacks gathering on it.",
    "arts": [
-    {"new": "Open the Cask (Khai Úng)", "concept": "A mist of spirit wine around you for several seconds: you heal over time and resist fear; the foe gains Water stacks and one Drunk stack every 2 s.", "authored": "d39"},
-    {"new": "Last Cup (Tàn Bôi)", "concept": "Against a foe with five or more Water stacks: it gains 2 Drunk stacks and one Heavy Breath.", "authored": "d39"}
+    {"id": "open-the-cask", "new": "Open the Cask (Khai Úng)", "concept": "A mist of spirit wine around you for several seconds: you heal over time and resist fear; the foe gains Water stacks and one Drunk stack every 2 s.", "authored": "d39"},
+    {"id": "last-cup", "new": "Last Cup (Tàn Bôi)", "concept": "Against a foe with five or more Water stacks: it gains 2 Drunk stacks and one Heavy Breath.", "authored": "d39"}
    ],
    "lore": "The wine-masters of the Spring House teach it in the cellars at the old seat (place 26). It is why Lễ Tuyền's wine heals, and why the Pivot orders a hundred jars a year (A263).",
    "status": "proposal",
    "authored": "d39"
+  },
+  {
+   "id": "yoke-and-axle-breath",
+   "name": "Yoke and Axle Breathing (Ách Trục Thổ Nạp Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["tho", "hoa"], "layers": 6, "rank": "tap_dich",
+   "concept": "A porter's breathing method for the plain's Earth-and-Fire roots whom the school's Water and Wood gates cannot take. Taught between the Spring House stables and the road north, it steadies the breath under a heavy yoke and hardens the back for a fortnight's carting.",
+   "arts": [
+    {"id": "shoulder-the-yoke", "new": "Shoulder the Yoke (Kiên Đảm)", "concept": "A porter's heavy shoulder blow that plants the feet: an Earth hit that grants you one Earth buff stack."}
+   ],
+   "lore": "Handed down among the cellar porters and night carters who haul the Pivot's hundred jars and the lake barrels along the road.",
+   "status": "proposal"
   }
  ]
 }
