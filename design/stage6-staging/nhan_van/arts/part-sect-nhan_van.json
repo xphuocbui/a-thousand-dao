@@ -1,0 +1,981 @@
+[
+ {
+  "id": "wet-stroke",
+  "name": "Wet Stroke (Thấp Bút)",
+  "element": "water",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "ink-grinding-primer",
+  "tags": [
+   "water",
+   "quick"
+  ],
+  "c_art": 1.4,
+  "cost_share": 0.025,
+  "cooldown": 1.5,
+  "kind": "elem",
+  "buff": [
+   1,
+   8
+  ],
+  "counters": [
+   {
+    "id": "wet_stroke_n"
+   }
+  ],
+  "effects": [
+   {
+    "id": "wet-stroke-count",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "wet-stroke"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "wet_stroke_n",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "wet-stroke-wood",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "wet-stroke"
+    },
+    "if": [
+     {
+      "read": "own.counter.wet_stroke_n",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "wet_stroke_n",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A quick ink line flung from the brush: a light Water hit that grants 1 Water buff stack for 8 s; every third Wet Stroke hit that lands on the foe also lays 1 Wood debuff stack for 8 s.",
+  "hooks": [
+   "water stacks",
+   "wood stacks",
+   "art speed",
+   "hit count"
+  ],
+  "sources": [
+   "world-depth:nhan_van"
+  ]
+ },
+ {
+  "id": "cloud-in-the-pool",
+  "name": "Cloud in the Pool (Đàm Trung Vân)",
+  "element": "water",
+  "role": "summon",
+  "tier": "authored",
+  "power": "engine",
+  "group": "idle-cloud-reflection-canon",
+  "tags": [
+   "water",
+   "summon",
+   "ward",
+   "echo"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "double_t",
+    "decay_per_pulse": 1
+   },
+   {
+    "id": "double_up"
+   },
+   {
+    "id": "double_echo"
+   }
+  ],
+  "effects": [
+   {
+    "id": "double-recast",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "cloud-in-the-pool"
+    },
+    "if": [
+     {
+      "read": "own.counter.double_up",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "double_t",
+       "add": 2
+      }
+     },
+     {
+      "counter": {
+       "id": "double_echo",
+       "set": 2
+      }
+     },
+     {
+      "decoy": {
+       "n": 1
+      }
+     },
+     {
+      "ward_grow": {
+       "share": 0.03,
+       "of": "hp"
+      }
+     },
+     {
+      "summon": {
+       "c": 0.45,
+       "dtype": "cold",
+       "cd": 2.0,
+       "for": 6
+      }
+     }
+    ]
+   },
+   {
+    "id": "double-paint",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "cloud-in-the-pool"
+    },
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.double_up",
+        "op": "==",
+        "value": 0
+       },
+       {
+        "read": "own.counter.double_up",
+        "op": "==",
+        "value": 2
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "double_t",
+       "set": 8
+      }
+     },
+     {
+      "counter": {
+       "id": "double_up",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "double_echo",
+       "set": 2
+      }
+     },
+     {
+      "decoy": {
+       "n": 1
+      }
+     },
+     {
+      "ward_grow": {
+       "share": 0.06,
+       "of": "hp"
+      }
+     },
+     {
+      "summon": {
+       "c": 0.45,
+       "dtype": "cold",
+       "cd": 2.0,
+       "for": 8
+      }
+     }
+    ]
+   },
+   {
+    "id": "double-copy",
+    "on": "art_fired",
+    "filter": {
+     "not_art_id": "cloud-in-the-pool"
+    },
+    "if": [
+     {
+      "read": "own.counter.double_up",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.double_echo",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "fire_art": {
+       "which": "last",
+       "share": 0.5
+      }
+     },
+     {
+      "stacks": {
+       "el": "water",
+       "n": 1,
+       "for": 8,
+       "side": "own"
+      }
+     },
+     {
+      "counter": {
+       "id": "double_echo",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "double-clear-fell",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.double_up",
+      "op": "==",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "double_up",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "double-timeout",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.double_up",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.double_t",
+      "op": "<=",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "double_up",
+       "set": 2
+      }
+     }
+    ]
+   },
+   {
+    "id": "double-break",
+    "on": "shield_broken",
+    "if": [
+     {
+      "read": "own.counter.double_up",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "double_t",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "double_up",
+       "set": 2
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Paints a reflection-double for 8 s (a Cold brush-echo companion striking every 2 s, 1 decoy, and a 6 % max-HP double ward); while it stands, it copies your next two arts at half strength (echoing any damaging art at 50 % and adding 1 Water buff stack for 8 s). Recast before it fades and it holds 2 s longer, refreshes its two copies and adds 1 decoy. The double falls when its timer runs out or its ward breaks.",
+  "hooks": [
+   "reflection-double",
+   "decoy",
+   "stance ward",
+   "echo",
+   "water stacks"
+  ],
+  "sources": [
+   "world-depth:nhan_van"
+  ]
+ },
+ {
+  "id": "upside-down-sky",
+  "name": "Upside-Down Sky (Đảo Thiên)",
+  "element": "water",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "idle-cloud-reflection-canon",
+  "tags": [
+   "water",
+   "cleanse",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 8.0,
+  "kind": "elem",
+  "guards": [
+   {
+    "read": "own.counter.double_up",
+    "op": "==",
+    "value": 1
+   }
+  ],
+  "counters": [
+   {
+    "id": "double_up"
+   },
+   {
+    "id": "upside_down_t",
+    "decay_per_pulse": 1
+   }
+  ],
+  "effects": [
+   {
+    "id": "upside-down-swap",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "upside-down-sky"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "upside_down_t",
+       "set": 3
+      }
+     },
+     {
+      "decoy": {
+       "n": 1
+      }
+     },
+     {
+      "mod": {
+       "status_resist": 100,
+       "for": 3
+      }
+     },
+     {
+      "cleanse": {
+       "curses": 1
+      }
+     },
+     {
+      "cleanse": {
+       "n": 2
+      }
+     }
+    ]
+   },
+   {
+    "id": "upside-down-shed",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.upside_down_t",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "cleanse": {
+       "curses": 1
+      }
+     },
+     {
+      "cleanse": {
+       "n": 2
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Requires a standing reflection-double. Turns the reflection over for 3 s: you and your double trade places (1 decoy, +100 status resistance for 3 s), and on cast and each pulse for 3 s you shed 1 curse and 2 debuff stacks onto the double.",
+  "hooks": [
+   "reflection-double",
+   "decoy",
+   "cleanse",
+   "status resistance"
+  ],
+  "sources": [
+   "world-depth:nhan_van"
+  ]
+ },
+ {
+  "id": "door-guardian",
+  "name": "Door Guardian (Môn Thần Quyển)",
+  "element": "wood",
+  "role": "summon",
+  "tier": "authored",
+  "power": "engine",
+  "group": "living-scroll-art",
+  "tags": [
+   "wood",
+   "summon",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 10.0,
+  "kind": "elem",
+  "guards": [
+   {
+    "read": "own.counter.guardian_lock",
+    "op": "<=",
+    "value": 0
+   }
+  ],
+  "counters": [
+   {
+    "id": "guardian_hits"
+   },
+   {
+    "id": "guardian_lock",
+    "decay_per_pulse": 1
+   }
+  ],
+  "effects": [
+   {
+    "id": "door-guardian-unroll",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "door-guardian"
+    },
+    "do": [
+     {
+      "summon": {
+       "c": 0.65,
+       "dtype": "chaos",
+       "cd": 1.5,
+       "for": 10
+      }
+     },
+     {
+      "decoy": {
+       "n": 3
+      }
+     },
+     {
+      "counter": {
+       "id": "guardian_hits",
+       "set": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "door-guardian-return",
+    "on": "decoy_struck",
+    "if": [
+     {
+      "read": "own.counter.guardian_hits",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "guardian_lock",
+       "set": 20
+      }
+     }
+    ]
+   },
+   {
+    "id": "door-guardian-absorb",
+    "on": "decoy_struck",
+    "if": [
+     {
+      "read": "own.counter.guardian_hits",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "guardian_hits",
+       "add": -1
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Unrolls a painted guardian for 10 s: a Wood (Chaos) companion striking every 1.5 s that takes 3 foe hits as decoys; once it has absorbed 3 hits it returns into the scroll and cannot be called again for 20 s.",
+  "hooks": [
+   "summon",
+   "companion",
+   "decoy",
+   "chaos damage"
+  ],
+  "sources": [
+   "world-depth:nhan_van",
+   "a1"
+  ]
+ },
+ {
+  "id": "ink-rain",
+  "name": "Ink Rain (Mặc Vũ)",
+  "element": "wood",
+  "role": "curse",
+  "tier": "authored",
+  "power": "engine",
+  "group": "living-scroll-art",
+  "tags": [
+   "wood",
+   "field",
+   "poison",
+   "slow"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 7.0,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "ink_rain_t",
+    "decay_per_pulse": 1
+   }
+  ],
+  "effects": [
+   {
+    "id": "ink-rain-shake",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "ink-rain"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "ink_rain_t",
+       "set": 4
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     },
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "ink-rain-pulse",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.ink_rain_t",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     },
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Shakes the wet scroll into a timed Field of ink drops for 4 s (tracked by self-counter so it never overwrites Deep Lake Stance): on cast and each pulse while it lasts, the foe takes 1 Slowed Time stack (2 s) and 1 Wood debuff stack (8 s).",
+  "hooks": [
+   "field",
+   "slowed time",
+   "wood stacks",
+   "curse duration"
+  ],
+  "sources": [
+   "world-depth:nhan_van"
+  ]
+ },
+ {
+  "id": "ink-sediment",
+  "name": "Ink Sediment (Mặc Trầm)",
+  "element": "water",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "old-reflection-art",
+  "tags": [
+   "water",
+   "stance",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 4.0,
+  "kind": "elem",
+  "guards": [
+   {
+    "read": "own.counter.sediment_on",
+    "op": "<",
+    "value": 1
+   }
+  ],
+  "counters": [
+   {
+    "id": "sediment_on"
+   },
+   {
+    "id": "stillness"
+   },
+   {
+    "id": "double_up"
+   }
+  ],
+  "effects": [
+   {
+    "id": "ink-sediment-enter",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "ink-sediment"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "sediment_on",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "ink-sediment-gather",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.sediment_on",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "stillness",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "ink-sediment-ward",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.sediment_on",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.double_up",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.stillness",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.stillness",
+     "per": 1
+    },
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.004,
+       "of": "hp"
+      }
+     }
+    ]
+   },
+   {
+    "id": "ink-sediment-fall",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.sediment_on",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed",
+      "op": "<",
+      "value": 1
+     },
+     {
+      "read": "own.counter.stillness",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "stillness",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A held stillness overlay (kept in a self-counter so it sits beside Deep Lake Stance without replacing it). Each second you stay Composed you gain 1 layer of Stillness (uncapped); while your reflection-double stands, each layer adds 0.4 % of your maximum health per second to the double's ward. All layers fall away when you are no longer Composed.",
+  "hooks": [
+   "composed",
+   "reflection-double",
+   "stance ward",
+   "growing"
+  ],
+  "sources": [
+   "world-depth:nhan_van"
+  ]
+ },
+ {
+  "id": "sky-of-a-moment-ago",
+  "name": "The Sky of a Moment Ago (Tiền Khắc Thiên)",
+  "element": "water",
+  "role": "heal",
+  "tier": "authored",
+  "power": "engine",
+  "group": "old-reflection-art",
+  "tags": [
+   "water",
+   "heal",
+   "slow",
+   "costly"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.08,
+  "cooldown": 10.0,
+  "kind": "elem",
+  "hp_cost": 0.05,
+  "guards": [
+   {
+    "read": "own.lost_last.hp.6",
+    "op": ">",
+    "value": 0
+   },
+   {
+    "read": "own.counter.rewind_used",
+    "op": "<",
+    "value": 18
+   }
+  ],
+  "counters": [
+   {
+    "id": "hits_6s",
+    "each_for": 6
+   },
+   {
+    "id": "rewind_used"
+   }
+  ],
+  "effects": [
+   {
+    "id": "sky-track-hit",
+    "on": "was_hit",
+    "do": [
+     {
+      "counter": {
+       "id": "hits_6s",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "sky-track-tick",
+    "on": "tick_taken",
+    "do": [
+     {
+      "counter": {
+       "id": "hits_6s",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "sky-rewind-strip",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "sky-of-a-moment-ago"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "rewind_used",
+       "add": 1
+      }
+     },
+     {
+      "strip": {
+       "n": 10
+      }
+     },
+     {
+      "strip": {
+       "n": 10
+      }
+     },
+     {
+      "status": {
+       "id": "leaking_ward",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "sky-rewind-heal",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "sky-of-a-moment-ago"
+    },
+    "scale": {
+     "read": "own.counter.hits_6s",
+     "per": 1
+    },
+    "do": [
+     {
+      "heal": {
+       "share": 0.03
+      }
+     }
+    ]
+   },
+   {
+    "id": "sky-hp-cap-base",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.rewind_used",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "heal_cap": 1.0
+      }
+     }
+    ]
+   },
+   {
+    "id": "sky-hp-cap-loss",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.rewind_used",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.rewind_used",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "heal_cap": -0.05
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Slow, costly rewind (10 s cooldown, 5 % max-HP cost; fires only after taking real health loss in the last 6 s). Strips up to 10 stacks from the foe's two largest buff piles and lays Leaking Ward for 3 s, regains 3 % of max health per foe hit or tick taken in the last 6 s (proxy for exact 6 s HP lost, as lost_last returns raw points), and permanently lowers your maximum healable health by 5 % for the rest of the fight.",
+  "hooks": [
+   "strip",
+   "healing",
+   "health cost",
+   "heal cap",
+   "lost_last"
+  ],
+  "notes": "2 s cast time has no meaning without cast times (Combat rule 13, auth-eff-2 d44) and is represented by a 10 s cooldown and slow/costly tags. Exact foe ward-gained-in-6s removal is approximated by Leaking Ward (3 s); exact 6 s HP restoration is approximated by 3 % max HP per hit/tick taken in the last 6 s, gated by own.lost_last.hp.6 > 0.",
+  "sources": [
+   "world-depth:nhan_van"
+  ]
+ }
+]

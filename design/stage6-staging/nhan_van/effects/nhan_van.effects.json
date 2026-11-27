@@ -1,0 +1,532 @@
+{
+ "_doc": "Nhàn Vân Quán's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:nhan_van by the serial step. Unpriced. Rule text from design/world/depth/sects/nhan_van.items.json.",
+ "source": "world-depth:nhan_van",
+ "effects": {
+  "The Scroll Before the Painting": {
+   "rule": "Plain Silk Scroll (Tố Quyên Quyển): while your reflection-double stands (double_up == 1), each pulse your stance ward loses a tenth of its peak when above half peak and gains 3 % of your maximum health, while the blank scroll records the growing ward (scroll_ward, decaying 10 % each pulse). When the double is gone and no set hands the ward over, the scroll is blank again.",
+   "approx": "Stance-ward 10 %/s decay runs as -10 % of ward_peak on pulses while ward_of_peak >= 0.5 (exact 30 % max-HP equilibrium when unhit, while allowing rebuild after heavy hits); the scroll's own recorded ward counter (scroll_ward) decays by exact decay_share 0.1 each pulse.",
+   "counters": [
+    {
+     "id": "double_t",
+     "decay_per_pulse": 1
+    },
+    {
+     "id": "double_up"
+    },
+    {
+     "id": "scroll_ward",
+     "decay_share": 0.1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Scroll Before the Painting decay",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.ward_of_peak",
+       "op": ">=",
+       "value": 0.5
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": -0.1,
+        "of": "peak"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Scroll Before the Painting grow",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.03,
+        "of": "hp"
+       }
+      },
+      {
+       "counter": {
+        "id": "scroll_ward",
+        "add": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Scroll Before the Painting blank",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.scroll_ward",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "scroll_ward",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Paint It Back": {
+   "rule": "The Idle Cloud (Nhàn Vân Tam Bảo), full set (3 pieces): when your reflection-double falls (by timeout or ward break), the Plain Silk Scroll keeps the ward it grew (scroll_ward) and gives it to you as a stance ward; and the first time each fight your health falls to half or below, you regain 4 % + 3.5 % per hit taken in the last 3 s of your max health and 4 % + 4 % per art fired in the last 3 s of your max linh lực.",
+   "approx": "Because engine own.lost_last.hp.3 / qi.3 return raw points rather than shares and heal/gain_qi scale on hp_max/qi_max or event.amount, the 3 s rewind restores 4 % + 3.5 % max HP per hit/tick received in the last 3 s (hits_3s) and 4 % + 4 % max linh lực per distinct art fired in the last 3 s (own.fired_within.3.all).",
+   "counters": [
+    {
+     "id": "double_up"
+    },
+    {
+     "id": "scroll_ward",
+     "decay_share": 0.1
+    },
+    {
+     "id": "hits_3s",
+     "each_for": 3
+    },
+    {
+     "id": "paint_back_used"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Paint It Back keep pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 2
+      },
+      {
+       "read": "own.counter.scroll_ward",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.scroll_ward",
+      "per": 1
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.01,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back clear pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 2
+      },
+      {
+       "read": "own.counter.scroll_ward",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "scroll_ward",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back keep break",
+     "on": "shield_broken",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 2
+      },
+      {
+       "read": "own.counter.scroll_ward",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.scroll_ward",
+      "per": 1
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.01,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back clear break",
+     "on": "shield_broken",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 2
+      },
+      {
+       "read": "own.counter.scroll_ward",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "scroll_ward",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back track hit",
+     "on": "was_hit",
+     "do": [
+      {
+       "counter": {
+        "id": "hits_3s",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back track tick",
+     "on": "tick_taken",
+     "do": [
+      {
+       "counter": {
+        "id": "hits_3s",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back arm hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.paint_back_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "paint_back_used",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back rewind hp hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.paint_back_used",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.hits_3s",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.035
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back rewind qi hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.paint_back_used",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.fired_within.3.all",
+      "per": 1
+     },
+     "do": [
+      {
+       "gain_qi": {
+        "share": 0.04
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back rewind mark hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.paint_back_used",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.04
+       }
+      },
+      {
+       "gain_qi": {
+        "share": 0.04
+       }
+      },
+      {
+       "counter": {
+        "id": "paint_back_used",
+        "set": 2
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back arm tick",
+     "on": "tick_taken",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.paint_back_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "paint_back_used",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back rewind hp tick",
+     "on": "tick_taken",
+     "if": [
+      {
+       "read": "own.counter.paint_back_used",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.hits_3s",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.035
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back rewind qi tick",
+     "on": "tick_taken",
+     "if": [
+      {
+       "read": "own.counter.paint_back_used",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.fired_within.3.all",
+      "per": 1
+     },
+     "do": [
+      {
+       "gain_qi": {
+        "share": 0.04
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paint It Back rewind mark tick",
+     "on": "tick_taken",
+     "if": [
+      {
+       "read": "own.counter.paint_back_used",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.04
+       }
+      },
+      {
+       "gain_qi": {
+        "share": 0.04
+       }
+      },
+      {
+       "counter": {
+        "id": "paint_back_used",
+        "set": 2
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Figure on the Clouds": {
+   "rule": "Mother's Sky (Mẫu Thiên Song Bảo), full set (2 pieces): your reflection-double lasts 3 s longer; while it stands, your Water arts cost 10 % less; when it falls (by timeout or ward break), you gain 2 Water buff stacks for 10 s.",
+   "counters": [
+    {
+     "id": "double_t",
+     "decay_per_pulse": 1
+    },
+    {
+     "id": "double_up"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Figure on the Clouds extend",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "cloud-in-the-pool"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "double_t",
+        "add": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Figure on the Clouds cost",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "cost_red": 0.1,
+        "element": "water"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Figure on the Clouds fall pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 2
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "water",
+        "n": 2,
+        "for": 10,
+        "side": "own"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Figure on the Clouds fall break",
+     "on": "shield_broken",
+     "if": [
+      {
+       "read": "own.counter.double_up",
+       "op": "==",
+       "value": 2
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "water",
+        "n": 2,
+        "for": 10,
+        "side": "own"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
