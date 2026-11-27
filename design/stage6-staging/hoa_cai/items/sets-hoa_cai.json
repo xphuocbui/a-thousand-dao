@@ -1,0 +1,68 @@
+[
+ {
+  "id": "hc-canopy-and-lid",
+  "name": "Canopy and Lid (Hoa Cái Song Bảo)",
+  "pieces": [
+   "hc-canopy-furnace",
+   "hc-sulphur-fan"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "stack_duration_pct",
+      "value": 12,
+      "scope": [
+       "tho",
+       "debuff"
+      ]
+     },
+     {
+      "key": "ward_efficiency_pct",
+      "value": 3,
+      "scope": []
+     }
+    ],
+    "effect": "Under the Lid (Cái Hạ)",
+    "rule": "while a foe carries both your Earth and your Mercury stacks, your ward regains 3 % each second, and each fan art adds one more Mercury stack to it."
+   }
+  ],
+  "story": "The founder's furnace and the fan the Mistress took up the year he went blind. She says the two were always meant to be used together; he says he never had a fan."
+ },
+ {
+  "id": "hc-blind-founder",
+  "name": "The Sealed Room (Phong Thất Tam Bảo)",
+  "pieces": [
+   "hc-nine-cycle-gourd",
+   "hc-fume-censer",
+   "hc-cinnabar-robe"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {
+      "key": "stack_effect_pct",
+      "value": 10,
+      "scope": [
+       "kim",
+       "debuff"
+      ]
+     },
+     {
+      "key": "dan_doc_resist_pct",
+      "value": 8,
+      "scope": []
+     }
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "A Room Full of Fume (Mãn Thất Yên)",
+    "rule": "each second, the foe gains one Mercury stack; the Gourd's lingering poison no longer stays on you but goes to the foe when you drink."
+   }
+  ],
+  "story": "What the founder kept when he gave the Hall away: his gourd, his robe, and the censer lit the day he went blind. He has not let the Mistress take any of it out of the room."
+ }
+]

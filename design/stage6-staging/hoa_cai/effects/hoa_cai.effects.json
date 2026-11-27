@@ -1,0 +1,329 @@
+{
+ "_doc": "Hoa Cái Đường's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:hoa_cai by the serial step. Unpriced. Rule text from design/world/depth/sects/hoa_cai.items.json.",
+ "source": "world-depth:hoa_cai",
+ "effects": {
+  "The Unfinished Pill": {
+   "rule": "Nine-Cycle Gourd (Cửu Chuyển Hồ Lô): once a fight (at 75 % health or below, or from 8 s), drink from the gourd: heal a third of your health and gain +30 attack points for 10 s, then take 4 lingering uncleansable Poison stacks until the fight ends (sent to the foe instead when A Room Full of Fume is active).",
+   "counters": [
+    {
+     "id": "gourd_drunk"
+    },
+    {
+     "id": "sealed_room_set"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Unfinished Pill drink",
+     "on": "pulse",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.hp_share",
+         "op": "<=",
+         "value": 0.75
+        },
+        {
+         "read": "time",
+         "op": ">=",
+         "value": 8
+        }
+       ]
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.333
+       }
+      },
+      {
+       "mod": {
+        "L1": 30,
+        "for": 10
+       }
+      },
+      {
+       "counter": {
+        "id": "gourd_drunk",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Unfinished Pill self poison",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.gourd_drunk",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.sealed_room_set",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "protect": {
+        "el": "wood"
+       }
+      },
+      {
+       "stacks": {
+        "el": "wood",
+        "kind": "debuff",
+        "n": 4,
+        "for": null,
+        "side": "own"
+       }
+      },
+      {
+       "counter": {
+        "id": "gourd_drunk",
+        "set": 2
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Unfinished Pill shared poison",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.gourd_drunk",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.sealed_room_set",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "protect": {
+        "el": "wood"
+       }
+      },
+      {
+       "stacks": {
+        "el": "wood",
+        "kind": "debuff",
+        "n": 4,
+        "for": null,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "gourd_drunk",
+        "set": 2
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Nine Stars over the Fire": {
+   "rule": "Canopy Furnace (Hoa Cái Lô): in a fight, while a foe carries any of your debuffs, your wards gain +20 % ward strength and your stance ward regains 2 % of its peak each second. Out-of-fight pill refining batch-preservation awaits alchemy crafting Effect hooks.",
+   "approx": "Out-of-fight failed-batch preservation has no crafting Effect hook in src/ yet; fight half runs live (+20 % ward_pct and 2 % peak ward_grow while the foe carries Earth, Metal, Wood, or Fire debuffs).",
+   "records": [
+    {
+     "id": "eff:Nine Stars over the Fire ward",
+     "on": "always",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "foe.debuff.earth",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.metal",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.wood",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.fire",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "ward_pct": 20
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Nine Stars over the Fire sustain",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "any": [
+        {
+         "read": "foe.debuff.earth",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.metal",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.wood",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "foe.debuff.fire",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.02,
+        "of": "peak"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Under the Lid": {
+   "rule": "Canopy and Lid, full set (2 pieces): while a foe carries both your Earth and your Mercury stacks, your stance ward regains 3 % of its peak each second, and each fan art (tags fan or fan-gust) lays 1 more Mercury stack (8 s) on the foe.",
+   "records": [
+    {
+     "id": "eff:Under the Lid ward",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "foe.debuff.earth",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.debuff.metal",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.03,
+        "of": "peak"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Under the Lid fan tag",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "fan"
+      ]
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Under the Lid fan gust",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "fan-gust"
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "A Room Full of Fume": {
+   "rule": "The Sealed Room, full set (3 pieces): each second, the foe gains 1 Mercury stack (8 s); the Nine-Cycle Gourd's lingering poison no longer stays on you but goes to the foe when you drink.",
+   "counters": [
+    {
+     "id": "sealed_room_set"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:A Room Full of Fume init",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "sealed_room_set",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:A Room Full of Fume pulse",
+     "on": "pulse",
+     "do": [
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

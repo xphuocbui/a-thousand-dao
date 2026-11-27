@@ -1,0 +1,255 @@
+[
+ {
+  "id": "cinnabar-washing-primer",
+  "name": "Cinnabar-Washing Primer (Đào Sa Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": [
+   "tho",
+   "kim"
+  ],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {
+    "key": "attack_pct",
+    "value": 4,
+    "scope": [
+     "tho"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 8,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 6,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 3,
+    "scope": []
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "pan-the-grains",
+    "unlock_layer": 1
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "cinnabar-washing-primer",
+  "family": "earth",
+  "owner": "hoa_cai",
+  "rank": "ngoai_mon",
+  "concept": "The outer gate's method, learned at the washing troughs: the disciple rocks the ore pan and breathes with it, drawing Earth from the red clay or Metal from the heavy grains that sink. In a fight it is a heavy, grinding method that wears the foe down.",
+  "lore": "Written by the founder Úy Đan Dương for the washers he hired from the badland diggings in 1060 (V117)."
+ },
+ {
+  "id": "canopy-furnace-canon",
+  "name": "Canopy Furnace Canon (Hoa Cái Lô Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": [
+   "tho"
+  ],
+  "layers": 9,
+  "bonuses": [
+   {
+    "stat": "defense_pct",
+    "value": 8
+   }
+  ],
+  "passives": [
+   {
+    "key": "ward_efficiency_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 14,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 10,
+    "scope": [
+     "debuff"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 4,
+    "scope": [
+     "tho"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 3,
+    "scope": []
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "spread-the-canopy",
+    "unlock_layer": 1
+   },
+   {
+    "ability_id": "lift-the-lid",
+    "unlock_layer": 2
+   },
+   {
+    "ability_id": "pill-smoke",
+    "unlock_layer": 4
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "canopy-furnace-canon",
+  "family": "earth",
+  "owner": "hoa_cai",
+  "rank": "noi_mon",
+  "concept": "Named for the Canopy (Hoa Cái), the asterism that spreads over the pole star. The cultivator makes their body the furnace's lid, a heavy Earth canopy over the dantian, so that what is refined inside cannot escape. In a fight the holder takes blows on the canopy and returns them as pressure, and their poisons and debuffs on a foe stay sealed in longer.",
+  "lore": "The founder's canon, written in his first year at the Hall. The furnace sits under a painted canopy of nine stars in the Hall's refining room, and the disciples cultivate beneath it."
+ },
+ {
+  "id": "nine-cycle-mercury-art",
+  "name": "Nine-Cycle Mercury Art (Cửu Chuyển Hống Pháp)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": [
+   "kim"
+  ],
+  "layers": 9,
+  "bonuses": [
+   {
+    "stat": "linh_luc_pct",
+    "value": 12
+   }
+  ],
+  "passives": [
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 16,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 6,
+    "scope": [
+     "kim"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 4,
+    "scope": [
+     "over_time"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 5,
+    "scope": [
+     "kim"
+    ]
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 3,
+    "scope": [
+     "curse"
+    ]
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "quicksilver",
+    "unlock_layer": 1
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "nine-cycle-mercury-art",
+  "family": "metal",
+  "owner": "hoa_cai",
+  "rank": "noi_mon",
+  "concept": "The refining of mercury from cinnabar, nine times turned, which the old alchemists said makes an elixir of long life and which mostly makes poison. The art teaches the refiner to steer the mercury's Metal qi with their own. In a fight it coats the holder's strikes with quicksilver that seeps into a foe and stacks.",
+  "lore": "Taught only after the Sulphur Lung Breath, because the co-founder Tôn Luyện Hà learned it first and died of it in 1141."
+ },
+ {
+  "id": "sulphur-lung-breath",
+  "name": "Sulphur Lung Breath (Hoàng Phế Tức)",
+  "tier": 0,
+  "tech_kind": "body",
+  "names": [],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {
+    "key": "status_resist_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 30,
+    "scope": [
+     "chaos"
+    ]
+   },
+   {
+    "key": "resist_pct",
+    "value": 30,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 10,
+    "scope": []
+   }
+  ],
+  "abilities": [
+   {
+    "ability_id": "hold-the-fume",
+    "unlock_layer": 1
+   }
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "sulphur-lung-breath",
+  "family": "body",
+  "owner": "hoa_cai",
+  "rank": "ngoai_mon",
+  "concept": "A body art, element-free, that hardens the lungs, liver and skin against the fumes of cinnabar, mercury and sulphur. Every member of the Hall learns it before anything else. In a fight it gives resistance to poison and lets the holder breathe through their own poison clouds.",
+  "lore": "Made by the founder after Tôn Luyện Hà's death in 1141, from the breathing of the Lưu Hoàng sulphur miners, who live to be old in air that kills a horse."
+ }
+]
