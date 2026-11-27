@@ -1,0 +1,45 @@
+{
+ "words": [
+  {"name": "technique-effects", "kind": "field",
+   "spec": "A technique's `effects` list may hold {\"name\": <library Effect name>, \"unlock_layer\": n, \"passive_art\": true, \"rule\": ...}. When a build knows the technique at layer n or above (fight.py `tech_layers`, the GDScript FighterCompiler), the loader adds that Effect from assets/data/combat_effects.json exactly as an item's named Effect is added (fight.py expand_library's add_library_effect, with its counters). Today expand_library reads only `passives`, so a passive art (an Effect-backed art that takes no art slot) never reaches the fight. export_techniques.py should carry the field into items_cong_phap.json, and sect_fight.py's effect_names should list it.",
+   "gdd_text": "Công Pháp rule (passive arts): a technique may carry passive arts, each a named Effect with an unlock layer. Known to that layer, the passive art's Effect is always on in a fight; it takes no art slot and is never fired.",
+   "used_by": ["heavenly-pivot-true-canon", "The Pole Draws from the Vein"]},
+  {"name": "darkness-element", "kind": "field",
+   "spec": "Darkness (Hán-Việt am) as an engine element: debuff (and buff) stack piles `dark` in combat_engine.json BUFF and DEBUFF, the readables own/foe.debuff.dark, the filter element `dark`, and the scope tag `am` in CHARACTER_MODS scope_element. Its stack effect (what a Darkness stack does, Effects Formulas D) needs a ruling first: proposed, each Darkness stack on a foe lowers its healing taken by 2 % (light-drinking iron), with no cap, decaying with the batch. Until then the scope tag `am` reaches no art (gap report line on tx-iron-horse-banner).",
+   "gdd_text": "Effects Formulas D, Darkness (Ám): each Darkness debuff stack lowers the holder's healing taken by 2 %; Darkness stacks are laid by Darkness arts and Effects and last their batch.",
+   "used_by": ["The Banner Is Raised", "tx-iron-horse-banner"]},
+  {"name": "curse-fast", "kind": "mod",
+   "spec": "The mod flag `curse_fast` (1 or more while it holds): a curse status its holder lays while the flag holds cannot be removed by the target's cleanses (cleanse with `status` or `curses`, and the build's cleanse field) until it ends on time. Mirrors `talisman_fast`, which does the same for talisman-marked stack batches.",
+   "gdd_text": "Effects rule 6, mod `curse_fast`: while it holds, the curses you lay cannot be cleansed; they end only on time.",
+   "used_by": ["Sentence Stands"]},
+  {"name": "curse-reflect", "kind": "mod",
+   "spec": "The mod `curse_reflect` (a count of charges, timed with `for` or for the fight, as `soul_reflect`): the next curse status that would land on you does not land, a charge is spent, and the same curse (its stacks and duration) is laid on its caster instead, as yours. Raises `curse_reflected {status}` on the reflector.",
+   "gdd_text": "Effects rule 6, mod `curse_reflect`: each charge turns the next curse that would land on you back on its caster.",
+   "used_by": ["A Fair Copy"]}
+ ],
+ "arts": [],
+ "effects": {
+  "The Banner Is Raised": {
+   "rule": "Armoured Horse Banner: while you hold the banner, each hit of your companions and summons lays a Darkness stack on the foe (8 s). (\"Your summons take a quarter less damage\" is dropped: companions and summons are never struck, Combat rule 19.)",
+   "records": [
+    {"id": "eff:The Banner Is Raised", "on": "hit_landed", "filter": {"kind": "companion"}, "limit": {"per_pulse": 2},
+     "do": [{"stacks": {"el": "dark", "n": 1, "for": 8, "side": "foe"}}]}
+   ]
+  },
+  "Sentence Stands": {
+   "rule": "Bridge Court Pair, full set (2 pieces): a curse you lay on a foe who carries your Weight (an Earth stack) cannot be cleansed and lasts 2 s longer (status duration +50 % for curses, about 2 s on the 4 s curses; the 5 s clamp holds).",
+   "approx": "+2 s is +50 % duration for curses",
+   "records": [
+    {"id": "eff:Sentence Stands", "on": "always", "if": [{"read": "foe.debuff.earth", "op": ">=", "value": 1}],
+     "do": [{"mod": {"status_dur": 50, "tags": ["curse"]}}, {"mod": {"curse_fast": 1}}]}
+   ]
+  },
+  "A Fair Copy": {
+   "rule": "Copyist's Pair, full set (2 pieces): once a fight, the first soul art that would land on you does nothing to you and strikes its caster as Cold damage equal to its own, and once a fight the first curse cast on you is laid on its caster instead (the engine's reading of \"copied, and your next seal art carries it back\").",
+   "approx": "both are turned back at once, not carried back by your next seal art",
+   "records": [
+    {"id": "eff:A Fair Copy", "on": "fight_start", "do": [{"mod": {"soul_reflect": 1}}, {"mod": {"curse_reflect": 1}}]}
+   ]
+  }
+ }
+}

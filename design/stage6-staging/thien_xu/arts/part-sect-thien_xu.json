@@ -1,0 +1,1642 @@
+[
+ {
+  "id": "counterweight-palm",
+  "name": "Counterweight Palm (Đối Trọng Chưởng)",
+  "element": "earth",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "weighing-stone-primer",
+  "tags": [
+   "earth",
+   "palm",
+   "weight"
+  ],
+  "c_art": 1.3,
+  "cost_share": 0.03,
+  "cooldown": 3,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "pan"
+   }
+  ],
+  "effects": [
+   {
+    "id": "counterweight-pan-earth",
+    "on": "art_fired",
+    "filter": {
+     "element": "earth",
+     "not_art_id": "counterweight-palm"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "pan",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "counterweight-pan-metal",
+    "on": "art_fired",
+    "filter": {
+     "element": "metal"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "pan",
+       "set": 2
+      }
+     }
+    ]
+   },
+   {
+    "id": "counterweight-earth",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "counterweight-palm"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "counterweight-metal",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "counterweight-palm"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "if": [
+     {
+      "read": "own.counter.pan",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "metal",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "counterweight-level",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "counterweight-palm"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "if": [
+     {
+      "read": "foe.debuff.earth",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.debuff.metal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "timer": {
+       "side": "foe",
+       "which": "next",
+       "by": 0.3
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A balancing palm. Its hit lays 1 Earth stack for 8 s; if your last art before it was an Earth or a Metal art (you have been filling a pan), it lays 1 Metal stack as well, so the foe carries the other pan too (\"or the reverse\": after Earth the Metal is the counterweight, after Metal the Earth is). Against a foe that then carries at least one Earth and one Metal stack, the foe's soonest art waits 0.3 s and the foe gains 1 Slowed Time for 2 s.",
+  "hooks": [
+   "earth stacks",
+   "metal stacks",
+   "timer delay",
+   "slowed time"
+  ],
+  "sources": [
+   "world-depth:thien_xu"
+  ]
+ },
+ {
+  "id": "the-handle-points-east",
+  "name": "The Handle Points East (Đẩu Bính Chỉ Đông)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "dipper-handle-canon",
+  "tags": [
+   "metal",
+   "sword",
+   "quick"
+  ],
+  "c_art": 2.3,
+  "cost_share": 0.04,
+  "cooldown": 3,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "handle"
+   },
+   {
+    "id": "handle_lost"
+   },
+   {
+    "id": "handle_off"
+   },
+   {
+    "id": "handle_east"
+   }
+  ],
+  "empower": [
+   {
+    "if": [
+     {
+      "read": "own.counter.handle",
+      "op": ">=",
+      "value": 7
+     }
+    ],
+    "pay": [
+     {
+      "counter": {
+       "id": "handle",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "handle_east",
+       "set": 1
+      }
+     }
+    ],
+    "c_mult": 2.0,
+    "split": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "effects": [
+   {
+    "id": "handle-damaging",
+    "on": "art_fired",
+    "if": [
+     {
+      "read": "own.since_act",
+      "op": "<=",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "handle_off",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "handle-metal",
+    "on": "art_fired",
+    "filter": {
+     "element": "metal"
+    },
+    "if": [
+     {
+      "read": "own.since_act",
+      "op": "<=",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "handle_off",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "handle-lose-order",
+    "on": "art_fired",
+    "if": [
+     {
+      "read": "own.counter.handle_off",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.handle",
+      "op": "<",
+      "value": 7
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "handle",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "handle_lost",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "handle-clear",
+    "on": "art_fired",
+    "if": [
+     {
+      "read": "own.counter.handle_off",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "handle_off",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "handle-star",
+    "on": "art_fired",
+    "filter": {
+     "element": "metal"
+    },
+    "if": [
+     {
+      "read": "own.since_act",
+      "op": "<=",
+      "value": 0
+     },
+     {
+      "read": "own.counter.handle_lost",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "handle",
+       "add": 1
+      }
+     }
+    ],
+    "limit": {
+     "cooldown": 1
+    }
+   },
+   {
+    "id": "handle-recount",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.handle_lost",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.since_act",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "handle_lost",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "handle-east-metal",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "the-handle-points-east"
+    },
+    "if": [
+     {
+      "read": "own.counter.handle_east",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "metal",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "handle-east-broken",
+    "on": "broken",
+    "if": [
+     {
+      "read": "own.counter.handle_east",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "handle",
+       "set": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "handle-east-done",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.handle_east",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "handle_east",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "The Dipper Handle's own cut, and the handle's count (with the authored wish d9, When the Handle Loses Count). Each damaging Metal art you fire moves the handle one star, one star a breath at most: a second Metal art within 1 s of the last star moves none. Before the seventh star the handle loses count, and its stars are cleared, when you fire a damaging art that is not Metal (the basic attack, wards and heals never count); after a lost count it counts again once you have gone 3 s with no damaging or movement art. With seven stars or more this cut points east: it spends every star, strikes twice (two hits, twice the force in all) and each of its hits lays 1 Metal stack for 8 s; if one of those hits makes the foe Broken, the handle keeps 3 stars.",
+  "hooks": [
+   "counted stars",
+   "metal stacks",
+   "composed",
+   "broken",
+   "double strike"
+  ],
+  "sources": [
+   "world-depth:thien_xu",
+   "d9 when-the-handle-loses-count",
+   "a1"
+  ]
+ },
+ {
+  "id": "the-pivot-does-not-turn",
+  "name": "The Pivot Does Not Turn (Xu Bất Chuyển)",
+  "element": "earth",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "heavenly-pivot-true-canon",
+  "tags": [
+   "earth",
+   "formation",
+   "still"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 4,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "pivot"
+   },
+   {
+    "id": "pivot_half"
+   }
+  ],
+  "effects": [
+   {
+    "id": "pivot-set",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-pivot-does-not-turn"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "pivot",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pivot-weigh",
+    "on": "pulse",
+    "limit": {
+     "cooldown": 2
+    },
+    "if": [
+     {
+      "read": "own.counter.pivot",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 1,
+       "for": 10,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "pivot-orbit",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "companion"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "if": [
+     {
+      "read": "own.counter.pivot",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 1,
+       "for": 10,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "pivot-weight",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.pivot",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "foe.debuff.earth",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.04,
+       "element": "metal"
+      }
+     }
+    ]
+   },
+   {
+    "id": "pivot-turned-count",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "movement"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pivot",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pivot_half",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "pivot-turned-half",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "movement"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pivot",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "foe.debuff.earth",
+     "per": 2
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "pivot_half",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pivot-turned-clear",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "movement"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pivot",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "consume": {
+       "el": "earth",
+       "side": "foe",
+       "kind": "debuff"
+      }
+     },
+     {
+      "counter": {
+       "id": "pivot",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "pivot-turned-back",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "movement"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pivot_half",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.pivot_half",
+     "per": 1
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 1,
+       "for": 10,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A still stance, held as a self-state (it takes no stance slot, so it lives beside Mountain Stance). Once raised it stays for the fight: while you are Composed, the foe gains 1 Earth stack (a Weight) for 10 s every 2 s, and each hit of your companions and summons lays 1 more (once a second: the flying edges orbiting the fixed point); your Metal arts deal 4 % more for each Earth stack on the foe, with no cap. Firing a movement art ends it, and the foe keeps only half of its Earth stacks (rounded down, laid again for 10 s). Each firing counts as a formation art.",
+  "hooks": [
+   "earth stacks",
+   "composed",
+   "metal damage",
+   "companions",
+   "formation"
+  ],
+  "sources": [
+   "world-depth:thien_xu",
+   "a1"
+  ]
+ },
+ {
+  "id": "weigh-the-heart",
+  "name": "Weigh the Heart (Quyền Tâm)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "heavenly-pivot-true-canon",
+  "tags": [
+   "metal",
+   "judgement",
+   "heavy"
+  ],
+  "c_art": 3.0,
+  "cost_share": 0.05,
+  "cooldown": 6,
+  "kind": "phys",
+  "effects": [
+   {
+    "id": "weigh-fire",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.fire",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-earth",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.earth",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-metal",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.metal",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-wood",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.wood",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-ice",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.ice",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-thunder",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.thunder",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-wind",
+    "on": "always",
+    "scale": {
+     "read": "foe.debuff.wind",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.03,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-no-luck",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "crit": -1000,
+       "tags": [
+        "judgement"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "weigh-strip",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "weigh-the-heart"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "strip": {
+       "n": 2
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A judgement art: a Metal (Physical) hit that deals 3 % more for every element stack the foe carries (Fire, Earth, Metal, Wood, Ice, Thunder and Wind debuff stacks, no cap), then strips 2 stacks from the foe's largest buff pile (the engine's reading of \"its two longest buffs\"). It cannot crit; the sect says a verdict should not be lucky.",
+  "hooks": [
+   "element stacks",
+   "strip buffs",
+   "metal damage",
+   "no crit"
+  ],
+  "sources": [
+   "world-depth:thien_xu"
+  ]
+ },
+ {
+  "id": "north-star-writ",
+  "name": "North Star Writ (Bắc Thần Hịch)",
+  "element": "metal",
+  "role": "curse",
+  "tier": "authored",
+  "power": "engine",
+  "group": "heavenly-pivot-true-canon",
+  "tags": [
+   "metal",
+   "seal",
+   "writ"
+  ],
+  "c_art": 1.4,
+  "cost_share": 0.04,
+  "cooldown": 8,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "named",
+    "each_for": 8
+   }
+  ],
+  "effects": [
+   {
+    "id": "writ-name",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "north-star-writ"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "named",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "writ-companions",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.named",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.3,
+       "kind": "companion"
+      }
+     }
+    ]
+   },
+   {
+    "id": "writ-wither",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.named",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "foe.hp_share",
+      "op": ">",
+      "value": 0.5
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "withering",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A writ under the Pole Star's seal (a seal art): a Metal strike that Names the foe for 8 s. While it is Named your companions and summons deal 30 % more to it, and each second it is above half its health it takes Withering for 2 s (a curse: it takes half healing).",
+  "hooks": [
+   "companions",
+   "withering",
+   "seal",
+   "named"
+  ],
+  "sources": [
+   "world-depth:thien_xu",
+   "a1"
+  ]
+ },
+ {
+  "id": "plant-the-stele",
+  "name": "Plant the Stele (Lập Bi)",
+  "element": "earth",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "boundary-stele-array-canon",
+  "tags": [
+   "earth",
+   "formation",
+   "stele"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 3,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "stele",
+    "each_for": 12
+   },
+   {
+    "id": "stele_long",
+    "each_for": 15
+   },
+   {
+    "id": "true_line"
+   }
+  ],
+  "guards": [
+   {
+    "read": "own.qi_share",
+    "op": ">=",
+    "value": 0.2
+   }
+  ],
+  "effects": [
+   {
+    "id": "stele-dear-1",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "plant-the-stele"
+    },
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.stele",
+        "op": "==",
+        "value": 1
+       },
+       {
+        "read": "own.counter.stele_long",
+        "op": "==",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "refund": {
+       "share": -0.5
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-dear-2",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "plant-the-stele"
+    },
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.stele",
+        "op": "==",
+        "value": 2
+       },
+       {
+        "read": "own.counter.stele_long",
+        "op": "==",
+        "value": 2
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "refund": {
+       "share": -1.25
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-dear-3",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "plant-the-stele"
+    },
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.stele",
+        "op": "==",
+        "value": 3
+       },
+       {
+        "read": "own.counter.stele_long",
+        "op": "==",
+        "value": 3
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "refund": {
+       "share": -2.375
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-dear-4",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "plant-the-stele"
+    },
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.stele",
+        "op": "==",
+        "value": 4
+       },
+       {
+        "read": "own.counter.stele_long",
+        "op": "==",
+        "value": 4
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "refund": {
+       "share": -4.0625
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-dear-5",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "plant-the-stele"
+    },
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.stele",
+        "op": "==",
+        "value": 5
+       },
+       {
+        "read": "own.counter.stele_long",
+        "op": "==",
+        "value": 5
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "refund": {
+       "share": -6.59375
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-dear-6",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "plant-the-stele"
+    },
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.stele",
+        "op": ">=",
+        "value": 6
+       },
+       {
+        "read": "own.counter.stele_long",
+        "op": ">=",
+        "value": 6
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "refund": {
+       "share": -10.390625
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-plant",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "plant-the-stele"
+    },
+    "if": [
+     {
+      "read": "own.counter.true_line",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "stele",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-plant-true",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "plant-the-stele"
+    },
+    "if": [
+     {
+      "read": "own.counter.true_line",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "stele_long",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-ward",
+    "on": "always",
+    "scale": {
+     "read": "own.counter.stele",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "ward_pct": 8
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-ward-long",
+    "on": "always",
+    "scale": {
+     "read": "own.counter.stele_long",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "ward_pct": 8
+      }
+     }
+    ]
+   },
+   {
+    "id": "stele-line",
+    "on": "pulse",
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.counter.stele",
+        "op": ">=",
+        "value": 2
+       },
+       {
+        "read": "own.counter.stele_long",
+        "op": ">=",
+        "value": 2
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Gains a Stele charge for 12 s (a self-counter charge with its own timer: no spatial fight). Each Stele planted while others are held costs half again the linh lực of the one before (1.5 times its cost with one held, 2.25 with two, 3.375 with three, and so on; from the sixth held on, 11.4 times), so it is planted only with a fifth of your linh lực in hand. Each Stele held makes your ward hold 8 % more. While you hold two or more, each second the foe gains 1 Earth stack for 8 s and 1 Slowed Time for 2 s (the boundary line it cannot cross unfelt).",
+  "hooks": [
+   "stele charges",
+   "rising cost",
+   "ward strength",
+   "earth stacks",
+   "slowed time",
+   "formation"
+  ],
+  "sources": [
+   "world-depth:thien_xu",
+   "a1"
+  ]
+ },
+ {
+  "id": "no-crossing-the-line",
+  "name": "No Crossing the Line (Bất Việt Giới)",
+  "element": "earth",
+  "role": "control",
+  "tier": "authored",
+  "power": "engine",
+  "group": "boundary-stele-array-canon",
+  "tags": [
+   "earth",
+   "formation",
+   "seal"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 8,
+  "kind": "elem",
+  "counters": [
+   {
+    "id": "lines",
+    "each_for": 6
+   }
+  ],
+  "guards": [
+   {
+    "any": [
+     {
+      "read": "own.counter.stele",
+      "op": ">=",
+      "value": 2
+     },
+     {
+      "read": "own.counter.stele_long",
+      "op": ">=",
+      "value": 2
+     }
+    ]
+   }
+  ],
+  "effects": [
+   {
+    "id": "lines-light",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "no-crossing-the-line"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "lines",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "lines-cross",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.lines",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.foe_pressed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "any": [
+       {
+        "read": "own.counter.stele",
+        "op": ">=",
+        "value": 2
+       },
+       {
+        "read": "own.counter.stele_long",
+        "op": ">=",
+        "value": 2
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     },
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 3,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Fired only while you hold two or more Stele charges: it lights the lines between them for 6 s. In each second of that window in which the foe acts (fires a damaging or movement art, or evades) while you still hold two or more Stele charges, the foe gains 1 Slowed Time for 3 s and 3 Earth stacks for 8 s.",
+  "hooks": [
+   "stele charges",
+   "slowed time",
+   "earth stacks",
+   "foe pressed",
+   "formation"
+  ],
+  "sources": [
+   "world-depth:thien_xu",
+   "a1"
+  ]
+ },
+ {
+  "id": "the-seventh-star-falls",
+  "name": "The Seventh Star Falls (Dao Quang Lạc)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "army-breaker-spear",
+  "tags": [
+   "spear",
+   "metal",
+   "heavy",
+   "called"
+  ],
+  "c_art": 1.6,
+  "cost_share": 0.05,
+  "cooldown": 6,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "momentum",
+    "decay_share": 0.05
+   }
+  ],
+  "effects": [
+   {
+    "id": "seventh-wait",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.since_act",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "momentum",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "seventh-army",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "companion"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "if": [
+     {
+      "read": "own.since_act",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "momentum",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "seventh-upkeep",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.since_act",
+      "op": ">=",
+      "value": 5
+     },
+     {
+      "read": "own.qi_share",
+      "op": ">=",
+      "value": 0.01
+     }
+    ],
+    "do": [
+     {
+      "gain_qi": {
+       "share": -0.01
+      }
+     }
+    ]
+   },
+   {
+    "id": "seventh-weight",
+    "on": "always",
+    "scale": {
+     "read": "own.counter.momentum",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.05,
+       "tags": [
+        "called"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "seventh-pierce",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-seventh-star-falls"
+    },
+    "do": [
+     {
+      "mod": {
+       "ignore_block": 1,
+       "bypass": 0.5
+      }
+     }
+    ]
+   },
+   {
+    "id": "seventh-full",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-seventh-star-falls"
+    },
+    "if": [
+     {
+      "read": "own.counter.momentum",
+      "op": ">=",
+      "value": 10
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "exposed",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "seventh-spend",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "the-seventh-star-falls"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "momentum",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "The Army-Breaker's waited thrust, and the spear's Momentum (with the authored wish d21, The Army Fights, the Marshal Waits). Each full second in which you fire no damaging or movement art adds 1 Momentum, and each second one of your companions' or summons' hits lands while you wait adds 1 more (their hits are not yours, so they keep your wait). Momentum loses a twentieth of itself each second; each second of waiting past the fifth costs 1 % of your linh lực. This thrust deals 5 % more for each Momentum, ignores the foe's block and passes half of its ward shields (bypass 0.5, the engine's cap), then spends all the Momentum. With full Momentum (10 or more) it also breaks the foe's guard open: Exposed for 3 s (the engine's reading of \"breaks one formation link or summoned ward\"). The basic attack does not break the wait (the Composed clock's rule).",
+  "hooks": [
+   "momentum",
+   "waiting",
+   "companions",
+   "ignore block",
+   "exposed"
+  ],
+  "sources": [
+   "world-depth:thien_xu",
+   "d21 the-army-fights-the-marshal-waits"
+  ]
+ },
+ {
+  "id": "clock-breath",
+  "name": "Clock Breath (Khắc Tức)",
+  "element": "water",
+  "role": "heal",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "water-clock-breath",
+  "tags": [
+   "heal",
+   "water"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 5,
+  "kind": "elem",
+  "c_heal": 0.5,
+  "rule": "The servant breathes with the drip of the water clock, one breath a drop: a small heal.",
+  "hooks": [
+   "healing",
+   "health regeneration"
+  ],
+  "sources": [
+   "world-depth:thien_xu"
+  ]
+ }
+]

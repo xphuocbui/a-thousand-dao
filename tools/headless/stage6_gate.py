@@ -91,7 +91,7 @@ def record(owner):
     if not os.path.exists(prog) or "RECORD PASS DONE" not in open(prog, encoding="utf-8").read():
         print("FAILED\t%s has no RECORD PASS DONE" % os.path.relpath(prog, ROOT))
         return 1
-    stage = os.path.join("design", "stage6-staging", owner)
+    stage = "design/stage6-staging/" + owner   # forward slashes: compared with git status paths
     env = dict(os.environ, DEPTH_STAGE=os.path.join(ROOT, stage))
     good = True
     for sub, pat, cmd, okw in (("techniques", "catalogue-sect-*.json", "tools/design/arts/lint_techniques.py", " 0 findings"),
