@@ -33,7 +33,7 @@
     ],
     "do": [
      {"counter": {"id": "wet_ink_strikes", "add": -1}},
-     {"counter": {"id": "ink_marked", "set": 1}},
+     {"counter": {"id": "ink_marked", "add": 1}},
      {"status": {"id": "slowed_time", "stacks": 1, "dur": 2, "side": "foe"}}
     ]
    },
