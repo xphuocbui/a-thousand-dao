@@ -1,0 +1,227 @@
+[
+ {
+  "id": "quench-strike",
+  "name": "Quench (Thối)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "star-quench-canon",
+  "tags": ["metal", "sword", "quench"],
+  "c_art": 1.5,
+  "cost_share": 0.03,
+  "cooldown": 3.0,
+  "kind": "phys",
+  "debuff": [1, 8],
+  "counters": [
+   {"id": "quench_brittle", "cap": 1}
+  ],
+  "effects": [
+   {
+    "id": "quench-brittle-mod",
+    "on": "always",
+    "if": [
+     {"read": "own.counter.quench_brittle", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"mod": {"dmg_more": 0.35, "element": "metal"}}
+    ]
+   },
+   {
+    "id": "quench-brittle-spend",
+    "on": "hit_landed",
+    "filter": {"element": "metal"},
+    "if": [
+     {"read": "own.counter.quench_brittle", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"counter": {"id": "quench_brittle", "set": 0}}
+    ]
+   },
+   {
+    "id": "quench-brittle-arm",
+    "on": "hit_landed",
+    "filter": {"art_id": "quench-strike"},
+    "if": [
+     {"read": "foe.debuff.metal", "op": ">=", "value": 3}
+    ],
+    "do": [
+     {"counter": {"id": "quench_brittle", "set": 1}},
+     {"status": {"id": "sundered", "stacks": 1, "dur": 4, "side": "foe"}}
+    ]
+   }
+  ],
+  "rule": "A cutting strike that applies 1 Quench mark (Metal debuff stack) for 8 s. When it lands on a foe carrying 3 or more Quench marks, the foe takes Sundered (-150 resistance points for 4 s) and your next Metal art hit deals 35 % more damage.",
+  "hooks": ["metal debuff stacks", "sundered", "metal damage"],
+  "sources": ["world-depth:thoi_tinh"]
+ },
+ {
+  "id": "ninth-blow",
+  "name": "Ninth Blow (Cửu Kích)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "star-quench-canon",
+  "tags": ["metal", "sword", "heavy"],
+  "c_art": 1.8,
+  "cost_share": 0.04,
+  "cooldown": 4.0,
+  "kind": "phys",
+  "counters": [
+   {"id": "fold_hits"}
+  ],
+  "effects": [
+   {
+    "id": "ninth-blow-mod",
+    "on": "always",
+    "if": [
+     {"read": "own.counter.fold_hits", "op": ">=", "value": 8}
+    ],
+    "do": [
+     {"mod": {"dmg_more": 1.2}}
+    ]
+   },
+   {
+    "id": "ninth-blow-count",
+    "on": "hit_landed",
+    "filter": {"not_tags": ["trigger"]},
+    "do": [
+     {"counter": {"id": "fold_hits", "add": 1}}
+    ]
+   },
+   {
+    "id": "ninth-blow-reset",
+    "on": "hit_landed",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.fold_hits", "op": ">=", "value": 9}
+    ],
+    "do": [
+     {"counter": {"id": "fold_hits", "set": 0}}
+    ]
+   }
+  ],
+  "rule": "A heavy finishing cut. Every direct hit you land (arts and basic attacks) adds 1 fold; your ninth direct hit deals 120 % more damage and resets the fold count to 0.",
+  "hooks": ["hit count", "damage more", "metal damage"],
+  "sources": ["world-depth:thoi_tinh"]
+ },
+ {
+  "id": "white-heat",
+  "name": "White Heat (Bạch Nhiệt)",
+  "element": "fire",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "fallen-star-forging-rite",
+  "tags": ["fire", "forge"],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 4.0,
+  "kind": "elem",
+  "counters": [
+   {"id": "white_heat", "each_for": 4, "cap": 1}
+  ],
+  "effects": [
+   {
+    "id": "white-heat-start",
+    "on": "art_fired",
+    "filter": {"art_id": "white-heat"},
+    "do": [
+     {"counter": {"id": "white_heat", "set": 1}}
+    ]
+   },
+   {
+    "id": "white-heat-fire",
+    "on": "hit_landed",
+    "filter": {"element": "metal"},
+    "if": [
+     {"read": "own.counter.white_heat", "op": ">=", "value": 1}
+    ],
+    "limit": {"per_pulse": 3},
+    "do": [
+     {"free_hit": {"c": 0.35, "dtype": "fire"}}
+    ]
+   },
+   {
+    "id": "white-heat-burn",
+    "on": "hit_landed",
+    "filter": {"not_tags": ["trigger"]},
+    "if": [
+     {"read": "own.counter.white_heat", "op": ">=", "value": 1}
+    ],
+    "limit": {"per_pulse": 3},
+    "do": [
+     {"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}
+    ]
+   },
+   {
+    "id": "white-heat-quench",
+    "on": "always",
+    "if": [
+     {"read": "own.counter.white_heat", "op": ">=", "value": 1},
+     {"read": "foe.debuff.fire", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"mod": {"stack_grant": 1, "element": "metal", "kind": "debuff"}}
+    ]
+   }
+  ],
+  "rule": "Heats your blade to white heat for 4 s: your Metal art hits also deal a 0.35 Fire free hit, every direct hit you land lays 1 Burn (Fire debuff) stack for 6 s, and against a burning foe each Quench mark (Metal debuff stack) grant gives 1 more stack.",
+  "hooks": ["fire damage", "fire debuff stacks", "stack grant", "metal debuff stacks"],
+  "sources": ["world-depth:thoi_tinh"]
+ },
+ {
+  "id": "the-makers-fold",
+  "name": "The Maker's Fold (Tượng Chiết)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "fallen-star-forging-rite",
+  "tags": ["metal", "sword", "heavy"],
+  "c_art": 1.5,
+  "cost_share": 0.04,
+  "cooldown": 6.0,
+  "kind": "phys",
+  "hp_cost": 0.05,
+  "counters": [
+   {"id": "maker_fold", "cap": 3}
+  ],
+  "effects": [
+   {
+    "id": "makers-fold-arm",
+    "on": "art_fired",
+    "filter": {"art_id": "the-makers-fold"},
+    "do": [
+     {"counter": {"id": "maker_fold", "set": 3}}
+    ]
+   },
+   {
+    "id": "makers-fold-unblockable",
+    "on": "always",
+    "if": [
+     {"read": "own.counter.maker_fold", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"mod": {"ignore_block": 1}}
+    ]
+   },
+   {
+    "id": "makers-fold-mark",
+    "on": "hit_landed",
+    "filter": {"tags": ["sword"]},
+    "if": [
+     {"read": "own.counter.maker_fold", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"stacks": {"el": "metal", "n": 1, "for": 15, "side": "foe"}},
+     {"counter": {"id": "maker_fold", "add": -1}}
+    ]
+   }
+  ],
+  "rule": "Spends 5 % of your health to fold your own Metal into the blade: your next 3 sword art hits (including this strike) cannot be blocked and each lays a lasting Quench mark (Metal debuff stack) for 15 s.",
+  "hooks": ["health cost", "ignore block", "metal debuff stacks", "stack duration"],
+  "sources": ["world-depth:thoi_tinh"]
+ }
+]

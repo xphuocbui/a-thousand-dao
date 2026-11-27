@@ -1,0 +1,32 @@
+{
+ "owner": "thoi_tinh",
+ "minutes": 7,
+ "written": {
+  "techniques": 2,
+  "arts": 4,
+  "items": 5,
+  "sets": 1,
+  "effects": 4,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 5,
+ "decisions": [
+  "Art ID quench-strike: avoids collision with existing quench in design/arts/part-a.json.",
+  "Quench mark = Metal debuff stack (el: metal, kind: debuff): matches auth-mod.json b3 and tht-river-tongs.",
+  "Sized star-quench-canon (attack_pct 10 bonus; attack_pct 8 [kim] and block_rating 8 new passives -> 14.7 W of 16) and fallen-star-forging-rite (attack_pct 12, khi_huyet_pct 12 bonuses; 23.0 W of 24 passives).",
+  "White Heat implemented via timed counter (white_heat, each_for 4, cap 1) instead of a stance so it never clobbers iron-hide-stance on shared holders.",
+  "Ninth Blow boosts the 9th direct hit by dmg_more 1.2 instead of a free_hit so trig_budget never clips it.",
+  "Heat the Edge follows authored wish d43 (no 3 s step fade) and unscoped pierce in always because engine.py reads pierce without hit context.",
+  "All 5 items marked unique: true and sources: [npc]; tht-river-tongs given rarity: 4; R6 exception on weapons/armour."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Sky Iron Sings: runs 0 in typical sect_fight.py (--gap 0/1) because typical foes have no Thunder arts and fights end in 10.2-14.6 s before Heat the Edge reaches 5 Fire casts (~20 s); verified in Thunder-foe and 50x-HP probes.",
+  "Drawn from the River: runs 0 in --gap 0 because bang_lanh_toi wins at 85% HP (> 33.3%); runs 5 in --gap 1 and 1 in Fire-foe probe."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial step: merge staged design/stage6-staging/thoi_tinh/ files into design/, merge effects/thoi_tinh.effects.json into assets/data/combat_effects.json, and run compile parity + world export."
+ ]
+}

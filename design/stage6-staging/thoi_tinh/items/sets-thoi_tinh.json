@@ -1,0 +1,22 @@
+[
+ {
+  "id": "tht-fallen-star-forge",
+  "name": "Fallen Star Forge (Tinh Lạc Lô Cụ)",
+  "pieces": ["tht-three-years-tax", "tht-star-brand", "tht-quench-robe"],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "pierce_pct", "value": 5, "scope": []},
+     {"key": "attack_pct", "value": 8, "scope": ["sword"]}
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "Heat the Edge (Tôi Phong)",
+    "rule": "each Fire art you fire heats your sword one step, each step giving your Metal sword arts 4 % pierce. Once it holds 5 steps or more, your next sword art quenches it: a certain crit that counts as a Thunder strike on your blade (Sky Iron Sings wakes), and the steps clear."
+   }
+  ],
+  "story": "Made in his first years as head: the star sword of 1050, the brand that marked it, and the robe the quench-keeper sewed for him in 1060. Whole since then."
+ }
+]

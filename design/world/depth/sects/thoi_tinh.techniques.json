@@ -20,8 +20,8 @@
    "tier": 1, "tech_kind": "main", "names": ["kim"], "layers": 9, "rank": "noi_mon",
    "concept": "The smiths' own method. The cultivator draws the mountain's Metal qi in while the body is still hot from the forge and sets it with cold, as iron is set: each layer is opened by sitting in the snow-melt pool below the forge after a day at the anvil. In a fight every hit the holder lands hardens their next one, and a struck blade or body that is suddenly cooled takes a quench mark that makes it brittle.",
    "arts": [
-    {"new": "Quench (Thối)", "concept": "A cutting strike that applies a Quench mark; a foe with three Quench marks takes extra Metal damage from the next hit and loses part of their defence for a few seconds."},
-    {"new": "Ninth Blow (Cửu Kích)", "concept": "Counts the holder's hits; the ninth deals heavy Metal damage and resets the count, as a blade is finished on the ninth fold."},
+    {"id": "quench-strike", "new": "Quench (Thối)", "concept": "A cutting strike that applies a Quench mark; a foe with three Quench marks takes extra Metal damage from the next hit and loses part of their defence for a few seconds."},
+    {"id": "ninth-blow", "new": "Ninth Blow (Cửu Kích)", "concept": "Counts the holder's hits; the ninth deals heavy Metal damage and resets the count, as a blade is finished on the ninth fold."},
     {"new": "Brittle from Its Own Blow (Tự Kích Tự Thúy)", "concept": "A passive art. Each foe hit you block gives the foe one Quench mark, at most once a second. When your hit lays a Quench mark on a foe carrying your Burn, it spends all your Burn stacks on it and lays one more Quench mark for every 3 spent.", "effect": "brittle-from-its-own-blow", "unlock_layer": 4, "authored": "d30"}
    ],
    "lore": "Written down by the founder Diêu Lạc Tinh after the first star iron was quenched in the river below the gate in 330 (A221). Inner disciples learn it the winter after they first draw a blade that rings.",
@@ -38,8 +38,8 @@
    "tier": 2, "tech_kind": "secret", "names": ["kim", "hoa"], "layers": 12, "rank": "tong_chu",
    "concept": "The forging rite for sky iron. The smith holds the metal at a heat no coal fire reaches by feeding it their own Fire qi, and folds their Metal into it at each strike, so the blade keeps part of the maker. It cannot be cultivated without a Fire root. In a fight it lets the holder heat their own blade: Metal strikes burn, and a burning foe takes Quench marks faster.",
    "arts": [
-    {"new": "White Heat (Bạch Nhiệt)", "concept": "For a few seconds the holder's Metal arts also deal Fire damage and each hit applies a burn; a burning foe gains Quench marks twice as fast."},
-    {"new": "The Maker's Fold (Tượng Chiết)", "concept": "Spends health to empower the holder's flying sword: its next strikes cannot be parried and leave a lasting mark."}
+    {"id": "white-heat", "new": "White Heat (Bạch Nhiệt)", "concept": "For a few seconds the holder's Metal arts also deal Fire damage and each hit applies a burn; a burning foe gains Quench marks twice as fast."},
+    {"id": "the-makers-fold", "new": "The Maker's Fold (Tượng Chiết)", "concept": "Spends health to empower the holder's flying sword: its next strikes cannot be parried and leave a lasting mark."}
    ],
    "lore": "Kept since the founder by one smith in a generation, the best Fire root in the halls, who is not always the head. When the coal road fails in winter, its holder keeps the forge fire alight on their own Fire. Cát Lưu Quang used it in 1050 to forge the star of Thanh Bách (A093, A231), which no coal fire on the mountain could soften.",
    "status": "proposal"
