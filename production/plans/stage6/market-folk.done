@@ -1,0 +1,31 @@
+{
+  "owner": "market-folk",
+  "batch": "b06",
+  "written": {
+    "techniques": 7,
+    "arts": 11,
+    "items": 25,
+    "sets": 8,
+    "effects": 17,
+    "stand_ins": 20,
+    "beasts": 0
+  },
+  "decisions": [
+    "Resolve Know the Way Out clash (mf-way-out-knot) by setting new: false in market-folk.items.json; Effect stays owned by world-depth:thien_xu in combat_effects.json.",
+    "Resolve duplicate Second Spring (Hồi Xuân) rule name between mf-second-spring-needles and mf-apricot-clinic 3pc by renaming the set bonus to Apricot Clinic's Spring (Hạnh Quán Hồi Xuân) across market-folk.items.json, sets-market-folk.json, and market-folk.effects.json; use art id apricot-second-spring for second-spring-needle-art to avoid committed family-wood second-spring.",
+    "Preserve committed censer-smoke-manual and pill-smoke verbatim inside the staged market-folk files while adding the 3 proposed techniques (+6 arts) and 4 stand-in methods (+5 arts).",
+    "Give mf-peach-spring-painting base: ky, rarity: 5, grade: 4, and encode The Way In as a non-combat not_run entry (records: []); apply the R6 common-art/ward exception to the 13 items whose bases carry a common art/ward.",
+    "Resolve all 20 stand-ins across market-folk.cast.json (4) and market-folk.2.cast.json (16), and equip censer-smoke-manual on lac_dan_thanh, second-spring-needle-art on gia_hoi_xuan, and loom-of-letters-array on ve_van_co."
+  ],
+  "never_ran": [
+    "Ground Like Paint & Even Failures Are Pills (lac_dan_thanh): require a prepared pill in fight.py pill slot; verified firing via targeted OK and failed Fire pill probes.",
+    "Second Spring (gia_hoi_xuan): requires <25% HP while carrying poison/curse; verified firing via gap+1 burst probe.",
+    "Apricot Clinic's Spring (gia_hoi_xuan) & Heavy Keel (bao_te_hai): on: always modifiers read by Fight.mod rather than Fight.do; verified active via live tick_to_heal(wood)=50.0 and delay_immune=1.0/unmoved=1.0 assertions.",
+    "The Books Balance (mf-golden-valley-suite 3pc): split across tu_binh_quyen, quan_phuc_thu, and lost Green Pearl; verified firing via synthetic 3pc + cleansing foe probe.",
+    "Paid in Full (mf-golden-valley-seal): held in pledge box by quan_phuc_thu; verified firing at fight_start in synthetic probe.",
+    "The Way In (mf-peach-spring-painting): out-of-fight Đào Nguyên Cảnh realm key (not_run)."
+  ],
+  "open": [
+    "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to close techniques, arts_new, items, sets, and effects in committed design/ and assets/."
+  ]
+}

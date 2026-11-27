@@ -84,7 +84,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "river-road-breath",
      "layer": 6
     },
     "aux": [],
@@ -196,7 +196,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "market-scale-breath",
      "layer": 6
     },
     "aux": [],
@@ -616,7 +616,7 @@
    "build": {
     "archetype": "tran_su",
     "main": {
-     "tech": "huyen_tho",
+     "tech": "mountain-heart-canon",
      "layer": 4
     },
     "aux": [],
@@ -718,7 +718,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "still-moon-tide-scripture",
      "layer": 4
     },
     "aux": [],
@@ -796,7 +796,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "verdant-cycle-scripture",
      "layer": 5
     },
     "aux": [],
@@ -865,7 +865,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "verdant-cycle-scripture",
      "layer": 4
     },
     "aux": [],
@@ -1020,7 +1020,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "huyen_tho",
+     "tech": "mountain-heart-canon",
      "layer": 4
     },
     "aux": [],
@@ -1115,7 +1115,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "huyen_tho",
+     "tech": "golden-valley-ledger-canon",
      "layer": 3
     },
     "aux": [],
@@ -1291,7 +1291,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "river-road-breath",
      "layer": 3
     },
     "aux": [],
@@ -1355,7 +1355,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "river-road-breath",
      "layer": 4
     },
     "aux": [],
@@ -1580,7 +1580,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "river-road-breath",
      "layer": 4
     },
     "aux": [],
@@ -1648,7 +1648,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "market-scale-breath",
      "layer": 3
     },
     "aux": [],
@@ -1722,7 +1722,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "huyen_kim",
+     "tech": "golden-valley-ledger-canon",
      "layer": 3
     },
     "aux": [],
@@ -1856,7 +1856,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "river-road-breath",
      "layer": 3
     },
     "aux": [],
@@ -2058,7 +2058,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "market-scale-breath",
      "layer": 2
     },
     "aux": [],
@@ -2126,7 +2126,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "river-road-breath",
      "layer": 3
     },
     "aux": [],

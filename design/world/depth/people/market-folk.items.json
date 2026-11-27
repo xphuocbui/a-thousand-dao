@@ -50,13 +50,13 @@
    "holder": null, "made_by": "kim_coc", "made_year": 780, "set": "mf-golden-valley-suite", "legendary_key": "luc_chau", "where": "in the ash of Kim Cốc Thành (219)", "status": "proposal"},
   {"id": "mf-sea-crossing-anchor", "name": "Sea-Crossing Anchor (Tế Hải Mao)", "family": "water", "kind": "artifact", "base": "mao", "grade": 4,
    "modifiers": [{"key": "attack_pct", "value": 20, "scope": ["thuy"]}, {"key": "linh_luc_regen_inc_pct", "value": 18, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}, {"key": "block_rating", "value": 10, "scope": []}],
-   "effects": [{"new": true, "id": "heavy-keel", "name": "Heavy Keel (Trọng Cốt)", "rule": "While you stand still you cannot be knocked back or moved."}],
+   "effects": [{"new": true, "id": "heavy-keel", "name": "Heavy Keel (Trọng Cốt)", "rule": "While you are Composed, you cannot be delayed or moved."}],
    "lore": "The bower anchor of the first deep-keeled hull of Yên Ba, which Bào Tế Hải took off her when she was broken up and refined in the yard's furnace.",
    "build_use": "A captain's anchor: Water damage, linh lực sustain, and footing.",
    "holder": "bao_te_hai", "made_by": "bao_te_hai", "made_year": 1110, "set": "mf-bao-hull", "status": "proposal"},
   {"id": "mf-listening-bronze-mirror", "name": "Listening Bronze Mirror (Thính Kim Kính)", "family": "metal", "kind": "artifact", "base": "kinh", "grade": 3,
    "modifiers": [{"key": "soul_res_pct", "value": 12, "scope": []}, {"key": "crit_chance_pct", "value": 6, "scope": []}, {"key": "pierce_pct", "value": 8, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}],
-   "effects": [{"new": true, "id": "hear-the-flaw", "name": "Hear the Flaw (Thính Hà)", "rule": "Your first hit on each foe in a fight strikes against its lowest resistance."}],
+   "effects": [{"new": true, "id": "hear-the-flaw", "name": "Hear the Flaw (Thính Hà)", "rule": "Your first hit on the foe in a fight strikes against its lowest resistance."}],
    "lore": "A bronze mirror the farmers of Thê Ngô Lĩnh ploughed up; it rings when a flawed thing is held before it. Liêu Thính Kim would not sell it to the palace.",
    "build_use": "The appraiser's piece: soul resistance and one true first blow.",
    "holder": "lieu_thinh_kim", "made_by": null, "made_year": 300, "set": null, "status": "proposal"},
@@ -191,7 +191,7 @@
    ],
    "effects": [
     {
-     "new": true,
+     "new": false,
      "id": "know-the-way-out",
      "name": "Know the Way Out (Thức Lộ)",
      "rule": "Each escape you fail this fight makes your next escape 10 % likelier; a success clears it."
@@ -221,7 +221,7 @@
    "id": "mf-vermilion-azure", "name": "Vermilion and Azure (Đan Thanh Tam Bảo)", "pieces": ["mf-vermilion-azure-censer", "mf-pigment-gourd", "mf-azure-ring"],
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "healing_pct", "value": 6, "scope": []}, {"key": "stack_effect_pct", "value": 10, "scope": ["hoa", "debuff"]}]},
-    {"pieces": 3, "effect": "Even Failures Are Pills (Bại Diệc Đan): each pill you take in a fight lays two Fire stacks on every foe near you, and heals you 1 % for each Fire stack you hold on foes; each pill after the third in a fight costs you 2 % of your health."}
+    {"pieces": 3, "effect": "Even Failures Are Pills (Bại Diệc Đan): each pill you take in a fight lays two Fire stacks on the foe, and heals you 1 % for each Fire stack you hold on the foe; each pill after the third in a fight costs you 2 % of your health."}
    ],
    "story": "The two colours of his father's trade and the censer he made his name with. He calls it a joke; it is the only thing he owns that he will not sell."
   },
@@ -229,7 +229,7 @@
    "id": "mf-apricot-clinic", "name": "Apricot Clinic (Hạnh Hoa Y Cụ)", "pieces": ["mf-second-spring-needles", "mf-apricot-gourd", "mf-clinic-pendant"],
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "healing_pct", "value": 6, "scope": []}, {"key": "status_resist_pct", "value": 6, "scope": []}]},
-    {"pieces": 3, "effect": "Second Spring (Hồi Xuân): a poison or curse the Needles draw into you heals you over its duration instead of harming you, at half its strength."}
+    {"pieces": 3, "effect": "Apricot Clinic's Spring (Hạnh Quán Hồi Xuân): a poison or curse the Needles draw into you heals you over its duration instead of harming you, at half its strength."}
    ],
    "story": "Her old master Mẫn Tế Thế's needles, and the gourd and jade she added to them. Her heir Nhiêu Tử Uyển uses the needles when she is away, and gives them back."
   },
@@ -244,7 +244,7 @@
    "id": "mf-carried-array", "name": "The Carried Array (Huề Trận Tam Bảo)", "pieces": ["mf-loom-of-letters-seal", "mf-carried-array-flag", "mf-paid-shield"],
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "stack_effect_pct", "value": 10, "scope": ["tho", "buff"]}, {"key": "block_rating", "value": 6, "scope": []}]},
-    {"pieces": 3, "effect": "The Array Comes With Me (Trận Tùy Thân): your diagram is laid even in an ambush or a blind fight (paying its fuel); while your array field is up, each foe hit on you is answered once by your array's damage, at most once a second."}
+    {"pieces": 3, "effect": "The Array Comes With Me (Trận Tùy Thân): your diagram is open at fight start (paying its fuel); while your array Field is up, each hit on you is answered once by your array's damage, at most once a second."}
    ],
    "story": "Seal, flag and shield of a runaway formation master: the seal he cut the year he left the abbey, the flag he copied from its pattern, the shield he bought with his first fee. Củng Tinh wants the flag back more than it wants him.",
    "authored": "d45"
@@ -260,7 +260,7 @@
    "id": "mf-bao-hull", "name": "The Bào Hull (Bào Gia Thuyền Cụ)", "pieces": ["mf-sea-crossing-anchor", "mf-hull-armour", "mf-fog-bell"],
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}, {"key": "block_rating", "value": 6, "scope": []}]},
-    {"pieces": 3, "effect": "Ride Out the Storm (Đạp Phong Ba): while you stand still, each second you regain 2 % of your linh lực and gain one Water buff stack; each stack makes you take 1 % less damage, and the stacks fall away one a second once you move."}
+    {"pieces": 3, "effect": "Ride Out the Storm (Đạp Phong Ba): while you are Composed, each second you regain 2 % of your linh lực and gain one Water buff stack; each stack makes you take 1 % less damage, and the stacks fall away one a second once you are Pressing."}
    ],
    "story": "Anchor, armour and bell of the Bào ship-house, made from its first hull and its breakwater. They pass to the master of the house; his daughter would take them to sea with Diêm Hải Tảo."
   },

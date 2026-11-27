@@ -151,7 +151,12 @@
      "tech": "red-sun-scripture",
      "layer": 8
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "censer-smoke-manual",
+      "layer": 6
+     }
+    ],
     "gear": [
      {
       "named": "mf-vermilion-azure-censer"
@@ -324,7 +329,12 @@
      "tech": "verdant-cycle-scripture",
      "layer": 8
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "second-spring-needle-art",
+      "layer": 6
+     }
+    ],
     "gear": [
      {
       "named": "mf-second-spring-needles"
@@ -576,7 +586,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "dia_tho",
+     "tech": "buried-vault-coin-canon",
      "layer": 8
     },
     "aux": [
@@ -734,6 +744,10 @@
       "layer": 7
      },
      {
+      "tech": "loom-of-letters-array",
+      "layer": 6
+     },
+     {
       "tech": "mountain-bone-body-art",
       "layer": 5
      }
@@ -866,7 +880,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "huyen_kim",
+     "tech": "golden-valley-ledger-canon",
      "layer": 7
     },
     "aux": [],
@@ -1138,7 +1152,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "huyen_tho",
+     "tech": "golden-valley-ledger-canon",
      "layer": 5
     },
     "aux": [],
@@ -1380,7 +1394,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_kim",
+     "tech": "bronze-sounding-canon",
      "layer": 6
     },
     "aux": [],
