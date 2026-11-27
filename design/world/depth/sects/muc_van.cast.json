@@ -1148,7 +1148,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "river-ice-groom-breath",
      "layer": 3
     },
     "aux": [],
@@ -1164,7 +1164,7 @@
      "start": "thuy",
      "intent": "Water."
     },
-    "note": "A groom; a stand-in method."
+    "note": "A groom; his own river-ice bucket breath."
    },
    "appearance": "Smells of river ice; his shoulders sit uneven from thirty summers of two buckets."
   },

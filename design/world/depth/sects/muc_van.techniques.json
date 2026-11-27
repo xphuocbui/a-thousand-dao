@@ -20,9 +20,9 @@
    "tier": 1, "tech_kind": "body", "names": [], "layers": 9, "rank": "noi_mon",
    "concept": "The founder's method, learned from the herd. The disciple tempers the body on horseback: the long ride, a day and a night at the gallop, one more hour for each layer, until the legs and the spine take the horse's rhythm and keep it on foot. It runs on no element. What it needs is bone and patience, and a horse that will carry the disciple that far. In a fight it is momentum: the holder hits harder the longer they have been Pressing, and their beast fights beside them in step.",
    "arts": [
-    {"new": "The Long Ride (Trường Khu)", "concept": "A stance. Each second in which you or your horse land a hit adds a momentum stack; each raises your Physical damage and body shield a little. A single heavy blow (5 % of your health or more) loses half.", "authored": "d20"},
-    {"new": "Run With the Herd (Đồng Bôn)", "concept": "A charge that spends momentum: your hit and your companion's next hit land together; the foe's soonest art waits 0.5 s and the foe takes Physical damage scaled by the stacks spent.", "authored": "a1"},
-    {"new": "Bridle Hand (Khống Bí)", "concept": "Seizes the foe and holds them for 1 s; while held, the holder's companion deals extra damage to them."}
+    {"id": "the-long-ride", "new": "The Long Ride (Trường Khu)", "concept": "A stance. Each second in which you or your horse land a hit adds a momentum stack; each raises your Physical damage and body shield a little. A single heavy blow (5 % of your health or more) loses half.", "authored": "d20"},
+    {"id": "run-with-the-herd", "new": "Run With the Herd (Đồng Bôn)", "concept": "A charge that spends momentum: your hit and your companion's next hit land together; the foe's soonest art waits 0.5 s and the foe takes Physical damage scaled by the stacks spent.", "authored": "a1"},
+    {"id": "bridle-hand", "new": "Bridle Hand (Khống Bí)", "concept": "Seizes the foe and holds them for 1 s; while held, the holder's companion deals extra damage to them."}
    ],
    "lore": "Mẫn Bạch Câu wrote it in 742 from the way the plain's herders had always broken their colts and themselves together. The first page says: a horse is a disciple's first master.",
    "status": "proposal",
@@ -34,10 +34,21 @@
    "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "noi_mon",
    "concept": "A whistled call, half breath and half qi, that a horse raised on the manor answers from a valley away. The inner disciple learns to call one beast, then three, and the head can turn the whole herd. In a fight it calls the holder's companion to them and steadies it: the beast's health and attack rise while it stays within call, and a frightened beast stops running.",
    "arts": [
-    {"new": "Whistle Home (Hô Quy)", "concept": "Calls the holder's companion to their side, heals it a little and clears one fear or slow from it."},
-    {"new": "The Herd Turns (Quần Chuyển)", "concept": "For a few seconds the holder's companions gain attack and art speed, and the foe struck by them is slowed."}
+    {"id": "whistle-home", "new": "Whistle Home (Hô Quy)", "concept": "Calls the holder's companion to their side, heals it a little and clears one fear or slow from it."},
+    {"id": "the-herd-turns", "new": "The Herd Turns (Quần Chuyển)", "concept": "For a few seconds the holder's companions gain attack and art speed, and the foe struck by them is slowed."}
    ],
    "lore": "No book: it is taught by ear, in the stables, in the disciple's first year, and the outer gate is not allowed to hear it.",
+   "status": "proposal"
+  },
+  {
+   "id": "river-ice-groom-breath",
+   "name": "River-Ice Bucket Breath (Hàn Trì Đam Tức Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 6, "rank": "tap_dich",
+   "concept": "A hired groom's working breath, shaped by thirty summers of hauling two buckets of river ice from the plain's creeks to the north paddock's straw. It keeps a Water-and-Wood body steady under load and teaches none of the manor's riding canons.",
+   "arts": [
+    {"id": "two-bucket-haul", "new": "Two-Bucket Haul (Song Dũng Bàng)", "concept": "A groom's heavy, steady splash of river-chilled qi: a light Cold hit and a small body shield."}
+   ],
+   "lore": "Hứa Tịch Câu kept his father's Chu Tân ferry cadence in his shoulders and turned it into the rhythm he carries ice by.",
    "status": "proposal"
   }
  ]

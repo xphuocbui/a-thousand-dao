@@ -1,0 +1,621 @@
+{
+ "_doc": "Mục Vân Trang's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:muc_van by the serial step. Unpriced. Rule text from design/world/depth/sects/muc_van.items.json.",
+ "source": "world-depth:muc_van",
+ "effects": {
+  "Turn the Herd": {
+   "rule": "Cloud-Herding Lance: when your companion's hit lands within 1 s of one of your art hits, the foe's soonest art waits 0.3 s and your companion's next hit deals 30 % more.",
+   "counters": [
+    {
+     "id": "rider_art_window",
+     "cap": 1,
+     "each_for": 1.0
+    },
+    {
+     "id": "herd_turn_next",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Turn the Herd mark",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "art"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "rider_art_window",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Turn the Herd boost",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.herd_turn_next",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.3,
+        "kind": "companion"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Turn the Herd spend",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.herd_turn_next",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "herd_turn_next",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Turn the Herd proc",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.rider_art_window",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "timer": {
+        "side": "foe",
+        "which": "next",
+        "by": 0.3
+       }
+      },
+      {
+       "counter": {
+        "id": "herd_turn_next",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Horse and Rider Bear It Together": {
+   "rule": "Bridle Ring of Đạp Vân (authored wish d42): while a companion fights beside you (has struck within the last 6 s), direct hits on you deal 15 % less (dampen_taken 17.65), and each direct hit you take adds one tired share for 5 s (-2 % companion damage each). A joint strike (you and your companion hitting the foe within 1 s) rests it fully, clearing all tired shares.",
+   "approx": "Engine has no own.companions readable or avoid-share verb; companion presence is tracked for 6 s after each companion hit (companion_present), and the 15 % share taken by the horse runs as dampen_taken 17.65 (1 / 1.1765 = 0.85 on direct hits, never ticks or Soul).",
+   "counters": [
+    {
+     "id": "companion_present",
+     "cap": 1,
+     "each_for": 6.0
+    },
+    {
+     "id": "horse_tired",
+     "each_for": 5.0
+    },
+    {
+     "id": "hr_own_hit",
+     "cap": 1,
+     "each_for": 1.0
+    },
+    {
+     "id": "hr_comp_hit",
+     "cap": 1,
+     "each_for": 1.0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Horse and Rider Bear It Together comp",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "companion_present",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "hr_comp_hit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together rest comp",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.hr_own_hit",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.horse_tired",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "horse_tired",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together art",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "art"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "hr_own_hit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together basic",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "basic"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "hr_own_hit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together rest art",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.hr_comp_hit",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.horse_tired",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "horse_tired",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together rest basic",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "basic"
+     },
+     "if": [
+      {
+       "read": "own.counter.hr_comp_hit",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.horse_tired",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "horse_tired",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together share",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.companion_present",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 17.65
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together tire",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.companion_present",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "horse_tired",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Horse and Rider Bear It Together weary",
+     "on": "always",
+     "scale": {
+      "read": "own.counter.horse_tired",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "dmg_more": -0.02,
+        "kind": "companion"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "One Thread of Wind": {
+   "rule": "Horse Lord of the Plain, full set (3 pieces): each time you (art or basic) and your companion land hits within 1 s, you heal 2 % of your health (companions have no health bar, Combat rule 19) and gain 1 Wind buff stack for 10 s (once a pulse). At 5 or more Wind stacks, your next Physical art hit spends 5 Wind stacks to knock the foe down for 1 s (foe clock stops 1 s and Off Guard 1 s). Your companion's hits deal 15 % more against a foe bearing any of your statuses.",
+   "counters": [
+    {
+     "id": "otw_own_hit",
+     "cap": 1,
+     "each_for": 1.0
+    },
+    {
+     "id": "otw_comp_hit",
+     "cap": 1,
+     "each_for": 1.0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:One Thread of Wind joint comp",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.otw_own_hit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "otw_own_hit",
+        "set": 0
+       }
+      },
+      {
+       "heal": {
+        "share": 0.02
+       }
+      },
+      {
+       "stacks": {
+        "el": "wind",
+        "n": 1,
+        "for": 10.0,
+        "side": "own"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind mark comp",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "otw_comp_hit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind joint art",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "art"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.otw_comp_hit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "otw_comp_hit",
+        "set": 0
+       }
+      },
+      {
+       "heal": {
+        "share": 0.02
+       }
+      },
+      {
+       "stacks": {
+        "el": "wind",
+        "n": 1,
+        "for": 10.0,
+        "side": "own"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind mark art",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "art"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "otw_own_hit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind joint basic",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "basic"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.otw_comp_hit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "otw_comp_hit",
+        "set": 0
+       }
+      },
+      {
+       "heal": {
+        "share": 0.02
+       }
+      },
+      {
+       "stacks": {
+        "el": "wind",
+        "n": 1,
+        "for": 10.0,
+        "side": "own"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind mark basic",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "basic"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "otw_own_hit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind knock",
+     "on": "hit_landed",
+     "filter": {
+      "dtype": "phys",
+      "kind": "art"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "if": [
+      {
+       "read": "own.buff.wind",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "consume": {
+        "el": "wind",
+        "side": "own",
+        "kind": "buff",
+        "n": 5
+       }
+      },
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.0
+       }
+      },
+      {
+       "status": {
+        "id": "off_guard",
+        "stacks": 1,
+        "dur": 1,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Thread of Wind pack",
+     "on": "always",
+     "if": [
+      {
+       "read": "foe.distinct_statuses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.15,
+        "kind": "companion"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Ninety Thousand Li": {
+   "rule": "The Last of Phù Dao, full set (3 pieces): each blow you evade winds the whirlwind tighter, granting 1 Wind buff stack for 8 s. When you cast a Wind escape or footwork art (tagged escape or step) with 8 or more Wind buff stacks, you spend them all on a gust: for 2 s the foe's hits on you deal 20 % less (dampen_taken 25), and you gain 2.5 % evasion for 4 s for each stack spent.",
+   "approx": "Matches Wind arts tagged escape or step so Thôi Dương Giác's Gale Courier footwork arts (three-step-chase, swallow-stance) trigger the gust alongside any Wind escape art (no Wind escape art exists in the library yet).",
+   "records": [
+    {
+     "id": "eff:Ninety Thousand Li wind",
+     "on": "evaded",
+     "do": [
+      {
+       "stacks": {
+        "el": "wind",
+        "n": 1,
+        "for": 8.0,
+        "side": "own"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Ninety Thousand Li gust",
+     "on": "art_fired",
+     "filter": {
+      "element": "wind",
+      "tags": [
+       "escape",
+       "step"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.buff.wind",
+       "op": ">=",
+       "value": 8
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 25,
+        "for": 2.0
+       }
+      },
+      {
+       "consume": {
+        "el": "wind",
+        "side": "own",
+        "kind": "buff",
+        "per": 1,
+        "then": [
+         {
+          "mod": {
+           "evade": 2.5,
+           "for": 4.0
+          }
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
