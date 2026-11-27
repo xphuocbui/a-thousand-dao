@@ -1,0 +1,13 @@
+{
+ "owner": "da_quang",
+ "minutes": 6,
+ "must_fix": 0,
+ "should": 2,
+ "fixed": 2,
+ "words": {},
+ "open": [
+  "lint-bleed-scope (s6-serial-b05): add 'bleed' to TIER in tools/design/arts/lint_techniques.py and restore scope: ['bleed'] on night-glow-blood-sabre-canon's two b11 passives.",
+  "Serial step: merge design/stage6-staging/da_quang/* into design/ and assets/data/combat_effects.json (world-depth:da_quang).",
+  "Stage 7 export: export techniques, items (ensure export_named.py exports kind 'treasure' dq-night-glow-cup), sets, combat library, and 2 events (N-da_quang-01, N-da_quang-02)."
+ ]
+}

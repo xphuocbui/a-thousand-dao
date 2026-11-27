@@ -320,6 +320,12 @@
         "id": "cup_paid_pct",
         "set": 0
        }
+      },
+      {
+       "counter": {
+        "id": "cup_pct",
+        "set": 0
+       }
       }
      ]
     }
