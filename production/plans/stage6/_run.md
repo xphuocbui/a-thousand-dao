@@ -79,3 +79,9 @@ No job starts after 08:00. On a HALT: read it, fix the cause, delete HALT, and r
 - **Launch:** `python -I tools/headless/run_jobs.py production/plans/stage6/_jobs.json production/session-logs/stage6-run --lanes 1`.
   The orchestrating session checks each batch when the run ends, then generates and launches the next.
 
+## Paused 2026-11-27 ~09:15 (user: usage low)
+A HALT file was written, so the driver finishes lac_ha's record job and its gate, then starts nothing more.
+**To resume batch b01:** delete `production/session-logs/stage6-run/HALT` and rerun the same launch command. Finished
+jobs are skipped (their .done and .reviewed files), so it continues with lac_ha's review.
+Done in b01 so far: thien_xu record and review (fef3bd60). The serial step for b01 has not run.
+
