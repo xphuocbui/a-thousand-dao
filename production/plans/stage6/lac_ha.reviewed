@@ -1,0 +1,9 @@
+{"owner": "lac_ha", "minutes": 35, "must_fix": 2, "should": 3, "fixed": 4,
+ "words": {"technique-effects": "build"},
+ "open": [
+  "lineage names vs CongPhap.usable: evening-dust-primer (16/34 living holders), sunset-cloud-canon (4/16), and evening-song-of-the-boats (5/16) hold incompatible roots under CongPhap.usable; left unchanged pending Stage 7/9 ruling",
+  "dao_tam and breakthrough_chance restored in catalogue-sect-lac_ha.json (NOT_PRICED notes only after adc5978a); ensure Stage 7 combat_engine.json out_of_fight and cong_phap.gd StatSheet consume them outside fights",
+  "serial step: build technique-effects in fight.py and Godot compilers for sunset-cloud-canon / The Glow Deepens",
+  "library (family-earth.json): mountain-stance unconditionally overwrites sunset-cloud on quach_tiep_van (benign here since he carries no field_up Effect)",
+  "carried over: parked long-sky-one-colour + Geese in File (multi-fighter combat); export_named.py skips kind treasure (lh-tu-dien, lh-thanh-suong); WIRED held items (d11/d12/sai_thanh_phong aux); The Treasury Key out-of-fight half"
+ ]}

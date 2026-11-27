@@ -22,6 +22,16 @@
     "scope": []
    },
    {
+    "key": "dao_tam",
+    "value": 0.66,
+    "scope": []
+   },
+   {
+    "key": "breakthrough_chance",
+    "value": 0.4,
+    "scope": []
+   },
+   {
     "key": "stack_effect_pct",
     "value": 6,
     "scope": [
@@ -89,6 +99,16 @@
    {
     "key": "health_regen_inc_pct",
     "value": 13.3,
+    "scope": []
+   },
+   {
+    "key": "dao_tam",
+    "value": 1.33,
+    "scope": []
+   },
+   {
+    "key": "breakthrough_chance",
+    "value": 0.8,
     "scope": []
    },
    {
@@ -181,6 +201,16 @@
     "scope": []
    },
    {
+    "key": "dao_tam",
+    "value": 1.33,
+    "scope": []
+   },
+   {
+    "key": "breakthrough_chance",
+    "value": 0.8,
+    "scope": []
+   },
+   {
     "key": "linh_luc_regen_inc_pct",
     "value": 6,
     "scope": []
@@ -268,9 +298,7 @@
   "tier": 0,
   "tech_kind": "main",
   "names": [
-   "hoa",
-   "kim",
-   "tho"
+   "hoa"
   ],
   "layers": 6,
   "bonuses": [],
@@ -303,7 +331,7 @@
   "family": "fire",
   "owner": "lac_ha",
   "rank": "tap_dich",
-  "concept": "The servants' method of Lạc Hà's kitchens and the Tử Điện Thành armoury forge, for Fire, Metal and Earth hands who do not enter the steppe primer. It pairs the steady pull of the bellows with the heat held in a banked hearth, strengthening the body against smoke and embers and warming the blood between shifts.",
+  "concept": "The servants' method of Lạc Hà's kitchens and the Tử Điện Thành armoury forge, for Fire hands (kitchen and forge servants) who do not enter the steppe primer. It pairs the steady pull of the bellows with the heat held in a banked hearth, strengthening the body against smoke and embers and warming the blood between shifts.",
   "lore": "Taught by word of mouth between Hồ Tứ Nương's kitchen at the old seat and the forge hands of Tử Điện Thành; the Counting House never bothered to price it."
  },
  {

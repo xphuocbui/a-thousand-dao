@@ -104,8 +104,8 @@
   {
    "id": "bellows-and-hearth-breath",
    "name": "Bellows and Hearth Breathing (Phong Táo Thổ Nạp Pháp)",
-   "tier": 0, "tech_kind": "main", "names": ["hoa", "kim", "tho"], "layers": 6, "rank": "tap_dich",
-   "concept": "The servants' method of Lạc Hà's kitchens and the Tử Điện Thành armoury forge, for Fire, Metal and Earth hands who do not enter the steppe primer (Stage 6 stand-in, auto-accepted 2026-11-27). Promoted: design/techniques/catalogue-sect-lac_ha.json.",
+   "tier": 0, "tech_kind": "main", "names": ["hoa"], "layers": 6, "rank": "tap_dich",
+   "concept": "The servants' method of Lạc Hà's kitchens and the Tử Điện Thành armoury forge, for Fire hands who do not enter the steppe primer (Stage 6 stand-in, auto-accepted 2026-11-27; tightened from [hoa, kim, tho] to [hoa] in checkpoint review so all 4 Fire holders satisfy CongPhap.usable). Promoted: design/techniques/catalogue-sect-lac_ha.json.",
    "arts": [{"id": "hearth-ember-breath", "new": "Hearth-Ember Breath (Táo Dư Tức)", "concept": "Draws the slow warmth of a banked hearth or forge fire: a small heal."}],
    "status": "proposal"
   },

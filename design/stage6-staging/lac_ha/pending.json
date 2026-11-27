@@ -8,9 +8,12 @@
    "used_by": [
     "sunset-cloud-canon",
     "The Glow Deepens"
-   ]
+   ],
+   "decision": "build",
+   "decision_reason": "Matches thien_xu's Stage 6 checkpoint decision ('build'). The Glow Deepens stays in design/stage6-staging/lac_ha/effects/lac_ha.effects.json with its pending note until technique-effects is wired in the serial build step (fight.py tech_layers + GDScript FighterCompiler / build_file_compiler.gd)."
   }
  ],
+ "_checkpoint": "Checkpoint review 2026-11-27: technique-effects marked 'build' to align with thien_xu-checkpoint.md. No new pending words opened.",
  "arts": [],
  "effects": {}
 }

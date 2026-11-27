@@ -1046,7 +1046,8 @@
      "filter": {
       "tags": [
        "needle"
-      ]
+      ],
+      "not_art_id": "needle-rain"
      },
      "if": [
       {
