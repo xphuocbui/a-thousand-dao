@@ -87,6 +87,10 @@
    {
     "id": "forest_listens_sure",
     "cap": 1
+   },
+   {
+    "id": "forest_listens_pulse",
+    "cap": 1
    }
   ],
   "effects": [
@@ -115,7 +119,10 @@
     "id": "forest-listens-sure",
     "on": "art_fired",
     "filter": {
-     "not_art_id": "the-forest-listens"
+     "not_art_id": "the-forest-listens",
+     "not_tags": [
+      "stance"
+     ]
     },
     "if": [
      {
@@ -159,6 +166,11 @@
       "read": "own.counter.forest_listens_sec",
       "op": ">=",
       "value": 1
+     },
+     {
+      "read": "own.counter.forest_listens_pulse",
+      "op": "==",
+      "value": 0
      }
     ],
     "limit": {
@@ -171,6 +183,12 @@
        "n": 1,
        "for": 8,
        "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "forest_listens_pulse",
+       "set": 1
       }
      }
     ]
@@ -186,6 +204,11 @@
       "read": "own.counter.forest_listens_sec",
       "op": ">=",
       "value": 1
+     },
+     {
+      "read": "own.counter.forest_listens_pulse",
+      "op": "==",
+      "value": 0
      }
     ],
     "limit": {
@@ -199,6 +222,12 @@
        "for": 8,
        "side": "foe"
       }
+     },
+     {
+      "counter": {
+       "id": "forest_listens_pulse",
+       "set": 1
+      }
      }
     ]
    },
@@ -210,6 +239,11 @@
       "read": "own.counter.forest_listens_sec",
       "op": ">=",
       "value": 1
+     },
+     {
+      "read": "own.counter.forest_listens_pulse",
+      "op": "==",
+      "value": 0
      }
     ],
     "limit": {
@@ -222,6 +256,68 @@
        "n": 1,
        "for": 8,
        "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "forest_listens_pulse",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "forest-listens-press-pulse",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.forest_listens_sec",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.forest_listens_pulse",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.foe_pressed",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "forest_listens_pulse",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "forest-listens-pulse-reset",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.forest_listens_pulse",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "forest_listens_pulse",
+       "set": 0
       }
      }
     ]
@@ -304,12 +400,42 @@
      "composed"
     ],
     "mods": {}
+   },
+   {
+    "id": "rooted",
+    "mods": {
+     "hregen": 0.3,
+     "healing": 25,
+     "dampen_taken": 10,
+     "art_speed": -20
+    },
+    "suppress": [
+     "thorn-rain"
+    ]
+   },
+   {
+    "id": "rooted-bark",
+    "tags": [
+     "composed"
+    ],
+    "mods": {
+     "hregen": 0.3,
+     "healing": 25,
+     "dampen_taken": 10,
+     "art_speed": -20
+    },
+    "suppress": [
+     "thorn-rain"
+    ]
    }
   ],
   "counters": [
    {
     "id": "bark_sec",
     "cap": 4
+   },
+   {
+    "id": "seed"
    }
   ],
   "effects": [
@@ -329,12 +455,85 @@
     ]
    },
    {
+    "id": "bark-closes-enter-rooted",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "bark-closes"
+    },
+    "if": [
+     {
+      "read": "own.state.rooted",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "rooted-bark"
+      }
+     }
+    ]
+   },
+   {
     "id": "bark-closes-enter",
     "on": "art_fired",
     "filter": {
      "art_id": "bark-closes"
     },
     "if": [
+     {
+      "read": "own.state.any",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "bark-closes"
+      }
+     }
+    ]
+   },
+   {
+    "id": "bark-closes-keep-rooted",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "rooted-form"
+    },
+    "if": [
+     {
+      "read": "own.counter.bark_sec",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.state.rooted",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "rooted-bark"
+      }
+     }
+    ]
+   },
+   {
+    "id": "bark-closes-keep-plain",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "rooted-form"
+    },
+    "if": [
+     {
+      "read": "own.counter.bark_sec",
+      "op": ">=",
+      "value": 1
+     },
      {
       "read": "own.state.any",
       "op": "==",
@@ -369,6 +568,58 @@
     ]
    },
    {
+    "id": "rooted-bark-creep",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.rooted-bark",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 2,
+       "for": 5,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "seed",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "rooted-bark-sap",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.rooted-bark",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.buff.wood",
+     "per": 10
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "wood",
+       "n": 2,
+       "for": 5,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
     "id": "bark-closes-pulse",
     "on": "pulse",
     "if": [
@@ -388,6 +639,29 @@
       "counter": {
        "id": "bark_sec",
        "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "bark-closes-exit-rooted",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.rooted-bark",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.bark_sec",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "rooted"
       }
      }
     ]
@@ -416,7 +690,7 @@
     ]
    }
   ],
-  "rule": "Wraps you in bark for 4 s: you take less damage (dampen_taken 25), heal 2 % of health each second, your evade is 0, and you enter a Composed bark stance (cannot be Pressing) when you hold no other stance (leaving Rooted Form intact).",
+  "rule": "Wraps you in bark for 4 s: you take less damage (dampen_taken 25), heal 2 % of health each second, your evade is 0, and you enter a Composed bark stance (cannot be Pressing), coexisting cleanly with Rooted Form via combined stance rooted-bark.",
   "hooks": [
    "damage taken",
    "healing",
@@ -455,6 +729,10 @@
   "counters": [
    {
     "id": "water_streak"
+   },
+   {
+    "id": "water_hit_ok",
+    "cap": 1
    }
   ],
   "effects": [
@@ -473,6 +751,59 @@
        "side": "foe",
        "which": "next",
        "by": 0.3
+      }
+     }
+    ]
+   },
+   {
+    "id": "flood-streak-mark-clear",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "art"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "water_hit_ok",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "flood-streak-mark-water",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "art",
+     "element": "water"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "water_hit_ok",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "flood-streak-reset",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "art"
+    },
+    "if": [
+     {
+      "read": "own.counter.water_hit_ok",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "water_streak",
+       "set": 0
       }
      }
     ]
@@ -521,24 +852,6 @@
        "side": "foe"
       }
      },
-     {
-      "counter": {
-       "id": "water_streak",
-       "set": 0
-      }
-     }
-    ]
-   },
-   {
-    "id": "flood-streak-reset",
-    "on": "hit_landed",
-    "filter": {
-     "kind": "art",
-     "not_tags": [
-      "water"
-     ]
-    },
-    "do": [
      {
       "counter": {
        "id": "water_streak",

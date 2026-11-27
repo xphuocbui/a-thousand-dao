@@ -1,0 +1,12 @@
+{
+ "owner": "ho_lam",
+ "minutes": 8,
+ "must_fix": 1,
+ "should": 2,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Serial step: merge design/stage6-staging/ho_lam/effects/ho_lam.effects.json into assets/data/combat_effects.json via put_effects.py and promote staged files into design/.",
+  "Stage 7/8: export structured events N-ho_lam-01..04 and apply the Wood/Water re-lean in world_continent.json."
+ ]
+}
