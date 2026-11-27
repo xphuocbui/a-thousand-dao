@@ -414,7 +414,7 @@
     "key": "art_speed_pct",
     "value": 12,
     "scope": [
-     "artifact"
+     "soul"
     ]
    },
    {
@@ -514,7 +514,7 @@
     "key": "art_speed_pct",
     "value": 10,
     "scope": [
-     "artifact"
+     "soul"
     ]
    },
    {
@@ -529,7 +529,95 @@
    }
   ],
   "effects": [],
-  "arts": [],
+  "arts": [
+   {
+    "id": "dawn-call",
+    "name": "Dawn Call (Thần Khiếu)",
+    "element": "",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": [
+     "light",
+     "song",
+     "soul",
+     "pipe"
+    ],
+    "c_art": 1.2,
+    "cost_share": 0.04,
+    "cooldown": 4.0,
+    "kind": "elem",
+    "convert": {
+     "to": "light",
+     "share": 1.0
+    },
+    "soul_part": 0.3,
+    "counters": [
+     {
+      "id": "dawn"
+     }
+    ],
+    "effects": [
+     {
+      "id": "dawn-count",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "dawn-call"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "dawn",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "dawn-exposed",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "dawn-call"
+      },
+      "if": [
+       {
+        "read": "own.counter.dawn",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "status": {
+         "id": "exposed",
+         "stacks": 1,
+         "dur": 3,
+         "side": "foe"
+        }
+       },
+       {
+        "counter": {
+         "id": "dawn",
+         "set": 0
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "A note on the pipe: a Light hit with an added Soul part of 30 %, counting as a song and a soul art. Every third cast lays Exposed for 3 s. Needs a Light variant in the root.",
+    "hooks": [
+     "light",
+     "song",
+     "soul",
+     "Exposed"
+    ],
+    "notes": "Requires root_has ['quang'] per e10 (omitted for lint_arts FIELDS). Uses element '' with 100 % convert to light because fight.py to_build rejects element 'light' until light-element is added there.",
+    "sources": [
+     "sets-tp/light-pipe-art",
+     "e10"
+    ]
+   }
+  ],
   "sources": [
    "npc"
   ],
@@ -539,8 +627,7 @@
   "made_by": "",
   "made_year": 1190,
   "set": "pm-dawn-call",
-  "notes": "Linked art dawn-call lives in arts/part-sect-phuong_minh.json.",
-  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "notes": "Carries signature attack art dawn-call (e10); art_speed_pct scoped to [soul] until [song] scope joins the Modifier vocabulary (b2).",
   "unique": true
  },
  {
@@ -989,7 +1076,7 @@
     "key": "art_speed_pct",
     "value": 8,
     "scope": [
-     "artifact"
+     "soul"
     ]
    }
   ],

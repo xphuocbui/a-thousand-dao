@@ -3,16 +3,30 @@
   {
    "name": "technique-effects",
    "kind": "field",
-   "spec": "A technique's `effects` list may hold {\"name\": <library Effect name>, \"unlock_layer\": n, \"passive_art\": true, \"rule\": ...}. When a build knows the technique at layer n or above (fight.py `tech_layers`, the GDScript FighterCompiler), the loader adds that Effect from assets/data/combat_effects.json and merges its counters. For Playing Past the Break, FighterCompiler also populates build.meters[\"playing_past_the_break\"] = {\"start\": saved, \"p\": (than_hon + khi_van) / 400}. Matches Thiên Xu and Lạc Hà's pending word of the same name.",
+   "spec": "A technique's `effects` list may hold {\"name\": <library Effect name>, \"unlock_layer\": n, \"passive_art\": true, \"rule\": ...}. When a build knows the technique at layer n or above (fight.py `tech_layers`, the GDScript FighterCompiler), the loader adds that Effect from assets/data/combat_effects.json and merges its counters. Matches Thiên Xu and Lạc Hà's pending word of the same name.",
    "gdd_text": "Công Pháp rule (passive arts & technique effects): a technique may carry named Effects with an unlock layer; known to that layer, the Effect is always on in a fight without taking an art slot.",
    "used_by": [
     "five-virtue-phoenix-canon",
     "Birds Pay Court to the Phoenix",
     "shao-remnant-score",
     "Playing Past the Break"
-   ]
+   ],
+   "decision": "build",
+   "decision_reason": "checkpoint 2026-11-27: matches thien_xu and lac_ha's Stage 6 checkpoint decision ('build'). Five-Virtue Phoenix Canon (Birds Pay Court to the Phoenix at layer 5) and Shao Remnant Score (Playing Past the Break at layer 1) both carry technique Effects that hold real NPC builds (hoa_trieu_duong, vu_ngo_dong, lien_thieu_nghi, lo_van_khanh) and cannot attach until export_combat_library.py, fight.py (`tech_layers`), and GDScript FighterCompiler read `techniques[].effects`. Both Effects stay in effects/phuong_minh.effects.json with their pending notes until the serial build pass."
+  },
+  {
+   "name": "carried-meter",
+   "kind": "field",
+   "spec": "Compiler & save-state hook for counted-chance meters kept between fights: when a fighter knows Playing Past the Break, FighterCompiler (and fight.py cast builders) seeds build.meters[\"playing_past_the_break\"] = {\"start\": saved, \"p\": (than_hon + khi_van) / 400} from the character's thần hồn, khí vận, and persisted meter state. The combat `meter` action and `build.meters` lookup already run in engine.py, effect_runner.gd, and build_file_compiler.gd.",
+   "gdd_text": "Formulas A / Playing Past the Break: p = (thần hồn + khí vận) / 400 on a counted-chance meter carried between fights; an exception to Formulas A where khí vận enters p directly.",
+   "used_by": [
+    "Playing Past the Break"
+   ],
+   "decision": "build",
+   "decision_reason": "checkpoint 2026-11-27: separate from generic technique-effects because even after FighterCompiler loads Playing Past the Break via `techniques[].effects`, effect_runner.gd / engine.py silently skip any `meter` action whose id is absent from `build.meters`. Engine execution and `build_file_compiler.gd` already support `build.meters`, so only `FighterCompiler` / save-state persistence (and sect_fight/fight.py default meter seeding) remains small compiler wiring."
   }
  ],
+ "_checkpoint": "Checkpoint review 2026-11-27: `technique-effects` marked 'build' to match thien_xu and lac_ha; `carried-meter` split out as 'build' for FighterCompiler / persistence seeding of `playing_past_the_break` (combat engine `meter` already exists). No engine actions or element words opened.",
  "arts": [],
  "effects": {}
 }

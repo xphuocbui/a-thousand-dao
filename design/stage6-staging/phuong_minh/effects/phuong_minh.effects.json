@@ -4,7 +4,7 @@
  "effects": {
   "Birds Pay Court to the Phoenix": {
    "rule": "Five-Virtue Phoenix Canon (passive art, layer 5, authored d36): Each hit your bird companions land lays on you the next Five-Colour Plumage colour you lack, at most once a pulse. Each time you spend a full plumage (five colours), you heal 3 % of your maximum health and your companions' next hits deal 30 % more.",
-   "approx": "attaching this technique Effect at layer 5 awaits pending word technique-effects; runs when supplied via tree_effects",
+   "approx": "attaching this technique Effect at layer 5 awaits pending word technique-effects (runs when supplied via tree_effects); bird_empowered (cap 1) buffs the next companion hit because engine does not distinguish individual companion instances",
    "pending": "technique-effects: loader does not yet attach a technique's Effects; runs when supplied via tree_effects",
    "counters": [
     {"id": "plumage"},
@@ -102,20 +102,22 @@
   },
   "Playing Past the Break": {
    "rule": "Shao Remnant Score (technique Effect, authored e4): Once a fight, firing Remnant Score's Next Movement right after its seventh attempts the eighth movement via a counted-chance meter (p = (thần hồn + khí vận) / 400). Success: 5 Slowed Time (5 s) on foe and +10 % linh lực. Failure: −10 % health and −10 % linh lực backlash. Restarts score at first either way.",
-   "approx": "attaching this technique Effect and filling build meters await pending word technique-effects",
+   "approx": "attaching this technique Effect and seeding build meters await pending words technique-effects and carried-meter; −10 % health backlash modelled as self_hit c=2.2 soul (~10 % HP on Kết Đan holders) and −10 % linh lực is guarded by own.qi_share >= 0.1 so pool does not go negative",
    "pending": "technique-effects: loader does not yet attach technique Effects or build meters; runs when supplied via tree_effects and meters",
-   "counters": [{"id": "remnant_movement"}, {"id": "break_tried", "cap": 1}],
+   "counters": [{"id": "remnant_movement"}, {"id": "remnant_ready_8", "cap": 1}, {"id": "break_tried", "cap": 1}, {"id": "break_backlash", "cap": 1}],
    "records": [
     {
      "id": "eff:Playing Past the Break",
      "on": "art_fired",
      "filter": {"art_id": "remnant-next-movement"},
      "if": [
+      {"read": "own.counter.remnant_ready_8", "op": "==", "value": 1},
       {"read": "own.counter.remnant_movement", "op": ">=", "value": 7},
       {"read": "own.counter.break_tried", "op": "==", "value": 0}
      ],
      "do": [
       {"counter": {"id": "break_tried", "set": 1}},
+      {"counter": {"id": "remnant_ready_8", "set": 0}},
       {
        "meter": {
         "id": "playing_past_the_break",
@@ -125,12 +127,61 @@
          {"counter": {"id": "remnant_movement", "set": 0}}
         ],
         "failure": [
-         {"self_hit": {"c": 1.2, "dtype": "soul"}},
+         {"self_hit": {"c": 2.2, "dtype": "soul"}},
+         {"counter": {"id": "break_backlash", "set": 1}},
          {"counter": {"id": "remnant_movement", "set": 0}}
         ]
        }
       }
      ]
+    },
+    {
+     "id": "eff:Playing Past the Break reset",
+     "on": "art_fired",
+     "filter": {"art_id": "remnant-next-movement"},
+     "if": [
+      {"read": "own.counter.remnant_ready_8", "op": "==", "value": 1},
+      {"read": "own.counter.remnant_movement", "op": ">=", "value": 7},
+      {"read": "own.counter.break_tried", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "remnant_ready_8", "set": 0}},
+      {"counter": {"id": "remnant_movement", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:Playing Past the Break backlash qi",
+     "on": "art_fired",
+     "if": [
+      {"read": "own.counter.break_backlash", "op": "==", "value": 1},
+      {"read": "own.qi_share", "op": ">=", "value": 0.1}
+     ],
+     "do": [
+      {"gain_qi": {"share": -0.1}},
+      {"counter": {"id": "break_backlash", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:Playing Past the Break backlash clear",
+     "on": "art_fired",
+     "if": [{"read": "own.counter.break_backlash", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "break_backlash", "set": 0}}]
+    },
+    {
+     "id": "eff:Playing Past the Break arm",
+     "on": "art_fired",
+     "filter": {"art_id": "remnant-next-movement"},
+     "if": [{"read": "own.counter.remnant_movement", "op": ">=", "value": 7}],
+     "do": [{"counter": {"id": "remnant_ready_8", "set": 1}}]
+    },
+    {
+     "id": "eff:Playing Past the Break disarm",
+     "on": "art_fired",
+     "if": [
+      {"read": "own.counter.remnant_movement", "op": "<", "value": 7},
+      {"read": "own.counter.remnant_ready_8", "op": ">=", "value": 1}
+     ],
+     "do": [{"counter": {"id": "remnant_ready_8", "set": 0}}]
     }
    ]
   },
@@ -430,15 +481,21 @@
   },
   "Fire Down the Thread": {
    "rule": "The Nest Array, full set (3 pieces): while an array you laid (a Field) is up, each Fire buff stack you gain also lays a ward thread on you worth 2 % of your health, and each new thread costs 1 % of your linh lực. A hit that breaks a thread deals its value back to the striker as Fire damage.",
-   "approx": "self 1 % linh lực cost per thread is omitted (engine has no self_burn_qi action); shield break returns a 0.6 Fire free hit",
+   "approx": "each new thread costs 1 % linh lực when own.qi_share >= 0.01; shield break returns a 0.6 Fire free hit",
    "records": [
     {
      "id": "eff:Fire Down the Thread grow",
      "on": "buff_gained",
      "filter": {"element": "fire"},
-     "if": [{"read": "own.field_up", "op": ">=", "value": 1}],
+     "if": [
+      {"read": "own.field_up", "op": ">=", "value": 1},
+      {"read": "own.qi_share", "op": ">=", "value": 0.01}
+     ],
      "limit": {"per_pulse": 2},
-     "do": [{"ward_grow": {"share": 0.02, "of": "hp"}}]
+     "do": [
+      {"ward_grow": {"share": 0.02, "of": "hp"}},
+      {"gain_qi": {"share": -0.01}}
+     ]
     },
     {
      "id": "eff:Fire Down the Thread break",
@@ -474,11 +531,16 @@
   },
   "A Copy in Small": {
    "rule": "The Small Morning, full set (3 pieces): each full plumage you spend gives you a ward worth 4 % of your health. While that ward holds, your plumage stacks build 25 % faster.",
-   "approx": "+25 % plumage stack speed modelled as an extra plumage colour every fourth plumage step while own.ward_share > 0",
+   "approx": "+25 % plumage stack speed modelled as filling the next missing Five-Colour Plumage colour every fourth art fired while own.ward_share > 0",
    "counters": [
     {"id": "pl_small_flag", "cap": 1},
     {"id": "sm_fast"},
-    {"id": "plumage"}
+    {"id": "plumage"},
+    {"id": "pl_c1", "cap": 1},
+    {"id": "pl_c2", "cap": 1},
+    {"id": "pl_c3", "cap": 1},
+    {"id": "pl_c4", "cap": 1},
+    {"id": "pl_c5", "cap": 1}
    ],
    "records": [
     {
@@ -497,15 +559,87 @@
      "do": [{"counter": {"id": "sm_fast", "add": 1}}]
     },
     {
-     "id": "eff:A Copy in Small extra",
+     "id": "eff:A Copy in Small extra c5",
      "on": "art_fired",
      "if": [
       {"read": "own.ward_share", "op": ">", "value": 0},
       {"read": "own.counter.sm_fast", "op": ">=", "value": 4},
-      {"read": "own.counter.plumage", "op": "<", "value": 5}
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
+      {"read": "own.counter.pl_c1", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c2", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c3", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c4", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c5", "op": "==", "value": 0}
      ],
      "do": [
       {"counter": {"id": "sm_fast", "set": 0}},
+      {"counter": {"id": "pl_c5", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:A Copy in Small extra c4",
+     "on": "art_fired",
+     "if": [
+      {"read": "own.ward_share", "op": ">", "value": 0},
+      {"read": "own.counter.sm_fast", "op": ">=", "value": 4},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
+      {"read": "own.counter.pl_c1", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c2", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c3", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c4", "op": "==", "value": 0}
+     ],
+     "do": [
+      {"counter": {"id": "sm_fast", "set": 0}},
+      {"counter": {"id": "pl_c4", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:A Copy in Small extra c3",
+     "on": "art_fired",
+     "if": [
+      {"read": "own.ward_share", "op": ">", "value": 0},
+      {"read": "own.counter.sm_fast", "op": ">=", "value": 4},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
+      {"read": "own.counter.pl_c1", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c2", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c3", "op": "==", "value": 0}
+     ],
+     "do": [
+      {"counter": {"id": "sm_fast", "set": 0}},
+      {"counter": {"id": "pl_c3", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:A Copy in Small extra c2",
+     "on": "art_fired",
+     "if": [
+      {"read": "own.ward_share", "op": ">", "value": 0},
+      {"read": "own.counter.sm_fast", "op": ">=", "value": 4},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
+      {"read": "own.counter.pl_c1", "op": "==", "value": 1},
+      {"read": "own.counter.pl_c2", "op": "==", "value": 0}
+     ],
+     "do": [
+      {"counter": {"id": "sm_fast", "set": 0}},
+      {"counter": {"id": "pl_c2", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:A Copy in Small extra c1",
+     "on": "art_fired",
+     "if": [
+      {"read": "own.ward_share", "op": ">", "value": 0},
+      {"read": "own.counter.sm_fast", "op": ">=", "value": 4},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
+      {"read": "own.counter.pl_c1", "op": "==", "value": 0}
+     ],
+     "do": [
+      {"counter": {"id": "sm_fast", "set": 0}},
+      {"counter": {"id": "pl_c1", "set": 1}},
       {"counter": {"id": "plumage", "add": 1}}
      ]
     }

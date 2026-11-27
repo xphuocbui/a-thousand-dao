@@ -2235,13 +2235,6 @@
      },
      {
       "counter": {
-       "id": "shao",
-       "side": "foe",
-       "set": 0
-      }
-     },
-     {
-      "counter": {
        "id": "shao_movement",
        "set": 0
       }
@@ -2341,93 +2334,6 @@
   "notes": "Standalone story art (unlock_layer 15 > Hoa Triêu Dương's layer 12); lower-realm inability-to-act rule is world/story level.",
   "sources": [
    "world-depth:phuong_minh"
-  ]
- },
- {
-  "id": "dawn-call",
-  "name": "Dawn Call (Thần Khiếu)",
-  "element": "",
-  "role": "damage",
-  "tier": "authored",
-  "power": "standalone",
-  "tags": [
-   "light",
-   "song",
-   "soul",
-   "pipe"
-  ],
-  "c_art": 1.2,
-  "cost_share": 0.04,
-  "cooldown": 4.0,
-  "kind": "elem",
-  "convert": {
-   "to": "light",
-   "share": 1.0
-  },
-  "soul_part": 0.3,
-  "counters": [
-   {
-    "id": "dawn"
-   }
-  ],
-  "effects": [
-   {
-    "id": "dawn-count",
-    "on": "art_fired",
-    "filter": {
-     "art_id": "dawn-call"
-    },
-    "do": [
-     {
-      "counter": {
-       "id": "dawn",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "dawn-exposed",
-    "on": "art_fired",
-    "filter": {
-     "art_id": "dawn-call"
-    },
-    "if": [
-     {
-      "read": "own.counter.dawn",
-      "op": ">=",
-      "value": 3
-     }
-    ],
-    "do": [
-     {
-      "status": {
-       "id": "exposed",
-       "stacks": 1,
-       "dur": 3,
-       "side": "foe"
-      }
-     },
-     {
-      "counter": {
-       "id": "dawn",
-       "set": 0
-      }
-     }
-    ]
-   }
-  ],
-  "rule": "A note on the pipe: a Light hit with an added Soul part of 30 %, counting as a song and a soul art. Every third cast lays Exposed for 3 s. Needs a Light variant in the root.",
-  "hooks": [
-   "light",
-   "song",
-   "soul",
-   "Exposed"
-  ],
-  "notes": "Requires root_has ['quang'] per e10 (omitted for lint_arts FIELDS). Uses element '' with 100 % convert to light because fight.py to_build rejects element 'light' until light-element is added there.",
-  "sources": [
-   "sets-tp/light-pipe-art",
-   "e10"
   ]
  },
  {
