@@ -1,0 +1,20 @@
+{"owner": "hong_lo", "minutes": 10,
+ "written": {"techniques": 5, "arts": 5, "items": 6, "sets": 2, "effects": 4, "stand_ins": 4, "beasts": 0},
+ "deviations": 6,
+ "decisions": [
+  "broth-kettle-breath (tap_dich) + skimming-the-broth staged for duong_bat_oan and duong_thang_nhi instead of lineage gate",
+  "satchel-hall-healing-canon staged for giai_bach_bo and cuc_xa_tien as a hong_lo-owned ID distinct from thuy_vi's thanh-nang-balm-canon",
+  "bank-the-coal made a Fire art at layer 2 of snow-hearth-primer so outer Water disciples can bank coals and fire an attack",
+  "the-pot-is-finished tracked via ky_te counter (cd 8.0, no stance tag) with 1+1 starter buffs so brazier stance is preserved and holders fire it",
+  "pill timing clauses in the-pot-is-finished and A Second Early deferred to Alchemy pass per DECISIONS-2026-11-26; A Second Early reads steam-from-the-jacket Burn spends",
+  "line-on-the-whale uses existing silence {tag: movement, dur: 5} with 6 s whale_line counter; item scopes water mapped to cold/thuy and treasure given rarity 5"
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "It Does Not Cool: typical foe has 0 evade and 0 cleanse (verified 109 hold + 8 keep runs vs evading/cleansing foe)",
+  "Ky Te (hlo-ky-te 3pc): set is split 2/1 between dong_hong_lo and tan_tuyet_than (verified 80 hold + 20 burst runs in 3pc probe)",
+  "Kindled Wound (fire-furnace-mouth-gourd, external): pure always mod with 0 E.Fight.do triggers (14.7 s / 76% with vs 14.9 s / 75% without)"
+ ],
+ "early_promotions": [],
+ "open": ["Pill fight-timer clauses in the-pot-is-finished and A Second Early await the future Alchemy combat-pills pass (DECISIONS-2026-11-26)"]
+}

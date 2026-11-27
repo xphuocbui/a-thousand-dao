@@ -1,0 +1,47 @@
+[
+ {
+  "id": "hlo-ky-te",
+  "name": "Water Over Fire (Thủy Hỏa Ký Tế)",
+  "pieces": [
+   "hlo-nine-year-ember",
+   "hlo-snow-melt-gourd",
+   "hlo-coal-carrier-ring"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "healing_pct", "value": 8, "scope": []},
+     {"key": "attack_pct", "value": 8, "scope": ["fire"]},
+     {"key": "linh_luc_pct", "value": 5, "scope": []}
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "Ký Tế (Water Over Fire)",
+    "rule": "your Burn stacks on the foe do not fall off while you are healing, and each heal you cast turns one Burn stack on the foe into a steam burst of Fire damage equal to three seconds of that Burn."
+   }
+  ],
+  "story": "The censer holds the fire and the gourd holds the water, and the canon says an alchemist needs both; the founder's coal ring is the hand that tends them. Đồng carries the ember and the ring, Tần carries the gourd. The valley says the next head will be whoever wears all three. Đồng has not offered the ember, and Tần has not asked for it."
+ },
+ {
+  "id": "hlo-snow-hearth",
+  "name": "Snow Hearth (Tuyết Lô Song Bảo)",
+  "pieces": [
+   "hlo-first-snow-jacket",
+   "hlo-steam-censer"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "healing_pct", "value": 6, "scope": []},
+     {"key": "status_resist_pct", "value": 8, "scope": []}
+    ],
+    "effect": "A Second Early (Tiên Nhất Khắc)",
+    "rule": "your pills act a second sooner, and each time a steam art spends your own Burn stacks you heal 2 % of your health for each stack spent."
+   }
+  ],
+  "story": "The Snow Hearth Primer in two things: the jacket and the censer she made for the Water half of her root. She wears them beside the Snow-Melt Gourd of Water Over Fire."
+ }
+]
