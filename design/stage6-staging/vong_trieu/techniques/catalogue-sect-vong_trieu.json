@@ -1,0 +1,97 @@
+[
+ {
+  "id": "lamp-ward-seal-canon",
+  "name": "Lamp-Ward Seal Canon (Thủ Đăng Ấn Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": ["thuy", "tho"],
+  "layers": 9,
+  "bonuses": [{"stat": "defense_pct", "value": 10}],
+  "passives": [
+   {"key": "defense_pct", "value": 4, "scope": []},
+   {"key": "ward_efficiency_pct", "value": 4, "scope": []},
+   {"key": "status_resist_pct", "value": 8, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 4, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "set-the-lamp", "unlock_layer": 1},
+   {"ability_id": "line-of-lamps", "unlock_layer": 2}
+  ],
+  "effects": [
+   {
+    "name": "Lamp-Ward",
+    "unlock_layer": 3,
+    "passive_art": true,
+    "rule": "Each Seal charge you gain turns 1 more blow before it ends, plus 1 more for every 3 Seal charges you already hold when you gain it."
+   },
+   {
+    "name": "The Lamp Flares",
+    "unlock_layer": 4,
+    "passive_art": true,
+    "rule": "When a blow spends the last of a ward seal, the seal flares: a crack of light that strikes the foe, harder for each blow the seal turned, and slows it a little."
+   }
+  ],
+  "origin": "authored",
+  "suite": "lamp-ward-seal-canon",
+  "family": "general",
+  "owner": "vong_trieu",
+  "rank": "noi_mon",
+  "notes": "Vọng Triều Đường NO-LEAN lineage (depth specifies names: []): given temporary lint proxy [\"thuy\", \"tho\"] for lint_techniques.py (logged in vong_trieu-review.md under open items); all carried arts are element-free (element: \"\"). Passive arts Lamp-Ward (d27, L3) and The Lamp Flares (d25, L4) wired via Stage 6 b01 technique-effects.",
+  "concept": "The watch's method. The cultivator lays seals the way a keeper sets lamps along a shore: each seal is a small lit point of the will, and a line of them makes a ward that wind, water and men break against. It runs on no element.",
+  "lore": "Written by the founder Cơ Châu Lệ between 790 and 820 from the harbour-wards of Châu Lệ Cảng that failed in 762 (C151), so that the next ones would not."
+ },
+ {
+  "id": "tide-reading-gaze",
+  "name": "Tide-Reading Gaze (Quan Triều Mục)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": ["thuy", "tho"],
+  "layers": 9,
+  "bonuses": [{"stat": "than_thuc_pct", "value": 8}],
+  "passives": [
+   {"key": "than_thuc_pct", "value": 2, "scope": []},
+   {"key": "evade_pct", "value": 3, "scope": []},
+   {"key": "accuracy_pct", "value": 4, "scope": []},
+   {"key": "soul_res_pct", "value": 6, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "read-the-swell", "unlock_layer": 1},
+   {"ability_id": "far-watch", "unlock_layer": 2}
+  ],
+  "origin": "authored",
+  "suite": "tide-reading-gaze",
+  "family": "general",
+  "owner": "vong_trieu",
+  "rank": "noi_mon",
+  "notes": "Vọng Triều Đường NO-LEAN lineage (depth specifies names: []): given temporary lint proxy [\"thuy\", \"tho\"] for lint_techniques.py; carried arts are element-free (element: \"\").",
+  "concept": "A soul art for watchers. The holder sends her divine sense out over water the way a tide goes out, and reads what comes back. In a fight it reads the foe's next art a moment before it comes.",
+  "lore": "Taught on the tower tops at night. Every inner disciple of the hall has stood a winter on a tower learning it."
+ },
+ {
+  "id": "last-lamp-vigil",
+  "name": "Last Lamp Vigil (Tàn Đăng Thủ Dạ)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": ["thuy", "tho"],
+  "layers": 9,
+  "bonuses": [{"stat": "khi_huyet_pct", "value": 10}],
+  "passives": [
+   {"key": "khi_huyet_pct", "value": 6, "scope": []},
+   {"key": "defense_pct", "value": 4, "scope": []},
+   {"key": "soul_res_pct", "value": 8, "scope": []},
+   {"key": "status_resist_pct", "value": 8, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "bind-the-flame", "unlock_layer": 1},
+   {"ability_id": "the-lamp-stays-lit", "unlock_layer": 2}
+  ],
+  "origin": "authored",
+  "suite": "last-lamp-vigil",
+  "family": "general",
+  "owner": "vong_trieu",
+  "rank": "truong_lao",
+  "notes": "Vọng Triều Đường NO-LEAN lineage (depth specifies names: []): given temporary lint proxy [\"thuy\", \"tho\"] for lint_techniques.py; carried arts are element-free (element: \"\").",
+  "concept": "The keeper's last art: when everything else is out, one lamp is not. The holder binds her ward seals to her own life, so that they cannot burn out while she stands, at the cost of her own health for every blow they turn.",
+  "lore": "Ôn Thủ Đăng wrote it in 914, the winter after the storm tide drowned Kim Sa Trấn (V171), and taught it to every elder since. He has never said why that winter."
+ }
+]

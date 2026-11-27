@@ -20,9 +20,9 @@
    "tier": 1, "tech_kind": "main", "names": [], "layers": 9, "rank": "noi_mon",
    "concept": "The watch's method. The cultivator lays seals the way a keeper sets lamps along a shore: each seal is a small lit point of the will, and a line of them makes a ward that wind, water and men break against. It runs on no element. What it needs is attention: a seal lasts while its maker remembers it, and a keeper at the ninth layer holds nine seals in mind through a whole night. In a fight the holder rings herself with seals that blunt blows and burn out one by one, and relights them.",
    "arts": [
-    {"new": "Set the Lamp (Thiết Đăng)", "concept": "Gains a ward seal charge: you take less damage from the next few hits; it ends after a set number of foe hits."},
-    {"new": "Line of Lamps (Đăng Tuyến)", "concept": "With three or more seal charges held, links them: the foe is slowed and loses a share of its ward."},
-    {"new": "The Lamp Flares (Đăng Bùng)", "concept": "A passive art. When a blow spends the last of a ward seal, the seal flares: a crack of light that strikes the foe, harder for each blow the seal turned, and slows it a little.", "effect": "the-lamp-flares", "authored": "d25"},
+    {"id": "set-the-lamp", "new": "Set the Lamp (Thiết Đăng)", "concept": "Gains a ward seal charge: you take less damage from the next few hits; it ends after a set number of foe hits."},
+    {"id": "line-of-lamps", "new": "Line of Lamps (Đăng Tuyến)", "concept": "With three or more seal charges held, links them: the foe is slowed and loses a share of its ward."},
+    {"new": "The Lamp Flares (Đăng Bùng)", "concept": "A passive art. When a blow spends the last of a ward seal, the seal flares: a crack of light that strikes the foe, harder for each blow the seal turned, and slows it a little.", "effect": "the-lamp-flares", "unlock_layer": 4, "authored": "d25"},
     {"new": "Lamp-Ward (Thủ Đăng)", "concept": "A passive art. Each Seal charge you gain turns 1 more blow before it ends, plus 1 more for every 3 Seal charges you already hold when you gain it.", "effect": "lamp-ward", "unlock_layer": 3, "authored": "d27"}
    ],
    "lore": "Written by the founder Cơ Châu Lệ between 790 and 820 from the harbour-wards of Châu Lệ Cảng that failed in 762 (C151), so that the next ones would not. The founder's rule is written on the first page: a seal is a promise, and it lasts as long as you keep it.",
@@ -35,8 +35,8 @@
    "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "noi_mon",
    "concept": "A soul art for watchers. The holder sends her divine sense out over water the way a tide goes out, and reads what comes back: weather, currents, a hull, a lamp that should not be lit. In a fight it reads the foe's next art a moment before it comes.",
    "arts": [
-    {"new": "Read the Swell (Độc Lãng)", "concept": "For a few seconds the holder sees the foe's next art coming: she evades or blocks it more easily and her next hit lands as a critical."},
-    {"new": "Far Watch (Viễn Vọng)", "concept": "Out of combat: reveals ships, beasts and storms far over water; in combat, removes the foe's stealth."}
+    {"id": "read-the-swell", "new": "Read the Swell (Độc Lãng)", "concept": "For a few seconds the holder sees the foe's next art coming: she evades or blocks it more easily and her next hit lands as a critical."},
+    {"id": "far-watch", "new": "Far Watch (Viễn Vọng)", "concept": "Out of combat: reveals ships, beasts and storms far over water; in combat, removes the foe's stealth."}
    ],
    "lore": "Taught on the tower tops at night. Every inner disciple of the hall has stood a winter on a tower learning it.",
    "status": "proposal"
@@ -47,8 +47,8 @@
    "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "truong_lao",
    "concept": "The keeper's last art: when everything else is out, one lamp is not. The holder binds her ward seals to her own life, so that they cannot burn out while she stands, at the cost of her own health for every blow they turn. It is how a single keeper holds a harbour wall through a storm tide. It is also how keepers die on towers.",
    "arts": [
-    {"new": "Bind the Flame (Phược Diễm)", "concept": "Chosen when slotted. Wall: for the rest of the fight your ward seals do not burn out, and each blow they turn costs you a little health. Fuse: your seals turn one blow fewer, and each flare of The Lamp Flares strikes twice as hard.", "authored": "d25"},
-    {"new": "The Lamp Stays Lit (Đăng Bất Diệt)", "concept": "Once per fight, when she would fall while a seal of hers stands, she stays at 1 health for three seconds."}
+    {"id": "bind-the-flame", "new": "Bind the Flame (Phược Diễm)", "concept": "Chosen when slotted. Wall: for the rest of the fight your ward seals do not burn out, and each blow they turn costs you a little health. Fuse: your seals turn one blow fewer, and each flare of The Lamp Flares strikes twice as hard.", "authored": "d25"},
+    {"id": "the-lamp-stays-lit", "new": "The Lamp Stays Lit (Đăng Bất Diệt)", "concept": "Once per fight, when she would fall while a seal of hers stands, she stays at 1 health for three seconds."}
    ],
    "lore": "Ôn Thủ Đăng wrote it in 914, the winter after the storm tide drowned Kim Sa Trấn (V171), and taught it to every elder since. He has never said why that winter.",
    "status": "proposal",
