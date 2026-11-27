@@ -51,11 +51,11 @@
      "new": true,
      "id": "red-cloud-rising",
      "name": "Red Cloud Rising (Xích Hà Thăng)",
-     "rule": "While the banner is planted, allies within its cloud gain 1 Fire stack of fury every 3 s, each adding attack and each burning its holder for a little health each second; the first ally to fall in the cloud each fight rises once at a fifth of their health."
+     "rule": "Every 3 s, you gain 1 Fire stack of fury (15 s, raising attack) and 1 self-Burn stack (6 s, burning you for a little health each second); once each fight, if you would fall, you rise at a fifth of your health."
     }
    ],
    "lore": "Xích Thành Môn's war banner, woven in 260 from fire-silk reeled at the vents (C068). Phượng Minh took it in 590 (C119) and hung it in the Hall of Spoils. In 1020 the founder lent it to the young Hùng Phần Vũ (C177). Its red has faded to the colour of a cooling coal. The palace treasurer Vưu Cẩm Thư has asked for it back three times. Hùng carries it into the vent at every first sitting, so that the new disciple sits under it.",
-   "build_use": "A war banner for the hall's levy: Fire fury on allies and one rising.",
+   "build_use": "A war banner for the hall's levy: Fire fury on the wearer and one rising.",
    "holder": "hung_phan_vu",
    "made_by": "xich_thanh",
    "made_year": 260,
