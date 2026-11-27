@@ -22,7 +22,7 @@
    "concept": "The wardens' first method, practised on the job. A Wood root breathes with a standing tree, palm on the bark, until its slow pulse is felt. A Water root breathes with the river that will carry the tree once it is felled. Either carries a disciple through six layers. The sixth is the First Raft: the disciple rides one spirit log down from the hall to the seasoning boom at Tân Cư Thôn without letting it touch a bank.",
    "arts": [
     "rooted-form",
-    {"new": "Log on the Current (Mộc Tùy Lưu)", "concept": "A heavy Wood hit: the foe's soonest art waits 0.5 s; if a Water stack is on you, the hit carries on and strikes the foe again at half.", "authored": "a1"}
+    {"id": "log-on-the-current", "new": "Log on the Current (Mộc Tùy Lưu)", "concept": "A heavy Wood hit: the foe's soonest art waits 0.5 s; if a Water stack is on you, the hit carries on and strikes the foe again at half.", "authored": "a1"}
    ],
    "lore": "Lục Thanh Sam wrote it in 1162, the spring after a flood took half the year's rafts (N-ho_lam-04). He replaced the Seed and Soil Primer he had learned in Thúy Vi's outer gate. 'The seed is the lord's business,' he said. 'Ours is the tree and the river.'",
    "status": "proposal",
@@ -35,8 +35,8 @@
    "concept": "Thúy Vi's rite of asking made into a method. Before a spirit tree is felled, a warden spends a night beside it with a palm on the bark and listens until the tree's qi slows into an answer. Wardens who have sat many nights hear the whole forest this way. In a fight the holder reads when a foe is about to press, and Wood closes round the holder like a grove.",
    "arts": [
     "second-spring",
-    {"new": "The Forest Listens (Lâm Thính)", "concept": "For 6 s your next art against the foe cannot miss, and a foe who pressed while it lasts takes a Wood stack."},
-    {"new": "Bark Closes (Bì Hợp)", "concept": "Wraps you in bark for 4 s: you take 25 % less damage, heal a little each second; your evade is 0 and you cannot be Pressing.", "authored": "a1"}
+    {"id": "the-forest-listens", "new": "The Forest Listens (Lâm Thính)", "concept": "For 6 s your next art against the foe cannot miss, and a foe who pressed while it lasts takes a Wood stack."},
+    {"id": "bark-closes", "new": "Bark Closes (Bì Hợp)", "concept": "Wraps you in bark for 4 s: you take 25 % less damage, heal a little each second; your evade is 0 and you cannot be Pressing.", "authored": "a1"}
    ],
    "lore": "The rite is older than the hall. Phùng Yên Hà set it down as a taboo at Thúy Vi: spirit wood is never felled without a night spent asking. The wardens turned the night into a method in the 920s. Mi Túc Thụ has sat more nights than anyone living, about four thousand.",
    "status": "proposal",
@@ -49,7 +49,7 @@
    "concept": "The raft masters' art. They ride the spring flood with a raft of spirit logs lashed together and steer it by pressing Water qi into the current ahead. In a fight it is a method of carried force: the holder rides the momentum of their own Water hits, each one faster than the last, and can throw a foe into the current to be swept off.",
    "arts": [
     "swelling-tide-palm",
-    {"new": "The Flood Takes It (Lũ Quyển)", "concept": "A Water hit: the foe's soonest art waits 0.3 s and it lays 2 Slowed Time; if you have struck with Water three times in a row, it also breaks the foe's guard."}
+    {"id": "the-flood-takes-it", "new": "The Flood Takes It (Lũ Quyển)", "concept": "A Water hit: the foe's soonest art waits 0.3 s and it lays 2 Slowed Time; if you have struck with Water three times in a row, it also breaks the foe's guard."}
    ],
    "lore": "Đằng Bích Lưu brought it from the raftsmen of Thủy Ma Thôn when she joined the hall in 960. It is why the year's wood goes down on the spring flood to the seasoning boom at Tân Cư Thôn (1101), ready for the autumn rafts to the lord's stores, and why the hall has needed Water as much as Wood since then.",
    "status": "proposal"

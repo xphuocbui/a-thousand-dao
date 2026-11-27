@@ -1,0 +1,206 @@
+{
+ "_doc": "Hộ Lâm Đường's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:ho_lam by the serial step. Unpriced. Rule text from design/world/depth/sects/ho_lam.items.json.",
+ "source": "world-depth:ho_lam",
+ "effects": {
+  "One Stroke": {
+   "rule": "The Asking Axe: your first Composed hit on a foe each fight deals 30 % more damage (Combat rule 25: Composed is 2 s without a damaging/movement art or evade).",
+   "counters": [
+    {
+     "id": "one_stroke_done",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:One Stroke",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.one_stroke_done",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.composed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.3
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Stroke spend",
+     "on": "hit_landed",
+     "if": [
+      {
+       "read": "own.counter.one_stroke_done",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.composed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "one_stroke_done",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Tree Did Not Answer": {
+   "rule": "Heart of First Light: once a fight, when you would take a killing blow, the heartwood takes it instead and you are left at a tenth of your health. After that the pendant gives no healing for the rest of the fight (its +12 % healing and +36 % health_regen_inc stop).",
+   "counters": [
+    {
+     "id": "heartwood_spent",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Tree Did Not Answer",
+     "on": "down",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "refuse_down": {
+        "hp_share": 0.1
+       }
+      },
+      {
+       "counter": {
+        "id": "heartwood_spent",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Tree Did Not Answer spent",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.heartwood_spent",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "healing": -12,
+        "hregen_inc": -36
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Forest Closes": {
+   "rule": "First Light, full set (3 pieces): after each axe stroke (Mountain Cleave) you brace for 6 s: your evade is 0, you regenerate 2 % of your health each second, and the foe that hits you gains a Wood stack (8 s).",
+   "counters": [
+    {
+     "id": "forest_closes_sec",
+     "cap": 6
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Forest Closes brace",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "mountain-cleave"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "forest_closes_sec",
+        "set": 6
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Forest Closes hold",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.forest_closes_sec",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "no_evade": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Forest Closes regen",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.forest_closes_sec",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.02
+       }
+      },
+      {
+       "counter": {
+        "id": "forest_closes_sec",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Forest Closes thorns",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.forest_closes_sec",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

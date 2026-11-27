@@ -1,0 +1,101 @@
+[
+ {
+  "id": "hlm-asking-axe",
+  "name": "The Asking Axe (Vấn Thụ Phủ)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "phu",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 18, "scope": ["moc"]},
+   {"key": "pierce_pct", "value": 8, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []},
+   {"key": "stack_effect_pct", "value": 16, "scope": ["moc", "debuff"]}
+  ],
+  "effects": ["One Stroke"],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A plain felling axe with a haft of Hộ Lâm ash. Lục Thanh Sam has used it since 910 and fells every spirit tree himself, in one stroke, after the night of asking. The haft has been replaced eleven times and the head never.",
+  "build_use": "A warden's opening blow and Wood debuffs for a slow, Composed fighter.",
+  "holder": "luc_thanh_sam",
+  "made_by": "a smith of Lam Yên Thị",
+  "made_year": 905,
+  "set": "hlm-first-light",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ },
+ {
+  "id": "hlm-first-light-heart",
+  "name": "Heart of First Light (Sơ Hiểu Tâm Mộc)",
+  "family": "wood",
+  "kind": "treasure",
+  "base": "ngoc_boi",
+  "grade": 4,
+  "rarity": 5,
+  "modifiers": [
+   {"key": "healing_pct", "value": 12, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 36, "scope": []},
+   {"key": "linh_luc_pct", "value": 10, "scope": []},
+   {"key": "status_resist_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["The Tree Did Not Answer"],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A disc of heartwood from the Grandmother Fir of Sơ Hiểu Lâm (1112), the greatest spirit tree in the northern woods, felled in 1150 for the Green Furnace on the night of Úy Thanh Diễm's breakthrough (N-ho_lam-03, N-thuy_vi-10). The hall says the tree said yes. Lục Thanh Sam has worn the disc ever since and does not take it off to sleep.",
+  "build_use": "The head's sustain and his one saving grace in a fight.",
+  "holder": "luc_thanh_sam",
+  "made_by": "luc_thanh_sam",
+  "made_year": 1150,
+  "set": "hlm-first-light",
+  "unique": true
+ },
+ {
+  "id": "hlm-lead-raft-banner",
+  "name": "Banner of the Lead Raft (Đầu Phiệt Kỳ)",
+  "family": "water",
+  "kind": "artifact",
+  "base": "ky",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 14, "scope": ["thuy"]},
+   {"key": "art_speed_pct", "value": 8, "scope": ["thuy"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 12, "scope": []},
+   {"key": "stack_grant", "value": 1, "scope": ["thuy", "buff"]}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A long green banner flown from the lead raft of every spring flood since 960, so that the rafts behind can follow it through white water. Đằng Bích Lưu sewed it on her first spring at the hall. The raftsmen of Phiệt Công Thôn salute it from the banks.",
+  "build_use": "The raft master's: faster Water arts and a steady linh lực flow for riding a flood.",
+  "holder": "dang_bich_luu",
+  "made_by": "dang_bich_luu",
+  "made_year": 960,
+  "set": null,
+  "unique": true
+ },
+ {
+  "id": "hlm-white-wax-robe",
+  "name": "White-Wax Warden's Robe (Bạch Lạp Bào)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 3,
+  "modifiers": [
+   {"key": "khi_huyet_pct", "value": 12, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 20, "scope": []},
+   {"key": "healing_taken_pct", "value": 9, "scope": []},
+   {"key": "defense_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "arts": [],
+  "sources": ["npc"],
+  "lore": "A warden's robe waxed in the white wax of Bạch Lạp Thôn, his father's trade; rain and sap run off it.",
+  "build_use": "Composed and slow: health and regeneration.",
+  "holder": "luc_thanh_sam",
+  "made_by": "luc_thanh_sam",
+  "made_year": 910,
+  "set": "hlm-first-light",
+  "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+  "unique": true
+ }
+]

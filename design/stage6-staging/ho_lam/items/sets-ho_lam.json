@@ -1,0 +1,26 @@
+[
+ {
+  "id": "hlm-first-light",
+  "name": "First Light (Sơ Hiểu Tam Kiện)",
+  "pieces": [
+   "hlm-asking-axe",
+   "hlm-first-light-heart",
+   "hlm-white-wax-robe"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "health_regen_inc_pct", "value": 15, "scope": []},
+     {"key": "khi_huyet_pct", "value": 6, "scope": []}
+    ]
+   },
+   {
+    "pieces": 3,
+    "effect": "The Forest Closes (Lâm Hợp)",
+    "rule": "after each axe stroke (Mountain Cleave) you brace: your evade is 0 for 6 s, you regenerate 2 % of your health each second, and the foe that hits you gains a Wood stack."
+   }
+  ],
+  "story": "The axe he has felled with since 910, the Grandmother Fir's heartwood and his father's white wax: the warden's whole life, worn in the forest he keeps."
+ }
+]
