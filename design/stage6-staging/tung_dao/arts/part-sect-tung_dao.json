@@ -1,0 +1,370 @@
+[
+ {
+  "id": "pine-needle-rain",
+  "name": "Needle Rain (Châm Vũ)",
+  "element": "wood",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "listening-pine-primer",
+  "tags": ["wood", "needle", "quick"],
+  "c_art": 1.5,
+  "cost_share": 0.03,
+  "cooldown": 3,
+  "kind": "elem",
+  "debuff": [3, 5],
+  "effects": [
+   {
+    "id": "pine-needle-rain-slow",
+    "on": "hit_landed",
+    "filter": {"art_id": "pine-needle-rain"},
+    "limit": {"per_firing": 1},
+    "if": [{"any": [{"read": "foe.buff.water", "op": ">=", "value": 1}, {"read": "foe.debuff.water", "op": ">=", "value": 1}]}],
+    "do": [{"status": {"id": "slowed_time", "side": "foe", "stacks": 1, "for": 2.0}}]
+   }
+  ],
+  "rule": "A spray of qi-hardened pine needles: deals Wood damage, lays 3 Wood debuff stacks for 5 s, and if the foe carries Water stacks lays 1 Slowed Time stack for 2 s.",
+  "hooks": ["wood debuff stacks", "water stacks on foe", "slowed time"],
+  "sources": ["world-depth:tung_dao"]
+ },
+ {
+  "id": "ten-thousand-pines-answer",
+  "name": "Ten Thousand Pines Answer (Vạn Tùng Ứng)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "pine-wave-true-canon",
+  "tags": ["wood", "wave", "heal"],
+  "c_art": 0.0,
+  "c_heal": 0.5,
+  "cost_share": 0.045,
+  "cooldown": 10,
+  "kind": "elem",
+  "counters": [{"id": "pines_window", "cap": 8}, {"id": "pines_waves", "cap": 18}],
+  "effects": [
+   {
+    "id": "pines-open",
+    "on": "art_fired",
+    "filter": {"art_id": "ten-thousand-pines-answer"},
+    "do": [{"counter": {"id": "pines_window", "set": 8}}, {"counter": {"id": "pines_waves", "set": 9}}]
+   },
+   {
+    "id": "pines-tick",
+    "on": "pulse",
+    "if": [{"read": "own.counter.pines_window", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "pines_window", "add": -1}}]
+   },
+   {
+    "id": "pines-wave-stack",
+    "on": "heal_restored",
+    "limit": {"per_pulse": 1},
+    "if": [{"read": "own.counter.pines_window", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "pines_waves", "add": 1}}, {"stacks": {"el": "wood", "n": 1, "for": 8, "side": "foe"}}]
+   },
+   {
+    "id": "pines-wave-hit",
+    "on": "heal_restored",
+    "limit": {"per_pulse": 1},
+    "if": [{"read": "own.counter.pines_window", "op": ">=", "value": 1}],
+    "scale": {"read": "own.counter.pines_waves", "per": 1, "cap": 18},
+    "do": [{"free_hit": {"c": 0.055, "dtype": "phys"}}, {"gain_qi": {"share": 0.0015}}]
+   }
+  ],
+  "rule": "Mends a little and opens an 8 s window: each heal you receive (up to once a pulse) sends a wave that lays 1 Wood debuff stack on the foe, restores 1.5 % linh lực and strikes as a free Physical hit (c 0.55 on the first wave, +10 % per wave).",
+  "hooks": ["healing", "heal_restored", "wood debuff stacks", "linh lực restore"],
+  "sources": ["world-depth:tung_dao"]
+ },
+ {
+  "id": "the-wave-comes-back",
+  "name": "The Wave Comes Back (Đào Hồi)",
+  "element": "water",
+  "role": "heal",
+  "tier": "authored",
+  "power": "engine",
+  "group": "pine-wave-true-canon",
+  "tags": ["water", "wave", "heal"],
+  "c_art": 0.0,
+  "c_heal": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 12,
+  "kind": "elem",
+  "counters": [{"id": "wave_mark", "cap": 10}, {"id": "wave_hits", "cap": 8}],
+  "effects": [
+   {
+    "id": "wave-mark-set",
+    "on": "art_fired",
+    "filter": {"art_id": "the-wave-comes-back"},
+    "do": [{"counter": {"id": "wave_mark", "set": 10}}, {"counter": {"id": "wave_hits", "set": 0}}]
+   },
+   {
+    "id": "wave-mark-hit",
+    "on": "was_hit",
+    "limit": {"per_pulse": 1},
+    "if": [{"read": "own.counter.wave_mark", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "wave_hits", "add": 1}}]
+   },
+   {
+    "id": "wave-return-early",
+    "on": "pulse",
+    "if": [{"read": "own.counter.wave_mark", "op": ">=", "value": 1}, {"read": "own.hp_share", "op": "<", "value": 0.5}, {"read": "own.counter.wave_hits", "op": ">=", "value": 1}],
+    "scale": {"read": "own.counter.wave_hits", "per": 1, "cap": 8},
+    "do": [{"heal": {"share": 0.04}}, {"counter": {"id": "wave_mark", "set": 0}}, {"counter": {"id": "wave_hits", "set": 0}}]
+   },
+   {
+    "id": "wave-return-end",
+    "on": "pulse",
+    "if": [{"read": "own.counter.wave_mark", "op": "==", "value": 1}, {"read": "own.counter.wave_hits", "op": ">=", "value": 1}],
+    "scale": {"read": "own.counter.wave_hits", "per": 1, "cap": 8},
+    "do": [{"heal": {"share": 0.04}}, {"counter": {"id": "wave_mark", "set": 0}}, {"counter": {"id": "wave_hits", "set": 0}}]
+   },
+   {
+    "id": "wave-mark-expire",
+    "on": "pulse",
+    "if": [{"read": "own.counter.wave_mark", "op": "==", "value": 1}],
+    "do": [{"counter": {"id": "wave_mark", "set": 0}}, {"counter": {"id": "wave_hits", "set": 0}}]
+   },
+   {
+    "id": "wave-mark-tick",
+    "on": "pulse",
+    "if": [{"read": "own.counter.wave_mark", "op": ">=", "value": 2}],
+    "do": [{"counter": {"id": "wave_mark", "add": -1}}]
+   }
+  ],
+  "rule": "Marks your place for 10 s and counts each blow taken while marked (up to 8). When you drop below half health or the 10 s end, the wave pulls back and heals 4 % of your maximum health per blow taken (up to 32 %; non-spatial pullback and share-scaled heal).",
+  "hooks": ["was_hit", "low health", "healing"],
+  "sources": ["world-depth:tung_dao"]
+ },
+ {
+  "id": "rain-through-the-needles",
+  "name": "Rain Through the Needles (Vũ Xuyên Châm)",
+  "element": "water",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "pine-rain-canon",
+  "tags": ["water", "field", "heal"],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 12,
+  "kind": "elem",
+  "counters": [{"id": "pine_rain", "cap": 10}, {"id": "pine_rain_tick", "cap": 2}],
+  "states": [{"id": "pine-rain", "tags": ["field"], "mods": {}}],
+  "effects": [
+   {
+    "id": "pine-rain-open",
+    "on": "art_fired",
+    "filter": {"art_id": "rain-through-the-needles"},
+    "do": [{"counter": {"id": "pine_rain", "set": 10}}, {"counter": {"id": "pine_rain_tick", "set": 0}}]
+   },
+   {
+    "id": "pine-rain-stance",
+    "on": "art_fired",
+    "filter": {"art_id": "rain-through-the-needles"},
+    "if": [{"read": "own.state.any", "op": "==", "value": 0}],
+    "do": [{"state": {"set": "pine-rain"}}]
+   },
+   {
+    "id": "pine-rain-wood-dur",
+    "on": "always",
+    "if": [{"read": "own.counter.pine_rain", "op": ">=", "value": 1}],
+    "do": [{"mod": {"stack_dur": 100, "element": "wood"}}]
+   },
+   {
+    "id": "pine-rain-pulse",
+    "on": "pulse",
+    "if": [{"read": "own.counter.pine_rain", "op": ">=", "value": 1}],
+    "do": [{"heal": {"share": 0.01}}, {"gain_qi": {"share": 0.01}}, {"counter": {"id": "pine_rain", "add": -1}}, {"counter": {"id": "pine_rain_tick", "add": 1}}]
+   },
+   {
+    "id": "pine-rain-foe-wet",
+    "on": "pulse",
+    "if": [{"read": "own.counter.pine_rain_tick", "op": ">=", "value": 2}],
+    "do": [{"counter": {"id": "pine_rain_tick", "set": 0}}, {"stacks": {"el": "water", "n": 1, "for": 8, "side": "foe"}}]
+   },
+   {
+    "id": "pine-rain-close",
+    "on": "pulse",
+    "if": [{"read": "own.counter.pine_rain", "op": "==", "value": 0}, {"read": "own.state.pine-rain", "op": ">=", "value": 1}],
+    "do": [{"state": {"set": null}}]
+   }
+  ],
+  "rule": "Lays a 10 s rain field: restores 1 % health and 1 % linh lực each second, adds 1 Water debuff stack to the foe every 2 s, and doubles the duration of Wood stacks laid while the rain runs (sets Field state only if no stance is active).",
+  "hooks": ["field", "healing", "linh lực restore", "water debuff stacks", "wood stack duration"],
+  "sources": ["world-depth:tung_dao"]
+ },
+ {
+  "id": "the-road-in-a-dream",
+  "name": "The Road in a Dream (Mộng Lộ)",
+  "element": "water",
+  "role": "ward",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "pine-rain-canon",
+  "tags": ["water", "dream"],
+  "c_art": 0.0,
+  "cost_share": 0.035,
+  "cooldown": 10,
+  "kind": "elem",
+  "buff": [1, 8],
+  "effects": [
+   {
+    "id": "dream-road-ward",
+    "on": "art_fired",
+    "filter": {"art_id": "the-road-in-a-dream"},
+    "do": [{"ward_grow": {"share": 0.06, "of": "hp"}}, {"mod": {"delay_immune": 1, "for": 2}}]
+   },
+   {
+    "id": "dream-road-wake",
+    "on": "pulse",
+    "limit": {"per_fight": 1},
+    "if": [{"any": [{"read": "own.status.sleep", "op": ">=", "value": 1}, {"read": "own.status.charmed", "op": ">=", "value": 1}, {"read": "own.status.silence", "op": ">=", "value": 1}, {"read": "own.status.sealed_meridian", "op": ">=", "value": 1}]}],
+    "do": [{"cleanse": {"curses": 1}}, {"ward_grow": {"share": 0.12, "of": "hp"}}]
+   }
+  ],
+  "rule": "Gives 1 Water buff stack, grows your ward by 6 % of maximum health and prevents cooldown delays for 2 s; once per fight, wakes immediately from Sleep, Charmed, Silence or Sealed Meridian, cleansing 1 curse and growing your ward by 12 % of maximum health (out-of-combat seclusion cultivation while travelling is non-combat).",
+  "hooks": ["ward_grow", "delay_immune", "stun wake", "curse cleanse"],
+  "sources": ["world-depth:tung_dao"]
+ },
+ {
+  "id": "the-goose-rises-from-the-reeds",
+  "name": "The Goose Rises from the Reeds (Hồng Khởi Lô Trung)",
+  "element": "wood",
+  "role": "utility",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "startled-goose-step",
+  "tags": ["wood", "step", "movement"],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 8,
+  "kind": "elem",
+  "counters": [{"id": "goose_evade", "cap": 2}, {"id": "goose_poise", "cap": 1}],
+  "effects": [
+   {
+    "id": "goose-leap",
+    "on": "art_fired",
+    "filter": {"art_id": "the-goose-rises-from-the-reeds"},
+    "do": [{"counter": {"id": "goose_evade", "set": 2}}, {"counter": {"id": "goose_poise", "set": 1}}]
+   },
+   {
+    "id": "goose-evade-mod",
+    "on": "always",
+    "if": [{"read": "own.counter.goose_evade", "op": ">=", "value": 1}],
+    "do": [{"mod": {"evade": 100}}]
+   },
+   {
+    "id": "goose-evade-tick",
+    "on": "pulse",
+    "if": [{"read": "own.counter.goose_evade", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "goose_evade", "add": -1}}]
+   },
+   {
+    "id": "goose-evade-spent",
+    "on": "evaded",
+    "if": [{"read": "own.counter.goose_evade", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "goose_evade", "set": 0}}]
+   },
+   {
+    "id": "goose-poise-mod",
+    "on": "always",
+    "if": [{"read": "own.counter.goose_poise", "op": ">=", "value": 1}],
+    "do": [{"mod": {"dmg_more": 0.3, "kind": "art"}}]
+   },
+   {
+    "id": "goose-poise-hit",
+    "on": "hit_landed",
+    "filter": {"kind": "art", "not_art_id": "the-goose-rises-from-the-reeds"},
+    "if": [{"read": "own.counter.goose_poise", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "goose_poise", "set": 0}}]
+   },
+   {
+    "id": "goose-poise-miss",
+    "on": "was_evaded",
+    "filter": {"kind": "art"},
+    "if": [{"read": "own.counter.goose_poise", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "goose_poise", "set": 0}}]
+   }
+  ],
+  "rule": "Leap clear: forces your next evade within 2 s (+100 evade until you evade or 2 s pass) and gives your next damaging art +30 % damage.",
+  "hooks": ["evade", "next art damage"],
+  "sources": ["world-depth:tung_dao"]
+ },
+ {
+  "id": "the-white-wolf-falls",
+  "name": "The White Wolf Falls (Bạch Lang Lạc)",
+  "element": "wood",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "startled-goose-step",
+  "tags": ["wood", "heavy"],
+  "c_art": 2.7,
+  "cost_share": 0.09,
+  "cooldown": 12,
+  "kind": "elem",
+  "debuff": [3, 6],
+  "statuses": [{"id": "off_guard", "stacks": 1, "for": 2.0}],
+  "counters": [{"id": "wolf_regrow", "cap": 4}],
+  "effects": [
+   {
+    "id": "wolf-regrow-on",
+    "on": "heal_restored",
+    "limit": {"per_pulse": 1},
+    "do": [{"counter": {"id": "wolf_regrow", "set": 4}}]
+   },
+   {
+    "id": "wolf-regrow-tick",
+    "on": "pulse",
+    "if": [{"read": "own.counter.wolf_regrow", "op": ">=", "value": 1}],
+    "do": [{"counter": {"id": "wolf_regrow", "add": -1}}]
+   }
+  ],
+  "empower": [
+   {
+    "if": [{"any": [{"read": "own.counter.wolf_regrow", "op": ">=", "value": 1}, {"read": "own.state.rooted", "op": ">=", "value": 1}, {"read": "own.buff.wood", "op": ">=", "value": 4}]}],
+    "c_mult": 1.35
+   }
+  ],
+  "rule": "Drops from above: deals heavy Wood damage, lays 3 Wood debuff stacks for 6 s and renders the foe Off-Guard for 2 s. While recent healing regrowth runs, in Rooted Form, or holding 4 Wood buff stacks, hits 35 % harder.",
+  "hooks": ["wood damage", "wood debuff stacks", "off_guard", "regrowth"],
+  "sources": ["world-depth:tung_dao"]
+ },
+ {
+  "id": "simmered-broth",
+  "name": "Simmered Broth (Văn Hỏa Dưỡng Canh)",
+  "element": "fire",
+  "role": "heal",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "hearth-simmer-breath",
+  "tags": ["fire", "heal"],
+  "c_art": 0.0,
+  "c_heal": 0.5,
+  "cost_share": 0.03,
+  "cooldown": 5,
+  "kind": "elem",
+  "buff": [1, 8],
+  "rule": "Slow-simmered stove breath: restores a little health and gives 1 Fire buff stack for 8 s.",
+  "hooks": ["healing", "fire buff stacks"],
+  "sources": ["world-depth:tung_dao"]
+ },
+ {
+  "id": "steady-shoulder",
+  "name": "Steady Shoulder (Kiên Phụ Trọng)",
+  "element": "earth",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "bark-and-timber-breath",
+  "tags": ["earth"],
+  "c_art": 1.6,
+  "cost_share": 0.03,
+  "cooldown": 4,
+  "kind": "elem",
+  "buff": [1, 8],
+  "rule": "Braces shoulders and strikes once: deals Earth damage and gives 1 Earth buff stack for 8 s.",
+  "hooks": ["earth damage", "earth buff stacks"],
+  "sources": ["world-depth:tung_dao"]
+ }
+]

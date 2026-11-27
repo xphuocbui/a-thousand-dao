@@ -24,7 +24,7 @@
    "concept": "The outer gate's method, learned sitting under the pines at dawn and dusk with the eyes shut. A Wood root breathes with the trunk, slow and upright; a Water root breathes with the sound, the long rise and fall of wind through needles that gives the sect its name. Either root carries a disciple through six layers. The sixth layer is called Hearing the Wave: the disciple can tell, eyes shut, which way qi is moving through the trees around them. Then the inner gate tests the Wood.",
    "arts": [
     "seed-of-spring",
-    {"new": "Needle Rain (Châm Vũ)", "concept": "A spray of qi-hardened pine needles at one foe; each needle that lands lays a short Wood stack, and a foe already carrying Water stacks is slowed for a breath. The outer gate's one fighting art."}
+    {"id": "pine-needle-rain", "new": "Needle Rain (Châm Vũ)", "concept": "A spray of qi-hardened pine needles at one foe; each needle that lands lays a short Wood stack, and a foe already carrying Water stacks is slowed for a breath. The outer gate's one fighting art."}
    ],
    "lore": "Kỳ Tùng Ẩn chanted it to his first hundred disciples in the year 200 (C003), sitting under the pine that still stands in the palace yard. It has never been written down. Outer disciples learn it line by line from a steward's voice, and a disciple who cannot repeat the whole primer from memory at the sixth layer is not tested for the inner gate.",
    "status": "proposal"
@@ -38,8 +38,8 @@
     "second-spring",
     "rooted-form",
     "gathering-wave",
-    {"new": "Ten Thousand Pines Answer (Vạn Tùng Ứng)", "concept": "For 8 s the holder's every heal also sends a wave: each wave, the foe takes a Wood stack and you regain a little linh lực. Each wave is 10 % stronger than the one before it."},
-    {"new": "The Wave Comes Back (Đào Hồi)", "concept": "Marks the holder's place. When the holder falls below half health, or after 10 s, they are pulled back toward the mark and regain health equal to the damage they took since marking it."},
+    {"id": "ten-thousand-pines-answer", "new": "Ten Thousand Pines Answer (Vạn Tùng Ứng)", "concept": "For 8 s the holder's every heal also sends a wave: each wave, the foe takes a Wood stack and you regain a little linh lực. Each wave is 10 % stronger than the one before it."},
+    {"id": "the-wave-comes-back", "new": "The Wave Comes Back (Đào Hồi)", "concept": "Marks the holder's place. When the holder falls below half health, or after 10 s, they are pulled back toward the mark and regain health equal to the damage they took since marking it."},
     {"new": "Answering Wave (Ứng Đào)", "concept": "A passive art. Each heal from your arts lays one Wood stack on the foe per 1 % of your health restored and gives you one Water stack.", "effect": "answering-wave", "unlock_layer": 4, "authored": "d6"}
    ],
    "lore": "Kỳ Tùng Ẩn made it in the Wild Age, alone in the pines of Thâm Tùng Hải, from listening. He chanted the first fourteen layers to Thôi Khinh Hồng over four hundred years. The canon was never written, and the sect will not write it: what is heard must be earned, and a book can be stolen.",
@@ -54,8 +54,8 @@
    "concept": "The elders' secret art, made by the River Hall and the Lake Hall to give the Water half of the sect a voice of its own. The holder calls a fine rain. While it is up (a Field), you heal slowly and your linh lực comes back faster; the foe grows heavy, and Wood arts cast while the rain is up take root and last longer. A slow art for long fights and for holding ground.",
    "arts": [
     "brimming-cup",
-    {"new": "Rain Through the Needles (Vũ Xuyên Châm)", "concept": "Lays a rain field for 10 s: you regain 1 % of your health and linh lực each second, the foe gains a Water stack every 2 s, and any Wood stack laid while the field is up lasts twice as long."},
-    {"new": "The Road in a Dream (Mộng Lộ)", "concept": "Out of combat: while travelling, the holder cultivates as if sitting in closed-door seclusion at a third of the rate. In combat: once per fight, when stunned, they wake at once and gain a ward."}
+    {"id": "rain-through-the-needles", "new": "Rain Through the Needles (Vũ Xuyên Châm)", "concept": "Lays a rain field for 10 s: you regain 1 % of your health and linh lực each second, the foe gains a Water stack every 2 s, and any Wood stack laid while the field is up lasts twice as long."},
+    {"id": "the-road-in-a-dream", "new": "The Road in a Dream (Mộng Lộ)", "concept": "Out of combat: while travelling, the holder cultivates as if sitting in closed-door seclusion at a third of the rate. In combat: once per fight, when stunned, they wake at once and gain a ward."}
    ],
    "lore": "Hề Tùng Ba, master of the River Hall, chanted its first version in 760; Hồ Tùng Nguyệt added the dream-road layers in 1010, after she cultivated through a whole winter's journey to the long lake asleep in a cart.",
    "status": "proposal"
@@ -67,12 +67,34 @@
    "concept": "Thôi Khinh Hồng's own movement art, named for the line her name comes from: light as a startled swan goose, supple as a swimming dragon. The holder rises off the ground on a breath of her own Wood qi, so the art is strongest while her Wood regrowth runs on her and weak once it has stopped. It gives evasion, a long leap out of danger, and a strike from above after which the foe cannot evade.",
    "arts": [
     "swallow-stance",
-    {"new": "The Goose Rises from the Reeds (Hồng Khởi Lô Trung)", "concept": "You leap away: the foe's next hit within 2 s misses, and your next art lands with 30 % more effect.", "authored": "a1"},
-    {"new": "The White Wolf Falls (Bạch Lang Lạc)", "concept": "Drop on the foe from above: heavy Wood damage, the foe cannot evade for 2 s and takes 3 Wood stacks. The art that killed the white wolf king of Cửu Khúc Xuyên in 455 (C093)."}
+    {"id": "the-goose-rises-from-the-reeds", "new": "The Goose Rises from the Reeds (Hồng Khởi Lô Trung)", "concept": "You leap away: the foe's next hit within 2 s misses, and your next art lands with 30 % more effect.", "authored": "a1"},
+    {"id": "the-white-wolf-falls", "new": "The White Wolf Falls (Bạch Lang Lạc)", "concept": "Drop on the foe from above: heavy Wood damage, the foe cannot evade for 2 s and takes 3 Wood stacks. The art that killed the white wolf king of Cửu Khúc Xuyên in 455 (C093)."}
    ],
    "lore": "She made it in the 450s to hunt the white wolf king (C093) and has used it in earnest twice since, the second time in the cave abode of Mặc Huyết Sinh in 1090 (C024). She has taught it to no one. Her attendant Yến Thu Hồng has watched her practise it for a hundred years and cannot do the first step.",
    "status": "proposal",
    "authored": "a1"
+  },
+  {
+   "id": "hearth-simmer-breath",
+   "name": "Hearth-Simmer Breath (Táo Hạ Văn Hỏa Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["hoa"], "layers": 6, "rank": "tap_dich",
+   "concept": "A smokeless Yellow-tier stove-tending breath used by the palace kitchen's Fire-rooted cooks (Bành Táo Nhi, Phùng Quế Chi) under the pines.",
+   "arts": [
+    {"id": "simmered-broth", "new": "Simmered Broth (Văn Hỏa Dưỡng Canh)", "concept": "Slow-simmered stove breath: restores a little health and gives 1 Fire buff stack."}
+   ],
+   "lore": "Kept behind the scullery door so the mountain's pines never smell charcoal.",
+   "status": "proposal"
+  },
+  {
+   "id": "bark-and-timber-breath",
+   "name": "Bark-and-Timber Breath (Mộc Thạch Phụ Trọng Công)",
+   "tier": 0, "tech_kind": "main", "names": ["tho"], "layers": 6, "rank": "tap_dich",
+   "concept": "A plain Yellow-tier hauling and loom-steadying breath practiced by Earth-rooted servants of the outer terrace (Sầm Chức Nương, Mạc Đốn Mộc).",
+   "arts": [
+    {"id": "steady-shoulder", "new": "Steady Shoulder (Kiên Phụ Trọng)", "concept": "Braces shoulders and strikes once for plain Earth damage and 1 Earth buff stack."}
+   ],
+   "lore": "Taught between cart hauls and loom beams when a servant's root has stone in it.",
+   "status": "proposal"
   }
  ]
 }

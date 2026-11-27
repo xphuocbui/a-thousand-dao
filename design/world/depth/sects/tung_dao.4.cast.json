@@ -2304,7 +2304,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_hoa",
+     "tech": "hearth-simmer-breath",
      "layer": 3
     },
     "aux": [],
@@ -2367,7 +2367,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_kim",
+     "tech": "bark-and-timber-breath",
      "layer": 2
     },
     "aux": [],
@@ -2430,7 +2430,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "bark-and-timber-breath",
      "layer": 3
     },
     "aux": [],

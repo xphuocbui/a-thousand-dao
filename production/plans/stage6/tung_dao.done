@@ -1,0 +1,46 @@
+{
+ "owner": "tung_dao",
+ "minutes": 25,
+ "written": {
+  "techniques": 6,
+  "arts": 9,
+  "items": 27,
+  "sets": 9,
+  "effects": 23,
+  "stand_ins": 4,
+  "beasts": 0
+ },
+ "deviations": 15,
+ "decisions": [
+  "Assign id pine-needle-rain (not needle-rain) to listening-pine-primer's Needle Rain to avoid collision with bases/cham needle-rain.",
+  "Narrow listening-pine-primer staged names to [moc] so CongPhap.usable holds for all 38 holders including 9 outer disciples without Water.",
+  "Keep pine-wave-true-canon names as [moc, thuy]; log pre-existing tan_mac_bach (no thuy) mismatch in Open Items.",
+  "Omit swallow-stance from startled-goose-step staged abilities (Wind element violates ELEMENT / CongPhap.usable on thoi_khinh_hong); kept in tung_dao.techniques.json.",
+  "Add 2 Yellow stand-in techniques (hearth-simmer-breath for banh_tao_nhi and phung_que_chi; bark-and-timber-breath for sam_chuc_nuong and mac_don_moc).",
+  "Rename td-still-water-lamp Effect to Abbey's Still Water in staged effects/items to avoid clash with Dao Do's Still Water in combat_effects.json; log tung_dao.items.json rename for merge.",
+  "Keep Rain Through the Needles (pine-rain) and Light on the Quay non-clobbering via counters and guarding stance set with own.state.any == 0 so rooted-form stays active.",
+  "Rewrite Moon on Open Water non-spatially as Composed Water +12 % dmg_more and +15 % art_speed; rewrite The Wave Comes Back as up to 8 counted hits restoring 4 % hp_max each on snapback (< 50 % HP or 10 s).",
+  "Reuse shared pending word technique-effects (decision build) for Answering Wave (unlock_layer 4) and The Fifteenth Layer (unlock_layer 15) on pine-wave-true-canon."
+ ],
+ "pending_words": [
+  "technique-effects: attaches technique Effects by unlock_layer (shared with thien_xu/lac_ha; decision build)"
+ ],
+ "never_ran": [
+  "Answering Wave: awaits technique-effects loader wiring; probed on dam_tung_lai via Effect injection (63 runs, 31.24 s vs 33.71 s)",
+  "The Fifteenth Layer: awaits technique-effects wiring; probed on dam_tung_lai L15 vs killer (6 s window fires 0.4 phys + 0.4 cold banked waves at 39-42 s until Down)",
+  "rain-through-the-needles, the-road-in-a-dream, the-white-wolf-falls: truncated behind 6-slot canon priority in sect_fight.py; probed on ho_tung_nguyet & thoi_khinh_hong (all fire and apply Field/wake/Off-Guard)",
+  "Supple as a Swimming Dragon, Light as a Startled Goose: typical Hóa Thần hits (<500 HP after defence) sit below 6000 HP (10 % threshold); probed vs c_art 35.0 boss (1/5 wins with both vs 0/5 without either)",
+  "The Pack Remembers: probed with Off-Guard + Wood attack vs high Wood-res tank (611.39 vs 458.73 dmg, +33.3 %)",
+  "Cool the Burn, Voice in the Rain: typical foe lays no Fire and sect_fight lacks rain-through-the-needles in 6 slots; probed vs Fire+Sleep caster (Cool 35 runs, Voice feed 18 runs)",
+  "Ferry Across: dam_thanh_giang stays at 99 % HP vs typical; probed vs c_art 14.0 poisoner below 50 % HP (1 run)",
+  "Light on the Quay: td-ford-governor-lantern has holder null; probed on nhiep_co_tan holding all 3 vs slow foe (63 pulses, 6 strikes)",
+  "One Stick of Listening, Heard Once: out-of-combat seasonal cultivation / voice learning (marked not_run)"
+ ],
+ "early_promotions": [],
+ "open": [
+  "serial step: build technique-effects (shared) to wire Answering Wave (L4) and The Fifteenth Layer (L15)",
+  "depth/items rename: update Still Water (Tĩnh Thủy) to Abbey's Still Water (Tĩnh Thủy) in design/world/depth/sects/tung_dao.items.json",
+  "pre-existing cast: tan_mac_bach (no thuy) fails CongPhap.usable on pine-wave-true-canon",
+  "out-of-combat not_run: One Stick of Listening (td-pine-heart-censer), Heard Once (td-clear-sound-zither), seclusion travel half of The Road in a Dream"
+ ]
+}
