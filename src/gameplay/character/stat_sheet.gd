@@ -62,11 +62,11 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 		sheet._add_tree_effect_lines(c, tree)
 	ProgressionEdges.add_perk_mods(c, gd, sheet)
 	Formations.add_mods(c, gd, sheet, db)
-	# Physique and comprehension may be raised by anything above, so techniques come after them.
+	sheet._add_trait_mods(c)
+	# Physique and comprehension may be raised by anything above (including talent tiers), so techniques come after them.
 	for line in CongPhap.bonus_lines(c, gd, sheet.effective("can_cot", c), sheet.effective("ngo_tinh", c)):
 		sheet.add_mod(line.source, line.stat, line.value)
 	sheet._add_capability_mods(c)
-	sheet._add_trait_mods(c)
 	sheet._add_tie_mods(c)
 	if db != null:
 		sheet._add_hall_mods(c, db)
@@ -150,15 +150,8 @@ func _add_tie_mods(c: Character) -> void:
 func _add_trait_mods(c: Character) -> void:
 	if c.npc_traits.is_empty() or not _gd.registry.has_file(NpcTraits.FILE):
 		return
-	var cat := NpcTraits.catalogue(_gd)
-	var label := {"personality": "Tính tình", "callings": "Nghề nghiệp", "fate": "Bẩm sinh", "gained": "Hậu thiên"}
-	for id in NpcTraits.held({"npc_traits": c.npc_traits}):
-		var t: Dictionary = cat.by_id.get(str(id), {})
-		if t.is_empty():
-			continue
-		var src: String = "%s: %s" % [label.get(str(cat.kind[str(id)]), "Đặc tính"), str(t.get("name_vi", t.get("name", id)))]
-		for row in Array(t.get("boon", [])) + Array(t.get("cost", [])) + Array(t.get("rows", [])):
-			add_mod(src, str(row.stat), float(row.value))
+	for row in NpcTraits.stat_rows(_gd, {"npc_traits": c.npc_traits}, c.linh_can):
+		add_mod(str(row.source), str(row.stat), float(row.value), "", Array(row.get("scope", [])))
 
 
 ## The plain lines of the Đạo Đồ Effects the character holds (their closings: maximum health -15 %, art speed -20 %;

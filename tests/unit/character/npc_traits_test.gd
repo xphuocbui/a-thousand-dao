@@ -100,15 +100,15 @@ func test_compassionate_truce_and_callous_losses() -> void:
 
 
 func test_trait_rows_reach_the_stat_sheet_and_survive_a_round_trip() -> void:
-	# rule 5: Brave's boon maximum health +2.0 % and cost evade -0.8 pp, under the trait's name
+	# rule 5 + AC-NT-37 (doubled personality rows): Brave's boon maximum health +4.0 % and cost evade -1.6 pp
 	var gd := game_data()
 	var c := Character.new()
 	c.npc_traits = {"personality": ["brave"], "calling": "", "fate": [], "gained": []}
 	var back := Character.from_dict(c.to_dict())
 	assert_eq(back.npc_traits, c.npc_traits, "round trip")
 	var sheet := StatSheet.build(back, gd, null, null)
-	assert_eq(sheet.total("khi_huyet_pct"), 2.0, "boon")
-	assert_eq(sheet.total("evade_pct"), -0.8, "cost")
+	assert_eq(sheet.total("khi_huyet_pct"), 4.0, "boon")
+	assert_eq(sheet.total("evade_pct"), -1.6, "cost")
 	assert_eq(str(sheet.sources("khi_huyet_pct")[0].source), "Tính tình: dũng mãnh", "source")
 
 
@@ -127,7 +127,7 @@ func test_catalogue_data_checks() -> void:
 	var sets := {}
 	for t in f.personality:
 		sets[int(t.set)] = true
-	assert_eq([f.personality.size(), sets.size(), f.callings.size(), f.fate.size(), f.gained.size()], [37, 18, 14, 10, 16], "AC-NTC-07 counts")
+	assert_eq([f.personality.size(), sets.size(), f.callings.size(), f.fate.size(), f.gained.size()], [37, 18, 14, 4, 16], "AC-NTC-07 / AC-NT-49 counts")
 	var core := {}
 	for t in f.personality:
 		var twos: int = 0

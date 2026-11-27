@@ -55,12 +55,18 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	var q_cache := {}   # Living World Tick Formulas H: each place's stacked density, once this season
 	if season == 0:   # Formulas H: the talent means are recomputed in Spring, before the people step
 		TalentPlace.recompute(_gd, _db, q_cache)
+	var abs_season: int = MapChange.abs_season(year, season)
+	var has_traits_file: bool = _gd.registry.has_file(NpcTraits.FILE)
 	for p in _db.living():
 		if not p.alive or p.get("is_player", false):
 			continue
 		p["age"] = float(p.age) + season_years
-		if not Array(p.get("npc_traits", {}).get("gained", [])).is_empty():   # NPC Traits rule 12: gained traits fade
-			NpcTraits.fade(p, MapChange.abs_season(year, season))
+		var nt: Dictionary = p.get("npc_traits", {})
+		var has_gained: bool = not Array(nt.get("gained", [])).is_empty()
+		var cop: Variant = nt.get("coping", {})
+		var has_coping: bool = (cop is Dictionary and not (cop as Dictionary).is_empty()) or (cop is String and str(cop) != "")
+		if has_gained or has_coping:   # NPC Traits rules 12 & F6b: gained and coping traits fade
+			NpcTraits.fade(p, abs_season)
 		# Read the record directly: a full Character per NPC per season is too slow at world size.
 		var realm_index: int = int(p.realm_index)
 		var stage: int = int(p.get("stage", 0))
@@ -69,6 +75,8 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		if float(p.age) >= lifespan:
 			news.append_array(old_age_death(p, year, season))
 			continue
+		if not p.get("is_beast", false) and has_traits_file:
+			NpcTraits.update_waning(_gd, p, float(p.age), lifespan)
 		if not p.get("is_beast", false):
 			cultivators += 1
 		if p.get("is_beast", false) and str(p.get("owner_id", "")) == "":
@@ -293,8 +301,22 @@ func _intake(rng: RandomNumberGenerator, cultivators: int) -> void:
 				Ties.set_master(_gd, _db, str(rec.id), mid, Ties.now(_db))
 				if rec.has("npc_traits") and not rec.has("cast_key") and _gd.registry.has_file(NpcTraits.FILE):
 					var master: Dictionary = _db.get_record("people", mid)
+					var bp_id: String = str(rec.get("birthplace", ""))
+					var bp_kind: String = str(_db.get_record("places", bp_id).get("kind", "")) if bp_id != "" else ""
+					var parents: Array = []
+					if str(rec.get("parent_id", "")) != "":
+						var par: Dictionary = _db.get_record("people", str(rec.parent_id))
+						if not par.is_empty():
+							parents.append(par.get("npc_traits", {}))
+					var roll_opts := {
+						"realm_index": int(rec.get("realm_index", 0)),
+						"linh_can": rec.get("linh_can", {}),
+						"birthplace_kind": bp_kind,
+						"parents": parents,
+						"now": Ties.now(_db),
+					}
 					rec["npc_traits"] = NpcTraits.roll(_gd, _builds.trait_key(str(rec.id)), str(rec.get("archetype", "")), true,
-						master.get("npc_traits", {}).get("personality", []), rec.get("thien_phu", {}))
+						master.get("npc_traits", {}).get("personality", []), rec.get("thien_phu", {}), roll_opts)
 					_builds.refresh_power(str(rec.id))
 
 
@@ -375,6 +397,7 @@ func _birth_to_parent(rng: RandomNumberGenerator, parent: Dictionary, idx: Dicti
 	var opts := {
 		"realm_index": 0, "stage": 0, "age": 16.0,
 		"location_id": bp_id, "birthplace": bp_id, "linh_can": lc,
+		"parent_traits": [parent.get("npc_traits", {})],
 	}
 	var psect: Dictionary = _db.get_record("sects", str(parent.get("sect_id", ""))) if str(parent.get("sect_id", "")) != "" else {}
 	if not psect.is_empty() and str(psect.get("status", "active")) != "active":

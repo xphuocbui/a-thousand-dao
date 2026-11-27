@@ -165,9 +165,12 @@ static func tile(icon: Texture2D, label: String, value: String, note: String = "
 	t.custom_minimum_size = Vector2(min_w, 0)
 	t.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	t.focus_mode = Control.FOCUS_ALL
+	var outer := VBoxContainer.new()
+	outer.add_theme_constant_override("separation", 2)
+	t.add_child(outer)
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 8)
-	t.add_child(row)
+	outer.add_child(row)
 	if icon != null:
 		var ic := TextureRect.new()
 		ic.texture = icon
@@ -195,7 +198,9 @@ static func tile(icon: Texture2D, label: String, value: String, note: String = "
 		n.text = note
 		n.theme_type_variation = &"RowLabel"
 		n.add_theme_color_override("font_color", Color(INK, 0.7))
-		col.add_child(n)
+		n.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		n.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		outer.add_child(n)
 	t.accessibility_name = "%s %s%s" % [label, value, (" " + note) if note != "" else ""]
 	return t
 

@@ -62,6 +62,7 @@ def main():
     old = {p["key"]: p for p in hist["people"] if p.get("sect") not in exported and not p.get("tier")}
     t1 = load(ROOT / "assets/data/traits.json")
     v1 = {k: {x["name"] for x in t1[k]} for k in ["personality", "callings", "fate", "gained"]}
+    retired_fates = {re.sub(r"[\s\-]+", "_", k.strip().lower()) for k in t1.get("retired_fates", {})}
     pers_set = {x["name"]: x.get("set") for x in t1["personality"]}  # same set = opposites (traits.json)
     t2 = load(D / "traits-v2.json")
     v2 = {k: {x["id"] for x in t2[k]} for k in t2["kinds"]}
@@ -199,10 +200,12 @@ def main():
                 f("trait", "%s: personality %s unknown" % (where, x))
         if tr.get("calling") and tr["calling"] not in v1["callings"]:
             f("trait", "%s: calling %s unknown" % (where, tr["calling"]))
-        for kind, pool in [("fate_given", v1["fate"]), ("gained", v1["gained"])]:
-            for x in tr.get(kind, []) or []:
-                if x not in pool:
-                    f("trait", "%s: %s %s unknown" % (where, kind, x))
+        for x in tr.get("fate_given", []) or []:
+            if x not in v1["fate"] and re.sub(r"[\s\-]+", "_", str(x).strip().lower()) not in retired_fates:
+                f("trait", "%s: fate_given %s unknown" % (where, x))
+        for x in tr.get("gained", []) or []:
+            if x not in v1["gained"]:
+                f("trait", "%s: gained %s unknown" % (where, x))
         if not tr.get("upbringing"):
             f("trait", "%s: no upbringing" % where)
         for kind in ["upbringing", "lifestyle", "health", "coping"]:

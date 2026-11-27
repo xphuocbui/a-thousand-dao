@@ -94,11 +94,21 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 		record["birthplace"] = birthplace
 	var pid: String = _db.add("people", record)
 	c.id = pid
-	if not c.is_beast and _gd.registry.has_file(NpcTraits.FILE):   # NPC Traits F4, keyed on the world and the id
+	if not c.is_beast and _gd.registry.has_file(NpcTraits.FILE):   # NPC Traits F4 & F4b, keyed on the world and the id
 		var lean: Array = []   # NPC Traits F5: a master known at creation leans the roll toward the master's personality
 		if c.master_id != "":
 			lean = _db.get_record("people", c.master_id).get("npc_traits", {}).get("personality", [])
-		c.npc_traits = NpcTraits.roll(_gd, trait_key(pid), str(arch_id), c.sect_id != "", lean, c.thien_phu)
+		var bp_kind: String = str(_db.get_record("places", birthplace).get("kind", "")) if birthplace != "" else ""
+		var roll_opts := {
+			"realm_index": c.realm_index,
+			"linh_can": c.linh_can,
+			"birthplace_kind": bp_kind,
+			"parents": Array(opts.get("parent_traits", [])),
+			"now": Ties.now(_db),
+		}
+		if opts.has("family_kind"):
+			roll_opts["family_kind"] = str(opts.family_kind)
+		c.npc_traits = NpcTraits.roll(_gd, trait_key(pid), str(arch_id), c.sect_id != "", lean, c.thien_phu, roll_opts)
 	if not c.is_beast:
 		_equip_build(c, rng, arch_id)
 		_allocate_tree(c, rng, arch_id)

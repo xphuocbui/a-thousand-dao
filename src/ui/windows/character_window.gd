@@ -573,9 +573,14 @@ func _build_talents(v: Dictionary, parent: Control) -> void:
 	var icons: Dictionary = style.get("talent_icons", {})
 	var g: GridContainer = Illustrated.grid(box, 2, 6)
 	for t in Array(v.get("talents", [])):
-		var bonus: int = int(t.get("bonus", 0))
-		var tl: PanelContainer = Illustrated.tile(Illustrated.tex(_icon_path(str(icons.get(str(t.id), "")))), str(t.name), "%d" % int(t.value),
-			str(t.grade) + (("  %+d" % bonus) if bonus != 0 else ""), 0.0)
+		var gd_text: String = str(t.get("grade_display", str(t.get("grade", ""))))
+		var note: String = gd_text
+		if not t.has("grade_display"):
+			var bonus: int = int(t.get("bonus", 0))
+			note = str(t.grade) + (("  %+d" % bonus) if bonus != 0 else "")
+		var tl: PanelContainer = Illustrated.tile(Illustrated.tex(_icon_path(str(icons.get(str(t.id), "")))), str(t.name), "%d" % int(t.value), note, 0.0)
+		tl.name = "Talent_" + str(t.id)
+		tl.accessibility_name = "%s %d, %s" % [str(t.name), int(t.value), gd_text]
 		TooltipLayer.set_tip(tl, breakdown_tip(str(t.name), bds.get("talent:" + str(t.id), {})))
 		g.add_child(tl)
 

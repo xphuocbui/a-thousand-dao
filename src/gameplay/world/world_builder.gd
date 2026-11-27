@@ -335,8 +335,9 @@ func _step_cast() -> void:
 		rec["cast_key"] = str(p.key)
 		rec["born_year"] = int(p.born)
 		rec["role"] = str(p.get("role", ""))
-		rec["npc_traits"] = NpcTraits.from_authored(_gd, p.get("traits", {}))   # the cast's authored traits, as catalogue ids
+		rec["npc_traits"] = NpcTraits.from_authored(_gd, p.get("traits", {}), current_year * 4)   # the cast's authored traits, as catalogue ids
 		NpcTraits.grant_authored(_gd, rec, Array(p.get("traits", {}).get("gained", [])), current_year * 4)   # world-depth
+		_builds.refresh_power(pid)
 		rec["build_source"] = "authored" if not authored.is_empty() else "stand-in"
 		rec.erase("pending")
 		if not sect_rec.is_empty():
@@ -1001,8 +1002,17 @@ func _join(rec: Dictionary, sect: Dictionary, realm: int, k: int) -> void:
 		Ties.set_master(_gd, _db, str(rec.id), str(pick.id), current_year * 4)   # NPC Relationships rule 2
 		# NPC Traits F5: a master known at creation: the disciple's roll leans toward the master's personality
 		if rec.has("npc_traits") and not rec.has("cast_key") and _gd.registry.has_file(NpcTraits.FILE):
+			var bp_id: String = str(rec.get("birthplace", ""))
+			var bp_kind: String = str(_db.get_record("places", bp_id).get("kind", "")) if bp_id != "" else ""
+			var roll_opts := {
+				"realm_index": int(rec.get("realm_index", 0)),
+				"linh_can": rec.get("linh_can", {}),
+				"birthplace_kind": bp_kind,
+				"parents": [],
+				"now": current_year * 4,
+			}
 			rec["npc_traits"] = NpcTraits.roll(_gd, _builds.trait_key(str(rec.id)), str(rec.get("archetype", "")), true,
-				pick.get("npc_traits", {}).get("personality", []), rec.get("thien_phu", {}))
+				pick.get("npc_traits", {}).get("personality", []), rec.get("thien_phu", {}), roll_opts)
 			_builds.refresh_power(str(rec.id))
 
 

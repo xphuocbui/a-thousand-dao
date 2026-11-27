@@ -494,8 +494,17 @@ static func character(s: GameSession, person_id: String = "") -> Dictionary:
 			out.roots.variants.append({"id": str(def.id), "name": gd.element_label(str(def.id)), "purity": c.linh_can.purity(str(def.id)),
 				"origin": str(def.get("origin", "")), "lines": parts})
 	for def in gd.thien_phu_defs():
-		var v: float = sh.effective(def.id, c)
-		out.talents.append({"id": str(def.id), "name": str(def.name), "value": v, "grade": gd.grade_name(v), "bonus": int(v) - c.base_stat(def.id)})
+		var base_v: int = c.base_stat(def.id)
+		var base_g: String = gd.grade_name(float(base_v))
+		var eff_v: float = sh.effective(def.id, c)
+		var eff_g: String = gd.grade_name(eff_v)
+		var tiers: Array = NpcTraits.talent_tier_sources(gd, {"npc_traits": c.npc_traits}, str(def.id))
+		var grade_display: String = format_talent_grade(eff_g, base_g, tiers)
+		out.talents.append({
+			"id": str(def.id), "name": str(def.name), "value": eff_v, "base": base_v,
+			"grade": eff_g, "base_grade": base_g, "grade_display": grade_display,
+			"talent_tiers": tiers, "bonus": int(roundf(eff_v)) - base_v,
+		})
 		out.breakdowns["talent:" + str(def.id)] = bd.call(sh.explain_thien_phu(def.id, c, def.name))
 	var kh: Breakdown = CharacterRules.khi_huyet_max(c, gd, sh)
 	var ll: Breakdown = CharacterRules.linh_luc(c, gd, sh)
@@ -1404,25 +1413,82 @@ static func item_icon(it: Dictionary) -> String:
 	return "res://assets/icons/items/cong_phap_.png" if k == "cong_phap" and ResourceLoader.exists("res://assets/icons/items/cong_phap_.png") else ""
 
 
-## A person's traits (NPC Traits #42, assets/data/traits.json) for a window: in group order (personality, calling,
-## fate, gained), each {group, id, name, name_vi, icon (res:// path of its medallion, "" when none), lines (the boon,
-## cost and rows as stat lines)}. [param nt] is a record's npc_traits. A copy.
+## Formats a talent's C3 grade display (Character Stats rule 5, amended 2026-11-25; AC-NT-39):
+## returns [param eff_grade] alone when it matches [param base_grade]; otherwise names the base grade
+## and each NPC Traits talent tier on that talent (e.g. "Thượng (base Trung, Genius +20)").
+static func format_talent_grade(eff_grade: String, base_grade: String, talent_tiers: Array) -> String:
+	if eff_grade == base_grade:
+		return eff_grade
+	var tier_str: String = ""
+	for ts in talent_tiers:
+		if ts is Dictionary:
+			tier_str += ", %s %+d" % [str(ts.get("name", "")), int(roundf(float(ts.get("value", 0.0))))]
+	return "%s (base %s%s)" % [eff_grade, base_grade, tier_str]
+
+
+## A person's traits (NPC Traits #42, assets/data/traits.json) for a window: in ten-kind order
+## (personality, calling, upbringing, talent, path, lifestyle, health, coping, fate, gained), each
+## {group, id, name, name_vi, icon (res:// path of its medallion, "" when none), lines (stat lines with
+## optional [scope] suffix), leans}. [param nt] is a record's npc_traits. A copy.
 static func traits_view(gd: GameData, nt: Dictionary) -> Array:
 	var tr_data: Dictionary = gd.file("traits")
 	var out: Array = []
-	for group in ["personality", "calling", "fate", "gained"]:
-		var ids: Array = Array(nt.get(group, [])) if nt.get(group) is Array else ([nt.get(group)] if str(nt.get(group, "")) != "" else [])
+	var fmt_row := func(m: Dictionary) -> String:
+		var s: String = gd.format_mod(str(m.get("stat", "")), float(m.get("value", 0.0)))
+		var scope: Array = Array(m.get("scope", []))
+		if not scope.is_empty():
+			var parts: Array = []
+			for sc in scope:
+				parts.append(str(sc))
+			s += " [%s]" % ", ".join(parts)
+		return s
+	for group in ["personality", "calling", "upbringing", "talent", "path", "lifestyle", "health", "coping", "fate", "gained"]:
+		var raw: Variant = nt.get(group)
+		var entries: Array = []
+		if raw is Array:
+			entries = raw
+		elif raw is Dictionary:
+			if not (raw as Dictionary).is_empty() and str((raw as Dictionary).get("id", "")) != "":
+				entries = [raw]
+		elif raw != null and str(raw) != "":
+			entries = [raw]
 		var table: Array = Array(tr_data.get("callings" if group == "calling" else group, []))
-		for tid in ids:
+		for entry in entries:
+			var tid: String = str((entry as Dictionary).get("id", "")) if entry is Dictionary else str(entry)
+			if tid == "":
+				continue
 			var rec: Dictionary = {}
 			for r in table:
-				if str(r.get("id", "")) == str(tid):
+				if str(r.get("id", "")) == tid:
 					rec = r
+					break
+			var name_str: String = str(rec.get("name", tid))
+			var name_vi_str: String = str(rec.get("name_vi", ""))
 			var lines: Array = []
-			for key in ["boon", "rows", "cost"]:
-				for m in Array(rec.get(key, [])):
-					lines.append(gd.format_mod(str(m.get("stat", "")), float(m.get("value", 0.0))))
-			var icon: String = "res://assets/icons/traits/%s.png" % str(tid)
+			if group == "talent":
+				var tiers: Array = Array(rec.get("tiers", []))
+				var tier: int = clampi(int((entry as Dictionary).get("tier", 1)) if entry is Dictionary else 1, 1, maxi(tiers.size(), 1))
+				var idx: int = tier - 1
+				var tnames: Array = Array(rec.get("tier_names", []))
+				var tnames_vi: Array = Array(rec.get("tier_names_vi", []))
+				if idx < tnames.size():
+					name_str = str(tnames[idx])
+				if idx < tnames_vi.size():
+					name_vi_str = str(tnames_vi[idx])
+				if idx < tiers.size():
+					var td: Dictionary = tiers[idx]
+					var t_adds: Dictionary = td.get("talent", {})
+					for stat_k in t_adds:
+						lines.append(gd.format_mod(str(stat_k), float(t_adds[stat_k])))
+					for m in Array(td.get("rows", [])):
+						lines.append(fmt_row.call(m))
+			else:
+				if group == "coping" and entry is Dictionary and bool((entry as Dictionary).get("hardened", false)):
+					name_str += " (hardened)"
+				for key in ["boon", "rows", "cost"]:
+					for m in Array(rec.get(key, [])):
+						lines.append(fmt_row.call(m))
+			var icon: String = "res://assets/icons/traits/%s.png" % tid
 			var more: Array = []
 			var less: Array = []
 			var tags: Dictionary = rec.get("tags", {})
@@ -1431,8 +1497,10 @@ static func traits_view(gd: GameData, nt: Dictionary) -> Array:
 			var leans: String = ("Leans to: " + ", ".join(more)) if not more.is_empty() else ""
 			if not less.is_empty():
 				leans += ("; " if leans != "" else "") + "less: " + ", ".join(less)
-			out.append({"group": group, "id": str(tid), "name": str(rec.get("name", tid)), "name_vi": str(rec.get("name_vi", "")),
-				"icon": icon if ResourceLoader.exists(icon) else "", "lines": lines, "leans": leans})
+			out.append({
+				"group": group, "id": tid, "name": name_str, "name_vi": name_vi_str,
+				"icon": icon if ResourceLoader.exists(icon) else "", "lines": lines, "leans": leans,
+			})
 	return out
 
 

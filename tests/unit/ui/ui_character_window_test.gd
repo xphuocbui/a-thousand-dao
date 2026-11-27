@@ -247,3 +247,146 @@ func test_the_formation_editor_is_look_only_while_an_event_waits() -> void:
 	w.open_tab("combat")
 	assert_true((_find(w, "Formation_plain") as Button).disabled)
 	assert_true((_find(w, "LayToggle") as Button).disabled)
+
+
+# --- Stage 10C: C3 talent grade display (Character Stats rule 5 / AC-NT-39) & traits_view v2 -------------------------
+
+func _mini_session(c: Character) -> GameSession:
+	var gd := game_data()
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, TestFixtures.tree())
+	s.ratings_background = false
+	s.db = WorldDB.new()
+	s.db.add("places", {"id": "loc_1", "name": "Test Vale", "kind": "village", "region_id": "", "qi": {"density": 1.0}})
+	c.id = "p_test"
+	c.location_id = "loc_1"
+	s.player = c
+	s.db.add("people", c.to_dict())
+	return s
+
+
+static func _talent_row(v: Dictionary, tid: String) -> Dictionary:
+	for t in Array(v.get("talents", [])):
+		if str(t.get("id", "")) == tid:
+			return t
+	return {}
+
+
+func test_format_talent_grade_and_character_c3_cases_ac_nt_39() -> void:
+	var gd := game_data()
+	# Direct helper checks
+	assert_eq(GameQuery.format_talent_grade("Thượng", "Trung", [{"name": "Genius", "value": 20.0}]),
+		"Thượng (base Trung, Genius +20)")
+	assert_eq(GameQuery.format_talent_grade("Trung", "Trung", []), "Trung")
+	assert_eq(GameQuery.format_talent_grade("Thiên", "Thiên", [{"name": "Genius", "value": 20.0}]), "Thiên")
+	assert_eq(GameQuery.format_talent_grade("Hạ", "Hạ", [{"name": "Dull-witted", "value": -20.0}]), "Hạ")
+	assert_eq(GameQuery.format_talent_grade("Thượng", "Trung", []), "Thượng (base Trung)")
+
+	# 1) base 45 + quick_minded 3 -> eff 65, "Thượng (base Trung, Genius +20)"
+	var c1 := TestFixtures.character({"hoa": 60}, 45, 0)
+	c1.npc_traits = {"talent": [{"id": "quick_minded", "tier": 3}]}
+	var v1: Dictionary = GameQuery.character(_mini_session(c1))
+	var t1: Dictionary = _talent_row(v1, "ngo_tinh")
+	assert_near(float(t1.value), 65.0, 1e-6)
+	assert_eq(int(t1.base), 45)
+	assert_eq(str(t1.grade), "Thượng")
+	assert_eq(str(t1.base_grade), "Trung")
+	assert_eq(str(t1.grade_display), "Thượng (base Trung, Genius +20)")
+	assert_eq(int(t1.bonus), 20)
+
+	# 2) base 45 + 0 -> eff 45, "Trung"
+	var c2 := TestFixtures.character({"hoa": 60}, 45, 0)
+	var v2: Dictionary = GameQuery.character(_mini_session(c2))
+	var t2: Dictionary = _talent_row(v2, "ngo_tinh")
+	assert_near(float(t2.value), 45.0, 1e-6)
+	assert_eq(str(t2.grade_display), "Trung")
+
+	# 3) base 100 + 30 (quick_minded 3 + non-trait flat +10) -> eff 130, "Thiên"
+	var c3 := TestFixtures.character({"hoa": 60}, 100, 0)
+	c3.npc_traits = {"talent": [{"id": "quick_minded", "tier": 3}]}
+	c3.tie_rows = [{"stat": "ngo_tinh", "value": 10.0, "source": "Test flat", "with": "m1"}]
+	var v3: Dictionary = GameQuery.character(_mini_session(c3))
+	var t3: Dictionary = _talent_row(v3, "ngo_tinh")
+	assert_near(float(t3.value), 130.0, 1e-6)
+	assert_eq(str(t3.grade_display), "Thiên")
+
+	# 4) base 10 + slow_witted 3 -> eff 1, "Hạ"
+	var c4 := TestFixtures.character({"hoa": 60}, 10, 0)
+	c4.npc_traits = {"talent": [{"id": "slow_witted", "tier": 3}]}
+	var v4: Dictionary = GameQuery.character(_mini_session(c4))
+	var t4: Dictionary = _talent_row(v4, "ngo_tinh")
+	assert_near(float(t4.value), 1.0, 1e-6)
+	assert_eq(str(t4.grade_display), "Hạ")
+
+	# 5) gear/tree/non-trait-only shift (55 + 10 -> 65, no talent tier) -> "Thượng (base Trung)"
+	var c5 := TestFixtures.character({"hoa": 60}, 55, 0)
+	c5.tie_rows = [{"stat": "ngo_tinh", "value": 10.0, "source": "Test flat", "with": "m1"}]
+	var v5: Dictionary = GameQuery.character(_mini_session(c5))
+	var t5: Dictionary = _talent_row(v5, "ngo_tinh")
+	assert_near(float(t5.value), 65.0, 1e-6)
+	assert_eq(str(t5.grade_display), "Thượng (base Trung)")
+	assert_true(Array(t5.talent_tiers).is_empty())
+	assert_true(gd.grade_name(65.0) == "Thượng")
+
+
+func test_character_window_displays_c3_grade_text_on_talent_tile() -> void:
+	var c := TestFixtures.character({"hoa": 60}, 45, 0)
+	c.npc_traits = {"talent": [{"id": "quick_minded", "tier": 3}]}
+	var v: Dictionary = GameQuery.character(_mini_session(c))
+	var w := _window(v)
+	var tile: PanelContainer = _find(w, "Talent_ngo_tinh") as PanelContainer
+	assert_true(tile != null, "Talent_ngo_tinh tile exists")
+	assert_eq(str(tile.accessibility_name), "Ngộ tính 65, Thượng (base Trung, Genius +20)")
+	var found_note: bool = false
+	for l in tile.find_children("*", "Label", true, false):
+		if str((l as Label).text) == "Thượng (base Trung, Genius +20)":
+			found_note = true
+			assert_eq((l as Label).autowrap_mode, TextServer.AUTOWRAP_WORD_SMART, "C3 note wraps cleanly")
+	assert_true(found_note, "Talent_ngo_tinh displays C3 grade_display text")
+
+
+func test_traits_view_renders_all_ten_kinds_and_scoped_lines() -> void:
+	var gd := game_data()
+	var nt := {
+		"personality": ["brave"],
+		"calling": "strategist",
+		"upbringing": "sect_raised",
+		"talent": [{"id": "quick_minded", "tier": 3}],
+		"path": ["sword_heart"],
+		"lifestyle": "tea_master",
+		"health": ["old_wound"],
+		"coping": {"id": "drowns_in_wine", "refreshes": 3, "hardened": true},
+		"fate": ["spirit_eyed"],
+		"gained": [{"id": "scarred", "expires": 120, "target": ""}],
+	}
+	var rows: Array = GameQuery.traits_view(gd, nt)
+	var groups: Array = rows.map(func(r): return str(r.group))
+	assert_eq(groups, ["personality", "calling", "upbringing", "talent", "path", "lifestyle", "health", "coping", "fate", "gained"],
+		"all 10 kinds in canonical order")
+	var by_group := {}
+	for r in rows:
+		by_group[str(r.group)] = r
+	# Talent uses tier name & tier_names_vi, and formats both talent add and tier rows
+	assert_eq(str(by_group.talent.name), "Genius")
+	assert_eq(str(by_group.talent.name_vi), "thiên tài")
+	var t_lines: String = " | ".join(Array(by_group.talent.lines))
+	assert_true(t_lines.contains("+20") and t_lines.contains("Ngộ tính"), "talent flat add formatted: %s" % t_lines)
+	assert_true(t_lines.contains("+6%") and t_lines.contains("tu luyện"), "talent tier row formatted: %s" % t_lines)
+	# Path scoped row appends [sword]
+	var p_lines: String = " | ".join(Array(by_group.path.lines))
+	assert_true(p_lines.contains("[sword]"), "scoped row shows [sword]: %s" % p_lines)
+	# Hardened coping appends " (hardened)"
+	assert_eq(str(by_group.coping.name), "Drowns in wine (hardened)")
+	# Upbringing, lifestyle, health, gained dict entries resolve to catalogue names and stat lines
+	assert_eq(str(by_group.upbringing.name), "Sect-raised")
+	assert_eq(str(by_group.lifestyle.name), "Tea master")
+	assert_eq(str(by_group.health.name), "Old wound")
+	assert_eq(str(by_group.gained.name), "Scarred")
+	assert_true(Array(by_group.gained.lines).size() > 0, "gained dict resolves rows")
+	# Each row preserves the shape Illustrated.trait_chip expects (and builds a chip cleanly)
+	for r in rows:
+		for k in ["group", "id", "name", "name_vi", "icon", "lines", "leans"]:
+			assert_true((r as Dictionary).has(k), "trait row has %s" % k)
+		var chip: PanelContainer = auto_free(Illustrated.trait_chip(r))
+		assert_true(chip != null)

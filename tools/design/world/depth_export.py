@@ -14,7 +14,9 @@ The export's own checks then run over the merged cast as before. Emits through t
 import glob
 import json
 import os
+import re
 import sys
+import unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -22,7 +24,21 @@ import depth_gap  # noqa: E402  (TIE_MAP, PINNED, TIE_CAP: one mapping for the g
 
 ROOT = os.path.normpath(os.path.join(HERE, "..", "..", ".."))
 D = os.path.join(ROOT, "design", "world", "depth")
+TRAITS_PATH = os.path.join(ROOT, "assets", "data", "traits.json")
 WORLD_DATA_VERSION = 1   # ADR-0009 decision 9: raised only on a break an old save cannot hold
+
+# NPC Traits rule 2a over-band trim constants (design/gdd/npc-traits.md:89-99, AC-NT-53)
+TRAIT_BAND_MAX = {"A": 12, "B": 8, "C": 6}
+TRIM_KIND_PRIORITY = {
+    "gained": 0,
+    "coping": 1,
+    "lifestyle": 2,
+    "fate_given": 3,
+    "path": 4,
+    "talent": 5,
+    "health": 6,
+}
+TEXT_FIELDS = ("backstory", "role", "gloss", "wants", "secret", "appearance")
 
 # authored start strength of a soft tie (Ties.write_soft delta; npc_relationships.json soft start is 25 / -10 / -50)
 SOFT_START = {"friend": 40, "rival": 40, "enmity": 50}
@@ -106,6 +122,127 @@ def former_kind(note):
     return "friend"
 
 
+def _slug(name):
+    n = unicodedata.normalize("NFKD", str(name).lower().replace("đ", "d")).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "_", n).strip("_")
+
+
+def _total_traits(tr):
+    return (
+        len(tr.get("personality") or [])
+        + (1 if tr.get("calling") else 0)
+        + (1 if tr.get("upbringing") else 0)
+        + len(tr.get("talent") or [])
+        + len(tr.get("path") or [])
+        + (1 if tr.get("lifestyle") else 0)
+        + len(tr.get("health") or [])
+        + (1 if tr.get("coping") else 0)
+        + len(tr.get("fate_given") or [])
+        + len(tr.get("gained") or [])
+    )
+
+
+class TraitIndex:
+    """Indexed view of assets/data/traits.json for v1/v2 validation, retired-fate migration, and Rule 2a trim."""
+
+    def __init__(self, data):
+        self.data = data
+        self.v1_by_name = {}
+        self.v1_by_id = {}
+        for k in ("personality", "callings", "fate", "gained"):
+            self.v1_by_name[k] = {x["name"]: x for x in data.get(k, [])}
+            self.v1_by_id[k] = {x["id"]: x for x in data.get(k, [])}
+        self.v2_by_id = {}
+        for k in ("upbringing", "talent", "path", "lifestyle", "health", "coping"):
+            self.v2_by_id[k] = {x["id"]: x for x in data.get(k, [])}
+        self.retired_fates = {k: {"id": str(v["id"]), "tier": int(v["tier"])} for k, v in data.get("retired_fates", {}).items()}
+        self.opposed_of = {}
+        for pair in data.get("opposed_v2", []):
+            if len(pair) == 2:
+                a, b = pair
+                self.opposed_of.setdefault(a, set()).add(b)
+                self.opposed_of.setdefault(b, set()).add(a)
+
+    def resolve_v1(self, kind, raw):
+        if raw in self.v1_by_name[kind]:
+            return self.v1_by_name[kind][raw]
+        s = _slug(raw)
+        if s in self.v1_by_id[kind]:
+            return self.v1_by_id[kind][s]
+        return None
+
+    def retired_replacement(self, raw):
+        return self.retired_fates.get(_slug(raw))
+
+    def search_terms(self, kind, val):
+        """Candidate ids, English names, tier names, and Vietnamese names to look for in a person's text."""
+        terms = []
+        if kind in ("gained", "fate_given"):
+            v1_kind = "gained" if kind == "gained" else "fate"
+            rec = self.resolve_v1(v1_kind, val)
+            if rec:
+                terms.extend([rec["id"], rec["id"].replace("_", " "), rec["id"].replace("_", "-"),
+                              rec["name"], rec.get("name_vi", "")])
+            else:
+                terms.append(str(val))
+        elif kind == "talent":
+            tid = val["id"]
+            tier = int(val["tier"])
+            rec = self.v2_by_id["talent"].get(tid)
+            terms.extend([tid, tid.replace("_", " "), tid.replace("_", "-")])
+            if rec:
+                tn = rec.get("tier_names") or [s.strip() for s in rec.get("name", "").split("/")]
+                tn_vi = rec.get("tier_names_vi") or [s.strip() for s in rec.get("name_vi", "").split("/")]
+                if 1 <= tier <= len(tn):
+                    terms.append(tn[tier - 1])
+                if 1 <= tier <= len(tn_vi):
+                    terms.append(tn_vi[tier - 1])
+        else:
+            rec = self.v2_by_id.get(kind, {}).get(val)
+            terms.extend([str(val), str(val).replace("_", " "), str(val).replace("_", "-")])
+            if rec:
+                terms.extend([rec.get("name", ""), rec.get("name_vi", "")])
+        return [t.strip().lower() for t in terms if t and t.strip()]
+
+
+def load_trait_index():
+    return TraitIndex(load(TRAITS_PATH))
+
+
+def migrate_retired_fates(traits, tier, idx, where, warn_fn):
+    """Migrate retired v1 fates in fate_given into talent tiers (Rule 2, AC-NT-49)."""
+    fates = list(traits.get("fate_given") or [])
+    talents = [dict(x) for x in (traits.get("talent") or [])]
+    talent_cap = 3 if tier == "A" else 2
+    kept_fates = []
+    for fg in fates:
+        rep = idx.retired_replacement(fg)
+        if rep is None:
+            kept_fates.append(fg)
+            continue
+        fam_id = rep["id"]
+        rep_tier = rep["tier"]
+        existing = next((t for t in talents if t["id"] == fam_id), None)
+        if existing is not None:
+            old_t = int(existing["tier"])
+            existing["tier"] = max(old_t, rep_tier)
+            warn_fn("%s: migrated retired fate %s -> %s tier %d (merged from tier %d)" % (where, fg, fam_id, existing["tier"], old_t))
+        else:
+            opps = idx.opposed_of.get(fam_id, set())
+            dropped_opps = [t["id"] for t in talents if t["id"] in opps]
+            if dropped_opps:
+                talents = [t for t in talents if t["id"] not in opps]
+                warn_fn("%s: retired fate %s -> %s tier %d dropped opposed talent(s) %s" % (where, fg, fam_id, rep_tier, ", ".join(dropped_opps)))
+            talents.append({"id": fam_id, "tier": rep_tier})
+            warn_fn("%s: migrated retired fate %s -> %s tier %d" % (where, fg, fam_id, rep_tier))
+            while len(talents) > talent_cap:
+                talents.sort(key=lambda t: (int(t["tier"]), t["id"]))
+                dropped = talents.pop(0)
+                warn_fn("%s: retired fate migration exceeded talent cap %d; dropped %s tier %d" % (where, talent_cap, dropped["id"], dropped["tier"]))
+    traits["fate_given"] = kept_fates
+    traits["talent"] = talents
+
+
 class Depth:
     """The depth content of the exported owners, merged into an Export (tools/design/world/export_world.py)."""
 
@@ -117,6 +254,203 @@ class Depth:
                 self.people_src += load(f)["people"]
         self.place_ids = {p["id"] for p in ex.cont["places"]}
         self.former_log = []
+        self.trim_log = []
+        self.trait_idx = load_trait_index()
+
+    def _normalize_traits(self, raw_tr, where):
+        tr = raw_tr or {}
+        raw_health = tr.get("health")
+        if raw_health is None or raw_health == "":
+            health = []
+        elif isinstance(raw_health, str):
+            health = [raw_health]
+        elif isinstance(raw_health, list):
+            health = [str(x) for x in raw_health if x]
+        else:
+            self.ex.err("%s: invalid health field %r" % (where, raw_health))
+            health = []
+
+        raw_coping = tr.get("coping")
+        if raw_coping is None or raw_coping == "":
+            coping = ""
+        elif isinstance(raw_coping, str):
+            coping = raw_coping
+        elif isinstance(raw_coping, list):
+            vals = [str(x) for x in raw_coping if x]
+            if len(vals) > 1:
+                self.ex.err("%s: %d coping traits (cap 1, NPC Traits rule 2a)" % (where, len(vals)))
+            coping = vals[0] if vals else ""
+        else:
+            self.ex.err("%s: invalid coping field %r" % (where, raw_coping))
+            coping = ""
+
+        talents = []
+        for x in (tr.get("talent") or []):
+            if isinstance(x, dict) and "id" in x and "tier" in x:
+                talents.append({"id": str(x["id"]), "tier": int(x["tier"])})
+            else:
+                self.ex.err("%s: malformed talent entry %r" % (where, x))
+
+        return {
+            "personality": [str(x) for x in (tr.get("personality") or []) if x],
+            "calling": str(tr.get("calling") or ""),
+            "fate_given": [str(x) for x in (tr.get("fate_given") or []) if x],
+            "gained": [str(x) for x in (tr.get("gained") or []) if x],
+            "upbringing": str(tr.get("upbringing") or ""),
+            "talent": talents,
+            "path": [str(x) for x in (tr.get("path") or []) if x],
+            "lifestyle": str(tr.get("lifestyle") or ""),
+            "health": health,
+            "coping": coping,
+        }
+
+    def _validate_traits(self, tr, tier, where):
+        """AC-NT-29: validate all v1/v2 trait ids/names, per-kind caps, and opposed pairs."""
+        idx = self.trait_idx
+        pers = tr["personality"]
+        if len(pers) != 3:
+            self.ex.err("%s: %d personality traits (need 3, AC-NT-29)" % (where, len(pers)))
+        seen_sets = set()
+        for nm in pers:
+            rec = idx.resolve_v1("personality", nm)
+            if rec is None:
+                self.ex.err("%s: unknown personality trait %r (AC-NT-29)" % (where, nm))
+            else:
+                if rec["set"] in seen_sets:
+                    self.ex.err("%s: opposed/duplicate personality set %d (%s, AC-NT-29)" % (where, rec["set"], pers))
+                seen_sets.add(rec["set"])
+
+        if not tr["calling"] or idx.resolve_v1("callings", tr["calling"]) is None:
+            self.ex.err("%s: unknown or missing calling %r (AC-NT-29)" % (where, tr["calling"]))
+
+        fates = tr["fate_given"]
+        if len(fates) > 2:
+            self.ex.err("%s: %d fate_given traits (cap 2, AC-NT-29)" % (where, len(fates)))
+        seen_fate_pairs = set()
+        held_v2_and_fate = set()
+        for nm in fates:
+            rec = idx.resolve_v1("fate", nm)
+            if rec is None:
+                self.ex.err("%s: unknown or retired fate_given %r (AC-NT-29)" % (where, nm))
+            else:
+                if rec["pair"] in seen_fate_pairs:
+                    self.ex.err("%s: opposed/duplicate fate pair %s (%s, AC-NT-29)" % (where, rec["pair"], fates))
+                seen_fate_pairs.add(rec["pair"])
+                held_v2_and_fate.add(rec["id"])
+
+        gained = tr["gained"]
+        if len(gained) > 2:
+            self.ex.err("%s: %d gained traits (cap 2, AC-NT-29)" % (where, len(gained)))
+        if len(set(gained)) != len(gained):
+            self.ex.err("%s: duplicate gained traits %s (AC-NT-29)" % (where, gained))
+        for nm in gained:
+            if idx.resolve_v1("gained", nm) is None:
+                self.ex.err("%s: unknown gained trait %r (AC-NT-29)" % (where, nm))
+
+        if not tr["upbringing"]:
+            self.ex.err("%s: missing upbringing (need 1, AC-NT-29)" % where)
+        elif tr["upbringing"] not in idx.v2_by_id["upbringing"]:
+            self.ex.err("%s: unknown upbringing %r (AC-NT-29)" % (where, tr["upbringing"]))
+
+        talent_cap = 3 if tier == "A" else 2
+        if len(tr["talent"]) > talent_cap:
+            self.ex.err("%s: %d talent traits (tier %s cap %d, AC-NT-29)" % (where, len(tr["talent"]), tier, talent_cap))
+        seen_tal = set()
+        for t in tr["talent"]:
+            tid, tv = t["id"], t["tier"]
+            if tid not in idx.v2_by_id["talent"] or tv not in (1, 2, 3):
+                self.ex.err("%s: invalid talent %r (AC-NT-29)" % (where, t))
+            elif tid in seen_tal:
+                self.ex.err("%s: duplicate talent family %r (AC-NT-29)" % (where, tid))
+            else:
+                seen_tal.add(tid)
+                held_v2_and_fate.add(tid)
+
+        if len(tr["path"]) > 2:
+            self.ex.err("%s: %d path traits (cap 2, AC-NT-29)" % (where, len(tr["path"])))
+        if len(set(tr["path"])) != len(tr["path"]):
+            self.ex.err("%s: duplicate path traits %s (AC-NT-29)" % (where, tr["path"]))
+        for pid in tr["path"]:
+            if pid not in idx.v2_by_id["path"]:
+                self.ex.err("%s: unknown path trait %r (AC-NT-29)" % (where, pid))
+            else:
+                held_v2_and_fate.add(pid)
+
+        if tr["lifestyle"] and tr["lifestyle"] not in idx.v2_by_id["lifestyle"]:
+            self.ex.err("%s: unknown lifestyle trait %r (AC-NT-29)" % (where, tr["lifestyle"]))
+
+        if len(tr["health"]) > 2:
+            self.ex.err("%s: %d health traits (cap 2, AC-NT-29)" % (where, len(tr["health"])))
+        if len(set(tr["health"])) != len(tr["health"]):
+            self.ex.err("%s: duplicate health traits %s (AC-NT-29)" % (where, tr["health"]))
+        for hid in tr["health"]:
+            if hid not in idx.v2_by_id["health"]:
+                self.ex.err("%s: unknown health trait %r (AC-NT-29)" % (where, hid))
+
+        if tr["coping"] and tr["coping"] not in idx.v2_by_id["coping"]:
+            self.ex.err("%s: unknown coping trait %r (AC-NT-29)" % (where, tr["coping"]))
+
+        for pair in idx.data.get("opposed_v2", []):
+            if len(pair) == 2 and pair[0] in held_v2_and_fate and pair[1] in held_v2_and_fate:
+                self.ex.err("%s: holds opposed traits %s and %s (AC-NT-29)" % (where, pair[0], pair[1]))
+
+    def _trim_over_band(self, p, tr, tier, where):
+        """Rule 2a over-band trim (design/gdd/npc-traits.md:89-99, AC-NT-53)."""
+        band_max = TRAIT_BAND_MAX.get(tier, 6)
+        if _total_traits(tr) <= band_max:
+            return
+        text_blob = " ".join(str(p.get(k) or "") for k in TEXT_FIELDS).lower()
+
+        def is_named(kind, val):
+            for term in self.trait_idx.search_terms(kind, val):
+                if re.search(r"(?<!\w)" + re.escape(term) + r"(?!\w)", text_blob):
+                    return 1
+            return 0
+
+        while _total_traits(tr) > band_max:
+            candidates = []
+            # Excluded: personality, calling, upbringing, and tier A's last talent
+            for i, nm in enumerate(tr["gained"]):
+                cid = _slug(nm)
+                candidates.append(((is_named("gained", nm), TRIM_KIND_PRIORITY["gained"], 0, cid), "gained", i, cid))
+            if tr["coping"]:
+                cid = tr["coping"]
+                candidates.append(((is_named("coping", cid), TRIM_KIND_PRIORITY["coping"], 0, cid), "coping", None, cid))
+            if tr["lifestyle"]:
+                cid = tr["lifestyle"]
+                candidates.append(((is_named("lifestyle", cid), TRIM_KIND_PRIORITY["lifestyle"], 0, cid), "lifestyle", None, cid))
+            for i, nm in enumerate(tr["fate_given"]):
+                cid = _slug(nm)
+                candidates.append(((is_named("fate_given", nm), TRIM_KIND_PRIORITY["fate_given"], 0, cid), "fate_given", i, cid))
+            for i, cid in enumerate(tr["path"]):
+                candidates.append(((is_named("path", cid), TRIM_KIND_PRIORITY["path"], 0, cid), "path", i, cid))
+            if tier != "A" or len(tr["talent"]) > 1:
+                for i, t in enumerate(tr["talent"]):
+                    cid = t["id"]
+                    candidates.append(((is_named("talent", t), TRIM_KIND_PRIORITY["talent"], int(t["tier"]), cid), "talent", i, cid))
+            for i, cid in enumerate(tr["health"]):
+                candidates.append(((is_named("health", cid), TRIM_KIND_PRIORITY["health"], 0, cid), "health", i, cid))
+
+            if not candidates:
+                self.ex.warn("%s (tier %s): over band (%d > %d) with only protected traits; trim stopped"
+                             % (where, tier, _total_traits(tr), band_max))
+                break
+
+            candidates.sort(key=lambda c: c[0])
+            sort_key, kind, idx_pos, cid = candidates[0]
+            before_n = _total_traits(tr)
+            if kind in ("gained", "fate_given", "path", "talent", "health"):
+                tr[kind].pop(idx_pos)
+            else:
+                tr[kind] = ""
+            named_flag = sort_key[0]
+            reason = "over tier %s band (%d > %d); %s; kind=%s" % (
+                tier, before_n, band_max,
+                "named in backstory" if named_flag else "not named in backstory",
+                kind,
+            )
+            self.trim_log.append((p["key"], cid, kind, reason))
+            self.ex.warn("%s (tier %s): trimmed %s '%s' (%s)" % (where, tier, kind, cid, reason))
 
     # -- people --------------------------------------------------------------------------------------------------
     def merge_people(self, people):
@@ -141,9 +475,12 @@ class Depth:
                 if home not in self.place_ids:
                     self.ex.err("%s: home %r is not a place id" % (where, home))
                 rec["home"] = home
-                tr = p.get("traits", {})
-                rec["traits"] = {"personality": tr.get("personality", []), "calling": tr.get("calling", ""),
-                                 "fate_given": tr.get("fate_given", []) or [], "gained": tr.get("gained", []) or []}
+                tier = p.get("tier") or "C"
+                tr = self._normalize_traits(p.get("traits"), where)
+                migrate_retired_fates(tr, tier, self.trait_idx, where, self.ex.warn)
+                self._validate_traits(tr, tier, where)
+                self._trim_over_band(p, tr, tier, where)
+                rec["traits"] = tr
             else:
                 rec["peak_realm"] = p.get("peak_realm") or p.get("realm")
                 rec["died"] = p.get("died")

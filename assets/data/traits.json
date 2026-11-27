@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "_doc": "Built by tools/design/traits/export_traits.py from design/gdd/npc-traits-catalogue.md (NPC Traits #42); do not edit by hand. Stat values are in the stat's own units (percent, points or pp, as the key reads them). pulls: the Sects F15 pulls the engine reads; notes: pulls kept as text (event weights and such, read by later systems).",
+ "_doc": "Built by tools/design/traits/export_traits.py from design/gdd/npc-traits-catalogue.md and design/world/depth/traits-v2.json (NPC Traits #42, Traits v2 amendment 2026-11-25); do not edit by hand. Stat values are in the stat's own units (percent, points or pp, as the key reads them). pulls: the Sects F15 pulls the engine reads; notes: pulls kept as text (event weights and such, read by later systems).",
  "personality": [
   {
    "id": "brave",
@@ -10,13 +10,13 @@
    "boon": [
     {
      "stat": "khi_huyet_pct",
-     "value": 2.0
+     "value": 4.0
     }
    ],
    "cost": [
     {
      "stat": "evade_pct",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -40,13 +40,13 @@
    "boon": [
     {
      "stat": "evade_pct",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "khi_huyet_pct",
-     "value": -2.0
+     "value": -4.0
     }
    ],
    "tags": {
@@ -70,13 +70,13 @@
    "boon": [
     {
      "stat": "qi_deviation_pct",
-     "value": -1.2
+     "value": -2.4
     }
    ],
    "cost": [
     {
      "stat": "status_resist_pct",
-     "value": -3.0
+     "value": -6.0
     }
    ],
    "tags": {
@@ -98,13 +98,13 @@
    "boon": [
     {
      "stat": "status_resist_pct",
-     "value": 3.0
+     "value": 6.0
     }
    ],
    "cost": [
     {
      "stat": "qi_deviation_pct",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "tags": {
@@ -129,13 +129,13 @@
    "boon": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "cultivation_speed_pct",
-     "value": -0.5
+     "value": -1.0
     }
    ],
    "tags": {
@@ -159,13 +159,13 @@
    "boon": [
     {
      "stat": "cultivation_speed_pct",
-     "value": 0.5
+     "value": 1.0
     }
    ],
    "cost": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -193,13 +193,13 @@
    "boon": [
     {
      "stat": "mission_income_pct",
-     "value": 1.7
+     "value": 3.4
     }
    ],
    "cost": [
     {
      "stat": "healing_taken_pct",
-     "value": -2.4
+     "value": -4.8
     }
    ],
    "tags": {
@@ -220,13 +220,13 @@
    "boon": [
     {
      "stat": "healing_taken_pct",
-     "value": 2.4
+     "value": 4.8
     }
    ],
    "cost": [
     {
      "stat": "mission_income_pct",
-     "value": -1.7
+     "value": -3.4
     }
    ],
    "tags": {
@@ -247,13 +247,13 @@
    "boon": [
     {
      "stat": "healing_taken_pct",
-     "value": 2.4
+     "value": 4.8
     }
    ],
    "cost": [
     {
      "stat": "status_resist_pct",
-     "value": -3.0
+     "value": -6.0
     }
    ],
    "tags": {
@@ -277,13 +277,13 @@
    "boon": [
     {
      "stat": "escape_pct",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "cost": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -307,13 +307,13 @@
    "boon": [
     {
      "stat": "mi_luc",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "cost": [
     {
      "stat": "mission_income_pct",
-     "value": -1.7
+     "value": -3.4
     }
    ],
    "tags": {
@@ -337,13 +337,13 @@
    "boon": [
     {
      "stat": "mission_income_pct",
-     "value": 1.7
+     "value": 3.4
     }
    ],
    "cost": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -367,13 +367,13 @@
    "boon": [
     {
      "stat": "travel_speed_pct",
-     "value": 4.0
+     "value": 8.0
     }
    ],
    "cost": [
     {
      "stat": "stealth",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -397,13 +397,13 @@
    "boon": [
     {
      "stat": "stealth",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "travel_speed_pct",
-     "value": -4.0
+     "value": -8.0
     }
    ],
    "tags": {
@@ -427,13 +427,13 @@
    "boon": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "stealth",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -456,13 +456,13 @@
    "boon": [
     {
      "stat": "stealth",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -487,13 +487,13 @@
    "boon": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "mi_luc",
-     "value": -1.2
+     "value": -2.4
     }
    ],
    "tags": {
@@ -516,13 +516,13 @@
    "boon": [
     {
      "stat": "mi_luc",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "cost": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -547,13 +547,13 @@
    "boon": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "stealth",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -577,13 +577,13 @@
    "boon": [
     {
      "stat": "stealth",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": -0.8
+     "value": -1.6
     }
    ],
    "tags": {
@@ -606,13 +606,13 @@
    "boon": [
     {
      "stat": "cultivation_speed_pct",
-     "value": 0.5
+     "value": 1.0
     }
    ],
    "cost": [
     {
      "stat": "travel_speed_pct",
-     "value": -4.0
+     "value": -8.0
     }
    ],
    "tags": {
@@ -634,13 +634,13 @@
    "boon": [
     {
      "stat": "travel_speed_pct",
-     "value": 4.0
+     "value": 8.0
     }
    ],
    "cost": [
     {
      "stat": "cultivation_speed_pct",
-     "value": -0.5
+     "value": -1.0
     }
    ],
    "tags": {
@@ -662,13 +662,13 @@
    "boon": [
     {
      "stat": "khi_huyet_pct",
-     "value": 2.0
+     "value": 4.0
     }
    ],
    "cost": [
     {
      "stat": "mi_luc",
-     "value": -1.2
+     "value": -2.4
     }
    ],
    "tags": {
@@ -689,13 +689,13 @@
    "boon": [
     {
      "stat": "mi_luc",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "cost": [
     {
      "stat": "khi_huyet_pct",
-     "value": -2.0
+     "value": -4.0
     }
    ],
    "tags": {
@@ -716,13 +716,13 @@
    "boon": [
     {
      "stat": "mi_luc",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "cost": [
     {
      "stat": "escape_pct",
-     "value": -1.2
+     "value": -2.4
     }
    ],
    "tags": {
@@ -744,13 +744,13 @@
    "boon": [
     {
      "stat": "escape_pct",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "cost": [
     {
      "stat": "mi_luc",
-     "value": -1.2
+     "value": -2.4
     }
    ],
    "tags": {
@@ -775,13 +775,13 @@
    "boon": [
     {
      "stat": "cultivation_speed_pct",
-     "value": 0.5
+     "value": 1.0
     }
    ],
    "cost": [
     {
      "stat": "mission_income_pct",
-     "value": -1.7
+     "value": -3.4
     }
    ],
    "tags": {
@@ -805,13 +805,13 @@
    "boon": [
     {
      "stat": "mission_income_pct",
-     "value": 1.7
+     "value": 3.4
     }
    ],
    "cost": [
     {
      "stat": "cultivation_speed_pct",
-     "value": -0.5
+     "value": -1.0
     }
    ],
    "tags": {
@@ -832,13 +832,13 @@
    "boon": [
     {
      "stat": "status_resist_pct",
-     "value": 3.0
+     "value": 6.0
     }
    ],
    "cost": [
     {
      "stat": "escape_pct",
-     "value": -1.2
+     "value": -2.4
     }
    ],
    "tags": {
@@ -860,13 +860,13 @@
    "boon": [
     {
      "stat": "escape_pct",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "cost": [
     {
      "stat": "status_resist_pct",
-     "value": -3.0
+     "value": -6.0
     }
    ],
    "tags": {
@@ -887,13 +887,13 @@
    "boon": [
     {
      "stat": "healing_pct",
-     "value": 2.4
+     "value": 4.8
     }
    ],
    "cost": [
     {
      "stat": "mission_income_pct",
-     "value": -1.7
+     "value": -3.4
     }
    ],
    "tags": {
@@ -919,13 +919,13 @@
    "boon": [
     {
      "stat": "tam_ma_resist_pct",
-     "value": 0.8
+     "value": 1.6
     }
    ],
    "cost": [
     {
      "stat": "healing_pct",
-     "value": -2.4
+     "value": -4.8
     }
    ],
    "tags": {
@@ -946,13 +946,13 @@
    "boon": [
     {
      "stat": "status_resist_pct",
-     "value": 3.0
+     "value": 6.0
     }
    ],
    "cost": [
     {
      "stat": "mi_luc",
-     "value": -1.2
+     "value": -2.4
     }
    ],
    "tags": {
@@ -980,13 +980,13 @@
    "boon": [
     {
      "stat": "status_resist_pct",
-     "value": 3.0
+     "value": 6.0
     }
    ],
    "cost": [
     {
      "stat": "cultivation_speed_pct",
-     "value": -0.5
+     "value": -1.0
     }
    ],
    "tags": {
@@ -1013,13 +1013,13 @@
    "boon": [
     {
      "stat": "cultivation_speed_pct",
-     "value": 0.5
+     "value": 1.0
     }
    ],
    "cost": [
     {
      "stat": "status_resist_pct",
-     "value": -3.0
+     "value": -6.0
     }
    ],
    "tags": {
@@ -1045,13 +1045,13 @@
    "boon": [
     {
      "stat": "mission_income_pct",
-     "value": 1.7
+     "value": 3.4
     }
    ],
    "cost": [
     {
      "stat": "escape_pct",
-     "value": -1.2
+     "value": -2.4
     }
    ],
    "tags": {
@@ -1075,13 +1075,13 @@
    "boon": [
     {
      "stat": "escape_pct",
-     "value": 1.2
+     "value": 2.4
     }
    ],
    "cost": [
     {
      "stat": "mission_income_pct",
-     "value": -1.7
+     "value": -3.4
     }
    ],
    "tags": {
@@ -1513,124 +1513,6 @@
  },
  "fate": [
   {
-   "id": "heaven_favoured",
-   "name": "Heaven-favoured",
-   "name_vi": "thiên quyến",
-   "pair": "fortune",
-   "rows": [
-    {
-     "stat": "co_duyen_pct",
-     "value": 26.6
-    }
-   ],
-   "world_price": "envy ×1.5",
-   "tags": {
-    "bold": 1.5
-   },
-   "regard": {},
-   "reads": "khi_van"
-  },
-  {
-   "id": "ill_starred",
-   "name": "Ill-starred",
-   "name_vi": "mệnh khắc",
-   "pair": "fortune",
-   "rows": [
-    {
-     "stat": "co_duyen_pct",
-     "value": -26.6
-    },
-    {
-     "stat": "tam_ma_resist_pct",
-     "value": 5.3
-    }
-   ],
-   "world_price": "",
-   "tags": {
-    "cautious": 1.5
-   },
-   "regard": {},
-   "reads": "khi_van (inverse)"
-  },
-  {
-   "id": "wise_born",
-   "name": "Wise-born",
-   "name_vi": "tuệ căn",
-   "pair": "comprehension",
-   "rows": [
-    {
-     "stat": "ngo_tinh",
-     "value": 1.6
-    }
-   ],
-   "world_price": "envy ×1.5; rival sects poach them as a disciple ×2",
-   "tags": {},
-   "regard": {},
-   "reads": "ngo_tinh"
-  },
-  {
-   "id": "dull_witted",
-   "name": "Dull-witted",
-   "name_vi": "độn căn",
-   "pair": "comprehension",
-   "rows": [
-    {
-     "stat": "ngo_tinh",
-     "value": -1.6
-    },
-    {
-     "stat": "dao_tam",
-     "value": 2.66
-    }
-   ],
-   "world_price": "",
-   "tags": {
-    "humble": 1.5
-   },
-   "regard": {},
-   "reads": "ngo_tinh (inverse)"
-  },
-  {
-   "id": "iron_boned",
-   "name": "Iron-boned",
-   "name_vi": "thiết cốt",
-   "pair": "root_bone",
-   "rows": [
-    {
-     "stat": "can_cot",
-     "value": 2.66
-    }
-   ],
-   "world_price": "duel challenges against them ×1.5",
-   "tags": {
-    "bold": 1.5
-   },
-   "regard": {},
-   "reads": "can_cot"
-  },
-  {
-   "id": "frail",
-   "name": "Frail",
-   "name_vi": "thể nhược",
-   "pair": "root_bone",
-   "rows": [
-    {
-     "stat": "can_cot",
-     "value": -2.66
-    },
-    {
-     "stat": "ngo_tinh",
-     "value": 1.6
-    }
-   ],
-   "world_price": "",
-   "tags": {
-    "cautious": 1.5
-   },
-   "regard": {},
-   "reads": "can_cot (inverse)"
-  },
-  {
    "id": "spirit_eyed",
    "name": "Spirit-eyed",
    "name_vi": "linh nhãn",
@@ -1712,6 +1594,32 @@
    "reads": "dao_tam (inverse)"
   }
  ],
+ "retired_fates": {
+  "wise_born": {
+   "id": "quick_minded",
+   "tier": 3
+  },
+  "iron_boned": {
+   "id": "sturdy_frame",
+   "tier": 3
+  },
+  "heaven_favoured": {
+   "id": "lucky",
+   "tier": 3
+  },
+  "ill_starred": {
+   "id": "unlucky",
+   "tier": 3
+  },
+  "dull_witted": {
+   "id": "slow_witted",
+   "tier": 3
+  },
+  "frail": {
+   "id": "frail_frame",
+   "tier": 1
+  }
+ },
  "gained": [
   {
    "id": "scarred",
@@ -2111,11 +2019,2241 @@
    "pulls": {}
   }
  ],
+ "upbringing": [
+  {
+   "id": "sect_raised",
+   "name": "Sect-raised",
+   "name_vi": "tông môn dưỡng",
+   "meaning": "Taken in as a child; the sect is the only home they know.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:sect_loyalty_test",
+    "policy:tradition"
+   ],
+   "likes": [
+    "sect_raised",
+    "Loyal"
+   ],
+   "dislikes": [
+    "Faithless",
+    "street_orphan"
+   ]
+  },
+  {
+   "id": "clan_heir",
+   "name": "Clan heir",
+   "name_vi": "thế gia tử",
+   "meaning": "Born into a cultivating clan; resources early, duties always.",
+   "rows": [
+    {
+     "stat": "khi_van",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:clan_summons",
+    "verb:invoke_clan"
+   ],
+   "likes": [
+    "clan_heir"
+   ],
+   "dislikes": [
+    "street_orphan"
+   ]
+  },
+  {
+   "id": "mortal_noble",
+   "name": "Mortal noble",
+   "name_vi": "quý tộc phàm trần",
+   "meaning": "A lord's or official's child; knows courts, rents and servants.",
+   "rows": [
+    {
+     "stat": "mission_income_pct",
+     "value": 6
+    },
+    {
+     "stat": "mi_luc",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:mortal_court",
+    "verb:command_mortals"
+   ],
+   "likes": [
+    "mortal_noble",
+    "scholar_family"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "scholar_family",
+   "name": "Scholar's child",
+   "name_vi": "thư hương môn đệ",
+   "meaning": "Grew up among books and examinations; reads old script.",
+   "rows": [
+    {
+     "stat": "than_thuc_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "event:ancient_text",
+    "craft:formations"
+   ],
+   "likes": [
+    "scholar_family",
+    "calligrapher",
+    "poet"
+   ],
+   "dislikes": [
+    "Arbitrary"
+   ]
+  },
+  {
+   "id": "street_orphan",
+   "name": "Street orphan",
+   "name_vi": "cô nhi đầu đường",
+   "meaning": "Survived alone in a city's gutters; trusts no one, misses nothing.",
+   "rows": [
+    {
+     "stat": "escape_pct",
+     "value": 4
+    },
+    {
+     "stat": "stealth",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:underworld_contact",
+    "stance:dirty_fighting"
+   ],
+   "likes": [
+    "street_orphan"
+   ],
+   "dislikes": [
+    "clan_heir",
+    "mortal_noble"
+   ],
+   "tags": {
+    "cautious": 1.5,
+    "pragmatic": 1.5,
+    "loyal": 0.67
+   }
+  },
+  {
+   "id": "village_born",
+   "name": "Village-born",
+   "name_vi": "thôn dã",
+   "meaning": "Farm or fishing folk; plain, hardy, close to the land.",
+   "rows": [
+    {
+     "stat": "herb_growth_pct",
+     "value": 5
+    },
+    {
+     "stat": "khi_huyet_pct",
+     "value": 2
+    }
+   ],
+   "opens": [
+    "event:village_plea"
+   ],
+   "likes": [
+    "village_born",
+    "Humble"
+   ],
+   "dislikes": [
+    "Arrogant"
+   ]
+  },
+  {
+   "id": "merchant_child",
+   "name": "Merchant's child",
+   "name_vi": "thương gia tử",
+   "meaning": "Raised behind a counter; counts in their sleep.",
+   "rows": [
+    {
+     "stat": "mission_income_pct",
+     "value": 8
+    }
+   ],
+   "opens": [
+    "verb:haggle",
+    "policy:trade"
+   ],
+   "likes": [
+    "merchant_child",
+    "Merchant"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "temple_raised",
+   "name": "Temple-raised",
+   "name_vi": "tự viện dưỡng",
+   "meaning": "Grew up in a monastery or shrine; rites and fasting are second nature.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 6
+    }
+   ],
+   "opens": [
+    "event:rite",
+    "verb:counsel"
+   ],
+   "likes": [
+    "temple_raised",
+    "Devout",
+    "Temperate"
+   ],
+   "dislikes": [
+    "Indulgent",
+    "demonic_path"
+   ]
+  },
+  {
+   "id": "wild_raised",
+   "name": "Wild-raised",
+   "name_vi": "sơn dã",
+   "meaning": "Raised by hunters or beasts in the wilds; reads tracks before letters.",
+   "rows": [
+    {
+     "stat": "companion_health_pct",
+     "value": 6
+    },
+    {
+     "stat": "travel_speed_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "event:beast_sign",
+    "craft:beasts"
+   ],
+   "likes": [
+    "wild_raised",
+    "hunter"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "war_orphan",
+   "name": "War orphan",
+   "name_vi": "chiến loạn cô nhi",
+   "meaning": "Lost their family to a sect war; remembers whose banner it was.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 2
+    }
+   ],
+   "opens": [
+    "event:old_war_grudge"
+   ],
+   "likes": [
+    "war_orphan"
+   ],
+   "dislikes": [
+    "Warlike",
+    "Cruel"
+   ],
+   "tags": {
+    "vengeful": 1.5,
+    "forgiving": 0.67
+   }
+  },
+  {
+   "id": "servant_born",
+   "name": "Servant-born",
+   "name_vi": "nô bộc xuất thân",
+   "meaning": "Born to the sect's servants; rose from sweeping halls.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 2
+    },
+    {
+     "stat": "escape_pct",
+     "value": 2
+    }
+   ],
+   "opens": [
+    "event:servants_whisper"
+   ],
+   "likes": [
+    "servant_born",
+    "Humble"
+   ],
+   "dislikes": [
+    "Arrogant",
+    "clan_heir"
+   ]
+  },
+  {
+   "id": "hermit_taught",
+   "name": "Hermit-taught",
+   "name_vi": "ẩn sĩ truyền",
+   "meaning": "Taught alone by a recluse in the mountains; odd habits, deep roots.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 4
+    },
+    {
+     "stat": "than_thuc_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:hermit_returns"
+   ],
+   "likes": [
+    "Reclusive",
+    "hermit_taught"
+   ],
+   "dislikes": [
+    "Gregarious"
+   ]
+  }
+ ],
+ "talent": [
+  {
+   "id": "quick_minded",
+   "name": "Quick-minded / Brilliant / Genius",
+   "name_vi": "thông tuệ / tuệ căn / thiên tài",
+   "meaning": "Comprehension (ngộ tính) gift.",
+   "stat": "ngo_tinh",
+   "direction": 1,
+   "tier_names": [
+    "Quick-minded",
+    "Brilliant",
+    "Genius"
+   ],
+   "tier_names_vi": [
+    "thông tuệ",
+    "tuệ căn",
+    "thiên tài"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "ngo_tinh": 6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "ngo_tinh": 12
+     },
+     "rows": [
+      {
+       "stat": "cultivation_speed_pct",
+       "value": 3
+      }
+     ]
+    },
+    {
+     "talent": {
+      "ngo_tinh": 20
+     },
+     "rows": [
+      {
+       "stat": "cultivation_speed_pct",
+       "value": 6
+      }
+     ],
+     "world_price": "envy ×1.5; rival sects poach them as a disciple ×2"
+    }
+   ],
+   "opens": [
+    "event:insight_flash"
+   ],
+   "likes": [
+    "quick_minded"
+   ],
+   "dislikes": [
+    "slow_witted"
+   ]
+  },
+  {
+   "id": "slow_witted",
+   "name": "Slow / Dim / Dull-witted",
+   "name_vi": "trì độn / ngu muội / đần độn",
+   "meaning": "Comprehension flaw.",
+   "stat": "ngo_tinh",
+   "direction": -1,
+   "tier_names": [
+    "Slow",
+    "Dim",
+    "Dull-witted"
+   ],
+   "tier_names_vi": [
+    "trì độn",
+    "ngu muội",
+    "đần độn"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "ngo_tinh": -6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "ngo_tinh": -12
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "ngo_tinh": -20
+     },
+     "rows": [
+      {
+       "stat": "cultivation_speed_pct",
+       "value": -4
+      }
+     ]
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "sturdy_frame",
+   "name": "Sturdy / Robust / Iron-framed",
+   "name_vi": "tráng kiện / cường tráng / thiết cốt",
+   "meaning": "Bone and body (căn cốt) gift.",
+   "stat": "can_cot",
+   "direction": 1,
+   "tier_names": [
+    "Sturdy",
+    "Robust",
+    "Iron-framed"
+   ],
+   "tier_names_vi": [
+    "tráng kiện",
+    "cường tráng",
+    "thiết cốt"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "can_cot": 6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "can_cot": 12
+     },
+     "rows": [
+      {
+       "stat": "khi_huyet_pct",
+       "value": 4
+      }
+     ]
+    },
+    {
+     "talent": {
+      "can_cot": 20
+     },
+     "rows": [
+      {
+       "stat": "khi_huyet_pct",
+       "value": 8
+      }
+     ],
+     "world_price": "duel challenges against them ×1.5"
+    }
+   ],
+   "opens": [
+    "craft:body"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "frail_frame",
+   "name": "Frail / Sickly / Broken-framed",
+   "name_vi": "yếu ớt / bệnh nhược / phế cốt",
+   "meaning": "Bone and body flaw.",
+   "stat": "can_cot",
+   "direction": -1,
+   "tier_names": [
+    "Frail",
+    "Sickly",
+    "Broken-framed"
+   ],
+   "tier_names_vi": [
+    "yếu ớt",
+    "bệnh nhược",
+    "phế cốt"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "can_cot": -6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "can_cot": -12
+     },
+     "rows": [
+      {
+       "stat": "khi_huyet_pct",
+       "value": -4
+      }
+     ]
+    },
+    {
+     "talent": {
+      "can_cot": -20
+     },
+     "rows": [
+      {
+       "stat": "khi_huyet_pct",
+       "value": -8
+      }
+     ]
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "keen_soul",
+   "name": "Keen / Deep / Vast-souled",
+   "name_vi": "linh mẫn / thâm hồn / hải hồn",
+   "meaning": "Soul (thần hồn) gift: senses far, resists the soul arts.",
+   "stat": "than_hon",
+   "direction": 1,
+   "tier_names": [
+    "Keen",
+    "Deep",
+    "Vast-souled"
+   ],
+   "tier_names_vi": [
+    "linh mẫn",
+    "thâm hồn",
+    "hải hồn"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "than_hon": 6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "than_hon": 12
+     },
+     "rows": [
+      {
+       "stat": "soul_res_pct",
+       "value": 6
+      }
+     ]
+    },
+    {
+     "talent": {
+      "than_hon": 20
+     },
+     "rows": [
+      {
+       "stat": "soul_res_pct",
+       "value": 12
+      },
+      {
+       "stat": "than_thuc_pct",
+       "value": 6
+      }
+     ]
+    }
+   ],
+   "opens": [
+    "event:sense_hidden"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "thin_soul",
+   "name": "Thin / Clouded / Empty-souled",
+   "name_vi": "hồn bạc / hồn mê / hồn rỗng",
+   "meaning": "Soul flaw.",
+   "stat": "than_hon",
+   "direction": -1,
+   "tier_names": [
+    "Thin",
+    "Clouded",
+    "Empty-souled"
+   ],
+   "tier_names_vi": [
+    "hồn bạc",
+    "hồn mê",
+    "hồn rỗng"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "than_hon": -6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "than_hon": -12
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "than_hon": -20
+     },
+     "rows": [
+      {
+       "stat": "soul_res_pct",
+       "value": -10
+      }
+     ]
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "comely",
+   "name": "Comely / Beautiful / Peerless",
+   "name_vi": "thanh tú / mỹ mạo / khuynh thành",
+   "meaning": "Charm (mị lực) gift.",
+   "stat": "mi_luc",
+   "direction": 1,
+   "tier_names": [
+    "Comely",
+    "Beautiful",
+    "Peerless"
+   ],
+   "tier_names_vi": [
+    "thanh tú",
+    "mỹ mạo",
+    "khuynh thành"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "mi_luc": 6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "mi_luc": 12
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "mi_luc": 20
+     },
+     "rows": []
+    }
+   ],
+   "opens": [
+    "verb:charm",
+    "event:suitors"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "homely",
+   "name": "Plain / Homely / Scarred-faced",
+   "name_vi": "tầm thường / xấu xí / mặt sẹo",
+   "meaning": "Charm flaw.",
+   "stat": "mi_luc",
+   "direction": -1,
+   "tier_names": [
+    "Plain",
+    "Homely",
+    "Scarred-faced"
+   ],
+   "tier_names_vi": [
+    "tầm thường",
+    "xấu xí",
+    "mặt sẹo"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "mi_luc": -6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "mi_luc": -12
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "mi_luc": -20
+     },
+     "rows": []
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "lucky",
+   "name": "Lucky / Blessed / Fate-touched",
+   "name_vi": "hữu phúc / phúc hậu / mệnh quý",
+   "meaning": "Fortune (khí vận) gift; tier 3 overlaps v1 Heaven-favoured and replaces it for new records.",
+   "stat": "khi_van",
+   "direction": 1,
+   "tier_names": [
+    "Lucky",
+    "Blessed",
+    "Fate-touched"
+   ],
+   "tier_names_vi": [
+    "hữu phúc",
+    "phúc hậu",
+    "mệnh quý"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "khi_van": 6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "khi_van": 12
+     },
+     "rows": [
+      {
+       "stat": "co_duyen_pct",
+       "value": 6
+      }
+     ]
+    },
+    {
+     "talent": {
+      "khi_van": 20
+     },
+     "rows": [
+      {
+       "stat": "co_duyen_pct",
+       "value": 14
+      }
+     ],
+     "world_price": "envy ×1.5"
+    }
+   ],
+   "opens": [
+    "event:chance_meeting"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "unlucky",
+   "name": "Unlucky / Ill-fated / Star-cursed",
+   "name_vi": "bạc phúc / mệnh khổ / tinh sát",
+   "meaning": "Fortune flaw; tier 3 overlaps v1 Ill-starred.",
+   "stat": "khi_van",
+   "direction": -1,
+   "tier_names": [
+    "Unlucky",
+    "Ill-fated",
+    "Star-cursed"
+   ],
+   "tier_names_vi": [
+    "bạc phúc",
+    "mệnh khổ",
+    "tinh sát"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "khi_van": -6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "khi_van": -12
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "khi_van": -20
+     },
+     "rows": [
+      {
+       "stat": "co_duyen_pct",
+       "value": -12
+      }
+     ]
+    }
+   ],
+   "opens": [
+    "event:misfortune"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "steady_heart",
+   "name": "Steady / Unshaken / Dao-hearted",
+   "name_vi": "tâm định / tâm kiên / đạo tâm",
+   "meaning": "Dao heart (đạo tâm) gift: resists heart demons, holds through bottlenecks.",
+   "stat": "dao_tam",
+   "direction": 1,
+   "tier_names": [
+    "Steady",
+    "Unshaken",
+    "Dao-hearted"
+   ],
+   "tier_names_vi": [
+    "tâm định",
+    "tâm kiên",
+    "đạo tâm"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "dao_tam": 6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "dao_tam": 12
+     },
+     "rows": [
+      {
+       "stat": "tam_ma_resist_pct",
+       "value": 6
+      }
+     ]
+    },
+    {
+     "talent": {
+      "dao_tam": 20
+     },
+     "rows": [
+      {
+       "stat": "tam_ma_resist_pct",
+       "value": 12
+      }
+     ]
+    }
+   ],
+   "opens": [
+    "event:heart_demon_resist"
+   ],
+   "likes": [
+    "steady_heart"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "restless_heart",
+   "name": "Restless / Wavering / Heart-cracked",
+   "name_vi": "tâm loạn / tâm dao / tâm liệt",
+   "meaning": "Dao heart flaw.",
+   "stat": "dao_tam",
+   "direction": -1,
+   "tier_names": [
+    "Restless",
+    "Wavering",
+    "Heart-cracked"
+   ],
+   "tier_names_vi": [
+    "tâm loạn",
+    "tâm dao",
+    "tâm liệt"
+   ],
+   "tiers": [
+    {
+     "talent": {
+      "dao_tam": -6
+     },
+     "rows": []
+    },
+    {
+     "talent": {
+      "dao_tam": -12
+     },
+     "rows": [
+      {
+       "stat": "tam_ma_resist_pct",
+       "value": -6
+      }
+     ]
+    },
+    {
+     "talent": {
+      "dao_tam": -20
+     },
+     "rows": [
+      {
+       "stat": "tam_ma_resist_pct",
+       "value": -12
+      },
+      {
+       "stat": "qi_deviation_pct",
+       "value": 4
+      }
+     ]
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": []
+  }
+ ],
+ "path": [
+  {
+   "id": "sword_heart",
+   "name": "Sword heart",
+   "name_vi": "kiếm tâm",
+   "meaning": "Has become one with the sword; thinks in cuts.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 6,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "stat": "crit_chance_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "stance:sword_intent",
+    "event:sword_challenge"
+   ],
+   "likes": [
+    "sword_heart"
+   ],
+   "dislikes": [],
+   "tags": {
+    "bold": 1.5,
+    "honest": 1.5,
+    "deceitful": 0.67
+   }
+  },
+  {
+   "id": "pill_fed",
+   "name": "Pill-fed",
+   "name_vi": "đan dược đôi",
+   "meaning": "Rose on pills more than on work; fast, but the foundation is loose.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 5
+    },
+    {
+     "stat": "qi_deviation_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:pill_debt"
+   ],
+   "likes": [],
+   "dislikes": [
+    "perfect_foundation"
+   ]
+  },
+  {
+   "id": "perfect_foundation",
+   "name": "Flawless foundation",
+   "name_vi": "hoàn mỹ đạo cơ",
+   "meaning": "Built every stage without a crack; slow and sure.",
+   "rows": [
+    {
+     "stat": "breakthrough_chance",
+     "value": 3
+    },
+    {
+     "stat": "linh_luc_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "event:envied_foundation"
+   ],
+   "likes": [
+    "perfect_foundation",
+    "Patient"
+   ],
+   "dislikes": [
+    "pill_fed"
+   ]
+  },
+  {
+   "id": "flawed_foundation",
+   "name": "Cracked foundation",
+   "name_vi": "đạo cơ hữu tì",
+   "meaning": "A rushed or damaged stage left a crack that every breakthrough tests.",
+   "rows": [
+    {
+     "stat": "breakthrough_chance",
+     "value": -3
+    }
+   ],
+   "opens": [
+    "event:seek_mending"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "body_tempered",
+   "name": "Body-tempered",
+   "name_vi": "luyện thể",
+   "meaning": "Has tempered flesh and bone as hard as the art; takes blows others die of.",
+   "rows": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": 6
+    },
+    {
+     "stat": "defense_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "stance:take_the_blow"
+   ],
+   "likes": [
+    "body_tempered"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "formation_mind",
+   "name": "Array mind",
+   "name_vi": "trận tâm",
+   "meaning": "Sees the world as lines and nodes; lays arrays without thinking.",
+   "rows": [
+    {
+     "stat": "formation_power_pct",
+     "value": 8
+    }
+   ],
+   "opens": [
+    "craft:formations",
+    "event:array_puzzle"
+   ],
+   "likes": [
+    "formation_mind",
+    "Formation master"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "beast_bonded",
+   "name": "Beast-bonded",
+   "name_vi": "thú khế",
+   "meaning": "Shares a life-bond with a spirit beast; feels its hurt.",
+   "rows": [
+    {
+     "stat": "companion_health_pct",
+     "value": 12
+    }
+   ],
+   "opens": [
+    "craft:beasts",
+    "event:beast_bond"
+   ],
+   "likes": [
+    "Beast tamer",
+    "wild_raised"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "frost_veined",
+   "name": "Frost-veined",
+   "name_vi": "băng mạch",
+   "meaning": "Ice has entered the meridians; cold to the touch, slow to bleed, slow to warm to anyone.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 5,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "stat": "dan_doc_resist_pct",
+     "value": 6
+    },
+    {
+     "stat": "mi_luc",
+     "value": -3
+    }
+   ],
+   "opens": [
+    "event:cold_presence"
+   ],
+   "likes": [
+    "frost_veined"
+   ],
+   "dislikes": [
+    "fire_tempered"
+   ]
+  },
+  {
+   "id": "fire_tempered",
+   "name": "Fire-tempered",
+   "name_vi": "hỏa luyện",
+   "meaning": "Fire runs hot in them: quick temper, quick pulse, quick hand.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 5,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "stat": "art_speed_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:temper_flare"
+   ],
+   "likes": [
+    "fire_tempered"
+   ],
+   "dislikes": [
+    "frost_veined"
+   ]
+  },
+  {
+   "id": "thunder_struck",
+   "name": "Lightning-scarred",
+   "name_vi": "lôi kích",
+   "meaning": "Survived a lightning strike or a failed tribulation wave; it still hums in them.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 5,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "stat": "status_resist_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "event:tribulation_echo"
+   ],
+   "likes": [
+    "tribulation_survivor"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "poison_proof",
+   "name": "Poison-proofed",
+   "name_vi": "bách độc bất xâm",
+   "meaning": "Ate poisons for years to build a tolerance; poison is their tool too.",
+   "rows": [
+    {
+     "stat": "dan_doc_resist_pct",
+     "value": 12
+    },
+    {
+     "stat": "status_resist_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "craft:poison",
+    "event:poisoned_cup"
+   ],
+   "likes": [],
+   "dislikes": [
+    "temple_raised"
+   ]
+  },
+  {
+   "id": "deviation_survivor",
+   "name": "Deviation survivor",
+   "name_vi": "tẩu hỏa dư sinh",
+   "meaning": "Went through a qi deviation and lived; knows the edge from inside.",
+   "rows": [
+    {
+     "stat": "qi_deviation_pct",
+     "value": -4
+    },
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "verb:counsel_deviation"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "heart_demon_victor",
+   "name": "Heart-demon victor",
+   "name_vi": "trảm tâm ma",
+   "meaning": "Slew their own heart demon at a breakthrough; calm where others break.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 10
+    }
+   ],
+   "opens": [
+    "event:heart_demon_resist"
+   ],
+   "likes": [
+    "steady_heart"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "long_seclusion",
+   "name": "Long-secluded",
+   "name_vi": "bế quan lâu năm",
+   "meaning": "Spent decades in closed-door cultivation; deep, out of date, awkward.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 4
+    },
+    {
+     "stat": "mi_luc",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "event:emerges_from_seclusion"
+   ],
+   "likes": [
+    "Reclusive"
+   ],
+   "dislikes": [
+    "Gregarious"
+   ]
+  },
+  {
+   "id": "dual_cultivator",
+   "name": "Dual cultivator",
+   "name_vi": "song tu",
+   "meaning": "Cultivates with a Dao partner; each one's progress feeds the other.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "verb:propose_dual_cultivation",
+    "event:partner_in_danger"
+   ],
+   "likes": [
+    "dual_cultivator"
+   ],
+   "dislikes": [
+    "Temperate"
+   ],
+   "tags": {
+    "loyal": 1.5,
+    "social": 1.5,
+    "solitary": 0.67
+   }
+  },
+  {
+   "id": "demonic_path",
+   "name": "Demonic path",
+   "name_vi": "ma đạo",
+   "meaning": "Cultivates by blood, souls or stolen qi; strong fast, hunted always.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 6
+    },
+    {
+     "stat": "leech_health_pct",
+     "value": 3
+    },
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -6
+    }
+   ],
+   "opens": [
+    "event:righteous_hunt",
+    "verb:tempt"
+   ],
+   "likes": [
+    "demonic_path"
+   ],
+   "dislikes": [
+    "temple_raised",
+    "Just",
+    "Devout"
+   ],
+   "tags": {
+    "aggressive": 1.5,
+    "ambitious": 1.5,
+    "merciful": 0.67
+   }
+  },
+  {
+   "id": "buddhist_path",
+   "name": "Buddha's path",
+   "name_vi": "phật tu",
+   "meaning": "Cultivates by vows, abstinence and merit; slow to anger, terrible when roused.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 8
+    },
+    {
+     "stat": "healing_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "verb:exhort",
+    "event:vow_tested"
+   ],
+   "likes": [
+    "temple_raised",
+    "Compassionate"
+   ],
+   "dislikes": [
+    "demonic_path",
+    "Cruel"
+   ],
+   "tags": {
+    "merciful": 1.5,
+    "devout": 1.5,
+    "aggressive": 0.67
+   }
+  },
+  {
+   "id": "tribulation_survivor",
+   "name": "Tribulation survivor",
+   "name_vi": "độ kiếp dư sinh",
+   "meaning": "Faced heaven's lightning and lived (crossing a great gate or surviving a failed wave).",
+   "rows": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": 4
+    },
+    {
+     "stat": "status_resist_pct",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "event:tribulation_echo"
+   ],
+   "likes": [
+    "thunder_struck"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "bloodline_awakened",
+   "name": "Awakened bloodline",
+   "name_vi": "huyết mạch thức tỉnh",
+   "meaning": "An ancestor's beast or immortal blood has woken in them.",
+   "rows": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": 5
+    },
+    {
+     "stat": "attack_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:bloodline_call"
+   ],
+   "likes": [
+    "clan_heir"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "reborn_soul",
+   "name": "Reborn soul",
+   "name_vi": "chuyển thế",
+   "meaning": "Carries memories of a past life (the world's rebirths); sometimes a stranger looks out of their eyes.",
+   "rows": [
+    {
+     "stat": "than_thuc_pct",
+     "value": 6
+    },
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:past_life_memory"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "pure_root_devotee",
+   "name": "One-element devotee",
+   "name_vi": "đơn hệ chuyên tu",
+   "meaning": "Has cultivated a single element to the exclusion of all else.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 6,
+     "scope": [
+      "own_top_element"
+     ]
+    }
+   ],
+   "opens": [
+    "event:element_shrine"
+   ],
+   "likes": [
+    "pure_root_devotee"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "array_bound",
+   "name": "Array-bound",
+   "name_vi": "trận khế",
+   "meaning": "Bound to a sect's great array as its keeper; strong inside it, weak far from it.",
+   "rows": [
+    {
+     "stat": "formation_power_pct",
+     "value": 10
+    },
+    {
+     "stat": "travel_speed_pct",
+     "value": -6
+    }
+   ],
+   "opens": [
+    "event:array_breach"
+   ],
+   "likes": [
+    "formation_mind"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "pill_master_tongue",
+   "name": "Pill-taster",
+   "name_vi": "thường đan thiệt",
+   "meaning": "Tastes a pill's flaws on the tongue; has eaten thousands.",
+   "rows": [
+    {
+     "stat": "alchemy_success",
+     "value": 4
+    },
+    {
+     "stat": "dan_doc_resist_pct",
+     "value": 6
+    }
+   ],
+   "opens": [
+    "craft:alchemy"
+   ],
+   "likes": [
+    "Alchemist"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "forge_scarred",
+   "name": "Forge-scarred",
+   "name_vi": "lò luyện thương",
+   "meaning": "Hands burned by a thousand smeltings; feels a blade's grain.",
+   "rows": [
+    {
+     "stat": "refining_success",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "craft:refining"
+   ],
+   "likes": [
+    "Refiner"
+   ],
+   "dislikes": []
+  }
+ ],
+ "lifestyle": [
+  {
+   "id": "tea_master",
+   "name": "Tea master",
+   "name_vi": "trà nhân",
+   "meaning": "Keeps a tea ritual; spirit teas calm the mind.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "verb:share_tea"
+   ],
+   "likes": [
+    "tea_master",
+    "Calm"
+   ],
+   "dislikes": [
+    "drinker"
+   ]
+  },
+  {
+   "id": "poet",
+   "name": "Poet",
+   "name_vi": "thi nhân",
+   "meaning": "Writes verse; their poems travel further than they do.",
+   "rows": [
+    {
+     "stat": "mi_luc",
+     "value": 4
+    }
+   ],
+   "opens": [
+    "verb:exchange_poems",
+    "event:poem_spreads"
+   ],
+   "likes": [
+    "poet",
+    "scholar_family"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "calligrapher",
+   "name": "Calligrapher",
+   "name_vi": "thư gia",
+   "meaning": "Writes a hand that holds intent; talismans come easy.",
+   "rows": [
+    {
+     "stat": "than_thuc_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "craft:talismans"
+   ],
+   "likes": [
+    "calligrapher",
+    "Talisman maker"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "qin_player",
+   "name": "Qin player",
+   "name_vi": "cầm sư",
+   "meaning": "Plays the guqin; their music steadies or unsettles qi.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 2
+    },
+    {
+     "stat": "mi_luc",
+     "value": 2
+    }
+   ],
+   "opens": [
+    "verb:play_for",
+    "stance:song"
+   ],
+   "likes": [
+    "qin_player",
+    "poet"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "go_player",
+   "name": "Go player",
+   "name_vi": "kỳ thủ",
+   "meaning": "Plays weiqi; sees ten moves ahead in politics too.",
+   "rows": [
+    {
+     "stat": "formation_power_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "verb:play_go",
+    "policy:caution"
+   ],
+   "likes": [
+    "go_player",
+    "Strategist"
+   ],
+   "dislikes": [
+    "Impatient"
+   ]
+  },
+  {
+   "id": "collector",
+   "name": "Collector",
+   "name_vi": "tàng gia",
+   "meaning": "Hoards rare treasures, manuals or curios; will trade a favour for one.",
+   "rows": [
+    {
+     "stat": "co_duyen_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "verb:trade_curio",
+    "event:rare_find"
+   ],
+   "likes": [
+    "collector"
+   ],
+   "dislikes": [
+    "Generous"
+   ]
+  },
+  {
+   "id": "gambler",
+   "name": "Gambler",
+   "name_vi": "đổ đồ",
+   "meaning": "Bets on stones, duels and fates.",
+   "rows": [
+    {
+     "stat": "co_duyen_pct",
+     "value": 2
+    },
+    {
+     "stat": "mission_income_pct",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "verb:wager",
+    "event:gambling_debt"
+   ],
+   "likes": [
+    "gambler"
+   ],
+   "dislikes": [
+    "Temperate"
+   ],
+   "tags": {
+    "bold": 1.5,
+    "greedy": 1.5,
+    "cautious": 0.67
+   }
+  },
+  {
+   "id": "hunter",
+   "name": "Hunter",
+   "name_vi": "liệp nhân",
+   "meaning": "Hunts spirit beasts for sport and parts.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 2,
+     "scope": [
+      "creature"
+     ]
+    },
+    {
+     "stat": "travel_speed_pct",
+     "value": 2
+    }
+   ],
+   "opens": [
+    "event:great_hunt"
+   ],
+   "likes": [
+    "hunter",
+    "wild_raised"
+   ],
+   "dislikes": [
+    "Compassionate"
+   ]
+  },
+  {
+   "id": "gardener",
+   "name": "Gardener",
+   "name_vi": "viên đinh",
+   "meaning": "Tends spirit herbs with love; talks to them.",
+   "rows": [
+    {
+     "stat": "herb_growth_pct",
+     "value": 8
+    }
+   ],
+   "opens": [
+    "craft:herbs"
+   ],
+   "likes": [
+    "gardener",
+    "Herbalist"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "drinker",
+   "name": "Drinker",
+   "name_vi": "tửu đồ",
+   "meaning": "Loves spirit wine more than is wise.",
+   "rows": [
+    {
+     "stat": "mi_luc",
+     "value": 2
+    },
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -2
+    }
+   ],
+   "opens": [
+    "verb:drink_with",
+    "event:drunken_word"
+   ],
+   "likes": [
+    "drinker",
+    "Gregarious"
+   ],
+   "dislikes": [
+    "tea_master",
+    "Temperate"
+   ],
+   "tags": {
+    "indulgent": 1.5,
+    "social": 1.5,
+    "diligent": 0.67
+   }
+  },
+  {
+   "id": "chronicler",
+   "name": "Chronicler",
+   "name_vi": "sử gia",
+   "meaning": "Keeps records of the world's affairs; knows every lineage.",
+   "rows": [
+    {
+     "stat": "than_thuc_pct",
+     "value": 2
+    }
+   ],
+   "opens": [
+    "verb:ask_history",
+    "event:old_record"
+   ],
+   "likes": [
+    "scholar_family",
+    "chronicler"
+   ],
+   "dislikes": [
+    "Deceitful"
+   ]
+  },
+  {
+   "id": "duel_seeker",
+   "name": "Duel-seeker",
+   "name_vi": "khiêu chiến cuồng",
+   "meaning": "Travels to fight the strong; collects defeats as gladly as wins.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 2
+    }
+   ],
+   "opens": [
+    "verb:challenge",
+    "event:challenger_arrives"
+   ],
+   "likes": [
+    "duel_seeker",
+    "Duelist",
+    "Brave"
+   ],
+   "dislikes": [
+    "Peaceable"
+   ],
+   "tags": {
+    "bold": 1.5,
+    "aggressive": 1.5,
+    "cautious": 0.67
+   }
+  },
+  {
+   "id": "teacher_at_heart",
+   "name": "Born teacher",
+   "name_vi": "hảo vi sư",
+   "meaning": "Cannot see talent without wanting to shape it.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 1
+    }
+   ],
+   "opens": [
+    "verb:take_disciple",
+    "policy:openness"
+   ],
+   "likes": [
+    "Teacher",
+    "Diligent"
+   ],
+   "dislikes": [
+    "Lazy"
+   ]
+  },
+  {
+   "id": "pilgrim",
+   "name": "Pilgrim",
+   "name_vi": "hành giả",
+   "meaning": "Walks to sacred summits and old ruins; never stays long.",
+   "rows": [
+    {
+     "stat": "travel_speed_pct",
+     "value": 5
+    }
+   ],
+   "opens": [
+    "event:pilgrim_road"
+   ],
+   "likes": [
+    "Wanderer",
+    "pilgrim"
+   ],
+   "dislikes": []
+  }
+ ],
+ "health": [
+  {
+   "id": "old_wound",
+   "name": "Old wound",
+   "name_vi": "cựu thương",
+   "meaning": "A wound that never closed properly; aches before rain.",
+   "rows": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "event:seek_healing"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "cracked_dantian",
+   "name": "Cracked dantian",
+   "name_vi": "đan điền liệt",
+   "meaning": "The dantian is damaged; linh lực leaks.",
+   "rows": [
+    {
+     "stat": "linh_luc_pct",
+     "value": -8
+    },
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "event:seek_mending"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "meridian_scar",
+   "name": "Scarred meridians",
+   "name_vi": "kinh mạch tổn",
+   "meaning": "Meridians scarred by a deviation or a hostile art; arts come slow.",
+   "rows": [
+    {
+     "stat": "art_speed_pct",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "event:seek_mending"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "lingering_poison",
+   "name": "Lingering poison",
+   "name_vi": "dư độc",
+   "meaning": "A poison no one has cured; it flares in the cold months.",
+   "rows": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": -3
+    },
+    {
+     "stat": "status_resist_pct",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "event:poison_flare",
+    "event:seek_antidote"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "cold_toxin",
+   "name": "Cold toxin",
+   "name_vi": "hàn độc",
+   "meaning": "Ice-cold qi lodged in the body (often from a failed Ice art).",
+   "rows": [
+    {
+     "stat": "linh_luc_regen_inc_pct",
+     "value": -6
+    }
+   ],
+   "opens": [
+    "event:seek_fire_cure"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "fire_poison",
+   "name": "Fire poison",
+   "name_vi": "hỏa độc",
+   "meaning": "Pill fire or forge fire turned inward; feverish, irritable.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "event:seek_cold_cure"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "soul_wound",
+   "name": "Soul wound",
+   "name_vi": "thần hồn tổn",
+   "meaning": "The soul itself is torn; forgets, sees things.",
+   "rows": [
+    {
+     "stat": "soul_res_pct",
+     "value": -10
+    },
+    {
+     "stat": "than_thuc_pct",
+     "value": -6
+    }
+   ],
+   "opens": [
+    "event:soul_mending"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "maimed",
+   "name": "Maimed",
+   "name_vi": "tàn tật",
+   "meaning": "Lost an arm, a leg or an eye; fights differently now.",
+   "rows": [
+    {
+     "stat": "evade_pct",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "event:regrow_limb"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "blind",
+   "name": "Blind",
+   "name_vi": "mù lòa",
+   "meaning": "Sightless; divine sense sees for them.",
+   "rows": [
+    {
+     "stat": "accuracy_pct",
+     "value": -4
+    },
+    {
+     "stat": "than_thuc_pct",
+     "value": 6
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "waning_years",
+   "name": "Waning years",
+   "name_vi": "thọ nguyên tương tận",
+   "meaning": "Near the end of their lifespan; desperate for a breakthrough or a legacy.",
+   "rows": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": -6
+    }
+   ],
+   "opens": [
+    "event:last_gamble",
+    "event:choose_heir"
+   ],
+   "likes": [],
+   "dislikes": []
+  }
+ ],
+ "coping": [
+  {
+   "id": "drowns_in_wine",
+   "name": "Drowns in wine",
+   "name_vi": "mượn rượu",
+   "meaning": "Copes with grief or failure by drinking.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -3
+    }
+   ],
+   "opens": [
+    "event:drunken_word"
+   ],
+   "likes": [],
+   "dislikes": []
+  },
+  {
+   "id": "buried_in_seclusion",
+   "name": "Hides in seclusion",
+   "name_vi": "trốn bế quan",
+   "meaning": "Copes by closing the door and refusing the world.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 2
+    },
+    {
+     "stat": "mi_luc",
+     "value": -4
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": [],
+   "tags": {
+    "solitary": 1.5,
+    "social": 0.67,
+    "bold": 0.67
+   }
+  },
+  {
+   "id": "rage_flares",
+   "name": "Rage flares",
+   "name_vi": "nộ hỏa công tâm",
+   "meaning": "Copes by lashing out; a slight becomes a duel.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 2
+    },
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -4
+    }
+   ],
+   "opens": [
+    "event:rage_incident"
+   ],
+   "likes": [],
+   "dislikes": [],
+   "tags": {
+    "aggressive": 1.5,
+    "cautious": 0.67,
+    "forgiving": 0.67
+   }
+  },
+  {
+   "id": "obsessive_training",
+   "name": "Obsessive training",
+   "name_vi": "khổ tu cuồng",
+   "meaning": "Copes by training until they bleed.",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 3
+    },
+    {
+     "stat": "qi_deviation_pct",
+     "value": 3
+    }
+   ],
+   "opens": [],
+   "likes": [
+    "Diligent"
+   ],
+   "dislikes": []
+  },
+  {
+   "id": "cold_detachment",
+   "name": "Cold detachment",
+   "name_vi": "tâm như chỉ thủy",
+   "meaning": "Copes by feeling nothing at all; people notice.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 4
+    },
+    {
+     "stat": "mi_luc",
+     "value": -5
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": [
+    "Gregarious"
+   ],
+   "tags": {
+    "pragmatic": 1.5,
+    "merciful": 0.67,
+    "social": 0.67
+   }
+  },
+  {
+   "id": "vengeance_vow",
+   "name": "Vow of vengeance",
+   "name_vi": "thề báo thù",
+   "meaning": "Copes by living for one revenge.",
+   "rows": [
+    {
+     "stat": "attack_pct",
+     "value": 3
+    }
+   ],
+   "opens": [
+    "event:vengeance_lead"
+   ],
+   "likes": [],
+   "dislikes": [],
+   "tags": {
+    "vengeful": 1.5,
+    "forgiving": 0.67,
+    "merciful": 0.67
+   }
+  },
+  {
+   "id": "faith_found",
+   "name": "Found faith",
+   "name_vi": "quy y",
+   "meaning": "Copes by turning to a temple's vows.",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 5
+    }
+   ],
+   "opens": [
+    "event:vow_tested"
+   ],
+   "likes": [
+    "temple_raised"
+   ],
+   "dislikes": [],
+   "tags": {
+    "devout": 1.5,
+    "humble": 1.5,
+    "indulgent": 0.67
+   }
+  },
+  {
+   "id": "hoarding",
+   "name": "Hoarding",
+   "name_vi": "tích trữ cuồng",
+   "meaning": "Copes by gathering stones and pills against a disaster that may come.",
+   "rows": [
+    {
+     "stat": "mission_income_pct",
+     "value": 3
+    }
+   ],
+   "opens": [],
+   "likes": [],
+   "dislikes": [
+    "Generous"
+   ],
+   "tags": {
+    "greedy": 1.5,
+    "cautious": 1.5,
+    "generous": 0.67
+   }
+  }
+ ],
  "fade_seasons": 40,
+ "row_premium": {
+  "personality": 2.0,
+  "callings": 1.0,
+  "fate": 1.0,
+  "gained": 1.0
+ },
  "opinion": {
-  "_doc": "F3 opinion and att0 (design/gdd/npc-traits.md F3). s, o: shared and opposed weights; tie: master or disciple, kin, Dao companion, own sect head; sect_same: same sect; sect_k: share of the sects' attitude between NPCs of different sects; k_st: weight of the player's standing; att0_max: ceiling at a first meeting (the floor is the hostile threshold + 1).",
+  "_doc": "F3 opinion and att0 (design/gdd/npc-traits.md F3, amended 2026-11-25). s, o: shared and opposed weights; like, dislike: v2 likes (+5) and dislikes (-10) for lk; tie: master or disciple, kin, Dao companion, own sect head; sect_same: same sect; sect_k: share of the sects' attitude between NPCs of different sects; k_st: weight of the player's standing; att0_max: ceiling at a first meeting (the floor is the hostile threshold + 1).",
   "s": 10,
   "o": 10,
+  "like": 5,
+  "dislike": 10,
   "tie": {
    "master": 30,
    "kin": 30,
@@ -2133,16 +4271,310 @@
   "m_hi": 5.0
  },
  "inherit": {
-  "_doc": "F5 (design/gdd/npc-traits.md F5): h, the chance per known parent to pass a personality trait (no kin are recorded yet); m_master, the roll's lean toward a master known at creation.",
+  "_doc": "F5 / F5b (design/gdd/npc-traits.md): h, chance per known parent to pass a personality trait; m_master, roll lean toward a master known at creation; talent_one / talent_both, chance to inherit a talent family from 1 or 2 parents; talent_drift, odds for tier shift [-1, 0, +1].",
   "h": 0.5,
-  "m_master": 3.0
+  "m_master": 3.0,
+  "talent_one": 0.35,
+  "talent_both": 0.65,
+  "talent_drift": [
+   0.4,
+   0.45,
+   0.15
+  ]
  },
  "roll": {
-  "_doc": "F4 (design/gdd/npc-traits.md F4): p_any, the chance of a fate-given trait, and p_second, of a second one given the first (0.90 / 0.09 / 0.01); g_f = clamp(talent / g_ref, g_lo, g_hi) for a gift, the inverse for a flaw, on the talent before trait rows.",
-  "p_any": 0.1,
+  "_doc": "F4 (design/gdd/npc-traits.md F4, amended 2026-11-25): p_any (0.04) is the chance of a kept fate-given trait and p_second (0.10) of a second given the first (0.96 / 0.036 / 0.004); g_f = clamp(talent / g_ref, g_lo, g_hi) for a gift, the inverse for a flaw, on the talent before trait rows.",
+  "p_any": 0.04,
   "p_second": 0.1,
   "g_ref": 45.0,
   "g_lo": 0.25,
   "g_hi": 3.0
- }
+ },
+ "roll_v2": {
+  "_doc": "F4b creation roll and F6b coping/waning constants (design/gdd/npc-traits.md F4b, F6b, Tuning Knobs).",
+  "n_create_max": 6,
+  "p_talent": [
+   0.75,
+   0.22,
+   0.03
+  ],
+  "p_tier": [
+   0.7,
+   0.24,
+   0.06
+  ],
+  "p_path": [
+   0.05,
+   0.2,
+   0.4,
+   0.6,
+   0.6
+  ],
+  "p_health": 0.08,
+  "p_lifestyle": 0.35,
+  "p_coping": 0.03,
+  "talent_tier_add": [
+   6,
+   12,
+   20
+  ],
+  "coping_fade_seasons": 20,
+  "coping_harden_refreshes": 3,
+  "waning_share": 0.1,
+  "birth_leans": {
+   "city": {
+    "street_orphan": 2.0,
+    "merchant_child": 2.0,
+    "mortal_noble": 2.0,
+    "scholar_family": 2.0
+   },
+   "town": {
+    "merchant_child": 1.5,
+    "scholar_family": 1.5,
+    "street_orphan": 1.5
+   },
+   "market": {
+    "merchant_child": 2.5,
+    "street_orphan": 1.5
+   },
+   "village": {
+    "village_born": 2.5
+   },
+   "great_seat": {
+    "sect_raised": 2.5,
+    "servant_born": 1.5
+   },
+   "minor_seat": {
+    "sect_raised": 2.5,
+    "servant_born": 1.5
+   },
+   "sect_hall": {
+    "sect_raised": 2.0,
+    "servant_born": 1.5
+   },
+   "wild": {
+    "wild_raised": 2.5,
+    "hermit_taught": 2.0
+   }
+  },
+  "family_leans": {
+   "cultivating": {
+    "clan_heir": 3.0
+   },
+   "sect_servant": {
+    "servant_born": 3.0
+   },
+   "sect_ward": {
+    "sect_raised": 3.0
+   },
+   "mortal_noble": {
+    "mortal_noble": 3.0
+   },
+   "merchant": {
+    "merchant_child": 3.0
+   },
+   "scholar": {
+    "scholar_family": 3.0
+   },
+   "war_orphan": {
+    "war_orphan": 3.0
+   }
+  }
+ },
+ "opposed_v2": [
+  [
+   "perfect_foundation",
+   "flawed_foundation"
+  ],
+  [
+   "demonic_path",
+   "buddhist_path"
+  ],
+  [
+   "frost_veined",
+   "fire_tempered"
+  ],
+  [
+   "quick_minded",
+   "slow_witted"
+  ],
+  [
+   "sturdy_frame",
+   "frail_frame"
+  ],
+  [
+   "keen_soul",
+   "thin_soul"
+  ],
+  [
+   "comely",
+   "homely"
+  ],
+  [
+   "lucky",
+   "unlucky"
+  ],
+  [
+   "steady_heart",
+   "restless_heart"
+  ],
+  [
+   "keen_soul",
+   "hollow_souled"
+  ],
+  [
+   "thin_soul",
+   "spirit_eyed"
+  ],
+  [
+   "steady_heart",
+   "demon_seeded"
+  ],
+  [
+   "restless_heart",
+   "pure_hearted"
+  ]
+ ],
+ "path_root_bonds": {
+  "frost_veined": {
+   "any": [
+    "thuy",
+    "bang"
+   ]
+  },
+  "fire_tempered": {
+   "any": [
+    "hoa"
+   ]
+  },
+  "thunder_struck": {
+   "any_group": [
+    [
+     "hoa",
+     "kim"
+    ],
+    [
+     "loi"
+    ]
+   ]
+  },
+  "pure_root_devotee": {
+   "single_base": true
+  }
+ },
+ "policy_hooks": {
+  "policy:tradition": {
+   "dials": {
+    "openness": -1
+   }
+  },
+  "policy:trade": {
+   "first_track": "trade"
+  },
+  "policy:caution": {
+   "war_odds": 1.2
+  },
+  "policy:openness": {
+   "dials": {
+    "openness": 1
+   }
+  }
+ },
+ "verb_hooks": [
+  {
+   "id": "invoke_clan",
+   "trait": "clan_heir",
+   "side": "self"
+  },
+  {
+   "id": "command_mortals",
+   "trait": "mortal_noble",
+   "side": "self"
+  },
+  {
+   "id": "haggle",
+   "trait": "merchant_child",
+   "side": "self"
+  },
+  {
+   "id": "charm",
+   "trait": "comely",
+   "side": "self"
+  },
+  {
+   "id": "tempt",
+   "trait": "demonic_path",
+   "side": "self"
+  },
+  {
+   "id": "exhort",
+   "trait": "buddhist_path",
+   "side": "self"
+  },
+  {
+   "id": "propose_dual_cultivation",
+   "trait": "dual_cultivator",
+   "side": "self"
+  },
+  {
+   "id": "challenge",
+   "trait": "duel_seeker",
+   "side": "self"
+  },
+  {
+   "id": "take_disciple",
+   "trait": "teacher_at_heart",
+   "side": "self"
+  },
+  {
+   "id": "counsel",
+   "trait": "temple_raised",
+   "side": "other"
+  },
+  {
+   "id": "counsel_deviation",
+   "trait": "deviation_survivor",
+   "side": "other"
+  },
+  {
+   "id": "ask_history",
+   "trait": "chronicler",
+   "side": "other"
+  },
+  {
+   "id": "share_tea",
+   "trait": "tea_master",
+   "side": "either"
+  },
+  {
+   "id": "exchange_poems",
+   "trait": "poet",
+   "side": "either"
+  },
+  {
+   "id": "play_for",
+   "trait": "qin_player",
+   "side": "either"
+  },
+  {
+   "id": "play_go",
+   "trait": "go_player",
+   "side": "either"
+  },
+  {
+   "id": "trade_curio",
+   "trait": "collector",
+   "side": "either"
+  },
+  {
+   "id": "wager",
+   "trait": "gambler",
+   "side": "either"
+  },
+  {
+   "id": "drink_with",
+   "trait": "drinker",
+   "side": "either"
+  }
+ ]
 }

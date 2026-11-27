@@ -308,7 +308,13 @@ class Export:
                     self.err("person %s is alive and has no authored traits" % p["key"])
                 else:
                     rec["traits"] = {"personality": t.get("personality", []), "calling": t.get("calling", ""),
-                                     "fate_given": t.get("fate_given", [])}
+                                     "fate_given": list(t.get("fate_given", [])), "gained": [],
+                                     "upbringing": "", "talent": [], "path": [], "lifestyle": "", "health": [], "coping": ""}
+                    if not self.depth_keys and os.path.exists(depth_export.TRAITS_PATH):
+                        idx = getattr(self, "_trait_idx", None)
+                        if idx is None:
+                            idx = self._trait_idx = depth_export.load_trait_index()
+                        depth_export.migrate_retired_fates(rec["traits"], "A", idx, "person %s" % p["key"], self.warn)
             else:
                 rec["peak_realm"] = p.get("peak_realm")
                 rec["died"] = p.get("died")
@@ -690,6 +696,10 @@ class Export:
                         h.update(n.encode() + fh.read())
         with open(os.path.join(ROOT, "assets", "data", "world_continent.json"), "rb") as fh:
             h.update(fh.read())
+        traits_path = os.path.join(ROOT, "assets", "data", "traits.json")
+        if os.path.exists(traits_path):
+            with open(traits_path, "rb") as fh:
+                h.update(b"traits.json" + fh.read())
         if self.depth_keys:   # ADR-0009 decision 9: the hash also covers design/world/depth/
             h.update(",".join(self.depth_keys).encode())
             for f in depth_export.version_files():
