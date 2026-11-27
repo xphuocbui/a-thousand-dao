@@ -19,7 +19,7 @@
    "name": "Ink-Grinding Breath (Ma Mặc Tức)",
    "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The apprentice grinds the pine-soot ink stick on a wet stone for an hour each morning, and breathes with the stroke: Wood qi from the soot or Water qi from the stone, whichever the root takes. It is a patient method that teaches the hand to be steady. In a fight it lays ink on the holder's blade or fist; an ink-marked foe is slowed.",
-   "arts": [{"new": "Wet Ink (Thấp Mặc)", "concept": "The holder's next strikes leave an ink mark; a marked foe is slowed and the holder's talismans home on them."}],
+   "arts": [{"id": "wet-ink", "new": "Wet Ink (Thấp Mặc)", "concept": "The holder's next strikes leave an ink mark; a marked foe is slowed and the holder's talismans home on them."}],
    "lore": "The founder Kỷ Thu Tịch's rule: no brush is touched before a thousand mornings of grinding.",
    "status": "proposal"
   },
@@ -29,8 +29,8 @@
    "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
    "concept": "The talisman method of the Hall. The cultivator paints the seven stars of the Dipper on their own meridians in qi, one star a layer, and draws on them to charge a talisman with one stroke. In a fight the holder throws Dipper talismans: each star painted in sequence strengthens the next, and the seventh completes the figure.",
    "arts": [
-    {"new": "Seven-Star Talisman (Thất Tinh Phù)", "concept": "Throws a talisman that deals Wood damage and paints one star on the foe it hits. A cleanse wipes the stars, unless they were painted while The Rain Does Not Take It holds. The seventh star on one foe detonates the whole figure on it.", "authored": "d22"},
-    {"new": "Handle Points (Bính Chỉ)", "concept": "A talisman that binds a foe where they stand for a moment and makes the holder's next talisman strike them twice."}
+    {"id": "seven-star-talisman", "new": "Seven-Star Talisman (Thất Tinh Phù)", "concept": "Throws a talisman that deals Wood damage and paints one star on the foe it hits. A cleanse wipes the stars, unless they were painted while The Rain Does Not Take It holds. The seventh star on one foe detonates the whole figure on it.", "authored": "d22"},
+    {"id": "handle-points", "new": "Handle Points (Bính Chỉ)", "concept": "A talisman that binds a foe where they stand for a moment and makes the holder's next talisman strike them twice."}
    ],
    "lore": "Written by the founder after she watched the Pivot's watchmen on Trích Tinh Phong (A084) and painted what they saw. The Pivot buys its Dipper talismans from the Hall; its own disciples cannot paint them.",
    "status": "proposal",
@@ -41,7 +41,7 @@
    "name": "Rain-Fast Ink Art (Vũ Bất Hóa Mặc Pháp)",
    "tier": 1, "tech_kind": "secret", "names": ["thuy", "moc"], "layers": 9, "rank": "noi_mon",
    "concept": "The Hall's secret: the painter binds the ink to the paper with their own Water qi, so that water cannot loosen what Water holds. Talismans painted by it do not run in rain, river or blood (V059). In a fight the holder's talismans last longer and cannot be washed off by a foe's cleansing.",
-   "arts": [{"new": "The Rain Does Not Take It (Vũ Bất Hóa)", "concept": "For a while the holder's debuffs and talisman marks cannot be cleansed, and each one a foe tries to remove deals them light Water damage instead."}, {"new": "Rainfast Ink (Vũ Bất Thoát)", "concept": "A passive art. Your talisman marks, and the debuff stacks and curses your talismans lay, cannot be cleansed; a cleanse that would remove them removes nothing of yours.", "effect": "rainfast-ink", "unlock_layer": 1, "authored": "d35"}],
+   "arts": [{"id": "the-rain-does-not-take-it", "new": "The Rain Does Not Take It (Vũ Bất Hóa)", "concept": "For a while the holder's debuffs and talisman marks cannot be cleansed, and each one a foe tries to remove deals them light Water damage instead."}, {"new": "Rainfast Ink (Vũ Bất Thoát)", "concept": "A passive art. Your talisman marks, and the debuff stacks and curses your talismans lay, cannot be cleansed; a cleanse that would remove them removes nothing of yours.", "effect": "rainfast-ink", "unlock_layer": 1, "authored": "d35"}],
    "lore": "The Hall says the founder found it by painting in the rain for a year. The truth is in the sealed book: it is the blood-ink writ of Thorn and Ink Verses, with the blood taken out and the painter's Water put in.",
    "status": "proposal",
    "authored": "d35"

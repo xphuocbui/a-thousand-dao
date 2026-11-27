@@ -1,0 +1,40 @@
+{
+ "_doc": "Họa Tinh Đường's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:hoa_tinh by the serial step. Unpriced. Declares every counter it reads or writes in its own counters array for standalone GDScript compilation.",
+ "source": "world-depth:hoa_tinh",
+ "effects": {
+  "Rainfast Ink": {
+   "rule": "Rainfast Ink (Vũ Bất Thoát, rainfast-ink-art L1 passive art, d35): your talisman marks (Painted Star), and the debuff stacks and curses your talismans lay, cannot be cleansed; a cleanse that would remove them removes nothing of yours.",
+   "counters": [
+    {"id": "rainfast_ink_on", "cap": 1}
+   ],
+   "records": [
+    {"id": "eff:Rainfast Ink init", "on": "fight_start", "do": [{"counter": {"id": "rainfast_ink_on", "set": 1}}]},
+    {"id": "eff:Rainfast Ink", "on": "always", "do": [{"mod": {"talisman_fast": 1, "curse_fast": 1}}]}
+   ]
+  },
+  "Autumn Light on the Screen": {
+   "rule": "The Silver Candle (ht-silver-candle): while the candle is lit, the first damaging talisman you throw at the foe each fight is painted twice: it strikes again 1 s later at half strength. Out-of-fight crafting bonus (talismans painted by its light keep a grade higher) is unmodelled in combat.",
+   "approx": "fire_art {which: \"longest\", share: 0.5} on the pulse 1 s after the first talisman hit replays the main damaging talisman at half strength; the out-of-fight talisman-painting grade bonus is crafting lore.",
+   "counters": [
+    {"id": "autumn_delay", "cap": 1}
+   ],
+   "records": [
+    {"id": "eff:Autumn Light on the Screen arm", "on": "hit_landed", "filter": {"kind": "art", "tags": ["talisman"]}, "limit": {"per_fight": 1}, "do": [{"counter": {"id": "autumn_delay", "set": 1}}]},
+    {"id": "eff:Autumn Light on the Screen fire", "on": "pulse", "if": [{"read": "own.counter.autumn_delay", "op": ">=", "value": 1}], "do": [{"counter": {"id": "autumn_delay", "set": 0}}, {"fire_art": {"which": "longest", "share": 0.5}}]}
+   ]
+  },
+  "Seven Stars in One Stroke": {
+   "rule": "Candle and Ink, full set (2 pieces: ht-silver-candle, ht-rainfast-ink-gourd): every seventh talisman you throw at one foe closes the Dipper: it deals 0.85 Chaos damage per Wood debuff stack on that foe and spends them all, and your talisman marks and curses on that foe cannot be cleansed for 8 s.",
+   "counters": [
+    {"id": "dipper_close"},
+    {"id": "seven_stars_fast", "cap": 8}
+   ],
+   "records": [
+    {"id": "eff:Seven Stars in One Stroke count", "on": "art_fired", "filter": {"tags": ["talisman"]}, "do": [{"counter": {"id": "dipper_close", "add": 1}}]},
+    {"id": "eff:Seven Stars in One Stroke close", "on": "art_fired", "filter": {"tags": ["talisman"]}, "if": [{"read": "own.counter.dipper_close", "op": ">=", "value": 7}, {"read": "foe.debuff.wood", "op": ">=", "value": 1}], "do": [{"consume": {"el": "wood", "side": "foe", "kind": "debuff", "then": [{"free_hit": {"c": 0.85, "dtype": "chaos"}}]}}, {"mod": {"talisman_fast": 1, "curse_fast": 1, "for": 8.0}}, {"counter": {"id": "seven_stars_fast", "set": 8}}, {"counter": {"id": "dipper_close", "set": 0}}]},
+    {"id": "eff:Seven Stars in One Stroke lock", "on": "art_fired", "filter": {"tags": ["talisman"]}, "if": [{"read": "own.counter.dipper_close", "op": ">=", "value": 7}, {"read": "foe.debuff.wood", "op": "==", "value": 0}], "do": [{"mod": {"talisman_fast": 1, "curse_fast": 1, "for": 8.0}}, {"counter": {"id": "seven_stars_fast", "set": 8}}, {"counter": {"id": "dipper_close", "set": 0}}]},
+    {"id": "eff:Seven Stars in One Stroke tick", "on": "pulse", "if": [{"read": "own.counter.seven_stars_fast", "op": ">=", "value": 1}], "do": [{"counter": {"id": "seven_stars_fast", "add": -1}}]}
+   ]
+  }
+ }
+}
