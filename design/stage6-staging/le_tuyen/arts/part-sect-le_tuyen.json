@@ -166,9 +166,9 @@
   "empower": [
    {
     "if": [{"read": "foe.debuff.water", "op": ">=", "value": 5}],
-    "pay": [
-     {"status": {"id": "drunk", "stacks": 2, "side": "foe"}},
-     {"status": {"id": "heavy_breath", "stacks": 1, "dur": 4, "side": "foe"}}
+    "add_statuses": [
+     {"id": "drunk", "stacks": 2},
+     {"id": "heavy_breath", "stacks": 1, "dur": 4}
     ]
    }
   ],

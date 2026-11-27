@@ -1,60 +1,84 @@
-# Lễ Tuyền Phái (`le_tuyen`): Stage 6 checkpoint review (2026-11-27, headless, decisions auto-accepted)
+# Lễ Tuyền Phái (`le_tuyen`): Stage 6 checkpoint review (2026-11-27, fresh unanchored Neon audit)
 
-## What this review read
-This review audited the staged records, depth source text, rulings, engine implementation, and post-edit verification runs unanchored against `le_tuyen-review.md`:
-- **All staged files** in `design/stage6-staging/le_tuyen/`: `techniques/catalogue-sect-le_tuyen.json` (4 techniques), `arts/part-sect-le_tuyen.json` (7 arts), `items/catalogue-sect-le_tuyen.json` (6 items), `items/sets-le_tuyen.json` (2 sets), `effects/le_tuyen.effects.json` (4 Effects), and `pending.json` (empty).
-- **Depth source of truth:** `design/world/depth/sects/le_tuyen.md`, `le_tuyen.techniques.json`, `le_tuyen.items.json`, `le_tuyen.cast.json`, and `le_tuyen.5.cast.json` (all 18 living + 2 dead people checked against `CongPhap.usable`, stand-in rules, items, and sets).
-- **Rules & engine:** `production/plans/stage6/_brief-review.md`, `_brief-record.md`, `design/world/depth/DECISIONS-2026-11-25.md`, `DECISIONS-2026-11-26.md`, `tools/design/combat_sim/FIGHT-INPUT.md`, `tools/design/combat_sim/engine.py`, `tools/design/combat_sim/sect_fight.py`, `assets/data/combat_engine.json`, `design/gdd/effects.md` (rule 9a), `src/gameplay/cultivation/cong_phap.gd`, `src/gameplay/combat/fight/effect_runner.gd`, `src/gameplay/combat/fight/fight.gd`, `design/arts/family-metal.json`, `design/arts/family-water.json`, and `design/items/common-arts.json`.
-- **Verification runs (post-edit, `DEPTH_STAGE=C:\Users\xphuo\IdeaProjects\my-game\design\stage6-staging\le_tuyen`):** `lint_techniques.py`, `lint_arts.py`, `lint_items.py`, `depth_check.py --quiet`, `depth_gap.py --sect le_tuyen`, `sect_fight.py le_tuyen --seeds 5` (gap 0 and gap 1), plus 10/20-seed probes for `A Brimming Cup` and `Needle of Mending` (`family-metal` and `common-arts` `needle-rain`).
+Fresh, unanchored audit of `design/stage6-staging/le_tuyen/` against `design/world/depth/sects/le_tuyen.*`, `production/plans/stage6/_brief-record.md`, `DECISIONS-2026-11-25.md`, `DECISIONS-2026-11-26.md`, `FIGHT-INPUT.md`, and both fight engines (`tools/design/combat_sim/engine.py` and `src/gameplay/combat/fight/`).
 
-## Findings, most severe first
+**Verdict:** **5 findings fixed** (`2 MUST-FIX`, `3 SHOULD`) plus `2 NIT` observations logged. All three linters, `depth_check.py`, `depth_gap.py`, `sect_fight.py` (`gap 0` and `gap 1`), and dedicated probes pass after fixes. `pending.json` has `0` entries (verified empty; no new engine words warranted).
 
-| # | File | Record | What was wrong | Fix applied | Rank |
+---
+
+## 1. Ranked findings
+
+1. **[MUST-FIX — FIXED]** `design/stage6-staging/le_tuyen/arts/part-sect-le_tuyen.json` — `last-cup`
+   - **What was wrong:** `empower[0]` placed the `drunk` (2 stacks) and `heavy_breath` (1 stack, 4 s) status applications inside `pay` rather than `add_statuses`. In both `engine.py:1174` and `fight.gd:1087`, `empower.pay` runs inside `shape()` *before* `hit()`, so both curses were applied even when the foe evaded `last-cup` (bypassing the evade roll), unlike every other empowered status art in the catalogue (`lamp-oil-lance`, `frozen-hour-seal`, `blight-canker`).
+   - **Fix applied:** Replaced `empower[0].pay` with `empower[0].add_statuses: [{"id": "drunk", "stacks": 2}, {"id": "heavy_breath", "stacks": 1, "dur": 4}]`, so the statuses land on hit after the evade check in both engines (`engine.py:1374-1375`, `fight.gd:1316-1317`, `fighter_profile_loader.gd:201-217`). Verified 0 findings in `lint_arts.py` and 9/9 empowered hits applying `heavy_breath` on `ha_thanh_to` seed 0.
+
+2. **[MUST-FIX — FIXED]** `design/stage6-staging/le_tuyen/effects/le_tuyen.effects.json` — `A Brimming Cup` (`eff:A Brimming Cup ward`)
+   - **What was wrong:** Granted `ward_grow {"share": 0.05, "of": "hp"}` (5 % of maximum health) while its rule text claimed that was "about half the heal". Measured directly on its real holder `mai_le_tuyen` in `engine.py`, `hundred-herb-draught` (`c_heal: 0.8`) heals `2.45 %` HP raw (`4.17–4.90 %` HP with her +70–100 % healing modifiers), and `morning-dew` (`c_heal: 0.7`) heals `3.64 %` HP (`5.79 %` doubled). A `5 %` HP ward was `102–200 %` of the entire heal — double what the depth rule ("a ward worth half the heal") states.
+   - **Fix applied:** Changed `ward_grow.share` from `0.05` to `0.025` (`2.5 %` of maximum health, matching ~half of a 4–5 % heal) and updated `rule` and `approx` to match. Re-verified in the `morning-dew` probe (`10/10` wins, `27 %` HP left vs `0/10` without `A Brimming Cup`).
+
+3. **[SHOULD — FIXED]** `design/stage6-staging/le_tuyen/effects/le_tuyen.effects.json` — `Sealed Cask` (`eff:Sealed Cask`)
+   - **What was wrong:** Used `"limit": {"per_pulse": 1}`, which silently dropped ~33 % of `Sealed Cask` procs on its real holder `nhac_thuan_nhuong` whenever he cast two Water arts in the same second (`64` vs `97` procs at gap 0; `79` vs `119` procs at gap 1 over 10 seeds), contradicting both the depth rule ("A foe struck by your Water art while carrying three or more of your Water stacks...") and the **Scale without caps** rule.
+   - **Fix applied:** Changed `"limit": {"per_pulse": 1}` to `"limit": {"per_firing": 1}` (supported in both `engine.py:1782` and `effect_runner.gd:314`), so every distinct Water art firing triggers `Sealed Cask` once while multi-hit split Water arts (e.g. `swelling-tide-palm`) still apply once per firing rather than per sub-hit. On `nhac_thuan_nhuong` (`gap 1`, 5 seeds), survival improved to `45.4 s` with `Sealed Cask` vs `21.6 s` without (`77` runs).
+
+4. **[SHOULD — FIXED]** `design/stage6-staging/le_tuyen/effects/le_tuyen.effects.json` — `Needle of Mending` (`eff:Needle of Mending cleanse tag`, `eff:Needle of Mending cleanse common`)
+   - **What was wrong:** Used `"limit": {"per_pulse": 1}` on both cleanse records, which throttles fast 1 s cooldown needle arts (`common-arts.json`'s `needle-rain` or `rime-needle`) accelerated by art speed or paired needle arts fired in the same pulse.
+   - **Fix applied:** Changed `"limit": {"per_pulse": 1}` to `"limit": {"per_firing": 1}` on both cleanse records. Verified in dual probes: `family-metal`'s 6-split `needle-rain` fires `69` times -> `69` cleanses and `414` heals (zero `common` double-procs); `common-arts`'s 1 s `needle-rain` fires `337` times -> `337` cleanses and `337` heals (zero `tag` double-procs; `+39 %` HP left vs without).
+
+5. **[SHOULD — FIXED]** `design/stage6-staging/le_tuyen/effects/le_tuyen.effects.json` — `A Brimming Cup` (`eff:A Brimming Cup reset`, `eff:A Brimming Cup pulse`)
+   - **What was wrong:** Both bookkeeping records fired unconditionally on every pulse even when `brimming_full_qi == 0` and `brimming_overflow_tick == 0`, executing ~144 no-ops per 5 seeds and inflating `sect_fight.py` run counts (`170` at gap 0, `152` at gap 1) while masking that `ward` ran `0` times at gap 1 and `ready`/`spend` ran `0` times in the default 6-art build.
+   - **Fix applied:** Added `{"read": "own.counter.brimming_full_qi", "op": ">=", "value": 1}` to `reset` and `"if": [{"read": "own.counter.brimming_overflow_tick", "op": ">=", "value": 1}]` to `pulse`. Identical state-machine behavior with zero no-ops; `sect_fight.py` now reports honest counts (`49` runs at gap 0, `21` at gap 1).
+
+6. **[NIT — LOGGED]** `production/plans/stage6/le_tuyen-review.md` §C table — `sweet-spring-wine-rite`
+   - **Observation:** The record job's review table listed `stack_effect_pct 10 [thuy, debuff]` (`15.5 W`), whereas the actual staged `catalogue-sect-le_tuyen.json` has `linh_luc_regen_inc_pct 3 []` (`15.4 W of 16`). The staged JSON is strictly better because `combat_engine.json` `DEBUFF` has no `water` row (`effects.md:310`), so `linh_luc_regen_inc_pct` actually runs. No edit needed to the JSON.
+
+7. **[NIT — LOGGED]** `design/stage6-staging/le_tuyen/items/catalogue-sect-le_tuyen.json` (`ltp-hundred-jar-seal`) & `items/sets-le_tuyen.json` (`ltp-hundred-jars` 2pc)
+   - **Observation:** Preserves `stack_effect_pct [thuy, debuff]` (+20 % / +10 %) verbatim from `le_tuyen.items.json` per `_brief-record.md`. Because `DEBUFF` has no `water` stat row (`effects.md:310`; Ice carries the pair's debuff stat), Water debuff stacks function as wine-drench markers feeding `Last Cup`, `Sealed Cask`, and `Half Lake`, and `stack_duration_pct [thuy, debuff]` (`ltp-cut-wine-cask`, `sweet-spring-wine-rite`) extends them, while `stack_effect_pct [thuy, debuff]` currently has no `dsum` multiplier target. Kept verbatim as required.
+
+---
+
+## 2. Faithfulness, rules, and stand-in audit
+
+- **Engine parity verified** across both `engine.py` and `src/gameplay/combat/fight/` (`not_tags`, `per_firing`, `stack_more` fractional `0.1`, `status_resist` / `soul_res` percent points, `heal {of: "amount"}`, `art.heal` executing before `art_fired`, `drunk` `stack_timers` without explicit `dur`, `add_statuses` in `empower`, `ward_grow`, `overflow`).
+- **Stances:** No holder slots two stances without a combined stance (`open-the-cask` tracks its 6 s mist via counter `wine_mist`, leaving `deep-lake-stance` intact on `mai_le_tuyen` and `nhac_thuan_nhuong`).
+- **Items & sets:** Exact 1:1 diff against `design/world/depth/sects/le_tuyen.items.json` on all 6 items and both sets (28/28 modifier lines run, all 6 `unique: true`, `sources: ["npc"]`, and all 6 bases `cham`/`an`/`ho_lo`/`dao_bao`/`giap` carry the R6 `exception` mark matching `bang_tam`).
+- **Stand-ins & cast (20 people: 18 living, 2 dead):**
+  - `khau_dai_ung` (`tho 50, hoa 30`, layer 5) and `khau_nhi_dam` (`tho 46, hoa 28`, layer 3) moved from `hoang_tho` to `yoke-and-axle-breath` (`["tho", "hoa"]`, Yellow main, `shoulder-the-yoke` at layer 1). Follows Step 5 order (lineage Wood/Water gates exclude Earth-Fire servants per `le_tuyen.md` §2/§5/§6; no note names another method; new owner method fits both roots with zero cross-owner dependencies).
+  - All other 16 living cast members verified: roots, ranks, technique layers, and gear all valid (`issues: []`, `stand_ins: 0`, `unknown_ids: 0`, `cross_owner: 0`).
+- **Design rules:** No environment conditions, no spatial fight (`spatial_words_check.py`: 0 non-soft hits in `le_tuyen` rule fields), scale without caps (`draught-steep` uncapped, `Drunk` uncapped, `Sealed Cask` and `Needle of Mending` cleanse now `per_firing: 1`), Effects unpriced.
+
+---
+
+## 3. Pending words (`design/stage6-staging/le_tuyen/pending.json`)
+
+`pending.json` contains **0 words** (`{"words": [], "arts": [], "effects": {}}`). Confirmed:
+- **`Needle of Mending` (no new word — keep `approx`):** Building a loadout-UI toggle + compiler damage-suppression path in both engines for a single unique item (`ltp-sweet-dew-needles`, 1 holder) is not worth the engine complexity. The `hit_landed` `approx` (heals `event.amount` + cleanses 1 debuff stack `per_firing: 1`, matching both `tags: ["needle"]` and `art_id: "needle-rain"` with `not_tags: ["needle"]`) keeps the intent and runs cleanly today.
+- **`A Brimming Cup` (no new word — keep `approx`):** Firing `ward_grow {"share": 0.025, "of": "hp"}` on heal-tagged `art_fired` above `80 %` `qi_share` is actually *more* faithful to *"each heal you cast while above 80 % linh lực overflows"* than waiting for 100 % HP `heal_overflow`, because it works even while injured; consecutive `overflow` pulse tracking accurately measures holding full usable linh lực for 3 s.
+
+---
+
+## 4. Verification & holder table after fixes
+
+All run with `$env:DEPTH_STAGE = "C:\Users\xphuo\IdeaProjects\my-game\design\stage6-staging\le_tuyen"`:
+- `lint_arts.py`: 7 arts, **0 findings**.
+- `lint_techniques.py`: 4 techniques (`7.6/8`, `15.9/16`, `15.4/16`, `7.8/8`), **0 findings**.
+- `lint_items.py`: 6 items (`unique 6 of 6`), **0 findings**.
+- `depth_check.py --quiet`: **findings: none**.
+- `depth_gap.py --sect le_tuyen`: `stand_ins: 0`, `unknown_ids: 0`, `cross_owner: 0`, `engine_words: 0`, `wishes_open: 0`, `lines: 28/28 runs`.
+- `sect_fight.py le_tuyen --seeds 5` and `--gap 1 --seeds 5`: **0 REFUSED**, every art fires on every holder.
+
+| Holder / Probe | Realm | Arts (fires/fight at gap 0) | Gap 0 (`mean_s`, wins, HP) | Gap 1 (`mean_s`, wins, HP) | Effects (`with` vs `without`, runs) |
 |---|---|---|---|---|---|
-| 1 | `design/stage6-staging/le_tuyen/effects/le_tuyen.effects.json` | `A Brimming Cup` (`eff:A Brimming Cup pulse` / `eff:A Brimming Cup reset`) | `eff:A Brimming Cup pulse` (unconditionally setting `brimming_overflow_tick = 0`) sat **before** `eff:A Brimming Cup reset` (checking `brimming_overflow_tick == 0` to clear `brimming_full_qi = 0`) on the same `pulse` event. Because `engine.fire_event` runs records in list order, `brimming_full_qi` was reset to `0` on every single pulse, so `eff:A Brimming Cup ready` and `eff:A Brimming Cup spend` had `0` runs (`brimming_double` never activated). Also, `approx` referenced `heal_overflow`, which is not what `A Brimming Cup` triggers on ("each heal you cast while above 80 % linh lực overflows"). | Reordered `eff:A Brimming Cup reset` before `eff:A Brimming Cup pulse`, removed the stale `heal_overflow` note from `approx`, and documented that `+100` additive `healing` applies to all heals while armed until the next heal-tagged art fires. Post-edit 20-seed `morning-dew` probe shows `ready: 118`, `spend: 69`, `ward: 300`, `20/20` wins (`46%` HP vs `0/20` without). | MUST-FIX |
-| 2 | `design/stage6-staging/le_tuyen/techniques/catalogue-sect-le_tuyen.json` | `sweet-spring-wine-rite` | The record job authored a new passive `{"key": "stack_effect_pct", "value": 10, "scope": ["thuy", "debuff"]}` (`2.5 W`). Per `design/gdd/effects.md` rule 9a and `assets/data/combat_engine.json`, Water has no `DEBUFF` stat (`DEBUFF.get("water")` is `{}`), so `stack_effect_pct` on `["thuy", "debuff"]` does literal zero in `engine.py:341` (`dsum`). | Replaced that new passive with `{"key": "linh_luc_regen_inc_pct", "value": 3, "scope": []}` (`2.4 W`, technique total `15.4 W of 16`), which runs for every holder and supports `open-the-cask`'s cost and `A Brimming Cup`'s full-qi condition. (Verbatim depth modifiers on `ltp-hundred-jar-seal` and `ltp-hundred-jars` 2pc are preserved per `_brief-record.md` and noted in Open items.) | SHOULD |
-| 3 | `design/stage6-staging/le_tuyen/arts/part-sect-le_tuyen.json` | `open-the-cask` | Tagged `"heal"` (`["water", "mist", "curse", "heal"]`) despite having `role: "curse"` and `c_heal: 0.0` (its heal runs via `cask-mist-pulse` on `pulse`). For a holder of `sweet-spring-wine-rite` and `A Brimming Cup` (such as `mai_le_tuyen`, who holds `sweet-spring-wine-rite` at layer 8 in `aux`), firing `open-the-cask` would trigger `eff:A Brimming Cup spend` (`filter: {"tags": ["heal"]}`) and clear `brimming_double` on a `0` `c_heal` art. | Removed `"heal"` from `open-the-cask`'s `tags` (`["water", "mist", "curse"]`). | SHOULD |
-| 4 | `design/stage6-staging/le_tuyen/techniques/catalogue-sect-le_tuyen.json` and `design/world/depth/sects/le_tuyen.techniques.json` | `dew-gathering-breath` | Requires `"names": ["moc", "thuy"]`. Under `src/gameplay/cultivation/cong_phap.gd:40` (`CongPhap.usable`), a character must hold every listed element. Two living outer-gate holders (`lu_tieu_khuc` `thuy 44, tho 34` and `sa_au_lan` `thuy 48, tho 26`) lack `moc`, matching `le_tuyen.md` §6 ("A Water healer without Wood may serve in the sick-hall as an outer disciple all her life; Sa Ấu Lan hopes not to"), and both arts (`morning-dew`, `leaf-drip`) use `"element": "water"`. | **Not applied** (consistent with `lac_ha-checkpoint.md` #4 and `thuy_vi-checkpoint.md` #12: authored lineage `names` are not altered silently). Logged in Open items for Stage 7/9 (`CongPhap.usable` or `dew-gathering-breath` `names` ruling). | SHOULD |
-| 5 | `design/stage6-staging/le_tuyen/effects/le_tuyen.effects.json` | `Needle of Mending` | Depth rule says `"instead of striking"`, approximated as `heal` (`of: "amount"`, `share: 1.0`) + `cleanse 1` alongside the hit on `hit_landed` (`approx`). Still prints `NEVER_RAN` in `sect_fight.py` because `sect_fight.py` slots only technique arts (`MAX_ARTS = 6`) and not item common arts (`needle-rain`). | **Not applied** (`approx` kept; loadout strike-skip UI/compiler toggle is not worth building for one item). Verified via probes for both `family-metal` (`582` heal, `97` cleanse over 20 seeds) and `common-arts` (`142` heal, `142` cleanse over 10 seeds) with zero `tag`/`common` overlap (`not_tags: ["needle"]`). | NIT |
-
-### Checked and kept
-- **Items & Sets:** Verified programmatically against `le_tuyen.items.json` — all `6` items (`sources: ["npc"]`, `unique: true`, R6 `exception`, identical modifiers/base/grade/lore/holder) and `2` sets (`ltp-sweet-spring`, `ltp-hundred-jars`) match depth text verbatim.
-- **Arts (`part-sect-le_tuyen.json`):** Verified all `7` arts (`morning-dew`, `leaf-drip`, `hundred-herb-draught`, `bitter-root`, `open-the-cask`, `last-cup`, `shoulder-the-yoke`) against depth concepts, `lint_arts.py` bounds (`charge <= 0.60`, `c_art <= limit`, `c_heal <= HEAL_RATIO * lint_c`), and `engine.py` execution. `open-the-cask` using counter `wine_mist` avoids overwriting `deep-lake` (`deep-lake-stance`); `hundred-herb-draught`'s `stack_more` (`draught-steep`) scales cleanly per 3 `own.buff.wood` and runs in both Python (`engine.py:326`) and GDScript (`fighter_state.gd:297`); `bitter-root` (`withering`, charge `0.58 <= 0.60`) and `last-cup` (`empower` on `foe.debuff.water >= 5`) run cleanly.
-- **Stand-ins:** Both `khau_dai_ung` (`tho 50, hoa 30`) and `khau_nhi_dam` (`tho 46, hoa 28`) switched to `yoke-and-axle-breath` (`names: ["tho", "hoa"]`, `shoulder-the-yoke`), matching `_brief-record.md` Step 5 order (`le_tuyen.md` explicitly bars servants from the Water/Wood gates) and passing `CongPhap.usable`. `stand_ins: 0`, `unknown_ids: 0`, `cross_owner: 0`.
-- **Beasts & Spatial/Environment rules:** `0` beasts on `le_tuyen`; `spatial_words_check.py --sect le_tuyen` reports `0` non-soft rule hits; no environment conditions, no caps, Effects unpriced.
-- **Linters & checks (post-edit):**
-  - `lint_techniques.py`: `checked 4 techniques, 0 findings` (`7.6 / 8`, `15.9 / 16`, `15.4 / 16`, `7.8 / 8`).
-  - `lint_arts.py`: `checked 7 arts in 1 files, 0 findings`.
-  - `lint_items.py`: `checked 6 items, 22 bases, 9 common arts, 0 findings` (`unique 6 of 6`).
-  - `depth_check.py --quiet`: `findings: none`.
-  - `depth_gap.py --sect le_tuyen`: `stand_ins: 0`, `unknown_ids: 0`, `cross_owner: 0`, `engine_words: 0`, `wishes_open: 0`, `lines: 28/28 runs`.
-
-## Decisions on the pending words (`pending.json`)
-`pending.json` is empty (`{"words": [], "arts": [], "effects": {}}`). No new engine words are requested; all 4 Effects (`Needle of Mending`, `Sealed Cask`, `A Brimming Cup`, `Half Lake`) and all 7 arts run on existing engine vocabulary (with `Needle of Mending` and `A Brimming Cup` marked `approx` in `effects/le_tuyen.effects.json`).
-
-## Holder table after the fixes
-
-Same realm and `--gap 1`, typical foe, 5 seeds (`python -I tools/design/combat_sim/sect_fight.py le_tuyen --seeds 5` and `--gap 1 --seeds 5`, `0 REFUSED` across all 18 living holders), plus post-edit probes:
-
-| Holder / Probe | Same realm (`gap 0`, 5 seeds) | `--gap 1` (5 seeds) | Effects (`with / without`, runs) & Note |
-|---|---|---|---|
-| `mai_le_tuyen` (KĐ 2) | `16.4 s, 5/5, 100%` | `15.2 s, 0/5, 0%` | **A Brimming Cup**: `gap 0` `16.4 / 16.5 s` (`170` runs), `gap 1` `15.2 / 15.2 s` (`152` runs); **Needle of Mending**: `0 NEVER_RAN` (`sect_fight` does not slot `needle-rain`; see probes below) |
-| `nhac_thuan_nhuong` (KĐ 0) | `21.7 s, 5/5, 100%` | `26.2 s, 0/5, 0%` | **Sealed Cask**: `gap 0` `21.7 / 23.9 s` (`31` runs), `gap 1` `26.2 / 21.6 s` (`34` runs); **Half Lake**: `gap 0` `21.7 / 23.9 s` (`61` runs), `gap 1` `26.2 / 21.1 s` (`83` runs) |
-| `ha_thanh_to` (TC 2) | `55.0 s, 5/5, 98%` | `8.2 s, 0/5, 0%` | All 4 arts fire (`10.8 / 10.8 / 6.8 / 11.4` at `gap 0`, `1.0` each at `gap 1`) |
-| `can_tri_vi`, `gia_tuyen_phong` (TC 1) | `54.1 s, 5/5, 99%` | `8.2 s, 0/5, 0%` | All 4 arts fire (`10.8 / 10.8 / 7.0 / 11.2` at `gap 0`, `1.0` each at `gap 1`) |
-| `phuong_kim_cham`, `nhac_du_huong`, `ngai_bach_chi` (TC) | `63.8 s, 3/5, 7%` | `8.0 s, 0/5, 0%` | `hundred-herb-draught` `11.6`, `bitter-root` `11.6` (`1.0` each at `gap 1`) |
-| `trac_linh_tuyen`, `loc_thao_nhi`, `nhu_tri_thu`, `lien_than_ha` (LK) | `58.6 s, 0/5, 0%` | `8.0 s, 0/5, 0%` | `hundred-herb-draught` `9.2`, `bitter-root` `9.2` (`1.0` each at `gap 1`) |
-| `bac_trieu_am` (LK 0) | `56.8 s, 4/5, 15%` | `8.0 s, 0/5, 0%` | `morning-dew` `10.2`, `leaf-drip` `17.0` (`1.0` / `2.0` at `gap 1`) |
-| `lu_tieu_khuc`, `sa_au_lan` (LK) | `57.0 s, 4/5, 15%` | `8.0 s, 0/5, 0%` | `morning-dew` `10.2`, `leaf-drip` `17.0` (`1.0` / `2.0` at `gap 1`; see Finding #4 for `CongPhap.usable`) |
-| `truong_ham_chuoc` (LK 0) | `49.2 s, 0/5, 0%` | `8.0 s, 0/5, 0%` | `morning-dew` `9.0` (`1.0` at `gap 1`; layer 1, single art) |
-| `khau_dai_ung`, `khau_nhi_dam` (LK, stand-ins) | `47.4 s, 1/5, 2%` | `8.0 s, 0/5, 0%` | `shoulder-the-yoke` `15.0` (`2.0` at `gap 1`) |
-| **Probe (post-edit):** `mai_le_tuyen` (`morning-dew` vs typical KĐ, 20 seeds) | `65.0 s, 20/20, 46%` vs `64.9 s, 0/20, 0%` | — | **A Brimming Cup:** `overflow: 448`, `pulse: 1300`, `ready: 118`, `reset: 852`, `spend: 69`, `ward: 300` (confirms 3 s full-qi double heal now activates and spends cleanly) |
-| **Probe (post-edit):** `mai_le_tuyen` (`family-metal` `needle-rain` + `leaf-drip`, 20 seeds) | `41.1 s, 20/20, 36%` | — | **Needle of Mending (`tag` path):** `heal tag: 582`, `cleanse tag: 97`, `0` common overlap |
-| **Probe (post-edit):** `mai_le_tuyen` (`common-arts` `needle-rain` + `leaf-drip` vs `layers [180,120,60,30,0]`, 10 seeds) | `15.8 s, 0/10, 0%` | — | **Needle of Mending (`common` path):** `heal common: 142`, `cleanse common: 142`, `0` tag overlap |
-
-## Open items (for the user, Stage 7/9, or serial step)
-1. **Cross-root `names` vs `CongPhap.usable` (finding #4):** `dew-gathering-breath` (`names: ["moc", "thuy"]`) is unusable in Godot by `lu_tieu_khuc` and `sa_au_lan` (`thuy` + `tho`, no `moc`), despite `le_tuyen.md` §6 explicitly admitting Water-without-Wood outer disciples and both arts being Water. Needs Stage 7/9 `CongPhap.usable` or lineage `names` ruling.
-2. **Depth `stack_effect_pct ["thuy", "debuff"]` lines on items/sets:** `ltp-hundred-jar-seal` (`20`) and `ltp-hundred-jars` 2-piece (`10`) carry `stack_effect_pct` scoped to `["thuy", "debuff"]` from `le_tuyen.items.json`, which has no `DEBUFF["water"]` stat in `combat_engine.json` (kept verbatim per `_brief-record.md`).
-3. **Carried over from `le_tuyen-review.md`:** Stage 7 export attaches `ltp-sweet-dew-needles`'s common art `needle-rain` onto `mai_le_tuyen`; `Needle of Mending` loadout strike-skip toggle and `A Brimming Cup` exact half-heal ward sizing remain approximated.
+| `mai_le_tuyen` | `ket_dan` | `deep-lake-stance` (6.0), `gathering-wave` (3.0), `brimming-cup` (3.0), `swelling-tide-palm` (4.4), `hundred-herb-draught` (3.0), `bitter-root` (3.0) | `15.9 s`, 5/5, `100%` | `15.2 s`, 0/5, `0%` | **A Brimming Cup**: gap 0 `15.9 s 100%` vs `16.5 s 100%` (`49` runs); gap 1 `15.2 s 0%` vs `15.2 s 0%` (`21` runs; ward/ready gated by Nguyên Anh ward drain dropping qi below 80 % before t=4.7 s); **Needle of Mending**: `0` runs in `sect_fight` (does not slot weapon common art `needle-rain`; verified in probes below) |
+| `nhac_thuan_nhuong` | `ket_dan` | `hundred-herb-draught` (4.8), `bitter-root` (4.8), `open-the-cask` (3.0), `last-cup` (5.0), `deep-lake-stance` (9.6), `gathering-wave` (5.0) | `24.2 s`, 5/5, `100%` | `45.4 s`, 0/5, `0%` | **Sealed Cask**: gap 0 `24.2 s` vs `23.9 s` (`49` runs); gap 1 `45.4 s` vs `21.6 s` (`77` runs, `+23.8 s`); **Half Lake**: gap 0 `24.2 s` vs `23.6 s` (`75` runs); gap 1 `45.4 s` vs `21.2 s` (`180` runs, `+24.2 s`) |
+| `ha_thanh_to` | `truc_co` | `hundred-herb-draught` (10.6), `bitter-root` (10.6), `open-the-cask` (6.8), `last-cup` (11.0) | `54.5 s`, 5/5, `99%` | `8.2 s`, 0/5, `0%` | n/a |
+| `can_tri_vi`, `gia_tuyen_phong` | `truc_co` | `hundred-herb-draught` (11.0), `bitter-root` (10.8), `open-the-cask` (6.8), `last-cup` (11.2) | `55.3 s`, 5/5, `99%` | `8.2 s`, 0/5, `0%` | n/a |
+| `phuong_kim_cham`, `nhac_du_huong`, `ngai_bach_chi` | `truc_co` | `hundred-herb-draught` (11.6), `bitter-root` (11.6) | `63.8 s`, 3/5, `7%` | `8.0 s`, 0/5, `0%` | n/a (`draught-steep` verified separately: 5/10 wins `8.1%` HP vs 3/10 `3.0%` HP without) |
+| `trac_linh_tuyen`, `loc_thao_nhi`, `nhu_tri_thu`, `lien_than_ha` | `luyen_khi` | `hundred-herb-draught` (9.2), `bitter-root` (9.2) | `58.6 s`, 0/5, `0%` | `8.0 s`, 0/5, `0%` | n/a |
+| `bac_trieu_am`, `lu_tieu_khuc`, `sa_au_lan` | `luyen_khi` | `morning-dew` (10.2), `leaf-drip` (17.0) | `56.8–57.0 s`, 4/5, `15%` | `8.0 s`, 0/5, `0%` | n/a |
+| `truong_ham_chuoc` | `luyen_khi` | `morning-dew` (9.0) | `49.2 s`, 0/5, `0%` | `8.0 s`, 0/5, `0%` | n/a (layer 1 outer disciple: heal+cleanse + basic attack) |
+| `khau_dai_ung`, `khau_nhi_dam` | `luyen_khi` | `shoulder-the-yoke` (15.0) | `47.4 s`, 1/5, `2%` | `8.0 s`, 0/5, `0%` | n/a |
+| **Probe 1a:** `mai_le_tuyen` (`family-metal` `needle-rain` + `leaf-drip` vs burn KD, 10 seeds) | `ket_dan` | `needle-rain` (6.9), `leaf-drip` (22.7) | `57.5 s`, 10/10, `30%` | — | **Needle of Mending**: `414` heal procs (`69 × 6` sub-hits), `69` cleanse procs (`1` per firing), `0` `common` double-procs |
+| **Probe 1b:** `mai_le_tuyen` (`common-arts` `needle-rain` + `leaf-drip` vs burn KD, 10 seeds) | `ket_dan` | `needle-rain` (33.7), `leaf-drip` (13.2) | `33.8 s`, 10/10, `100%` | — | **Needle of Mending**: `337` heal procs, `337` cleanse procs (`1` per firing), `0` `tag` double-procs; `100%` HP vs `61%` HP without (`+39%` HP) |
+| **Probe 2:** `mai_le_tuyen` (`morning-dew` only vs typical KD, 10 seeds) | `ket_dan` | `morning-dew` | `65.0 s`, 10/10, `27%` | — | **A Brimming Cup**: `10/10` (`27%` HP) vs `0/10` (`0%` HP) without; `150` ward (`2.5%` HP), `236` overflow, `66` ready, `37` spend |
 
 CHECKPOINT DONE

@@ -18,7 +18,7 @@
      "id": "eff:Needle of Mending cleanse tag",
      "on": "hit_landed",
      "filter": {"tags": ["needle"], "kind": "art"},
-     "limit": {"per_pulse": 1},
+     "limit": {"per_firing": 1},
      "do": [
       {"cleanse": {"n": 1}}
      ]
@@ -35,7 +35,7 @@
      "id": "eff:Needle of Mending cleanse common",
      "on": "hit_landed",
      "filter": {"art_id": "needle-rain", "kind": "art", "not_tags": ["needle"]},
-     "limit": {"per_pulse": 1},
+     "limit": {"per_firing": 1},
      "do": [
       {"cleanse": {"n": 1}}
      ]
@@ -50,7 +50,7 @@
      "on": "hit_landed",
      "filter": {"element": "water", "kind": "art"},
      "if": [{"read": "foe.debuff.water", "op": ">=", "value": 3}],
-     "limit": {"per_pulse": 1},
+     "limit": {"per_firing": 1},
      "do": [
       {"status": {"id": "drunk", "stacks": 1, "side": "foe"}},
       {"status": {"id": "heavy_breath", "stacks": 1, "dur": 4, "side": "foe"}}
@@ -59,8 +59,8 @@
    ]
   },
   "A Brimming Cup": {
-   "rule": "The Sweet Spring, full set: each heal you cast while above 80 % linh lực overflows into a stance ward worth 5 % of your maximum health (about half the heal). After holding full usable linh lực (overflowing each pulse) for 3 s, your next heal art gets +100 % healing.",
-   "approx": "Ward overflow runs on heal-tagged art firings above 80 % qi_share as a 5 % HP ward_grow (ward_grow scales by hp/peak rather than heal amount); full-qi 3 s timer tracks consecutive overflow pulses and grants +100 additive healing to all heals while armed until the next heal-tagged art fires.",
+   "rule": "The Sweet Spring, full set: each heal you cast while above 80 % linh lực overflows into a stance ward worth 2.5 % of your maximum health (about half the heal). After holding full usable linh lực (overflowing each pulse) for 3 s, your next heal art gets +100 % healing.",
+   "approx": "Ward overflow runs on heal-tagged art firings above 80 % qi_share as a 2.5 % HP ward_grow (ward_grow scales by hp/peak rather than heal amount; 2.5 % matches ~half of Mai Lễ Tuyền's 4.2-4.9 % Hundred-Herb Draught heal); full-qi 3 s timer tracks consecutive overflow pulses and grants +100 additive healing to all heals while armed until the next heal-tagged art fires.",
    "counters": [
     {"id": "brimming_full_qi"},
     {"id": "brimming_overflow_tick"},
@@ -73,7 +73,7 @@
      "filter": {"tags": ["heal"]},
      "if": [{"read": "own.qi_share", "op": ">=", "value": 0.8}],
      "do": [
-      {"ward_grow": {"share": 0.05, "of": "hp"}}
+      {"ward_grow": {"share": 0.025, "of": "hp"}}
      ]
     },
     {
@@ -96,7 +96,10 @@
     {
      "id": "eff:A Brimming Cup reset",
      "on": "pulse",
-     "if": [{"read": "own.counter.brimming_overflow_tick", "op": "==", "value": 0}],
+     "if": [
+      {"read": "own.counter.brimming_full_qi", "op": ">=", "value": 1},
+      {"read": "own.counter.brimming_overflow_tick", "op": "==", "value": 0}
+     ],
      "do": [
       {"counter": {"id": "brimming_full_qi", "set": 0}}
      ]
@@ -104,6 +107,7 @@
     {
      "id": "eff:A Brimming Cup pulse",
      "on": "pulse",
+     "if": [{"read": "own.counter.brimming_overflow_tick", "op": ">=", "value": 1}],
      "do": [
       {"counter": {"id": "brimming_overflow_tick", "set": 0}}
      ]
