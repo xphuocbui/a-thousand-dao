@@ -1,7 +1,7 @@
 [
  {
   "id": "seed-and-soil-primer",
-  "name": "Seed and Soil Primer (Chủng Thổ Khải Mông Quyết)",
+  "name": "Seed and Soil Primer (Chủng Thổ Quyết)",
   "tier": 0,
   "tech_kind": "main",
   "origin": "authored",
@@ -27,7 +27,7 @@
  },
  {
   "id": "emerald-haze-canon",
-  "name": "Emerald Haze Canon (Thúy Vụ Chân Kinh)",
+  "name": "Emerald Haze True Canon (Thúy Vi Chân Kinh)",
   "tier": 2,
   "tech_kind": "main",
   "origin": "authored",
@@ -61,7 +61,7 @@
  },
  {
   "id": "haze-walk",
-  "name": "Haze Walk (Thúy Vụ Bộ)",
+  "name": "Haze Walk (Vụ Bộ)",
   "tier": 1,
   "tech_kind": "secret",
   "origin": "authored",
@@ -90,7 +90,7 @@
  },
  {
   "id": "rock-splitting-root",
-  "name": "Rock-Splitting Root (Liệt Thạch Căn)",
+  "name": "Rock-Splitting Root (Liệt Thạch Căn Quyết)",
   "tier": 1,
   "tech_kind": "secret",
   "origin": "authored",
@@ -119,7 +119,7 @@
  },
  {
   "id": "green-furnace-canon",
-  "name": "Green Furnace Canon (Thanh Lô Chân Kinh)",
+  "name": "Green Furnace Canon (Thanh Lô Kinh)",
   "tier": 2,
   "tech_kind": "secret",
   "origin": "authored",
@@ -239,7 +239,8 @@
   "abilities": [
    {"ability_id": "whetstone-pass", "unlock_layer": 1},
    {"ability_id": "sundering-wedge", "unlock_layer": 3},
-   {"ability_id": "shatter-edge-cleave", "unlock_layer": 5}
+   {"ability_id": "shatter-edge-cleave", "unlock_layer": 5},
+   {"ability_id": "millstone-palm", "unlock_layer": 6}
   ],
   "effects": [],
   "lore": "Stand-in replacement for dia_kim: the jade-cutter and furnace-mender craft kept by Lã Trác Thạch at Bích Ngọc Khoáng."

@@ -11,14 +11,46 @@
   },
   {
    "name": "heal-overflow",
-   "kind": "event_rule",
-   "spec": "In engine.py heal() (line 1593), emit `heal_restored` (or `heal_overflow`) with `overflow=amount - got` even when `s.hp == top` (`got == 0`, `amount > 0`), including pulse health regeneration or explicit over-heals, so effects listening on full-HP wasted healing receive every overflow tick.",
-   "gdd_text": "The Empty Mountain's Answer (d5): healing lost to your full health is stored as Green and falls every 3 s.",
+   "kind": "event",
+   "spec": "In engine.py heal() (line 1592-1600) and the GDScript equivalent, emit a separate event `heal_overflow` whenever `amount > max(0.0, got)` (i.e. `ov = amount - max(0.0, got) > 0`, both partial overshoots where `got > 0` and full-HP / heal_cap ticks where `got <= 0`), carrying `{amount: ov, share: ov / s.hp_max, source?}` (plus `s.cur_ev`). Keep `heal_restored` strictly gated on `got > 0`.",
+   "gdd_text": "Effects rule 5, `heal_overflow`: raised when healing exceeds the target's missing health (`amount`: lost health, `share`: lost share of maximum health); `heal_restored` still fires only when health actually increases.",
    "used_by": ["The Empty Mountain's Answer", "tv-green-moss-mirror", "green-furnace-canon", "empty-mountain-sutra"],
    "decision": "build",
-   "decision_reason": "Today engine.py line 1593 only raises `heal_restored` when `got > 0`, so healing cast at 100% HP raises nothing and only partial overshoots raise `event.overflow`. Adding a 2-line emit when `amount > got` lets The Empty Mountain's Answer run faithfully at full health. Until built, effects/thuy_vi.effects.json runs its `heal_restored` `event.overflow` half and logs this gap in `approx`."
+   "decision_reason": "Verified against engine.py:1592-1600 and all heal_restored listeners across design/ and assets/data/combat_effects.json: emitting `heal_restored` on `got == 0` would trigger unscaled pulse-regen side effects every second at 100% HP on `thorn-lullaby` (1.0 c free soul hit/s), `ebb-and-flow` (+2 Water stacks/s), `marrow-to-dew` (+1.5% qi/s), and `swelling-tide-palm` (+1 Tide/s), and bypass `heal_cap` checks. Emitting a separate `heal_overflow` event (mirroring linh lực's `overflow` at engine.py:919) with `share = ov / hp_max` avoids every side effect and makes `The Empty Mountain's Answer` scale-invariant across realms. Until serial step b01 builds `heal_overflow` and swaps in `pending.json`'s `effects` record, `effects/thuy_vi.effects.json` runs the partial-overshoot `heal_restored` approximation."
   }
  ],
  "arts": [],
- "effects": {}
+ "effects": {
+  "The Empty Mountain's Answer": {
+   "rule": "Healing lost to your full health is stored as Green, and the Green fades by a tenth each second. When the foe cannot evade or carries 5 or more of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.",
+   "approx": "Stores per 2.5 % max-HP overflow (`event.share`) and deals 0.2 c Chaos free hits per unit stored; `decay_share: 0.1` decays 10 %/s.",
+   "counters": [{"id": "green_bank", "decay_share": 0.1}],
+   "records": [
+    {
+     "id": "eff:The Empty Mountain's Answer:store",
+     "on": "heal_overflow",
+     "if": [{"read": "event.share", "op": ">", "value": 0}],
+     "scale": {"read": "event.share", "per": 0.025, "floor": false},
+     "do": [{"counter": {"id": "green_bank", "add": 1}}]
+    },
+    {
+     "id": "eff:The Empty Mountain's Answer:fall",
+     "on": "pulse",
+     "if": [
+      {"read": "own.counter.green_bank", "op": ">=", "value": 1},
+      {"any": [
+       {"read": "foe.status.off_guard", "op": ">=", "value": 1},
+       {"read": "foe.debuff.wood", "op": ">=", "value": 5}
+      ]}
+     ],
+     "scale": {"read": "own.counter.green_bank", "per": 1, "floor": false},
+     "limit": {"cooldown": 3.0},
+     "do": [
+      {"free_hit": {"c": 0.2, "dtype": "chaos"}},
+      {"counter": {"id": "green_bank", "set": 0}}
+     ]
+    }
+   ]
+  }
+ }
 }

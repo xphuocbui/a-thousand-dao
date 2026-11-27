@@ -4,18 +4,51 @@
  "effects": {
   "Brush Away the Dust": {
    "rule": "Once every 20 s, the whisk brushes one debuff off you and turns its remaining time into a ward of the same length.",
-   "approx": "Cleanses 1 element batch and 1 curse status every 20 s when any status/debuff is held, granting a 1 s-equivalent fixed 8 % health ward (remaining batch time is not a readable).",
+   "approx": "Cleanses 1 curse status or 1 element debuff stack every 20 s when one is held, granting a 1 s-equivalent fixed 8 % health ward (remaining batch time is not a readable).",
+   "counters": [{"id": "brush_cd"}],
    "records": [
     {
-     "id": "eff:Brush Away the Dust",
+     "id": "eff:Brush Away the Dust:curse",
      "on": "pulse",
-     "if": [{"read": "own.distinct_statuses", "op": ">=", "value": 1}],
-     "limit": {"cooldown": 20.0},
+     "if": [
+      {"read": "own.counter.brush_cd", "op": "<", "value": 1},
+      {"read": "own.curses", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"cleanse": {"curses": 1}},
+      {"ward_grow": {"share": 0.08, "of": "hp"}},
+      {"counter": {"id": "brush_cd", "set": 20}}
+     ]
+    },
+    {
+     "id": "eff:Brush Away the Dust:debuff",
+     "on": "pulse",
+     "if": [
+      {"read": "own.counter.brush_cd", "op": "<", "value": 1},
+      {"read": "own.curses", "op": "<", "value": 1},
+      {"any": [
+       {"read": "own.debuff.fire", "op": ">=", "value": 1},
+       {"read": "own.debuff.water", "op": ">=", "value": 1},
+       {"read": "own.debuff.earth", "op": ">=", "value": 1},
+       {"read": "own.debuff.metal", "op": ">=", "value": 1},
+       {"read": "own.debuff.wood", "op": ">=", "value": 1},
+       {"read": "own.debuff.ice", "op": ">=", "value": 1},
+       {"read": "own.debuff.thunder", "op": ">=", "value": 1},
+       {"read": "own.debuff.wind", "op": ">=", "value": 1},
+       {"read": "own.debuff.light", "op": ">=", "value": 1}
+      ]}
+     ],
      "do": [
       {"cleanse": {"n": 1}},
-      {"cleanse": {"curses": 1}},
-      {"ward_grow": {"share": 0.08, "of": "hp"}}
+      {"ward_grow": {"share": 0.08, "of": "hp"}},
+      {"counter": {"id": "brush_cd", "set": 20}}
      ]
+    },
+    {
+     "id": "eff:Brush Away the Dust:tick",
+     "on": "pulse",
+     "if": [{"read": "own.counter.brush_cd", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "brush_cd", "add": -1}}]
     }
    ]
   },
@@ -59,12 +92,6 @@
      "do": [{"mod": {"dampen_taken": 9900}}]
     },
     {
-     "id": "eff:A Seed for the Fallen:step",
-     "on": "pulse",
-     "if": [{"read": "own.counter.seed_flower", "op": ">=", "value": 2}],
-     "do": [{"counter": {"id": "seed_flower", "add": -1}}]
-    },
-    {
      "id": "eff:A Seed for the Fallen:bloom",
      "on": "pulse",
      "if": [{"read": "own.counter.seed_flower", "op": "==", "value": 1}],
@@ -72,6 +99,12 @@
       {"counter": {"id": "seed_flower", "set": 0}},
       {"heal": {"share": 0.2}}
      ]
+    },
+    {
+     "id": "eff:A Seed for the Fallen:step",
+     "on": "pulse",
+     "if": [{"read": "own.counter.seed_flower", "op": ">=", "value": 2}],
+     "do": [{"counter": {"id": "seed_flower", "add": -1}}]
     }
    ]
   },
@@ -128,7 +161,7 @@
   },
   "Light on the Moss": {
    "rule": "A quarter of the healing you receive is stored, and released on you the next time you fall below half health.",
-   "counters": [{"id": "moss_store", "cap": 30}],
+   "counters": [{"id": "moss_store"}],
    "records": [
     {
      "id": "eff:Light on the Moss:store",
@@ -154,8 +187,8 @@
   },
   "The Empty Mountain's Answer": {
    "rule": "Healing lost to your full health is stored as Green, and the Green fades by a tenth each second. When the foe cannot evade or carries 5 or more of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.",
-   "approx": "Stores event.overflow on heal_restored (pending heal-overflow word in pending.json so got == 0 full-HP ticks also emit overflow); stores per 50 overflow HP (cap 10) and discharges as elem free hits (Wood-equivalent direct hit).",
-   "counters": [{"id": "green_bank", "cap": 50}],
+   "approx": "Pre-serial approximation: stores event.overflow on heal_restored (pending heal-overflow word in pending.json so got == 0 full-HP ticks also emit heal_overflow with event.share); stores per 50 overflow HP, decays 10 %/s via decay_share, and discharges as Chaos free hits (Wood damage type).",
+   "counters": [{"id": "green_bank", "decay_share": 0.1}],
    "records": [
     {
      "id": "eff:The Empty Mountain's Answer:store",
@@ -165,27 +198,19 @@
      "do": [{"counter": {"id": "green_bank", "add": 1}}]
     },
     {
-     "id": "eff:The Empty Mountain's Answer:fade",
-     "on": "pulse",
-     "if": [{"read": "own.counter.green_bank", "op": ">=", "value": 0.5}],
-     "scale": {"read": "own.counter.green_bank", "per": 10, "floor": false},
-     "do": [{"counter": {"id": "green_bank", "add": -1}}]
-    },
-    {
      "id": "eff:The Empty Mountain's Answer:fall",
      "on": "pulse",
      "if": [
       {"read": "own.counter.green_bank", "op": ">=", "value": 1},
       {"any": [
        {"read": "foe.status.off_guard", "op": ">=", "value": 1},
-       {"read": "foe.evade", "op": "<=", "value": 0},
        {"read": "foe.debuff.wood", "op": ">=", "value": 5}
       ]}
      ],
-     "scale": {"read": "own.counter.green_bank", "per": 1, "cap": 10, "floor": false},
+     "scale": {"read": "own.counter.green_bank", "per": 1, "floor": false},
      "limit": {"cooldown": 3.0},
      "do": [
-      {"free_hit": {"c": 0.2, "dtype": "elem"}},
+      {"free_hit": {"c": 0.2, "dtype": "chaos"}},
       {"counter": {"id": "green_bank", "set": 0}}
      ]
     }
@@ -193,15 +218,32 @@
   },
   "The Green Comes Back": {
    "rule": "Emerald Haze Regalia (3 pieces): the first time each fight you fall below a third of your health, haze (a Field) rises around you for 6 s. While it is up, you heal 3 % of your health each second, the foe gains 2 Wood stacks each second, and your Wood arts cost nothing while it lasts.",
-   "approx": "Tracked cleanly via counter regalia_haze (6 s) without overwriting active stances such as Rooted Form or Pine Against the Wind (item/set Effects cannot register new engine state definitions via add_library_effect).",
-   "counters": [{"id": "regalia_haze"}],
+   "approx": "Tracked cleanly via counter regalia_haze (6 s) without overwriting active stances such as Rooted Form or Pine Against the Wind (item/set Effects cannot register new engine state definitions via add_library_effect); Wood art cost reduction stops at cost_red_cap (0.95).",
+   "counters": [{"id": "regalia_haze"}, {"id": "regalia_used"}],
    "records": [
+    {
+     "id": "eff:The Green Comes Back:hit",
+     "on": "was_hit",
+     "if": [
+      {"read": "own.hp_share", "op": "<", "value": 0.333},
+      {"read": "own.counter.regalia_used", "op": "==", "value": 0}
+     ],
+     "do": [
+      {"counter": {"id": "regalia_used", "set": 1}},
+      {"counter": {"id": "regalia_haze", "set": 6}}
+     ]
+    },
     {
      "id": "eff:The Green Comes Back:trigger",
      "on": "pulse",
-     "if": [{"read": "own.hp_share", "op": "<", "value": 0.333}],
-     "limit": {"per_fight": 1},
-     "do": [{"counter": {"id": "regalia_haze", "set": 6}}]
+     "if": [
+      {"read": "own.hp_share", "op": "<", "value": 0.333},
+      {"read": "own.counter.regalia_used", "op": "==", "value": 0}
+     ],
+     "do": [
+      {"counter": {"id": "regalia_used", "set": 1}},
+      {"counter": {"id": "regalia_haze", "set": 6}}
+     ]
     },
     {
      "id": "eff:The Green Comes Back:tick",
@@ -217,7 +259,7 @@
      "id": "eff:The Green Comes Back:free",
      "on": "always",
      "if": [{"read": "own.counter.regalia_haze", "op": ">=", "value": 1}],
-     "do": [{"mod": {"cost_red": 1.0, "element": "wood"}}]
+     "do": [{"mod": {"cost_red": 0.95, "element": "wood"}}]
     }
    ]
   },
@@ -248,22 +290,29 @@
   },
   "Reach and Root": {
    "rule": "Evening Ferry (2 pieces): a foe that cannot evade from a pole art of yours stays so 1 s longer for each 3 Wood stacks it carries, and that spends those stacks; each time the foe is made unable to evade this way again in a fight, the extra time is halved.",
-   "approx": "Uses `status_dur` (+100 % on first trigger, +50 % on repeat, scaled per 3 Wood stacks on foe) when `off_guard` lands and consumes up to 9 Wood stacks on the foe.",
-   "counters": [{"id": "reach_uses", "cap": 4}],
+   "approx": "Uses `status_dur` (+100 % first, +50 % second, +25 % third+ per 3 Wood stacks on foe) when `off_guard` lands (from any source) and consumes all Wood stacks on the foe (engine `consume` takes a fixed count, not scaled).",
+   "counters": [{"id": "reach_uses"}],
    "records": [
     {
      "id": "eff:Reach and Root:first",
      "on": "always",
      "if": [{"read": "own.counter.reach_uses", "op": "<", "value": 1}],
-     "scale": {"read": "foe.debuff.wood", "per": 3, "cap": 3},
+     "scale": {"read": "foe.debuff.wood", "per": 3},
      "do": [{"mod": {"status_dur": 100, "tags": ["off_guard"]}}]
+    },
+    {
+     "id": "eff:Reach and Root:second",
+     "on": "always",
+     "if": [{"read": "own.counter.reach_uses", "op": "==", "value": 1}],
+     "scale": {"read": "foe.debuff.wood", "per": 3},
+     "do": [{"mod": {"status_dur": 50, "tags": ["off_guard"]}}]
     },
     {
      "id": "eff:Reach and Root:repeat",
      "on": "always",
-     "if": [{"read": "own.counter.reach_uses", "op": ">=", "value": 1}],
-     "scale": {"read": "foe.debuff.wood", "per": 3, "cap": 3},
-     "do": [{"mod": {"status_dur": 50, "tags": ["off_guard"]}}]
+     "if": [{"read": "own.counter.reach_uses", "op": ">=", "value": 2}],
+     "scale": {"read": "foe.debuff.wood", "per": 3},
+     "do": [{"mod": {"status_dur": 25, "tags": ["off_guard"]}}]
     },
     {
      "id": "eff:Reach and Root:spend",
@@ -271,7 +320,7 @@
      "filter": {"status": "off_guard"},
      "if": [{"read": "foe.debuff.wood", "op": ">=", "value": 3}],
      "do": [
-      {"consume": {"el": "wood", "side": "foe", "kind": "debuff", "n": 9}},
+      {"consume": {"el": "wood", "side": "foe", "kind": "debuff"}},
       {"counter": {"id": "reach_uses", "add": 1}}
      ]
     }
@@ -279,6 +328,7 @@
   },
   "Everything at Once": {
    "rule": "Far Ambition (2 pieces): when you use a pill, your next needle art casts at once and puts double Wood stacks, and your heals are 20 % stronger for 3 s.",
+   "approx": "Cuts cooldown on the next ready art (not filtered to needle arts, as tv-polygala-needle uses base common art under R6) and grants +2 flat Wood debuff stacks for 3 s (stack_grant is additive, not multiplicative).",
    "counters": [{"id": "far_ambition"}],
    "records": [
     {
@@ -346,17 +396,12 @@
   },
   "No Hiding on the Quay": {
    "rule": "Cold Ford Watch (3 pieces): a foe that cannot evade loses its concealment, and each second it cannot evade your next Wood art against it deals 8 % more; that art spends the bonus, and it is lost when it can evade again.",
-   "counters": [{"id": "quay_focus", "cap": 10}],
+   "counters": [{"id": "quay_focus"}],
    "records": [
     {
      "id": "eff:No Hiding on the Quay:build",
      "on": "pulse",
-     "if": [
-      {"any": [
-       {"read": "foe.status.off_guard", "op": ">=", "value": 1},
-       {"read": "foe.evade", "op": "<=", "value": 0}
-      ]}
-     ],
+     "if": [{"read": "foe.status.off_guard", "op": ">=", "value": 1}],
      "do": [{"counter": {"id": "quay_focus", "add": 1}}]
     },
     {
@@ -364,7 +409,6 @@
      "on": "pulse",
      "if": [
       {"read": "foe.status.off_guard", "op": "<", "value": 1},
-      {"read": "foe.evade", "op": ">", "value": 0},
       {"read": "own.counter.quay_focus", "op": ">=", "value": 1}
      ],
      "do": [{"counter": {"id": "quay_focus", "set": 0}}]
@@ -414,7 +458,7 @@
   },
   "Lean Until It Breaks": {
    "rule": "Cliff Hall Champion (3 pieces): each hit on a foe whose guard you cracked adds a Wood stack and 3 % pierce against it, and every tenth such hit breaks the foe's block for 3 s; the pierce falls by 3 % each second you do not hit that foe.",
-   "counters": [{"id": "lean_pierce", "cap": 20}, {"id": "lean_hits", "cap": 10}, {"id": "lean_break"}, {"id": "lean_idle"}],
+   "counters": [{"id": "lean_pierce"}, {"id": "lean_hits", "cap": 10}, {"id": "lean_break"}, {"id": "lean_idle"}],
    "records": [
     {
      "id": "eff:Lean Until It Breaks:hit",
