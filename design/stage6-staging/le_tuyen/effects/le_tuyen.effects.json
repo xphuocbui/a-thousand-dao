@@ -60,7 +60,7 @@
   },
   "A Brimming Cup": {
    "rule": "The Sweet Spring, full set: each heal you cast while above 80 % linh lực overflows into a stance ward worth 5 % of your maximum health (about half the heal). After holding full usable linh lực (overflowing each pulse) for 3 s, your next heal art gets +100 % healing.",
-   "approx": "Ward overflow runs on heal-tagged art firings above 80 % qi_share as a 5 % HP ward_grow (full-HP heals emit no heal_overflow yet and ward_grow scales by hp/peak); full-qi 3 s timer tracks consecutive overflow pulses and doubles via +100 healing until the next heal art fires.",
+   "approx": "Ward overflow runs on heal-tagged art firings above 80 % qi_share as a 5 % HP ward_grow (ward_grow scales by hp/peak rather than heal amount); full-qi 3 s timer tracks consecutive overflow pulses and grants +100 additive healing to all heals while armed until the next heal-tagged art fires.",
    "counters": [
     {"id": "brimming_full_qi"},
     {"id": "brimming_overflow_tick"},
@@ -94,18 +94,18 @@
      ]
     },
     {
-     "id": "eff:A Brimming Cup pulse",
-     "on": "pulse",
-     "do": [
-      {"counter": {"id": "brimming_overflow_tick", "set": 0}}
-     ]
-    },
-    {
      "id": "eff:A Brimming Cup reset",
      "on": "pulse",
      "if": [{"read": "own.counter.brimming_overflow_tick", "op": "==", "value": 0}],
      "do": [
       {"counter": {"id": "brimming_full_qi", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:A Brimming Cup pulse",
+     "on": "pulse",
+     "do": [
+      {"counter": {"id": "brimming_overflow_tick", "set": 0}}
      ]
     },
     {

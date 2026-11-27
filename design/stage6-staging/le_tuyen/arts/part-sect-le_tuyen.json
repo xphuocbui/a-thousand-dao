@@ -102,7 +102,7 @@
   "tier": "authored",
   "power": "engine",
   "group": "sweet-spring-wine-rite",
-  "tags": ["water", "mist", "curse", "heal"],
+  "tags": ["water", "mist", "curse"],
   "c_art": 0.0,
   "cost_share": 0.05,
   "cooldown": 8.0,
