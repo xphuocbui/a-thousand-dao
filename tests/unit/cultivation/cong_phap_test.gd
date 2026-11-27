@@ -232,7 +232,13 @@ func test_every_authored_template_fits_its_tier() -> void:
 			assert_true(size <= float(cfg.bonus_single_cap), "%s single cap" % t.id)
 			budget += size
 		assert_true(budget <= float(tier.bonus_budget), "%s budget %.2f" % [t.id, budget])
-		assert_eq(t.names.is_empty(), t.tech_kind == "body", "%s names" % t.id)
+		if str(t.tech_kind) == "body":
+			assert_true(t.names.is_empty(), "%s body names empty" % t.id)
+		elif t.names.is_empty():
+			assert_eq(str(t.origin), "authored", "%s element-free must be authored" % t.id)
+			var lib_arts: Dictionary = gd.file("combat_library").get("arts", {})
+			for ab in t.abilities:
+				assert_eq(str(lib_arts.get(str(ab.ability_id), {}).get("element", "")), "", "%s ability %s element-free" % [t.id, ab.ability_id])
 
 
 func test_comp_strength_is_centred_on_the_average_ac_cp_51() -> void:
@@ -298,3 +304,29 @@ func test_the_sheet_and_power_read_effective_comprehension_ac_cp_55() -> void:
 	var ratio: float = qi.total / mean_qi
 	var pct_ratio: float = high_sheet.mult("linh_luc_pct") / mean_sheet.mult("linh_luc_pct")
 	assert_near(ratio, 1.275 * pct_ratio, 1e-6, "linh luc carries the whole factor")
+
+
+func test_element_free_main_and_secret_are_usable_and_scale_with_strongest_root() -> void:
+	var gd := game_data()
+	var c := _in_realm(TestFixtures.character({"moc": 40, "hoa": 86}), 1)
+	var main_def := _def(1, "main", [], [{"stat": "defense_pct", "value": 10.0}])
+	var secret_def := _def(1, "secret", [], [{"stat": "than_thuc_pct", "value": 8.0}])
+	var body_def := _def(1, "body", [], [{"stat": "khi_huyet_pct", "value": 10.0}])
+	assert_true(CongPhap.usable(c, main_def), "element-free main is usable by any root")
+	assert_true(CongPhap.usable(c, secret_def), "element-free secret is usable by any root")
+	assert_near(CongPhap.avg_purity(c, main_def), 86.0, 1e-6, "element-free main uses strongest_element purity")
+	assert_near(CongPhap.avg_purity(c, secret_def), 86.0, 1e-6, "element-free secret uses strongest_element purity")
+	assert_eq(CongPhap.avg_purity(c, body_def), 0.0, "body technique avg_purity stays 0.0")
+	var e := _give(c, "m", main_def, 6)
+	_give(c, "s", secret_def, 9)
+	c.main_tech = "m"
+	c.aux_tech = ["s", ""]
+	assert_near(CongPhap.tech_one(c, gd, e), 2.0 / 1.22 * 1.15 * 0.86, 1e-6, "element-free main speed uses strongest_element purity")
+	assert_near(CongPhap.speed_factor(c, gd).mult, CongPhap.tech_one(c, gd, e), 1e-6, "speed_factor uses element-free main")
+	assert_eq(CongPhap.harmony(gd, [], []), 1.0, "element-free secret under element-free main is neutral")
+	assert_eq(CongPhap.harmony(gd, [], ["hoa"]), 1.0, "element-free secret under elemental main is neutral")
+	assert_eq(CongPhap.harmony(gd, ["moc"], []), 1.0, "elemental secret under element-free main is neutral")
+	var lines: Array = CongPhap.bonus_lines(c, gd, 60.0, MEAN)
+	assert_eq(lines.size(), 2, "both element-free techniques grant bonuses")
+	assert_near(lines[0].value, 10.0 * (0.3 + 0.7 * 5.0 / 8.0) * (0.5 + 0.86), 1e-6, "element-free main bonus uses strongest purity")
+	assert_near(lines[1].value, 8.0 * 1.0 * (0.5 + 0.86) * 1.0, 1e-6, "element-free secret bonus uses strongest purity and neutral harmony")

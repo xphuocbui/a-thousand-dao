@@ -1,0 +1,2755 @@
+{
+  "name": "t28_b02_exact",
+  "slice": 28,
+  "chance_free": true,
+  "seed": 281,
+  "doc": "World-depth Stage 6 batch b02 (2026-11-27), chance-free: element-free b02 kits in exact parity \u2014 Side A runs Vong Trieu (set-the-lamp, line-of-lamps, Lamp-Ward, The Lamp Flares) + Thu Phan (ghosts-sing-old-poems, add-a-voice, autumn-comes) against Side B Xuyen Lam (walk-slowly, who-is-afraid, The Long Road, Do Not Listen).",
+  "a": {
+    "name": "b02-vong-thu-kit",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {
+        "name": "set-the-lamp",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 5.0,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "seal",
+          "ward"
+        ],
+        "guards": [
+          {
+            "read": "own.counter.seal",
+            "op": "<",
+            "value": 9
+          }
+        ],
+        "charges": 3,
+        "group": "lamp-ward-seal-canon"
+      },
+      {
+        "name": "line-of-lamps",
+        "c": 1.15,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "seal",
+          "control"
+        ],
+        "guards": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "statuses": [
+          {
+            "id": "slowed_time",
+            "stacks": 1,
+            "dur": 3
+          },
+          {
+            "id": "leaking_ward",
+            "stacks": 1,
+            "dur": 2
+          }
+        ],
+        "convert": {
+          "to": "force",
+          "share": 1.0
+        },
+        "group": "lamp-ward-seal-canon"
+      },
+      {
+        "name": "ghosts-sing-old-poems",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 4.0,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "soul",
+          "song"
+        ],
+        "soul_pct": 0.035,
+        "group": "autumn-grave-canon"
+      },
+      {
+        "name": "add-a-voice",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 8.0,
+        "element": "",
+        "dtype": "elem",
+        "group": "autumn-grave-canon"
+      },
+      {
+        "name": "autumn-comes",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 6.0,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "soul",
+          "song"
+        ],
+        "soul_pct": 0.032,
+        "group": "autumn-grave-canon"
+      }
+    ],
+    "counters": [
+      {
+        "id": "seal",
+        "cap": 9
+      },
+      {
+        "id": "seal_blows"
+      },
+      {
+        "id": "seal_turned"
+      },
+      {
+        "id": "seal_last_turned"
+      },
+      {
+        "id": "seal_popped",
+        "cap": 1
+      },
+      {
+        "id": "seal_burned_out",
+        "cap": 1
+      },
+      {
+        "id": "seal_just_emptied",
+        "cap": 1
+      },
+      {
+        "id": "seal_ttl",
+        "cap": 14
+      },
+      {
+        "id": "seal_wall",
+        "cap": 1
+      },
+      {
+        "id": "seal_fuse",
+        "cap": 1
+      },
+      {
+        "id": "has_lamp_ward",
+        "cap": 1
+      },
+      {
+        "id": "lamp_ward_t1"
+      },
+      {
+        "id": "lamp_ward_t2"
+      },
+      {
+        "id": "has_unsleeping_lamp",
+        "cap": 1
+      },
+      {
+        "id": "not_one_lamp",
+        "cap": 1
+      },
+      {
+        "id": "lamp_escaped",
+        "cap": 1
+      },
+      {
+        "id": "seal_pass_turns"
+      },
+      {
+        "id": "chorus"
+      }
+    ],
+    "states": [],
+    "effects": [
+      {
+        "id": "set-the-lamp-init",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "set-the-lamp"
+        },
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "set": 3
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_turned",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_popped",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_burned_out",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_just_emptied",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-init-ward",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "set-the-lamp"
+        },
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-init-fuse",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "set-the-lamp"
+        },
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.seal_fuse",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-bank-ward-3",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "set-the-lamp"
+        },
+        "if": [
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-bank-ward-6",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "set-the-lamp"
+        },
+        "if": [
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 6
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-gain",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "set-the-lamp"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "seal",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_ttl",
+              "set": 10
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_burned_out",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-unsleeping-ttl",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "set-the-lamp"
+        },
+        "if": [
+          {
+            "read": "own.counter.has_unsleeping_lamp",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_ttl",
+              "add": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-dampen-base",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 15
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-dampen-stack",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.seal",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-hit-turn",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_popped",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_burned_out",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_just_emptied",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_turned",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-hit-spend",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_wall",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "any": [
+              {
+                "read": "own.counter.not_one_lamp",
+                "op": "==",
+                "value": 0
+              },
+              {
+                "read": "own.counter.lamp_escaped",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "read": "own.counter.seal_blows",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-hit-copy-prep",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_blows",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.seal_wall",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "any": [
+              {
+                "read": "own.counter.not_one_lamp",
+                "op": "==",
+                "value": 0
+              },
+              {
+                "read": "own.counter.lamp_escaped",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_last_turned",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-hit-copy",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_blows",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.seal_wall",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "any": [
+              {
+                "read": "own.counter.not_one_lamp",
+                "op": "==",
+                "value": 0
+              },
+              {
+                "read": "own.counter.lamp_escaped",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "read": "own.counter.seal_turned",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.seal_turned",
+          "per": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "seal_last_turned",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-hit-pop",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_blows",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.seal_wall",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "any": [
+              {
+                "read": "own.counter.not_one_lamp",
+                "op": "==",
+                "value": 0
+              },
+              {
+                "read": "own.counter.lamp_escaped",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_popped",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_burned_out",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_turned",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-hit-empty",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_just_emptied",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-base",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "set": 3
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_ttl",
+              "set": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t1-1",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t1-2",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t1-3",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t1-4",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 4
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 4
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t1-5",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 5
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t1-6",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 6
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 6
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t2-1",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t2",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t2-2",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t2",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-ward-t2-3",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t2",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-fuse",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_fuse",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_blows",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-reload-lamp",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.has_unsleeping_lamp",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_ttl",
+              "add": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-age",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_wall",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "any": [
+              {
+                "read": "own.counter.not_one_lamp",
+                "op": "==",
+                "value": 0
+              },
+              {
+                "read": "own.counter.lamp_escaped",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "read": "own.counter.seal_ttl",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_ttl",
+              "add": -1
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_burned_out",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-expire",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_wall",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "any": [
+              {
+                "read": "own.counter.not_one_lamp",
+                "op": "==",
+                "value": 0
+              },
+              {
+                "read": "own.counter.lamp_escaped",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "read": "own.counter.seal_ttl",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal",
+              "add": -1
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_turned",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_blows",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_burned_out",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-empty",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_just_emptied",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_ttl",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.seal_blows",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.seal_wall",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "set": 3
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_ttl",
+              "set": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_ttl",
+            "op": "==",
+            "value": 10
+          },
+          {
+            "read": "own.counter.seal_blows",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t1-1",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t1-2",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t1-3",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t1-4",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 4
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 4
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t1-5",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 5
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t1-6",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 6
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t1",
+            "op": ">=",
+            "value": 6
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t1",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t2-1",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t2",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t2-2",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t2",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-ward-t2-3",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "read": "own.counter.has_lamp_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lamp_ward_t2",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lamp_ward_t2",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-fuse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_fuse",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_blows",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_blows",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "set-the-lamp-tick-reload-lamp",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seal_burned_out",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.has_unsleeping_lamp",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_ttl",
+              "add": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "line-of-lamps-ward",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "line-of-lamps"
+        },
+        "do": [
+          {
+            "burn_qi": {
+              "of": "qi_max",
+              "share": 0.05
+            }
+          },
+          {
+            "mod": {
+              "ward_bill": 25,
+              "for": 4.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "ghosts-sing-chorus-bonus",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "ghosts-sing-old-poems"
+        },
+        "if": [
+          {
+            "read": "own.counter.chorus",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.chorus"
+        },
+        "do": [
+          {
+            "mod": {
+              "x_soul": 25
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-voice-80",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "foe.hp_share",
+            "op": "<=",
+            "value": 0.8
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "chorus",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-voice-60",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "foe.hp_share",
+            "op": "<=",
+            "value": 0.6
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "chorus",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-voice-40",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "foe.hp_share",
+            "op": "<=",
+            "value": 0.4
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "chorus",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-voice-20",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "foe.hp_share",
+            "op": "<=",
+            "value": 0.2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "chorus",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-voice-broken",
+        "on": "broken",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "chorus",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-voice-wounded",
+        "on": "wounded",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "chorus",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "autumn-comes-soul",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "autumn-comes"
+        },
+        "if": [
+          {
+            "read": "own.counter.chorus",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.chorus"
+        },
+        "do": [
+          {
+            "mod": {
+              "x_soul": 30
+            }
+          }
+        ]
+      },
+      {
+        "id": "autumn-comes-silence",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "autumn-comes"
+        },
+        "if": [
+          {
+            "read": "own.counter.chorus",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "scale": {
+          "read": "own.counter.chorus",
+          "per": 2
+        },
+        "do": [
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "autumn-comes-spend",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "autumn-comes"
+        },
+        "if": [
+          {
+            "read": "own.counter.chorus",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "chorus",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Lamp-Ward init",
+        "on": "fight_start",
+        "do": [
+          {
+            "counter": {
+              "id": "has_lamp_ward",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Lamp Flares base",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_fuse",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.3,
+              "dtype": "force",
+              "outside_budget": true
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Lamp Flares scale",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_last_turned",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_fuse",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.counter.seal_last_turned",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.1,
+              "dtype": "force",
+              "outside_budget": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Lamp Flares fuse base",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_fuse",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.6,
+              "dtype": "force",
+              "outside_budget": true
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Lamp Flares fuse scale",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_last_turned",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.seal_fuse",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.seal_last_turned",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.2,
+              "dtype": "force",
+              "outside_budget": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Lamp Flares clear",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_popped",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_popped",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_last_turned",
+              "set": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "b02-xuyen-lam-kit",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {
+        "name": "walk-slowly",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 1.8,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "physical",
+          "movement",
+          "stance"
+        ],
+        "group": "calm-wind-staff-canon"
+      },
+      {
+        "name": "who-is-afraid",
+        "c": 1.8,
+        "cost": 0.08,
+        "cd": 5.5,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "physical",
+          "staff"
+        ],
+        "group": "calm-wind-staff-canon"
+      }
+    ],
+    "counters": [
+      {
+        "id": "walk_slowly",
+        "each_for": 15.0
+      },
+      {
+        "id": "unheeding_ward",
+        "decay_share": 0.1
+      }
+    ],
+    "states": [
+      {
+        "id": "walk-slowly",
+        "tags": [
+          "pressing"
+        ],
+        "mods": {}
+      }
+    ],
+    "effects": [
+      {
+        "id": "walk-slowly-enter",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "walk-slowly"
+        },
+        "do": [
+          {
+            "state": {
+              "set": "walk-slowly"
+            }
+          }
+        ]
+      },
+      {
+        "id": "walk-slowly-step",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.walk-slowly",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.pressing",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "walk_slowly",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "walk-slowly-still-clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.walk_slowly",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "walk_slowly",
+              "set": 0
+            }
+          },
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "walk-slowly-escape-clear",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "escape"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "walk_slowly",
+              "set": 0
+            }
+          },
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "walk-slowly-spend",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "staff"
+          ],
+          "not_art_id": "walk-slowly"
+        },
+        "if": [
+          {
+            "read": "own.counter.walk_slowly",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.walk_slowly",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.06,
+              "kind": "art",
+              "tags": [
+                "staff"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "walk-slowly-clear-hit",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "staff"
+          ],
+          "kind": "art",
+          "not_art_id": "walk-slowly"
+        },
+        "if": [
+          {
+            "read": "own.counter.walk_slowly",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "walk_slowly",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "walk-slowly-clear-evaded",
+        "on": "was_evaded",
+        "filter": {
+          "tags": [
+            "staff"
+          ],
+          "kind": "art",
+          "not_art_id": "walk-slowly"
+        },
+        "if": [
+          {
+            "read": "own.counter.walk_slowly",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "walk_slowly",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "who-is-afraid-cleanse",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "who-is-afraid"
+        },
+        "if": [
+          {
+            "read": "own.counter.walk_slowly",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "cleanse": {
+              "curses": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Long Road:base",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.pressing",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "cost_red": 0.05
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Long Road:walk",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.pressing",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.walk_slowly",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.walk_slowly",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "cost_red": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Do Not Listen:base",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "soul_res": 15
+            }
+          },
+          {
+            "mod": {
+              "status_resist": 20,
+              "status": "charmed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Do Not Listen:scale",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.unheeding_ward",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.unheeding_ward",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "soul_res": 5
+            }
+          },
+          {
+            "mod": {
+              "status_resist": 5,
+              "status": "charmed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Do Not Listen:soul",
+        "on": "soul_taken",
+        "do": [
+          {
+            "counter": {
+              "id": "unheeding_ward",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Do Not Listen:song",
+        "on": "was_hit",
+        "filter": {
+          "tags": [
+            "song"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "unheeding_ward",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Do Not Listen:charm",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.status.charmed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "unheeding_ward",
+              "add": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1564,6 +1564,34 @@ def t_partial_set_effect():   # Stage 6 b01 (tung_dao td-cold-ford-charge): 2pc 
         F.SETS = old
 
 
+def t_lint_element_free_techniques():   # Stage 6 b02: lint_techniques allows names: [] on element-free authored methods
+    import importlib.util
+    import json
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "arts", "lint_techniques.py")
+    spec = importlib.util.spec_from_file_location("lint_techniques", p)
+    lt = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(lt)
+    data = json.load(open(os.path.join(lt.ROOT, "assets", "data", "items_cong_phap.json"), encoding="utf-8"))
+    tiers = {x["rank"]: x for x in data["tiers"]}
+    arts = {
+        "free-art": {"id": "free-art", "element": ""},
+        "fire-art": {"id": "fire-art", "element": "fire"},
+    }
+    base = {"id": "t", "name": "T", "tier": 0, "layers": 6, "bonuses": [], "passives": [], "origin": "authored"}
+    ok_main = dict(base, tech_kind="main", names=[], abilities=[{"ability_id": "free-art", "unlock_layer": 1}])
+    ok_secret = dict(base, id="s", tech_kind="secret", names=[], abilities=[{"ability_id": "free-art", "unlock_layer": 1}])
+    bad_elem = dict(base, id="e", tech_kind="main", names=[], abilities=[{"ability_id": "fire-art", "unlock_layer": 1}])
+    bad_body = dict(base, id="b", tech_kind="body", names=["hoa"], abilities=[{"ability_id": "free-art", "unlock_layer": 1}])
+    check("element-free authored main passes lint_techniques",
+          lt.lint([ok_main], "catalogue-sect-test.json", arts, data["bonus_pool"], tiers, []) == [])
+    check("element-free authored secret passes lint_techniques",
+          lt.lint([ok_secret], "catalogue-sect-test.json", arts, data["bonus_pool"], tiers, []) == [])
+    check("names: [] with elemental ability is rejected",
+          len(lt.lint([bad_elem], "catalogue-sect-test.json", arts, data["bonus_pool"], tiers, [])) >= 1)
+    check("body technique with non-empty names is rejected",
+          len(lt.lint([bad_body], "catalogue-sect-test.json", arts, data["bonus_pool"], tiers, [])) >= 1)
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

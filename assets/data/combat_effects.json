@@ -83,6 +83,18 @@
       "source": "Đạo Đồ",
       "not_run": "pills are not taken inside fights yet (Alchemy: pill use in combat has no host)"
     },
+    "All Birds Bow": {
+      "rule": "The Bird Mother, full set (2 pieces): each time your bird companions strike a foe, your next fan art throws one more feather (a free Fire hit of 0.375 and 1 Fire stack per feather). When three bird companion strikes land in 2 s, the foe gains 2 Slowed Time stacks.",
+      "source": "world-depth:bach_vu",
+      "approx": "companion hit events carry companion tags (bird), not individual beast ids, so bird_strike_2s (each_for 2) counts 3 bird companion hits within 2 s",
+      "counters": [{"id": "bow_feathers"}, {"id": "bird_strike_2s", "each_for": 2}],
+      "records": [
+        {"id": "eff:All Birds Bow count", "on": "hit_landed", "filter": {"kind": "companion", "tags": ["bird"]}, "do": [{"counter": {"id": "bow_feathers", "add": 1}}, {"counter": {"id": "bird_strike_2s", "add": 1}}]},
+        {"id": "eff:All Birds Bow slow", "on": "hit_landed", "filter": {"kind": "companion", "tags": ["bird"]}, "if": [{"read": "own.counter.bird_strike_2s", "op": ">=", "value": 3}], "do": [{"status": {"id": "slowed_time", "stacks": 2, "dur": 3, "side": "foe"}}, {"counter": {"id": "bird_strike_2s", "set": 0}}]},
+        {"id": "eff:All Birds Bow fan", "on": "art_fired", "filter": {"tags": ["fan"]}, "if": [{"read": "own.counter.bow_feathers", "op": ">=", "value": 1}], "scale": {"read": "own.counter.bow_feathers", "per": 1}, "do": [{"free_hit": {"c": 0.375, "dtype": "fire"}}, {"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}, {"counter": {"id": "bow_feathers", "set": 0}}]},
+        {"id": "eff:All Birds Bow fan gust", "on": "art_fired", "filter": {"art_id": "fan-gust"}, "if": [{"read": "own.counter.bow_feathers", "op": ">=", "value": 1}], "scale": {"read": "own.counter.bow_feathers", "per": 1}, "do": [{"free_hit": {"c": 0.375, "dtype": "fire"}}, {"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}, {"counter": {"id": "bow_feathers", "set": 0}}]}
+      ]
+    },
     "Anchored Span": {
       "rule": "The Cloud Bridge Works, full set (3 pieces): while you hold 2 or more Flag charges, each pulse in which the foe acted (foe_pressed) it takes 2 Earth stacks (8 s) and 1 Slowed Time stack (3 s), at most once every 2 s; while you are Composed, your formation arts cost no linh lực (cost_red 0.95 cap) and you recover 1 % linh lực each second.",
       "source": "world-depth:lac_ha",
@@ -184,6 +196,26 @@
         {"id": "eff:Blood Drinker (basic)", "on": "hit_landed", "filter": {"kind": "basic"}, "do": [{"heal": {"of": "amount", "share": 0.06}}]}
       ]
     },
+    "Blood Turns to Jade": {
+      "rule": "Watched curses (Slowed Time, Sundered, Slackened Soul) that expire un-cleansed leave 1 jade mark on the foe. At 5 or more, your next seal art spends all marks, stops the foe's clock for 1 s, and deals a light soul hit (0.45 c) for each mark past 5.",
+      "source": "world-depth:thu_phan",
+      "counters": [{"id": "jade_mark"}, {"id": "jade_spending"}, {"id": "jw_slowed_time"}, {"id": "jw_sundered"}, {"id": "jw_slackened_soul"}],
+      "records": [
+        {"id": "eff:Blood Turns to Jade watch slowed_time", "on": "status_applied", "filter": {"status": "slowed_time"}, "do": [{"counter": {"id": "jw_slowed_time", "set": 1}}]},
+        {"id": "eff:Blood Turns to Jade watch sundered", "on": "status_applied", "filter": {"status": "sundered"}, "do": [{"counter": {"id": "jw_sundered", "set": 1}}]},
+        {"id": "eff:Blood Turns to Jade watch slackened_soul", "on": "status_applied", "filter": {"status": "slackened_soul"}, "do": [{"counter": {"id": "jw_slackened_soul", "set": 1}}]},
+        {"id": "eff:Blood Turns to Jade cleansed slowed_time", "on": "cleansed", "if": [{"read": "own.counter.jw_slowed_time", "op": ">=", "value": 1}, {"read": "foe.status.slowed_time", "op": "==", "value": 0}], "do": [{"counter": {"id": "jw_slowed_time", "set": 0}}]},
+        {"id": "eff:Blood Turns to Jade cleansed sundered", "on": "cleansed", "if": [{"read": "own.counter.jw_sundered", "op": ">=", "value": 1}, {"read": "foe.status.sundered", "op": "==", "value": 0}], "do": [{"counter": {"id": "jw_sundered", "set": 0}}]},
+        {"id": "eff:Blood Turns to Jade cleansed slackened_soul", "on": "cleansed", "if": [{"read": "own.counter.jw_slackened_soul", "op": ">=", "value": 1}, {"read": "foe.status.slackened_soul", "op": "==", "value": 0}], "do": [{"counter": {"id": "jw_slackened_soul", "set": 0}}]},
+        {"id": "eff:Blood Turns to Jade expire slowed_time", "on": "pulse", "if": [{"read": "own.counter.jw_slowed_time", "op": ">=", "value": 1}, {"read": "foe.status.slowed_time", "op": "==", "value": 0}], "do": [{"counter": {"id": "jw_slowed_time", "set": 0}}, {"counter": {"id": "jade_mark", "add": 1}}]},
+        {"id": "eff:Blood Turns to Jade expire sundered", "on": "pulse", "if": [{"read": "own.counter.jw_sundered", "op": ">=", "value": 1}, {"read": "foe.status.sundered", "op": "==", "value": 0}], "do": [{"counter": {"id": "jw_sundered", "set": 0}}, {"counter": {"id": "jade_mark", "add": 1}}]},
+        {"id": "eff:Blood Turns to Jade expire slackened_soul", "on": "pulse", "if": [{"read": "own.counter.jw_slackened_soul", "op": ">=", "value": 1}, {"read": "foe.status.slackened_soul", "op": "==", "value": 0}], "do": [{"counter": {"id": "jw_slackened_soul", "set": 0}}, {"counter": {"id": "jade_mark", "add": 1}}]},
+        {"id": "eff:Blood Turns to Jade spend check", "on": "hit_landed", "filter": {"tags": ["seal"]}, "if": [{"read": "own.counter.jade_mark", "op": ">=", "value": 5}], "do": [{"counter": {"id": "jade_spending", "set": 1}}, {"counter": {"id": "jade_mark", "add": -5}}, {"stop_clock": {"side": "foe", "seconds": 1.0}}]},
+        {"id": "eff:Blood Turns to Jade spend bonus", "on": "hit_landed", "filter": {"tags": ["seal"]}, "if": [{"read": "own.counter.jade_spending", "op": ">=", "value": 1}, {"read": "own.counter.jade_mark", "op": ">=", "value": 1}], "scale": {"read": "own.counter.jade_mark"}, "do": [{"free_hit": {"c": 0.45, "dtype": "soul"}}]},
+        {"id": "eff:Blood Turns to Jade spend clear", "on": "hit_landed", "filter": {"tags": ["seal"]}, "if": [{"read": "own.counter.jade_spending", "op": ">=", "value": 1}], "do": [{"counter": {"id": "jade_mark", "set": 0}}, {"counter": {"id": "jade_spending", "set": 0}}]}
+      ],
+      "approx": "Watches slowed_time, sundered, and slackened_soul via pulse-expiry detection (heavy_breath is left to A Thousand Years so it is not double-counted); stuns via stop_clock 1.0 s."
+    },
     "Bought Fate": {
       "rule": "Once a fight, a roll that goes against you (a crit you take, an evade that fails, an escape that fails) goes your way instead. Closes: each flip burns 5 % of carried spirit stones.",
       "records": [{"id": "eff:Bought Fate", "on": "was_hit", "if": [{"read": "event.crit", "op": "==", "value": 1}], "limit": {"per_fight": 1}, "do": [{"heal": {"of": "amount", "share": 0.4}}]}],
@@ -230,6 +262,21 @@
         {"id": "eff:Brush Away the Dust:debuff", "on": "pulse", "if": [{"read": "own.counter.brush_cd", "op": "<", "value": 1}, {"read": "own.curses", "op": "<", "value": 1}, {"any": [{"read": "own.debuff.fire", "op": ">=", "value": 1}, {"read": "own.debuff.water", "op": ">=", "value": 1}, {"read": "own.debuff.earth", "op": ">=", "value": 1}, {"read": "own.debuff.metal", "op": ">=", "value": 1}, {"read": "own.debuff.wood", "op": ">=", "value": 1}, {"read": "own.debuff.ice", "op": ">=", "value": 1}, {"read": "own.debuff.thunder", "op": ">=", "value": 1}, {"read": "own.debuff.wind", "op": ">=", "value": 1}, {"read": "own.debuff.light", "op": ">=", "value": 1}]}], "do": [{"cleanse": {"n": 1}}, {"ward_grow": {"share": 0.08, "of": "hp"}}, {"counter": {"id": "brush_cd", "set": 20}}]}
       ]
     },
+    "Burn and Get Back Up": {
+      "rule": "Standing in the Fire, full set (3 pieces: pvd-xich-ha-ky, pvd-moving-fire-hide, pvd-cradle-feather): each time your body shield breaks (drops from positive to 0 on a hit taken), you regain 15 % of your maximum health and arm your next fist strike (fist art or basic blow) to deal an extra Fire free hit of 2.0. Once a fight (wearing the Xích Hà Kỳ as part of the set, superseding its 20 % rise), a blow that would put you Down leaves you standing at 33 % of your maximum health.",
+      "source": "world-depth:phan_vu",
+      "approx": "body shield break is tracked via body_shield_up transitioning from positive to 0 on was_hit (neither engine fires shield_broken on body_bar); 'equal to the shield's value' is a fixed Fire free hit of c 2.0 because no readable returns pre-break body shield HP",
+      "counters": [{"id": "has_standing_fire", "cap": 1}, {"id": "body_shield_up", "cap": 1}, {"id": "shield_fist_armed", "cap": 1}],
+      "records": [
+        {"id": "eff:Burn and Get Back Up flag", "on": "fight_start", "do": [{"counter": {"id": "has_standing_fire", "set": 1}}]},
+        {"id": "eff:Burn and Get Back Up start", "on": "fight_start", "if": [{"read": "own.body_shield_share", "op": ">", "value": 0}], "do": [{"counter": {"id": "body_shield_up", "set": 1}}]},
+        {"id": "eff:Burn and Get Back Up track art", "on": "art_fired", "if": [{"read": "own.body_shield_share", "op": ">", "value": 0}, {"read": "own.counter.body_shield_up", "op": "==", "value": 0}], "do": [{"counter": {"id": "body_shield_up", "set": 1}}]},
+        {"id": "eff:Burn and Get Back Up track pulse", "on": "pulse", "if": [{"read": "own.body_shield_share", "op": ">", "value": 0}, {"read": "own.counter.body_shield_up", "op": "==", "value": 0}], "do": [{"counter": {"id": "body_shield_up", "set": 1}}]},
+        {"id": "eff:Burn and Get Back Up break", "on": "was_hit", "if": [{"read": "own.counter.body_shield_up", "op": ">=", "value": 1}, {"read": "own.body_shield_share", "op": "<=", "value": 0}], "do": [{"counter": {"id": "body_shield_up", "set": 0}}, {"heal": {"share": 0.15}}, {"counter": {"id": "shield_fist_armed", "set": 1}}]},
+        {"id": "eff:Burn and Get Back Up fist", "on": "hit_landed", "filter": {"tags": ["fist", "basic"]}, "if": [{"read": "own.counter.shield_fist_armed", "op": ">=", "value": 1}], "do": [{"free_hit": {"c": 2.0, "dtype": "fire"}}, {"counter": {"id": "shield_fist_armed", "set": 0}}]},
+        {"id": "eff:Burn and Get Back Up rise", "on": "down", "limit": {"per_fight": 1}, "do": [{"refuse_down": {"hp_share": 0.33}}]}
+      ]
+    },
     "Burning Feathers": {
       "rule": "The Hall Stands, full set (2 pieces): each fan crit lays one more Burn batch. Against a foe who carries ten or more of your Burn batches, your Fire crit chance rises by 10 %.",
       "source": "world-depth:phuong_minh",
@@ -255,6 +302,13 @@
         {"id": "eff:Burning Lifespan pulse", "on": "pulse", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.3}, {"read": "own.counter.nhien_tho", "op": "==", "value": 0}], "do": [{"counter": {"id": "nhien_tho", "add": 1}}, {"mod": {"L5": 40, "art_speed": 30, "for": 5}}]}
       ],
       "pending": "the lifespan the fight burns: the fight result does not report years yet (Realms / Time & Turn host)"
+    },
+    "Call of the Luan": {
+      "rule": "Blue Luan Whistle: once per fight when your health falls to 80 % or below, your bonded birds answer the whistle: you regain 8 % of your maximum health (companions have no HP in Combat rule 19, so the shared roosting meridian heals the holder) and your next Loose the Flock sends one more bird.",
+      "source": "world-depth:bach_vu",
+      "approx": "bonded birds have no health bar (Combat rule 19), so 'returns to full health' heals the holder 8 % max HP; triggers once per fight at own.hp_share <= 0.8",
+      "counters": [{"id": "luan_flock", "cap": 1}],
+      "records": [{"id": "eff:Call of the Luan", "on": "pulse", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.8}], "limit": {"per_fight": 1}, "do": [{"heal": {"share": 0.08}}, {"counter": {"id": "luan_flock", "set": 1}}]}]
     },
     "Called Blow": {
       "rule": "Your crit chance is counted on a visible meter, not rolled (Effects Formulas A). Closes: crit chance cap 0.50 -> 0.35.",
@@ -302,6 +356,15 @@
       "source": "Đạo Đồ",
       "records": [{"id": "eff:Dark of the Moon", "on": "evaded", "held": {"until": "hit_landed", "cap": 1}, "limit": {"per_pulse": 1}, "do": [{"mod": {"sure_crit": 1}}]}]
     },
+    "Dawn Ink": {
+      "rule": "Southern Shore Cloud Seal: Wood debuff batches your talismans lay in the first 10 s of a fight last 50 % longer, and each Wood debuff batch that expires unspent returns 2 % of your maximum linh lực.",
+      "source": "world-depth:nam_pho",
+      "approx": "\"talismans you lay\" is read on the Wood debuff batches laid by your talisman arts: batches laid in the first 10 s gain stack_dur 50, and each Wood batch ending naturally (batch_ended) returns 2 % of maximum linh lực.",
+      "records": [
+        {"id": "eff:Dawn Ink early", "on": "always", "if": [{"read": "time", "op": "<=", "value": 10}], "do": [{"mod": {"stack_dur": 50, "element": "wood", "kind": "debuff"}}]},
+        {"id": "eff:Dawn Ink expire", "on": "batch_ended", "filter": {"element": "wood"}, "do": [{"gain_qi": {"share": 0.02}}]}
+      ]
+    },
     "Daybreak": {
       "rule": "Your first Light hit each fight lays the foe bare (Exposed, 3 pulses).",
       "source": "Đạo Đồ",
@@ -319,6 +382,19 @@
         {"id": "eff:Deep Freeze (closes)", "on": "always", "do": [{"mod": {"cost_red": -0.1}}]}
       ],
       "approx": "fires on any Ice grant at 10 or more stacks, once every 2 pulses, rather than exactly at each multiple of 10"
+    },
+    "Do Not Listen": {
+      "rule": "Heart That Does Not Listen to the Rain (passive art, layer 1): A passive ward: incoming soul damage is reduced by 15 % and charm resistance is raised by 20 %; each soul hit, song hit or pulse under Charm raises the ward by 1 stack (+5 % soul resistance and +5 % charm resistance each), and the raise fades by a tenth each second.",
+      "source": "world-depth:xuyen_lam",
+      "approx": "Uses decay_share: 0.1 on unheeding_ward (fades 10 % every pulse, including the pulse it was raised). Raises on soul_taken, was_hit (tags: [song]), and pulse while own.status.charmed >= 1 (engine has no status_taken event on the target).",
+      "counters": [{"id": "unheeding_ward", "decay_share": 0.1}],
+      "records": [
+        {"id": "eff:Do Not Listen:base", "on": "always", "do": [{"mod": {"soul_res": 15}}, {"mod": {"status_resist": 20, "status": "charmed"}}]},
+        {"id": "eff:Do Not Listen:scale", "on": "always", "if": [{"read": "own.counter.unheeding_ward", "op": ">=", "value": 1}], "scale": {"read": "own.counter.unheeding_ward", "per": 1}, "do": [{"mod": {"soul_res": 5}}, {"mod": {"status_resist": 5, "status": "charmed"}}]},
+        {"id": "eff:Do Not Listen:soul", "on": "soul_taken", "do": [{"counter": {"id": "unheeding_ward", "add": 1}}]},
+        {"id": "eff:Do Not Listen:song", "on": "was_hit", "filter": {"tags": ["song"]}, "do": [{"counter": {"id": "unheeding_ward", "add": 1}}]},
+        {"id": "eff:Do Not Listen:charm", "on": "pulse", "if": [{"read": "own.status.charmed", "op": ">=", "value": 1}], "do": [{"counter": {"id": "unheeding_ward", "add": 1}}]}
+      ]
     },
     "Drumbeat": {
       "rule": "Every fourth art you fire in a fight is a guaranteed crit, and each such crit gives you 1 Thunder buff stack. Closes: your other arts have 8 less crit chance.",
@@ -510,6 +586,17 @@
         {"id": "eff:Fights With What He Made strike", "on": "hit_landed", "filter": {"tags": ["sword"]}, "if": [{"read": "own.counter.furnace_hot", "op": ">=", "value": 1}], "do": [{"stacks": {"el": "metal", "n": 2, "for": 8, "side": "foe"}}, {"counter": {"id": "furnace_hot", "set": 0}}]}
       ]
     },
+    "Figure on the Clouds": {
+      "rule": "Mother's Sky (Mẫu Thiên Song Bảo), full set (2 pieces): your reflection-double lasts 3 s longer; while it stands, your Water arts cost 10 % less; when it falls (by timeout or ward break), you gain 2 Water buff stacks for 10 s.",
+      "source": "world-depth:nhan_van",
+      "counters": [{"id": "double_t", "decay_per_pulse": 1}, {"id": "double_up"}, {"id": "fig_up"}],
+      "records": [
+        {"id": "eff:Figure on the Clouds extend", "on": "art_fired", "filter": {"art_id": "cloud-in-the-pool"}, "if": [{"read": "own.counter.fig_up", "op": "==", "value": 0}], "do": [{"counter": {"id": "double_t", "add": 3}}, {"counter": {"id": "fig_up", "set": 1}}]},
+        {"id": "eff:Figure on the Clouds cost", "on": "always", "if": [{"read": "own.counter.double_up", "op": "==", "value": 1}], "do": [{"mod": {"cost_red": 0.1, "element": "water"}}]},
+        {"id": "eff:Figure on the Clouds fall pulse", "on": "pulse", "if": [{"read": "own.counter.double_up", "op": "==", "value": 2}, {"read": "own.counter.fig_up", "op": "==", "value": 1}], "do": [{"stacks": {"el": "water", "n": 2, "for": 10, "side": "own"}}, {"counter": {"id": "fig_up", "set": 0}}]},
+        {"id": "eff:Figure on the Clouds fall break", "on": "shield_broken", "if": [{"read": "event.stance_ward", "op": "==", "value": 1}, {"read": "own.counter.double_up", "op": "==", "value": 2}, {"read": "own.counter.fig_up", "op": "==", "value": 1}], "do": [{"stacks": {"el": "water", "n": 2, "for": 10, "side": "own"}}, {"counter": {"id": "fig_up", "set": 0}}]}
+      ]
+    },
     "Final Clause": {
       "rule": "Once a fight, as you go Down, your longest-cooldown art fires at no cost (ties to the earlier slot).",
       "records": [{"id": "eff:Final Clause", "on": "down", "limit": {"per_fight": 1}, "do": [{"fire_art": {"which": "longest", "share": 1.0}}]}]
@@ -567,6 +654,16 @@
         {"id": "eff:Flowing Water closes", "on": "always", "do": [{"mod": {"cost_red": -0.4}}], "fixed": true}
       ]
     },
+    "Forced to Seed": {
+      "rule": "The Yearly Seed, full set (3 pieces): each Fire art you cast resets the dry clock, refreshes every Wood buff stack on you, and adds 1 Wood buff stack for 10 s. If you go 10 s without casting a Fire art while carrying Wood buff stacks, all your Wood buff stacks flower at once: each heals 3 % of maximum health, they are consumed, and the 10 s clock restarts.",
+      "source": "world-depth:truc_thuc",
+      "counters": [{"id": "no_fire_sec"}],
+      "records": [
+        {"id": "eff:Forced to Seed fire", "on": "art_fired", "filter": {"element": "fire"}, "do": [{"counter": {"id": "no_fire_sec", "set": 0}}, {"refresh": {"el": "wood", "side": "own", "kind": "buff"}}, {"stacks": {"el": "wood", "n": 1, "for": 10, "side": "own", "kind": "buff"}}]},
+        {"id": "eff:Forced to Seed tick", "on": "pulse", "do": [{"counter": {"id": "no_fire_sec", "add": 1}}]},
+        {"id": "eff:Forced to Seed flower", "on": "pulse", "if": [{"read": "own.counter.no_fire_sec", "op": ">=", "value": 10}, {"read": "own.buff.wood", "op": ">=", "value": 1}], "do": [{"consume": {"el": "wood", "side": "own", "kind": "buff", "per": 1, "then": [{"heal": {"share": 0.03}}]}}, {"counter": {"id": "no_fire_sec", "set": 0}}]}
+      ]
+    },
     "Formed in a Storm": {
       "rule": "Thunder on the Cone, full set: each Fire hit you land counts as half a Lightning hit for your Thunder arts' stacks and chains.",
       "source": "world-depth:thinh_vu",
@@ -576,6 +673,12 @@
         {"id": "eff:Formed in a Storm:count", "on": "hit_landed", "filter": {"element": "fire", "kind": "art"}, "do": [{"counter": {"id": "fire_storm_halves", "add": 1}}]},
         {"id": "eff:Formed in a Storm:spark", "on": "hit_landed", "filter": {"element": "fire", "kind": "art"}, "if": [{"read": "own.counter.fire_storm_halves", "op": ">=", "value": 2}], "limit": {"per_firing": 1}, "do": [{"counter": {"id": "fire_storm_halves", "add": -2}}, {"stacks": {"el": "thunder", "n": 1, "for": 8.0, "side": "foe"}}, {"free_hit": {"c": 0.45, "dtype": "lightning"}}]}
       ]
+    },
+    "Forty Answer": {
+      "rule": "Bridge Bells, full set (2 pieces): bells hung with Hang the Bells answer your hand bell: each second the foe acts (foe_pressed), every Bell charge you hold rings once for 0.25 Physical, at most once per second.",
+      "source": "world-depth:minh_loan",
+      "counters": [{"id": "bell", "each_for": 10}],
+      "records": [{"id": "eff:Forty Answer", "on": "pulse", "if": [{"read": "own.counter.bell", "op": ">=", "value": 1}, {"read": "time", "op": ">", "value": 1}, {"any": [{"read": "own.foe_pressed", "op": ">=", "value": 1}, {"read": "foe.since_act", "op": "<=", "value": 1}]}], "scale": {"read": "own.counter.bell", "per": 1}, "limit": {"cooldown": 1}, "do": [{"summon": {"c": 0.25, "dtype": "phys", "cd": 0.5, "for": 0.6}}]}]
     },
     "Frost Seal": {
       "rule": "Your Ice stacks on the foe stop falling off once it holds 10 or more. Closes: Fire arts you slot deal 50 % less.",
@@ -754,11 +857,35 @@
       "approx": "Uses own.since_act >= 3 or own.composed_time >= 3 for 3 s without moving, dampen_taken: 12 for 12 % less damage taken, and status_dur: 100 scoped to [off_guard, bound] to extend 1 s roots by 1 s. Note: fight.py and build_file_compiler.gd currently attach set Effects only on full sets (3/3), so 2/3 activation on nhiep_co_tan awaits partial-set Effect support.",
       "records": [{"id": "eff:Hold the Quay", "on": "always", "if": [{"any": [{"read": "own.since_act", "op": ">=", "value": 3}, {"read": "own.composed_time", "op": ">=", "value": 3}]}], "do": [{"mod": {"dampen_taken": 12}}, {"mod": {"status_dur": 100, "tags": ["off_guard", "bound"]}}]}]
     },
+    "Horse and Rider Bear It Together": {
+      "rule": "Bridle Ring of Đạp Vân (authored wish d42): while a companion fights beside you (has struck within the last 6 s), direct hits on you deal 15 % less (dampen_taken 17.65), and each direct hit you take adds one tired share for 5 s (-2 % companion damage each). A joint strike (you and your companion hitting the foe within 1 s) rests it fully, clearing all tired shares.",
+      "source": "world-depth:muc_van",
+      "approx": "Engine has no own.companions readable or avoid-share verb; companion presence is tracked for 6 s after each companion hit (companion_present), and the 15 % share taken by the horse runs as dampen_taken 17.65 (1 / 1.1765 = 0.85 on direct hits, never ticks or Soul).",
+      "counters": [{"id": "companion_present", "cap": 1, "each_for": 6.0}, {"id": "horse_tired", "each_for": 5.0}, {"id": "hr_own_hit", "cap": 1, "each_for": 1.0}, {"id": "hr_comp_hit", "cap": 1, "each_for": 1.0}],
+      "records": [
+        {"id": "eff:Horse and Rider Bear It Together comp", "on": "hit_landed", "filter": {"kind": "companion"}, "do": [{"counter": {"id": "companion_present", "set": 1}}]},
+        {"id": "eff:Horse and Rider Bear It Together mark comp", "on": "hit_landed", "filter": {"kind": "companion"}, "if": [{"any": [{"read": "own.counter.hr_own_hit", "op": "==", "value": 0}, {"read": "own.counter.horse_tired", "op": "==", "value": 0}]}], "do": [{"counter": {"id": "hr_comp_hit", "set": 1}}]},
+        {"id": "eff:Horse and Rider Bear It Together rest comp", "on": "hit_landed", "filter": {"kind": "companion"}, "if": [{"read": "own.counter.hr_own_hit", "op": ">=", "value": 1}, {"read": "own.counter.horse_tired", "op": ">=", "value": 1}], "do": [{"counter": {"id": "horse_tired", "set": 0}}, {"counter": {"id": "hr_own_hit", "set": 0}}]},
+        {"id": "eff:Horse and Rider Bear It Together art", "on": "hit_landed", "filter": {"kind": "art"}, "if": [{"any": [{"read": "own.counter.hr_comp_hit", "op": "==", "value": 0}, {"read": "own.counter.horse_tired", "op": "==", "value": 0}]}], "do": [{"counter": {"id": "hr_own_hit", "set": 1}}]},
+        {"id": "eff:Horse and Rider Bear It Together rest art", "on": "hit_landed", "filter": {"kind": "art"}, "if": [{"read": "own.counter.hr_comp_hit", "op": ">=", "value": 1}, {"read": "own.counter.horse_tired", "op": ">=", "value": 1}], "do": [{"counter": {"id": "horse_tired", "set": 0}}, {"counter": {"id": "hr_comp_hit", "set": 0}}]},
+        {"id": "eff:Horse and Rider Bear It Together basic", "on": "hit_landed", "filter": {"kind": "basic"}, "if": [{"any": [{"read": "own.counter.hr_comp_hit", "op": "==", "value": 0}, {"read": "own.counter.horse_tired", "op": "==", "value": 0}]}], "do": [{"counter": {"id": "hr_own_hit", "set": 1}}]},
+        {"id": "eff:Horse and Rider Bear It Together rest basic", "on": "hit_landed", "filter": {"kind": "basic"}, "if": [{"read": "own.counter.hr_comp_hit", "op": ">=", "value": 1}, {"read": "own.counter.horse_tired", "op": ">=", "value": 1}], "do": [{"counter": {"id": "horse_tired", "set": 0}}, {"counter": {"id": "hr_comp_hit", "set": 0}}]},
+        {"id": "eff:Horse and Rider Bear It Together share", "on": "always", "if": [{"read": "own.counter.companion_present", "op": ">=", "value": 1}], "do": [{"mod": {"dampen_taken": 17.65}}]},
+        {"id": "eff:Horse and Rider Bear It Together tire", "on": "was_hit", "if": [{"read": "own.counter.companion_present", "op": ">=", "value": 1}], "do": [{"counter": {"id": "horse_tired", "add": 1}}]},
+        {"id": "eff:Horse and Rider Bear It Together weary", "on": "always", "scale": {"read": "own.counter.horse_tired", "per": 1}, "do": [{"mod": {"dmg_more": -0.02, "kind": "companion"}}]}
+      ]
+    },
     "Hundred Refinements": {
       "rule": "Half your artifact power also counts as attack. Closes: art speed -20 %.",
       "source": "Đạo Đồ",
       "sheet_from": [{"key": "attack_pct", "from": "artifact_power_pct", "factor": 0.5}],
       "lines": [{"key": "art_speed_pct", "value": -20}]
+    },
+    "Hundred-Feather Fan": {
+      "rule": "Moulted Feather Fan (passive art, layer 2): for each different feather kind in the holder's fan (counted by item grade), her Fire stacks last a little longer.",
+      "source": "world-depth:bach_vu",
+      "approx": "uses own.tech_layer.moulted-feather-fan (+2 % stack_dur for Fire debuffs per layer) because the combat engine has no item_grade readable",
+      "records": [{"id": "eff:Hundred-Feather Fan", "on": "always", "scale": {"read": "own.tech_layer.moulted-feather-fan", "per": 1}, "do": [{"mod": {"stack_dur": 2, "element": "fire", "kind": "debuff"}}]}]
     },
     "Ice in the Vessel": {
       "rule": "Jade Vessel of the Ice Heart: while you are Composed, your stance ward regains 2 % of its peak each second (never past it). Out of fights, heart-demon odds at a breakthrough fall by a third while the Vessel is worn (the Vessel's tam_ma_resist_pct 33 line, review R3).",
@@ -860,11 +987,39 @@
         {"id": "eff:Lamp on the Quay:reset", "on": "pulse", "if": [{"read": "own.field_up", "op": "<", "value": 1}, {"read": "own.counter.lamp_lit", "op": ">=", "value": 1}], "do": [{"counter": {"id": "lamp_lit", "set": 0}}]}
       ]
     },
+    "Lamp on the Road": {
+      "rule": "Guide's Lamp: The foe cannot be unseen (+20 accuracy for the fight). Once per fight, your first escape art costs no linh lực and your escape chance is raised by 50.",
+      "source": "world-depth:xuyen_lam",
+      "approx": "One-on-one fight.py has no stealth/unseen state: 'cannot be unseen' grants +20 acc for the fight, and 'leave at no cost once per fight' waives the first escape-tagged art's cost via next_art_cost: 0.0 and grants +50 escape chance (a holder without an escape art never auto-flees).",
+      "counters": [],
+      "records": [
+        {"id": "eff:Lamp on the Road:sight", "on": "fight_start", "limit": {"per_fight": 1}, "do": [{"mod": {"acc": 20, "escape": 50, "for": 300.0}}]},
+        {"id": "eff:Lamp on the Road:escape_free", "on": "fight_start", "limit": {"per_fight": 1}, "do": [{"mod": {"next_art_cost": 0.0, "tags": ["escape"]}}]}
+      ]
+    },
     "Lamp-Lit Reading": {
       "rule": "Each different status of yours on the target lowers its soul resistance by 3 points, to at most 5 statuses. Closes: your own soul resistance is 15 points lower.",
       "records": [
         {"id": "eff:Lamp-Lit Reading", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 5}, "do": [{"mod": {"foe_soul_res": -3}}]},
         {"id": "eff:Lamp-Lit Reading (closes)", "on": "always", "do": [{"mod": {"soul_res": -15}}]}
+      ]
+    },
+    "Lamp-Ward": {
+      "rule": "Lamp-Ward (Thủ Đăng, lamp-ward-seal-canon L3 passive art): each Seal charge you gain turns 1 more blow before it ends, plus 1 more for every 3 Seal charges you already hold when you gain it.",
+      "source": "world-depth:vong_trieu",
+      "counters": [{"id": "has_lamp_ward", "cap": 1}],
+      "records": [{"id": "eff:Lamp-Ward init", "on": "fight_start", "do": [{"counter": {"id": "has_lamp_ward", "set": 1}}]}]
+    },
+    "Layered Against the Tide": {
+      "rule": "The Breakwater, full set (3 pieces: vtd-breakwater-seal, vtd-sea-wall-shield, vtd-jetty-stone): each blow your shield or wards turn adds a layer that fades after 5 s, and each layer cuts the damage you take by a further 4 %. At five or more layers your next seal spends them all and lays 2 Heavy Breath on the foe, and one more for every five layers past five.",
+      "source": "world-depth:vong_trieu",
+      "counters": [{"id": "tide_layer", "each_for": 5}, {"id": "seal", "cap": 9}],
+      "records": [
+        {"id": "eff:Layered Against the Tide gain", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"any": [{"read": "own.counter.seal", "op": ">=", "value": 1}, {"read": "own.qi_share", "op": ">", "value": 0}, {"read": "own.body_shield_share", "op": ">", "value": 0}]}], "do": [{"counter": {"id": "tide_layer", "add": 1}}]},
+        {"id": "eff:Layered Against the Tide dampen", "on": "always", "if": [{"read": "own.counter.tide_layer", "op": ">=", "value": 1}], "scale": {"read": "own.counter.tide_layer", "per": 1}, "do": [{"mod": {"dampen_taken": 4}}]},
+        {"id": "eff:Layered Against the Tide base", "on": "art_fired", "filter": {"tags": ["seal"]}, "if": [{"read": "own.counter.tide_layer", "op": ">=", "value": 5}], "do": [{"status": {"id": "heavy_breath", "stacks": 1, "dur": 4, "side": "foe"}}]},
+        {"id": "eff:Layered Against the Tide scale", "on": "art_fired", "filter": {"tags": ["seal"]}, "if": [{"read": "own.counter.tide_layer", "op": ">=", "value": 5}], "scale": {"read": "own.counter.tide_layer", "per": 5}, "do": [{"status": {"id": "heavy_breath", "stacks": 1, "dur": 4, "side": "foe"}}]},
+        {"id": "eff:Layered Against the Tide spend", "on": "art_fired", "filter": {"tags": ["seal"]}, "if": [{"read": "own.counter.tide_layer", "op": ">=", "value": 5}], "do": [{"counter": {"id": "tide_layer", "set": 0}}]}
       ]
     },
     "Layered Earth": {
@@ -890,6 +1045,20 @@
         {"id": "eff:Lean Until It Breaks:tick", "on": "pulse", "do": [{"counter": {"id": "lean_idle", "add": 1}}]},
         {"id": "eff:Lean Until It Breaks:break_tick", "on": "pulse", "if": [{"read": "own.counter.lean_break", "op": ">=", "value": 1}], "do": [{"counter": {"id": "lean_break", "add": -1}}]},
         {"id": "eff:Lean Until It Breaks:decay", "on": "pulse", "if": [{"read": "own.counter.lean_idle", "op": ">=", "value": 2}, {"read": "own.counter.lean_pierce", "op": ">=", "value": 1}], "do": [{"counter": {"id": "lean_pierce", "add": -1}}]}
+      ]
+    },
+    "Let You Burn Out": {
+      "rule": "Master of the Sittings, full set (3 pieces: pvd-cinder-knuckle-ring, pvd-sitting-stone-mail, pvd-weiqi-board-shield): each hit you block or take on your body shield adds 1 heat stack (feather_heat) to your store (counted once per hit). At 10 or more heat, your next fist art hit releases all heat as a Fire free hit (0.20 per heat stack, no cap), resets heat to 0, and for 3 s each hit the foe lands on you inflicts a 2-stack Fire Burn batch (6 s, up to 2 a pulse).",
+      "source": "world-depth:phan_vu",
+      "counters": [{"id": "feather_heat"}, {"id": "burn_out_hit", "cap": 1}, {"id": "burn_out_thorns", "cap": 3}],
+      "records": [
+        {"id": "eff:Let You Burn Out block", "on": "blocked", "do": [{"counter": {"id": "burn_out_hit", "set": 1}}, {"counter": {"id": "feather_heat", "add": 1}}]},
+        {"id": "eff:Let You Burn Out shield", "on": "was_hit", "if": [{"read": "own.body_shield_share", "op": ">", "value": 0}, {"read": "own.counter.burn_out_hit", "op": "==", "value": 0}], "do": [{"counter": {"id": "feather_heat", "add": 1}}]},
+        {"id": "eff:Let You Burn Out clear flag", "on": "was_hit", "if": [{"read": "own.counter.burn_out_hit", "op": ">=", "value": 1}], "do": [{"counter": {"id": "burn_out_hit", "set": 0}}]},
+        {"id": "eff:Let You Burn Out release", "on": "hit_landed", "filter": {"tags": ["fist"]}, "if": [{"read": "own.counter.feather_heat", "op": ">=", "value": 10}], "scale": {"read": "own.counter.feather_heat", "per": 1}, "do": [{"free_hit": {"c": 0.2, "dtype": "fire"}}]},
+        {"id": "eff:Let You Burn Out spend", "on": "hit_landed", "filter": {"tags": ["fist"]}, "if": [{"read": "own.counter.feather_heat", "op": ">=", "value": 10}], "do": [{"counter": {"id": "feather_heat", "set": 0}}, {"counter": {"id": "burn_out_thorns", "set": 3}}]},
+        {"id": "eff:Let You Burn Out thorns", "on": "was_hit", "if": [{"read": "own.counter.burn_out_thorns", "op": ">=", "value": 1}], "limit": {"per_pulse": 2}, "do": [{"stacks": {"el": "fire", "n": 2, "for": 6, "side": "foe"}}]},
+        {"id": "eff:Let You Burn Out tick", "on": "pulse", "if": [{"read": "own.counter.burn_out_thorns", "op": ">=", "value": 1}], "do": [{"counter": {"id": "burn_out_thorns", "add": -1}}]}
       ]
     },
     "Light as a Startled Goose": {
@@ -969,6 +1138,15 @@
       "source": "world-depth:bang_tam",
       "records": [{"id": "eff:Master's Road", "on": "always", "if": [{"any": [{"read": "own.ward_share", "op": ">", "value": 0}, {"read": "own.qi_share", "op": ">", "value": 0}]}], "do": [{"mod": {"stack_dur": 100, "element": "ice", "kind": "debuff"}}]}]
     },
+    "Measured Flood": {
+      "rule": "Rain-Measure Gourd: Water field floods you lay (Open the Sluice or any Water field art) last 3 s longer (+3 flood_sec), and when the flood ends the foe keeps its slow (3 stacks of Slowed Time) for 1 more second.",
+      "source": "world-depth:truc_thuc",
+      "counters": [{"id": "flood_sec", "decay_per_pulse": 1}, {"id": "flood_was_up"}],
+      "records": [
+        {"id": "eff:Measured Flood extend", "on": "art_fired", "filter": {"element": "water", "tags": ["field"]}, "do": [{"counter": {"id": "flood_sec", "add": 3}}, {"counter": {"id": "flood_was_up", "set": 1}}]},
+        {"id": "eff:Measured Flood linger", "on": "pulse", "if": [{"read": "own.counter.flood_sec", "op": "<", "value": 1}, {"read": "own.counter.flood_was_up", "op": ">=", "value": 1}], "do": [{"status": {"id": "slowed_time", "stacks": 3, "dur": 1, "cap": 3, "side": "foe"}}, {"counter": {"id": "flood_was_up", "set": 0}}]}
+      ]
+    },
     "Metal Begets Water": {
       "rule": "Each hit of a Metal art you land adds one Water buff stack to you. Closes: Wood arts you slot deal 50 % less.",
       "source": "Đạo Đồ",
@@ -1031,6 +1209,16 @@
       "not_run": "Out-of-fight field-craft Effect only; no combat rule.",
       "records": []
     },
+    "Ninety Thousand Li": {
+      "rule": "The Last of Phù Dao, full set (3 pieces): each blow you evade winds the whirlwind tighter, granting 1 Wind buff stack for 8 s. When you cast a Wind escape or footwork art (tagged escape or step) with 8 or more Wind buff stacks, you spend them all on a gust: for 2 s the foe's hits on you deal 20 % less (dampen_taken 25), and you gain 2.5 % evasion for 4 s for each stack spent.",
+      "source": "world-depth:muc_van",
+      "approx": "Matches Wind arts tagged escape or step so Thôi Dương Giác's Gale Courier footwork arts (three-step-chase, swallow-stance) trigger the gust alongside any Wind escape art (no Wind escape art exists in the library yet).",
+      "records": [
+        {"id": "eff:Ninety Thousand Li wind", "on": "evaded", "do": [{"stacks": {"el": "wind", "n": 1, "for": 8.0, "side": "own"}}]},
+        {"id": "eff:Ninety Thousand Li guard", "on": "art_fired", "filter": {"element": "wind", "tags": ["escape", "step"]}, "if": [{"read": "own.buff.wind", "op": ">=", "value": 8}], "do": [{"mod": {"dampen_taken": 25, "for": 2.0}}]},
+        {"id": "eff:Ninety Thousand Li gust", "on": "art_fired", "filter": {"element": "wind", "tags": ["escape", "step"]}, "if": [{"read": "own.buff.wind", "op": ">=", "value": 8}], "do": [{"consume": {"el": "wind", "side": "own", "kind": "buff", "per": 1, "then": [{"mod": {"evade": 2.5, "for": 4.0}}]}}]}
+      ]
+    },
     "Nirvana": {
       "rule": "Once per fight, the blow that would kill you leaves you at 30 % health instead. Closes: healing taken -30 %.",
       "source": "Đạo Đồ",
@@ -1076,6 +1264,19 @@
       "source": "world-depth:thuy_vi",
       "records": [{"id": "eff:Nobody Falls", "on": "heal_restored", "if": [{"read": "own.wounded", "op": ">=", "value": 1}], "limit": {"per_fight": 1}, "do": [{"ward_grow": {"share": 0.1, "of": "hp"}}]}]
     },
+    "Not One Lamp Out": {
+      "rule": "The Lamp Chain, full set (3 pieces: vtd-unsleeping-lamp, vtd-kim-sa-seal, vtd-pearl-diver-robe): while you cast no escape art, your ward seals do not burn out, and each seal that turns a blow passes one more turn to the next seal in the line (+1 % ward strength per passed turn). If you cast an escape art, every seal burns out after 3 s.",
+      "source": "world-depth:vong_trieu",
+      "counters": [{"id": "not_one_lamp", "cap": 1}, {"id": "lamp_escaped", "cap": 1}, {"id": "lamp_escape_ttl", "cap": 5}, {"id": "seal", "cap": 9}, {"id": "seal_blows"}, {"id": "seal_ttl", "cap": 14}, {"id": "seal_pass_turns"}],
+      "records": [
+        {"id": "eff:Not One Lamp Out init", "on": "fight_start", "do": [{"counter": {"id": "not_one_lamp", "set": 1}}]},
+        {"id": "eff:Not One Lamp Out pass", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.seal", "op": ">=", "value": 1}, {"read": "own.counter.lamp_escaped", "op": "==", "value": 0}], "do": [{"counter": {"id": "seal_pass_turns", "add": 1}}]},
+        {"id": "eff:Not One Lamp Out ward", "on": "always", "if": [{"read": "own.counter.seal", "op": ">=", "value": 1}, {"read": "own.counter.seal_pass_turns", "op": ">=", "value": 1}], "scale": {"read": "own.counter.seal_pass_turns", "per": 1}, "do": [{"mod": {"ward_pct": 1}}]},
+        {"id": "eff:Not One Lamp Out escape", "on": "art_fired", "filter": {"tags": ["escape"]}, "do": [{"counter": {"id": "lamp_escaped", "set": 1}}, {"counter": {"id": "lamp_escape_ttl", "set": 4}}]},
+        {"id": "eff:Not One Lamp Out tick", "on": "pulse", "if": [{"read": "own.counter.lamp_escape_ttl", "op": ">=", "value": 2}], "do": [{"counter": {"id": "lamp_escape_ttl", "add": -1}}]},
+        {"id": "eff:Not One Lamp Out expire", "on": "pulse", "if": [{"read": "own.counter.lamp_escape_ttl", "op": "==", "value": 1}], "do": [{"counter": {"id": "lamp_escape_ttl", "set": 0}}, {"counter": {"id": "seal", "set": 0}}, {"counter": {"id": "seal_blows", "set": 0}}, {"counter": {"id": "seal_ttl", "set": 0}}, {"counter": {"id": "seal_pass_turns", "set": 0}}]}
+      ]
+    },
     "Not a Drop Spilled": {
       "rule": "Rain-Chain Sword Scripture (passive art, layer 4, authored wish d10): Each second in which you fire no damaging art fills a bronze cup: each cup raises your linh lực regeneration by 5 %. Your next art with a damage part spends every cup for 3 % more damage each.",
       "source": "world-depth:thinh_vu",
@@ -1107,6 +1308,22 @@
       "rule": "Pine-Heart Censer: out of combat, disciples who sit in its smoke for the listening cultivate 10 % faster that season.",
       "source": "world-depth:tung_dao",
       "not_run": "Out-of-combat seasonal cultivation is outside fight simulations (Sect & Cultivation host)."
+    },
+    "One Thread of Wind": {
+      "rule": "Horse Lord of the Plain, full set (3 pieces): each time you (art or basic) and your companion land hits within 1 s, you heal 2 % of your health (companions have no health bar, Combat rule 19) and gain 1 Wind buff stack for 10 s (once a pulse). At 5 or more Wind stacks, your next Physical art hit spends 5 Wind stacks to knock the foe down for 1 s (foe clock stops 1 s and Off Guard 1 s). Your companion's hits deal 15 % more against a foe bearing any of your statuses.",
+      "source": "world-depth:muc_van",
+      "counters": [{"id": "otw_own_hit", "cap": 1, "each_for": 1.0}, {"id": "otw_comp_hit", "cap": 1, "each_for": 1.0}, {"id": "otw_pulse_lock", "cap": 1}],
+      "records": [
+        {"id": "eff:One Thread of Wind mark comp", "on": "hit_landed", "filter": {"kind": "companion"}, "if": [{"read": "own.counter.otw_own_hit", "op": "==", "value": 0}], "do": [{"counter": {"id": "otw_comp_hit", "set": 1}}]},
+        {"id": "eff:One Thread of Wind joint comp", "on": "hit_landed", "filter": {"kind": "companion"}, "if": [{"read": "own.counter.otw_own_hit", "op": ">=", "value": 1}, {"read": "own.counter.otw_pulse_lock", "op": "==", "value": 0}], "do": [{"counter": {"id": "otw_own_hit", "set": 0}}, {"counter": {"id": "otw_pulse_lock", "set": 1}}, {"heal": {"share": 0.02}}, {"stacks": {"el": "wind", "n": 1, "for": 10.0, "side": "own"}}]},
+        {"id": "eff:One Thread of Wind mark art", "on": "hit_landed", "filter": {"kind": "art"}, "if": [{"read": "own.counter.otw_comp_hit", "op": "==", "value": 0}], "do": [{"counter": {"id": "otw_own_hit", "set": 1}}]},
+        {"id": "eff:One Thread of Wind joint art", "on": "hit_landed", "filter": {"kind": "art"}, "if": [{"read": "own.counter.otw_comp_hit", "op": ">=", "value": 1}, {"read": "own.counter.otw_pulse_lock", "op": "==", "value": 0}], "do": [{"counter": {"id": "otw_comp_hit", "set": 0}}, {"counter": {"id": "otw_pulse_lock", "set": 1}}, {"heal": {"share": 0.02}}, {"stacks": {"el": "wind", "n": 1, "for": 10.0, "side": "own"}}]},
+        {"id": "eff:One Thread of Wind mark basic", "on": "hit_landed", "filter": {"kind": "basic"}, "if": [{"read": "own.counter.otw_comp_hit", "op": "==", "value": 0}], "do": [{"counter": {"id": "otw_own_hit", "set": 1}}]},
+        {"id": "eff:One Thread of Wind joint basic", "on": "hit_landed", "filter": {"kind": "basic"}, "if": [{"read": "own.counter.otw_comp_hit", "op": ">=", "value": 1}, {"read": "own.counter.otw_pulse_lock", "op": "==", "value": 0}], "do": [{"counter": {"id": "otw_comp_hit", "set": 0}}, {"counter": {"id": "otw_pulse_lock", "set": 1}}, {"heal": {"share": 0.02}}, {"stacks": {"el": "wind", "n": 1, "for": 10.0, "side": "own"}}]},
+        {"id": "eff:One Thread of Wind pulse reset", "on": "pulse", "if": [{"read": "own.counter.otw_pulse_lock", "op": ">=", "value": 1}], "do": [{"counter": {"id": "otw_pulse_lock", "set": 0}}]},
+        {"id": "eff:One Thread of Wind knock", "on": "hit_landed", "filter": {"dtype": "phys", "kind": "art"}, "limit": {"per_pulse": 1}, "if": [{"read": "own.buff.wind", "op": ">=", "value": 5}], "do": [{"consume": {"el": "wind", "side": "own", "kind": "buff", "n": 5}}, {"stop_clock": {"side": "foe", "seconds": 1.0}}, {"status": {"id": "off_guard", "stacks": 1, "dur": 1, "side": "foe"}}]},
+        {"id": "eff:One Thread of Wind pack", "on": "always", "if": [{"read": "foe.distinct_statuses", "op": ">=", "value": 1}], "do": [{"mod": {"dmg_more": 0.15, "kind": "companion"}}]}
+      ]
     },
     "Open Sky": {
       "rule": "Your wards are 5 % stronger for each extra item slot you leave empty. Closes (tree keystone): artifact power -30 %.",
@@ -1154,6 +1371,42 @@
       "rule": "Your talismans cost no linh luc when they fire. Closes: you may slot only talismans, wards and the escape art.",
       "records": [{"id": "eff:Paid in Advance", "on": "always", "do": [{"mod": {"cost_red": 0.95, "tags": ["talisman"]}}]}],
       "approx": "cost reduction stops at the engine's 95 %; the slot rule is the build's to keep"
+    },
+    "Paint It Back": {
+      "rule": "The Idle Cloud (Nhàn Vân Tam Bảo), full set (3 pieces): when your reflection-double falls (by timeout or ward break), the Plain Silk Scroll keeps the ward it grew (scroll_ward) and gives it to you as a stance ward; and the first time each fight your health falls to half or below, you regain 4 % + 3.5 % per hit taken in the last 3 s of your max health and 4 % + 4 % per art fired in the last 3 s of your max linh lực.",
+      "source": "world-depth:nhan_van",
+      "approx": "Because engine own.lost_last.hp.3 / qi.3 return raw points rather than shares and heal/gain_qi scale on hp_max/qi_max or event.amount, the 3 s rewind restores 4 % + 3.5 % max HP per hit/tick received in the last 3 s (hits_3s) and 4 % + 4 % max linh lực per distinct art fired in the last 3 s (own.fired_within.3.all).",
+      "counters": [{"id": "double_up"}, {"id": "scroll_ward", "decay_share": 0.1}, {"id": "hits_3s", "each_for": 3}, {"id": "paint_back_used"}],
+      "records": [
+        {"id": "eff:Paint It Back keep pulse", "on": "pulse", "if": [{"read": "own.counter.double_up", "op": "==", "value": 2}, {"read": "own.counter.scroll_ward", "op": ">", "value": 0}], "scale": {"read": "own.counter.scroll_ward", "per": 1}, "do": [{"ward_grow": {"share": 0.01, "of": "hp"}}]},
+        {"id": "eff:Paint It Back clear pulse", "on": "pulse", "if": [{"read": "own.counter.double_up", "op": "==", "value": 2}, {"read": "own.counter.scroll_ward", "op": ">", "value": 0}], "do": [{"counter": {"id": "scroll_ward", "set": 0}}]},
+        {"id": "eff:Paint It Back keep break", "on": "shield_broken", "if": [{"read": "event.stance_ward", "op": "==", "value": 1}, {"read": "own.counter.double_up", "op": "==", "value": 2}, {"read": "own.counter.scroll_ward", "op": ">", "value": 0}], "scale": {"read": "own.counter.scroll_ward", "per": 1}, "do": [{"ward_grow": {"share": 0.01, "of": "hp"}}]},
+        {"id": "eff:Paint It Back clear break", "on": "shield_broken", "if": [{"read": "event.stance_ward", "op": "==", "value": 1}, {"read": "own.counter.double_up", "op": "==", "value": 2}, {"read": "own.counter.scroll_ward", "op": ">", "value": 0}], "do": [{"counter": {"id": "scroll_ward", "set": 0}}]},
+        {"id": "eff:Paint It Back track hit", "on": "was_hit", "if": [{"read": "event.amount", "op": ">", "value": 0}], "do": [{"counter": {"id": "hits_3s", "add": 1}}]},
+        {"id": "eff:Paint It Back track tick", "on": "tick_taken", "if": [{"read": "event.amount", "op": ">", "value": 0}], "do": [{"counter": {"id": "hits_3s", "add": 1}}]},
+        {"id": "eff:Paint It Back arm hit", "on": "was_hit", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.5}, {"read": "own.counter.paint_back_used", "op": "==", "value": 0}], "do": [{"counter": {"id": "paint_back_used", "set": 1}}]},
+        {"id": "eff:Paint It Back rewind hp hit", "on": "was_hit", "if": [{"read": "own.counter.paint_back_used", "op": "==", "value": 1}], "scale": {"read": "own.counter.hits_3s", "per": 1}, "do": [{"heal": {"share": 0.035}}]},
+        {"id": "eff:Paint It Back rewind qi hit", "on": "was_hit", "if": [{"read": "own.counter.paint_back_used", "op": "==", "value": 1}], "scale": {"read": "own.fired_within.3.all", "per": 1}, "do": [{"gain_qi": {"share": 0.04}}]},
+        {"id": "eff:Paint It Back rewind mark hit", "on": "was_hit", "if": [{"read": "own.counter.paint_back_used", "op": "==", "value": 1}], "do": [{"heal": {"share": 0.04}}, {"gain_qi": {"share": 0.04}}, {"counter": {"id": "paint_back_used", "set": 2}}]},
+        {"id": "eff:Paint It Back arm tick", "on": "tick_taken", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.5}, {"read": "own.counter.paint_back_used", "op": "==", "value": 0}], "do": [{"counter": {"id": "paint_back_used", "set": 1}}]},
+        {"id": "eff:Paint It Back rewind hp tick", "on": "tick_taken", "if": [{"read": "own.counter.paint_back_used", "op": "==", "value": 1}], "scale": {"read": "own.counter.hits_3s", "per": 1}, "do": [{"heal": {"share": 0.035}}]},
+        {"id": "eff:Paint It Back rewind qi tick", "on": "tick_taken", "if": [{"read": "own.counter.paint_back_used", "op": "==", "value": 1}], "scale": {"read": "own.fired_within.3.all", "per": 1}, "do": [{"gain_qi": {"share": 0.04}}]},
+        {"id": "eff:Paint It Back rewind mark tick", "on": "tick_taken", "if": [{"read": "own.counter.paint_back_used", "op": "==", "value": 1}], "do": [{"heal": {"share": 0.04}}, {"gain_qi": {"share": 0.04}}, {"counter": {"id": "paint_back_used", "set": 2}}]}
+      ]
+    },
+    "Paper Laid at Dawn": {
+      "rule": "The Dawn Half, full set (3 pieces): talismans you lay cost no linh lực up to the engine's 95 % cap until they fire, and for every 10 s a laid talisman stays unspent you gain 1 Dawn Growth: each growth gives your talisman arts 10 % more damage and 1 extra Wood stack on hit (once per firing), and costs 2 % of your maximum linh lực when a talisman fires.",
+      "source": "world-depth:nam_pho",
+      "approx": "cost reduction stops at cost_red_cap (0.95); growth ticks by laid_talisman talisman-seconds per pulse (converting every 10 s into +1 dawn_growth), scales all talisman arts, and subtracts 2 % max linh lực per growth when a talisman fires while qi_share >= 0.06.",
+      "counters": [{"id": "laid_talisman", "each_for": 20}, {"id": "dawn_unspent_s"}, {"id": "dawn_growth"}],
+      "records": [
+        {"id": "eff:Paper Laid at Dawn free", "on": "always", "do": [{"mod": {"cost_red": 0.95, "tags": ["talisman"]}}]},
+        {"id": "eff:Paper Laid at Dawn tick", "on": "pulse", "if": [{"read": "own.counter.laid_talisman", "op": ">=", "value": 1}], "scale": {"read": "own.counter.laid_talisman", "per": 1}, "do": [{"counter": {"id": "dawn_unspent_s", "add": 1}}]},
+        {"id": "eff:Paper Laid at Dawn ripen", "on": "pulse", "if": [{"read": "own.counter.dawn_unspent_s", "op": ">=", "value": 10}], "do": [{"counter": {"id": "dawn_unspent_s", "add": -10}}, {"counter": {"id": "dawn_growth", "add": 1}}]},
+        {"id": "eff:Paper Laid at Dawn dmg", "on": "always", "scale": {"read": "own.counter.dawn_growth", "per": 1}, "do": [{"mod": {"dmg_more": 0.1, "tags": ["talisman"]}}]},
+        {"id": "eff:Paper Laid at Dawn stacks", "on": "hit_landed", "filter": {"tags": ["talisman"]}, "limit": {"per_firing": 1}, "if": [{"read": "own.counter.dawn_growth", "op": ">=", "value": 1}], "scale": {"read": "own.counter.dawn_growth", "per": 1}, "do": [{"stacks": {"el": "wood", "n": 1, "for": 8, "side": "foe", "mark": "talisman"}}]},
+        {"id": "eff:Paper Laid at Dawn fire", "on": "art_fired", "filter": {"tags": ["talisman"]}, "if": [{"read": "own.counter.dawn_growth", "op": ">=", "value": 1}, {"read": "own.qi_share", "op": ">=", "value": 0.06}], "scale": {"read": "own.counter.dawn_growth", "per": 1}, "do": [{"gain_qi": {"share": -0.02}}]}
+      ]
     },
     "Petal Feint": {
       "rule": "Yellow Chrysanthemums, full set (2 pieces): after you evade a hit, your next fan art fires 30 % faster and its Burns last 2 s longer.",
@@ -1219,6 +1472,12 @@
         {"id": "eff:Quench the Jacket:quench", "on": "pulse", "if": [{"read": "own.buff.water", "op": ">=", "value": 3}, {"read": "own.debuff.fire", "op": ">=", "value": 1}], "limit": {"cooldown": 2.0}, "do": [{"cleanse": {"n": 1, "el": "fire"}}]}
       ]
     },
+    "Rain on the Leaves": {
+      "rule": "Founder's Bamboo Staff: While you keep Pressing, the foe's art that hits you gives you one Walk Slowly stack, as if you had walked a second longer.",
+      "source": "world-depth:xuyen_lam",
+      "counters": [{"id": "walk_slowly", "each_for": 15.0}],
+      "records": [{"id": "eff:Rain on the Leaves", "on": "was_hit", "filter": {"kind": "art"}, "if": [{"read": "own.pressing", "op": ">=", "value": 1}], "do": [{"counter": {"id": "walk_slowly", "add": 1}}]}]
+    },
     "Reach and Root": {
       "rule": "Evening Ferry (2 pieces): a foe that cannot evade from a pole art of yours stays so 1 s longer for each 3 Wood stacks it carries, and that spends those stacks; each time the foe is made unable to evade this way again in a fight, the extra time is halved.",
       "source": "world-depth:thuy_vi",
@@ -1229,6 +1488,15 @@
         {"id": "eff:Reach and Root:second", "on": "always", "if": [{"read": "own.counter.reach_uses", "op": "==", "value": 1}], "scale": {"read": "foe.debuff.wood", "per": 3}, "do": [{"mod": {"status_dur": 50, "tags": ["off_guard"]}}]},
         {"id": "eff:Reach and Root:repeat", "on": "always", "if": [{"read": "own.counter.reach_uses", "op": ">=", "value": 2}], "scale": {"read": "foe.debuff.wood", "per": 3}, "do": [{"mod": {"status_dur": 25, "tags": ["off_guard"]}}]},
         {"id": "eff:Reach and Root:spend", "on": "status_applied", "filter": {"status": "off_guard"}, "if": [{"read": "foe.debuff.wood", "op": ">=", "value": 3}], "do": [{"consume": {"el": "wood", "side": "foe", "kind": "debuff"}}, {"counter": {"id": "reach_uses", "add": 1}}]}
+      ]
+    },
+    "Red Cloud Rising": {
+      "rule": "Red Cloud Banner (pvd-xich-ha-ky): in a duel (rewritten from 'allies within its cloud' per the one-side-against-one-side ruling, 2026-11-26), every 3 s you gain 1 Fire buff stack of fury (15 s, raising attack) and 1 self-Burn stack (6 s, burning you for a little health each second and feeding Burning Feather heat). Once a fight, if you would go Down and are not already wearing the full Standing in the Fire set (which overrides with a 33 % rise), you rise at 20 % of your maximum health.",
+      "source": "world-depth:phan_vu",
+      "counters": [{"id": "has_standing_fire", "cap": 1}],
+      "records": [
+        {"id": "eff:Red Cloud Rising fury", "on": "pulse", "limit": {"cooldown": 3}, "do": [{"stacks": {"el": "fire", "n": 1, "for": 15, "side": "own", "kind": "buff"}}, {"stacks": {"el": "fire", "n": 1, "for": 6, "side": "own", "kind": "debuff"}}]},
+        {"id": "eff:Red Cloud Rising rise", "on": "down", "if": [{"read": "own.counter.has_standing_fire", "op": "==", "value": 0}], "limit": {"per_fight": 1}, "do": [{"refuse_down": {"hp_share": 0.2}}]}
       ]
     },
     "Reflection": {
@@ -1270,6 +1538,15 @@
         {"id": "eff:Ring Within the Ring damage", "on": "always", "if": [{"read": "own.counter.ring", "op": ">=", "value": 2}], "do": [{"mod": {"dmg_more": 0.25, "kind": "companion"}}]}
       ]
     },
+    "Rings as It Moves": {
+      "rule": "Singing Luan Bell (Minh Loan Linh): whenever the foe presses (acts or is Pressing, read each second) or dodges (evades your hit), the bell rings for a 0.4 Physical hit and 1 Metal debuff stack for 8 s, at most once per second.",
+      "source": "world-depth:minh_loan",
+      "counters": [{"id": "luan_bell_cd", "cap": 1, "each_for": 1}],
+      "records": [
+        {"id": "eff:Rings as It Moves press", "on": "pulse", "if": [{"read": "own.counter.luan_bell_cd", "op": "<", "value": 1}, {"read": "time", "op": ">", "value": 1}, {"any": [{"read": "own.foe_pressed", "op": ">=", "value": 1}, {"read": "foe.pressing", "op": ">=", "value": 1}, {"read": "foe.since_act", "op": "<=", "value": 1}]}], "do": [{"counter": {"id": "luan_bell_cd", "add": 1}}, {"free_hit": {"c": 0.4, "dtype": "phys", "outside_budget": true}}, {"stacks": {"el": "metal", "n": 1, "for": 8, "side": "foe"}}]},
+        {"id": "eff:Rings as It Moves dodge", "on": "was_evaded", "if": [{"read": "own.counter.luan_bell_cd", "op": "<", "value": 1}], "do": [{"counter": {"id": "luan_bell_cd", "add": 1}}, {"free_hit": {"c": 0.4, "dtype": "phys", "outside_budget": true}}, {"stacks": {"el": "metal", "n": 1, "for": 8, "side": "foe"}}]}
+      ]
+    },
     "Rising Tide": {
       "rule": "While your linh lực is above half, your Water stacks count double. Closes: while it is below half, your Water stacks do nothing.",
       "source": "Đạo Đồ",
@@ -1278,6 +1555,16 @@
         {"id": "eff:Rising Tide closes", "on": "always", "if": [{"read": "own.qi_share", "op": "<", "value": 0.5}], "do": [{"mod": {"stack_more": -1.0, "element": "water"}}], "fixed": true}
       ],
       "engine_choice": "your own Water buff stacks; the half reads linh lực without the stacks' own pool bonus"
+    },
+    "Roll Up the Western Rain": {
+      "rule": "The Dusk Half, full set (3 pieces): when the foe is Broken, or sheds your Wood stacks (by cleanse or natural expiry), each stack shed heals you for 1 % of your health and removes 1 debuff stack.",
+      "source": "world-depth:nam_pho",
+      "approx": "cleansed in the engine carries only event.amount with no element field, so eff:Roll Up the Western Rain cleanse triggers on any debuff stack or curse cleansed by the foe.",
+      "records": [
+        {"id": "eff:Roll Up the Western Rain end", "on": "batch_ended", "filter": {"element": "wood"}, "scale": {"read": "event.stacks", "per": 1}, "do": [{"heal": {"share": 0.01}}, {"cleanse": {"n": 1}}]},
+        {"id": "eff:Roll Up the Western Rain cleanse", "on": "cleansed", "scale": {"read": "event.amount", "per": 1}, "do": [{"heal": {"share": 0.01}}, {"cleanse": {"n": 1}}]},
+        {"id": "eff:Roll Up the Western Rain broken", "on": "broken", "if": [{"read": "foe.debuff.wood", "op": ">=", "value": 1}], "scale": {"read": "foe.debuff.wood", "per": 1}, "do": [{"heal": {"share": 0.01}}, {"cleanse": {"n": 1}}]}
+      ]
     },
     "Roots Under the Field": {
       "rule": "Banner of the Coiled Roots: when the foe has been Composed for 2 s, it cannot evade for 1 s; once every 10 s.",
@@ -1415,6 +1702,18 @@
       "records": [{"id": "eff:Steady Breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}], "do": [{"mod": {"L5": 12}}]}],
       "approx": "unscoped here; a build whose host sets a scope writes its own record"
     },
+    "Step Before the Strike": {
+      "rule": "Son of Thủ Lôi Bảo, full set (2 pieces): each time you evade, your next staff strike cannot be blocked and lands an additional Lightning shock worth 30 % of its damage.",
+      "source": "world-depth:xuyen_lam",
+      "approx": "Engine has no live damage-conversion mod (convert is static on ArtDef). Approximates '30 % of its damage as Lightning' by keeping the full unblocked staff strike (1 ms ignore_block: 1 on staff art_fired, since defend reads ignore_block with ctx=None) and adding a Lightning shock (return_damage share: 0.30, dtype: lightning) on staff hit_landed so Walk Slowly stacks and crits still scale it cleanly.",
+      "counters": [{"id": "step_before", "cap": 1}],
+      "records": [
+        {"id": "eff:Step Before the Strike:arm", "on": "evaded", "do": [{"counter": {"id": "step_before", "set": 1}}]},
+        {"id": "eff:Step Before the Strike:unblock", "on": "art_fired", "filter": {"tags": ["staff"]}, "if": [{"read": "own.counter.step_before", "op": ">=", "value": 1}], "do": [{"mod": {"ignore_block": 1}}]},
+        {"id": "eff:Step Before the Strike:shock", "on": "hit_landed", "filter": {"tags": ["staff"], "kind": "art"}, "if": [{"read": "own.counter.step_before", "op": ">=", "value": 1}], "do": [{"return_damage": {"share": 0.3, "dtype": "lightning"}}, {"counter": {"id": "step_before", "set": 0}}]},
+        {"id": "eff:Step Before the Strike:miss_clear", "on": "was_evaded", "filter": {"tags": ["staff"], "kind": "art"}, "if": [{"read": "own.counter.step_before", "op": ">=", "value": 1}], "do": [{"counter": {"id": "step_before", "set": 0}}]}
+      ]
+    },
     "Still Water": {
       "rule": "Linh lực lost to a full pool restores health at half that amount. Closes (tree keystone): healing taken from every other source -50 %.",
       "source": "Đạo Đồ",
@@ -1430,6 +1729,11 @@
       "source": "Đạo Đồ",
       "records": [{"id": "eff:Strangling Vines", "on": "status_applied", "filter": {"element": "wood"}, "limit": {"cooldown": 6}, "if": [{"read": "foe.debuff.wood", "op": ">=", "value": 5}], "do": [{"status": {"id": "slowed_time", "stacks": 1, "dur": 1}}]}],
       "lines": [{"key": "art_speed_pct", "value": -15}]
+    },
+    "Struck, She Rings": {
+      "rule": "Pendant and Bell, full set (3 pieces): each hit you take rings the Luan Bell as though the attacker had moved (a 0.4 Physical hit and 1 Metal debuff stack for 8 s), and the Jade Pendants chime back to heal you for 1 % of maximum health, at most once per second.",
+      "source": "world-depth:minh_loan",
+      "records": [{"id": "eff:Struck, She Rings", "on": "was_hit", "limit": {"cooldown": 1}, "do": [{"free_hit": {"c": 0.4, "dtype": "phys", "outside_budget": true}}, {"stacks": {"el": "metal", "n": 1, "for": 8, "side": "foe"}}, {"heal": {"share": 0.01}}]}]
     },
     "Sun That Never Sets": {
       "rule": "Each season you cultivate, you also gain 1 point of đạo tâm (+10 per realm). Closes: you can never conceal yourself; heart-demon resistance -30 %.",
@@ -1510,6 +1814,17 @@
         {"id": "eff:The Birds Fight First spend gust", "on": "art_fired", "filter": {"art_id": "fan-gust"}, "if": [{"read": "own.buff.wood", "op": ">=", "value": 1}], "do": [{"consume": {"el": "wood", "side": "own", "kind": "buff", "per": 1, "then": [{"mod": {"dmg_more": 0.06, "kind": "art", "stack": true}}]}}]}
       ]
     },
+    "The Cadence Like a Drum": {
+      "rule": "Every third soul song hit triggers the drum's echo: deals a bonus soul hit (0.85 c, or 1.70 c when the foe carries at least one curse).",
+      "source": "world-depth:thu_phan",
+      "counters": [{"id": "drum_cadence"}],
+      "records": [
+        {"id": "eff:The Cadence Like a Drum count", "on": "soul_hit", "filter": {"tags": ["song"]}, "do": [{"counter": {"id": "drum_cadence", "add": 1}}]},
+        {"id": "eff:The Cadence Like a Drum half", "on": "soul_hit", "filter": {"tags": ["song"]}, "if": [{"read": "own.counter.drum_cadence", "op": ">=", "value": 3}, {"read": "foe.curses", "op": "==", "value": 0}], "do": [{"counter": {"id": "drum_cadence", "set": 0}}, {"free_hit": {"c": 0.85, "dtype": "soul"}}]},
+        {"id": "eff:The Cadence Like a Drum full", "on": "soul_hit", "filter": {"tags": ["song"]}, "if": [{"read": "own.counter.drum_cadence", "op": ">=", "value": 3}, {"read": "foe.curses", "op": ">=", "value": 1}], "do": [{"counter": {"id": "drum_cadence", "set": 0}}, {"free_hit": {"c": 1.7, "dtype": "soul"}}]}
+      ],
+      "approx": "Uses free_hit dtype 'soul' (0.85 c / 1.70 c) instead of fire_art because fire_art skips soul_pct arts in engine.py and effect_runner.gd."
+    },
     "The Called Blow": {
       "rule": "Army-Breaker Spear (authored wish d21): after 3 s in which you strike nothing (no damaging or movement art and no evade, the Composed clock; your companions', summons' and the basic attack's hits do not count), your next spear art is a certain crit and ignores block. If its hit leaves a ward of the foe broken (its main ward down for want of linh lực, or a stance ward it raised gone), the wait for the next called blow (that one only) is halved to 1.5 s.",
       "source": "world-depth:thien_xu",
@@ -1549,6 +1864,28 @@
         {"id": "eff:The Censer Remembers heal hit", "on": "was_hit", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.25}, {"read": "own.counter.ash_bank", "op": ">", "value": 0}, {"read": "own.counter.ash_healed", "op": "==", "value": 0}, {"any": [{"read": "own.counter.ash_refused", "op": ">=", "value": 1}, {"read": "own.counter.ash", "op": "<", "value": 3}]}], "scale": {"read": "own.counter.ash_bank", "per": 1, "floor": false}, "do": [{"heal": {"share": 0.005}}, {"counter": {"id": "ash_bank", "set": 0}}, {"counter": {"id": "ash_healed", "set": 1}}]},
         {"id": "eff:The Censer Remembers heal tick", "on": "tick_taken", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.25}, {"read": "own.counter.ash_bank", "op": ">", "value": 0}, {"read": "own.counter.ash_healed", "op": "==", "value": 0}, {"any": [{"read": "own.counter.ash_refused", "op": ">=", "value": 1}, {"read": "own.counter.ash", "op": "<", "value": 3}]}], "scale": {"read": "own.counter.ash_bank", "per": 1, "floor": false}, "do": [{"heal": {"share": 0.005}}, {"counter": {"id": "ash_bank", "set": 0}}, {"counter": {"id": "ash_healed", "set": 1}}]}
       ]
+    },
+    "The Dead Sing Along": {
+      "rule": "Each curse you lay (Slowed Time, Sundered, Heavy Breath, Slackened Soul) adds a Resentment mark. At 7 marks (plus 1 extra per earlier press in the fight), the seal presses: applies Sealed Meridian (layer 1, 3 s) and deals soul damage (1.6 c).",
+      "source": "world-depth:thu_phan",
+      "counters": [{"id": "resentment_mark"}, {"id": "resentment_presses"}, {"id": "resentment_debt"}, {"id": "resentment_just_paid"}, {"id": "resentment_need_debt"}],
+      "records": [
+        {"id": "eff:The Dead Sing Along debt slowed_time", "on": "status_applied", "filter": {"status": "slowed_time"}, "if": [{"read": "own.counter.resentment_debt", "op": ">=", "value": 1}], "do": [{"counter": {"id": "resentment_debt", "add": -1}}, {"counter": {"id": "resentment_just_paid", "set": 1}}]},
+        {"id": "eff:The Dead Sing Along mark slowed_time", "on": "status_applied", "filter": {"status": "slowed_time"}, "if": [{"read": "own.counter.resentment_just_paid", "op": "==", "value": 0}], "do": [{"counter": {"id": "resentment_mark", "add": 1}}]},
+        {"id": "eff:The Dead Sing Along clr slowed_time", "on": "status_applied", "filter": {"status": "slowed_time"}, "if": [{"read": "own.counter.resentment_just_paid", "op": ">=", "value": 1}], "do": [{"counter": {"id": "resentment_just_paid", "set": 0}}]},
+        {"id": "eff:The Dead Sing Along debt sundered", "on": "status_applied", "filter": {"status": "sundered"}, "if": [{"read": "own.counter.resentment_debt", "op": ">=", "value": 1}], "do": [{"counter": {"id": "resentment_debt", "add": -1}}, {"counter": {"id": "resentment_just_paid", "set": 1}}]},
+        {"id": "eff:The Dead Sing Along mark sundered", "on": "status_applied", "filter": {"status": "sundered"}, "if": [{"read": "own.counter.resentment_just_paid", "op": "==", "value": 0}], "do": [{"counter": {"id": "resentment_mark", "add": 1}}]},
+        {"id": "eff:The Dead Sing Along clr sundered", "on": "status_applied", "filter": {"status": "sundered"}, "if": [{"read": "own.counter.resentment_just_paid", "op": ">=", "value": 1}], "do": [{"counter": {"id": "resentment_just_paid", "set": 0}}]},
+        {"id": "eff:The Dead Sing Along debt heavy_breath", "on": "status_applied", "filter": {"status": "heavy_breath"}, "if": [{"read": "own.counter.resentment_debt", "op": ">=", "value": 1}], "do": [{"counter": {"id": "resentment_debt", "add": -1}}, {"counter": {"id": "resentment_just_paid", "set": 1}}]},
+        {"id": "eff:The Dead Sing Along mark heavy_breath", "on": "status_applied", "filter": {"status": "heavy_breath"}, "if": [{"read": "own.counter.resentment_just_paid", "op": "==", "value": 0}], "do": [{"counter": {"id": "resentment_mark", "add": 1}}]},
+        {"id": "eff:The Dead Sing Along clr heavy_breath", "on": "status_applied", "filter": {"status": "heavy_breath"}, "if": [{"read": "own.counter.resentment_just_paid", "op": ">=", "value": 1}], "do": [{"counter": {"id": "resentment_just_paid", "set": 0}}]},
+        {"id": "eff:The Dead Sing Along debt slackened_soul", "on": "status_applied", "filter": {"status": "slackened_soul"}, "if": [{"read": "own.counter.resentment_debt", "op": ">=", "value": 1}], "do": [{"counter": {"id": "resentment_debt", "add": -1}}, {"counter": {"id": "resentment_just_paid", "set": 1}}]},
+        {"id": "eff:The Dead Sing Along mark slackened_soul", "on": "status_applied", "filter": {"status": "slackened_soul"}, "if": [{"read": "own.counter.resentment_just_paid", "op": "==", "value": 0}], "do": [{"counter": {"id": "resentment_mark", "add": 1}}]},
+        {"id": "eff:The Dead Sing Along clr slackened_soul", "on": "status_applied", "filter": {"status": "slackened_soul"}, "if": [{"read": "own.counter.resentment_just_paid", "op": ">=", "value": 1}], "do": [{"counter": {"id": "resentment_just_paid", "set": 0}}]},
+        {"id": "eff:The Dead Sing Along press", "on": "status_applied", "if": [{"read": "own.counter.resentment_mark", "op": ">=", "value": 7}], "do": [{"counter": {"id": "resentment_mark", "set": 0}}, {"counter": {"id": "resentment_presses", "add": 1}}, {"counter": {"id": "resentment_need_debt", "set": 1}}, {"status": {"id": "sealed_meridian", "stacks": 1, "dur": 3, "layer": 1, "side": "foe"}}, {"free_hit": {"c": 1.6, "dtype": "soul"}}]},
+        {"id": "eff:The Dead Sing Along debt add", "on": "status_applied", "if": [{"read": "own.counter.resentment_need_debt", "op": ">=", "value": 1}], "scale": {"read": "own.counter.resentment_presses"}, "do": [{"counter": {"id": "resentment_debt", "add": 1}}, {"counter": {"id": "resentment_need_debt", "set": 0}}]}
+      ],
+      "approx": "Uses fixed layer 1 for Sealed Meridian (highest standard layer value in fight builds) and fixed soul free_hit c=1.6 because Darkness (own.purity.am) is not readable in engine.py."
     },
     "The Door Stays Shut": {
       "rule": "Keeper's Desk, full set: each seal art you fire while Composed (as read at the last second's mark, since a damaging art ends Composed as it fires) lays a seal-ward: your stance ward grows by 4 % of your health (the engine's reading of \"4 % of your linh lực\"), and each seal-ward loses a tenth of its first value each second, so it is gone in 10 s. Once the inkstone has written the foe's name three times (The Ink Remembers), each seal art you fire holds its arts: its soonest art waits 2 s (the engine's reading of \"those that come ready in the next 2 s wait until the 2 s end\").",
@@ -1616,6 +1953,16 @@
         {"id": "eff:The Flame Turns Green rot", "on": "pulse", "if": [{"read": "own.status.corpse_rot", "op": ">=", "value": 1}], "limit": {"cooldown": 3}, "do": [{"cleanse": {"status": "corpse_rot"}}, {"counter": {"id": "poison_faded", "add": 1}}]}
       ]
     },
+    "The Flood Feeds the Garden": {
+      "rule": "The Rain Record, full set (3 pieces): each second your flood (flood_sec) or a Field stance is up, you gain 1 Wood buff stack for 6 s. When the flood ends, each Wood buff stack on you heals you for 1 % of your maximum health.",
+      "source": "world-depth:truc_thuc",
+      "counters": [{"id": "flood_sec", "decay_per_pulse": 1}, {"id": "flood_fed_up"}],
+      "records": [
+        {"id": "eff:The Flood Feeds the Garden grow", "on": "pulse", "if": [{"any": [{"read": "own.counter.flood_sec", "op": ">=", "value": 1}, {"read": "own.field_up", "op": ">=", "value": 1}]}], "do": [{"stacks": {"el": "wood", "n": 1, "for": 6, "side": "own", "kind": "buff"}}, {"counter": {"id": "flood_fed_up", "set": 1}}]},
+        {"id": "eff:The Flood Feeds the Garden heal", "on": "pulse", "if": [{"read": "own.counter.flood_sec", "op": "<", "value": 1}, {"read": "own.field_up", "op": "<", "value": 1}, {"read": "own.counter.flood_fed_up", "op": ">=", "value": 1}], "scale": {"read": "own.buff.wood", "per": 1}, "do": [{"heal": {"share": 0.01}}]},
+        {"id": "eff:The Flood Feeds the Garden reset", "on": "pulse", "if": [{"read": "own.counter.flood_sec", "op": "<", "value": 1}, {"read": "own.field_up", "op": "<", "value": 1}, {"read": "own.counter.flood_fed_up", "op": ">=", "value": 1}], "do": [{"counter": {"id": "flood_fed_up", "set": 0}}]}
+      ]
+    },
     "The Gate Drums": {
       "rule": "Drum of the Gate, full set: every fourth storm stack you lay beats the drum. The raised sword draws one bolt onto the foe, and the foe gains 2 Slowed Time stacks. Each beat in the same fight adds one more Slowed Time stack.",
       "source": "world-depth:thinh_vu",
@@ -1665,6 +2012,47 @@
       "source": "world-depth:bang_tam",
       "records": [{"id": "eff:The Keeper's Stillness", "on": "wounded", "do": [{"stop_clock": {"side": "foe", "seconds": 1.5}}, {"stacks": {"el": "ice", "n": 3, "for": 8, "side": "foe"}}]}]
     },
+    "The Lamp Does Not Go Out": {
+      "rule": "The Lamp and the Road, full set (2 pieces): each hit you evade keeps the lamp lit for 3 more seconds, and while it is lit you regenerate 1 % of your health each second. Below a quarter of your health the lamp lights itself, and the regeneration doubles (2 % of your health each second).",
+      "source": "world-depth:xuyen_lam",
+      "counters": [{"id": "lamp_lit"}],
+      "records": [
+        {"id": "eff:The Lamp Does Not Go Out:evade", "on": "evaded", "do": [{"counter": {"id": "lamp_lit", "add": 3}}]},
+        {"id": "eff:The Lamp Does Not Go Out:regen_lit", "on": "pulse", "if": [{"read": "own.counter.lamp_lit", "op": ">=", "value": 1}, {"read": "own.hp_share", "op": ">", "value": 0.25}], "do": [{"heal": {"share": 0.01}}]},
+        {"id": "eff:The Lamp Does Not Go Out:regen_low", "on": "pulse", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.25}], "do": [{"heal": {"share": 0.02}}]},
+        {"id": "eff:The Lamp Does Not Go Out:tick", "on": "pulse", "if": [{"read": "own.counter.lamp_lit", "op": ">=", "value": 1}], "do": [{"counter": {"id": "lamp_lit", "add": -1}}]}
+      ]
+    },
+    "The Lamp Flares": {
+      "rule": "The Lamp Flares (Đăng Bùng, lamp-ward-seal-canon L4 passive art): when a blow spends the last of a ward seal, the seal flares with a crack of Force light striking the foe (0.3 + 0.1 per blow the seal turned; doubled under Bind the Flame Fuse) and inflicts 1 Slowed Time for 3 s.",
+      "source": "world-depth:vong_trieu",
+      "counters": [{"id": "seal_popped", "cap": 1}, {"id": "seal_last_turned"}, {"id": "seal_fuse", "cap": 1}],
+      "records": [
+        {"id": "eff:The Lamp Flares base", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.seal_popped", "op": ">=", "value": 1}, {"read": "own.counter.seal_fuse", "op": "==", "value": 0}], "do": [{"free_hit": {"c": 0.3, "dtype": "force", "outside_budget": true}}, {"status": {"id": "slowed_time", "stacks": 1, "dur": 3, "side": "foe"}}]},
+        {"id": "eff:The Lamp Flares scale", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.seal_popped", "op": ">=", "value": 1}, {"read": "own.counter.seal_last_turned", "op": ">=", "value": 1}, {"read": "own.counter.seal_fuse", "op": "==", "value": 0}], "scale": {"read": "own.counter.seal_last_turned", "per": 1}, "do": [{"free_hit": {"c": 0.1, "dtype": "force", "outside_budget": true}}]},
+        {"id": "eff:The Lamp Flares fuse base", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.seal_popped", "op": ">=", "value": 1}, {"read": "own.counter.seal_fuse", "op": ">=", "value": 1}], "do": [{"free_hit": {"c": 0.6, "dtype": "force", "outside_budget": true}}, {"status": {"id": "slowed_time", "stacks": 1, "dur": 3, "side": "foe"}}]},
+        {"id": "eff:The Lamp Flares fuse scale", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.seal_popped", "op": ">=", "value": 1}, {"read": "own.counter.seal_last_turned", "op": ">=", "value": 1}, {"read": "own.counter.seal_fuse", "op": ">=", "value": 1}], "scale": {"read": "own.counter.seal_last_turned", "per": 1}, "do": [{"free_hit": {"c": 0.2, "dtype": "force", "outside_budget": true}}]},
+        {"id": "eff:The Lamp Flares clear", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.seal_popped", "op": ">=", "value": 1}], "do": [{"counter": {"id": "seal_popped", "set": 0}}, {"counter": {"id": "seal_last_turned", "set": 0}}]}
+      ]
+    },
+    "The Lamp That Is Not Out": {
+      "rule": "Unsleeping Lamp (vtd-unsleeping-lamp): while the lamp is lit, her ward seals last 4 s longer, and the first seal of hers to burn out each fight relights once.",
+      "source": "world-depth:vong_trieu",
+      "counters": [{"id": "seal", "cap": 9}, {"id": "seal_blows"}, {"id": "seal_ttl", "cap": 14}, {"id": "seal_burned_out", "cap": 1}, {"id": "seal_just_emptied", "cap": 1}, {"id": "has_unsleeping_lamp", "cap": 1}, {"id": "unsleeping_used", "cap": 1}, {"id": "lamp_just_relit", "cap": 1}, {"id": "has_lamp_ward", "cap": 1}, {"id": "seal_fuse", "cap": 1}],
+      "records": [
+        {"id": "eff:The Lamp That Is Not Out init", "on": "fight_start", "do": [{"counter": {"id": "has_unsleeping_lamp", "set": 1}}]},
+        {"id": "eff:The Lamp That Is Not Out relight held", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.seal_burned_out", "op": ">=", "value": 1}, {"read": "own.counter.seal", "op": ">=", "value": 1}, {"read": "own.counter.unsleeping_used", "op": "==", "value": 0}], "do": [{"counter": {"id": "seal", "add": 1}}, {"counter": {"id": "seal_burned_out", "set": 0}}, {"counter": {"id": "unsleeping_used", "set": 1}}]},
+        {"id": "eff:The Lamp That Is Not Out relight empty", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.seal_burned_out", "op": ">=", "value": 1}, {"read": "own.counter.seal", "op": "==", "value": 0}, {"read": "own.counter.unsleeping_used", "op": "==", "value": 0}], "do": [{"counter": {"id": "lamp_just_relit", "set": 1}}, {"counter": {"id": "seal", "set": 1}}, {"counter": {"id": "seal_blows", "set": 3}}, {"counter": {"id": "seal_ttl", "set": 14}}, {"counter": {"id": "seal_burned_out", "set": 0}}, {"counter": {"id": "seal_just_emptied", "set": 0}}, {"counter": {"id": "unsleeping_used", "set": 1}}]},
+        {"id": "eff:The Lamp That Is Not Out relight ward", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.lamp_just_relit", "op": ">=", "value": 1}, {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1}], "do": [{"counter": {"id": "seal_blows", "add": 1}}]},
+        {"id": "eff:The Lamp That Is Not Out relight fuse", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.lamp_just_relit", "op": ">=", "value": 1}, {"read": "own.counter.seal_fuse", "op": ">=", "value": 1}, {"read": "own.counter.seal_blows", "op": ">=", "value": 2}], "do": [{"counter": {"id": "seal_blows", "add": -1}}]},
+        {"id": "eff:The Lamp That Is Not Out relight done", "on": "was_hit", "filter": {"not_tags": ["trigger"]}, "if": [{"read": "own.counter.lamp_just_relit", "op": ">=", "value": 1}], "do": [{"counter": {"id": "lamp_just_relit", "set": 0}}]},
+        {"id": "eff:The Lamp That Is Not Out tick relight held", "on": "pulse", "if": [{"read": "own.counter.seal_burned_out", "op": ">=", "value": 1}, {"read": "own.counter.seal", "op": ">=", "value": 1}, {"read": "own.counter.unsleeping_used", "op": "==", "value": 0}], "do": [{"counter": {"id": "seal", "add": 1}}, {"counter": {"id": "seal_burned_out", "set": 0}}, {"counter": {"id": "unsleeping_used", "set": 1}}]},
+        {"id": "eff:The Lamp That Is Not Out tick relight empty", "on": "pulse", "if": [{"read": "own.counter.seal_burned_out", "op": ">=", "value": 1}, {"read": "own.counter.seal", "op": "==", "value": 0}, {"read": "own.counter.unsleeping_used", "op": "==", "value": 0}], "do": [{"counter": {"id": "lamp_just_relit", "set": 1}}, {"counter": {"id": "seal", "set": 1}}, {"counter": {"id": "seal_blows", "set": 3}}, {"counter": {"id": "seal_ttl", "set": 14}}, {"counter": {"id": "seal_burned_out", "set": 0}}, {"counter": {"id": "seal_just_emptied", "set": 0}}, {"counter": {"id": "unsleeping_used", "set": 1}}]},
+        {"id": "eff:The Lamp That Is Not Out tick relight ward", "on": "pulse", "if": [{"read": "own.counter.lamp_just_relit", "op": ">=", "value": 1}, {"read": "own.counter.has_lamp_ward", "op": ">=", "value": 1}], "do": [{"counter": {"id": "seal_blows", "add": 1}}]},
+        {"id": "eff:The Lamp That Is Not Out tick relight fuse", "on": "pulse", "if": [{"read": "own.counter.lamp_just_relit", "op": ">=", "value": 1}, {"read": "own.counter.seal_fuse", "op": ">=", "value": 1}, {"read": "own.counter.seal_blows", "op": ">=", "value": 2}], "do": [{"counter": {"id": "seal_blows", "add": -1}}]},
+        {"id": "eff:The Lamp That Is Not Out tick relight done", "on": "pulse", "if": [{"read": "own.counter.lamp_just_relit", "op": ">=", "value": 1}], "do": [{"counter": {"id": "lamp_just_relit", "set": 0}}]}
+      ]
+    },
     "The Last Bridge": {
       "rule": "Cut Bridges (2 pieces): the first time in a fight a foe falls below half health from your hits, your next flying-sword hit is a certain crit and the foe cannot evade for 1 s.",
       "source": "world-depth:tung_dao",
@@ -1686,6 +2074,16 @@
         {"id": "eff:The Lightning Sleeps twins count", "on": "hit_landed", "filter": {"tags": ["sword"], "kind": "art"}, "if": [{"read": "own.counter.twins_awake", "op": ">=", "value": 1}, {"read": "own.counter.td_lit", "op": "==", "value": 0}], "do": [{"counter": {"id": "td_twins_fork", "add": 1}}]},
         {"id": "eff:The Lightning Sleeps twins fork", "on": "hit_landed", "filter": {"tags": ["sword"], "kind": "art"}, "if": [{"read": "own.counter.twins_awake", "op": ">=", "value": 1}, {"read": "own.counter.td_lit", "op": "==", "value": 0}, {"read": "own.counter.td_twins_fork", "op": ">=", "value": 4}], "do": [{"counter": {"id": "td_twins_fork", "set": 0}}, {"free_hit": {"c": 0.35, "dtype": "lightning"}}]},
         {"id": "eff:The Lightning Sleeps lit clear", "on": "hit_landed", "filter": {"kind": "art"}, "if": [{"read": "own.counter.td_lit", "op": ">=", "value": 1}], "do": [{"counter": {"id": "td_lit", "set": 0}}]}
+      ]
+    },
+    "The Long Road": {
+      "rule": "Staff Canon of the Calmed Wind and Waves (passive art, layer 5, authored wish d23): While you are Pressing, your arts cost 5 % less linh lực, and a further 1 % less for each Walk Slowly stack you hold.",
+      "source": "world-depth:xuyen_lam",
+      "approx": "Uses live always-on additive cost_red (0.05 base + 0.01 per walk_slowly stack, bounded by engine cost_red_cap 0.95) instead of compounding 1 % off remaining cost; practically identical at normal Walk Slowly stack counts and never reaches zero cost.",
+      "counters": [{"id": "walk_slowly", "each_for": 15.0}],
+      "records": [
+        {"id": "eff:The Long Road:base", "on": "always", "if": [{"read": "own.pressing", "op": ">=", "value": 1}], "do": [{"mod": {"cost_red": 0.05}}]},
+        {"id": "eff:The Long Road:walk", "on": "always", "if": [{"read": "own.pressing", "op": ">=", "value": 1}, {"read": "own.counter.walk_slowly", "op": ">=", "value": 1}], "scale": {"read": "own.counter.walk_slowly", "per": 1}, "do": [{"mod": {"cost_red": 0.01}}]}
       ]
     },
     "The Ninth Bend": {
@@ -1763,6 +2161,17 @@
         {"id": "eff:The Robe Is Never Dry:first_hit", "on": "was_hit", "if": [{"read": "own.counter.robe_doused", "op": "<", "value": 1}, {"read": "own.debuff.fire", "op": ">=", "value": 1}], "do": [{"counter": {"id": "robe_doused", "set": 1}}, {"cleanse": {"n": 99, "el": "fire"}}]},
         {"id": "eff:The Robe Is Never Dry:first_tick", "on": "tick_taken", "filter": {"element": "fire"}, "if": [{"read": "own.counter.robe_doused", "op": "<", "value": 1}], "do": [{"counter": {"id": "robe_doused", "set": 1}}, {"cleanse": {"n": 99, "el": "fire"}}]},
         {"id": "eff:The Robe Is Never Dry:halve", "on": "pulse", "if": [{"read": "own.debuff.fire", "op": ">=", "value": 1}], "limit": {"cooldown": 2.0}, "do": [{"cleanse": {"n": 1, "el": "fire"}}]}
+      ]
+    },
+    "The Scroll Before the Painting": {
+      "rule": "Plain Silk Scroll (Tố Quyên Quyển): while your reflection-double stands (double_up == 1), each pulse your stance ward loses a tenth of its peak when above half peak and gains 3 % of your maximum health, while the blank scroll records the growing ward (scroll_ward, decaying 10 % each pulse). When the double is gone and no set hands the ward over, the scroll is blank again.",
+      "source": "world-depth:nhan_van",
+      "approx": "Stance-ward 10 %/s decay runs as -10 % of ward_peak on pulses while ward_of_peak >= 0.5 (exact 30 % max-HP equilibrium when unhit, while allowing rebuild after heavy hits); the scroll's own recorded ward counter (scroll_ward) decays by exact decay_share 0.1 each pulse.",
+      "counters": [{"id": "double_t", "decay_per_pulse": 1}, {"id": "double_up"}, {"id": "scroll_ward", "decay_share": 0.1}],
+      "records": [
+        {"id": "eff:The Scroll Before the Painting decay", "on": "pulse", "if": [{"read": "own.counter.double_up", "op": "==", "value": 1}, {"read": "own.ward_of_peak", "op": ">=", "value": 0.5}], "do": [{"ward_grow": {"share": -0.1, "of": "peak"}}]},
+        {"id": "eff:The Scroll Before the Painting grow", "on": "pulse", "if": [{"read": "own.counter.double_up", "op": "==", "value": 1}], "do": [{"ward_grow": {"share": 0.03, "of": "hp"}}, {"counter": {"id": "scroll_ward", "add": 3}}]},
+        {"id": "eff:The Scroll Before the Painting blank", "on": "pulse", "if": [{"read": "own.counter.double_up", "op": "==", "value": 0}, {"read": "own.counter.scroll_ward", "op": ">", "value": 0}], "do": [{"counter": {"id": "scroll_ward", "set": 0}}]}
       ]
     },
     "The Sea Answers": {
@@ -1882,6 +2291,17 @@
       "rule": "When the enemy pays art cost that your Ice stacks added, you restore linh luc equal to 10 % of that extra cost.",
       "records": [{"id": "eff:Toll Taker", "on": "foe_cost_extra", "do": [{"gain_qi": {"of": "amount", "share": 0.1}}]}]
     },
+    "Toll for the Dead": {
+      "rule": "When the foe is Broken or you are first Wounded, your slotted arts come ready (not sooner than cooldown_min) and your next soul art deals +30 % soul damage.",
+      "source": "world-depth:thu_phan",
+      "counters": [{"id": "bell_toll_soul"}],
+      "records": [
+        {"id": "eff:Toll for the Dead broken", "on": "broken", "limit": {"per_fight": 1}, "do": [{"timer": {"side": "own", "which": "all", "by": -999}}, {"counter": {"id": "bell_toll_soul", "set": 1}}]},
+        {"id": "eff:Toll for the Dead wounded", "on": "wounded", "limit": {"per_fight": 1}, "do": [{"timer": {"side": "own", "which": "all", "by": -999}}, {"counter": {"id": "bell_toll_soul", "set": 1}}]},
+        {"id": "eff:Toll for the Dead boost", "on": "art_fired", "filter": {"tags": ["soul"]}, "if": [{"read": "own.counter.bell_toll_soul", "op": ">=", "value": 1}], "do": [{"mod": {"x_soul": 30}}, {"counter": {"id": "bell_toll_soul", "set": 0}}]}
+      ],
+      "approx": "Uses timer which='all' by=-999 because timer cannot filter to dtype 'soul' only; the +30 % x_soul charge still consumes only on a soul art firing."
+    },
     "True Gold Shows": {
       "rule": "Assayer's Touchstone: you know the grade of any item you hold or are offered, and whether it is a forgery. A trade and appraisal rule (Item Database and the market), not a fight rule.",
       "source": "world-depth:thien_xu",
@@ -1905,6 +2325,17 @@
       "source": "world-depth:thien_xu",
       "records": [{"id": "eff:True to the Line", "on": "fight_start", "do": [{"counter": {"id": "true_line", "set": 1}}]}],
       "counters": [{"id": "true_line"}]
+    },
+    "Turn the Herd": {
+      "rule": "Cloud-Herding Lance: when your companion's hit lands within 1 s of one of your art hits, the foe's soonest art waits 0.3 s and your companion's next hit deals 30 % more.",
+      "source": "world-depth:muc_van",
+      "counters": [{"id": "rider_art_window", "cap": 1, "each_for": 1.0}, {"id": "herd_turn_next", "cap": 1}],
+      "records": [
+        {"id": "eff:Turn the Herd mark", "on": "hit_landed", "filter": {"kind": "art"}, "do": [{"counter": {"id": "rider_art_window", "set": 1}}]},
+        {"id": "eff:Turn the Herd boost", "on": "always", "if": [{"read": "own.counter.herd_turn_next", "op": ">=", "value": 1}], "do": [{"mod": {"dmg_more": 0.3, "kind": "companion"}}]},
+        {"id": "eff:Turn the Herd spend", "on": "hit_landed", "filter": {"kind": "companion"}, "if": [{"read": "own.counter.herd_turn_next", "op": ">=", "value": 1}], "do": [{"counter": {"id": "herd_turn_next", "set": 0}}]},
+        {"id": "eff:Turn the Herd proc", "on": "hit_landed", "filter": {"kind": "companion"}, "limit": {"per_pulse": 1}, "if": [{"read": "own.counter.rider_art_window", "op": ">=", "value": 1}], "do": [{"timer": {"side": "foe", "which": "next", "by": 0.3}}, {"counter": {"id": "herd_turn_next", "set": 1}}]}
+      ]
     },
     "Twin Plums": {
       "rule": "Red and White Plums, full set: your Snow Plum cuts alternate swords. Every fifth Snow Plum hit that lands strikes again (a Cold hit of 0.36, one petal's share), and a Snow Plum hit that crits lays one more Ice stack.",
@@ -2003,6 +2434,15 @@
       "records": [
         {"id": "eff:Walk the Nodes", "on": "pulse", "if": [{"read": "own.field_up", "op": ">=", "value": 1}], "limit": {"cooldown": 6}, "do": [{"ward_grow": {"share": 0.04, "of": "peak"}}, {"stacks": {"el": "earth", "n": 1, "for": 20, "side": "own"}}]},
         {"id": "eff:Walk the Nodes hold", "on": "pulse", "if": [{"read": "own.buff.earth", "op": ">=", "value": 10}], "limit": {"per_fight": 1}, "do": [{"mod": {"ward_fixed": 1, "for": 3}}]}
+      ]
+    },
+    "Warm the Grove": {
+      "rule": "Seed-Warming Censer (1v1 rewrite of allies -> you): Wood buff stacks you lay last 25 % longer (+2 to 2.5 s on 8-10 s batches), and when you gain Wood buff stacks (once per pulse) you also gain 1 Fire buff stack for 6 s and +0.5 % max health regeneration per second for 6 s.",
+      "source": "world-depth:truc_thuc",
+      "counters": [],
+      "records": [
+        {"id": "eff:Warm the Grove dur", "on": "always", "do": [{"mod": {"stack_dur": 25, "element": "wood", "kind": "buff"}}]},
+        {"id": "eff:Warm the Grove warmth", "on": "buff_gained", "filter": {"element": "wood"}, "limit": {"per_pulse": 1}, "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "own", "kind": "buff"}}, {"mod": {"hregen": 0.005, "for": 6}}]}
       ]
     },
     "Water Begets Wood": {

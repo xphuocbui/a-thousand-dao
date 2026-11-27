@@ -69,7 +69,7 @@ which technique you commit your seasons to. The decision has two sides:
    A template has:
    - `id`, `name`, `tier` (0–3) and `tech_kind` (rule 2: `main`, `secret` or `body`);
    - `names`: the elements or variant roots it draws on (1–3 ids; none for a body
-     technique);
+     technique or an element-free authored method whose carried arts are all element-free);
    - `layers`: the layer count, set by the tier (rule 5);
    - `bonuses`: stat modifiers, each with a value at full mastery (Formulas D);
    - `abilities`: divine abilities (thần thông), each `{ability_id, unlock_layer}`; `ability_id` points at a Combat art
@@ -91,8 +91,13 @@ which technique you commit your seasons to. The decision has two sides:
 2. **Kinds.**
    - **Main method** (tâm pháp): the only kind that sets cultivation speed and
      technique power. It goes in the main slot.
-   - **Secret art** (bí thuật): an auxiliary art that names elements. It adds
+   - **Secret art** (bí thuật): an auxiliary art that usually names elements. It adds
      bonuses and abilities, never speed.
+   - An **element-free authored method** (`main` or `secret`, `origin: authored`, `names: []`)
+     whose carried abilities all have `element == ""` (soul, seal, staff or ward lineages
+     open to any root) is valid alongside `body` techniques; unlike `body` techniques, it
+     still scales with the cultivator's strongest base-element purity (rule 8, Formulas A and D)
+     rather than Physique and grants no Iron Body tiers.
    - **Body technique** (luyện thể): an auxiliary art that names no element. It
      scales with Physique (căn cốt) instead of purity (Formulas D). This is the
      route for a cultivator whose root fits no art they have found. In a fight it gives the body's defence (block,
@@ -166,8 +171,10 @@ which technique you commit your seasons to. The decision has two sides:
 8. **A named id the root lacks.**
    - A technique is **usable** only if every element and variant it names is owned by the root, or has been raised
      by rare sources (Spiritual Roots rule 8a: Dao paths, a Linh Căn Quả) to at least `tech_foreign_purity_min`
-     (10, the birth minimum; user decision 2026-11-10, re-review D-1). Body techniques are always usable. Purity
-     never falls, so a technique usable this way stays usable.
+     (10, the birth minimum; user decision 2026-11-10, re-review D-1). Body techniques and element-free
+     authored methods (`names: []`, all carried arts element-free) are always usable; element-free `main` and
+     `secret` methods read the root's strongest base-element purity (`avg_purity = strongest_purity`, matching
+     crude cultivation) for speed and bonuses. Purity never falls, so a technique usable this way stays usable.
    - An unusable technique cannot be slotted.
    - If a root change makes a slotted technique unusable, it is unslotted at the
      start of the next season. No current root change removes an element or a
@@ -347,7 +354,7 @@ with
 - `L = max(L_floor, 1 − δ · d)`;
 - `edge = S[tier] / S[par(r)]` if r ≤ the tier's max realm, else 1;
 - `beyond = beyond_realm_mult` (0.25) if r > the tier's max realm, else 1;
-- `match = avg_purity(names) / 100` (Spiritual Roots rule 8);
+- `match = avg_purity(names) / 100` (Spiritual Roots rule 8; or `strongest_purity / 100` when `names` is empty on an element-free authored method);
 - `g = count_gain[n_base]`, the **element-count gain**: 1.00 / 1.22 / 1.33 / 1.41 /
   1.46 for 1–5 base elements, and 1.27 for five elements in QR.
 
@@ -541,7 +548,7 @@ layer 3.
 The technique_bonus formula is defined as:
 
 `v = v_full · B(k) · F · H · comp_strength`, where `B(k) = b_floor + (1 − b_floor) · (k − 1) / (layers − 1)` and:
-- `F = 0.5 + avg_purity(names) / 100` for a main method or a secret art;
+- `F = 0.5 + avg_purity(names) / 100` for a main method or a secret art (using `strongest_purity` when `names` is empty on an element-free authored method);
 - `F = min(F_cap, 0.5 + physique / 100)` for a body technique;
 - `H` = the harmony factor (rule 12) for an auxiliary art; 1.0 for the main method.
 
@@ -807,7 +814,8 @@ This section was drafted without `systems-designer` (lean mode). Several design 
 **Content validation (load-time errors)**
 - **If a template's `unlock_layer` is above its `layers`, its `layers` does not match
   its tier, it names more than 3 ids, a `names` id is not a base element or catalogue
-  variant, a body technique names any id, a main method or secret art names none,
+  variant, a body technique names any id, a generated main method or secret art names none,
+  an authored element-free main/secret method (`names: []`) carries any elemental art,
   a generated common is above Profound, a bonus stat has no `bonus_pool` row, or the
   bonuses exceed the tier's bonus budget or the single-bonus cap (Formulas D):** the
   data validator rejects the file at load. The game

@@ -405,7 +405,7 @@ func describe(item: Dictionary) -> String:
 			for b in item.bonuses:
 				bon.append(_gd.format_mod(str(b.stat), float(b.value)))
 			var tier: Dictionary = _gd.cong_phap_tier(int(item.tier))
-			return "%s [%s %s, %s] %d layers, up to %s%s" % [item.name, item.tier_name, item.tech_kind, "/".join(els) if not els.is_empty() else "body", int(item.layers), _gd.realm(_gd.realm_index(str(tier.max_realm))).name, (" | " + ", ".join(bon)) if not bon.is_empty() else ""]
+			return "%s [%s %s, %s] %d layers, up to %s%s" % [item.name, item.tier_name, item.tech_kind, "/".join(els) if not els.is_empty() else ("body" if str(item.tech_kind) == "body" else "element-free"), int(item.layers), _gd.realm(_gd.realm_index(str(tier.max_realm))).name, (" | " + ", ".join(bon)) if not bon.is_empty() else ""]
 		"material":
 			return "%s x%d" % [item.name, int(item.qty)]
 		"treasure":

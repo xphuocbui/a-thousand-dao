@@ -4,7 +4,8 @@ Emits observations, not a verdict (CLAUDE.md: helpers in scripts emit observatio
   SCHEMA       a missing or unknown field, a bad tier, kind, layer count, or names list (cong-phap rules 1-3, 5, 12)
   ART_MISSING  an ability_id that is not a signature art in design/arts/family-*.json
   ELEMENT      an elemental art carried by a technique that does not name its element id (rule 8; a body
-               technique names none, so it carries element-less arts only)
+               technique names none, and an authored element-free main/secret method may name none only when
+               every carried ability has element == "")
   UNLOCK       an unlock_layer outside 1..layers, or a suite art unlocking after layer 6 (a Trúc Cơ build
                could not use its whole suite)
   BONUS        a `bonuses` line not in items_cong_phap.json bonus_pool, out of its min-max, or a count other
@@ -127,7 +128,13 @@ def lint(techs, fname, arts, pool, tiers, notes):
         if t["tech_kind"] == "body":
             if names:
                 out.append("SCHEMA\t%s\ta body technique names no element (rule 2)" % where)
-        elif not 1 <= len(names) <= 3 or any(n not in NAMEABLE for n in names):
+        elif isinstance(names, list) and not names and t["origin"] == "authored":
+            bad_el = [x.get("ability_id") for x in t["abilities"]
+                      if arts.get(x.get("ability_id"), {}).get("element", "")]
+            if bad_el:
+                out.append("SCHEMA\t%s\tnames [] requires all carried abilities to be element-free (not %s)"
+                           % (where, ", ".join(str(b) for b in bad_el)))
+        elif not isinstance(names, list) or not 1 <= len(names) <= 3 or any(n not in NAMEABLE for n in names):
             out.append("SCHEMA\t%s\tnames %r: 1-3 of %s" % (where, names, ", ".join(sorted(NAMEABLE))))
         # bonuses (bonus_pool, bonus_count)
         want = tiers[tier]["bonus_count"]

@@ -318,6 +318,10 @@ looks like a strong build.
 - **Partial-set Effects (`tung_dao` `td-cold-ford-charge`):** set bonuses with `"pieces": N` attach their modifiers and Effect whenever `n >= N` distinct pieces are worn (`add_sets` / `_add_sets` / `sect_fight.py`), defaulting to the full set size when `"pieces"` is omitted.
 - **Root-gate lint (`lint-requires-field`):** `tools/design/arts/lint_arts.py` (and `lint_items.py` via it) accepts and validates `requires: {"root_has" | "root_lacks": [<English engine element>]}`.
 
+### Built in world-depth Stage 6 batch b02 (2026-11-27; parity t28)
+
+- **Element-free authored techniques (`lint-element-free-techniques`):** `lint_techniques.py` accepts `names: []` on `origin == "authored"` `main` and `secret` techniques when every carried ability has `element == ""` (still rejecting `names: []` if any carried ability has an element, and keeping `body` `names: []`). `CongPhap.avg_purity()` uses `strongest_element()` purity for element-free `main`/`secret` methods (matching `crude()`) while returning `0.0` for `body` techniques.
+
 ### Traps found in Stage 6 (read before writing records)
 
 - **On `on: "always"`, scope goes INSIDE the mod** (`{"mod": {"sure_crit": 1, "tags": ["sword"]}}`). A record-level

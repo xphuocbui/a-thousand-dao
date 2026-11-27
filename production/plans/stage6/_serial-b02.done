@@ -1,0 +1,20 @@
+{
+  "tag": "b02",
+  "minutes": 25,
+  "words_built": [
+    "lint-element-free-techniques: allow names: [] on authored element-free main/secret techniques in lint_techniques.py and use strongest_element() purity in CongPhap.avg_purity()"
+  ],
+  "words_avoided": [],
+  "gdd_lines": 5,
+  "tests": 2,
+  "fixture": "t28_b02_exact",
+  "records_moved": 9,
+  "decisions": [
+    "Restricted empty names on main/secret techniques to origin == authored templates whose carried arts all have element == '' while keeping body techniques strictly names: [] with avg_purity 0.0",
+    "Used strongest_element() purity in CongPhap.avg_purity() for element-free main/secret techniques so cultivation speed and bonuses mirror crude()",
+    "Omitted one-straw-cape and neither-wind-nor-rain from t28_b02_exact Side B because global status_resist triggers RNG rolls against line-of-lamps statuses in a chance-free fixture"
+  ],
+  "open": [
+    "Stage 7 will run export_techniques.py so element-free names: [] techniques in assets/data/items_cong_phap.json land in the merged runtime export"
+  ]
+}

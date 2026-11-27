@@ -1,0 +1,286 @@
+{
+ "_doc": "Nam Phố Đường's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:nam_pho by the serial step. Unpriced. Rule text from design/world/depth/sects/nam_pho.items.json.",
+ "source": "world-depth:nam_pho",
+ "effects": {
+  "Dawn Ink": {
+   "rule": "Southern Shore Cloud Seal: Wood debuff batches your talismans lay in the first 10 s of a fight last 50 % longer, and each Wood debuff batch that expires unspent returns 2 % of your maximum linh lực.",
+   "approx": "\"talismans you lay\" is read on the Wood debuff batches laid by your talisman arts: batches laid in the first 10 s gain stack_dur 50, and each Wood batch ending naturally (batch_ended) returns 2 % of maximum linh lực.",
+   "records": [
+    {
+     "id": "eff:Dawn Ink early",
+     "on": "always",
+     "if": [
+      {
+       "read": "time",
+       "op": "<=",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "stack_dur": 50,
+        "element": "wood",
+        "kind": "debuff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Dawn Ink expire",
+     "on": "batch_ended",
+     "filter": {
+      "element": "wood"
+     },
+     "do": [
+      {
+       "gain_qi": {
+        "share": 0.02
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Paper Laid at Dawn": {
+   "rule": "The Dawn Half, full set (3 pieces): talismans you lay cost no linh lực up to the engine's 95 % cap until they fire, and for every 10 s a laid talisman stays unspent you gain 1 Dawn Growth: each growth gives your talisman arts 10 % more damage and 1 extra Wood stack on hit (once per firing), and costs 2 % of your maximum linh lực when a talisman fires.",
+   "approx": "cost reduction stops at cost_red_cap (0.95); growth ticks by laid_talisman talisman-seconds per pulse (converting every 10 s into +1 dawn_growth), scales all talisman arts, and subtracts 2 % max linh lực per growth when a talisman fires while qi_share >= 0.06.",
+   "counters": [
+    {
+     "id": "laid_talisman",
+     "each_for": 20
+    },
+    {
+     "id": "dawn_unspent_s"
+    },
+    {
+     "id": "dawn_growth"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Paper Laid at Dawn free",
+     "on": "always",
+     "do": [
+      {
+       "mod": {
+        "cost_red": 0.95,
+        "tags": [
+         "talisman"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paper Laid at Dawn tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.laid_talisman",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.laid_talisman",
+      "per": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "dawn_unspent_s",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paper Laid at Dawn ripen",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.dawn_unspent_s",
+       "op": ">=",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "dawn_unspent_s",
+        "add": -10
+       }
+      },
+      {
+       "counter": {
+        "id": "dawn_growth",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paper Laid at Dawn dmg",
+     "on": "always",
+     "scale": {
+      "read": "own.counter.dawn_growth",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.1,
+        "tags": [
+         "talisman"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paper Laid at Dawn stacks",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "talisman"
+      ]
+     },
+     "limit": {
+      "per_firing": 1
+     },
+     "if": [
+      {
+       "read": "own.counter.dawn_growth",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.dawn_growth",
+      "per": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 8,
+        "side": "foe",
+        "mark": "talisman"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Paper Laid at Dawn fire",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "talisman"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.dawn_growth",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.qi_share",
+       "op": ">=",
+       "value": 0.06
+      }
+     ],
+     "scale": {
+      "read": "own.counter.dawn_growth",
+      "per": 1
+     },
+     "do": [
+      {
+       "gain_qi": {
+        "share": -0.02
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Roll Up the Western Rain": {
+   "rule": "The Dusk Half, full set (3 pieces): when the foe is Broken, or sheds your Wood stacks (by cleanse or natural expiry), each stack shed heals you for 1 % of your health and removes 1 debuff stack.",
+   "approx": "cleansed in the engine carries only event.amount with no element field, so eff:Roll Up the Western Rain cleanse triggers on any debuff stack or curse cleansed by the foe.",
+   "records": [
+    {
+     "id": "eff:Roll Up the Western Rain end",
+     "on": "batch_ended",
+     "filter": {
+      "element": "wood"
+     },
+     "scale": {
+      "read": "event.stacks",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.01
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Roll Up the Western Rain cleanse",
+     "on": "cleansed",
+     "scale": {
+      "read": "event.amount",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.01
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Roll Up the Western Rain broken",
+     "on": "broken",
+     "if": [
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "foe.debuff.wood",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.01
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

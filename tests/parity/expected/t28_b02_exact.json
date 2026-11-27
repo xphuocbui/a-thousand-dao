@@ -1,0 +1,3981 @@
+{
+ "fixture": "t28_b02_exact",
+ "slice": 28,
+ "chance_free": true,
+ "seed": 281,
+ "generated_by": "tools/design/combat_sim/parity_export.py (order=fixed)",
+ "a": {
+  "name": "b02-vong-thu-kit",
+  "realm": 2,
+  "M": 3.273,
+  "layers": null,
+  "crit": 0.0,
+  "crit_mult": 1.7,
+  "evade": 0.0,
+  "acc": 0.0,
+  "n_body": 1.0883,
+  "n_qi": 1.053,
+  "ward_pts": 448.0,
+  "drain": 0.959,
+  "block": 15.0,
+  "regen_bonus": 0.0,
+  "hregen": 0.0,
+  "cost_red": 0.0,
+  "gain_on_hit": 0.0,
+  "leech_qi": 0.0,
+  "leech_hp": 0.0,
+  "hp_pay": 0.0,
+  "healing": 0.0,
+  "cleanse_pulse": 0,
+  "cleanse_cost": 0.0,
+  "cleanse_share": 0.0,
+  "art_speed_pct": 0.0,
+  "basic_speed_pct": 0.0,
+  "opening_haste_pct": 0.0,
+  "basic_coef_add": 0.0,
+  "ward_layer": 1.0,
+  "body_pts": 0.0,
+  "body_block": 0.0,
+  "bs_mult": 1.0,
+  "body_shield": 0.0,
+  "resist": {},
+  "shields": [],
+  "arts": [
+   {
+    "name": "set-the-lamp",
+    "c": 0.0,
+    "cost": 0.04,
+    "cd": 5.0,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "seal",
+     "ward"
+    ],
+    "guards": [
+     {
+      "read": "own.counter.seal",
+      "op": "<",
+      "value": 9
+     }
+    ],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 3,
+    "group": "lamp-ward-seal-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "line-of-lamps",
+    "c": 1.15,
+    "cost": 0.08,
+    "cd": 5.0,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "seal",
+     "control"
+    ],
+    "guards": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "statuses": [
+     {
+      "id": "slowed_time",
+      "stacks": 1,
+      "dur": 3
+     },
+     {
+      "id": "leaking_ward",
+      "stacks": 1,
+      "dur": 2
+     }
+    ],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {
+     "to": "force",
+     "share": 1.0
+    },
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "lamp-ward-seal-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "ghosts-sing-old-poems",
+    "c": 0.0,
+    "cost": 0.1,
+    "cd": 4.0,
+    "element": "",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "soul",
+     "song"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.035,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "autumn-grave-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "add-a-voice",
+    "c": 0.0,
+    "cost": 0.04,
+    "cd": 8.0,
+    "element": "",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "autumn-grave-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "autumn-comes",
+    "c": 0.0,
+    "cost": 0.1,
+    "cd": 6.0,
+    "element": "",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "soul",
+     "song"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.032,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "autumn-grave-canon",
+    "steps": [],
+    "empower": []
+   }
+  ],
+  "purity": {},
+  "effects": [
+   {
+    "id": "set-the-lamp-init",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "set-the-lamp"
+    },
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "set": 3
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_turned",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_popped",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_burned_out",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_just_emptied",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-init-ward",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "set-the-lamp"
+    },
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-init-fuse",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "set-the-lamp"
+    },
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.seal_fuse",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-bank-ward-3",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "set-the-lamp"
+    },
+    "if": [
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-bank-ward-6",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "set-the-lamp"
+    },
+    "if": [
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 6
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-gain",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "set-the-lamp"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "seal",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_ttl",
+       "set": 10
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_burned_out",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-unsleeping-ttl",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "set-the-lamp"
+    },
+    "if": [
+     {
+      "read": "own.counter.has_unsleeping_lamp",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_ttl",
+       "add": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-dampen-base",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "dampen_taken": 15
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-dampen-stack",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.seal",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dampen_taken": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-hit-turn",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_popped",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_burned_out",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_just_emptied",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_turned",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-hit-spend",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_wall",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "any": [
+       {
+        "read": "own.counter.not_one_lamp",
+        "op": "==",
+        "value": 0
+       },
+       {
+        "read": "own.counter.lamp_escaped",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "read": "own.counter.seal_blows",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-hit-copy-prep",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_blows",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.seal_wall",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "any": [
+       {
+        "read": "own.counter.not_one_lamp",
+        "op": "==",
+        "value": 0
+       },
+       {
+        "read": "own.counter.lamp_escaped",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_last_turned",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-hit-copy",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_blows",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.seal_wall",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "any": [
+       {
+        "read": "own.counter.not_one_lamp",
+        "op": "==",
+        "value": 0
+       },
+       {
+        "read": "own.counter.lamp_escaped",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "read": "own.counter.seal_turned",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.seal_turned",
+     "per": 1
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "seal_last_turned",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-hit-pop",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_blows",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.seal_wall",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "any": [
+       {
+        "read": "own.counter.not_one_lamp",
+        "op": "==",
+        "value": 0
+       },
+       {
+        "read": "own.counter.lamp_escaped",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_popped",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_burned_out",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_turned",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-hit-empty",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_just_emptied",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-base",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "set": 3
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_ttl",
+       "set": 10
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-1",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-2",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-3",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 3
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-4",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 4
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 4
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-5",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 5
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t1-6",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 6
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 6
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t2-1",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t2",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t2-2",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t2",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-ward-t2-3",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 3
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t2",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-fuse",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_fuse",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_blows",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-reload-lamp",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.has_unsleeping_lamp",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_ttl",
+       "add": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-age",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_wall",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "any": [
+       {
+        "read": "own.counter.not_one_lamp",
+        "op": "==",
+        "value": 0
+       },
+       {
+        "read": "own.counter.lamp_escaped",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "read": "own.counter.seal_ttl",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_ttl",
+       "add": -1
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_burned_out",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-expire",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_wall",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "any": [
+       {
+        "read": "own.counter.not_one_lamp",
+        "op": "==",
+        "value": 0
+       },
+       {
+        "read": "own.counter.lamp_escaped",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "read": "own.counter.seal_ttl",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal",
+       "add": -1
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_turned",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_blows",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_burned_out",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-empty",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_just_emptied",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_ttl",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.seal_blows",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.seal_wall",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "set": 3
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_ttl",
+       "set": 10
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_ttl",
+      "op": "==",
+      "value": 10
+     },
+     {
+      "read": "own.counter.seal_blows",
+      "op": "==",
+      "value": 3
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-1",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-2",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-3",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 3
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-4",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 4
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 4
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-5",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 5
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t1-6",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 6
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t1",
+      "op": ">=",
+      "value": 6
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t1",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t2-1",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t2",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t2-2",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t2",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-ward-t2-3",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": "==",
+      "value": 3
+     },
+     {
+      "read": "own.counter.has_lamp_ward",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.lamp_ward_t2",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "lamp_ward_t2",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-fuse",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_fuse",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_blows",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_blows",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "set-the-lamp-tick-reload-lamp",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.seal_burned_out",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.has_unsleeping_lamp",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_ttl",
+       "add": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "line-of-lamps-ward",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "line-of-lamps"
+    },
+    "do": [
+     {
+      "burn_qi": {
+       "of": "qi_max",
+       "share": 0.05
+      }
+     },
+     {
+      "mod": {
+       "ward_bill": 25,
+       "for": 4.0
+      }
+     }
+    ]
+   },
+   {
+    "id": "ghosts-sing-chorus-bonus",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "ghosts-sing-old-poems"
+    },
+    "if": [
+     {
+      "read": "own.counter.chorus",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.chorus"
+    },
+    "do": [
+     {
+      "mod": {
+       "x_soul": 25
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-80",
+    "on": "pulse",
+    "limit": {
+     "per_fight": 1
+    },
+    "if": [
+     {
+      "read": "foe.hp_share",
+      "op": "<=",
+      "value": 0.8
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-60",
+    "on": "pulse",
+    "limit": {
+     "per_fight": 1
+    },
+    "if": [
+     {
+      "read": "foe.hp_share",
+      "op": "<=",
+      "value": 0.6
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-40",
+    "on": "pulse",
+    "limit": {
+     "per_fight": 1
+    },
+    "if": [
+     {
+      "read": "foe.hp_share",
+      "op": "<=",
+      "value": 0.4
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-20",
+    "on": "pulse",
+    "limit": {
+     "per_fight": 1
+    },
+    "if": [
+     {
+      "read": "foe.hp_share",
+      "op": "<=",
+      "value": 0.2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-broken",
+    "on": "broken",
+    "limit": {
+     "per_fight": 1
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "add-voice-wounded",
+    "on": "wounded",
+    "limit": {
+     "per_fight": 1
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "autumn-comes-soul",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "autumn-comes"
+    },
+    "if": [
+     {
+      "read": "own.counter.chorus",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.chorus"
+    },
+    "do": [
+     {
+      "mod": {
+       "x_soul": 30
+      }
+     }
+    ]
+   },
+   {
+    "id": "autumn-comes-silence",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "autumn-comes"
+    },
+    "if": [
+     {
+      "read": "own.counter.chorus",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    "scale": {
+     "read": "own.counter.chorus",
+     "per": 2
+    },
+    "do": [
+     {
+      "stop_clock": {
+       "side": "foe",
+       "seconds": 1.0
+      }
+     }
+    ]
+   },
+   {
+    "id": "autumn-comes-spend",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "autumn-comes"
+    },
+    "if": [
+     {
+      "read": "own.counter.chorus",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "chorus",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Lamp-Ward init",
+    "on": "fight_start",
+    "do": [
+     {
+      "counter": {
+       "id": "has_lamp_ward",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Lamp Flares base",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_fuse",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.3,
+       "dtype": "force",
+       "outside_budget": true
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Lamp Flares scale",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_last_turned",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_fuse",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "scale": {
+     "read": "own.counter.seal_last_turned",
+     "per": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.1,
+       "dtype": "force",
+       "outside_budget": true
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Lamp Flares fuse base",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_fuse",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.6,
+       "dtype": "force",
+       "outside_budget": true
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Lamp Flares fuse scale",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_last_turned",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.seal_fuse",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.seal_last_turned",
+     "per": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.2,
+       "dtype": "force",
+       "outside_budget": true
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Lamp Flares clear",
+    "on": "was_hit",
+    "filter": {
+     "not_tags": [
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.seal_popped",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "seal_popped",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "seal_last_turned",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "counters": [
+   {
+    "id": "seal",
+    "cap": 9
+   },
+   {
+    "id": "seal_blows"
+   },
+   {
+    "id": "seal_turned"
+   },
+   {
+    "id": "seal_last_turned"
+   },
+   {
+    "id": "seal_popped",
+    "cap": 1
+   },
+   {
+    "id": "seal_burned_out",
+    "cap": 1
+   },
+   {
+    "id": "seal_just_emptied",
+    "cap": 1
+   },
+   {
+    "id": "seal_ttl",
+    "cap": 14
+   },
+   {
+    "id": "seal_wall",
+    "cap": 1
+   },
+   {
+    "id": "seal_fuse",
+    "cap": 1
+   },
+   {
+    "id": "has_lamp_ward",
+    "cap": 1
+   },
+   {
+    "id": "lamp_ward_t1"
+   },
+   {
+    "id": "lamp_ward_t2"
+   },
+   {
+    "id": "has_unsleeping_lamp",
+    "cap": 1
+   },
+   {
+    "id": "not_one_lamp",
+    "cap": 1
+   },
+   {
+    "id": "lamp_escaped",
+    "cap": 1
+   },
+   {
+    "id": "seal_pass_turns"
+   },
+   {
+    "id": "chorus"
+   }
+  ],
+  "companions": [],
+  "divine_sense": 1.0,
+  "soul_res": 0.0,
+  "x_soul": 0.0,
+  "tam_ma": 0.0,
+  "timer_resist": 0.0,
+  "ward_bill_pct": 0.0,
+  "refusals": 1,
+  "boss": false,
+  "tags": [],
+  "states": [],
+  "reserved": 0.0,
+  "stage_mult": 1.0,
+  "stack_eff": {},
+  "stack_dur": {},
+  "wards": [],
+  "stack_alias": {}
+ },
+ "b": {
+  "name": "b02-xuyen-lam-kit",
+  "realm": 2,
+  "M": 3.273,
+  "layers": null,
+  "crit": 0.0,
+  "crit_mult": 1.7,
+  "evade": 0.0,
+  "acc": 0.0,
+  "n_body": 1.0883,
+  "n_qi": 1.053,
+  "ward_pts": 448.0,
+  "drain": 0.959,
+  "block": 15.0,
+  "regen_bonus": 0.0,
+  "hregen": 0.0,
+  "cost_red": 0.0,
+  "gain_on_hit": 0.0,
+  "leech_qi": 0.0,
+  "leech_hp": 0.0,
+  "hp_pay": 0.0,
+  "healing": 0.0,
+  "cleanse_pulse": 0,
+  "cleanse_cost": 0.0,
+  "cleanse_share": 0.0,
+  "art_speed_pct": 0.0,
+  "basic_speed_pct": 0.0,
+  "opening_haste_pct": 0.0,
+  "basic_coef_add": 0.0,
+  "ward_layer": 1.0,
+  "body_pts": 0.0,
+  "body_block": 0.0,
+  "bs_mult": 1.0,
+  "body_shield": 0.0,
+  "resist": {},
+  "shields": [],
+  "arts": [
+   {
+    "name": "walk-slowly",
+    "c": 0.0,
+    "cost": 0.04,
+    "cd": 1.8,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "physical",
+     "movement",
+     "stance"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "calm-wind-staff-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "who-is-afraid",
+    "c": 1.8,
+    "cost": 0.08,
+    "cd": 5.5,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "physical",
+     "staff"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "calm-wind-staff-canon",
+    "steps": [],
+    "empower": []
+   }
+  ],
+  "purity": {},
+  "effects": [
+   {
+    "id": "walk-slowly-enter",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "walk-slowly"
+    },
+    "do": [
+     {
+      "state": {
+       "set": "walk-slowly"
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-step",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.walk-slowly",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.pressing",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-still-clear",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "set": 0
+      }
+     },
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-escape-clear",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "escape"
+     ]
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "set": 0
+      }
+     },
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-spend",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "staff"
+     ],
+     "not_art_id": "walk-slowly"
+    },
+    "if": [
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.walk_slowly",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.06,
+       "kind": "art",
+       "tags": [
+        "staff"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-clear-hit",
+    "on": "hit_landed",
+    "filter": {
+     "tags": [
+      "staff"
+     ],
+     "kind": "art",
+     "not_art_id": "walk-slowly"
+    },
+    "if": [
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-clear-evaded",
+    "on": "was_evaded",
+    "filter": {
+     "tags": [
+      "staff"
+     ],
+     "kind": "art",
+     "not_art_id": "walk-slowly"
+    },
+    "if": [
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "who-is-afraid-cleanse",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "who-is-afraid"
+    },
+    "if": [
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "cleanse": {
+       "curses": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Long Road:base",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.pressing",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "cost_red": 0.05
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Long Road:walk",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.pressing",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.walk_slowly",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "cost_red": 0.01
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Do Not Listen:base",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "soul_res": 15
+      }
+     },
+     {
+      "mod": {
+       "status_resist": 20,
+       "status": "charmed"
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Do Not Listen:scale",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.unheeding_ward",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.unheeding_ward",
+     "per": 1
+    },
+    "do": [
+     {
+      "mod": {
+       "soul_res": 5
+      }
+     },
+     {
+      "mod": {
+       "status_resist": 5,
+       "status": "charmed"
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Do Not Listen:soul",
+    "on": "soul_taken",
+    "do": [
+     {
+      "counter": {
+       "id": "unheeding_ward",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Do Not Listen:song",
+    "on": "was_hit",
+    "filter": {
+     "tags": [
+      "song"
+     ]
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "unheeding_ward",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Do Not Listen:charm",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.status.charmed",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "unheeding_ward",
+       "add": 1
+      }
+     }
+    ]
+   }
+  ],
+  "counters": [
+   {
+    "id": "walk_slowly",
+    "each_for": 15.0
+   },
+   {
+    "id": "unheeding_ward",
+    "decay_share": 0.1
+   }
+  ],
+  "companions": [],
+  "divine_sense": 1.0,
+  "soul_res": 0.0,
+  "x_soul": 0.0,
+  "tam_ma": 0.0,
+  "timer_resist": 0.0,
+  "ward_bill_pct": 0.0,
+  "refusals": 1,
+  "boss": false,
+  "tags": [],
+  "states": [
+   {
+    "id": "walk-slowly",
+    "tags": [
+     "pressing"
+    ],
+    "mods": {}
+   }
+  ],
+  "reserved": 0.0,
+  "stage_mult": 1.0,
+  "stack_eff": {},
+  "stack_dur": {},
+  "wards": [],
+  "stack_alias": {}
+ },
+ "result": {
+  "t_ms": 63000,
+  "win": "A",
+  "A": {
+   "hp": 2944.765948487804,
+   "qi": 150.78532435371045,
+   "hp_max": 4642.536575178735,
+   "qi_base": 1089.91818,
+   "dealt": 4101.038784410078,
+   "spent": 2539.509359399999,
+   "fat": 999.8111824014667,
+   "healed": 0.0,
+   "ward_paid": 686.9121114266002,
+   "fired": [
+    23,
+    12,
+    15,
+    7,
+    10
+   ],
+   "down": false
+  },
+  "B": {
+   "hp": -458.3133916328084,
+   "qi": 30.534805749613124,
+   "hp_max": 4642.536575178735,
+   "qi_base": 1089.91818,
+   "dealt": 697.959444289468,
+   "spent": 869.7547076400001,
+   "fat": 999.8111824014667,
+   "healed": 0.0,
+   "ward_paid": 1368.2253064756508,
+   "fired": [
+    29,
+    7
+   ],
+   "down": true
+  }
+ },
+ "rows": [
+  ["effect", 0, "A", "eff:Lamp-Ward init"],
+  ["pulse", 1000, "A", 4642.536575178735, 1089.91818],
+  ["pulse", 1000, "B", 4642.536575178735, 1089.91818],
+  ["hit", 1000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4628.767544156837, 1077.7156555065633, 4642.536575178735, 1089.91818],
+  ["hit", 1000, "B", "basic", "basic", 130.29813000000001, 13.769031021897812, 4628.767544156837, 1077.7156555065633, 4628.767544156837, 1077.7156555065633],
+  ["art", 1800, "B", "walk-slowly", 21.7983636, 4628.767544156837, 1055.9172919065634],
+  ["effect", 1800, "B", "walk-slowly-enter"],
+  ["pulse", 2000, "A", 4628.767544156837, 1089.91818],
+  ["pulse", 2000, "B", 4628.767544156837, 1089.91818],
+  ["effect", 2000, "B", "walk-slowly-step"],
+  ["hit", 2000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4614.9985131349395, 1077.7156555065633, 4628.767544156837, 1089.91818],
+  ["hit", 2000, "B", "basic", "basic", 130.29813000000001, 13.769031021897812, 4614.9985131349395, 1077.7156555065633, 4614.9985131349395, 1077.7156555065633],
+  ["pulse", 3000, "A", 4614.9985131349395, 1089.91818],
+  ["pulse", 3000, "B", 4614.9985131349395, 1089.91818],
+  ["effect", 3000, "B", "walk-slowly-step"],
+  ["hit", 3000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4601.229482113042, 1077.7156555065633, 4614.9985131349395, 1089.91818],
+  ["hit", 3000, "B", "basic", "basic", 130.29813000000001, 13.769031021897812, 4601.229482113042, 1077.7156555065633, 4601.229482113042, 1077.7156555065633],
+  ["art", 3600, "B", "walk-slowly", 20.272478147999998, 4601.229482113042, 1057.4431773585634],
+  ["effect", 3600, "B", "walk-slowly-enter"],
+  ["pulse", 4000, "A", 4601.229482113042, 1089.91818],
+  ["pulse", 4000, "B", 4601.229482113042, 1089.91818],
+  ["effect", 4000, "B", "walk-slowly-step"],
+  ["art", 4000, "A", "ghosts-sing-old-poems", 54.495909, 4601.229482113042, 1035.422271],
+  ["soul", 4000, "A", "ghosts-sing-old-poems", 122.86486210302893, 28.844715538752368, 4478.364620010013, 1061.0734644612476],
+  ["effect", 4000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 4000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4464.595588988115, 1048.870939967811, 4601.229482113042, 1035.422271],
+  ["hit", 4000, "B", "basic", "basic", 130.29813000000001, 13.769031021897812, 4587.460451091144, 1023.2197465065634, 4464.595588988115, 1048.870939967811],
+  ["pulse", 5000, "A", 4587.460451091144, 1061.3668828065634],
+  ["pulse", 5000, "B", 4464.595588988115, 1087.018076267811],
+  ["effect", 5000, "B", "walk-slowly-step"],
+  ["art", 5000, "A", "set-the-lamp", 21.7983636, 4587.460451091144, 1039.5685192065635],
+  ["effect", 5000, "A", "set-the-lamp-init"],
+  ["effect", 5000, "A", "set-the-lamp-init-ward"],
+  ["effect", 5000, "A", "set-the-lamp-gain"],
+  ["hit", 5000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4450.8265579662175, 1074.8155517743744, 4587.460451091144, 1039.5685192065635],
+  ["hit", 5000, "B", "basic", "basic", 110.42214406779662, 10.142026289743905, 4577.3184248014, 1029.2273967544986, 4450.8265579662175, 1074.8155517743744],
+  ["effect", 5000, "A", "set-the-lamp-hit-turn"],
+  ["effect", 5000, "A", "set-the-lamp-hit-spend"],
+  ["art", 5400, "B", "walk-slowly", 19.836510876, 4450.8265579662175, 1054.9790408983745],
+  ["effect", 5400, "B", "walk-slowly-enter"],
+  ["art", 5500, "A", "set-the-lamp", 21.7983636, 4577.3184248014, 1007.4290331544986],
+  ["effect", 5500, "A", "set-the-lamp-gain"],
+  ["art", 5500, "B", "who-is-afraid", 39.673021752, 4450.8265579662175, 1015.3060191463745],
+  ["effect", 5500, "B", "walk-slowly-spend"],
+  ["hit", 5500, "B", "art", "who-is-afraid", 240.3515918677686, 33.85177953791396, 4543.4666452634865, 984.9199135930521, 4450.8265579662175, 1015.3060191463745],
+  ["effect", 5500, "B", "walk-slowly-clear-hit"],
+  ["effect", 5500, "A", "set-the-lamp-hit-turn"],
+  ["effect", 5500, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 6000, "A", 4543.4666452634865, 1023.0670498930522],
+  ["effect", 6000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 6000, "B", 4450.8265579662175, 1053.4531554463745],
+  ["effect", 6000, "B", "walk-slowly-step"],
+  ["art", 6000, "A", "set-the-lamp", 21.7983636, 4543.4666452634865, 1001.2686862930522],
+  ["effect", 6000, "A", "set-the-lamp-gain"],
+  ["art", 6000, "A", "line-of-lamps", 43.5967272, 4543.4666452634865, 957.6719590930521],
+  ["hit", 6000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 4433.490972291035, 1039.4202522789226, 4543.4666452634865, 957.6719590930521],
+  ["status", 6000, "A", "B", "slowed_time", 1, 9000],
+  ["status", 6000, "A", "B", "leaking_ward", 1, 8000],
+  ["effect", 6000, "A", "line-of-lamps-ward"],
+  ["art", 6000, "A", "autumn-comes", 54.495909, 4543.4666452634865, 903.1760500930521],
+  ["soul", 6000, "A", "autumn-comes", 112.33358820848359, 26.372311349716448, 4321.157384082551, 958.5520319292061],
+  ["effect", 6000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 6000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4307.388353060654, 935.6722985040127, 4543.4666452634865, 903.1760500930521],
+  ["hit", 6000, "B", "basic", "basic", 105.0791370967742, 9.16702501765952, 4534.299620245827, 893.3353045338291, 4307.388353060654, 935.6722985040127],
+  ["effect", 6000, "A", "set-the-lamp-hit-turn"],
+  ["effect", 6000, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 7000, "A", 4534.299620245827, 931.4824408338291],
+  ["effect", 7000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 7000, "B", 4307.388353060654, 973.8194348040126],
+  ["effect", 7000, "B", "walk-slowly-step"],
+  ["hit", 7000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4293.619322038756, 950.9397013788192, 4534.299620245827, 931.4824408338291],
+  ["hit", 7060, "B", "basic", "basic", 105.0791370967742, 9.16702501765952, 4525.132595228168, 921.641695274606, 4293.619322038756, 950.9397013788192],
+  ["effect", 7060, "A", "set-the-lamp-hit-turn"],
+  ["effect", 7060, "A", "set-the-lamp-hit-spend"],
+  ["effect", 7060, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 7060, "A", "set-the-lamp-hit-copy"],
+  ["effect", 7060, "A", "set-the-lamp-hit-pop"],
+  ["effect", 7060, "A", "set-the-lamp-reload-base"],
+  ["effect", 7060, "A", "set-the-lamp-reload-ward"],
+  ["effect", 7060, "A", "eff:The Lamp Flares base"],
+  ["hit", 7060, "A", "trigger", "trigger", 39.089439, 0.0, 4293.619322038756, 944.0757813512612, 4525.132595228168, 921.641695274606],
+  ["status", 7060, "A", "B", "slowed_time", 2.0, 10060],
+  ["effect", 7060, "A", "eff:The Lamp Flares scale"],
+  ["hit", 7060, "A", "trigger", "trigger", 52.119252, 0.0, 4293.619322038756, 934.9238879811838, 4525.132595228168, 921.641695274606],
+  ["effect", 7060, "A", "eff:The Lamp Flares clear"],
+  ["art", 7200, "B", "walk-slowly", 20.272478147999998, 4293.619322038756, 914.6514098331838],
+  ["effect", 7200, "B", "walk-slowly-enter"],
+  ["pulse", 8000, "A", 4525.132595228168, 959.7888315746061],
+  ["effect", 8000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 8000, "B", 4293.619322038756, 952.7985461331839],
+  ["effect", 8000, "B", "walk-slowly-step"],
+  ["art", 8000, "A", "ghosts-sing-old-poems", 54.495909, 4525.132595228168, 905.2929225746061],
+  ["soul", 8000, "A", "ghosts-sing-old-poems", 112.83943064670538, 26.491066875, 4180.779891392051, 926.3074792581839],
+  ["effect", 8000, "B", "eff:Do Not Listen:soul"],
+  ["art", 8000, "A", "add-a-voice", 21.7983636, 4525.132595228168, 883.4945589746061],
+  ["hit", 8000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4167.010860370153, 911.0543236413882, 4525.132595228168, 883.4945589746061],
+  ["hit", 8180, "B", "basic", "basic", 107.6844049586777, 9.642438861072586, 4515.490156367096, 873.409827988295, 4167.010860370153, 911.0543236413882],
+  ["effect", 8180, "A", "set-the-lamp-hit-turn"],
+  ["effect", 8180, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 9000, "A", 4515.490156367096, 911.5569642882949],
+  ["effect", 9000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 9000, "B", 4167.010860370153, 949.2014599413883],
+  ["effect", 9000, "B", "walk-slowly-step"],
+  ["hit", 9000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4153.241829348255, 933.9483043245926, 4515.490156367096, 911.5569642882949],
+  ["art", 9216, "B", "walk-slowly", 21.7983636, 4153.241829348255, 912.1499407245926],
+  ["effect", 9216, "B", "walk-slowly-enter"],
+  ["hit", 9300, "B", "basic", "basic", 107.6844049586777, 9.642438861072586, 4505.847717506023, 901.4722333019838, 4153.241829348255, 912.1499407245926],
+  ["effect", 9300, "A", "set-the-lamp-hit-turn"],
+  ["effect", 9300, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 10000, "A", 4505.847717506023, 939.6193696019839],
+  ["effect", 10000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 10000, "B", 4153.241829348255, 950.2970770245927],
+  ["effect", 10000, "B", "walk-slowly-step"],
+  ["hit", 10000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4139.472798326357, 938.0945525311562, 4505.847717506023, 939.6193696019839],
+  ["hit", 10420, "B", "basic", "basic", 107.6844049586777, 9.642438861072586, 4496.205278644951, 929.5346386156727, 4139.472798326357, 938.0945525311562],
+  ["effect", 10420, "A", "set-the-lamp-hit-turn"],
+  ["effect", 10420, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 11000, "A", 4496.205278644951, 967.6817749156728],
+  ["effect", 11000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 11000, "B", 4139.472798326357, 976.2416888311561],
+  ["effect", 11000, "B", "walk-slowly-step"],
+  ["art", 11000, "A", "set-the-lamp", 21.7983636, 4496.205278644951, 945.8834113156728],
+  ["effect", 11000, "A", "set-the-lamp-gain"],
+  ["art", 11000, "A", "line-of-lamps", 43.5967272, 4496.205278644951, 902.2866841156728],
+  ["hit", 11000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 4122.137212651175, 962.2087856637041, 4496.205278644951, 902.2866841156728],
+  ["status", 11000, "A", "B", "slowed_time", 1, 14000],
+  ["status", 11000, "A", "B", "leaking_ward", 1, 13000],
+  ["effect", 11000, "A", "line-of-lamps-ward"],
+  ["hit", 11000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 4108.368181629277, 884.8331432385107, 4496.205278644951, 902.2866841156728],
+  ["art", 11000, "B", "who-is-afraid", 38.801087208, 4108.368181629277, 846.0320560305107],
+  ["effect", 11000, "B", "walk-slowly-spend"],
+  ["effect", 11000, "B", "who-is-afraid-cleanse"],
+  ["hit", 11000, "B", "art", "who-is-afraid", 257.23372761290324, 36.93246124323051, 4459.272817401721, 878.1965389866949, 4108.368181629277, 846.0320560305107],
+  ["effect", 11000, "B", "walk-slowly-clear-hit"],
+  ["effect", 11000, "A", "set-the-lamp-hit-turn"],
+  ["effect", 11000, "A", "set-the-lamp-hit-spend"],
+  ["effect", 11000, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 11000, "A", "set-the-lamp-hit-copy"],
+  ["effect", 11000, "A", "set-the-lamp-hit-pop"],
+  ["effect", 11000, "A", "set-the-lamp-reload-base"],
+  ["effect", 11000, "A", "set-the-lamp-reload-ward"],
+  ["effect", 11000, "A", "eff:The Lamp Flares base"],
+  ["hit", 11000, "A", "trigger", "trigger", 39.089439, 0.0, 4108.368181629277, 839.1681360029527, 4459.272817401721, 878.1965389866949],
+  ["status", 11000, "A", "B", "slowed_time", 1.0, 14000],
+  ["effect", 11000, "A", "eff:The Lamp Flares scale"],
+  ["hit", 11000, "A", "trigger", "trigger", 52.119252, 0.0, 4108.368181629277, 830.0162426328753, 4459.272817401721, 878.1965389866949],
+  ["effect", 11000, "A", "eff:The Lamp Flares clear"],
+  ["art", 11232, "B", "walk-slowly", 20.708445419999997, 4108.368181629277, 809.3077972128754],
+  ["effect", 11232, "B", "walk-slowly-enter"],
+  ["art", 11500, "A", "set-the-lamp", 21.7983636, 4459.272817401721, 856.3981753866949],
+  ["effect", 11500, "A", "set-the-lamp-gain"],
+  ["hit", 11540, "B", "basic", "basic", 105.0791370967742, 9.16702501765952, 4450.105792384062, 846.5574298274719, 4108.368181629277, 809.3077972128754],
+  ["effect", 11540, "A", "set-the-lamp-hit-turn"],
+  ["effect", 11540, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 12000, "A", 4450.105792384062, 884.7045661274719],
+  ["effect", 12000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 12000, "B", 4108.368181629277, 847.4549335128754],
+  ["effect", 12000, "B", "walk-slowly-step"],
+  ["art", 12000, "A", "set-the-lamp", 21.7983636, 4450.105792384062, 862.9062025274719],
+  ["effect", 12000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 12000, "A", "set-the-lamp-gain"],
+  ["art", 12000, "A", "ghosts-sing-old-poems", 54.495909, 4450.105792384062, 808.4102935274719],
+  ["soul", 12000, "A", "ghosts-sing-old-poems", 112.83943064670538, 26.491066875, 3995.528750982572, 820.9638666378754],
+  ["effect", 12000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 12000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3981.7597199606744, 798.084133212682, 4450.105792384062, 808.4102935274719],
+  ["hit", 12600, "B", "basic", "basic", 102.59695275590552, 8.714071670785666, 4441.391720713276, 798.802006524766, 3981.7597199606744, 798.084133212682],
+  ["effect", 12600, "A", "set-the-lamp-hit-turn"],
+  ["effect", 12600, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 13000, "A", 4441.391720713276, 836.9491428247661],
+  ["effect", 13000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 13000, "B", 3981.7597199606744, 836.231269512682],
+  ["effect", 13000, "B", "walk-slowly-step"],
+  ["art", 13000, "A", "autumn-comes", 54.495909, 4441.391720713276, 782.4532338247661],
+  ["soul", 13000, "A", "autumn-comes", 95.07914905966051, 22.321524326400002, 3886.6805709010137, 813.9097451862821],
+  ["effect", 13000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 13000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3872.911539879116, 798.6565895694864, 4441.391720713276, 782.4532338247661],
+  ["art", 13140, "B", "walk-slowly", 20.272478147999998, 3872.911539879116, 778.3841114214864],
+  ["effect", 13140, "B", "walk-slowly-enter"],
+  ["hit", 13660, "B", "basic", "basic", 102.59695275590552, 8.714071670785666, 4432.677649042491, 772.8449468220603, 3872.911539879116, 778.3841114214864],
+  ["effect", 13660, "A", "set-the-lamp-hit-turn"],
+  ["effect", 13660, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 14000, "A", 4432.677649042491, 810.9920831220602],
+  ["effect", 14000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 14000, "B", 3872.911539879116, 816.5312477214864],
+  ["effect", 14000, "B", "walk-slowly-step"],
+  ["hit", 14000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3859.142508857218, 801.2780921046907, 4432.677649042491, 810.9920831220602],
+  ["hit", 14720, "B", "basic", "basic", 102.59695275590552, 8.714071670785666, 4423.9635773717055, 801.3837961193543, 3859.142508857218, 801.2780921046907],
+  ["effect", 14720, "A", "set-the-lamp-hit-turn"],
+  ["effect", 14720, "A", "set-the-lamp-hit-spend"],
+  ["effect", 14720, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 14720, "A", "set-the-lamp-hit-copy"],
+  ["effect", 14720, "A", "set-the-lamp-hit-pop"],
+  ["effect", 14720, "A", "set-the-lamp-reload-base"],
+  ["effect", 14720, "A", "set-the-lamp-reload-ward"],
+  ["effect", 14720, "A", "eff:The Lamp Flares base"],
+  ["hit", 14720, "A", "trigger", "trigger", 39.089439, 0.0, 3859.142508857218, 796.702145419652, 4423.9635773717055, 801.3837961193543],
+  ["status", 14720, "A", "B", "slowed_time", 1.0, 17720],
+  ["effect", 14720, "A", "eff:The Lamp Flares scale"],
+  ["hit", 14720, "A", "trigger", "trigger", 52.119252, 0.0, 3859.142508857218, 790.6008831729338, 4423.9635773717055, 801.3837961193543],
+  ["effect", 14720, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 15000, "A", 4423.9635773717055, 839.5309324193543],
+  ["effect", 15000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 15000, "B", 3859.142508857218, 828.7480194729337],
+  ["effect", 15000, "B", "walk-slowly-step"],
+  ["hit", 15000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3845.3734778353205, 816.5454949794972, 4423.9635773717055, 839.5309324193543],
+  ["art", 15048, "B", "walk-slowly", 19.836510876, 3845.3734778353205, 796.7089841034972],
+  ["effect", 15048, "B", "walk-slowly-enter"],
+  ["hit", 15780, "B", "basic", "basic", 105.0791370967742, 9.16702501765952, 4414.796552354046, 829.6901868601312, 3845.3734778353205, 796.7089841034972],
+  ["effect", 15780, "A", "set-the-lamp-hit-turn"],
+  ["effect", 15780, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 16000, "A", 4414.796552354046, 867.8373231601313],
+  ["effect", 16000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 16000, "B", 3845.3734778353205, 834.8561204034972],
+  ["effect", 16000, "B", "walk-slowly-step"],
+  ["art", 16000, "A", "line-of-lamps", 43.5967272, 4414.796552354046, 824.2405959601313],
+  ["hit", 16000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 3828.037892160138, 820.8232172360453, 4414.796552354046, 824.2405959601313],
+  ["status", 16000, "A", "B", "slowed_time", 2.0, 19000],
+  ["status", 16000, "A", "B", "leaking_ward", 1, 18000],
+  ["effect", 16000, "A", "line-of-lamps-ward"],
+  ["art", 16000, "A", "ghosts-sing-old-poems", 54.495909, 4414.796552354046, 769.7446869601313],
+  ["soul", 16000, "A", "ghosts-sing-old-poems", 103.99281928400369, 24.414167232000004, 3724.0450728761343, 741.9131410040453],
+  ["effect", 16000, "B", "eff:Do Not Listen:soul"],
+  ["art", 16000, "A", "add-a-voice", 21.7983636, 4414.796552354046, 747.9463233601313],
+  ["hit", 16000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3710.2760418542366, 719.0334075788519, 4414.796552354046, 747.9463233601313],
+  ["art", 16830, "B", "who-is-afraid", 39.23705448, 3710.2760418542366, 679.7963530988519],
+  ["effect", 16830, "B", "walk-slowly-spend"],
+  ["effect", 16830, "B", "who-is-afraid-cleanse"],
+  ["hit", 16830, "B", "art", "who-is-afraid", 245.88518080645164, 34.8615585413233, 4379.9349938127225, 724.9189787515495, 3710.2760418542366, 679.7963530988519],
+  ["effect", 16830, "B", "walk-slowly-clear-hit"],
+  ["effect", 16830, "A", "set-the-lamp-hit-turn"],
+  ["effect", 16830, "A", "set-the-lamp-hit-spend"],
+  ["hit", 16840, "B", "basic", "basic", 105.0791370967742, 9.16702501765952, 4370.767968795063, 715.0782331923265, 3710.2760418542366, 679.7963530988519],
+  ["effect", 16840, "A", "set-the-lamp-hit-turn"],
+  ["effect", 16840, "A", "set-the-lamp-hit-spend"],
+  ["art", 16956, "B", "walk-slowly", 20.708445419999997, 3710.2760418542366, 659.0879076788519],
+  ["effect", 16956, "B", "walk-slowly-enter"],
+  ["pulse", 17000, "A", 4370.767968795063, 753.2253694923265],
+  ["effect", 17000, "A", "set-the-lamp-tick-age"],
+  ["effect", 17000, "A", "add-voice-80"],
+  ["pulse", 17000, "B", 3710.2760418542366, 697.235043978852],
+  ["effect", 17000, "B", "walk-slowly-step"],
+  ["art", 17000, "A", "set-the-lamp", 21.7983636, 4370.767968795063, 731.4270058923265],
+  ["effect", 17000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 17000, "A", "set-the-lamp-gain"],
+  ["hit", 17000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3696.507010832339, 674.3553105536586, 4370.767968795063, 731.4270058923265],
+  ["art", 17500, "A", "set-the-lamp", 21.7983636, 4370.767968795063, 709.6286422923265],
+  ["effect", 17500, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 17500, "A", "set-the-lamp-gain"],
+  ["hit", 17840, "B", "basic", "basic", 100.22933076923077, 8.28202386299831, 4362.485944932065, 700.242084989683, 3696.507010832339, 674.3553105536586],
+  ["effect", 17840, "A", "set-the-lamp-hit-turn"],
+  ["effect", 17840, "A", "set-the-lamp-hit-spend"],
+  ["effect", 17840, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 17840, "A", "set-the-lamp-hit-copy"],
+  ["effect", 17840, "A", "set-the-lamp-hit-pop"],
+  ["effect", 17840, "A", "set-the-lamp-reload-base"],
+  ["effect", 17840, "A", "set-the-lamp-reload-ward"],
+  ["effect", 17840, "A", "eff:The Lamp Flares base"],
+  ["hit", 17840, "A", "trigger", "trigger", 39.089439, 0.0, 3696.507010832339, 667.4913905261005, 4362.485944932065, 700.242084989683],
+  ["status", 17840, "A", "B", "slowed_time", 1.0, 20840],
+  ["effect", 17840, "A", "eff:The Lamp Flares scale"],
+  ["hit", 17840, "A", "trigger", "trigger", 52.119252, 0.0, 3696.507010832339, 658.3394971560232, 4362.485944932065, 700.242084989683],
+  ["effect", 17840, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 18000, "A", 4362.485944932065, 738.3892212896831],
+  ["effect", 18000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 18000, "B", 3696.507010832339, 696.4866334560231],
+  ["effect", 18000, "B", "walk-slowly-step"],
+  ["art", 18000, "A", "set-the-lamp", 21.7983636, 4362.485944932065, 716.590857689683],
+  ["effect", 18000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 18000, "A", "set-the-lamp-gain"],
+  ["hit", 18000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3682.737979810441, 681.2334778392275, 4362.485944932065, 716.590857689683],
+  ["art", 18756, "B", "walk-slowly", 20.272478147999998, 3682.737979810441, 660.9609996912275],
+  ["effect", 18756, "B", "walk-slowly-enter"],
+  ["hit", 18900, "B", "basic", "basic", 100.22933076923077, 8.28202386299831, 4354.203921069066, 707.2043003870396, 3682.737979810441, 660.9609996912275],
+  ["effect", 18900, "A", "set-the-lamp-hit-turn"],
+  ["effect", 18900, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 19000, "A", 4354.203921069066, 745.3514366870395],
+  ["effect", 19000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 19000, "B", 3682.737979810441, 699.1081359912275],
+  ["effect", 19000, "B", "walk-slowly-step"],
+  ["art", 19000, "A", "autumn-comes", 54.495909, 4354.203921069066, 690.8555276870395],
+  ["effect", 19000, "A", "autumn-comes-soul"],
+  ["effect", 19000, "A", "autumn-comes-spend"],
+  ["soul", 19000, "A", "autumn-comes", 123.60289377755868, 29.017981624320008, 3559.1350860328826, 670.0901543669075],
+  ["effect", 19000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 19000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3545.366055010985, 654.8369987501119, 4354.203921069066, 690.8555276870395],
+  ["hit", 19960, "B", "basic", "basic", 100.22933076923077, 8.28202386299831, 4345.921897206068, 681.468970384396, 3545.366055010985, 654.8369987501119],
+  ["effect", 19960, "A", "set-the-lamp-hit-turn"],
+  ["effect", 19960, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 20000, "A", 4345.921897206068, 719.6161066843961],
+  ["effect", 20000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 20000, "B", 3545.366055010985, 692.984135050112],
+  ["effect", 20000, "B", "walk-slowly-step"],
+  ["art", 20000, "A", "ghosts-sing-old-poems", 54.495909, 4345.921897206068, 665.1201976843961],
+  ["soul", 20000, "A", "ghosts-sing-old-poems", 96.14720717825782, 22.572269999999996, 3449.218847832727, 670.4118650501119],
+  ["effect", 20000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 20000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3435.4498168108294, 658.2093405566754, 4345.921897206068, 665.1201976843961],
+  ["art", 20664, "B", "walk-slowly", 19.836510876, 3435.4498168108294, 638.3728296806754],
+  ["effect", 20664, "B", "walk-slowly-enter"],
+  ["pulse", 21000, "A", 4345.921897206068, 703.2673339843961],
+  ["effect", 21000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 21000, "B", 3435.4498168108294, 676.5199659806754],
+  ["effect", 21000, "B", "walk-slowly-step"],
+  ["art", 21000, "A", "line-of-lamps", 43.5967272, 4345.921897206068, 659.6706067843961],
+  ["hit", 21000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 3418.114231135647, 662.4870628132234, 4345.921897206068, 659.6706067843961],
+  ["status", 21000, "A", "B", "slowed_time", 1, 24000],
+  ["status", 21000, "A", "B", "leaking_ward", 1, 23000],
+  ["effect", 21000, "A", "line-of-lamps-ward"],
+  ["hit", 21000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3404.3452001137493, 585.11142038803, 4345.921897206068, 659.6706067843961],
+  ["hit", 21020, "B", "basic", "basic", 100.22933076923077, 8.28202386299831, 4337.63987334307, 650.2840494817526, 3404.3452001137493, 585.11142038803],
+  ["effect", 21020, "A", "set-the-lamp-hit-turn"],
+  ["effect", 21020, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 22000, "A", 4337.63987334307, 688.4311857817527],
+  ["effect", 22000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 22000, "B", 3404.3452001137493, 623.25855668803],
+  ["effect", 22000, "B", "walk-slowly-step"],
+  ["hit", 22000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3390.5761690918516, 600.3788232628366, 4337.63987334307, 688.4311857817527],
+  ["hit", 22080, "B", "basic", "basic", 100.22933076923077, 8.28202386299831, 4329.357849480071, 679.0446284791092, 3390.5761690918516, 600.3788232628366],
+  ["effect", 22080, "A", "set-the-lamp-hit-turn"],
+  ["effect", 22080, "A", "set-the-lamp-hit-spend"],
+  ["effect", 22080, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 22080, "A", "set-the-lamp-hit-copy"],
+  ["effect", 22080, "A", "set-the-lamp-hit-pop"],
+  ["effect", 22080, "A", "set-the-lamp-reload-base"],
+  ["effect", 22080, "A", "set-the-lamp-reload-ward"],
+  ["effect", 22080, "A", "set-the-lamp-reload-ward-t1-4"],
+  ["effect", 22080, "A", "eff:The Lamp Flares base"],
+  ["hit", 22080, "A", "trigger", "trigger", 39.089439, 0.0, 3390.5761690918516, 593.5149032352786, 4329.357849480071, 679.0446284791092],
+  ["status", 22080, "A", "B", "slowed_time", 2.0, 25080],
+  ["effect", 22080, "A", "eff:The Lamp Flares scale"],
+  ["hit", 22080, "A", "trigger", "trigger", 52.119252, 0.0, 3390.5761690918516, 584.3630098652012, 4329.357849480071, 679.0446284791092],
+  ["effect", 22080, "A", "eff:The Lamp Flares clear"],
+  ["art", 22572, "B", "walk-slowly", 19.400543604, 3390.5761690918516, 564.9624662612013],
+  ["effect", 22572, "B", "walk-slowly-enter"],
+  ["art", 22990, "B", "who-is-afraid", 38.801087208, 3390.5761690918516, 526.1613790532012],
+  ["effect", 22990, "B", "walk-slowly-spend"],
+  ["effect", 22990, "B", "who-is-afraid-cleanse"],
+  ["hit", 22990, "B", "art", "who-is-afraid", 251.15734034645666, 35.82363145008333, 4293.534218029988, 655.5235418964851, 3390.5761690918516, 526.1613790532012],
+  ["effect", 22990, "B", "walk-slowly-clear-hit"],
+  ["effect", 22990, "A", "set-the-lamp-hit-turn"],
+  ["effect", 22990, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 23000, "A", 4293.534218029988, 693.6706781964851],
+  ["effect", 23000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 23000, "B", 3390.5761690918516, 564.3085153532013],
+  ["effect", 23000, "B", "walk-slowly-step"],
+  ["art", 23000, "A", "set-the-lamp", 21.7983636, 4293.534218029988, 671.8723145964851],
+  ["effect", 23000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 23000, "A", "set-the-lamp-gain"],
+  ["hit", 23000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3376.807138069954, 549.0553597364056, 4293.534218029988, 671.8723145964851],
+  ["hit", 23200, "B", "basic", "basic", 100.22933076923077, 8.28202386299831, 4285.252194166989, 662.4857572938416, 3376.807138069954, 549.0553597364056],
+  ["effect", 23200, "A", "set-the-lamp-hit-turn"],
+  ["effect", 23200, "A", "set-the-lamp-hit-spend"],
+  ["art", 23500, "A", "set-the-lamp", 21.7983636, 4285.252194166989, 640.6873936938416],
+  ["effect", 23500, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 23500, "A", "set-the-lamp-gain"],
+  ["pulse", 24000, "A", 4285.252194166989, 678.8345299938417],
+  ["effect", 24000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 24000, "B", 3376.807138069954, 587.2024960364056],
+  ["effect", 24000, "B", "walk-slowly-step"],
+  ["art", 24000, "A", "set-the-lamp", 21.7983636, 4285.252194166989, 657.0361663938417],
+  ["effect", 24000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 24000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 24000, "A", "set-the-lamp-gain"],
+  ["art", 24000, "A", "ghosts-sing-old-poems", 54.495909, 4285.252194166989, 602.5402573938417],
+  ["soul", 24000, "A", "ghosts-sing-old-poems", 103.99281928400369, 24.414167232000004, 3272.81431878595, 562.7883288044056],
+  ["effect", 24000, "B", "eff:Do Not Listen:soul"],
+  ["art", 24000, "A", "add-a-voice", 21.7983636, 4285.252194166989, 580.7418937938417],
+  ["hit", 24000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3259.0452877640523, 547.53517318761, 4285.252194166989, 580.7418937938417],
+  ["hit", 24200, "B", "basic", "basic", 95.80744852941179, 7.475111045513097, 4277.777083121477, 571.7694493133737, 3259.0452877640523, 547.53517318761],
+  ["effect", 24200, "A", "set-the-lamp-hit-turn"],
+  ["effect", 24200, "A", "set-the-lamp-hit-spend"],
+  ["art", 24588, "B", "walk-slowly", 20.272478147999998, 3259.0452877640523, 527.26269503961],
+  ["effect", 24588, "B", "walk-slowly-enter"],
+  ["pulse", 25000, "A", 4277.777083121477, 609.9165856133736],
+  ["effect", 25000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 25000, "B", 3259.0452877640523, 565.40983133961],
+  ["effect", 25000, "B", "walk-slowly-step"],
+  ["art", 25000, "A", "autumn-comes", 54.495909, 4277.777083121477, 555.4206766133736],
+  ["soul", 25000, "A", "autumn-comes", 87.90601799155, 20.637503999999993, 3171.1392697725023, 544.77232733961],
+  ["effect", 25000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 25000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3157.3702387506046, 532.5698028461735, 4277.777083121477, 555.4206766133736],
+  ["hit", 25200, "B", "basic", "basic", 95.80744852941179, 7.475111045513097, 4270.301972075964, 546.4482321329057, 3157.3702387506046, 532.5698028461735],
+  ["effect", 25200, "A", "set-the-lamp-hit-turn"],
+  ["effect", 25200, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 26000, "A", 4270.301972075964, 584.5953684329056],
+  ["effect", 26000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 26000, "B", 3157.3702387506046, 570.7169391461734],
+  ["effect", 26000, "B", "walk-slowly-step"],
+  ["art", 26000, "A", "line-of-lamps", 43.5967272, 4270.301972075964, 540.9986412329056],
+  ["hit", 26000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 3140.0346530754223, 556.6840359787215, 4270.301972075964, 540.9986412329056],
+  ["status", 26000, "A", "B", "slowed_time", 1, 29000],
+  ["status", 26000, "A", "B", "leaking_ward", 1, 28000],
+  ["effect", 26000, "A", "line-of-lamps-ward"],
+  ["hit", 26000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3126.2656220535246, 479.30839355352805, 4270.301972075964, 540.9986412329056],
+  ["hit", 26200, "B", "basic", "basic", 95.80744852941179, 7.475111045513097, 4262.826861030451, 532.0261967524376, 3126.2656220535246, 479.30839355352805],
+  ["effect", 26200, "A", "set-the-lamp-hit-turn"],
+  ["effect", 26200, "A", "set-the-lamp-hit-spend"],
+  ["effect", 26200, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 26200, "A", "set-the-lamp-hit-copy"],
+  ["effect", 26200, "A", "set-the-lamp-hit-pop"],
+  ["effect", 26200, "A", "set-the-lamp-reload-base"],
+  ["effect", 26200, "A", "set-the-lamp-reload-ward"],
+  ["effect", 26200, "A", "set-the-lamp-reload-ward-t1-6"],
+  ["effect", 26200, "A", "eff:The Lamp Flares base"],
+  ["hit", 26200, "A", "trigger", "trigger", 39.089439, 0.0, 3126.2656220535246, 472.44447352597, 4262.826861030451, 532.0261967524376],
+  ["status", 26200, "A", "B", "slowed_time", 2.0, 29200],
+  ["effect", 26200, "A", "eff:The Lamp Flares scale"],
+  ["hit", 26200, "A", "trigger", "trigger", 65.14906500000001, 1.8805155109489053, 3124.3851065425756, 461.0046068133733, 4262.826861030451, 532.0261967524376],
+  ["effect", 26200, "A", "eff:The Lamp Flares clear"],
+  ["art", 26388, "B", "walk-slowly", 19.836510876, 3124.3851065425756, 441.1680959373733],
+  ["effect", 26388, "B", "walk-slowly-enter"],
+  ["pulse", 27000, "A", 4262.826861030451, 570.1733330524376],
+  ["effect", 27000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 27000, "B", 3124.3851065425756, 479.3152322373733],
+  ["effect", 27000, "B", "walk-slowly-step"],
+  ["hit", 27000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3110.616075520678, 456.4354988121799, 4262.826861030451, 570.1733330524376],
+  ["hit", 27320, "B", "basic", "basic", 97.96851879699248, 7.869466933757758, 4254.957394096694, 560.9985026062448, 3110.616075520678, 456.4354988121799],
+  ["effect", 27320, "A", "set-the-lamp-hit-turn"],
+  ["effect", 27320, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 28000, "A", 4254.957394096694, 599.1456389062448],
+  ["effect", 28000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 28000, "B", 3110.616075520678, 494.5826351121799],
+  ["effect", 28000, "B", "walk-slowly-step"],
+  ["art", 28000, "A", "ghosts-sing-old-poems", 54.495909, 4254.957394096694, 544.6497299062448],
+  ["soul", 28000, "A", "ghosts-sing-old-poems", 96.14720717825782, 22.572269999999996, 3014.46886834242, 472.0103651121799],
+  ["effect", 28000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 28000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 3000.6998373205224, 456.75720949538425, 4254.957394096694, 544.6497299062448],
+  ["art", 28404, "B", "walk-slowly", 21.7983636, 3000.6998373205224, 434.95884589538423],
+  ["effect", 28404, "B", "walk-slowly-enter"],
+  ["hit", 28440, "B", "basic", "basic", 97.96851879699248, 7.869466933757758, 4247.0879271629365, 535.474899460052, 3000.6998373205224, 434.95884589538423],
+  ["effect", 28440, "A", "set-the-lamp-hit-turn"],
+  ["effect", 28440, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 29000, "A", 4247.0879271629365, 573.6220357600521],
+  ["effect", 29000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 29000, "B", 3000.6998373205224, 473.10598219538423],
+  ["effect", 29000, "B", "walk-slowly-step"],
+  ["art", 29000, "A", "set-the-lamp", 21.7983636, 4247.0879271629365, 551.8236721600521],
+  ["effect", 29000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 29000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 29000, "A", "set-the-lamp-gain"],
+  ["hit", 29000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2986.9308062986247, 457.8528265785886, 4247.0879271629365, 551.8236721600521],
+  ["art", 29150, "B", "who-is-afraid", 38.365119936, 2986.9308062986247, 419.4877066425886],
+  ["effect", 29150, "B", "walk-slowly-spend"],
+  ["effect", 29150, "B", "who-is-afraid-cleanse"],
+  ["hit", 29150, "B", "art", "who-is-afraid", 244.88383844117652, 34.678831832331475, 4212.409095330605, 528.8901040679758, 2986.9308062986247, 419.4877066425886],
+  ["effect", 29150, "B", "walk-slowly-clear-hit"],
+  ["effect", 29150, "A", "set-the-lamp-hit-turn"],
+  ["effect", 29150, "A", "set-the-lamp-hit-spend"],
+  ["art", 29500, "A", "set-the-lamp", 21.7983636, 4212.409095330605, 507.0917404679758],
+  ["effect", 29500, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 29500, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 29500, "A", "set-the-lamp-gain"],
+  ["hit", 29560, "B", "basic", "basic", 93.7396618705036, 7.097777713595542, 4205.311317617009, 498.3129458683812, 2986.9308062986247, 419.4877066425886],
+  ["effect", 29560, "A", "set-the-lamp-hit-turn"],
+  ["effect", 29560, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 30000, "A", 4205.311317617009, 536.4600821683812],
+  ["effect", 30000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 30000, "B", 2986.9308062986247, 457.6348429425886],
+  ["effect", 30000, "B", "walk-slowly-step"],
+  ["art", 30000, "A", "set-the-lamp", 21.7983636, 4205.311317617009, 514.6617185683812],
+  ["effect", 30000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 30000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 30000, "A", "set-the-lamp-gain"],
+  ["hit", 30000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2973.161775276727, 445.4323184491521, 4205.311317617009, 514.6617185683812],
+  ["art", 30420, "B", "walk-slowly", 20.490461783999997, 2973.161775276727, 424.9418566651521],
+  ["effect", 30420, "B", "walk-slowly-enter"],
+  ["hit", 30560, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4198.5749295734195, 506.0683914603273, 2973.161775276727, 424.9418566651521],
+  ["effect", 30560, "A", "set-the-lamp-hit-turn"],
+  ["effect", 30560, "A", "set-the-lamp-hit-spend"],
+  ["effect", 30560, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 30560, "A", "set-the-lamp-hit-copy"],
+  ["effect", 30560, "A", "set-the-lamp-hit-pop"],
+  ["effect", 30560, "A", "set-the-lamp-reload-base"],
+  ["effect", 30560, "A", "set-the-lamp-reload-ward"],
+  ["effect", 30560, "A", "eff:The Lamp Flares base"],
+  ["hit", 30560, "A", "trigger", "trigger", 39.089439, 0.0, 2973.161775276727, 421.2810993171212, 4198.5749295734195, 506.0683914603273],
+  ["status", 30560, "A", "B", "slowed_time", 1.0, 33560],
+  ["effect", 30560, "A", "eff:The Lamp Flares scale"],
+  ["hit", 30560, "A", "trigger", "trigger", 65.14906500000001, 1.8805155109489053, 2971.281259765778, 415.1798370704029, 4198.5749295734195, 506.0683914603273],
+  ["effect", 30560, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 31000, "A", 4198.5749295734195, 544.2155277603273],
+  ["effect", 31000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 31000, "B", 2971.281259765778, 453.3269733704029],
+  ["effect", 31000, "B", "walk-slowly-step"],
+  ["art", 31000, "A", "line-of-lamps", 43.5967272, 4198.5749295734195, 500.6188005603273],
+  ["hit", 31000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 2953.9456740905957, 439.29407020295093, 4198.5749295734195, 500.6188005603273],
+  ["status", 31000, "A", "B", "slowed_time", 2.0, 34000],
+  ["status", 31000, "A", "B", "leaking_ward", 1, 33000],
+  ["effect", 31000, "A", "line-of-lamps-ward"],
+  ["art", 31000, "A", "autumn-comes", 54.495909, 4198.5749295734195, 446.12289156032733],
+  ["soul", 31000, "A", "autumn-comes", 87.90601799155, 20.637503999999993, 2866.0396560990457, 364.160657202951],
+  ["effect", 31000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 31000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2852.270625077148, 341.28092377775755, 4198.5749295734195, 446.12289156032733],
+  ["hit", 31620, "B", "basic", "basic", 93.7396618705036, 7.097777713595542, 4191.477151859824, 437.3440969607327, 2852.270625077148, 341.28092377775755],
+  ["effect", 31620, "A", "set-the-lamp-hit-turn"],
+  ["effect", 31620, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 32000, "A", 4191.477151859824, 475.4912332607327],
+  ["effect", 32000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 32000, "B", 2852.270625077148, 379.42806007775755],
+  ["effect", 32000, "B", "walk-slowly-step"],
+  ["art", 32000, "A", "ghosts-sing-old-poems", 54.495909, 4191.477151859824, 420.99532426073273],
+  ["soul", 32000, "A", "ghosts-sing-old-poems", 96.14720717825782, 22.572269999999996, 2756.1234178988902, 356.85579007775755],
+  ["effect", 32000, "B", "eff:Do Not Listen:soul"],
+  ["art", 32000, "A", "add-a-voice", 21.7983636, 4191.477151859824, 399.1969606607327],
+  ["hit", 32000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2742.3543868769925, 333.9760566525641, 4191.477151859824, 399.1969606607327],
+  ["art", 32220, "B", "walk-slowly", 20.054494511999998, 2742.3543868769925, 313.9215621405641],
+  ["effect", 32220, "B", "walk-slowly-enter"],
+  ["hit", 32740, "B", "basic", "basic", 93.7396618705036, 7.097777713595542, 4184.379374146228, 390.4181660611381, 2742.3543868769925, 313.9215621405641],
+  ["effect", 32740, "A", "set-the-lamp-hit-turn"],
+  ["effect", 32740, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 33000, "A", 4184.379374146228, 428.5653023611381],
+  ["effect", 33000, "A", "set-the-lamp-tick-age"],
+  ["effect", 33000, "A", "add-voice-60"],
+  ["pulse", 33000, "B", 2742.3543868769925, 352.0686984405641],
+  ["effect", 33000, "B", "walk-slowly-step"],
+  ["hit", 33000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2728.585355855095, 336.81554282376845, 4184.379374146228, 428.5653023611381],
+  ["hit", 33860, "B", "basic", "basic", 93.7396618705036, 7.097777713595542, 4177.281596432632, 419.7865077615435, 2728.585355855095, 336.81554282376845],
+  ["effect", 33860, "A", "set-the-lamp-hit-turn"],
+  ["effect", 33860, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 34000, "A", 4177.281596432632, 457.9336440615435],
+  ["effect", 34000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 34000, "B", 2728.585355855095, 374.96267912376845],
+  ["effect", 34000, "B", "walk-slowly-step"],
+  ["hit", 34000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2714.816324833197, 359.7095235069728, 4177.281596432632, 457.9336440615435],
+  ["art", 34236, "B", "walk-slowly", 21.7983636, 2714.816324833197, 337.9111599069728],
+  ["effect", 34236, "B", "walk-slowly-enter"],
+  ["hit", 34980, "B", "basic", "basic", 93.7396618705036, 7.097777713595542, 4170.183818719036, 449.15484946194886, 2714.816324833197, 337.9111599069728],
+  ["effect", 34980, "A", "set-the-lamp-hit-turn"],
+  ["effect", 34980, "A", "set-the-lamp-hit-spend"],
+  ["effect", 34980, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 34980, "A", "set-the-lamp-hit-copy"],
+  ["effect", 34980, "A", "set-the-lamp-hit-pop"],
+  ["effect", 34980, "A", "set-the-lamp-reload-base"],
+  ["effect", 34980, "A", "set-the-lamp-reload-ward"],
+  ["effect", 34980, "A", "eff:The Lamp Flares base"],
+  ["hit", 34980, "A", "trigger", "trigger", 39.089439, 0.0, 2714.816324833197, 333.3352132219341, 4170.183818719036, 449.15484946194886],
+  ["status", 34980, "A", "B", "slowed_time", 1.0, 37980],
+  ["effect", 34980, "A", "eff:The Lamp Flares scale"],
+  ["hit", 34980, "A", "trigger", "trigger", 52.119252, 0.0, 2714.816324833197, 327.23395097521586, 4170.183818719036, 449.15484946194886],
+  ["effect", 34980, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 35000, "A", 4170.183818719036, 487.30198576194886],
+  ["effect", 35000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 35000, "B", 2714.816324833197, 365.38108727521586],
+  ["effect", 35000, "B", "walk-slowly-step"],
+  ["art", 35000, "A", "set-the-lamp", 21.7983636, 4170.183818719036, 465.50362216194884],
+  ["effect", 35000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 35000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 35000, "A", "set-the-lamp-gain"],
+  ["hit", 35000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2701.0472938112994, 353.17856278177936, 4170.183818719036, 465.50362216194884],
+  ["art", 35310, "B", "who-is-afraid", 38.801087208, 2701.0472938112994, 314.37747557377935],
+  ["effect", 35310, "B", "walk-slowly-spend"],
+  ["effect", 35310, "B", "who-is-afraid-cleanse"],
+  ["hit", 35310, "B", "art", "who-is-afraid", 229.47469225899277, 31.866943842881888, 4138.3168748761545, 444.01313298214126, 2701.0472938112994, 314.37747557377935],
+  ["effect", 35310, "B", "walk-slowly-clear-hit"],
+  ["effect", 35310, "A", "set-the-lamp-hit-turn"],
+  ["effect", 35310, "A", "set-the-lamp-hit-spend"],
+  ["art", 35500, "A", "set-the-lamp", 21.7983636, 4138.3168748761545, 422.21476938214124],
+  ["effect", 35500, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 35500, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 35500, "A", "set-the-lamp-gain"],
+  ["pulse", 36000, "A", 4138.3168748761545, 460.36190568214124],
+  ["effect", 36000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 36000, "B", 2701.0472938112994, 352.52461187377935],
+  ["effect", 36000, "B", "walk-slowly-step"],
+  ["art", 36000, "A", "line-of-lamps", 43.5967272, 4138.3168748761545, 416.76517848214127],
+  ["hit", 36000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 2683.711708136117, 338.49170870632736, 4138.3168748761545, 416.76517848214127],
+  ["status", 36000, "A", "B", "slowed_time", 1, 39000],
+  ["status", 36000, "A", "B", "leaking_ward", 1, 38000],
+  ["effect", 36000, "A", "line-of-lamps-ward"],
+  ["art", 36000, "A", "ghosts-sing-old-poems", 54.495909, 4138.3168748761545, 362.2692694821413],
+  ["effect", 36000, "A", "ghosts-sing-chorus-bonus"],
+  ["soul", 36000, "A", "ghosts-sing-old-poems", 120.18400897282228, 28.215337499999997, 2563.527699163295, 255.78046220632737],
+  ["effect", 36000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 36000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2549.7586681413973, 232.90072878113392, 4138.3168748761545, 362.2692694821413],
+  ["art", 36036, "B", "walk-slowly", 20.490461783999997, 2549.7586681413973, 212.41026699713393],
+  ["effect", 36036, "B", "walk-slowly-enter"],
+  ["hit", 36040, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4131.580486832565, 353.6759423740874, 2549.7586681413973, 212.41026699713393],
+  ["effect", 36040, "A", "set-the-lamp-hit-turn"],
+  ["effect", 36040, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 37000, "A", 4131.580486832565, 391.8230786740874],
+  ["effect", 37000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 37000, "B", 2549.7586681413973, 250.55740329713393],
+  ["effect", 37000, "B", "walk-slowly-step"],
+  ["art", 37000, "A", "autumn-comes", 54.495909, 4131.580486832565, 337.32716967408743],
+  ["effect", 37000, "A", "autumn-comes-soul"],
+  ["effect", 37000, "A", "autumn-comes-spend"],
+  ["soul", 37000, "A", "autumn-comes", 114.27782338901501, 26.828755199999996, 2435.4808447523824, 223.72864809713394],
+  ["effect", 37000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 37000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2421.7118137304847, 200.8489146719405, 4131.580486832565, 337.32716967408743],
+  ["hit", 37100, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4124.844098788975, 328.73384256603356, 2421.7118137304847, 200.8489146719405],
+  ["effect", 37100, "A", "set-the-lamp-hit-turn"],
+  ["effect", 37100, "A", "set-the-lamp-hit-spend"],
+  ["art", 37944, "B", "walk-slowly", 20.272478147999998, 2421.7118137304847, 180.5764365239405],
+  ["effect", 37944, "B", "walk-slowly-enter"],
+  ["pulse", 38000, "A", 4124.844098788975, 366.88097886603356],
+  ["effect", 38000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 38000, "B", 2421.7118137304847, 218.7235728239405],
+  ["effect", 38000, "B", "walk-slowly-step"],
+  ["hit", 38000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2407.942782708587, 203.47041720714486, 4124.844098788975, 366.88097886603356],
+  ["hit", 38160, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4118.107710745386, 358.2876517579797, 2407.942782708587, 203.47041720714486],
+  ["effect", 38160, "A", "set-the-lamp-hit-turn"],
+  ["effect", 38160, "A", "set-the-lamp-hit-spend"],
+  ["effect", 38160, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 38160, "A", "set-the-lamp-hit-copy"],
+  ["effect", 38160, "A", "set-the-lamp-hit-pop"],
+  ["effect", 38160, "A", "set-the-lamp-reload-base"],
+  ["effect", 38160, "A", "set-the-lamp-reload-ward"],
+  ["effect", 38160, "A", "eff:The Lamp Flares base"],
+  ["hit", 38160, "A", "trigger", "trigger", 39.089439, 0.0, 2407.942782708587, 198.8944705221062, 4118.107710745386, 358.2876517579797],
+  ["status", 38160, "A", "B", "slowed_time", 2.0, 41160],
+  ["effect", 38160, "A", "eff:The Lamp Flares scale"],
+  ["hit", 38160, "A", "trigger", "trigger", 52.119252, 0.0, 2407.942782708587, 192.79320827538794, 4118.107710745386, 358.2876517579797],
+  ["effect", 38160, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 39000, "A", 4118.107710745386, 396.4347880579797],
+  ["effect", 39000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 39000, "B", 2407.942782708587, 230.94034457538794],
+  ["effect", 39000, "B", "walk-slowly-step"],
+  ["art", 39000, "A", "set-the-lamp", 21.7983636, 4118.107710745386, 374.6364244579797],
+  ["effect", 39000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 39000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 39000, "A", "set-the-lamp-gain"],
+  ["hit", 39000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2394.1737516866892, 215.68718895859232, 4118.107710745386, 374.6364244579797],
+  ["hit", 39280, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4111.371322701796, 366.0430973499258, 2394.1737516866892, 215.68718895859232],
+  ["effect", 39280, "A", "set-the-lamp-hit-turn"],
+  ["effect", 39280, "A", "set-the-lamp-hit-spend"],
+  ["art", 39852, "B", "walk-slowly", 19.836510876, 2394.1737516866892, 195.8506780825923],
+  ["effect", 39852, "B", "walk-slowly-enter"],
+  ["pulse", 40000, "A", 4111.371322701796, 404.1902336499258],
+  ["effect", 40000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 40000, "B", 2394.1737516866892, 233.9978143825923],
+  ["effect", 40000, "B", "walk-slowly-step"],
+  ["art", 40000, "A", "ghosts-sing-old-poems", 54.495909, 4111.371322701796, 349.6943246499258],
+  ["soul", 40000, "A", "ghosts-sing-old-poems", 96.14720717825782, 22.572269999999996, 2298.0265445084315, 211.4255443825923],
+  ["effect", 40000, "B", "eff:Do Not Listen:soul"],
+  ["art", 40000, "A", "add-a-voice", 21.7983636, 4111.371322701796, 327.8959610499258],
+  ["hit", 40000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2284.2575134865338, 199.2230198891558, 4111.371322701796, 327.8959610499258],
+  ["hit", 40400, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4104.6349346582065, 319.30263394187193, 2284.2575134865338, 199.2230198891558],
+  ["effect", 40400, "A", "set-the-lamp-hit-turn"],
+  ["effect", 40400, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 41000, "A", 4104.6349346582065, 357.44977024187193],
+  ["effect", 41000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 41000, "B", 2284.2575134865338, 237.3701561891558],
+  ["effect", 41000, "B", "walk-slowly-step"],
+  ["art", 41000, "A", "line-of-lamps", 43.5967272, 4104.6349346582065, 313.85304304187196],
+  ["hit", 41000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 2266.9219278113515, 223.33725302170384, 4104.6349346582065, 313.85304304187196],
+  ["status", 41000, "A", "B", "slowed_time", 3.0, 44000],
+  ["status", 41000, "A", "B", "leaking_ward", 1, 43000],
+  ["effect", 41000, "A", "line-of-lamps-ward"],
+  ["hit", 41000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2253.1528967894537, 145.96161059651038, 4104.6349346582065, 313.85304304187196],
+  ["art", 41140, "B", "who-is-afraid", 38.801087208, 2253.1528967894537, 107.16052338851038],
+  ["effect", 41140, "B", "walk-slowly-spend"],
+  ["effect", 41140, "B", "who-is-afraid-cleanse"],
+  ["hit", 41140, "B", "art", "who-is-afraid", 224.6266353802817, 30.982261930708326, 4073.652672727498, 292.8165782813561, 2253.1528967894537, 107.16052338851038],
+  ["effect", 41140, "B", "walk-slowly-clear-hit"],
+  ["effect", 41140, "A", "set-the-lamp-hit-turn"],
+  ["effect", 41140, "A", "set-the-lamp-hit-spend"],
+  ["hit", 41520, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4066.916284683908, 284.22325117330223, 2253.1528967894537, 107.16052338851038],
+  ["effect", 41520, "A", "set-the-lamp-hit-turn"],
+  ["effect", 41520, "A", "set-the-lamp-hit-spend"],
+  ["effect", 41520, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 41520, "A", "set-the-lamp-hit-copy"],
+  ["effect", 41520, "A", "set-the-lamp-hit-pop"],
+  ["effect", 41520, "A", "set-the-lamp-reload-base"],
+  ["effect", 41520, "A", "set-the-lamp-reload-ward"],
+  ["effect", 41520, "A", "eff:The Lamp Flares base"],
+  ["hit", 41520, "A", "trigger", "trigger", 39.089439, 0.0, 2253.1528967894537, 100.29660336095236, 4066.916284683908, 284.22325117330223],
+  ["status", 41520, "A", "B", "slowed_time", 1.0, 44520],
+  ["effect", 41520, "A", "eff:The Lamp Flares scale"],
+  ["hit", 41520, "A", "trigger", "trigger", 52.119252, 0.0, 2253.1528967894537, 91.14470999087499, 4066.916284683908, 284.22325117330223],
+  ["effect", 41520, "A", "eff:The Lamp Flares clear"],
+  ["art", 41868, "B", "walk-slowly", 20.708445419999997, 2253.1528967894537, 70.43626457087498],
+  ["effect", 41868, "B", "walk-slowly-enter"],
+  ["pulse", 42000, "A", 4066.916284683908, 322.37038747330223],
+  ["effect", 42000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 42000, "B", 2253.1528967894537, 108.58340087087498],
+  ["effect", 42000, "B", "walk-slowly-step"],
+  ["hit", 42000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2239.383865767556, 85.70366744568155, 4066.916284683908, 322.37038747330223],
+  ["hit", 42580, "B", "basic", "basic", 93.7396618705036, 7.097777713595542, 4059.8185069703127, 313.5915928737076, 2239.383865767556, 85.70366744568155],
+  ["effect", 42580, "A", "set-the-lamp-hit-turn"],
+  ["effect", 42580, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 43000, "A", 4059.8185069703127, 351.7387291737076],
+  ["effect", 43000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 43000, "B", 2239.383865767556, 123.85080374568155],
+  ["effect", 43000, "B", "walk-slowly-step"],
+  ["art", 43000, "A", "autumn-comes", 54.495909, 4059.8185069703127, 297.2428201737076],
+  ["soul", 43000, "A", "autumn-comes", 87.90601799155, 20.637503999999993, 2151.477847776006, 103.21329974568155],
+  ["effect", 43000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 43000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2137.7088167541083, 87.96014412888593, 4059.8185069703127, 297.2428201737076],
+  ["hit", 43640, "B", "basic", "basic", 93.7396618705036, 7.097777713595542, 4052.7207292567173, 288.464025574113, 2137.7088167541083, 87.96014412888593],
+  ["effect", 43640, "A", "set-the-lamp-hit-turn"],
+  ["effect", 43640, "A", "set-the-lamp-hit-spend"],
+  ["art", 43776, "B", "walk-slowly", 20.272478147999998, 2137.7088167541083, 67.68766598088592],
+  ["effect", 43776, "B", "walk-slowly-enter"],
+  ["pulse", 44000, "A", 4052.7207292567173, 326.611161874113],
+  ["effect", 44000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 44000, "B", 2137.7088167541083, 105.83480228088592],
+  ["effect", 44000, "B", "walk-slowly-step"],
+  ["art", 44000, "A", "set-the-lamp", 21.7983636, 4052.7207292567173, 304.812798274113],
+  ["effect", 44000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 44000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 44000, "A", "set-the-lamp-gain"],
+  ["art", 44000, "A", "ghosts-sing-old-poems", 54.495909, 4052.7207292567173, 250.316889274113],
+  ["soul", 44000, "A", "ghosts-sing-old-poems", 96.14720717825782, 22.572269999999996, 2041.5616095758505, 83.26253228088592],
+  ["effect", 44000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 44000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2027.7925785539528, 68.0093766640903, 4052.7207292567173, 250.316889274113],
+  ["hit", 44700, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4045.984341213127, 241.72356216605914, 2027.7925785539528, 68.0093766640903],
+  ["effect", 44700, "A", "set-the-lamp-hit-turn"],
+  ["effect", 44700, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 45000, "A", 4045.984341213127, 279.87069846605914],
+  ["effect", 45000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 45000, "B", 2027.7925785539528, 106.1565129640903],
+  ["effect", 45000, "B", "walk-slowly-step"],
+  ["hit", 45000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 2014.023547532055, 93.9539884706538, 4045.984341213127, 279.87069846605914],
+  ["art", 45684, "B", "walk-slowly", 19.836510876, 2014.023547532055, 74.11747759465379],
+  ["effect", 45684, "B", "walk-slowly-enter"],
+  ["hit", 45760, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4039.247953169537, 271.27737135800527, 2014.023547532055, 74.11747759465379],
+  ["effect", 45760, "A", "set-the-lamp-hit-turn"],
+  ["effect", 45760, "A", "set-the-lamp-hit-spend"],
+  ["effect", 45760, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 45760, "A", "set-the-lamp-hit-copy"],
+  ["effect", 45760, "A", "set-the-lamp-hit-pop"],
+  ["effect", 45760, "A", "set-the-lamp-reload-base"],
+  ["effect", 45760, "A", "set-the-lamp-reload-ward"],
+  ["effect", 45760, "A", "eff:The Lamp Flares base"],
+  ["hit", 45760, "A", "trigger", "trigger", 39.089439, 0.0, 2014.023547532055, 70.45672024662284, 4039.247953169537, 271.27737135800527],
+  ["status", 45760, "A", "B", "slowed_time", 1.0, 48760],
+  ["effect", 45760, "A", "eff:The Lamp Flares scale"],
+  ["hit", 45760, "A", "trigger", "trigger", 52.119252, 0.0, 2014.023547532055, 65.57571044924823, 4039.247953169537, 271.27737135800527],
+  ["effect", 45760, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 46000, "A", 4039.247953169537, 309.42450765800527],
+  ["effect", 46000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 46000, "B", 2014.023547532055, 103.72284674924823],
+  ["effect", 46000, "B", "walk-slowly-step"],
+  ["art", 46000, "A", "set-the-lamp", 21.7983636, 4039.247953169537, 287.62614405800525],
+  ["effect", 46000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 46000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 46000, "A", "set-the-lamp-gain"],
+  ["art", 46000, "A", "line-of-lamps", 43.5967272, 4039.247953169537, 244.02941685800525],
+  ["hit", 46000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 1996.6879618568726, 89.68994358179626, 4039.247953169537, 244.02941685800525],
+  ["status", 46000, "A", "B", "slowed_time", 2.0, 49000],
+  ["status", 46000, "A", "B", "leaking_ward", 1, 48000],
+  ["effect", 46000, "A", "line-of-lamps-ward"],
+  ["hit", 46000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1982.9189308349748, 12.31430115660282, 4039.247953169537, 244.02941685800525],
+  ["hit", 46820, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4032.511565125947, 235.43608974995138, 1982.9189308349748, 12.31430115660282],
+  ["effect", 46820, "A", "set-the-lamp-hit-turn"],
+  ["effect", 46820, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 47000, "A", 4032.511565125947, 273.58322604995135],
+  ["effect", 47000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 47000, "B", 1982.9189308349748, 50.46143745660282],
+  ["effect", 47000, "B", "walk-slowly-step"],
+  ["hit", 47000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1969.1498998130771, 27.581704031409384, 4032.511565125947, 273.58322604995135],
+  ["art", 47484, "B", "walk-slowly", 19.400543604, 1969.1498998130771, 8.181160427409385],
+  ["effect", 47484, "B", "walk-slowly-enter"],
+  ["hit", 47940, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4025.775177082357, 264.9898989418975, 1969.1498998130771, 8.181160427409385],
+  ["effect", 47940, "A", "set-the-lamp-hit-turn"],
+  ["effect", 47940, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 48000, "A", 4025.775177082357, 303.1370352418975],
+  ["effect", 48000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 48000, "B", 1969.1498998130771, 46.32829672740938],
+  ["effect", 48000, "B", "walk-slowly-step"],
+  ["art", 48000, "A", "ghosts-sing-old-poems", 54.495909, 4025.775177082357, 248.6411262418975],
+  ["soul", 48000, "A", "ghosts-sing-old-poems", 96.14720717825782, 22.572269999999996, 1873.0026926348194, 23.756026727409385],
+  ["effect", 48000, "B", "eff:Do Not Listen:soul"],
+  ["art", 48000, "A", "add-a-voice", 21.7983636, 4025.775177082357, 226.8427626418975],
+  ["hit", 48000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1859.2336616129217, 8.502871110613759, 4025.775177082357, 226.8427626418975],
+  ["pulse", 49000, "A", 4025.775177082357, 264.98989894189754],
+  ["effect", 49000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 49000, "B", 1859.2336616129217, 46.65000741061376],
+  ["effect", 49000, "B", "walk-slowly-step"],
+  ["art", 49000, "A", "autumn-comes", 54.495909, 4025.775177082357, 210.49398994189755],
+  ["soul", 49000, "A", "autumn-comes", 87.90601799155, 20.637503999999993, 1771.3276436213716, 26.012503410613768],
+  ["effect", 49000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 49000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1757.558612599474, 10.759347793818142, 4025.775177082357, 210.49398994189755],
+  ["hit", 49060, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4019.038789038767, 201.90066283384368, 1757.558612599474, 10.759347793818142],
+  ["effect", 49060, "A", "set-the-lamp-hit-turn"],
+  ["effect", 49060, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 50000, "A", 4019.038789038767, 240.04779913384368],
+  ["effect", 50000, "A", "set-the-lamp-tick-age"],
+  ["effect", 50000, "A", "add-voice-40"],
+  ["pulse", 50000, "B", 1757.558612599474, 48.90648409381814],
+  ["effect", 50000, "B", "walk-slowly-still-clear"],
+  ["hit", 50000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1743.7895815775762, 36.703959600381644, 4019.038789038767, 240.04779913384368],
+  ["art", 50000, "B", "walk-slowly", 21.7983636, 1743.7895815775762, 14.905596000381646],
+  ["effect", 50000, "B", "walk-slowly-enter"],
+  ["hit", 50060, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4012.302400995177, 231.4544720257898, 1743.7895815775762, 14.905596000381646],
+  ["effect", 50060, "A", "set-the-lamp-hit-turn"],
+  ["effect", 50060, "A", "set-the-lamp-hit-spend"],
+  ["effect", 50060, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 50060, "A", "set-the-lamp-hit-copy"],
+  ["effect", 50060, "A", "set-the-lamp-hit-pop"],
+  ["effect", 50060, "A", "set-the-lamp-reload-base"],
+  ["effect", 50060, "A", "set-the-lamp-reload-ward"],
+  ["effect", 50060, "A", "eff:The Lamp Flares base"],
+  ["hit", 50060, "A", "trigger", "trigger", 39.089439, 0.0, 1743.7895815775762, 11.244838652350698, 4012.302400995177, 231.4544720257898],
+  ["status", 50060, "A", "B", "slowed_time", 1.0, 53060],
+  ["effect", 50060, "A", "eff:The Lamp Flares scale"],
+  ["hit", 50060, "A", "trigger", "trigger", 52.119252, 0.0, 1743.7895815775762, 6.3638288549761, 4012.302400995177, 231.4544720257898],
+  ["effect", 50060, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 51000, "A", 4012.302400995177, 269.6016083257898],
+  ["effect", 51000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 51000, "B", 1743.7895815775762, 44.5109651549761],
+  ["effect", 51000, "B", "walk-slowly-step"],
+  ["art", 51000, "A", "set-the-lamp", 21.7983636, 4012.302400995177, 247.80324472578982],
+  ["effect", 51000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 51000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 51000, "A", "set-the-lamp-gain"],
+  ["art", 51000, "A", "line-of-lamps", 43.5967272, 4012.302400995177, 204.20651752578982],
+  ["hit", 51000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 1726.4539959023937, 30.47806198752413, 4012.302400995177, 204.20651752578982],
+  ["status", 51000, "A", "B", "slowed_time", 2.0, 54000],
+  ["status", 51000, "A", "B", "leaking_ward", 1, 53000],
+  ["effect", 51000, "A", "line-of-lamps-ward"],
+  ["hit", 51000, "A", "basic", "basic", 130.29813000000001, 120.29013000000002, 1606.1638659023936, 0.0, 4012.302400995177, 204.20651752578982],
+  ["hit", 51120, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 4005.566012951587, 195.61319041773595, 1606.1638659023936, 0.0],
+  ["effect", 51120, "A", "set-the-lamp-hit-turn"],
+  ["effect", 51120, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 52000, "A", 4005.566012951587, 233.76032671773595],
+  ["effect", 52000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 52000, "B", 1606.1638659023936, 38.1471363],
+  ["effect", 52000, "B", "walk-slowly-still-clear"],
+  ["art", 52000, "A", "ghosts-sing-old-poems", 54.495909, 4005.566012951587, 179.26441771773597],
+  ["effect", 52000, "A", "ghosts-sing-chorus-bonus"],
+  ["soul", 52000, "A", "ghosts-sing-old-poems", 120.18400897282228, 28.215337499999997, 1485.9798569295713, 9.931798800000003],
+  ["effect", 52000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 52000, "A", "basic", "basic", 130.29813000000001, 74.0506872868928, 1411.9291696426785, 0.0, 4005.566012951587, 179.26441771773597],
+  ["hit", 52240, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 3998.8296249079967, 170.6710906096821, 1411.9291696426785, 0.0],
+  ["effect", 52240, "A", "set-the-lamp-hit-turn"],
+  ["effect", 52240, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 53000, "A", 3998.8296249079967, 208.8182269096821],
+  ["effect", 53000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 53000, "B", 1411.9291696426785, 38.1471363],
+  ["hit", 53000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1398.1601386207808, 22.893980683204376, 3998.8296249079967, 208.8182269096821],
+  ["art", 53000, "B", "walk-slowly", 21.7983636, 1398.1601386207808, 1.0956170832043775],
+  ["effect", 53000, "B", "walk-slowly-enter"],
+  ["hit", 53360, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 3992.0932368644067, 200.22489980162823, 1398.1601386207808, 1.0956170832043775],
+  ["effect", 53360, "A", "set-the-lamp-hit-turn"],
+  ["effect", 53360, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 54000, "A", 3992.0932368644067, 238.37203610162823],
+  ["effect", 54000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 54000, "B", 1398.1601386207808, 39.242753383204374],
+  ["effect", 54000, "B", "walk-slowly-step"],
+  ["hit", 54000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1384.391107598883, 23.98959776640875, 3992.0932368644067, 238.37203610162823],
+  ["hit", 54480, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 3985.3568488208166, 229.77870899357436, 1384.391107598883, 23.98959776640875],
+  ["effect", 54480, "A", "set-the-lamp-hit-turn"],
+  ["effect", 54480, "A", "set-the-lamp-hit-spend"],
+  ["effect", 54480, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 54480, "A", "set-the-lamp-hit-copy"],
+  ["effect", 54480, "A", "set-the-lamp-hit-pop"],
+  ["effect", 54480, "A", "set-the-lamp-reload-base"],
+  ["effect", 54480, "A", "set-the-lamp-reload-ward"],
+  ["effect", 54480, "A", "eff:The Lamp Flares base"],
+  ["hit", 54480, "A", "trigger", "trigger", 39.089439, 0.0, 1384.391107598883, 19.413651081370062, 3985.3568488208166, 229.77870899357436],
+  ["status", 54480, "A", "B", "slowed_time", 1.0, 57480],
+  ["effect", 54480, "A", "eff:The Lamp Flares scale"],
+  ["hit", 54480, "A", "trigger", "trigger", 52.119252, 0.0, 1384.391107598883, 13.312388834651816, 3985.3568488208166, 229.77870899357436],
+  ["effect", 54480, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 55000, "A", 3985.3568488208166, 267.92584529357435],
+  ["effect", 55000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 55000, "B", 1384.391107598883, 51.45952513465181],
+  ["effect", 55000, "B", "walk-slowly-still-clear"],
+  ["art", 55000, "A", "autumn-comes", 54.495909, 3985.3568488208166, 213.42993629357437],
+  ["effect", 55000, "A", "autumn-comes-soul"],
+  ["effect", 55000, "A", "autumn-comes-spend"],
+  ["soul", 55000, "A", "autumn-comes", 114.27782338901501, 26.828755199999996, 1270.113284209868, 24.630769934651816],
+  ["effect", 55000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 55000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1256.3442531879703, 12.428245441215315, 3985.3568488208166, 213.42993629357437],
+  ["hit", 55540, "B", "basic", "basic", 93.7396618705036, 7.097777713595542, 3978.259071107221, 204.65114169397978, 1256.3442531879703, 12.428245441215315],
+  ["effect", 55540, "A", "set-the-lamp-hit-turn"],
+  ["effect", 55540, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 56000, "A", 3978.259071107221, 242.79827799397978],
+  ["effect", 56000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 56000, "B", 1256.3442531879703, 50.57538174121532],
+  ["art", 56000, "A", "set-the-lamp", 21.7983636, 3978.259071107221, 220.9999143939798],
+  ["effect", 56000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 56000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 56000, "A", "set-the-lamp-gain"],
+  ["art", 56000, "A", "line-of-lamps", 43.5967272, 3978.259071107221, 177.4031871939798],
+  ["hit", 56000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 1239.0086675127877, 36.54247857376335, 3978.259071107221, 177.4031871939798],
+  ["status", 56000, "A", "B", "slowed_time", 2.0, 59000],
+  ["status", 56000, "A", "B", "leaking_ward", 1, 58000],
+  ["effect", 56000, "A", "line-of-lamps-ward"],
+  ["art", 56000, "A", "ghosts-sing-old-poems", 54.495909, 3978.259071107221, 122.90727819397979],
+  ["soul", 56000, "A", "ghosts-sing-old-poems", 96.14720717825782, 22.572269999999996, 1142.86146033453, 0.0],
+  ["effect", 56000, "B", "eff:Do Not Listen:soul"],
+  ["art", 56000, "A", "add-a-voice", 21.7983636, 3978.259071107221, 101.10891459397979],
+  ["hit", 56000, "A", "basic", "basic", 130.29813000000001, 120.29013000000002, 1022.57133033453, 0.0, 3978.259071107221, 101.10891459397979],
+  ["effect", 56000, "A", "add-voice-broken"],
+  ["hit", 56600, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 3971.522683063631, 92.51558748592592, 1022.57133033453, 0.0],
+  ["effect", 56600, "A", "set-the-lamp-hit-turn"],
+  ["effect", 56600, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 57000, "A", 3971.522683063631, 130.66272378592592],
+  ["effect", 57000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 57000, "B", 1022.57133033453, 38.1471363],
+  ["hit", 57000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 1008.8022993126322, 15.26740287480656, 3971.522683063631, 130.66272378592592],
+  ["hit", 57720, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 3964.786295020041, 122.06939667787205, 1008.8022993126322, 15.26740287480656],
+  ["effect", 57720, "A", "set-the-lamp-hit-turn"],
+  ["effect", 57720, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 58000, "A", 3964.786295020041, 160.21653297787205],
+  ["effect", 58000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 58000, "B", 1008.8022993126322, 53.41453917480656],
+  ["hit", 58000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 995.0332682907343, 38.16138355801094, 3964.786295020041, 160.21653297787205],
+  ["art", 58000, "B", "walk-slowly", 21.7983636, 995.0332682907343, 16.36301995801094],
+  ["effect", 58000, "B", "walk-slowly-enter"],
+  ["hit", 58840, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 3958.049906976451, 151.62320586981818, 995.0332682907343, 16.36301995801094],
+  ["effect", 58840, "A", "set-the-lamp-hit-turn"],
+  ["effect", 58840, "A", "set-the-lamp-hit-spend"],
+  ["effect", 58840, "A", "set-the-lamp-hit-copy-prep"],
+  ["effect", 58840, "A", "set-the-lamp-hit-copy"],
+  ["effect", 58840, "A", "set-the-lamp-hit-pop"],
+  ["effect", 58840, "A", "set-the-lamp-reload-base"],
+  ["effect", 58840, "A", "set-the-lamp-reload-ward"],
+  ["effect", 58840, "A", "eff:The Lamp Flares base"],
+  ["hit", 58840, "A", "trigger", "trigger", 39.089439, 0.0, 995.0332682907343, 11.787073272972254, 3958.049906976451, 151.62320586981818],
+  ["status", 58840, "A", "B", "slowed_time", 3.0, 61840],
+  ["effect", 58840, "A", "eff:The Lamp Flares scale"],
+  ["hit", 58840, "A", "trigger", "trigger", 52.119252, 0.0, 995.0332682907343, 5.685811026254008, 3958.049906976451, 151.62320586981818],
+  ["effect", 58840, "A", "eff:The Lamp Flares clear"],
+  ["pulse", 59000, "A", 3958.049906976451, 189.77034216981818],
+  ["effect", 59000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 59000, "B", 995.0332682907343, 43.83294732625401],
+  ["effect", 59000, "B", "walk-slowly-step"],
+  ["art", 59000, "A", "set-the-lamp", 21.7983636, 3958.049906976451, 167.9719785698182],
+  ["effect", 59000, "A", "set-the-lamp-bank-ward-3"],
+  ["effect", 59000, "A", "set-the-lamp-bank-ward-6"],
+  ["effect", 59000, "A", "set-the-lamp-gain"],
+  ["hit", 59000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 981.2642372688365, 28.579791709458384, 3958.049906976451, 167.9719785698182],
+  ["pulse", 60000, "A", 3924.7228675630686, 206.1191148698182],
+  ["effect", 60000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 60000, "B", 947.9371978554543, 66.72692800945839],
+  ["effect", 60000, "B", "walk-slowly-still-clear"],
+  ["art", 60000, "A", "ghosts-sing-old-poems", 54.495909, 3924.7228675630686, 151.6232058698182],
+  ["effect", 60000, "A", "ghosts-sing-chorus-bonus"],
+  ["soul", 60000, "A", "ghosts-sing-old-poems", 120.18400897282228, 28.215337499999997, 827.753188882632, 38.511590509458394],
+  ["effect", 60000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 60000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 813.9841578607342, 26.309066016021895, 3924.7228675630686, 151.6232058698182],
+  ["art", 60016, "B", "walk-slowly", 21.7983636, 813.9841578607342, 4.510702416021896],
+  ["effect", 60016, "B", "walk-slowly-enter"],
+  ["hit", 60020, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 3917.9864795194785, 143.02987876176434, 813.9841578607342, 4.510702416021896],
+  ["effect", 60020, "A", "set-the-lamp-hit-turn"],
+  ["effect", 60020, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 61000, "A", 3784.67832186595, 181.17701506176434],
+  ["effect", 61000, "A", "set-the-lamp-tick-age"],
+  ["effect", 61000, "A", "add-voice-20"],
+  ["pulse", 61000, "B", 680.6760002072053, 42.6578387160219],
+  ["effect", 61000, "B", "walk-slowly-step"],
+  ["art", 61000, "A", "line-of-lamps", 43.5967272, 3784.67832186595, 137.58028786176433],
+  ["hit", 61000, "A", "art", "line-of-lamps", 149.8428495, 17.33558567518248, 663.3404145320228, 28.62493554856993, 3784.67832186595, 137.58028786176433],
+  ["status", 61000, "A", "B", "slowed_time", 4.0, 64000],
+  ["status", 61000, "A", "B", "leaking_ward", 1, 63000],
+  ["effect", 61000, "A", "line-of-lamps-ward"],
+  ["art", 61000, "A", "autumn-comes", 54.495909, 3784.67832186595, 83.08437886176434],
+  ["effect", 61000, "A", "autumn-comes-soul"],
+  ["effect", 61000, "A", "autumn-comes-silence"],
+  ["effect", 61000, "A", "autumn-comes-spend"],
+  ["soul", 61000, "A", "autumn-comes", 140.64962878648, 33.02000639999999, 522.6907857455428, 0.0],
+  ["effect", 61000, "B", "eff:Do Not Listen:soul"],
+  ["hit", 61000, "A", "basic", "basic", 130.29813000000001, 120.29013000000002, 402.4006557455428, 0.0, 3784.67832186595, 83.08437886176434],
+  ["pulse", 62000, "A", 3484.73496714551, 121.23151516176434],
+  ["effect", 62000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 62000, "B", 102.45730102510282, 38.1471363],
+  ["effect", 62000, "B", "walk-slowly-step"],
+  ["hit", 62000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, 88.688270003205, 15.26740287480656, 3484.73496714551, 121.23151516176434],
+  ["hit", 62200, "B", "basic", "basic", 91.75924647887325, 6.736388043590006, 3477.99857910192, 112.63818805371046, 88.688270003205, 15.26740287480656],
+  ["effect", 62200, "A", "set-the-lamp-hit-turn"],
+  ["effect", 62200, "A", "set-the-lamp-hit-spend"],
+  ["pulse", 63000, "A", 2944.765948487804, 150.78532435371045],
+  ["effect", 63000, "A", "set-the-lamp-tick-age"],
+  ["pulse", 63000, "B", -444.5443606109106, 53.41453917480656],
+  ["effect", 63000, "B", "walk-slowly-still-clear"],
+  ["hit", 63000, "A", "basic", "basic", 130.29813000000001, 13.769031021897812, -458.3133916328084, 30.534805749613124, 2944.765948487804, 150.78532435371045],
+  ["down", 63000, "B", "down"]
+ ]
+}
