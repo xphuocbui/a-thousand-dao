@@ -1,0 +1,1390 @@
+{
+ "_doc": "Thính Vũ Lâu Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py.",
+ "source": "world-depth:thinh_vu",
+ "effects": {
+  "Not a Drop Spilled": {
+   "rule": "Rain-Chain Sword Scripture (passive art, layer 4, authored wish d10): Each second in which you fire no damaging art fills a bronze cup: each cup raises your linh lực regeneration by 5 %. Your next art with a damage part spends every cup for 3 % more damage each.",
+   "approx": "Uses own.since_act >= 0.9 on pulse to fill Cups; spends all Cups via L5 (+3 per Cup, layer cap 100 still clips) on art_fired held until hit_landed. Technique attachment awaits pending word technique-effects.",
+   "pending": "technique-effects",
+   "counters": [
+    {
+     "id": "not_a_drop_cups"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Not a Drop Spilled:fill",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.since_act",
+       "op": ">=",
+       "value": 0.9
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "not_a_drop_cups",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Not a Drop Spilled:regen",
+     "on": "always",
+     "scale": {
+      "read": "own.counter.not_a_drop_cups",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "regen": 5
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Not a Drop Spilled:spend",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.not_a_drop_cups",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "held": {
+      "until": "hit_landed"
+     },
+     "scale": {
+      "read": "own.counter.not_a_drop_cups",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "L5": 3
+       }
+      },
+      {
+       "counter": {
+        "id": "not_a_drop_cups",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Return to the Scabbard": {
+   "rule": "Rain-Chain Sword Scripture (passive art, layer 6, authored wish d29): After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty clears. Your first sword art on an unstruck foe cannot be evaded.",
+   "approx": "Uses own.since_act >= 2.9 on pulse to reset no_second_done and first_sword_done; applies off_guard (1 s) to foe when a sword art fires while first_sword_done == 0 so it cannot be evaded. Technique attachment awaits pending word technique-effects.",
+   "pending": "technique-effects",
+   "counters": [
+    {
+     "id": "no_second_done",
+     "cap": 1
+    },
+    {
+     "id": "first_sword_done",
+     "cap": 1
+     }
+   ],
+   "records": [
+    {
+     "id": "eff:Return to the Scabbard:sheathe",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.since_act",
+       "op": ">=",
+       "value": 2.9
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "no_second_done",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "first_sword_done",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Return to the Scabbard:sure_cut",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.first_sword_done",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "off_guard",
+        "stacks": 1,
+        "dur": 1.0,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "first_sword_done",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Under the Umbrella": {
+   "rule": "Spotted-Bamboo Umbrella: While the umbrella is open, the first Lightning hit each 10 s that would strike you runs off its rim instead, and you gain linh lực equal to a tenth of the damage it would have dealt.",
+   "approx": "On was_hit (dtype: lightning) once per 10 s cooldown, heals back 100 % of ev.amount (ignoring heal_taken modifiers) and restores 10 % as linh lực; marks umbrella_open = 1 at fight_start for The Rain Answers.",
+   "counters": [
+    {
+     "id": "umbrella_open",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Under the Umbrella:open",
+     "on": "fight_start",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "umbrella_open",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Under the Umbrella:shed",
+     "on": "was_hit",
+     "filter": {
+      "dtype": "lightning"
+     },
+     "limit": {
+      "cooldown": 10.0
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 1.0,
+        "of": "amount",
+        "ignore_taken": true
+       }
+      },
+      {
+       "gain_qi": {
+        "share": 0.1,
+        "of": "amount"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Nine Cups": {
+   "rule": "The Founder's Rain-Chain: Each time you are hit, one of nine bronze cups fills. When all nine are full, your next art is cast at once and costs no linh lực, and the cups empty.",
+   "approx": "Exact engine form using own.counter.nine_cups incremented on was_hit; on reaching 9, resets and runs timer next -99 + next_art_cost -1.0.",
+   "counters": [
+    {
+     "id": "nine_cups"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Nine Cups:fill",
+     "on": "was_hit",
+     "do": [
+      {
+       "counter": {
+        "id": "nine_cups",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Nine Cups:release",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.nine_cups",
+       "op": ">=",
+       "value": 9
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "nine_cups",
+        "set": 0
+       }
+      },
+      {
+       "timer": {
+        "side": "own",
+        "which": "next",
+        "by": -99
+       }
+      },
+      {
+       "mod": {
+        "next_art_cost": -1.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Every Lamp Has a Name": {
+   "rule": "Lamp of the Soul Vaults: A foe you have cursed cannot hide: concealment and evasion do not work against your arts while your curse is on them, and each time it ticks they lose a little linh lực to you.",
+   "approx": "Applies Off Guard (1 s) when you fire an art while foe.curses >= 1 so evasion fails; drains 1.5 % foe max linh lực to self on tick_dealt while foe carries a curse.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Every Lamp Has a Name:reveal",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "foe.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "off_guard",
+        "stacks": 1,
+        "dur": 1.0,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Lamp Has a Name:drain_tick",
+     "on": "tick_dealt",
+     "do": [
+      {
+       "burn_qi": {
+        "of": "max",
+        "share": 0.015,
+        "to_self": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Lamp Has a Name:drain_curse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "foe.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "cooldown": 2.0
+     },
+     "do": [
+      {
+       "burn_qi": {
+        "of": "max",
+        "share": 0.015,
+        "to_self": 1.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "No Second Cut": {
+   "rule": "Dạ Lan, the Sword of the Late Night: Your first sword hit on the foe in a fight is a guaranteed crit and pierces their guard; your later hits on the foe deal a little less.",
+   "approx": "Tracks no_second_done (cap 1): while 0, grants sure_crit: 1 and pierce: 35 to sword arts; on hit_landed (sword art), sets no_second_done = 1; while 1, later sword arts deal dmg_more: -0.10. Return to the Scabbard or One Cut Drawn Out can re-arm it.",
+   "counters": [
+    {
+     "id": "no_second_done",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:No Second Cut:first",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.no_second_done",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "sure_crit": 1,
+        "pierce": 35,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:No Second Cut:later",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.no_second_done",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": -0.1,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:No Second Cut:mark",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ],
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.no_second_done",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "no_second_done",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Glass Rings": {
+   "rule": "Coloured-Glass Flying Sword: When this sword is used as a lightning rod, the bolt it draws strikes twice, and you take a twentieth of your health as Lightning damage each time.",
+   "approx": "When sword-raised-to-the-cloud lands, fires a duplicate elem bolt (c 2.2) and takes a Lightning self_hit (c 0.65); engine has no flat % max-HP self-damage action on Effects.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Glass Rings:double",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "sword-raised-to-the-cloud"
+     },
+     "limit": {
+      "per_firing": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 2.2,
+        "dtype": "elem"
+       }
+      },
+      {
+       "self_hit": {
+        "c": 0.65,
+        "dtype": "lightning"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Bell Hears First": {
+   "rule": "Bell Under the Eaves: An ambush cannot surprise you: an unseen foe is revealed when they come within reach, and your first art against them is cast at once.",
+   "approx": "No spatial range or stealth ambush phase exists in one-on-one fight.py; grants immediate opening cast (timer next -99) and +30 acc for 5 s at fight_start.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:The Bell Hears First",
+     "on": "fight_start",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "timer": {
+        "side": "own",
+        "which": "next",
+        "by": -99
+       }
+      },
+      {
+       "mod": {
+        "acc": 30,
+        "for": 5.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "It Hums": {
+   "rule": "Drumstick of the Gate: Each Thunder stack you apply also gives you one charge, and each charge fades after 4 s. At four or more, your next Thunder art spends them all, sounds like a drum and stuns the foe for half a second, and a tenth of a second longer for each charge past four.",
+   "approx": "Because add_stacks emits no event, each Thunder art hit adds 1 hum_charge (each_for 4 s); at 4+ charges, stops foe clock 0.5 s (+0.1 s per extra charge) on hit_landed.",
+   "counters": [
+    {
+     "id": "hum_charge",
+     "each_for": 4.0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:It Hums:gain",
+     "on": "hit_landed",
+     "filter": {
+      "element": "thunder",
+      "kind": "art"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "hum_charge",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:It Hums:stun_base",
+     "on": "hit_landed",
+     "filter": {
+      "element": "thunder",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.hum_charge",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "limit": {
+      "per_firing": 1
+     },
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 0.5
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:It Hums:stun_extra",
+     "on": "hit_landed",
+     "filter": {
+      "element": "thunder",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.hum_charge",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "limit": {
+      "per_firing": 1
+     },
+     "scale": {
+      "read": "own.counter.hum_charge",
+      "per": 1
+     },
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 0.1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:It Hums:spend",
+     "on": "hit_landed",
+     "filter": {
+      "element": "thunder",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.hum_charge",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "limit": {
+      "per_firing": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "hum_charge",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Rain Answers": {
+   "rule": "Night Rain Regalia, full set: While your rain field (The Night Is Long) stands or the umbrella is open, every hit you evade rings the chain; at three rings a bolt falls on the foe who struck at you, dealing Lightning damage scaled by your Metal. A holder whose root has no Thunder can still call this bolt.",
+   "approx": "Checks own.counter.night_rain >= 1 or own.counter.umbrella_open >= 1 on evaded; every 3rd ring calls free_hit c: 1.6 elem (scales off attack).",
+   "counters": [
+    {
+     "id": "rain_rings"
+    },
+    {
+     "id": "night_rain"
+    },
+    {
+     "id": "umbrella_open",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Rain Answers:ring",
+     "on": "evaded",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.counter.night_rain",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.counter.umbrella_open",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "rain_rings",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Rain Answers:bolt",
+     "on": "evaded",
+     "if": [
+      {
+       "read": "own.counter.rain_rings",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "rain_rings",
+        "set": 0
+       }
+      },
+      {
+       "free_hit": {
+        "c": 1.6,
+        "dtype": "elem"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Wick Is Cut": {
+   "rule": "Lamp and Shears of the Vaults, full set: once a fight, a cursed foe below a quarter of their health has their curse turned into a seal: they cannot cast arts for 2 s.",
+   "approx": "Exact engine form: once per fight when foe.hp_share <= 0.25 and foe.curses >= 1 on pulse, applies Silence (dur 2 s) to foe.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:The Wick Is Cut",
+     "on": "pulse",
+     "limit": {
+      "per_fight": 1
+     },
+     "if": [
+      {
+       "read": "foe.hp_share",
+       "op": "<=",
+       "value": 0.25
+      },
+      {
+       "read": "foe.curses",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "silence",
+        "stacks": 1,
+        "dur": 2.0,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Words Before Blades": {
+   "rule": "Keeper of the Old Tower, full set: for the first 5 s of each fight you take 25 % less damage while you cast no damaging art; each hit you evade in that time stores one Water buff stack, and your first sword art after it spends them all for 8 % more damage each.",
+   "approx": "Uses words_window (5 pulses at fight_start) granting dampen_taken: 25; each evade in that window adds a Water buff + words_evades; next sword art spends words_evades for dmg_more 0.08 each.",
+   "counters": [
+    {
+     "id": "words_window",
+     "decay_per_pulse": 1
+    },
+    {
+     "id": "words_evades"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Words Before Blades:open",
+     "on": "fight_start",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "words_window",
+        "set": 5
+       }
+      },
+      {
+       "mod": {
+        "dampen_taken": 25,
+        "for": 5.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Words Before Blades:evade",
+     "on": "evaded",
+     "if": [
+      {
+       "read": "own.counter.words_window",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "water",
+        "n": 1,
+        "for": 12.0,
+        "side": "own"
+       }
+      },
+      {
+       "counter": {
+        "id": "words_evades",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Words Before Blades:spend",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.words_evades",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "held": {
+      "until": "hit_landed"
+     },
+     "scale": {
+      "read": "own.counter.words_evades",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.08
+       }
+      },
+      {
+       "counter": {
+        "id": "words_evades",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Branded to the Vein": {
+   "rule": "Keeper of Kinh Lôi Mạch, full set: a foe carrying two or more of your curses is branded. Each of your Lightning bolts that lands on a branded foe adds 1 s to every curse it carries (the curse duration clamp still holds).",
+   "approx": "Because engine.py has no action to extend already-running status durations, landing a Lightning hit on a foe with 2+ curses grants +25 % curse status_dur for 4 s so subsequent curses run longer up to the clamp.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Branded to the Vein",
+     "on": "hit_landed",
+     "filter": {
+      "dtype": "lightning"
+     },
+     "if": [
+      {
+       "read": "foe.curses",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "status_dur": 25,
+        "tags": [
+         "curse"
+        ],
+        "for": 4.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "One Cut Drawn Out": {
+   "rule": "The Undefeated, full set: each second you go without attacking adds 12 % crit damage to your next sword art. The first sword art of each fight cannot be evaded. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again: No Second Cut and the first-art clause re-arm.",
+   "approx": "Tracks drawn_out per idle pulse (since_act >= 0.9), spending it on next sword art (+12 crit_mult each); applies Off Guard (1 s) on first sword art and resets first_sword_done + no_second_done after 3 s idle.",
+   "counters": [
+    {
+     "id": "drawn_out"
+    },
+    {
+     "id": "first_sword_done",
+     "cap": 1
+    },
+    {
+     "id": "no_second_done",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:One Cut Drawn Out:wait",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.since_act",
+       "op": ">=",
+       "value": 0.9
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "drawn_out",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Cut Drawn Out:rearm",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.since_act",
+       "op": ">=",
+       "value": 2.9
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "first_sword_done",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "no_second_done",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Cut Drawn Out:first",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.first_sword_done",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "off_guard",
+        "stacks": 1,
+        "dur": 1.0,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "first_sword_done",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:One Cut Drawn Out:crit_spend",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.drawn_out",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "held": {
+      "until": "hit_landed"
+     },
+     "scale": {
+      "read": "own.counter.drawn_out",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "crit_mult": 12
+       }
+      },
+      {
+       "counter": {
+        "id": "drawn_out",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Thin as Glass": {
+   "rule": "Glass Storm, full set: while you are above half health, each Lightning crit chains one more bolt. Each time a single hit takes more than a tenth of your health, your next Lightning art fires at once. Healing on you is 20 % weaker, because the glass does not mend.",
+   "approx": "Uses always heal_taken -20 and healing -20; Lightning crits above 50 % HP trigger free_hit c: 0.45 elem; big hits (>= 10 % hp_max lost in last 1 s via lost_last.hp.1) advance next art timer.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Thin as Glass:fragile",
+     "on": "always",
+     "do": [
+      {
+       "mod": {
+        "healing": -20,
+        "heal_taken": -20
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Thin as Glass:chain",
+     "on": "crit",
+     "filter": {
+      "dtype": "lightning"
+     },
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": ">",
+       "value": 0.5
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.45,
+        "dtype": "elem"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Thin as Glass:shatter",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.lost_last.hp.1",
+       "op": ">=",
+       "value": 0.1
+      }
+     ],
+     "limit": {
+      "cooldown": 2.0
+     },
+     "do": [
+      {
+       "timer": {
+        "side": "own",
+        "which": "next",
+        "by": -99
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Heard Before It Falls": {
+   "rule": "Ears of the Hall, full set: you always evade the first art a foe casts at you each fight, and the bell rings a ward on you worth 8 % of your health. A foe you have heard is marked, and your seals on a marked foe last 2 s longer.",
+   "approx": "Grants opening decoy (1) + 8 % ward at fight_start; on decoy_struck raises evaded event and marks foe via heard_marked = 1, boosting status_dur +100 % on Silence and Sealed Meridian.",
+   "counters": [
+    {
+     "id": "heard_marked",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Heard Before It Falls:open",
+     "on": "fight_start",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      },
+      {
+       "ward_grow": {
+        "share": 0.08,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Heard Before It Falls:hear",
+     "on": "decoy_struck",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "emit": {
+        "event": "evaded"
+       }
+      },
+      {
+       "counter": {
+        "id": "heard_marked",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Heard Before It Falls:seal_long",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.heard_marked",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "status_dur": 100,
+        "tags": [
+         "silence",
+         "sealed_meridian"
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Gate Drums": {
+   "rule": "Drum of the Gate, full set: every fourth storm stack you lay beats the drum. The raised sword draws one bolt onto the foe, and the foe gains 2 Slowed Time stacks. Each beat in the same fight adds one more Slowed Time stack.",
+   "approx": "Adds 2 storm counts per Thunder art hit_landed (approximating Thunder stack application); every 4 counts beats the drum: free_hit bolt (c 1.0 elem) and 2 + (beats - 1) Slowed Time stacks.",
+   "counters": [
+    {
+     "id": "drum_storms"
+    },
+    {
+     "id": "drum_beats"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Gate Drums:charge",
+     "on": "hit_landed",
+     "filter": {
+      "element": "thunder",
+      "kind": "art"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "drum_storms",
+        "add": 2
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Gate Drums:beat",
+     "on": "hit_landed",
+     "filter": {
+      "element": "thunder",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.drum_storms",
+       "op": ">=",
+       "value": 4
+      }
+     ],
+     "limit": {
+      "per_firing": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "drum_storms",
+        "add": -4
+       }
+      },
+      {
+       "counter": {
+        "id": "drum_beats",
+        "add": 1
+       }
+      },
+      {
+       "free_hit": {
+        "c": 1.0,
+        "dtype": "elem"
+       }
+      },
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 4.0,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Gate Drums:extra_slow",
+     "on": "hit_landed",
+     "filter": {
+      "element": "thunder",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.drum_beats",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_firing": 1
+     },
+     "scale": {
+      "read": "own.counter.drum_beats",
+      "per": 1
+     },
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 4.0,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Struck Shed": {
+   "rule": "Gold Sand and Lightning, full set: while your sword is raised to the cloud, each bolt it draws that crits adds a Lightning stack on the foe.",
+   "approx": "Exact engine form: listens on crit for sword-raised-to-the-cloud while own.counter.sword_raised >= 1 and adds 1 Thunder debuff stack.",
+   "counters": [
+    {
+     "id": "sword_raised",
+     "each_for": 3.0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Struck Shed",
+     "on": "crit",
+     "filter": {
+      "art_id": "sword-raised-to-the-cloud"
+     },
+     "if": [
+      {
+       "read": "own.counter.sword_raised",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "thunder",
+        "n": 1,
+        "for": 8.0,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "After the First Blow": {
+   "rule": "Hearing the Spring Rain, full set: the first hit the foe aims at you is heard. If you evade it, your next sword art at the foe is a sure crit.",
+   "approx": "Exact engine form: tracks first_blow_seen; evading the first attack sets after_blow_crit = 1, spent as sure_crit: 1 on next sword art.",
+   "counters": [
+    {
+     "id": "first_blow_seen",
+     "cap": 1
+    },
+    {
+     "id": "after_blow_crit",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:After the First Blow:evade",
+     "on": "evaded",
+     "if": [
+      {
+       "read": "own.counter.first_blow_seen",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "first_blow_seen",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "after_blow_crit",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:After the First Blow:missed",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.first_blow_seen",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "first_blow_seen",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:After the First Blow:crit",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.after_blow_crit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "held": {
+      "until": "hit_landed"
+     },
+     "do": [
+      {
+       "mod": {
+        "sure_crit": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "after_blow_crit",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Formed in a Storm": {
+   "rule": "Thunder on the Cone, full set: each Fire hit you land counts as half a Lightning hit for your Thunder arts' stacks and chains.",
+   "approx": "Counts Fire art hits in fire_storm_halves; every 2nd Fire hit adds 1 Thunder debuff stack (8 s) and fires a small chain bolt (c 0.45 elem).",
+   "counters": [
+    {
+     "id": "fire_storm_halves"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Formed in a Storm:count",
+     "on": "hit_landed",
+     "filter": {
+      "element": "fire",
+      "kind": "art"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "fire_storm_halves",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Formed in a Storm:spark",
+     "on": "hit_landed",
+     "filter": {
+      "element": "fire",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.fire_storm_halves",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "limit": {
+      "per_firing": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "fire_storm_halves",
+        "add": -2
+       }
+      },
+      {
+       "stacks": {
+        "el": "thunder",
+        "n": 1,
+        "for": 8.0,
+        "side": "foe"
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.45,
+        "dtype": "elem"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

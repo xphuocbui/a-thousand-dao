@@ -26,7 +26,7 @@
    "concept": "The outer gate's method, practised sitting under a bronze rain-chain in the rain. A Metal root breathes as the bronze and rings with each drop; a Fire root breathes as the warmth that keeps the bronze from cracking in the cold. Either half carries a disciple through the six layers. A root that holds both feels, at the sixth layer, the hum that comes before a storm, and that is the first sign of Thunder. The primer teaches no sword. It teaches the disciple to sit still and count the drops.",
    "arts": [
     "whetstone-pass",
-    {"new": "Bell-Struck Palm (Kích Chung Chưởng)", "concept": "An open palm that rings the foe like a struck bell: one Metal stack, and the foe's next art is cast a little slower while the ringing lasts. The outer gate's only fighting art."}
+    {"id": "bell-struck-palm", "new": "Bell-Struck Palm (Kích Chung Chưởng)", "concept": "An open palm that rings the foe like a struck bell: one Metal stack, and the foe's next art is cast a little slower while the ringing lasts. The outer gate's only fighting art."}
    ],
    "lore": "Phó Tiêu Tương wrote it in 381, the year after she hung the first rain-chain from the eaves of her tower on the cone (N-thinh_vu-01). Fire was added in 485, when the Tower took Khải Lôi's ground and found that the cone's children were Fire-rooted and the ridge's were Metal (C008).",
    "status": "proposal"
@@ -39,7 +39,7 @@
    "arts": [
     "sheathed-edge",
     "blood-quench-blade",
-    {"new": "Where the Drop Falls (Trích Lạc Kiếm)", "concept": "Mark a foe for 3 s; the first art the foe casts inside the mark is answered by one cut that cannot miss and deals more for each Metal stack on them."},
+    {"id": "where-the-drop-falls", "new": "Where the Drop Falls (Trích Lạc Kiếm)", "concept": "Mark a foe for 3 s; the first art the foe casts inside the mark is answered by one cut that cannot miss and deals more for each Metal stack on them."},
     {"new": "Not a Drop Spilled (Bất Lậu Nhất Trích)", "concept": "A passive art. Each second in which you fire no art fills a bronze cup (your linh lực returns faster for each); your next cutting art spends every cup for more damage.", "effect": "not-a-drop-spilled", "authored": "d10"},
     {"new": "Return to the Scabbard (Quy Sao)", "concept": "A passive art. After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded.", "effect": "return-to-the-scabbard", "unlock_layer": 6, "authored": "d29"}
    ],
@@ -60,8 +60,8 @@
     "answering-peal",
     "chain-arc",
     "sundering-wedge",
-    {"new": "The Chain Carries It Down (Liên Dẫn Lôi)", "concept": "Thunder roots only. After a Metal cut lands, the next 2 s of Lightning hits on the foe chain once more onto it at half, if it carries a Metal stack; each chained hit deals more for each Metal stack.", "authored": "a1"},
-    {"new": "Rain Before the Peal (Lôi Tiền Vũ)", "concept": "Stay Composed: each half-second you stay Composed gives a stack of Gathering Rain, and Pressing or casting any other art loses them all. The next Metal art spends them for a heavy cut, heavier for each; a Thunder root's cut also lands a delayed bolt."},
+    {"id": "the-chain-carries-it-down", "new": "The Chain Carries It Down (Liên Dẫn Lôi)", "concept": "Thunder roots only. After a Metal cut lands, the next 2 s of Lightning hits on the foe chain once more onto it at half, if it carries a Metal stack; each chained hit deals more for each Metal stack.", "authored": "a1"},
+    {"id": "rain-before-the-peal", "new": "Rain Before the Peal (Lôi Tiền Vũ)", "concept": "Stay Composed: each half-second you stay Composed gives a stack of Gathering Rain, and Pressing or casting any other art loses them all. The next Metal art spends them for a heavy cut, heavier for each; a Thunder root's cut also lands a delayed bolt."},
     {"new": "Bronze Answers (Đồng Ứng)", "concept": "Open only to a root that has not formed Thunder. A Metal cut. Each crit, and each counter-cut of Where the Drop Falls, adds a Peal that lasts 8 s; at 3 Peals your next Metal crit fires your last Metal art again at 60 % and clears them. The cut itself hits 3 times as hard with 3 Peals and either 4 Metal stacks on the foe or another art of the canon fired that pulse. The bronze rings, but no bolt comes.", "id": "bronze-answers", "tags": ["metal", "sword", "peal", "echo"], "unlock_layer": 4, "record": "builds/authored/auth-tech.json (e1)", "authored": "e1"}
    ],
    "lore": "Nhiếp Văn Lôi wrote it on Văn Lôi Đài, two li from the founder's tower, between 540 and 560 (N-thinh_vu-03). He had come up the cone as a drummer's boy of Kích Cổ Đường after Khải Lôi fell (V153, N-thinh_vu-02), carrying the Gate's storm notes in his head. The founder gave him her chain and let him add the thunder.",
@@ -82,7 +82,7 @@
    "arts": [
     "overload-form",
     "capacitor-palm",
-    {"new": "Sword Raised to the Cloud (Cử Kiếm Dẫn Vân)", "concept": "Throw the flying sword above the foe: after 1 s a bolt falls, dealing Lightning damage and a Thunder stack; if the foe acted in that second, the bolt misses and this art's next timer is 2 s longer.", "authored": "a1"}
+    {"id": "sword-raised-to-the-cloud", "new": "Sword Raised to the Cloud (Cử Kiếm Dẫn Vân)", "concept": "Throw the flying sword above the foe: after 1 s a bolt falls, dealing Lightning damage and a Thunder stack; if the foe acted in that second, the bolt misses and this art's next timer is 2 s longer.", "authored": "a1"}
    ],
    "lore": "From the storm camp Nghênh Lôi Trại (862), where Khải Lôi's disciples waited for the lightning (A283, V151). The Tower's first Thunder disciples rewrote it in 600 so that the sword, not the swordsman, takes the bolt. Khải Lôi's version did not.",
    "status": "proposal",
@@ -96,8 +96,8 @@
    "arts": [
     "deep-lake-stance",
     "echo-of-the-dodge",
-    {"new": "Rain on the Withered Lotus (Khô Hà Thính Vũ)", "concept": "For 6 s the holder hears the foe: the next hit from the foe is foreseen and evaded, and each evasion gives a stack of Heard. The holder's next Metal art spends them all, dealing more for each."},
-    {"new": "The Night Is Long (Dạ Vũ Miên Miên)", "concept": "A lasting field of rain around the holder: while it is up, the foe casts more slowly and its linh lực regenerates less; the holder regenerates linh lực."}
+    {"id": "rain-on-the-withered-lotus", "new": "Rain on the Withered Lotus (Khô Hà Thính Vũ)", "concept": "For 6 s the holder hears the foe: the next hit from the foe is foreseen and evaded, and each evasion gives a stack of Heard. The holder's next Metal art spends them all, dealing more for each."},
+    {"id": "the-night-is-long", "new": "The Night Is Long (Dạ Vũ Miên Miên)", "concept": "A lasting field of rain around the holder: while it is up, the foe casts more slowly and its linh lực regenerates less; the holder regenerates linh lực."}
    ],
    "lore": "Phó Tiêu Tương wrote it on the shore of Tàn Hà Hồ, where she kept the withered lotus to hear the rain on it (A266). It is copied once for each head, and the copy is burned when the head dies.",
    "status": "proposal"
@@ -110,11 +110,61 @@
    "arts": [
     "stormcloud-familiar",
     "storm-bank",
-    {"new": "Open the Sky (Khai Thiên)", "concept": "Call a bolt on yourself: take Lightning damage equal to a fifth of your health, and for 8 s every Thunder art you cast is cast twice.", "authored": "a1"}
+    {"id": "open-the-sky", "new": "Open the Sky (Khai Thiên)", "concept": "Call a bolt on yourself: take Lightning damage equal to a fifth of your health, and for 8 s every Thunder art you cast is cast twice.", "authored": "a1"}
    ],
    "lore": "Lý Thiên Cổ's method (C052, C057). Hầu Xuân Lôi sealed the whole copy with the Xuân Lôi Cổ inside the mountains in 470 (C035). The Tower has a third of it, from the storm camp. Hầu Vọng Xuân believes the rest is with the drum.",
    "status": "proposal",
    "authored": "a1"
+  },
+  {
+   "id": "black-toad-venom-manual",
+   "name": "Black Toad Venom Scripture (Ô Thiềm Độc Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 9, "rank": "khach_khanh",
+   "concept": "Guest alchemist Ô Thiềm Tử's Profound Wood-and-Water venom method, taught to his apprentice Mai Độc Ca in the Night Rain Market apothecary (Stage 6 stand-in replacing huyen_moc).",
+   "arts": [
+    {"id": "toad-venom-mist", "new": "Toad Venom Mist (Ô Thiềm Độc Vụ)", "concept": "A cloud of damp black-toad venom that lays 3 Wood debuff stacks for 8 s."},
+    {"id": "bitter-tasting-draught", "new": "Bitter Tasting Draught (Khổ Dược Thử Thang)", "concept": "A bitter tonic draught that heals, cleanses 1 debuff stack, and lays 2 Water buff stacks."}
+   ],
+   "lore": "Kept behind the lacquer counter of Ô Thiềm Tử's apothecary in the Night Rain Market rather than in the Tower's vaults.",
+   "status": "proposal",
+   "passives": [
+    {"key": "attack_pct", "value": 5, "scope": ["moc"]},
+    {"key": "stack_effect_pct", "value": 12, "scope": ["moc", "debuff"]},
+    {"key": "stack_duration_pct", "value": 10, "scope": ["debuff"]},
+    {"key": "healing_pct", "value": 6, "scope": []}
+   ]
+  },
+  {
+   "id": "rain-cistern-breath",
+   "name": "Rain Cistern Breathing (Vũ Trì Thổ Nạp Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 6, "rank": "tap_dich",
+   "concept": "A quiet Water-and-Wood breathing method passed among the Rain Tower's cistern servants without entering the outer gate (Stage 6 stand-in replacing hoang_thuy).",
+   "arts": [
+    {"id": "cistern-draw", "new": "Cistern Draw (Vũ Trì Dẫn Tức)", "concept": "A steady cistern breath restoring health and 6 % linh lực."}
+   ],
+   "lore": "Taught by bucket-count in the lower rain cisterns of Thính Vũ Lâu.",
+   "status": "proposal",
+   "passives": [
+    {"key": "khi_huyet_pct", "value": 5, "scope": []},
+    {"key": "health_regen_inc_pct", "value": 6, "scope": []},
+    {"key": "resist_pct", "value": 30, "scope": ["cold"]}
+   ]
+  },
+  {
+   "id": "stone-stove-breath",
+   "name": "Stone Stove Breathing (Thạch Táo Thổ Nạp Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "kim"], "layers": 6, "rank": "tap_dich",
+   "concept": "A humble Wood breathing method practised beside the stove by Xuyên Lâm servants sent with their hostage (Stage 6 stand-in replacing hoang_moc).",
+   "arts": [
+    {"id": "stoke-the-embers", "new": "Stoke the Embers (Táo Tức Thủ Hỏa)", "concept": "Raises an 8 % ward, lays 2 Wood buff stacks, and boosts health regeneration for 4 s."}
+   ],
+   "lore": "Learned by tending damp firewood on the ridge.",
+   "status": "proposal",
+   "passives": [
+    {"key": "khi_huyet_pct", "value": 5, "scope": []},
+    {"key": "defense_pct", "value": 3.5, "scope": []},
+    {"key": "health_regen_inc_pct", "value": 4, "scope": []}
+   ]
   }
  ]
 }

@@ -1,0 +1,46 @@
+{
+ "owner": "thinh_vu",
+ "minutes": 18,
+ "written": {
+  "techniques": 9,
+  "arts": 13,
+  "items": 28,
+  "sets": 11,
+  "effects": 20,
+  "stand_ins": 4,
+  "beasts": 0
+ },
+ "deviations": 10,
+ "decisions": [
+  "Reuse phuong_minh's early-promoted foreign/market-folk/ (censer-smoke-manual, pill-smoke) for o_thiem_tu without writing a duplicate copy under thinh_vu.",
+  "Early-promote xuyen_lam's calm-wind-staff-canon (walk-slowly, who-is-afraid, one-straw-cape) into foreign/xuyen_lam/ for hostage uc_da_diep, keeping passive art The Long Road for xuyen_lam's pass.",
+  "Replace 4 stand-ins with 3 new owner-specific tier 0/1 techniques: black-toad-venom-manual (o_thiem_tu, mai_doc_ca), rain-cistern-breath (dau_tam_thuy), stone-stove-breath (sa_bat_ngu).",
+  "Stage rain-chain-sword-scripture passive arts Not a Drop Spilled and Return to the Scabbard as technique Effects in thinh_vu.effects.json under shared pending word technique-effects.",
+  "Omit requires on staged bronze-answers and the-chain-carries-it-down (noted in notes and pending.json `lint-requires-field`) until lint_arts.py FIELDS supports it.",
+  "Add 'phong' to staged listening-rain-sutra.names to carry family-wind's echo-of-the-dodge with 0 lint_techniques findings.",
+  "Author sword-raised-to-the-cloud with charges: 2 + step_unlocked direct art hit (never free_hit) checking foe.fired_within.1.all == 0 and counter sword_raised so bolts can crit for tvl-gold-sand-pair without overwriting overload-form.",
+  "Split Every Lamp Has a Name linh lực drain into tick_dealt and curse-active pulse records so Vault curse builds without tick curses also drain cleanly."
+ ],
+ "pending_words": [
+  "technique-effects: attach a technique's effects [{name, unlock_layer}] as always-on library Effects (shared build decision)",
+  "lint-requires-field: add 'requires' to lint_arts.py FIELDS for root_lacks/root_has gates",
+  "body-element-free-names: cross-owner note for xuyen_lam allowing names: [] on element-free main/secret methods"
+ ],
+ "never_ran": [
+  "Not a Drop Spilled & Return to the Scabbard: loader awaits pending technique-effects (verified via tree_effects probes)",
+  "Glass Rings & listening-rain-sutra arts: pushed past MAX_ARTS = 6 in sect_fight.py by thunder-in-the-rain-canon (verified via standalone probes)",
+  "The Rain Answers, Every Lamp Has a Name, The Wick Is Cut: require multi-holder sets or >6-slot curse arts in default sect_fight.py (verified via standalone probes)",
+  "Lingering Afterimage & Verdict Stands (co_da_lan / le_tieu_hon): preexisting non-thinh_vu authored item Effects outside thinh_vu ownership",
+  "Formed in a Storm (nhieu_ha_loi): triggers on Fire art hits while nhieu_ha_loi holds Metal/Fire primer arts (bell-struck-palm has element 'metal')"
+ ],
+ "early_promotions": [
+  "foreign/xuyen_lam/techniques/catalogue-sect-xuyen_lam.json (calm-wind-staff-canon)",
+  "foreign/xuyen_lam/arts/part-sect-xuyen_lam.json (walk-slowly, who-is-afraid, one-straw-cape)"
+ ],
+ "open": [
+  "cross-owner dependency: s6-serial-b01 merges phuong_minh's foreign/market-folk/ (censer-smoke-manual, pill-smoke) required by o_thiem_tu (verified clean with 0 REFUSED)",
+  "serial step: wire technique-effects loader so Not a Drop Spilled and Return to the Scabbard attach automatically from rain-chain-sword-scripture",
+  "lint_arts.py: add 'requires' to FIELDS and restore requires on bronze-answers & the-chain-carries-it-down",
+  "xuyen_lam full pass: resolve body-element-free-names and stage passive art The Long Road (d23)"
+ ]
+}

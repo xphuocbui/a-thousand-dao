@@ -1936,7 +1936,7 @@
    "build": {
     "archetype": "dan_su",
     "main": {
-     "tech": "huyen_moc",
+     "tech": "black-toad-venom-manual",
      "layer": 5
     },
     "aux": [],

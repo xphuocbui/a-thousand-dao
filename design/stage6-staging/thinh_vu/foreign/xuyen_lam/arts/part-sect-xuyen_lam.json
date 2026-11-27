@@ -1,0 +1,232 @@
+[
+ {
+  "id": "walk-slowly",
+  "name": "Walk Slowly (Từ Hành)",
+  "element": "",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "calm-wind-staff-canon",
+  "tags": [
+   "physical",
+   "staff",
+   "movement"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 4.0,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "walk_slowly",
+    "each_for": 15.0
+   }
+  ],
+  "effects": [
+   {
+    "id": "walk-slowly-step",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.pressing",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-still-clear",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-escape-clear",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "escape"
+     ]
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "walk-slowly-spend",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "staff"
+     ],
+     "not_art_id": "walk-slowly"
+    },
+    "if": [
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "held": {
+     "until": "hit_landed"
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.06
+      }
+     },
+     {
+      "counter": {
+       "id": "walk_slowly",
+       "set": 0
+      }
+     }
+    ],
+    "scale": {
+     "read": "own.counter.walk_slowly",
+     "per": 1
+    }
+   }
+  ],
+  "rule": "A stance kept while moving: each second Pressing adds a Walk Slowly stack; each stack raises Physical damage of the next staff strike by 6 % and is spent by it. Composed or running (escape) clears all stacks.",
+  "hooks": [
+   "pressing",
+   "composed",
+   "staff"
+  ],
+  "sources": [
+   "world-depth:xuyen_lam"
+  ]
+ },
+ {
+  "id": "who-is-afraid",
+  "name": "Who Is Afraid (Thùy Phạ)",
+  "element": "",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "calm-wind-staff-canon",
+  "tags": [
+   "physical",
+   "staff"
+  ],
+  "c_art": 1.6,
+  "cost_share": 0.04,
+  "cooldown": 4.5,
+  "kind": "phys",
+  "effects": [
+   {
+    "id": "who-is-afraid-cleanse",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "who-is-afraid"
+    },
+    "if": [
+     {
+      "read": "own.counter.walk_slowly",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "cleanse": {
+       "curses": 1
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A sweeping staff strike that deals Physical damage; with 5 or more Walk Slowly stacks, also cleanses 1 curse status from the holder.",
+  "hooks": [
+   "staff",
+   "cleanse"
+  ],
+  "sources": [
+   "world-depth:xuyen_lam"
+  ]
+ },
+ {
+  "id": "one-straw-cape",
+  "name": "One Straw Cape (Nhất Thoa)",
+  "element": "",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "calm-wind-staff-canon",
+  "tags": [
+   "physical",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 8.0,
+  "kind": "phys",
+  "effects": [
+   {
+    "id": "one-straw-cape-guard",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "one-straw-cape"
+    },
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.1,
+       "of": "hp"
+      }
+     },
+     {
+      "mod": {
+       "dampen_taken": 25,
+       "status_resist": 50,
+       "for": 4.0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A bamboo-and-straw rain guard: raises a 10 % ward and reduces incoming damage and status impact for 4 s.",
+  "hooks": [
+   "ward",
+   "dampen_taken",
+   "status_resist"
+  ],
+  "sources": [
+   "world-depth:xuyen_lam"
+  ]
+ }
+]

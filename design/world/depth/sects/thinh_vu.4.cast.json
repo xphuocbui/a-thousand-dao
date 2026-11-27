@@ -1298,7 +1298,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "rain-cistern-breath",
      "layer": 6
     },
     "aux": [],
@@ -2567,7 +2567,7 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "stone-stove-breath",
      "layer": 6
     },
     "aux": [],
