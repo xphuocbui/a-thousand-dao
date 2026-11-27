@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "_doc": "The authored world's history (design/gdd/world-generation.md), exported by tools/design/world/export_world.py from design/world/*.json and design/map/continent-11; do not edit by hand. start_year: every game starts here (Core Rule 11). sects: the 30 living sects with their authored start (alignment chinh | ma | trung, the four development levels, treasury, a minor sect's lord and loyalty), seat (place id), founded year, specialty (the sect archetype NPC Builds reads) and leader (a cast key). fallen_sects: sects that fell before the start. people: the fixed cast (alive: realm, home place id, traits; dead: records with peak_realm, died, cause), with master, vassal_of, served_under and abode_slot where authored. events: the landmark chronicle and the annals, ordered by year then id; place is a place id, famous a famous site's name, feature a named feature with its tile; secret events are hidden until discovered. legendary_items: the 34 unique items, held by a living cast member or lost at a place or slot. territory: eras, land changes, wars, vassal changes, grudges. hidden_slots: the 28 hidden places with their 2-3 candidate tiles and origin event; tile_secrets: the 80 with their candidates; famous_sites and features: named sites and features. data_version: a hash of the inputs, recorded in each save (Core Rule 13).",
- "data_version": "5971b2ebc31f8daf",
+ "data_version": "f0393f68322ff607",
  "start_year": 1200,
  "sects": [
   {
@@ -12,8 +12,12 @@
    "kind": "great",
    "alignment": "trung",
    "leans": [
-    "Metal",
-    "Earth"
+    "kim",
+    "tho"
+   ],
+   "lineage_elements": [
+    "kim",
+    "tho"
    ],
    "seat": 5,
    "levels": {
@@ -41,8 +45,12 @@
    "kind": "great",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 2,
    "levels": {
@@ -70,8 +78,12 @@
    "kind": "great",
    "alignment": "trung",
    "leans": [
-    "Earth",
-    "Wood"
+    "tho",
+    "moc"
+   ],
+   "lineage_elements": [
+    "tho",
+    "moc"
    ],
    "seat": 558,
    "levels": {
@@ -107,9 +119,12 @@
    "kind": "great",
    "alignment": "ma",
    "leans": [
-    "Metal",
-    "Water",
-    "Thunder"
+    "kim",
+    "loi"
+   ],
+   "lineage_elements": [
+    "kim",
+    "hoa"
    ],
    "seat": 874,
    "levels": {
@@ -145,8 +160,12 @@
    "kind": "great",
    "alignment": "chinh",
    "leans": [
-    "Water",
-    "Ice"
+    "thuy",
+    "bang"
+   ],
+   "lineage_elements": [
+    "bang",
+    "thuy"
    ],
    "seat": 214,
    "levels": {
@@ -181,8 +200,12 @@
    "kind": "great",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Earth"
+    "moc",
+    "tho"
+   ],
+   "lineage_elements": [
+    "moc",
+    "tho"
    ],
    "seat": 1110,
    "levels": {
@@ -216,8 +239,12 @@
    "kind": "great",
    "alignment": "chinh",
    "leans": [
-    "Fire",
-    "Wood"
+    "hoa",
+    "moc"
+   ],
+   "lineage_elements": [
+    "hoa",
+    "moc"
    ],
    "seat": 449,
    "levels": {
@@ -252,8 +279,10 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Metal",
-    "Fire"
+    "kim"
+   ],
+   "lineage_elements": [
+    "kim"
    ],
    "seat": 23,
    "levels": {
@@ -279,8 +308,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Metal",
-    "Wind"
+    "kim",
+    "hoa"
+   ],
+   "lineage_elements": [
+    "kim",
+    "hoa"
    ],
    "seat": 24,
    "levels": {
@@ -306,8 +339,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Earth",
-    "Metal"
+    "tho",
+    "kim"
+   ],
+   "lineage_elements": [
+    "tho",
+    "kim"
    ],
    "seat": 22,
    "levels": {
@@ -333,8 +370,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wind",
-    "Wood"
+    "phong",
+    "moc"
+   ],
+   "lineage_elements": [
+    "phong",
+    "moc"
    ],
    "seat": 14,
    "levels": {
@@ -360,8 +401,10 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Water",
-    "Ice"
+    "thuy"
+   ],
+   "lineage_elements": [
+    "thuy"
    ],
    "seat": 260,
    "levels": {
@@ -396,10 +439,8 @@
    "gloss": "Academy of the Ten Thousand Ravines",
    "kind": "minor",
    "alignment": "chinh",
-   "leans": [
-    "Wood",
-    "Wind"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 11,
    "levels": {
     "holdings": 3,
@@ -410,6 +451,10 @@
    "treasury": 7000,
    "founded": 620,
    "specialty": "phap_tu",
+   "recruit_by": {
+    "talent": "than_hon",
+    "kin": false
+   },
    "lord": "tung_dao",
    "loyalty": 65,
    "craft": "sound cultivation: the zither (cầm) and its arts",
@@ -424,8 +469,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 12,
    "levels": {
@@ -451,8 +500,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Water",
-    "Wood"
+    "thuy",
+    "moc"
+   ],
+   "lineage_elements": [
+    "thuy",
+    "moc"
    ],
    "seat": 13,
    "levels": {
@@ -478,8 +531,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Water",
-    "Wood"
+    "thuy",
+    "moc"
+   ],
+   "lineage_elements": [
+    "thuy",
+    "moc"
    ],
    "seat": 302,
    "levels": {
@@ -511,10 +568,8 @@
    "gloss": "Manor of the Cloud Herders",
    "kind": "minor",
    "alignment": "trung",
-   "leans": [
-    "Wind",
-    "Earth"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 19,
    "levels": {
     "holdings": 4,
@@ -525,6 +580,10 @@
    "treasury": 7000,
    "founded": 740,
    "specialty": "the_tu",
+   "recruit_by": {
+    "talent": "can_cot",
+    "kin": false
+   },
    "lord": "lac_ha",
    "loyalty": 65,
    "craft": "spirit horses and herd beasts of the open plain",
@@ -539,8 +598,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Metal",
-    "Earth"
+    "kim",
+    "tho"
+   ],
+   "lineage_elements": [
+    "kim",
+    "tho"
    ],
    "seat": 20,
    "levels": {
@@ -566,8 +629,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 21,
    "levels": {
@@ -592,10 +659,8 @@
    "gloss": "Gate Through the Forest",
    "kind": "minor",
    "alignment": "chinh",
-   "leans": [
-    "Thunder",
-    "Wood"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 28,
    "levels": {
     "holdings": 2,
@@ -606,6 +671,10 @@
    "treasury": 7000,
    "founded": 690,
    "specialty": "the_tu",
+   "recruit_by": {
+    "talent": "can_cot",
+    "kin": true
+   },
    "lord": "thinh_vu",
    "loyalty": 40,
    "craft": "staff and footwork; guides through the rain forest",
@@ -620,8 +689,12 @@
    "kind": "minor",
    "alignment": "ma",
    "leans": [
-    "Poison",
-    "Wood"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 263,
    "levels": {
@@ -656,8 +729,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Ice",
-    "Water"
+    "bang",
+    "kim"
+   ],
+   "lineage_elements": [
+    "bang",
+    "kim"
    ],
    "seat": 184,
    "levels": {
@@ -692,10 +769,8 @@
    "gloss": "Terrace Where the Hat Strings Are Washed",
    "kind": "minor",
    "alignment": "trung",
-   "leans": [
-    "Water",
-    "Ice"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 17,
    "levels": {
     "holdings": 4,
@@ -706,6 +781,10 @@
    "treasury": 7000,
    "founded": 830,
    "specialty": "the_tu",
+   "recruit_by": {
+    "talent": "can_cot",
+    "kin": true
+   },
    "lord": "bang_tam",
    "loyalty": 55,
    "craft": "fishers and sea hunters of the frost coast",
@@ -720,8 +799,12 @@
    "kind": "minor",
    "alignment": "ma",
    "leans": [
-    "Fire",
-    "Metal"
+    "hoa",
+    "kim"
+   ],
+   "lineage_elements": [
+    "hoa",
+    "kim"
    ],
    "seat": 16,
    "levels": {
@@ -747,8 +830,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Fire",
-    "Wood"
+    "hoa",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "hoa",
+    "thuy"
    ],
    "seat": 9,
    "levels": {
@@ -773,10 +860,8 @@
    "gloss": "Abbey Where the Clouds Rise",
    "kind": "minor",
    "alignment": "chinh",
-   "leans": [
-    "Earth",
-    "Wood"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 10,
    "levels": {
     "holdings": 3,
@@ -787,6 +872,10 @@
    "treasury": 7000,
    "founded": 540,
    "specialty": "phap_tu",
+   "recruit_by": {
+    "talent": "dao_tam",
+    "kin": false
+   },
    "lord": "thuy_vi",
    "loyalty": 65,
    "craft": "a Daoist abbey of mountain hermits and teachers",
@@ -801,8 +890,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Fire"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 25,
    "levels": {
@@ -828,8 +921,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Water",
-    "Wood"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 193,
    "levels": {
@@ -862,8 +959,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Fire",
-    "Earth"
+    "hoa",
+    "tho"
+   ],
+   "lineage_elements": [
+    "hoa",
+    "tho"
    ],
    "seat": 29,
    "levels": {
@@ -888,10 +989,8 @@
    "gloss": "Pavilion of the Autumn Graves",
    "kind": "minor",
    "alignment": "ma",
-   "leans": [
-    "Darkness",
-    "Metal"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 230,
    "levels": {
     "holdings": 2,
@@ -902,6 +1001,10 @@
    "treasury": 7000,
    "founded": 960,
    "specialty": "phap_tu",
+   "recruit_by": {
+    "talent": "than_hon",
+    "kin": false
+   },
    "lord": "thinh_vu",
    "loyalty": 65,
    "craft": "soul arts and grave wards",
@@ -916,8 +1019,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Metal"
+    "kim",
+    "moc"
+   ],
+   "lineage_elements": [
+    "kim",
+    "moc"
    ],
    "seat": 1262,
    "levels": {
@@ -950,8 +1057,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Fire",
-    "Wood"
+    "moc",
+    "hoa"
+   ],
+   "lineage_elements": [
+    "moc",
+    "hoa"
    ],
    "seat": 330,
    "levels": {
@@ -976,10 +1087,8 @@
    "gloss": "Hall Watching the Tide",
    "kind": "minor",
    "alignment": "chinh",
-   "leans": [
-    "Water",
-    "Metal"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 337,
    "levels": {
     "holdings": 2,
@@ -990,6 +1099,10 @@
    "treasury": 7000,
    "founded": 790,
    "specialty": "tran_su",
+   "recruit_by": {
+    "talent": "dao_tam",
+    "kin": true
+   },
    "lord": "phuong_minh",
    "loyalty": 65,
    "craft": "coastal watch and sea-ward formations",
@@ -1004,8 +1117,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Metal",
-    "Earth"
+    "tho",
+    "kim"
+   ],
+   "lineage_elements": [
+    "tho",
+    "kim"
    ],
    "seat": 359,
    "levels": {
@@ -1031,7 +1148,10 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Water"
+    "thuy"
+   ],
+   "lineage_elements": [
+    "thuy"
    ],
    "seat": 361,
    "levels": {
@@ -1057,8 +1177,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Water",
-    "Wood"
+    "thuy",
+    "moc"
+   ],
+   "lineage_elements": [
+    "thuy",
+    "moc"
    ],
    "seat": 364,
    "levels": {
@@ -1083,10 +1207,8 @@
    "gloss": "Gate of the Goose Formation",
    "kind": "minor",
    "alignment": "chinh",
-   "leans": [
-    "Metal",
-    "Earth"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 367,
    "levels": {
     "holdings": 2,
@@ -1097,6 +1219,10 @@
    "treasury": 7000,
    "founded": 806,
    "specialty": "tran_su",
+   "recruit_by": {
+    "talent": "dao_tam",
+    "kin": true
+   },
    "lord": "lac_ha",
    "loyalty": 55,
    "craft": "battle formations (chiến trận) for disciple squads; drills the plain's levies",
@@ -1111,8 +1237,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Metal",
-    "Water"
+    "moc",
+    "hoa"
+   ],
+   "lineage_elements": [
+    "moc",
+    "hoa"
    ],
    "seat": 372,
    "levels": {
@@ -1137,10 +1267,8 @@
    "gloss": "Hall of the Pine Wardens",
    "kind": "minor",
    "alignment": "chinh",
-   "leans": [
-    "Wood",
-    "Metal"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 376,
    "levels": {
     "holdings": 2,
@@ -1151,6 +1279,10 @@
    "treasury": 7000,
    "founded": 1191,
    "specialty": "the_tu",
+   "recruit_by": {
+    "talent": "can_cot",
+    "kin": false
+   },
    "lord": "tung_dao",
    "loyalty": 65,
    "craft": "road wardens and caravan guards; staff and bow arts",
@@ -1164,10 +1296,8 @@
    "gloss": "Hall of the Sword Seekers",
    "kind": "minor",
    "alignment": "trung",
-   "leans": [
-    "Metal",
-    "Water"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 406,
    "levels": {
     "holdings": 4,
@@ -1178,6 +1308,10 @@
    "treasury": 7000,
    "founded": 1162,
    "specialty": "kiem_tu",
+   "recruit_by": {
+    "talent": "ngo_tinh",
+    "kin": false
+   },
    "lord": "bang_tam",
    "loyalty": 55,
    "craft": "mountain hunters and guides who seek a lost sword cave",
@@ -1191,10 +1325,8 @@
    "gloss": "Pavilion of True Gold",
    "kind": "minor",
    "alignment": "trung",
-   "leans": [
-    "Metal",
-    "Earth"
-   ],
+   "leans": [],
+   "lineage_elements": [],
    "seat": 427,
    "levels": {
     "holdings": 3,
@@ -1205,6 +1337,10 @@
    "treasury": 7000,
    "founded": 980,
    "specialty": "kiem_tu",
+   "recruit_by": {
+    "talent": "ngo_tinh",
+    "kin": true
+   },
    "lord": "thien_xu",
    "loyalty": 65,
    "craft": "assaying and refining spirit ores",
@@ -1219,8 +1355,10 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Water",
-    "Wood"
+    "moc"
+   ],
+   "lineage_elements": [
+    "moc"
    ],
    "seat": 441,
    "levels": {
@@ -1246,8 +1384,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Metal",
-    "Earth"
+    "kim",
+    "tho"
+   ],
+   "lineage_elements": [
+    "kim",
+    "tho"
    ],
    "seat": 519,
    "levels": {
@@ -1280,8 +1422,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Earth"
+    "moc",
+    "tho"
+   ],
+   "lineage_elements": [
+    "moc",
+    "tho"
    ],
    "seat": 423,
    "levels": {
@@ -1314,8 +1460,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Fire",
-    "Earth"
+    "tho",
+    "kim"
+   ],
+   "lineage_elements": [
+    "tho",
+    "kim"
    ],
    "seat": 565,
    "levels": {
@@ -1341,8 +1491,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 948,
    "levels": {
@@ -1368,8 +1522,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Fire",
-    "Wood"
+    "moc",
+    "hoa"
+   ],
+   "lineage_elements": [
+    "moc",
+    "hoa"
    ],
    "seat": 1013,
    "levels": {
@@ -1395,8 +1553,12 @@
    "kind": "minor",
    "alignment": "trung",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 1063,
    "levels": {
@@ -1422,8 +1584,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Earth"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 1105,
    "levels": {
@@ -1449,8 +1615,12 @@
    "kind": "minor",
    "alignment": "chinh",
    "leans": [
-    "Wood",
-    "Metal"
+    "moc",
+    "thuy"
+   ],
+   "lineage_elements": [
+    "moc",
+    "thuy"
    ],
    "seat": 1328,
    "levels": {

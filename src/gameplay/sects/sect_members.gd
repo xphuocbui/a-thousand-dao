@@ -106,6 +106,8 @@ func can_join(c: Character, sect: Dictionary) -> Dictionary:
 	var st: float = standing(str(sect.id), c.id)
 	if st < recruit_line(sect) or hostile(str(sect.id), c.id):
 		reasons.append("the sect's standing with you is %.0f, below its recruit line %.0f" % [st, recruit_line(sect)])
+	if not SectAdmission.admits_outer(_gd, sect, c.linh_can):
+		reasons.append(SectAdmission.refusal_reason(_gd, sect, c.linh_can, "ngoai_mon"))
 	return {"ok": reasons.is_empty(), "reasons": reasons}
 
 
@@ -150,6 +152,10 @@ func promotion_needs(c: Character) -> Dictionary:
 		var st: float = standing(c.sect_id, c.id)
 		if st < float(gate.standing):
 			missing.append("standing %.0f of %.0f" % [st, float(gate.standing)])
+		if nxt in ["noi_mon", "truong_lao"]:
+			var sect: Dictionary = _db.get_record("sects", c.sect_id)
+			if not sect.is_empty() and not SectAdmission.admits_core(_gd, sect, c.linh_can):
+				missing.append(SectAdmission.refusal_reason(_gd, sect, c.linh_can, nxt))
 	return {"rank": nxt, "gate": gate, "missing": missing}
 
 

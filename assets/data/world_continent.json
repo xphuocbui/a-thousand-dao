@@ -1568,8 +1568,8 @@
    "gloss": "Sect of the Heavenly Pivot",
    "tier": 1,
    "leans": [
-    "Metal",
-    "Earth"
+    "kim",
+    "tho"
    ],
    "regions": [
     6,
@@ -1586,8 +1586,8 @@
    "gloss": "Palace of the Pine Waves",
    "tier": 1,
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
    ],
    "regions": [
     1,
@@ -1604,8 +1604,8 @@
    "gloss": "Sect of the Drifting Sunset Clouds",
    "tier": 1,
    "leans": [
-    "Earth",
-    "Wood"
+    "tho",
+    "moc"
    ],
    "regions": [
     10,
@@ -1630,9 +1630,8 @@
    "gloss": "Tower Where One Listens to the Rain",
    "tier": 1,
    "leans": [
-    "Metal",
-    "Water",
-    "Thunder"
+    "kim",
+    "loi"
    ],
    "regions": [
     18,
@@ -1657,8 +1656,8 @@
    "gloss": "Pavilion of the Ice Heart",
    "tier": 2,
    "leans": [
-    "Water",
-    "Ice"
+    "thuy",
+    "bang"
    ],
    "regions": [
     7,
@@ -1682,8 +1681,8 @@
    "gloss": "Sect of the Emerald Haze",
    "tier": 2,
    "leans": [
-    "Wood",
-    "Earth"
+    "moc",
+    "tho"
    ],
    "regions": [
     2,
@@ -1706,8 +1705,8 @@
    "gloss": "Palace of the Phoenix's Call",
    "tier": 2,
    "leans": [
-    "Fire",
-    "Wood"
+    "hoa",
+    "moc"
    ],
    "regions": [
     16,
@@ -1733,8 +1732,7 @@
    "gloss": "Gate of the Quenched Stars",
    "alignment": "trung lập",
    "leans": [
-    "Metal",
-    "Fire"
+    "kim"
    ],
    "craft": "weapon forging (luyện khí) from star iron",
    "lord": "thien_xu",
@@ -1748,8 +1746,8 @@
    "gloss": "Valley of the Brushed Sleeve",
    "alignment": "chính đạo",
    "leans": [
-    "Metal",
-    "Wind"
+    "kim",
+    "hoa"
    ],
    "craft": "sword cultivation; wandering swordsmen for hire",
    "lord": "thien_xu",
@@ -1763,8 +1761,8 @@
    "gloss": "Abbey of the Bowing Stars",
    "alignment": "trung lập",
    "leans": [
-    "Earth",
-    "Metal"
+    "tho",
+    "kim"
    ],
    "craft": "formations (trận pháp) and star divination",
    "lord": "thien_xu",
@@ -1778,8 +1776,8 @@
    "gloss": "School of the Nine Marshes",
    "alignment": "chính đạo",
    "leans": [
-    "Wind",
-    "Wood"
+    "phong",
+    "moc"
    ],
    "craft": "spirit beasts: crane riders and beast tamers",
    "lord": "thien_xu",
@@ -1793,8 +1791,7 @@
    "gloss": "Manor That Holds the Moon",
    "alignment": "chính đạo",
    "leans": [
-    "Water",
-    "Ice"
+    "thuy"
    ],
    "craft": "water arts; spirit fish and lake pearls",
    "lord": "tung_dao",
@@ -1817,10 +1814,7 @@
    "name_han": "萬壑院",
    "gloss": "Academy of the Ten Thousand Ravines",
    "alignment": "chính đạo",
-   "leans": [
-    "Wood",
-    "Wind"
-   ],
+   "leans": [],
    "craft": "sound cultivation: the zither (cầm) and its arts",
    "lord": "tung_dao",
    "region": 4,
@@ -1833,8 +1827,8 @@
    "gloss": "Valley of the Lingzhi Pickers",
    "alignment": "chính đạo",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
    ],
    "craft": "herb fields and alchemy (luyện đan)",
    "lord": "tung_dao",
@@ -1848,8 +1842,8 @@
    "gloss": "Gate of the Washing Waves",
    "alignment": "chính đạo",
    "leans": [
-    "Water",
-    "Wood"
+    "thuy",
+    "moc"
    ],
    "craft": "river fleets, ferries and river trade",
    "lord": "tung_dao",
@@ -1863,8 +1857,8 @@
    "gloss": "Gate of Duckweed and Water",
    "alignment": "trung lập",
    "leans": [
-    "Water",
-    "Wood"
+    "thuy",
+    "moc"
    ],
    "craft": "sea trade, ships and the strait crossing",
    "lord": "lac_ha",
@@ -1884,10 +1878,7 @@
    "name_han": "牧雲莊",
    "gloss": "Manor of the Cloud Herders",
    "alignment": "trung lập",
-   "leans": [
-    "Wind",
-    "Earth"
-   ],
+   "leans": [],
    "craft": "spirit horses and herd beasts of the open plain",
    "lord": "lac_ha",
    "region": 11,
@@ -1900,8 +1891,8 @@
    "gloss": "Studio of Heaven's Treasures",
    "alignment": "trung lập",
    "leans": [
-    "Metal",
-    "Earth"
+    "kim",
+    "tho"
    ],
    "craft": "artifact refining and a treasure market",
    "lord": "lac_ha",
@@ -1915,8 +1906,8 @@
    "gloss": "Hall of the Southern Shore",
    "alignment": "chính đạo",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
    ],
    "craft": "talismans (phù lục) and scribes",
    "lord": "lac_ha",
@@ -1929,10 +1920,7 @@
    "name_han": "穿林門",
    "gloss": "Gate Through the Forest",
    "alignment": "chính đạo",
-   "leans": [
-    "Thunder",
-    "Wood"
-   ],
+   "leans": [],
    "craft": "staff and footwork; guides through the rain forest",
    "lord": "thinh_vu",
    "region": 19,
@@ -1945,8 +1933,8 @@
    "gloss": "Manor of the Red Beans",
    "alignment": "ma đạo",
    "leans": [
-    "Poison",
-    "Wood"
+    "moc",
+    "thuy"
    ],
    "craft": "poisons and charms behind a gracious door",
    "lord": "thinh_vu",
@@ -1969,8 +1957,8 @@
    "gloss": "Hermitage of the Pear Blossom",
    "alignment": "chính đạo",
    "leans": [
-    "Ice",
-    "Water"
+    "bang",
+    "kim"
    ],
    "craft": "ice cultivation; a hermitage near the ice fields",
    "lord": "bang_tam",
@@ -1993,10 +1981,7 @@
    "name_han": "濯纓臺",
    "gloss": "Terrace Where the Hat Strings Are Washed",
    "alignment": "trung lập",
-   "leans": [
-    "Water",
-    "Ice"
-   ],
+   "leans": [],
    "craft": "fishers and sea hunters of the frost coast",
    "lord": "bang_tam",
    "region": 9,
@@ -2009,8 +1994,8 @@
    "gloss": "Gate of the Night-Glowing Cup",
    "alignment": "ma đạo",
    "leans": [
-    "Fire",
-    "Metal"
+    "hoa",
+    "kim"
    ],
    "craft": "blood sabres and caravan raiding in the desert",
    "lord": "bang_tam",
@@ -2024,8 +2009,8 @@
    "gloss": "Valley of the Red Furnace",
    "alignment": "chính đạo",
    "leans": [
-    "Fire",
-    "Wood"
+    "hoa",
+    "thuy"
    ],
    "craft": "alchemy over volcanic fire",
    "lord": "thuy_vi",
@@ -2038,10 +2023,7 @@
    "name_han": "雲起觀",
    "gloss": "Abbey Where the Clouds Rise",
    "alignment": "chính đạo",
-   "leans": [
-    "Earth",
-    "Wood"
-   ],
+   "leans": [],
    "craft": "a Daoist abbey of mountain hermits and teachers",
    "lord": "thuy_vi",
    "region": 3,
@@ -2054,8 +2036,8 @@
    "gloss": "Garden of the Bamboo Seed",
    "alignment": "chính đạo",
    "leans": [
-    "Wood",
-    "Fire"
+    "moc",
+    "thuy"
    ],
    "craft": "spirit farming: spirit grain and beast feed",
    "lord": "phuong_minh",
@@ -2069,8 +2051,8 @@
    "gloss": "School of the Sweet Spring",
    "alignment": "chính đạo",
    "leans": [
-    "Water",
-    "Wood"
+    "moc",
+    "thuy"
    ],
    "craft": "healing, spirit wine and the lake springs",
    "lord": "phuong_minh",
@@ -2091,8 +2073,8 @@
    "gloss": "Hall of the Burning Feathers",
    "alignment": "trung lập",
    "leans": [
-    "Fire",
-    "Earth"
+    "hoa",
+    "tho"
    ],
    "craft": "body tempering in the volcanic vents",
    "lord": "phuong_minh",
@@ -2105,10 +2087,7 @@
    "name_han": "秋墳閣",
    "gloss": "Pavilion of the Autumn Graves",
    "alignment": "ma đạo",
-   "leans": [
-    "Darkness",
-    "Metal"
-   ],
+   "leans": [],
    "craft": "soul arts and grave wards",
    "lord": "thinh_vu",
    "region": 19,
@@ -2121,8 +2100,8 @@
    "gloss": "School That Defies the Snow",
    "alignment": "chính đạo",
    "leans": [
-    "Wood",
-    "Metal"
+    "kim",
+    "moc"
    ],
    "craft": "sword cultivation (kiếm tu); plum-blossom sword forms",
    "lord": "tung_dao",
@@ -2144,8 +2123,8 @@
    "gloss": "Pavilion of the Hundred Feathers",
    "alignment": "chính đạo",
    "leans": [
-    "Fire",
-    "Wood"
+    "moc",
+    "hoa"
    ],
    "craft": "spirit birds: messenger birds and feather fans",
    "lord": "phuong_minh",
@@ -2159,10 +2138,7 @@
    "name_han": "望潮堂",
    "gloss": "Hall Watching the Tide",
    "alignment": "chính đạo",
-   "leans": [
-    "Water",
-    "Metal"
-   ],
+   "leans": [],
    "craft": "coastal watch and sea-ward formations",
    "lord": "phuong_minh",
    "region": 17,
@@ -2176,8 +2152,8 @@
    "gloss": "Hall That Holds the Sand",
    "alignment": "chính đạo",
    "leans": [
-    "Metal",
-    "Earth"
+    "tho",
+    "kim"
    ],
    "craft": "caravan guards and desert sabre arts",
    "lord": "bang_tam",
@@ -2192,7 +2168,7 @@
    "gloss": "School of the Chill River",
    "alignment": "trung lập",
    "leans": [
-    "Water"
+    "thuy"
    ],
    "craft": "ice-hole cultivation and escorts for the ice-fish boats",
    "lord": "bang_tam",
@@ -2207,8 +2183,8 @@
    "gloss": "Abbey of the Idle Clouds",
    "alignment": "trung lập",
    "leans": [
-    "Water",
-    "Wood"
+    "thuy",
+    "moc"
    ],
    "craft": "painting cultivation: living scrolls and mirror images",
    "lord": "lac_ha",
@@ -2222,10 +2198,7 @@
    "name_han": "雁陣門",
    "gloss": "Gate of the Goose Formation",
    "alignment": "chính đạo",
-   "leans": [
-    "Metal",
-    "Earth"
-   ],
+   "leans": [],
    "craft": "battle formations (chiến trận) for disciple squads; drills the plain's levies",
    "lord": "lac_ha",
    "region": 11,
@@ -2239,8 +2212,8 @@
    "gloss": "Hall of the Rain Bells",
    "alignment": "trung lập",
    "leans": [
-    "Metal",
-    "Water"
+    "moc",
+    "hoa"
    ],
    "craft": "rain-bell warning arrays and bronze casting",
    "lord": "thinh_vu",
@@ -2254,10 +2227,7 @@
    "name_han": "巡松堂",
    "gloss": "Hall of the Pine Wardens",
    "alignment": "chính đạo",
-   "leans": [
-    "Wood",
-    "Metal"
-   ],
+   "leans": [],
    "craft": "road wardens and caravan guards; staff and bow arts",
    "lord": "tung_dao",
    "region": 4,
@@ -2270,10 +2240,7 @@
    "name_han": "尋劍堂",
    "gloss": "Hall of the Sword Seekers",
    "alignment": "trung lập",
-   "leans": [
-    "Metal",
-    "Water"
-   ],
+   "leans": [],
    "craft": "mountain hunters and guides who seek a lost sword cave",
    "lord": "bang_tam",
    "region": 7,
@@ -2286,10 +2253,7 @@
    "name_han": "真金閣",
    "gloss": "Pavilion of True Gold",
    "alignment": "trung lập",
-   "leans": [
-    "Metal",
-    "Earth"
-   ],
+   "leans": [],
    "craft": "assaying and refining spirit ores",
    "lord": "thien_xu",
    "region": 15,
@@ -2303,8 +2267,7 @@
    "gloss": "Abbey of the Grain Rain",
    "alignment": "trung lập",
    "leans": [
-    "Water",
-    "Wood"
+    "moc"
    ],
    "craft": "rain-calling rites and spirit-rice fields",
    "lord": "thinh_vu",
@@ -2319,8 +2282,8 @@
    "gloss": "Pavilion of the Singing Bells",
    "alignment": "trung lập",
    "leans": [
-    "Metal",
-    "Earth"
+    "kim",
+    "tho"
    ],
    "craft": "bell casting and sound arts; ward bells for ships and caravans",
    "lord": "lac_ha",
@@ -2342,8 +2305,8 @@
    "gloss": "Pavilion of the Hazy Light",
    "alignment": "chính đạo",
    "leans": [
-    "Wood",
-    "Earth"
+    "moc",
+    "tho"
    ],
    "craft": "alchemy (luyện đan) from steppe herbs picked at dusk",
    "lord": "lac_ha",
@@ -2365,8 +2328,8 @@
    "gloss": "Hall of the Canopy Star",
    "alignment": "chính đạo",
    "leans": [
-    "Fire",
-    "Earth"
+    "tho",
+    "kim"
    ],
    "craft": "pill refining (luyện đan) from badland cinnabar and sulphur",
    "lord": "thien_xu",
@@ -2381,8 +2344,8 @@
    "gloss": "Pavilion of the Frosted Pines",
    "alignment": "chính đạo",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
    ],
    "craft": "talismans (phù lục) on pine-resin paper; ward lanterns",
    "lord": "tung_dao",
@@ -2397,8 +2360,8 @@
    "gloss": "Pavilion of the Woven Clouds",
    "alignment": "trung lập",
    "leans": [
-    "Fire",
-    "Wood"
+    "moc",
+    "hoa"
    ],
    "craft": "fire-silk weaving: robes and banners",
    "lord": "phuong_minh",
@@ -2413,8 +2376,8 @@
    "gloss": "Gate Hidden in Mist",
    "alignment": "trung lập",
    "leans": [
-    "Wood",
-    "Water"
+    "moc",
+    "thuy"
    ],
    "craft": "mist formations, road wardens and concealment arrays",
    "lord": "thuy_vi",
@@ -2429,8 +2392,8 @@
    "gloss": "Hall of the Forest Wardens",
    "alignment": "chính đạo",
    "leans": [
-    "Wood",
-    "Earth"
+    "moc",
+    "thuy"
    ],
    "craft": "forest wardens; herb and spirit-wood gatherers for Thúy Vi's furnaces",
    "lord": "thuy_vi",
@@ -2445,8 +2408,8 @@
    "gloss": "Hall of the Painted Stars",
    "alignment": "chính đạo",
    "leans": [
-    "Wood",
-    "Metal"
+    "moc",
+    "thuy"
    ],
    "craft": "talismans (phù lục) painted with the Dipper",
    "lord": "thien_xu",

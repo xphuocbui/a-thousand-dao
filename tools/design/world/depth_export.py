@@ -34,6 +34,41 @@ ENMITY_WORDS = ("hate", "betray", "killed", "murder", "cursed", "enemy", "vengea
 RIVAL_WORDS = ("parted badly", "quarrel", "broke with", "cast out", "expelled", "left him", "left her", "bitter",
                "grudge", "rival", "resent")
 PERSON_KEEP = ("tier", "stage", "appearance", "wants", "secret", "birthplace", "beasts")
+# Sects rule 20d (2026-11-25, R3 approved) & each no-lean sect page §6:
+# 4 căn cốt (muc_van, trac_anh, tuan_tung, xuyen_lam), 2 thần hồn (thu_phan, van_hac), 1 ngộ tính (tam_kiem),
+# 1 đạo tâm (van_khoi), 3 mapped tests (nhan_tran line -> dao_tam, vong_trieu oath -> dao_tam, chan_kim eye -> ngo_tinh);
+# 5 also recruit by kin (chan_kim, nhan_tran, trac_anh, vong_trieu, xuyen_lam).
+NO_LEAN_RECRUIT_BY = {
+    "chan_kim":   {"talent": "ngo_tinh", "kin": True},
+    "muc_van":    {"talent": "can_cot",  "kin": False},
+    "nhan_tran":  {"talent": "dao_tam",  "kin": True},
+    "tam_kiem":   {"talent": "ngo_tinh", "kin": False},
+    "thu_phan":   {"talent": "than_hon", "kin": False},
+    "trac_anh":   {"talent": "can_cot",  "kin": True},
+    "tuan_tung":  {"talent": "can_cot",  "kin": False},
+    "van_hac":    {"talent": "than_hon", "kin": False},
+    "van_khoi":   {"talent": "dao_tam",  "kin": False},
+    "vong_trieu": {"talent": "dao_tam",  "kin": True},
+    "xuyen_lam":  {"talent": "can_cot",  "kin": True},
+}
+VALID_RECRUIT_TALENTS = {"can_cot", "than_hon", "ngo_tinh", "dao_tam"}
+
+
+def sect_lineage_elements(key, fallback_leans):
+    """Lineage element/variant ids from design/world/depth/sects/<key>.techniques.json (lineage.elements),
+    falling back to the sect's leans when the file or field is absent."""
+    path = os.path.join(D, "sects", "%s.techniques.json" % key)
+    if os.path.exists(path):
+        lin = load(path).get("lineage") or {}
+        if "elements" in lin and lin["elements"] is not None:
+            return list(lin["elements"])
+    return list(fallback_leans)
+
+
+def sect_recruit_by(key):
+    """No-lean recruiting rule (Sects rule 20d) for the 11 no-lean sects, or None for lean sects."""
+    rec = NO_LEAN_RECRUIT_BY.get(key)
+    return dict(rec) if rec is not None else None
 
 
 def load(path):

@@ -22,12 +22,13 @@ static func roll_thien_phu(gd: GameData, rng: RandomNumberGenerator) -> Dictiona
 	return out
 
 
-## Thiên Định player: everything rolled.
-static func roll_player(gd: GameData, rng: RandomNumberGenerator, player_name: String, gender: String, origin_id: String) -> Character:
+## Thiên Định player: everything rolled. [param land] is the birthplace's province land from
+## [method LinhCan.province_land] (empty = even land, linh-can.md rule 2).
+static func roll_player(gd: GameData, rng: RandomNumberGenerator, player_name: String, gender: String, origin_id: String, land: Dictionary = {}) -> Character:
 	var c := _base_player(gd, player_name, gender, origin_id)
 	c.birth_mode = "thien_dinh"
 	c.thien_phu = roll_thien_phu(gd, rng)
-	c.linh_can = LinhCan.roll(gd, rng)
+	c.linh_can = LinhCan.roll(gd, rng, land)
 	_apply_origin(gd, c)
 	return c
 

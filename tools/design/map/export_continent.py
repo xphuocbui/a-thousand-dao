@@ -569,6 +569,15 @@ def main():
                           "seat": seat["id"] if seat else None})
         if s.get("founded") is not None:   # the provinces-v2 sects carry their founding year
             minor_out[-1]["founded"] = s["founded"]
+    # World-depth sect re-leans (design/world/depth/seats.json, R3/R4; World Generation rule 16, Sects rule 20d):
+    # apply each sect's canonical leans ([] for the 11 no-lean sects, ["kim", "loi"] for thinh_vu, etc.)
+    repo_root = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
+    seats_path = os.path.join(repo_root, "design", "world", "depth", "seats.json")
+    if os.path.exists(seats_path):
+        seats_leans = {s["key"]: list(s["leans"]) for s in load(seats_path).get("sects", [])}
+        for rec in great_out + minor_out:
+            if rec["key"] in seats_leans:
+                rec["leans"] = seats_leans[rec["key"]]
     # World Generation rule 16a: a moved seat's record carries its founder's array and the move (from, year)
     sect_out = {s["key"]: s for s in great_out + minor_out}
     for mv in moves:

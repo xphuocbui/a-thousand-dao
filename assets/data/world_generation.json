@@ -758,6 +758,8 @@
       "truong_lao"
     ],
     "master_share": 0.3,
+    "local_recruit": 0.75,
+    "admit_tries": 8,
     "authored_rank": {
       "tong_chu": "tong_chu",
       "truong_lao": "truong_lao",

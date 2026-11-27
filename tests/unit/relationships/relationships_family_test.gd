@@ -67,10 +67,24 @@ func test_births_are_born_to_a_living_cultivator_where_the_parent_is() -> void:
 	for b in with_parent.slice(0, 10):
 		_check_family(s, b)
 		var par: Dictionary = s.db.get_record("people", str(b.parent_id))
-		if str(par.get("sect_id", "")) == "":
-			assert_eq(str(b.location_id), str(par.location_id), "a loose parent's child starts where the parent is")
+		assert_eq(str(b.get("birthplace", "")), str(par.location_id), "a child's birthplace is where the parent is")
+		var lc := LinhCan.from_dict(b.get("linh_can", {}))
+		var psect_id: String = str(par.get("sect_id", ""))
+		if psect_id != "":
+			var psect: Dictionary = s.db.get_record("sects", psect_id)
+			if not psect.is_empty() and str(psect.get("status", "active")) == "active" and SectAdmission.admits_outer(s.gd, psect, lc):
+				assert_eq(str(b.sect_id), psect_id, "a passing sect parent's child joins that sect")
+			else:
+				assert_true(str(b.sect_id) != psect_id, "a failing child does not bypass the parent's sect admission")
+				if str(b.sect_id) == "":
+					assert_eq(str(b.location_id), str(par.location_id), "an unadmitted child stays where the parent is")
+				else:
+					assert_true(SectAdmission.admits_outer(s.gd, s.db.get_record("sects", str(b.sect_id)), lc), "a pool-admitted child passes its sect's outer test")
 		else:
-			assert_eq(str(b.sect_id), str(par.sect_id), "a sect parent's child joins that sect")
+			if str(b.sect_id) == "":
+				assert_eq(str(b.location_id), str(par.location_id), "an unadmitted loose parent's child stays where the parent is")
+			else:
+				assert_true(SectAdmission.admits_outer(s.gd, s.db.get_record("sects", str(b.sect_id)), lc), "a pool-admitted child passes its sect's outer test")
 	assert_true(target > 0, "a headcount target")
 
 

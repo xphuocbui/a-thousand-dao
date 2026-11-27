@@ -35,29 +35,185 @@ var rolled: Array = []
 ## Variant ids a Self-made life left unpicked: they never roll, not even by Awakening.
 var declined: Array = []
 
+## Per-GameData lookup cache for [method province_land]: instance_id -> {by_prov, by_place, means}.
+static var _land_cache: Dictionary = {}
+
+
+# --- Birthplace land (Formulas A2, D4) --------------------------------------------
+
+## Resolves a birthplace [param place] Dictionary ("province_id", "continent_id", or "tile") to its
+## province's land data `{land_qi, variant_max, means}` from `world_provinces.json`, or `{}` (even
+## land) when the place has no province or the data lacks `land_qi` / `land_element_means`
+## (linh-can.md rule 2).
+static func province_land(gd: GameData, place: Dictionary) -> Dictionary:
+	if place.is_empty():
+		return {}
+	var cache: Dictionary = _province_land_cache(gd)
+	var means: Dictionary = cache.means
+	if means.is_empty():
+		return {}
+	var by_prov: Dictionary = cache.by_prov
+	var by_place: Dictionary = cache.by_place
+	var prov: Dictionary = {}
+	var pid: String = str(place.get("province_id", ""))
+	if pid != "":
+		prov = by_prov.get(pid, {})
+	if prov.is_empty() and place.has("continent_id"):
+		prov = by_place.get(int(place.continent_id), {})
+	if prov.is_empty() and place.has("tile"):
+		var raw_tile: Variant = place.tile
+		var t: Vector2i = raw_tile if raw_tile is Vector2i else Vector2i(int(raw_tile[0]), int(raw_tile[1]))
+		var near: String = Provinces.nearest_land(gd, t)
+		if near != "":
+			prov = by_prov.get(near, {})
+	if prov.is_empty():
+		return {}
+	var land_qi: Dictionary = prov.get("land_qi", {})
+	if land_qi.is_empty():
+		return {}
+	return {
+		"land_qi": land_qi,
+		"variant_max": prov.get("variant_max", {}),
+		"means": means,
+	}
+
+
+## Formulas A2: per-element land factor `f_e` in `[land_factor_min, land_factor_max]` for every base
+## element in `gd.element_cycle()`. Returns `{e: 1.0}` when [param land] is empty or lacks `land_qi`
+## or `means`.
+static func land_factors(gd: GameData, land: Dictionary) -> Dictionary:
+	var cycle: Array = gd.element_cycle()
+	var out: Dictionary = {}
+	var land_qi: Dictionary = land.get("land_qi", {})
+	var means: Dictionary = land.get("means", {})
+	if land.is_empty() or land_qi.is_empty() or means.is_empty():
+		for e in cycle:
+			out[e] = 1.0
+		return out
+	var cfg: Dictionary = gd.attributes().linh_can
+	var land_k: float = float(cfg.get("land_k", 1.0))
+	var f_min: float = float(cfg.get("land_factor_min", 0.25))
+	var f_max: float = float(cfg.get("land_factor_max", 3.0))
+	var tilt: float = float(cfg.get("variant_parts_tilt", 0.5))
+	var vmax: Dictionary = land.get("variant_max", {})
+	var extra: Dictionary = {}
+	if tilt != 0.0 and not vmax.is_empty():
+		for def in gd.variant_defs():
+			var vid: String = str(def.id)
+			var req: Array = def.get("requires", [])
+			if req.is_empty() or vid == "hon_don":
+				continue
+			var qv: float = float(vmax.get(vid, 0.0))
+			if qv <= 0.0:
+				continue
+			for e in req:
+				var es: String = str(e)
+				extra[es] = float(extra.get(es, 0.0)) + tilt * qv
+	for e in cycle:
+		var es: String = str(e)
+		var mean_e: float = float(means.get(es, 0.0))
+		if mean_e <= 0.0:
+			out[es] = 1.0
+			continue
+		var s_prime: float = float(land_qi.get(es, 0.0)) + float(extra.get(es, 0.0))
+		out[es] = clampf(1.0 + land_k * (s_prime - mean_e) / mean_e, f_min, f_max)
+	return out
+
+
+## Formulas D4: birth-roll chance multiplier `b_v = clamp(1 + variant_land_k * q_v / 10, 1, variant_land_max)`
+## for [param variant_id] on [param land]. Returns `1.0` on empty land, non-land variants (Chaos, Blood, Void),
+## or when `q_v <= 0`.
+static func variant_land_boost(gd: GameData, variant_id: String, land: Dictionary) -> float:
+	if land.is_empty() or variant_id == "hon_don" or variant_id == "huyet" or variant_id == "hu_khong":
+		return 1.0
+	var qv: float = float(land.get("variant_max", {}).get(variant_id, 0.0))
+	if qv <= 0.0:
+		return 1.0
+	var cfg: Dictionary = gd.attributes().linh_can
+	var k: float = float(cfg.get("variant_land_k", 1.0))
+	var b_max: float = float(cfg.get("variant_land_max", 5.0))
+	return clampf(1.0 + k * qv / 10.0, 1.0, b_max)
+
+
+static func _province_land_cache(gd: GameData) -> Dictionary:
+	var key: int = gd.get_instance_id()
+	if _land_cache.has(key):
+		return _land_cache[key]
+	var wp: Dictionary = {}
+	if gd.registry != null and gd.registry.has_file("world_provinces"):
+		wp = gd.file("world_provinces")
+	var by_prov: Dictionary = {}
+	var by_place: Dictionary = {}
+	for p in wp.get("provinces", []):
+		if not (p is Dictionary):
+			continue
+		var vid: String = "v%d" % int(p.get("id", 0))
+		by_prov[vid] = p
+		for q in p.get("places", []):
+			if q is Dictionary and q.has("id"):
+				by_place[int(q.id)] = p
+		if p.get("seat_place") != null:
+			by_place[int(p.seat_place)] = p
+	var entry: Dictionary = {
+		"by_prov": by_prov,
+		"by_place": by_place,
+		"means": wp.get("land_element_means", {}),
+	}
+	_land_cache[key] = entry
+	return entry
+
 
 # --- Birth ------------------------------------------------------------------------
 
 ## Fated birth (Thiên Định): count, elements, purities, innate rolls, derived rolls, in the
-## order of Formulas A. The seed fixes the root.
-static func roll(gd: GameData, rng: Variant) -> LinhCan:
+## order of Formulas A, shaped by [param land] (Formulas A2 & D4; empty = even land).
+## The seed fixes the root.
+static func roll(gd: GameData, rng: Variant, land: Dictionary = {}) -> LinhCan:
 	var cfg: Dictionary = gd.attributes().linh_can
 	var lc := LinhCan.new()
 	var count: int = _roll_count(cfg, rng.randf())
-	var pool: Array = gd.element_cycle().duplicate()
-	for i in count:
-		var j: int = i + int(floorf(rng.randf() * float(pool.size() - i)))
-		var tmp: Variant = pool[i]
-		pool[i] = pool[j]
-		pool[j] = tmp
+	var cycle: Array = gd.element_cycle()
+	var factors: Dictionary = land_factors(gd, land)
+	var even_land: bool = true
+	for e in cycle:
+		if not is_equal_approx(float(factors.get(e, 1.0)), 1.0):
+			even_land = false
+			break
+	var pool: Array = cycle.duplicate()
+	if even_land:
+		for i in count:
+			var j: int = i + int(floorf(rng.randf() * float(pool.size() - i)))
+			var tmp: Variant = pool[i]
+			pool[i] = pool[j]
+			pool[j] = tmp
+	else:
+		for i in count:
+			var total_w: float = 0.0
+			for k in range(i, pool.size()):
+				total_w += float(factors.get(pool[k], 1.0))
+			var target: float = rng.randf() * total_w
+			var cumulative: float = 0.0
+			var j: int = pool.size() - 1
+			for k in range(i, pool.size()):
+				cumulative += float(factors.get(pool[k], 1.0))
+				if target < cumulative:
+					j = k
+					break
+			var tmp: Variant = pool[i]
+			pool[i] = pool[j]
+			pool[j] = tmp
 	var chosen: Array = pool.slice(0, count)
-	for e in gd.element_cycle():
+	var shift_per_unit: float = float(cfg.get("land_purity_shift", 6.0))
+	for e in cycle:
 		if chosen.has(e):
-			lc.elements[e] = purity_from_draw(cfg, rng.randfn(float(cfg.purity_mean), float(cfg.purity_sd)))
+			var raw: float = rng.randfn(float(cfg.purity_mean), float(cfg.purity_sd))
+			if not even_land:
+				raw += shift_per_unit * (float(factors.get(e, 1.0)) - 1.0)
+			lc.elements[e] = purity_from_draw(cfg, raw)
 	for def in gd.variant_defs():
 		if def.origin == "innate":
-			lc._roll_innate(gd, def, cfg, rng)
-	lc.roll_newly_eligible(gd, rng)
+			lc._roll_innate(gd, def, cfg, rng, land)
+	lc.roll_newly_eligible(gd, rng, land)
 	return lc
 
 
@@ -185,14 +341,16 @@ func parent_purity(gd: GameData, variant_id: String) -> float:
 
 ## Rolls every derived variant that has just become eligible, in catalogue order, one
 ## uniform draw each, then recomputes the owned variants. Returns the ids formed.
-func roll_newly_eligible(gd: GameData, rng: Variant) -> Array:
+## [param land] applies the birth-only Formulas D4 boost; omit it for post-birth root changes.
+func roll_newly_eligible(gd: GameData, rng: Variant, land: Dictionary = {}) -> Array:
 	var formed: Array = []
 	for def in gd.variant_defs():
 		var id: String = str(def.id)
 		if rolled.has(id) or declined.has(id) or not requirement_met(gd, id):
 			continue
 		rolled.append(id)
-		if rng.randf() < variant_chance(gd, id):
+		var chance: float = minf(1.0, variant_chance(gd, id) * variant_land_boost(gd, id, land))
+		if rng.randf() < chance:
 			variants[id] = derived_purity(gd, id)
 			formed.append(id)
 	recompute_derived(gd)
@@ -448,12 +606,13 @@ static func migrate_record(d: Dictionary, gd: GameData) -> Dictionary:
 	return lc.to_dict()
 
 
-func _roll_innate(gd: GameData, def: Dictionary, cfg: Dictionary, rng: Variant) -> void:
+func _roll_innate(gd: GameData, def: Dictionary, cfg: Dictionary, rng: Variant, land: Dictionary = {}) -> void:
 	var id: String = str(def.id)
 	if not qualifies_at_birth(gd, id):
 		return
 	rolled.append(id)
-	if rng.randf() < variant_chance(gd, id):
+	var chance: float = minf(1.0, variant_chance(gd, id) * variant_land_boost(gd, id, land))
+	if rng.randf() < chance:
 		variants[id] = purity_from_draw(cfg, rng.randfn(float(cfg.purity_mean), float(cfg.purity_sd)))
 
 

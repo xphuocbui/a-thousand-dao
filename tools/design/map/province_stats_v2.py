@@ -65,6 +65,32 @@ SEAT_RANK = ["great_seat", "city", "minor_seat", "town", "sect_hall", "market", 
 BUILDING_NAMES = {"road": "Road", "market_hall": "Market hall", "granary": "Granary", "caravan_post": "Caravan post",
                   "gathering_array": "Gathering array", "warding_wall": "Warding wall", "spirit_fields": "Spirit fields",
                   "mine_works": "Mine works", "hunting_lodge": "Hunting lodge", "landing": "Landing"}
+QI_ELEMENTS = (("MO", "moc"), ("HO", "hoa"), ("TH", "tho"), ("KI", "kim"), ("TY", "thuy"))
+QI_VARIANTS = (("PH", "phong"), ("LO", "loi"), ("AM", "am"), ("QU", "quang"), ("BA", "bang"))
+SETTLED_PLACE_KINDS = ("city", "town", "village", "market", "great_seat", "minor_seat")
+
+
+def load_land_qi_grids(grid_layers, w, h):
+    """Per-tile base element shares (sum 100) and variant qi (0-100 scale; raw V<k><el> is stored x100),
+    matching tools/design/map/land_birth_measure.py (Provinces rule 3a / AC-PV-29)."""
+    _, _, Q = P.read_grid(os.path.join(ROOT, "assets/map/continent_11_qi.bin"))
+    pid_raw = np.frombuffer(open(os.path.join(ROOT, "assets/map/continent_11_province_ids.bin"), "rb").read(), dtype=np.uint16)
+    pid_bin = pid_raw[-w * h:].reshape(h, w).astype(np.int32)
+    shr = [grid_layers["SHR%d" % k].astype(np.float64) for k in (1, 2, 3)]
+    wsum = shr[0] + shr[1] + shr[2]
+    wsum[wsum == 0] = 1.0
+    S = np.stack([
+        sum(Q["S%d%s" % (k, code)].astype(np.float64) * shr[k - 1] for k in (1, 2, 3)) / wsum
+        for code, _ in QI_ELEMENTS
+    ], axis=-1)
+    tot = S.sum(axis=-1, keepdims=True)
+    tot[tot == 0] = 1.0
+    S = 100.0 * S / tot
+    V = {
+        name: (sum(Q["V%d%s" % (k, code)].astype(np.float64) * shr[k - 1] for k in (1, 2, 3)) / wsum) / 100.0
+        for code, name in QI_VARIANTS
+    }
+    return pid_bin, S, V
 
 
 def label_point(pid, i, centre):
@@ -106,6 +132,7 @@ def main():
     pid = np.asarray(Image.open(os.path.join(V2, "province_ids.png"))).astype(np.int32)
     slots = json.load(open(os.path.join(WV2, "slots.json"), encoding="utf-8"))["slots"]
     W, H, L = P.read_grid(os.path.join(ROOT, cont["grid_file"].replace("res://", "")))
+    pid_bin, tile_S, tile_V = load_land_qi_grids(L, W, H)
     road = L["ROAD"].astype(np.int32) > 0
     places = {p["id"]: p for p in cont["places"]}
     prod_of = {}
@@ -272,10 +299,20 @@ def main():
         levels = sum(lv for _, lv in b)
         dev = int(round(levels + P0))
         e = lore["provinces"].get(p["key"], {})
+        m = pid_bin == i
+        if m.any():
+            ms = tile_S[m].mean(axis=0)
+            land_qi = {name: round(float(ms[idx]), 2) for idx, (_, name) in enumerate(QI_ELEMENTS)}
+            variant_max = {name: round(float(tile_V[name][m].max()), 2) for _, name in QI_VARIANTS}
+        else:
+            ms = None
+            land_qi = {name: 20.0 for _, name in QI_ELEMENTS}
+            variant_max = {name: 0.0 for _, name in QI_VARIANTS}
         out.append({"id": i, "key": p["key"], "region": p["region"], "kind": "settlement" if is_set else "wilderness",
                     "seat_kind": r["seat"], "seat_place": seat_place_of(r, p, moved_seats),
                     "name": e.get("name") or p.get("name") or "", "name_han": e.get("name_han", ""), "gloss": e.get("gloss", ""),
                     "lore": e.get("lore", ""), "tiles": p["tiles"], "centre": p["centre"], "land": p["land"],
+                    "land_qi": land_qi, "variant_max": variant_max,
                     "river_tiles": p.get("river_tiles", 0), "road_tiles": int(road_n[i]), "coast": p.get("coast", False),
                     "elev_mean": p.get("elev_mean"), "elev_max": p.get("elev_max"),
                     "places": r["places"],
@@ -289,6 +326,20 @@ def main():
                               "development": dev},
                     "passes_to": passed.get(i, {}).get("to", []),
                     "neighbours": [{"province": by_id[n["province"]]["key"], "border_tiles": n["border_tiles"]} for n in p["neighbours"]]})
+    # Provinces rule 3a / AC-PV-29: world mean element share weighted by settled-place count over settlement provinces
+    # (exact match to tools/design/map/land_birth_measure.py:63-65)
+    mean_rows, mean_w = [], []
+    for o in out:
+        if o["kind"] != "settlement":
+            continue
+        m = pid_bin == o["id"]
+        if not m.any():
+            continue
+        mean_rows.append(tile_S[m].mean(axis=0))
+        mean_w.append(float(max(1, len([x for x in o["places"] if x.get("kind") in SETTLED_PLACE_KINDS]))))
+    w_arr = np.array(mean_w, dtype=np.float64)
+    wmean = (np.array(mean_rows, dtype=np.float64) * w_arr[:, None]).sum(axis=0) / w_arr.sum()
+    land_element_means = {name: round(float(wmean[idx]), 1) for idx, (_, name) in enumerate(QI_ELEMENTS)}
     name_of = {o["key"]: o["name"] for o in out}
     for o in out:   # the gatherers and neighbours by name too, for the panel
         for t in o["passes_to"]:
@@ -299,8 +350,9 @@ def main():
                    "and new, design/world/provinces-v2/), lore and start record, from tools/design/map/province_stats_v2.py "
                    "with the Provinces GDD formulas F1-F6. Production in the dump's per-class units for seed 7; population in "
                    "settlement-weight units (w_size x livability); development = built levels + population units (a display "
-                   "index, not in the GDD).",
-           "schema_version": 1, "provinces": out}
+                   "index, not in the GDD). Each province also carries land_qi (mean tile base element shares) and "
+                   "variant_max (strongest tile per variant, 0-100 scale), and top-level land_element_means (Provinces rule 3a).",
+           "schema_version": 1, "land_element_means": land_element_means, "provinces": out}
     json.dump(doc, open(os.path.join(ROOT, "assets/data/world_provinces.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     # the map's drawing file gets each province's name too, for the names drawn at mid zoom
     gp = os.path.join(ROOT, "assets/map/continent_11_provinces.json")

@@ -46,6 +46,11 @@ var errors: PackedStringArray = []
 var place_ids: Dictionary = {}
 var sect_ids: Dictionary = {}
 var person_ids: Dictionary = {}
+## Rule 8a census stats populated by _step_random_fill: per_sect, empty_openings, redraws, loose_count,
+## total_openings, total_shortfall.
+var fill_report: Dictionary = {}
+## Optional spy hook called during Rule 8a birth draws and admission checks (AC-WG-42 / AC-WG-45).
+var birth_spy: Callable = Callable()
 
 var _gd: GameData
 var _tree: DaoDoTree
@@ -67,6 +72,7 @@ func _init(gd: GameData, tree: DaoDoTree) -> void:
 ## hidden-spot rolls (Formula C), so they do not depend on the order of anything else.
 func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_seed = game_seed if game_seed != "" else str(rng.seed)
+	fill_report = {}
 	_db = WorldDB.new()
 	_builds = BuildGenerator.new(_gd, _tree, _db)
 	_builds.trait_seed = _seed
@@ -216,6 +222,10 @@ func _step_sects() -> void:
 			"members": [], "status": "active", "founded_year": int(s.founded), "levels": Dictionary(s.levels).duplicate(true),
 			"treasury": int(s.treasury), "leans": Array(s.get("leans", [])).duplicate(true), "tier": int(s.get("tier", 0)),
 			"loyalty": s.get("loyalty", null)}   # copies: the game's sects grow (Sects F1), the loaded history stays as authored
+		if s.has("lineage_elements"):
+			rec["lineage_elements"] = Array(s.get("lineage_elements", [])).duplicate(true)
+		if s.has("recruit_by") and s.recruit_by is Dictionary:
+			rec["recruit_by"] = Dictionary(s.recruit_by).duplicate(true)
 		var id: String = _db.add("sects", rec)
 		sect_ids[str(s.key)] = id
 		if not hq.is_empty():
@@ -302,9 +312,11 @@ func _step_cast() -> void:
 			_db.put("people", rec)
 			continue
 		var home: String = place_ids.get(int(p.home), "") if p.get("home") != null else ""
+		var birthplace: String = place_ids.get(int(p.birthplace), home) if p.get("birthplace") != null else home
 		var realm: int = _realm_index(str(p.realm))
 		var opts := {"realm_index": realm, "sect_id": sect, "sect_rank": str(ranks.get(str(p.get("rank", "")), "")),
-			"location_id": home, "name": str(p.name), "gender": "female" if str(p.sex) == "F" else "male",
+			"location_id": home, "birthplace": birthplace, "name": str(p.name),
+			"gender": "female" if str(p.sex) == "F" else "male",
 			"age": float(current_year - int(p.born)), "created_by": "cast", "id": pid}
 		var sect_rec: Dictionary = _db.get_record("sects", sect) if sect != "" else {}
 		if not sect_rec.is_empty():
@@ -319,6 +331,7 @@ func _step_cast() -> void:
 			crng.seed = RngUtils.stable_hash("cast:" + str(p.key))
 			_builds.create_person(crng, opts)
 		var rec: Dictionary = _db.get_record("people", pid)
+		rec["birthplace"] = birthplace
 		rec["cast_key"] = str(p.key)
 		rec["born_year"] = int(p.born)
 		rec["role"] = str(p.get("role", ""))
@@ -606,6 +619,34 @@ static func realm_targets(n: int, weights: Array) -> Array:
 	return t
 
 
+## Formula E: draws a birthplace place Dictionary on [param rng] (duck-typed: randf()).
+## Draws u_g first; picks from [param own_places] when not [param is_wind] and `u_g < local_recruit`
+## and own weights sum > 0, else draws from [param all_places].
+static func draw_birthplace(rng: Variant, own_places: Array, own_weights: Array,
+		all_places: Array, all_weights: Array, local_recruit: float, is_wind: bool) -> Dictionary:
+	var u_g: float = rng.randf()
+	if not is_wind and u_g < local_recruit and not own_places.is_empty():
+		var ow: float = 0.0
+		for w in own_weights:
+			ow += maxf(float(w), 0.0)
+		if ow > 0.0:
+			return _weighted_variant(rng, own_places, own_weights, ow)
+	return _weighted_variant(rng, all_places, all_weights)
+
+
+## Runs Rule 8a random fill directly on an existing [param db] (used by unit tests with minimal fixtures).
+## Returns [member fill_report].
+func run_random_fill(rng: RandomNumberGenerator, db: WorldDB, builds: BuildGenerator, game_seed: String, year: int = 1200) -> Dictionary:
+	_db = db
+	_builds = builds
+	_cfg = _gd.world_gen().get("continent", {})
+	_seed = game_seed
+	current_year = year
+	fill_report = {}
+	_step_random_fill(rng)
+	return fill_report
+
+
 func _step_random_fill(rng: RandomNumberGenerator) -> void:
 	var pc: Dictionary = _gd.world_gen().people
 	var n: int = maxi(int(pc.world_cultivators), int(pc.world_cultivators_min))
@@ -614,54 +655,330 @@ func _step_random_fill(rng: RandomNumberGenerator) -> void:
 	var living: Array = _db.find("people", func(p): return p.alive and not p.get("is_beast", false))
 	var fill: Array = []
 	for r in targets.size():
-		var k: int = living.filter(func(p): return int(p.realm_index) == r).size()
-		for i in maxi(int(targets[r]) - k, 0):
+		var k_r: int = living.filter(func(p): return int(p.realm_index) == r).size()
+		for i in maxi(int(targets[r]) - k_r, 0):
 			fill.append(r)
 	fill = RngUtils.shuffled(rng, fill)
-	# sect places: up to F17's target, by Sects F2's capacity
+
+	# Rule 8a step 1: active sects in stable key order (AC-WG-46).
+	var active_sects: Array = _db.find("sects", func(x): return str(x.get("status", "")) == "active")
+	active_sects.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return str(a.get("key", a.id)) < str(b.get("key", b.id)))
+
 	var cap: Dictionary = _cfg.sect_capacity
-	var seats: Array = []
-	for s in _db.find("sects", func(x): return x.status == "active"):
-		var base: float = float(cap.cap_base.great if str(s.kind) == "great" else cap.cap_base.minor)
-		var capacity: int = int(floor(base * (1.0 + float(cap.i) * float(s.levels.institutions))))
-		var want: int = int(floor(float(cap.fill) * float(capacity))) - s.members.size()
+	var fill_frac: float = float(cap.fill)
+	var openings: Dictionary = {}
+	var initial_openings: Dictionary = {}
+	var target_by_sect: Dictionary = {}
+	var total_targets: int = 0
+	var total_openings: int = 0
+	for s in active_sects:
+		var sid: String = str(s.id)
+		var base: float = float(cap.cap_base.great if str(s.get("kind", "")) == "great" else cap.cap_base.minor)
+		var inst: float = float(s.get("levels", {}).get("institutions", 0))
+		var capacity: int = int(floor(base * (1.0 + float(cap.i) * inst)))
 		s["capacity"] = capacity
-		for i in maxi(want, 0):
-			seats.append(s.id)
-	seats = RngUtils.shuffled(rng, seats)
-	var settled: Array = _db.find("places", func(p): return str(p.kind) in _cfg.settled_kinds)
-	var settle_w: Array = settled.map(func(p): return float(_cfg.settle_weight.get(str(p.kind), 1)))
-	var realm_by_rank: Array = _cfg.rank_by_realm
-	# Formulas M: npc_settled_share counts everyone in settlements and sect grounds, members at their seats
-	# included, so the loose cultivators settle at the share that brings the whole world to it
-	var members: int = mini(seats.size(), fill.size()) + living.filter(func(p): return str(p.get("sect_id", "")) != "").size()
-	var loose: int = maxi(1, fill.size() + living.size() - members)
-	var loose_settle: float = clampf((float(_cfg.npc_settled_share) * float(fill.size() + living.size()) - float(members)) / float(loose), 0.0, 1.0)
-	var idx_by_realm := {}
-	for r in fill:
-		var k: int = int(idx_by_realm.get(r, 0))
-		idx_by_realm[r] = k + 1
-		var opts := {"realm_index": r, "created_by": "worldgen"}
-		var sect: Dictionary = {}
-		if not seats.is_empty():
-			sect = _db.get_record("sects", str(seats.pop_back()))
-			opts["sect_id"] = str(sect.id)
-			opts["sect_rank"] = str(realm_by_rank[clampi(r, 0, realm_by_rank.size() - 1)])
-			opts["location_id"] = str(sect.hq_place_id)
-			if rng.randf() < float(_gd.world_gen().sects.member_archetype_share):
-				opts["archetype"] = str(sect.specialty)
-		elif rng.randf() < loose_settle:
-			opts["location_id"] = str(_weighted(rng, settled, settle_w).id)
+		var target_s: int = int(floor(fill_frac * float(capacity)))
+		var open_s: int = maxi(0, target_s - Array(s.get("members", [])).size())
+		target_by_sect[sid] = target_s
+		openings[sid] = open_s
+		initial_openings[sid] = open_s
+		total_targets += target_s
+		total_openings += open_s
+
+	var k_out: int = living.filter(func(p): return str(p.get("sect_id", "")) == "").size()
+	var loose_budget: int = n - total_targets - k_out
+	var local_recruit: float = float(_cfg.get("local_recruit", 0.75))
+	var admit_tries: int = int(_cfg.get("admit_tries", 8))
+
+	# Deterministic settled and wild place tables sorted by continent_id, tie-break str(id).
+	var place_cmp := func(a: Dictionary, b: Dictionary) -> bool:
+		var ca: int = int(a.get("continent_id", 0))
+		var cb: int = int(b.get("continent_id", 0))
+		if ca != cb:
+			return ca < cb
+		return str(a.id) < str(b.id)
+	var settled_all: Array = _db.find("places", func(p): return str(p.get("kind", "")) in _cfg.settled_kinds and not bool(p.get("hidden", false)))
+	if settled_all.is_empty():
+		settled_all = _db.all("places").duplicate()
+	settled_all.sort_custom(place_cmp)
+	var settle_w_cfg: Dictionary = _cfg.settle_weight
+	var settled_all_w: Array = settled_all.map(func(p): return float(settle_w_cfg.get(str(p.get("kind", "")), 1)))
+	var settled_by_region: Dictionary = {}
+	for i in settled_all.size():
+		var p: Dictionary = settled_all[i]
+		var rid: String = str(p.get("region_id", ""))
+		if not settled_by_region.has(rid):
+			settled_by_region[rid] = {"places": [], "weights": []}
+		settled_by_region[rid].places.append(p)
+		settled_by_region[rid].weights.append(settled_all_w[i])
+
+	var wild_all: Array = _db.find("places", func(p): return str(p.get("kind", "")) in _cfg.wild_kinds and not bool(p.get("hidden", false)))
+	wild_all.sort_custom(place_cmp)
+	var wild_by_region: Dictionary = {}
+	for p in wild_all:
+		var rid: String = str(p.get("region_id", ""))
+		if not wild_by_region.has(rid):
+			wild_by_region[rid] = []
+		wild_by_region[rid].append(p)
+
+	# Own-ground lists, lookup sets, seat tiles, and Wind-lineage flags per active sect.
+	var own_ground: Dictionary = {}
+	var own_ground_w: Dictionary = {}
+	var own_ground_set: Dictionary = {}
+	var seat_tile: Dictionary = {}
+	var is_wind_by_sect: Dictionary = {}
+	var random_by_sect: Dictionary = {}
+	var local_by_sect: Dictionary = {}
+	for s in active_sects:
+		var sid: String = str(s.id)
+		var og: Array = []
+		if str(s.get("kind", "")) == "great":
+			og = settled_all.filter(func(p): return str(p.get("territory", "")) == sid)
+			if og.is_empty():
+				var regs: Array = Array(s.get("regions", []))
+				og = settled_all.filter(func(p): return regs.has(str(p.get("region_id", ""))))
 		else:
-			opts["archetype"] = "tan_tu" if rng.randf() < float(pc.loose_tan_tu_share) else ""
-		var pid: String = _builds.create_person(rng, opts)
-		var rec: Dictionary = _db.get_record("people", pid)
-		rec["born_year"] = current_year - int(floor(float(rec.age)))
-		if not sect.is_empty():
-			sect.members.append(pid)
-			_join(rec, sect, r, k)
-		elif str(rec.location_id) == "":
-			rec["location_id"] = _wild_home(rec, rng)
+			var lord_id: String = str(s.get("lord_id", ""))
+			var seat_reg: String = str(s.get("region_id", ""))
+			if lord_id != "":
+				og = settled_all.filter(func(p): return str(p.get("territory", "")) == lord_id and str(p.get("region_id", "")) == seat_reg)
+			if og.is_empty() and seat_reg != "":
+				og = settled_all.filter(func(p): return str(p.get("region_id", "")) == seat_reg)
+		if og.is_empty():
+			og = settled_all
+		var og_w: Array = og.map(func(p): return float(settle_w_cfg.get(str(p.get("kind", "")), 1)))
+		var og_set: Dictionary = {}
+		for p in og:
+			og_set[str(p.id)] = true
+		own_ground[sid] = og
+		own_ground_w[sid] = og_w
+		own_ground_set[sid] = og_set
+		var hq: Dictionary = _db.get_record("places", str(s.get("hq_place_id", "")))
+		seat_tile[sid] = _tile_vec(hq)
+		is_wind_by_sect[sid] = SectAdmission.variants_of(_gd, s).has("phong")
+		random_by_sect[sid] = 0
+		local_by_sect[sid] = 0
+
+	var realm_by_rank: Array = _cfg.rank_by_realm
+	var est_members: int = mini(total_openings, fill.size()) + (living.size() - k_out)
+	var est_loose: int = maxi(1, fill.size() + living.size() - est_members)
+	var loose_settle_est: float = clampf((float(_cfg.npc_settled_share) * float(fill.size() + living.size()) - float(est_members)) / float(est_loose), 0.0, 1.0)
+
+	# Rule 8a steps 1-7: fill sect openings in stable key order.
+	var fill_idx: int = 0
+	var idx_by_realm := {}
+	var empty_openings: int = 0
+	var redraws: int = 0
+	var loose_count: int = 0
+	for sect in active_sects:
+		var sid: String = str(sect.id)
+		var skey: String = str(sect.get("key", sid))
+		var is_wind: bool = bool(is_wind_by_sect[sid])
+		var og_places: Array = own_ground[sid]
+		var og_weights: Array = own_ground_w[sid]
+		while int(openings[sid]) > 0 and fill_idx < fill.size():
+			var k: int = fill_idx
+			var r: int = int(fill[fill_idx])
+			fill_idx += 1
+			var k_realm: int = int(idx_by_realm.get(r, 0))
+			idx_by_realm[r] = k_realm + 1
+			var rank: String = str(realm_by_rank[clampi(r, 0, realm_by_rank.size() - 1)])
+			var chosen_sect: Dictionary = {}
+			var birthplace: Dictionary = {}
+			var lc: LinhCan = null
+			for try_idx in range(admit_tries + 1):
+				var stream_key: String = "%s:birth:%d:%d" % [_seed, k, try_idx]
+				var brng := RandomNumberGenerator.new()
+				brng.seed = RngUtils.stable_hash(stream_key)
+				birthplace = draw_birthplace(brng, og_places, og_weights, settled_all, settled_all_w, local_recruit, is_wind)
+				var land: Dictionary = LinhCan.province_land(_gd, birthplace)
+				lc = LinhCan.roll(_gd, brng, land)
+				if birth_spy.is_valid():
+					birth_spy.call({
+						"event": "birth_rolled", "phase": "sect", "candidate_index": k, "try_index": try_idx,
+						"sect_id": sid, "sect_key": skey, "birthplace_id": str(birthplace.get("id", "")),
+						"birthplace": birthplace, "land": land, "linh_can": lc, "stream_key": stream_key,
+					})
+				# Step 5: admission for target sect at the rank the candidate's realm gives.
+				var ok_self: bool = SectAdmission.admits_for_rank(_gd, sect, lc, rank)
+				if birth_spy.is_valid():
+					birth_spy.call({
+						"event": "admission_test", "candidate_index": k, "try_index": try_idx,
+						"sect_id": sid, "sect_key": skey, "rank": rank, "passed": ok_self,
+					})
+				if ok_self:
+					chosen_sect = sect
+					break
+				# Step 6: try other active sects with openings left (own ground first, then others; nearest seat, ties by key).
+				var bp_id: String = str(birthplace.get("id", ""))
+				var bp_tile: Vector2i = _tile_vec(birthplace)
+				var tier_own: Array = []
+				var tier_other: Array = []
+				for other in active_sects:
+					var osid: String = str(other.id)
+					if osid == sid or int(openings[osid]) <= 0:
+						continue
+					var ok_other: bool = SectAdmission.admits_for_rank(_gd, other, lc, rank)
+					if birth_spy.is_valid():
+						birth_spy.call({
+							"event": "admission_test", "candidate_index": k, "try_index": try_idx,
+							"sect_id": osid, "sect_key": str(other.get("key", osid)), "rank": rank, "passed": ok_other,
+						})
+					if not ok_other:
+						continue
+					var entry := {
+						"sect": other,
+						"dist": _sq_dist(seat_tile[osid], bp_tile),
+						"key": str(other.get("key", osid)),
+					}
+					if Dictionary(own_ground_set[osid]).has(bp_id):
+						tier_own.append(entry)
+					else:
+						tier_other.append(entry)
+				var pick_tier: Array = tier_own if not tier_own.is_empty() else tier_other
+				if not pick_tier.is_empty():
+					pick_tier.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+						var da: int = int(a.dist)
+						var db_: int = int(b.dist)
+						if da != db_:
+							return da < db_
+						return str(a.key) < str(b.key))
+					chosen_sect = pick_tier[0].sect
+					break
+				# Step 7: failing candidate takes a loose slot while L > 0, else redraws up to admit_tries.
+				if loose_budget > 0:
+					loose_budget -= 1
+					chosen_sect = {}
+					break
+				elif try_idx < admit_tries:
+					redraws += 1
+					continue
+				else:
+					empty_openings += 1
+					openings[sid] = int(openings[sid]) - 1
+					chosen_sect = {}
+					break
+			var bp_id_final: String = str(birthplace.get("id", ""))
+			var opts := {"realm_index": r, "created_by": "worldgen", "linh_can": lc, "birthplace": bp_id_final}
+			if not chosen_sect.is_empty():
+				var csid: String = str(chosen_sect.id)
+				opts["sect_id"] = csid
+				opts["sect_rank"] = rank
+				opts["location_id"] = str(chosen_sect.hq_place_id)
+				if rng.randf() < float(_gd.world_gen().sects.member_archetype_share):
+					opts["archetype"] = str(chosen_sect.specialty)
+				var pid: String = _builds.create_person(rng, opts)
+				var rec: Dictionary = _db.get_record("people", pid)
+				rec["born_year"] = current_year - int(floor(float(rec.age)))
+				openings[csid] = int(openings[csid]) - 1
+				chosen_sect.members.append(pid)
+				random_by_sect[csid] = int(random_by_sect[csid]) + 1
+				if Dictionary(own_ground_set[csid]).has(bp_id_final):
+					local_by_sect[csid] = int(local_by_sect[csid]) + 1
+				_join(rec, chosen_sect, r, k_realm)
+			else:
+				loose_count += 1
+				var bp_reg: String = str(birthplace.get("region_id", ""))
+				var reg_settled: Dictionary = settled_by_region.get(bp_reg, {})
+				var reg_wild: Array = wild_by_region.get(bp_reg, [])
+				var go_settled: bool = reg_wild.is_empty() or rng.randf() < loose_settle_est
+				if go_settled:
+					if not reg_settled.is_empty():
+						opts["location_id"] = str(_weighted_variant(rng, reg_settled.places, reg_settled.weights).id)
+					else:
+						opts["location_id"] = bp_id_final
+				else:
+					opts["archetype"] = "tan_tu" if rng.randf() < float(pc.loose_tan_tu_share) else ""
+				var pid: String = _builds.create_person(rng, opts)
+				var rec: Dictionary = _db.get_record("people", pid)
+				rec["born_year"] = current_year - int(floor(float(rec.age)))
+				if str(rec.location_id) == "":
+					rec["location_id"] = _wild_home_in_region(rec, bp_reg, rng, reg_wild, bp_id_final)
+
+	# Rule 8a step 8: remaining fill candidates are loose; pick region first, then birthplace in region, then root.
+	var remaining: int = fill.size() - fill_idx
+	if remaining > 0:
+		var settled_kinds_set: Dictionary = {}
+		for sk in _cfg.settled_kinds:
+			settled_kinds_set[str(sk)] = true
+		var total_people: int = fill.size() + living.size()
+		var already_settled: int = 0
+		for p in _db.find("people", func(x): return x.alive and not x.get("is_beast", false)):
+			if str(p.get("sect_id", "")) != "":
+				already_settled += 1
+			else:
+				var loc: Dictionary = _db.get_record("places", str(p.get("location_id", "")))
+				if not loc.is_empty() and settled_kinds_set.has(str(loc.get("kind", ""))):
+					already_settled += 1
+		var loose_settle: float = clampf((float(_cfg.npc_settled_share) * float(total_people) - float(already_settled)) / float(remaining), 0.0, 1.0)
+		while fill_idx < fill.size():
+			var k: int = fill_idx
+			var r: int = int(fill[fill_idx])
+			fill_idx += 1
+			loose_count += 1
+			var go_settled: bool = wild_all.is_empty() or rng.randf() < loose_settle
+			var loc_id: String = ""
+			var region_id: String = ""
+			if go_settled:
+				var loc_place: Dictionary = _weighted_variant(rng, settled_all, settled_all_w)
+				loc_id = str(loc_place.get("id", ""))
+				region_id = str(loc_place.get("region_id", ""))
+			else:
+				region_id = str(RngUtils.pick(rng, wild_all).get("region_id", ""))
+			var reg_settled: Dictionary = settled_by_region.get(region_id, {})
+			var stream_key: String = "%s:birth:%d:0" % [_seed, k]
+			var brng := RandomNumberGenerator.new()
+			brng.seed = RngUtils.stable_hash(stream_key)
+			var bp_places: Array = reg_settled.places if not reg_settled.is_empty() else settled_all
+			var bp_weights: Array = reg_settled.weights if not reg_settled.is_empty() else settled_all_w
+			var birthplace: Dictionary = _weighted_variant(brng, bp_places, bp_weights)
+			var bp_id: String = str(birthplace.get("id", ""))
+			var land: Dictionary = LinhCan.province_land(_gd, birthplace)
+			var lc: LinhCan = LinhCan.roll(_gd, brng, land)
+			if birth_spy.is_valid():
+				birth_spy.call({
+					"event": "birth_rolled", "phase": "loose", "candidate_index": k, "try_index": 0,
+					"sect_id": "", "sect_key": "", "birthplace_id": bp_id,
+					"birthplace": birthplace, "land": land, "linh_can": lc, "stream_key": stream_key,
+				})
+			var opts := {"realm_index": r, "created_by": "worldgen", "linh_can": lc, "birthplace": bp_id}
+			if go_settled:
+				opts["location_id"] = loc_id
+			else:
+				opts["archetype"] = "tan_tu" if rng.randf() < float(pc.loose_tan_tu_share) else ""
+			var pid: String = _builds.create_person(rng, opts)
+			var rec: Dictionary = _db.get_record("people", pid)
+			rec["born_year"] = current_year - int(floor(float(rec.age)))
+			if not go_settled:
+				rec["location_id"] = _wild_home_in_region(rec, region_id, rng, wild_by_region.get(region_id, []), bp_id)
+
+	var per_sect: Dictionary = {}
+	var total_shortfall: int = 0
+	for s in active_sects:
+		var sid: String = str(s.id)
+		var skey: String = str(s.get("key", sid))
+		var target_s: int = int(target_by_sect[sid])
+		var rand_n: int = int(random_by_sect[sid])
+		var local_n: int = int(local_by_sect[sid])
+		var shortfall_s: int = maxi(0, target_s - Array(s.get("members", [])).size())
+		total_shortfall += shortfall_s
+		per_sect[skey] = {
+			"random": rand_n,
+			"target": target_s,
+			"shortfall": shortfall_s,
+			"local_births": local_n,
+			"own_ground_share": float(local_n) / float(rand_n) if rand_n > 0 else 0.0,
+			"openings": int(initial_openings[sid]),
+		}
+	fill_report = {
+		"per_sect": per_sect,
+		"empty_openings": empty_openings,
+		"redraws": redraws,
+		"loose_count": loose_count,
+		"total_openings": total_openings,
+		"total_shortfall": total_shortfall,
+	}
 
 
 ## Formula D: the join year of a random member, and maybe a master who was in the sect then, of a higher realm.
@@ -689,20 +1006,40 @@ func _join(rec: Dictionary, sect: Dictionary, realm: int, k: int) -> void:
 			_builds.refresh_power(str(rec.id))
 
 
-## Formulas M: a loose cultivator outside the settlements picks among the best wild places of a region (by density x
-## land match for their root), the band narrowing with realm.
+## Formulas M: a loose cultivator outside the settlements picks among the best wild places of [param region]
+## (by density x land match for their root), the band narrowing with realm.
+func _wild_home_in_region(rec: Dictionary, region: String, rng: RandomNumberGenerator, region_wild: Array = [], fallback_id: String = "") -> String:
+	var here: Array = region_wild.duplicate() if not region_wild.is_empty() else _db.find("places", func(p): return str(p.get("kind", "")) in _cfg.wild_kinds and not bool(p.get("hidden", false)) and str(p.get("region_id", "")) == region)
+	if here.is_empty():
+		return fallback_id if fallback_id != "" else str(RngUtils.pick(rng, _db.all("places")).id)
+	var c := Character.from_dict(rec)
+	var scores: Dictionary = {}
+	for p in here:
+		var qi: Dictionary = p.get("qi", {})
+		var lm: float = LandQi.land_match(c, _gd, qi).total if not qi.is_empty() else 1.0
+		scores[str(p.id)] = float(p.get("density", 1.0)) * lm
+	here.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		var sa: float = float(scores[str(a.id)])
+		var sb: float = float(scores[str(b.id)])
+		if not is_equal_approx(sa, sb):
+			return sa > sb
+		var ca: int = int(a.get("continent_id", 0))
+		var cb: int = int(b.get("continent_id", 0))
+		if ca != cb:
+			return ca < cb
+		return str(a.id) < str(b.id))
+	var tops: Array = _cfg.npc_wild_pick_top
+	var share: float = float(tops[clampi(int(rec.realm_index), 0, tops.size() - 1)])
+	var n: int = maxi(1, int(ceil(share * float(here.size()))))
+	return str(here[rng.randi_range(0, n - 1)].id)
+
+
 func _wild_home(rec: Dictionary, rng: RandomNumberGenerator) -> String:
 	var wild: Array = _db.find("places", func(p): return str(p.kind) in _cfg.wild_kinds and not bool(p.get("hidden", false)))
 	if wild.is_empty():
 		return str(RngUtils.pick(rng, _db.all("places")).id)
 	var region: String = str(RngUtils.pick(rng, wild).region_id)
-	var here: Array = wild.filter(func(p): return str(p.region_id) == region)
-	var c := Character.from_dict(rec)
-	here.sort_custom(func(a, b): return float(a.density) * LandQi.land_match(c, _gd, a.qi).total > float(b.density) * LandQi.land_match(c, _gd, b.qi).total)
-	var tops: Array = _cfg.npc_wild_pick_top
-	var share: float = float(tops[clampi(int(rec.realm_index), 0, tops.size() - 1)])
-	var n: int = maxi(1, int(ceil(share * float(here.size()))))
-	return str(here[rng.randi_range(0, n - 1)].id)
+	return _wild_home_in_region(rec, region, rng, wild.filter(func(p): return str(p.region_id) == region))
 
 
 # --- 7. Unique named items -------------------------------------------------------------------------------------------
@@ -760,12 +1097,38 @@ static func _sorted_keys(d: Dictionary) -> Array:
 
 
 static func _weighted(rng: RandomNumberGenerator, items: Array, weights: Array) -> Dictionary:
-	var total: float = 0.0
-	for w in weights:
-		total += float(w)
+	return _weighted_variant(rng, items, weights)
+
+
+static func _weighted_variant(rng: Variant, items: Array, weights: Array, pre_total: float = -1.0) -> Dictionary:
+	if items.is_empty():
+		return {}
+	var total: float = pre_total
+	if total < 0.0:
+		total = 0.0
+		for w in weights:
+			total += maxf(float(w), 0.0)
+	if total <= 0.0:
+		var idx: int = clampi(int(floorf(rng.randf() * float(items.size()))), 0, items.size() - 1)
+		return items[idx]
 	var x: float = rng.randf() * total
 	for i in items.size():
-		x -= float(weights[i])
-		if x <= 0.0:
+		x -= maxf(float(weights[i]), 0.0)
+		if x < 0.0:
 			return items[i]
 	return items[-1]
+
+
+static func _tile_vec(place: Dictionary) -> Vector2i:
+	var t: Variant = place.get("tile", [0, 0])
+	if t is Vector2i:
+		return t as Vector2i
+	if t is Array and t.size() >= 2:
+		return Vector2i(int(t[0]), int(t[1]))
+	return Vector2i.ZERO
+
+
+static func _sq_dist(a: Vector2i, b: Vector2i) -> int:
+	var dx: int = a.x - b.x
+	var dy: int = a.y - b.y
+	return dx * dx + dy * dy

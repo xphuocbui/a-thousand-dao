@@ -34,7 +34,14 @@
     "awakening_max_passes": 2,
     "awakening_capability": 24,
     "variant_power_band": [10, 30],
-    "variant_power_band_apex": [60, 140]
+    "variant_power_band_apex": [60, 140],
+    "land_k": 1.0,
+    "land_factor_min": 0.25,
+    "land_factor_max": 3.0,
+    "land_purity_shift": 6.0,
+    "variant_parts_tilt": 0.5,
+    "variant_land_k": 1.0,
+    "variant_land_max": 5.0
   },
   "element_count_curve": {
     "1": {"lk_early": 1.0, "lk_mid": 1.0, "lk_late": 1.0, "tc_so": 1.0, "tc_trung": 1.0, "tc_hau": 1.0, "tc_dvm": 1.0, "kd_so": 1.0, "kd_trung": 1.0, "kd_hau": 1.0, "kd_dvm": 1.0, "na": 1.0, "ht": 1.0},

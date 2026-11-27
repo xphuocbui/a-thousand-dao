@@ -204,53 +204,273 @@ func _succeed_leader(dead: Dictionary) -> String:
 	return heir
 
 
-## New cultivators (canh-gioi.md rule 12): each season the world replaces that season's dead, back
-## up to world_cultivators and never below world_cultivators_min. Tied to the target, not to the
-## population, so it cannot drift. [param cultivators] counts those alive after the season's deaths.
+## New cultivators (canh-gioi.md rule 12; Living World Tick rule 5 & Formulas D; Sects F21): each season the world
+## replaces that season's dead back up to max(world_cultivators, world_cultivators_min). Parent births roll their root
+## from the parent's province and join the parent's sect only if they pass its outer admission test; failing births,
+## loose-parent births, and random newcomers enter the seasonal pool and are allocated across active sects by Formulas D
+## claims and Sects F21 admission/scoring.
 func _intake(rng: RandomNumberGenerator, cultivators: int) -> void:
 	var people: Dictionary = _gd.world_gen().people
 	var n: int = maxi(maxi(int(people.world_cultivators), int(people.world_cultivators_min)) - cultivators, 0)
+	if n <= 0:
+		return
 	var share: float = float(Families.cfg(_gd).get("birth_share", 0.0))
-	var idx: Dictionary = Families.index(_db) if n > 0 and share > 0.0 else {}
+	var idx: Dictionary = Families.index(_db) if share > 0.0 else {}
+	var settled_info: Dictionary = _settled_places()
+	var settled: Array = settled_info.places
+	var settled_w: Array = settled_info.weights
+	var pool: Array = []
 	for i in n:
 		var parent: Dictionary = {}
 		if not idx.is_empty() and rng.randf() < share:   # Living World Tick rule 5, Births (user, 2026-11-21)
 			parent = Families.pick_parent(_gd, idx, "*", 16.0, "birth:%d:%d" % [Ties.now(_db), i])
-		new_cultivator(rng, parent, idx)
+		if not parent.is_empty():
+			var rec: Dictionary = _birth_to_parent(rng, parent, idx)
+			if str(rec.get("sect_id", "")) == "":
+				pool.append(rec)
+		else:
+			var bp_rec: Dictionary = _weighted_place(rng, settled, settled_w)
+			var bp_id: String = str(bp_rec.get("id", ""))
+			var lc: LinhCan = LinhCan.roll(_gd, rng, LinhCan.province_land(_gd, bp_rec))
+			var opts := {
+				"realm_index": 0, "stage": 0, "age": 16.0,
+				"sect_id": "", "sect_rank": "",
+				"location_id": bp_id, "birthplace": bp_id, "linh_can": lc,
+			}
+			var pid: String = _builds.create_person(rng, opts)
+			pool.append(_db.get_record("people", pid))
+	if pool.is_empty():
+		return
+	var active_sects: Array = _db.all("sects").filter(func(s): return str(s.get("status", "active")) == "active")
+	if active_sects.is_empty():
+		return
+	var sects_in_order: Array = active_sects.duplicate()
+	sects_in_order.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		var ga: int = 0 if str(a.get("kind", "")) == "great" else 1
+		var gb: int = 0 if str(b.get("kind", "")) == "great" else 1
+		if ga != gb:
+			return ga < gb
+		return str(a.id) < str(b.id))
+	var claims: Dictionary = {}
+	if sects_in_order.any(func(s): return s.has("invested")):
+		var living_count: Dictionary = {}
+		for p in _db.living():
+			if bool(p.get("alive", false)) and not bool(p.get("is_beast", false)):
+				var sid: String = str(p.get("sect_id", ""))
+				if sid != "":
+					living_count[sid] = int(living_count.get(sid, 0)) + 1
+		var demands: Dictionary = {}
+		for s in sects_in_order:
+			var sid: String = str(s.id)
+			var st: String = str(s.get("state", "steady"))
+			if st == "strained" or st == "collapsing":
+				demands[sid] = 0
+			else:
+				demands[sid] = SectEconomy.intake(_gd, _db, s, int(living_count.get(sid, 0)))
+		claims = allocate_claims(sects_in_order, demands, pool.size())
+	else:
+		# Legacy non-continent WorldGenerator worlds lack invested tracks; preserve compatible intake share.
+		var share_sect: float = float(ProgressionEdges.config(_gd).npc.get("intake_sect_share", 0.9))
+		var target_total: int = clampi(int(round(float(pool.size()) * share_sect)), 0, pool.size())
+		var demands: Dictionary = {}
+		for s in sects_in_order:
+			demands[str(s.id)] = maxi(target_total, 1)
+		claims = allocate_claims(sects_in_order, demands, target_total)
+	var home_fn := func(sect: Dictionary, person: Dictionary) -> bool:
+		return _is_home_ground(sect, person)
+	var kin_fn := func(sect: Dictionary, person: Dictionary) -> bool:
+		return _is_sect_kin(sect, person)
+	var res: Dictionary = SectAdmission.fill_claims(_gd, sects_in_order, claims, pool, home_fn, kin_fn)
+	for s in sects_in_order:
+		var sid: String = str(s.id)
+		for rec in res.admitted.get(sid, []):
+			rec["sect_id"] = sid
+			rec["sect_rank"] = "ngoai_mon"
+			rec["location_id"] = str(s.get("hq_place_id", ""))
+			s.members.append(str(rec.id))
+			var mid: String = SectEconomy.pick_master(_gd, _db, s, 0, rng)
+			if mid != "":
+				Ties.set_master(_gd, _db, str(rec.id), mid, Ties.now(_db))
+				if rec.has("npc_traits") and not rec.has("cast_key") and _gd.registry.has_file(NpcTraits.FILE):
+					var master: Dictionary = _db.get_record("people", mid)
+					rec["npc_traits"] = NpcTraits.roll(_gd, _builds.trait_key(str(rec.id)), str(rec.get("archetype", "")), true,
+						master.get("npc_traits", {}).get("personality", []), rec.get("thien_phu", {}))
+					_builds.refresh_power(str(rec.id))
 
 
-## One new Qi Refining cultivator, age 16, loose or in a sect at a rolled rank. Born to [param parent] (Births): starts
-## where the parent is, in the parent's sect when it has an active one, with kin to the parent and siblings.
+## Living World Tick Formulas D: splits [param pool_size] across [param sects] given per-sect demands
+## `{sect_id: d_s}` via largest remainder (ties to lower `str(sect.id)`). Returns `{sect_id: claim_s}`.
+static func allocate_claims(sects: Array, demands: Dictionary, pool_size: int) -> Dictionary:
+	var claims: Dictionary = {}
+	var total_d: int = 0
+	for s in sects:
+		var sid: String = str(s.id)
+		var d_s: int = maxi(0, int(demands.get(sid, 0)))
+		claims[sid] = 0
+		total_d += d_s
+	if pool_size <= 0 or total_d <= 0:
+		return claims
+	if total_d <= pool_size:
+		for s in sects:
+			var sid: String = str(s.id)
+			claims[sid] = maxi(0, int(demands.get(sid, 0)))
+		return claims
+	var rems: Array = []
+	var used: int = 0
+	for s in sects:
+		var sid: String = str(s.id)
+		var d_s: int = maxi(0, int(demands.get(sid, 0)))
+		var exact: float = float(pool_size) * float(d_s) / float(total_d)
+		var fl: int = int(floor(exact))
+		claims[sid] = fl
+		used += fl
+		rems.append({"id": sid, "rem": exact - float(fl)})
+	rems.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		var ra: float = float(a.rem)
+		var rb: float = float(b.rem)
+		if not is_equal_approx(ra, rb):
+			return ra > rb
+		return str(a.id) < str(b.id))
+	var left: int = pool_size - used
+	for k in mini(left, rems.size()):
+		var sid: String = str(rems[k].id)
+		claims[sid] = int(claims[sid]) + 1
+	return claims
+
+
+## One new Qi Refining cultivator, age 16. When [param parent] is non-empty, rolls the child's root from the parent's
+## location province and joins the parent's active sect only if the root passes outer admission (sects.md F21); else
+## starts loose at the parent's location.
 func new_cultivator(rng: RandomNumberGenerator, parent: Dictionary = {}, idx: Dictionary = {}) -> void:
+	if not parent.is_empty():
+		_birth_to_parent(rng, parent, idx)
+		return
+	var settled_info: Dictionary = _settled_places()
+	var bp_rec: Dictionary = _weighted_place(rng, settled_info.places, settled_info.weights)
+	var bp_id: String = str(bp_rec.get("id", ""))
+	var lc: LinhCan = LinhCan.roll(_gd, rng, LinhCan.province_land(_gd, bp_rec))
 	var npc: Dictionary = ProgressionEdges.config(_gd).npc
-	var opts := {"realm_index": 0, "stage": 0, "age": 16.0}
+	var opts := {"realm_index": 0, "stage": 0, "age": 16.0, "location_id": bp_id, "birthplace": bp_id, "linh_can": lc}
 	var sects: Array = _db.all("sects").filter(func(s): return str(s.get("status", "active")) == "active")
 	var sect: Dictionary = {}
-	var psect: Dictionary = _db.get_record("sects", str(parent.get("sect_id", ""))) if not parent.is_empty() else {}
-	if not psect.is_empty() and str(psect.get("status", "active")) != "active":
-		psect = {}
-	if not parent.is_empty() and psect.is_empty():
-		opts["location_id"] = str(parent.get("location_id", ""))
-	elif not psect.is_empty() or (parent.is_empty() and not sects.is_empty() and rng.randf() < float(npc.intake_sect_share)):
-		sect = psect if not psect.is_empty() else _intake_sect(rng, sects)
-		opts["sect_id"] = sect.id
-		opts["location_id"] = sect.hq_place_id
-		var u: float = rng.randf()
-		var rank: String = "ngoai_mon"
-		for r in npc.intake_rank_shares.keys():
-			u -= float(npc.intake_rank_shares[r])
-			if u < 0.0:
-				rank = str(r)
-				break
-		opts["sect_rank"] = rank
-		opts["master_id"] = SectEconomy.pick_master(_gd, _db, sect, 0, rng)   # Sects rule 20a
-	elif parent.is_empty():
-		opts["location_id"] = str(RngUtils.pick(rng, _db.all("places")).id)
+	if not sects.is_empty() and rng.randf() < float(npc.intake_sect_share):
+		var cand: Dictionary = _intake_sect(rng, sects)
+		if not cand.is_empty() and SectAdmission.admits_outer(_gd, cand, lc):
+			sect = cand
+			opts["sect_id"] = str(sect.id)
+			opts["location_id"] = str(sect.hq_place_id)
+			opts["sect_rank"] = "ngoai_mon"
+			opts["master_id"] = SectEconomy.pick_master(_gd, _db, sect, 0, rng)
 	var pid: String = _builds.create_person(rng, opts)
 	if not sect.is_empty():
 		sect.members.append(pid)
-	if not parent.is_empty():
-		Families.link(_gd, _db, _db.get_record("people", pid), parent, Ties.now(_db), false, idx)
+
+
+# Spawns a child born to [param parent] at age 16 Qi Refining with root rolled from the parent's location province.
+# Joins the parent's active sect at ngoai_mon iff the root passes SectAdmission.admits_outer; else stays loose.
+func _birth_to_parent(rng: RandomNumberGenerator, parent: Dictionary, idx: Dictionary) -> Dictionary:
+	var bp_id: String = str(parent.get("location_id", ""))
+	var parent_place: Dictionary = _db.get_record("places", bp_id) if bp_id != "" else {}
+	var lc: LinhCan = LinhCan.roll(_gd, rng, LinhCan.province_land(_gd, parent_place))
+	var opts := {
+		"realm_index": 0, "stage": 0, "age": 16.0,
+		"location_id": bp_id, "birthplace": bp_id, "linh_can": lc,
+	}
+	var psect: Dictionary = _db.get_record("sects", str(parent.get("sect_id", ""))) if str(parent.get("sect_id", "")) != "" else {}
+	if not psect.is_empty() and str(psect.get("status", "active")) != "active":
+		psect = {}
+	var joined: Dictionary = {}
+	if not psect.is_empty() and SectAdmission.admits_outer(_gd, psect, lc):
+		joined = psect
+		opts["sect_id"] = str(psect.id)
+		opts["sect_rank"] = "ngoai_mon"
+		opts["location_id"] = str(psect.hq_place_id)
+		opts["master_id"] = SectEconomy.pick_master(_gd, _db, psect, 0, rng)
+	else:
+		opts["sect_id"] = ""
+		opts["sect_rank"] = ""
+	var pid: String = _builds.create_person(rng, opts)
+	if not joined.is_empty():
+		joined.members.append(pid)
+	var rec: Dictionary = _db.get_record("people", pid)
+	Families.link(_gd, _db, rec, parent, Ties.now(_db), false, idx)
+	return rec
+
+
+func _settled_places() -> Dictionary:
+	var cont_cfg: Dictionary = _gd.world_gen().get("continent", {})
+	var settled_kinds: Array = Array(cont_cfg.get("settled_kinds", []))
+	var settle_w_cfg: Dictionary = Dictionary(cont_cfg.get("settle_weight", {}))
+	var places: Array = _db.find("places", func(p): return str(p.get("kind", "")) in settled_kinds and not bool(p.get("hidden", false)))
+	if places.is_empty():
+		places = _db.all("places").duplicate()
+	places.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		var ca: int = int(a.get("continent_id", 0))
+		var cb: int = int(b.get("continent_id", 0))
+		if ca != cb:
+			return ca < cb
+		return str(a.id) < str(b.id))
+	var weights: Array = []
+	for p in places:
+		weights.append(float(settle_w_cfg.get(str(p.get("kind", "")), 1.0)))
+	return {"places": places, "weights": weights}
+
+
+static func _weighted_place(rng: RandomNumberGenerator, places: Array, weights: Array) -> Dictionary:
+	if places.is_empty():
+		return {}
+	var total: float = 0.0
+	for w in weights:
+		total += maxf(float(w), 0.0)
+	if total <= 0.0:
+		return places[rng.randi_range(0, places.size() - 1)]
+	var x: float = rng.randf() * total
+	for i in places.size():
+		x -= maxf(float(weights[i]), 0.0)
+		if x < 0.0:
+			return places[i]
+	return places[-1]
+
+
+# Sects F21 `home`: birthplace in a great sect's territory/regions, or a minor sect's seat province / held sites.
+func _is_home_ground(sect: Dictionary, person: Dictionary) -> bool:
+	var bp_id: String = str(person.get("birthplace", person.get("location_id", "")))
+	if bp_id == "":
+		return false
+	var bp: Dictionary = _db.get_record("places", bp_id)
+	if bp.is_empty():
+		return false
+	var sid: String = str(sect.id)
+	if str(sect.get("kind", "")) == "great":
+		return str(bp.get("territory", "")) == sid or Array(sect.get("regions", [])).has(str(bp.get("region_id", "")))
+	if str(bp.get("holder", "")) == sid or str(bp.get("sect_id", "")) == sid or str(bp.get("territory", "")) == sid:
+		return true
+	var hq: Dictionary = _db.get_record("places", str(sect.get("hq_place_id", "")))
+	var hq_prov: String = str(hq.get("province_id", "")) if not hq.is_empty() else ""
+	if hq_prov != "":
+		return str(bp.get("province_id", "")) == hq_prov
+	var lord_id: String = str(sect.get("lord_id", ""))
+	if lord_id != "" and str(bp.get("territory", "")) == lord_id and str(bp.get("region_id", "")) == str(sect.get("region_id", "")):
+		return true
+	return str(sect.get("region_id", "")) != "" and str(bp.get("region_id", "")) == str(sect.get("region_id", ""))
+
+
+# Sects F21 `kin`: true when a parent or grandparent in WorldDB is a living member of [param sect].
+func _is_sect_kin(sect: Dictionary, person: Dictionary) -> bool:
+	var sid: String = str(sect.id)
+	var par_id: String = str(person.get("parent_id", ""))
+	if par_id == "":
+		return false
+	var par: Dictionary = _db.get_record("people", par_id)
+	if par.is_empty():
+		return false
+	if bool(par.get("alive", false)) and str(par.get("sect_id", "")) == sid:
+		return true
+	var gp_id: String = str(par.get("parent_id", ""))
+	if gp_id == "":
+		return false
+	var gp: Dictionary = _db.get_record("people", gp_id)
+	return not gp.is_empty() and bool(gp.get("alive", false)) and str(gp.get("sect_id", "")) == sid
 
 
 # Sects F17: the sect a new cultivator joins, weighted by each sect's intake this season (a sect at or over its target

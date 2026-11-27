@@ -29,6 +29,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import depth_export  # noqa: E402  (the world-depth reader, ADR-0009 decision 5)
+import depth_seats   # noqa: E402  (World Generation Formula F seat fit check, AC-WG-50)
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
 WORLD = os.path.join(ROOT, "design", "world")
@@ -209,10 +210,22 @@ class Export:
                 if st is None:
                     self.err("sect %s has no start-state row (sect_start_proposal.json)" % key)
                     continue
+                leans = list(g.get("leans", []))
                 rec = {"key": key, "name": g["name"], "name_han": g.get("name_han", ""), "gloss": g.get("gloss", ""),
-                       "kind": kind, "alignment": ALIGN.get(st["alignment"], st["alignment"]), "leans": g.get("leans", []),
+                       "kind": kind, "alignment": ALIGN.get(st["alignment"], st["alignment"]), "leans": leans,
+                       "lineage_elements": depth_export.sect_lineage_elements(key, leans),
                        "seat": g["seat"], "levels": st["levels"], "treasury": st["treasury"],
                        "founded": founded.get(key), "specialty": SPECIALTY.get(key, "")}
+                rb = depth_export.sect_recruit_by(key)
+                if not leans:
+                    if rb is None:
+                        self.err("sect %s: no-lean sect has no recruit_by mapping (Sects rule 20d)" % key)
+                    elif rb.get("talent") not in depth_export.VALID_RECRUIT_TALENTS or not isinstance(rb.get("kin"), bool):
+                        self.err("sect %s: invalid recruit_by %r" % (key, rb))
+                    else:
+                        rec["recruit_by"] = rb
+                elif rb is not None:
+                    self.err("sect %s: lean sect %s must not carry a no-lean recruit_by mapping" % (key, leans))
                 for k in ("seat_moved", "seat_array_density", "seat_array"):   # World Generation rules 16, 16a
                     if k in g:
                         rec[k] = g[k]
@@ -237,6 +250,24 @@ class Export:
                 out.append(rec)
         self.sect_keys = {s["key"] for s in out}
         return out
+
+    def check_seats(self, sects):
+        """World Generation rule 16 / Formula F / AC-WG-50: every sect's final seat must fit its leans
+        (innate variants such as Wind removed before testing; no-lean sects always pass)."""
+        places_by_id = {p["id"]: p for p in self.cont["places"]}
+        valid_ids = set(depth_seats.NAME.values())
+        for s in sects:
+            bad_leans = [el for el in s["leans"] if el not in valid_ids]
+            if bad_leans:
+                self.err("sect %s: non-canonical lean id(s) %s (run export_continent.py with seats.json)" % (s["key"], bad_leans))
+                continue
+            place = places_by_id.get(s["seat"])
+            if place is None or "qi" not in place:
+                self.err("sect %s: seat %s has no place qi for Formula F" % (s["key"], s["seat"]))
+                continue
+            ok, note = depth_seats.fit(place, s["leans"])
+            if not ok:
+                self.err("sect %s: seat %s fails Formula F (%s)" % (s["key"], s["seat"], note))
 
     def fallen(self):
         out = []
@@ -478,6 +509,7 @@ class Export:
 
     def build(self):
         sects = self.sects()
+        self.check_seats(sects)
         self.fallen_list = self.fallen()
         people = self.people()
         depth = depth_export.Depth(self, self.depth_keys) if self.depth_keys else None

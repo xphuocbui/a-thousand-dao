@@ -30,8 +30,9 @@ func _init(gd: GameData, tree: DaoDoTree, db: WorldDB) -> void:
 
 
 ## Creates and registers a person. Options (all optional):
-## realm_index, stage, archetype, sect_id, sect_rank, location_id, name, gender,
-## is_beast, age, created_by. Returns the person id.
+## realm_index, stage, archetype, sect_id, sect_rank, location_id, birthplace,
+## linh_can (LinhCan or Dictionary), land (province land dict for LinhCan.roll),
+## name, gender, is_beast, age, created_by, id, master_id. Returns the person id.
 ## The key of person [param pid]'s trait roll: the world's seed and the id.
 func trait_key(pid: String) -> String:
 	if trait_seed == "" and _db != null:
@@ -56,7 +57,16 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 	c.gender = str(opts.get("gender", "female" if rng.randf() < float(people_cfg.female_chance) else "male"))
 	c.name = str(opts.get("name", beast_name(rng) if c.is_beast else person_name(rng, c.gender)))
 	c.thien_phu = CharacterFactory.roll_thien_phu(_gd, rng)
-	c.linh_can = LinhCan.roll(_gd, rng)
+	if opts.has("linh_can"):
+		var raw_lc: Variant = opts["linh_can"]
+		if raw_lc is LinhCan:
+			c.linh_can = LinhCan.from_dict((raw_lc as LinhCan).to_dict())
+		elif raw_lc is Dictionary:
+			c.linh_can = LinhCan.from_dict(raw_lc)
+		else:
+			c.linh_can = LinhCan.roll(_gd, rng, opts.get("land", {}))
+	else:
+		c.linh_can = LinhCan.roll(_gd, rng, opts.get("land", {}))
 	if not c.is_beast:
 		arch_id = _fit_archetype(rng, arch_id, c.linh_can)
 		c.archetype = arch_id
@@ -77,8 +87,11 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 	if not c.is_beast and c.stage == _gd.stage_count(c.realm_index) - 1 and c.realm_index < q0.size():
 		# World Generation fate0: a person starting at a gate has rolled its fate already, at a mature gate's share
 		c.bt_fate = {"realm": c.realm_index, "ok": rng.randf() < float(q0[c.realm_index])}
+	var birthplace: String = str(opts.get("birthplace", ""))
 	var record: Dictionary = c.to_dict()
 	record["created_by"] = str(opts.get("created_by", "worldgen"))
+	if birthplace != "":
+		record["birthplace"] = birthplace
 	var pid: String = _db.add("people", record)
 	c.id = pid
 	if not c.is_beast and _gd.registry.has_file(NpcTraits.FILE):   # NPC Traits F4, keyed on the world and the id
@@ -92,6 +105,8 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 		_train_skills(c, rng, arch_id)
 	var fresh: Dictionary = c.to_dict()
 	fresh["created_by"] = record.created_by
+	if birthplace != "":
+		fresh["birthplace"] = birthplace
 	fresh["power"] = power_of(c)
 	_db.put("people", fresh)
 	if c.master_id != "":   # NPC Relationships rule 2: the tie and master_id together
