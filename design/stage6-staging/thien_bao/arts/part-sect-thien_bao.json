@@ -1,0 +1,779 @@
+[
+ {
+  "id": "assay-the-ore",
+  "name": "Assay the Ore (Thí Khoáng)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "heaven-treasure-refining-canon",
+  "tags": [
+   "metal",
+   "artifact",
+   "quick"
+  ],
+  "c_art": 1.5,
+  "cost_share": 0.03,
+  "cooldown": 2.5,
+  "kind": "phys",
+  "debuff": [
+   2,
+   8
+  ],
+  "effects": [
+   {
+    "id": "assay-earth-bonus",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "assay-the-ore"
+    },
+    "if": [
+     {
+      "read": "foe.debuff.earth",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "metal",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A quick Metal Physical strike through your artifact that lays 2 Metal debuff stacks for 8 s; against a foe carrying an Earth stack it lays 1 more.",
+  "hooks": [
+   "metal debuff stacks",
+   "earth debuff stacks",
+   "artifact",
+   "art speed"
+  ],
+  "sources": [
+   "world-depth:thien_bao"
+  ]
+ },
+ {
+  "id": "crucible-guard",
+  "name": "Crucible Guard (Dã Lô Thủ)",
+  "element": "earth",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "heaven-treasure-refining-canon",
+  "tags": [
+   "earth",
+   "metal",
+   "stance",
+   "ward",
+   "artifact"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 8.0,
+  "kind": "phys",
+  "buff": [
+   2,
+   8
+  ],
+  "guards": [
+   {
+    "read": "own.state.crucible-guard",
+    "op": "<",
+    "value": 1
+   }
+  ],
+  "counters": [
+   {
+    "id": "crucible_t"
+   }
+  ],
+  "states": [
+   {
+    "id": "crucible-guard",
+    "tags": [
+     "composed"
+    ],
+    "mods": {
+     "block": 12,
+     "resist": 40
+    }
+   }
+  ],
+  "effects": [
+   {
+    "id": "crucible-enter",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "crucible-guard"
+    },
+    "do": [
+     {
+      "state": {
+       "set": "crucible-guard"
+      }
+     },
+     {
+      "counter": {
+       "id": "crucible_t",
+       "set": 6
+      }
+     },
+     {
+      "shield": {
+       "body": 0.08
+      }
+     }
+    ]
+   },
+   {
+    "id": "crucible-retaliate",
+    "on": "was_hit",
+    "if": [
+     {
+      "read": "own.state.crucible-guard",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "limit": {
+     "per_pulse": 2
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.45,
+       "dtype": "phys"
+      }
+     },
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "stacks": {
+       "el": "metal",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "crucible-tick",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.crucible-guard",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.crucible_t",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "crucible_t",
+       "add": -1
+      }
+     }
+    ]
+   },
+   {
+    "id": "crucible-exit",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.crucible-guard",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.crucible_t",
+      "op": "<=",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A Composed stance lasting 6 s (+12 block, +40 resistance). Grants 2 Earth buff stacks (8 s) and a body shield of 8 % of your health; while it holds, your artifacts strike back at hits taken (c 0.45 Physical, up to twice a pulse) and lay 1 Earth stack and 1 Metal stack (8 s) on the attacker.",
+  "hooks": [
+   "stance",
+   "body shield",
+   "earth buff stacks",
+   "earth debuff stacks",
+   "free hits"
+  ],
+  "sources": [
+   "world-depth:thien_bao"
+  ]
+ },
+ {
+  "id": "hammer-price",
+  "name": "Hammer Price (Lạc Chùy)",
+  "element": "metal",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "heaven-treasure-refining-canon",
+  "tags": [
+   "metal",
+   "artifact",
+   "heavy"
+  ],
+  "c_art": 1.8,
+  "cost_share": 0.06,
+  "cooldown": 8.0,
+  "kind": "phys",
+  "guards": [
+   {
+    "read": "foe.debuff.metal",
+    "op": ">=",
+    "value": 1
+   }
+  ],
+  "counters": [
+   {
+    "id": "hammer_big"
+   },
+   {
+    "id": "hammer_keep"
+   }
+  ],
+  "effects": [
+   {
+    "id": "hammer-reset",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "hammer-price"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "hammer_big",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "hammer_keep",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "hammer-check-ten",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "hammer-price"
+    },
+    "if": [
+     {
+      "read": "foe.debuff.metal",
+      "op": ">=",
+      "value": 10
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "hammer_big",
+       "set": 1
+      }
+     },
+     {
+      "status": {
+       "id": "sundered",
+       "stacks": 1,
+       "dur": 4,
+       "side": "foe"
+      }
+     },
+     {
+      "status": {
+       "id": "silence",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe",
+       "tag": "artifact"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hammer-keep-third",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "hammer-price"
+    },
+    "if": [
+     {
+      "read": "foe.debuff.metal",
+      "op": ">=",
+      "value": 10
+     }
+    ],
+    "scale": {
+     "read": "foe.debuff.metal",
+     "per": 3
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "hammer_keep",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "hammer-consume",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "hammer-price"
+    },
+    "do": [
+     {
+      "consume": {
+       "el": "metal",
+       "side": "foe",
+       "kind": "debuff",
+       "then": [
+        {
+         "mod": {
+          "dmg_more": 0.14
+         }
+        }
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "hammer-clear",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.hammer_big",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "hammer_big",
+       "set": 0
+      }
+     },
+     {
+      "counter": {
+       "id": "hammer_keep",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Consumes all Metal debuff stacks on the foe for a heavy Metal Physical hit (+14 % damage per stack consumed, no cap). At 10 or more Metal stacks consumed, suppresses the foe's artifact edge (1 Sundered for 4 s and Silence on artifact-tagged arts for 3 s).",
+  "hooks": [
+   "metal debuff stacks",
+   "consume stacks",
+   "sundered",
+   "silence",
+   "artifact"
+  ],
+  "sources": [
+   "world-depth:thien_bao"
+  ]
+ },
+ {
+  "id": "name-the-flaw",
+  "name": "Name the Flaw (Chỉ Hà)",
+  "element": "metal",
+  "role": "curse",
+  "tier": "authored",
+  "power": "engine",
+  "group": "appraisers-eye",
+  "tags": [
+   "metal",
+   "curse"
+  ],
+  "c_art": 1.4,
+  "cost_share": 0.03,
+  "cooldown": 5.0,
+  "kind": "phys",
+  "debuff": [
+   1,
+   8
+  ],
+  "effects": [
+   {
+    "id": "name-the-flaw-mark",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "name-the-flaw"
+    },
+    "do": [
+     {
+      "mod": {
+       "bypass": 0.2,
+       "pen": 50,
+       "dmg_more": 0.12,
+       "for": 5
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Strikes and marks the foe's flaw (1 Metal stack for 8 s, and for 5 s your hits pierce 20 % of their ward shields, ignore 50 resistance points and deal 12 % more damage).",
+  "hooks": [
+   "bypass",
+   "resistance penetration",
+   "damage more"
+  ],
+  "sources": [
+   "world-depth:thien_bao"
+  ]
+ },
+ {
+  "id": "third-price",
+  "name": "Third Price (Đệ Tam Giá)",
+  "element": "metal",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "appraisers-eye",
+  "tags": [
+   "metal"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 6.0,
+  "kind": "phys",
+  "counters": [
+   {
+    "id": "third_price_hits"
+   }
+  ],
+  "effects": [
+   {
+    "id": "third-price-reveal",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "third-price"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "third_price_hits",
+       "set": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "third-price-mod",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.third_price_hits",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "pen": 120,
+       "dmg_more": 0.25
+      }
+     }
+    ]
+   },
+   {
+    "id": "third-price-spend",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "art"
+    },
+    "if": [
+     {
+      "read": "own.counter.third_price_hits",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "third_price_hits",
+       "add": -1
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Appraises the foe's strongest guard and lowers its hold for your next 3 art hits: each ignores 120 resistance points and deals 25 % more damage.",
+  "hooks": [
+   "resistance penetration",
+   "damage more"
+  ],
+  "sources": [
+   "world-depth:thien_bao"
+  ]
+ },
+ {
+  "id": "the-treasure-answers",
+  "name": "The Treasure Answers (Bảo Ứng)",
+  "element": "metal",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "warm-nurtured-treasure-sutra",
+  "tags": [
+   "metal",
+   "artifact"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 8.0,
+  "kind": "phys",
+  "effects": [
+   {
+    "id": "treasure-answers-buff",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-treasure-answers"
+    },
+    "do": [
+     {
+      "mod": {
+       "L3": 35,
+       "dmg_more": 0.15,
+       "tags": [
+        "artifact"
+       ],
+       "for": 6
+      }
+     },
+     {
+      "mod": {
+       "stack_dur": 50,
+       "element": "metal",
+       "kind": "debuff",
+       "for": 6
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "For 6 s every artifact art you fire strikes with the grown treasure's grade (L3 +35 and +15 % more damage on artifact arts), and Metal debuff stacks you apply last 50 % longer.",
+  "hooks": [
+   "artifact",
+   "stack duration",
+   "metal debuff stacks"
+  ],
+  "sources": [
+   "world-depth:thien_bao"
+  ]
+ },
+ {
+  "id": "pawn-the-pearl",
+  "name": "Pawn the Pearl (Điển Châu)",
+  "element": "metal",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "warm-nurtured-treasure-sutra",
+  "tags": [
+   "metal",
+   "ward",
+   "artifact"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 3.0,
+  "kind": "phys",
+  "guards": [
+   {
+    "read": "own.counter.pearl_armed",
+    "op": "==",
+    "value": 0
+   },
+   {
+    "read": "own.counter.pearl_cracked",
+    "op": "==",
+    "value": 0
+   }
+  ],
+  "counters": [
+   {
+    "id": "pearl_armed",
+    "cap": 1
+   },
+   {
+    "id": "pearl_cracked",
+    "cap": 1
+   },
+   {
+    "id": "seal_ward_protects",
+    "cap": 1
+   },
+   {
+    "id": "has_grown_pearl",
+    "cap": 1
+   }
+  ],
+  "effects": [
+   {
+    "id": "pawn-pearl-arm",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "pawn-the-pearl"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "pearl_armed",
+       "set": 1
+      }
+     },
+     {
+      "shield": {
+       "body": 0.06
+      }
+     },
+     {
+      "mod": {
+       "ward_pct": 10,
+       "for": 8
+      }
+     }
+    ]
+   },
+   {
+    "id": "pawn-pearl-save",
+    "on": "down",
+    "if": [
+     {
+      "read": "own.counter.pearl_armed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.pearl_cracked",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.seal_ward_protects",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.has_grown_pearl",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "limit": {
+     "per_fight": 1
+    },
+    "do": [
+     {
+      "refuse_down": {
+       "hp_share": 0.15
+      }
+     },
+     {
+      "counter": {
+       "id": "pearl_cracked",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pearl_armed",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "pawn-pearl-crack",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.pearl_cracked",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "ward_pct": -10,
+       "L1": -10
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Brings the inner treasure forward (6 % body shield and +10 % ward strength for 8 s) and arms it once a fight: a blow that would put you Down is taken by the grown treasure instead, leaving you at 15 % health; it cracks and loses its combat strength (ward_pct -10, L1 -10) for the rest of the fight.",
+  "hooks": [
+   "refuse down",
+   "body shield",
+   "ward strength"
+  ],
+  "sources": [
+   "world-depth:thien_bao"
+  ]
+ },
+ {
+  "id": "brook-rinse",
+  "name": "Brook Rinse (Khê Thủy Tẩy Trần)",
+  "element": "water",
+  "role": "heal",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "brook-wash-breath",
+  "tags": [
+   "heal"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 5.0,
+  "kind": "elem",
+  "c_heal": 0.5,
+  "rule": "Draws clear brook water through the meridians to rinse away strain: a small heal.",
+  "hooks": [
+   "healing",
+   "health regeneration"
+  ],
+  "sources": [
+   "world-depth:thien_bao"
+  ]
+ }
+]

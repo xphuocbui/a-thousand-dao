@@ -1,0 +1,26 @@
+{"owner": "thien_bao", "minutes": 15,
+ "written": {"techniques": 4, "arts": 8, "items": 6, "sets": 2, "effects": 4, "stand_ins": 2, "beasts": 0},
+ "deviations": 14,
+ "decisions": [
+  "New stand-in technique brook-wash-breath (moc, thuy) for hired Quan brook-washers: neither has Metal and both are explicitly excluded from the canon",
+  "Hammer Price 10+ stack artifact suppression mapped to sundered (4 s) + silence [artifact] (3 s): reuses existing words while covering both artifact arts and gear defence",
+  "Third Price modifier-lowering mapped to 3-charge art-hit buff (pen 120, dmg_more 0.25): matches 'next three hits' cleanly without editing opponent items",
+  "The Treasure Answers grown-treasure grade mapped to L3 +35 and dmg_more 0.15 [artifact] + stack_dur +50 Metal debuff (6 s): uses L3 gear layer in CTX_MODS",
+  "Crucible Guard counter-hits lay 1 Earth + 1 Metal stack (8 s): feeds Assay the Ore's Earth check and Hammer Price's 10-stack threshold in pure-lineage kits",
+  "Pawn the Pearl kept as an active ward art and coordinated via has_grown_pearl: avoids technique-effects dependency and yields to Grown, Not Made when the Pearl item is worn",
+  "Sold (burn_qi 0.25 qi_max + ward_grow 0.25 hp) and Going Once, Going Twice (1/3 Metal keep, 2nd crit Bought Fate flip, ward-spending Down save within refusals=1 cap)",
+  "Fights With What He Made defence ignore mapped to pen 95 (~20 % of Ket Dan typical ward): works at gap 0 unlike realm-suppression pierce"
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Sold (gap 1 only): phan_vat_hoa loses to Hoa Than at 16.1 s before 2nd Hammer Price reaches 10 stacks; ran 20 times at gap 0 (14.6 vs 17.9 s) and 31 times vs sturdy foe",
+  "Grown, Not Made (gap 0 only): phan_vat_hoa wins 20/20 at 100 % HP; ran 40 times at gap 1 (20 saves on down)",
+  "Fights With What He Made sword strike in default sect_fight: sect_fight slots 6 technique arts before item common art flying-sword-strike; real-kit probe ran 139 sword strikes (12.57 vs 14.97 s)"
+ ],
+ "early_promotions": [],
+ "open": [
+  "export_named.py skips kind: treasure (tb-land-riches-seal, tb-grown-red-pearl)",
+  "artifact_attack_pct (2 open lines in depth_gap.py: tb-red-gold-furnace-sword and tb-xich-kim-furnace 2-piece set; item-level already in CombatPower, set-level and fight.py open)",
+  "Out-of-fight halves: Grown, Not Made unstealable/unsellable rule; Going Once, Going Twice spirit-stone exemption and refusals=1 cap",
+  "phan_vat_hoa 18 ties (>16 cap, trimmed at Stage 7 export)"
+ ]}

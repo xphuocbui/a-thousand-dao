@@ -20,9 +20,9 @@
    "tier": 2, "tech_kind": "main", "names": ["kim", "tho"], "layers": 12, "rank": "noi_mon",
    "concept": "The studio's canon, written on its founding sign: the riches of the land are heaven's treasures. The refiner draws Metal out of ore and Earth out of the ground that held it, and learns to tell the two apart in the body as in the crucible. Each layer is opened by refining one piece to a grade the refiner has not reached before, so the canon and the craft climb together. In a fight it is a refiner's fight: artifacts carry the damage, Metal stacks crack the foe's guard, and Earth holds the refiner up while the treasures work.",
    "arts": [
-    {"new": "Assay the Ore (Thí Khoáng)", "concept": "A strike through the holder's artifact that deals Metal damage and adds Metal stacks; against a foe already carrying Earth stacks it adds one more."},
-    {"new": "Crucible Guard (Dã Lô Thủ)", "concept": "A stance: for a few seconds the holder's artifacts strike back at anyone who hits them, and the holder gains body shield from Earth."},
-    {"new": "Hammer Price (Lạc Chùy)", "concept": "Spends all Metal stacks on one foe for a heavy Metal hit; at ten or more stacks the foe's highest-grade artifact is suppressed for a few seconds."}
+    {"id": "assay-the-ore", "new": "Assay the Ore (Thí Khoáng)", "concept": "A strike through the holder's artifact that deals Metal damage and adds Metal stacks; against a foe already carrying Earth stacks it adds one more."},
+    {"id": "crucible-guard", "new": "Crucible Guard (Dã Lô Thủ)", "concept": "A stance: for a few seconds the holder's artifacts strike back at anyone who hits them, and the holder gains body shield from Earth."},
+    {"id": "hammer-price", "new": "Hammer Price (Lạc Chùy)", "concept": "Spends all Metal stacks on one foe for a heavy Metal hit; at ten or more stacks the foe's highest-grade artifact is suppressed for a few seconds."}
    ],
    "lore": "Written by the founder Diêm Hóa Kim in 350 on the back of the studio's first sign (A175), and rewritten by the second head Ung Thiên Kim after the red gold of Xích Kim was found (A176).",
    "status": "proposal"
@@ -33,8 +33,8 @@
    "tier": 1, "tech_kind": "secret", "names": ["kim"], "layers": 9, "rank": "noi_mon",
    "concept": "The auction floor's art. The inner disciple learns to see a thing's grade, its maker's hand and its flaw by the colour its Metal throws in qi-light. In a fight the same eye finds the flaw in a foe's guard and gear: the holder marks a foe, sees through some of their ward, and lands harder on what they are carrying.",
    "arts": [
-    {"new": "Name the Flaw (Chỉ Hà)", "concept": "Marks a foe for a few seconds: the holder's hits pierce part of their ward and deal more damage to them."},
-    {"new": "Third Price (Đệ Tam Giá)", "concept": "Reveals the foe's strongest equipped artifact and lowers its modifiers for the holder's next three hits."}
+    {"id": "name-the-flaw", "new": "Name the Flaw (Chỉ Hà)", "concept": "Marks a foe for a few seconds: the holder's hits pierce part of their ward and deal more damage to them."},
+    {"id": "third-price", "new": "Third Price (Đệ Tam Giá)", "concept": "Reveals the foe's strongest equipped artifact and lowers its modifiers for the holder's next three hits."}
    ],
    "lore": "Taught on the auction floor at Vật Hoa Thị, never in the hall. The rule is that an appraiser who uses it to cheat a buyer loses the eye.",
    "status": "proposal"
@@ -45,10 +45,18 @@
    "tier": 2, "tech_kind": "secret", "names": ["kim"], "layers": 12, "rank": "truong_lao",
    "concept": "The method of growing an artifact inside the body instead of making it on an anvil. A seed of metal is set in the dantian and fed qi for decades, and it grows as its keeper does. A treasure grown this way cannot be stolen or sold, only inherited by one who can take it in. In a fight the grown treasure answers its keeper before any other piece, strengthens every artifact they carry, and once a fight takes a blow in their place.",
    "arts": [
-    {"new": "The Treasure Answers (Bảo Ứng)", "concept": "For a few seconds every artifact the holder carries strikes with the grown treasure's grade, and Metal stacks the holder applies last longer."},
-    {"new": "Pawn the Pearl (Điển Châu)", "concept": "Once a fight, a blow that would kill the holder is taken by the grown treasure instead; it cracks and its modifiers are lost for the rest of the fight."}
+    {"id": "the-treasure-answers", "new": "The Treasure Answers (Bảo Ứng)", "concept": "For a few seconds every artifact the holder carries strikes with the grown treasure's grade, and Metal stacks the holder applies last longer."},
+    {"id": "pawn-the-pearl", "new": "Pawn the Pearl (Điển Châu)", "concept": "Once a fight, a blow that would kill the holder is taken by the grown treasure instead; it cracks and its modifiers are lost for the rest of the fight."}
    ],
    "lore": "Ung Thiên Kim brought it to the studio. It is taught only to the mistress and her first refiner, and only one person has grown a treasure with it to full size.",
+   "status": "proposal"
+  },
+  {
+   "id": "brook-wash-breath",
+   "name": "Brook-Wash Breathing (Khê Thủy Tẩy Trần Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "tap_dich",
+   "concept": "The hired brook-washers' method at Khê Thanh Thôn, for Wood and Water hands who have no Metal and are never taught the studio's canon (Stage 6 stand-in ruling). Promoted: design/techniques/catalogue-sect-thien_bao.json.",
+   "arts": [{"id": "brook-rinse", "new": "Brook Rinse (Khê Thủy Tẩy Trần)", "concept": "Draws clear brook water through the meridians to rinse away strain: a small heal."}],
    "status": "proposal"
   }
  ]

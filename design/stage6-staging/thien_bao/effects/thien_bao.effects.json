@@ -1,0 +1,405 @@
+{
+ "_doc": "Thiên Bảo Trai's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:thien_bao. Unpriced. Rule text from design/world/depth/sects/thien_bao.items.json.",
+ "source": "world-depth:thien_bao",
+ "effects": {
+  "Sold": {
+   "rule": "Seal of the Land's Riches: when Hammer Price spends 10 or more Metal stacks on a foe, the seal strikes the foe's ward as well: the foe loses 25 % of its maximum linh lực and you gain a stance ward of 25 % of your maximum health.",
+   "approx": "the foe's ward loss is modelled as burn_qi of 25 % of its maximum linh lực (weakening its main drain ward); the gained ward is a stance ward of 25 % max health.",
+   "counters": [
+    {
+     "id": "hammer_big"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Sold",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "hammer-price"
+     },
+     "if": [
+      {
+       "read": "own.counter.hammer_big",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "burn_qi": {
+        "of": "qi_max",
+        "share": 0.25
+       }
+      },
+      {
+       "ward_grow": {
+        "share": 0.25,
+        "of": "hp"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Grown, Not Made": {
+   "rule": "The Grown Red Pearl: cannot be stolen, sold or broken out of combat. Once a fight, a blow that would put you Down is taken by the pearl instead (leaving you at 15 % health); it cracks for the rest of the fight and loses its combat modifiers (ward_pct -10, L1 -10, Metal buff stack_dur -24). Skipped while Going Once, Going Twice spends the Seal's ward instead.",
+   "counters": [
+    {
+     "id": "pearl_cracked",
+     "cap": 1
+    },
+    {
+     "id": "seal_ward_protects",
+     "cap": 1
+    },
+    {
+     "id": "has_grown_pearl",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Grown, Not Made mark",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "has_grown_pearl",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Grown, Not Made save",
+     "on": "down",
+     "if": [
+      {
+       "read": "own.counter.pearl_cracked",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.seal_ward_protects",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "refuse_down": {
+        "hp_share": 0.15
+       }
+      },
+      {
+       "counter": {
+        "id": "pearl_cracked",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Grown, Not Made crack",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.pearl_cracked",
+       "op": ">=",
+       "value": 1
+      }
+    ],
+     "do": [
+      {
+       "mod": {
+        "ward_pct": -10,
+        "L1": -10
+       }
+      },
+      {
+       "mod": {
+        "stack_dur": -24,
+        "element": "metal",
+        "kind": "buff"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Going Once, Going Twice": {
+   "rule": "Hammer, Pearl and Coin, full set: when Hammer Price spends 10 or more Metal stacks, you keep a third of them on the foe; Bought Fate may flip a second crit taken per fight by spending 4 % of max health from the stance ward taken by the Seal; and while you hold that stance ward, a killing blow spends the stance ward instead of cracking the Pearl.",
+   "approx": "Effects rule 11 caps Down refusals at 1 per fight (`refusals: 1`), so while the Seal's stance ward holds, the Pearl's save spends that ward instead of cracking rather than granting a second Down refusal in the same fight; spirit stones are not in the sim.",
+   "counters": [
+    {
+     "id": "hammer_big"
+    },
+    {
+     "id": "hammer_keep"
+    },
+    {
+     "id": "fate_flip_seen",
+     "cap": 1
+    },
+    {
+     "id": "seal_ward_protects",
+     "cap": 1
+    },
+    {
+     "id": "pearl_cracked",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Going Once, Going Twice keep",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "hammer-price"
+     },
+     "if": [
+      {
+       "read": "own.counter.hammer_big",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.hammer_keep",
+      "per": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "seal_ward_protects",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Going Once, Going Twice ward_check",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "seal_ward_protects",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Going Once, Going Twice ward_gone",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.ward_share",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "seal_ward_protects",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Going Once, Going Twice fate",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.crit",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.fate_flip_seen",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 0.4
+       }
+      },
+      {
+       "ward_grow": {
+        "share": -0.04,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Going Once, Going Twice fate_arm",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.crit",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.fate_flip_seen",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "fate_flip_seen",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Going Once, Going Twice pearl_ward",
+     "on": "down",
+     "if": [
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "refuse_down": {
+        "hp_share": 0.15
+       }
+      },
+      {
+       "ward_grow": {
+        "share": -1.0,
+        "of": "peak"
+       }
+      },
+      {
+       "counter": {
+        "id": "seal_ward_protects",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Fights With What He Made": {
+   "rule": "The Xích Kim Furnace, full set: when you block a hit, your Sword's next strike comes hot from the furnace: it deals 30 % more damage, ignores 95 resistance points (~20 % of a typical ward) and adds 2 Metal stacks (8 s).",
+   "approx": "ignores 20 % of the target's defence is modelled as pen 95 (resistance penetration in points, ~20 % of a Kết Đan foe's typical ~479 ward points), since engine `pierce` only pierces realm suppression.",
+   "counters": [
+    {
+     "id": "furnace_hot",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Fights With What He Made block",
+     "on": "blocked",
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_hot",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fights With What He Made mod",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.furnace_hot",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.3,
+        "pen": 95,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Fights With What He Made strike",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.furnace_hot",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 2,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "furnace_hot",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
