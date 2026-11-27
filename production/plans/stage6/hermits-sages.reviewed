@@ -1,0 +1,13 @@
+{
+ "owner": "hermits-sages",
+ "minutes": 15,
+ "must_fix": 2,
+ "should": 4,
+ "fixed": 6,
+ "words": {},
+ "open": [
+  "lint-song-scope (s6-serial-b06): add 'song': 'family' to tools/design/arts/lint_techniques.py TIER (fight.py and GDScript already support 'song' in tags, and modifiers.md rule 9 defines 'song') and restore scope ['song'] on hs-between-the-notes-flute",
+  "characters/engine: add element_affinity_pct to CHARACTER_MODS and GDScript StatSheet (1 open lines gap on hs-purple-smoke-furnace; 55.7 W of 51.2 noted as unpriced world-depth)",
+  "events/craft: wire out-of-fight halves of Purple Smoke on the Burner (not_run: alchemy +1 grade / half dan doc and abode A-2 choice), Mirror of Seas and Fields (scrying), and North-Wind Breath (abode A-1 bolt)"
+ ]
+}

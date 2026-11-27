@@ -48,12 +48,15 @@
   "Noon on One Side": {
    "rule": "Blazing Sun Fan: each sweep of the fan (fan-tagged art or Fan Gust) lays 2 Fire stacks (6 s) on the foe and cleanses 1 Ice stack from you; when the foe holds 5 or more Fire stacks, your next sweep turns them into a burst (0.25 c Fire per stack) and once a fight melts frost resistance (Sundered 4 s + 0.4 c shield-passing Fire burst).",
    "approx": "Frost-ward melting is expressed once per fight as Sundered (4 s) + 0.4 c shield-passing Fire burst because no engine action removes foe ward shields directly; 'foes in front of you' narrowed to 1v1.",
+   "counters": [
+    {"id": "noon_melted"}
+   ],
    "records": [
-    {"id": "eff:Noon on One Side melt fan", "on": "art_fired", "filter": {"tags": ["fan"]}, "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 5}], "limit": {"per_fight": 1}, "do": [{"status": {"id": "sundered", "stacks": 1, "dur": 4, "side": "foe"}}, {"free_hit": {"c": 0.4, "dtype": "fire", "pass_shields": true}}]},
-    {"id": "eff:Noon on One Side melt gust", "on": "art_fired", "filter": {"art_id": "fan-gust"}, "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 5}], "limit": {"per_fight": 1}, "do": [{"status": {"id": "sundered", "stacks": 1, "dur": 4, "side": "foe"}}, {"free_hit": {"c": 0.4, "dtype": "fire", "pass_shields": true}}]},
-    {"id": "eff:Noon on One Side burst fan", "on": "art_fired", "filter": {"tags": ["fan"]}, "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 5}], "do": [{"consume": {"el": "fire", "side": "foe", "per": 1, "then": [{"free_hit": {"c": 0.25, "dtype": "fire"}}]}}]},
+    {"id": "eff:Noon on One Side melt fan", "on": "art_fired", "filter": {"tags": ["fan"], "not_art_id": "fan-gust"}, "if": [{"read": "own.counter.noon_melted", "op": "==", "value": 0}, {"read": "foe.debuff.fire", "op": ">=", "value": 5}], "do": [{"status": {"id": "sundered", "stacks": 1, "dur": 4, "side": "foe"}}, {"free_hit": {"c": 0.4, "dtype": "fire", "pass_shields": true}}, {"counter": {"id": "noon_melted", "set": 1}}]},
+    {"id": "eff:Noon on One Side melt gust", "on": "art_fired", "filter": {"art_id": "fan-gust"}, "if": [{"read": "own.counter.noon_melted", "op": "==", "value": 0}, {"read": "foe.debuff.fire", "op": ">=", "value": 5}], "do": [{"status": {"id": "sundered", "stacks": 1, "dur": 4, "side": "foe"}}, {"free_hit": {"c": 0.4, "dtype": "fire", "pass_shields": true}}, {"counter": {"id": "noon_melted", "set": 1}}]},
+    {"id": "eff:Noon on One Side burst fan", "on": "art_fired", "filter": {"tags": ["fan"], "not_art_id": "fan-gust"}, "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 5}], "do": [{"consume": {"el": "fire", "side": "foe", "per": 1, "then": [{"free_hit": {"c": 0.25, "dtype": "fire"}}]}}]},
     {"id": "eff:Noon on One Side burst gust", "on": "art_fired", "filter": {"art_id": "fan-gust"}, "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 5}], "do": [{"consume": {"el": "fire", "side": "foe", "per": 1, "then": [{"free_hit": {"c": 0.25, "dtype": "fire"}}]}}]},
-    {"id": "eff:Noon on One Side sweep fan", "on": "art_fired", "filter": {"tags": ["fan"]}, "do": [{"stacks": {"el": "fire", "n": 2, "for": 6, "side": "foe"}}, {"cleanse": {"n": 1, "el": "ice"}}]},
+    {"id": "eff:Noon on One Side sweep fan", "on": "art_fired", "filter": {"tags": ["fan"], "not_art_id": "fan-gust"}, "do": [{"stacks": {"el": "fire", "n": 2, "for": 6, "side": "foe"}}, {"cleanse": {"n": 1, "el": "ice"}}]},
     {"id": "eff:Noon on One Side sweep gust", "on": "art_fired", "filter": {"art_id": "fan-gust"}, "do": [{"stacks": {"el": "fire", "n": 2, "for": 6, "side": "foe"}}, {"cleanse": {"n": 1, "el": "ice"}}]}
    ]
   },
@@ -71,14 +74,15 @@
   },
   "The World Before": {
    "rule": "What the Old Man Kept, full set (2 pieces): when the Vase of the Abyss spills, the foe's clock stops for 2 s while yours runs, and each art you fire in those 2 s lays 1 stack (6 s) of every element you own (Fire, Water, Earth, Metal, Wood, Ice, Light) on the foe.",
+   "approx": "Effects cannot read own.purity.<el>, so Mạc Quy Khư's seven stack-bearing elements (Fire, Water, Earth, Metal, Wood, Ice, Light) are listed explicitly.",
    "counters": [
     {"id": "vase_spilled"},
     {"id": "world_before_win"}
    ],
    "records": [
+    {"id": "eff:The World Before tick", "on": "pulse", "if": [{"read": "own.counter.world_before_win", "op": ">=", "value": 1}], "do": [{"counter": {"id": "world_before_win", "add": -1}}]},
     {"id": "eff:The World Before spill", "on": "pulse", "if": [{"read": "own.counter.vase_spilled", "op": ">=", "value": 1}], "limit": {"per_fight": 1}, "do": [{"stop_clock": {"side": "foe", "seconds": 2.0}}, {"counter": {"id": "world_before_win", "set": 2}}, {"counter": {"id": "vase_spilled", "set": 0}}]},
-    {"id": "eff:The World Before cast", "on": "art_fired", "if": [{"read": "own.counter.world_before_win", "op": ">=", "value": 1}], "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "water", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "earth", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "metal", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "wood", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "ice", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "light", "n": 1, "for": 6, "side": "foe"}}]},
-    {"id": "eff:The World Before tick", "on": "pulse", "if": [{"read": "own.counter.world_before_win", "op": ">=", "value": 1}], "do": [{"counter": {"id": "world_before_win", "add": -1}}]}
+    {"id": "eff:The World Before cast", "on": "art_fired", "if": [{"read": "own.counter.world_before_win", "op": ">=", "value": 1}], "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "water", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "earth", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "metal", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "wood", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "ice", "n": 1, "for": 6, "side": "foe"}}, {"stacks": {"el": "light", "n": 1, "for": 6, "side": "foe"}}]}
    ]
   },
   "The Crane Wakes": {
