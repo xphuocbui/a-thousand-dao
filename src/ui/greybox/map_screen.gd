@@ -524,6 +524,8 @@ func _process(_delta: float) -> void:
 			_on_choice_done(out)
 		"talk":
 			_on_talk_done(out)
+		"interact":
+			_on_interact_done(out)
 		"window":
 			_on_window_action_done(out)
 		"save":
@@ -966,6 +968,7 @@ func _refresh() -> void:
 	var s_tex: Texture2D = _season_tex.get(int(GameQuery.clock(session).season))
 	_season_icon.texture = s_tex
 	_season_icon.visible = s_tex != null
+	turn.set_focus_yield(int(GameQuery.season_focus_yield(session).get("pct", 100)))
 	_refresh_focus()
 	_refresh_outliner()
 	_refresh_map(str(snap.location_id))
@@ -1524,13 +1527,33 @@ func _open_practice_fight(person_id: String) -> void:
 	_fight.open_fight(f, tr("Practice fight (a preview: nothing changes)"))
 
 
-## A verb from the person window: only Greet exists in the greybox (the session's talk action).
-func _on_verb(person_id: String, verb_id: String) -> void:
-	if _busy() or verb_id != "greet":
+## Executes an NPC Interaction & Dialogue (#30) verb through GameSession.interact on the worker thread.
+func _on_verb(person_id: String, verb_id: String, params: Dictionary = {}) -> void:
+	if _busy() or person_id == "" or verb_id == "":
 		return
-	_job_kind = "talk"
+	_job_kind = "interact"
 	_talk_target = person_id
-	_job.start(session.run.bind(session.talk.bind(person_id, tr("Greetings."))))
+	_job.start(session.run.bind(session.interact.bind(person_id, verb_id, params)))
+
+
+func _on_interact_done(result: Dictionary) -> void:
+	var lines: Array = Array(result.get("lines", []))
+	if lines.is_empty() and str(result.get("reply", "")) != "":
+		lines = [str(result.get("reply", ""))] + Array(result.get("effect_lines", []))
+	_last_action_line = ("ok: " if bool(result.get("ok", false)) else "refused: ") + (str(lines[0]) if not lines.is_empty() else "")
+	if not _person_open() or _person_shown() != _talk_target:
+		_open_person(_talk_target, _end_turn)
+	else:
+		_win.refresh()
+	_win.show_reply(lines)
+	_refresh()
+	if bool(result.get("scene_started", false)) or session.has_pending_event():
+		_show_event()
+	elif result.has("fight_view") and result.fight_view is Dictionary and bool((result.fight_view as Dictionary).get("ok", false)):
+		_tips.close_all()
+		_fight_person = _talk_target
+		_win.close_panel()
+		_fight.open_fight(result.fight_view, tr("Spar (non-lethal foreseen fight)"))
 
 
 func _on_talk_done(result: Dictionary) -> void:
@@ -1551,10 +1574,14 @@ func _people_lines(place_id: String) -> Array:
 func _open_comparison(preselect: String, travel_place: String) -> void:
 	if _busy() or session.has_pending_event():
 		return
-	var opts: Array = [{"id": TurnController.FOCUS_CULTIVATE, "label": tr("Cultivate"), "note": tr("one season here"), "enabled": true}]
-	opts.append({"id": TurnController.FOCUS_EXPLORE, "label": tr("Explore"), "note": tr("search this place for a season"), "enabled": true})
+	var fy: Dictionary = GameQuery.season_focus_yield(session)
+	var tax_note: String = ""
+	if float(fy.get("used", 0.0)) > 0.0:
+		tax_note = tr(" (%d%% yield — %.2f season spent)") % [int(fy.get("pct", 100)), float(fy.get("used", 0.0))]
+	var opts: Array = [{"id": TurnController.FOCUS_CULTIVATE, "label": tr("Cultivate"), "note": tr("one season here") + tax_note, "enabled": true}]
+	opts.append({"id": TurnController.FOCUS_EXPLORE, "label": tr("Explore"), "note": tr("search this place for a season") + tax_note, "enabled": true})
 	var work: bool = Advisor.can_work_here(session)
-	opts.append({"id": TurnController.FOCUS_MISSION, "label": tr("Mission"), "note": tr("a mission or bounty here"), "enabled": work,
+	opts.append({"id": TurnController.FOCUS_MISSION, "label": tr("Mission"), "note": tr("a mission or bounty here") + tax_note, "enabled": work,
 		"reason": tr("No work here: go to your sect's headquarters or a town or city with bounties.")})
 	var dest: String = travel_place if travel_place != "" else turn.destination_id
 	if dest != "":
@@ -1566,8 +1593,11 @@ func _open_comparison(preselect: String, travel_place: String) -> void:
 			what.append(tr("sect"))
 		if bool(rec.get("bounties", false)):
 			what.append(tr("bounties"))
+		var travel_note: String = ", ".join(what)
+		if tax_note != "":
+			travel_note = (travel_note + tax_note) if travel_note != "" else tax_note.strip_edges()
 		opts.append({"id": TurnController.FOCUS_TRAVEL + ":" + dest, "label": tr("Travel to") + " " + str(rec.get("name", dest)),
-			"note": ", ".join(what), "enabled": true})
+			"note": travel_note, "enabled": true})
 	var pre: String = preselect
 	if preselect == TurnController.FOCUS_TRAVEL and dest != "":
 		pre = TurnController.FOCUS_TRAVEL + ":" + dest
@@ -1843,7 +1873,8 @@ func _on_window_action(_kind: String, action: String, args: Array) -> void:
 		return
 	match action:   # the character sheet's Interact tab (another person): the map screen's own flows, not session commands
 		"person_verb":
-			_on_verb(str(args[0]), str(args[1]))
+			var verb_params: Dictionary = args[2] if args.size() > 2 and args[2] is Dictionary else {}
+			_on_verb(str(args[0]), str(args[1]), verb_params)
 			return
 		"person_pin":
 			_on_pin(str(args[0]), bool(args[1]))

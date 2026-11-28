@@ -1387,6 +1387,618 @@
           }
         }
       ]
+    },
+    {
+      "id": "loan_collection",
+      "hook": "interaction",
+      "weight": 10,
+      "place_types": [],
+      "npc": {
+        "mode": "bound"
+      },
+      "title": "Chủ nợ tìm tới đòi linh thạch",
+      "text": "{npc} ({npc_realm}) chặn trước mặt ngươi tại {place}, sắc mặt lạnh băng: \"Khoản linh thạch năm xưa đã quá hạn. Hôm nay ngươi định trả hay định quỵt?\"",
+      "choices": [
+        {
+          "label": "Trả đủ linh thạch và tạ lỗi",
+          "check": {
+            "type": "none"
+          },
+          "always": [
+            {
+              "type": "linh_thach",
+              "budget_frac": [
+                -0.35,
+                -0.25
+              ]
+            }
+          ],
+          "success": {
+            "text": "Ngươi giao đủ linh thạch. Sắc mặt {npc} dịu lại đôi chút: \"Coi như ngươi còn giữ chút chữ tín.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 10
+              }
+            ]
+          }
+        },
+        {
+          "label": "Khéo lời xin khất thêm (Mị lực)",
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 55
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} hừ lạnh nhưng vẫn tạm bỏ qua lần này: \"Đừng để ta phải nhắc lần thứ hai.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -5
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} mất kiên nhẫn, tung một chưởng cảnh cáo khiến ngươi thổ huyết.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 20
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -15
+              }
+            ]
+          }
+        },
+        {
+          "label": "Trở mặt không trả, giao chiến",
+          "check": {
+            "type": "combat",
+            "enemy": "event_npc"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi đánh lui {npc}, nhưng từ nay đôi bên kết thành tử thù.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -30
+              },
+              {
+                "type": "tam_ma",
+                "amount": 4
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} đánh ngươi trọng thương rồi đoạt lại phần linh thạch trong túi trữ vật.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 35
+              },
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  -0.4,
+                  -0.25
+                ]
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -25
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "provoke_duel",
+      "hook": "interaction",
+      "situation": "foreseen",
+      "mercy_choice": true,
+      "weight": 10,
+      "place_types": [],
+      "npc": {
+        "mode": "bound"
+      },
+      "title": "Sinh tử quyết đấu",
+      "text": "Lời khiêu khích khiến {npc} ({npc_realm}) nổi giận, sát khí tràn ngập {place}. Đối phương đã rút binh khí, chỉ chờ ngươi bước ra nghênh chiến.",
+      "choices": [
+        {
+          "label": "Quyết chiến sinh tử",
+          "check": {
+            "type": "combat",
+            "enemy": "event_npc"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi áp chế hoàn toàn {npc}, buộc đối phương gục xuống trước mũi kiếm.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -20
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} đánh ngươi trọng thương, cười lạnh bỏ đi giữa ánh mắt người xung quanh.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 45
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -15
+              }
+            ]
+          }
+        },
+        {
+          "label": "Thu khí lùi bước, tránh giao tranh",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi nuốt lời lui lại. {npc} khinh bỉ phẩy tay áo rời đi, để lại nỗi uất ức trong lòng ngươi.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": 3
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -10
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "threat_ambush",
+      "hook": "interaction",
+      "situation": "ambush",
+      "weight": 10,
+      "place_types": [],
+      "npc": {
+        "mode": "bound"
+      },
+      "title": "Phản kích bất ngờ",
+      "text": "{npc} ({npc_realm}) không chịu khuất phục lời uy hiếp, lập tức bạo khởi ra tay ngay tại {place}!",
+      "choices": [
+        {
+          "label": "Nghênh chiến đối phương",
+          "check": {
+            "type": "combat",
+            "enemy": "event_npc"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi hóa giải đòn tập kích và đánh bật {npc} lùi lại.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.15,
+                  0.25
+                ]
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -25
+              }
+            ]
+          },
+          "failure": {
+            "text": "Bị đánh phủ đầu, ngươi trúng nặng một kích và phải chật vật rút lui.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 40
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -20
+              }
+            ]
+          }
+        },
+        {
+          "label": "Lẩn tránh rút lui (Thần hồn)",
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 55,
+            "evade": true
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi kịp thời thu liễm thân hình, thoát khỏi đòn phản kích của {npc}.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -15
+              }
+            ]
+          },
+          "failure": {
+            "text": "Không kịp né tránh, ngươi bị dư kình đánh văng và chịu thương tích.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 25
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -15
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "on_talk_mac_quy_khu_first",
+      "hook": "on_talk",
+      "cast_keys": [
+        "mac_quy_khu"
+      ],
+      "once": true,
+      "weight": 10,
+      "place_types": [],
+      "npc": {
+        "mode": "bound"
+      },
+      "title": "Lão giả bên bờ Quy Khư",
+      "text": "{npc} ({npc_realm}) ngồi trước sóng lớn tại {place}, ánh mắt như nhìn xuyên qua hơn nghìn năm hưng phế: \"Ta chỉ đáp một câu hỏi mỗi năm. Hậu bối đến từ biển ngoài, ngươi muốn hỏi điều gì?\"",
+      "choices": [
+        {
+          "label": "Thỉnh giáo gốc rễ thiên địa linh khí (Ngộ tính)",
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 55
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} chỉ điểm vài câu ngắn gọn mà như mở ra một khung trời mới trong thức hải ngươi.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.2,
+                  0.35
+                ]
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 10
+              }
+            ]
+          },
+          "failure": {
+            "text": "Lời lão giả huyền ảo quá mức, ngươi chỉ nắm bắt được đôi chút dư âm.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.05,
+                  0.1
+                ]
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 5
+              }
+            ]
+          }
+        },
+        {
+          "label": "Chắp tay lắng nghe chuyện thời tiền tông môn",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} mỉm cười kể lại vài mảnh ký ức cổ xưa, tâm cảnh của ngươi cũng lắng dịu theo tiếng sóng.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": -4
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 10
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "on_talk_thoi_khinh_hong_retreat",
+      "hook": "on_talk",
+      "cast_keys": [
+        "thoi_khinh_hong"
+      ],
+      "once": true,
+      "weight": 10,
+      "place_types": [],
+      "npc": {
+        "mode": "bound"
+      },
+      "title": "Vấn tâm trước tĩnh thất",
+      "text": "{npc} ({npc_realm}) đặt chén trà xuống, nhìn thẳng vào mắt ngươi tại {place}: \"Kẻ tu hành vội vã cầu thành thường ngã ngay trước cửa ải. Ngươi nói xem, vì sao ngươi bước lên tiên đồ?\"",
+      "choices": [
+        {
+          "label": "Đáp bằng bản tâm kiên định (Đạo tâm)",
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 50
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} khẽ gật đầu tán thưởng: \"Tâm không loạn thì khí mới thuần.\" Một luồng thanh khí giúp ngươi trừ bớt tạp niệm.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": -5
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 10
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} lắc đầu nhẹ: \"Lời đẹp nhưng lòng còn tạp. Cứ nhớ lấy hôm nay.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "Khiêm nhường bái lễ, xin ghi nhớ lời răn",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} dịu giọng dặn dò vài câu về cách giữ vững căn cơ.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 5
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "on_talk_so_ngoc_ho_vessel",
+      "hook": "on_talk",
+      "cast_keys": [
+        "so_ngoc_ho"
+      ],
+      "once": true,
+      "weight": 10,
+      "place_types": [],
+      "npc": {
+        "mode": "bound"
+      },
+      "title": "Băng tâm chiếu ảnh",
+      "text": "Hàn khí thanh khiết quanh {npc} ({npc_realm}) khiến không gian tại {place} tĩnh lặng như mặt gương. Bà khẽ hỏi: \"Giữa hỗn loạn trăm tông, ngươi giữ được mấy phần tĩnh khí?\"",
+      "choices": [
+        {
+          "label": "Thu liễm tâm thần đối diện hàn ý (Đạo tâm)",
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 55
+          },
+          "always": [],
+          "success": {
+            "text": "Hàn ý lướt qua mà không lay động tâm thần ngươi. {npc} khẽ gật đầu hài lòng.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.1,
+                  0.2
+                ]
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 10
+              }
+            ]
+          },
+          "failure": {
+            "text": "Ngươi hơi rùng mình trước khí thế lạnh lẽo, nhưng vẫn giữ được lễ tiết.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 4
+              }
+            ]
+          }
+        },
+        {
+          "label": "Chắp tay thi lễ theo đúng quy củ",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} gật đầu đáp lễ: \"Biết tiết chế lời nói cũng là một phần công phu.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 5
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "on_talk_phan_vat_hoa_ledger",
+      "hook": "on_talk",
+      "cast_keys": [
+        "phan_vat_hoa"
+      ],
+      "once": true,
+      "weight": 10,
+      "place_types": [],
+      "npc": {
+        "mode": "bound"
+      },
+      "title": "Sổ vàng Thiên Bảo Trai",
+      "text": "{npc} ({npc_realm}) khép cuốn sổ ngọc, mỉm cười nhìn ngươi tại {place}: \"Khách mới ghé cửa, ta thích thử nhãn lực trước khi bàn chuyện lớn. Theo ngươi, thứ gì ở tu chân giới giữ giá bền nhất?\"",
+      "choices": [
+        {
+          "label": "Bàn chuyện dòng chảy linh thạch và chữ tín (Mị lực)",
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 50
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} bật cười thích thú: \"Biết nhìn xa hơn một món hàng, xứng đáng làm khách quý!\" Bà tặng ngươi một ít linh thạch làm lễ gặp mặt.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.15,
+                  0.25
+                ]
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 10
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} cười nhạt: \"Chưa sắc bén lắm, nhưng cũng có chí cầu tiến.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 4
+              }
+            ]
+          }
+        },
+        {
+          "label": "Khiêm tốn chào hỏi, hẹn dịp giao dịch",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} ghi tên ngươi vào sổ khách vãng lai với thái độ hòa nhã.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 5
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "on_talk_spared_rival",
+      "hook": "on_talk",
+      "requires_npc_flags": [
+        "spared_by"
+      ],
+      "once": true,
+      "weight": 10,
+      "place_types": [],
+      "npc": {
+        "mode": "bound"
+      },
+      "title": "Ân bất sát ngày cũ",
+      "text": "Gặp lại ngươi tại {place}, {npc} ({npc_realm}) dừng bước thật lâu rồi chắp tay cúi đầu: \"Trận cũ ngươi đã nương tay giữ lại mạng này. Ân ấy ta vẫn chưa quên.\"",
+      "choices": [
+        {
+          "label": "Hóa giải hiềm khích, kết lại thiện duyên",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} thở phào nhẹ nhõm, sắc mặt giãn ra: \"Sau này có việc cần, ta tất sẽ đáp lễ.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 15
+              }
+            ]
+          }
+        },
+        {
+          "label": "Gật đầu bình thản, nhắc đối phương tự trọng",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} nghiêm trang gật đầu rồi nhường đường. Đạo tâm của ngươi thêm phần thanh thản.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": -2
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 5
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

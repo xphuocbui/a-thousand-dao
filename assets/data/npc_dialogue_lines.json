@@ -1,0 +1,1019 @@
+{
+  "schema_version": 1,
+  "_doc": "Non-LLM authored Vietnamese voice library for NPC Interaction & Dialogue (#30) and all 19 Trait verb: hooks. Lookup fallback: person -> tone:band:seniority -> tone:band -> band -> generic.",
+  "tones": [
+    "courteous",
+    "blunt",
+    "haughty",
+    "gentle",
+    "sly",
+    "pious",
+    "wild",
+    "cold"
+  ],
+  "tone_by_trait": {
+    "brave": "wild",
+    "cautious": "cold",
+    "calm": "courteous",
+    "wrathful": "wild",
+    "content": "gentle",
+    "ambitious": "haughty",
+    "diligent": "courteous",
+    "lazy": "blunt",
+    "forgiving": "gentle",
+    "vengeful": "cold",
+    "generous": "gentle",
+    "greedy": "sly",
+    "gregarious": "courteous",
+    "reclusive": "cold",
+    "honest": "blunt",
+    "deceitful": "sly",
+    "humble": "courteous",
+    "arrogant": "haughty",
+    "just": "pious",
+    "arbitrary": "haughty",
+    "patient": "gentle",
+    "impatient": "blunt",
+    "temperate": "pious",
+    "indulgent": "wild",
+    "trusting": "gentle",
+    "paranoid": "cold",
+    "devout": "pious",
+    "pragmatic": "blunt",
+    "stubborn": "blunt",
+    "fickle": "sly",
+    "compassionate": "gentle",
+    "callous": "cold",
+    "cruel": "cold",
+    "warlike": "wild",
+    "peaceable": "gentle",
+    "loyal": "courteous",
+    "faithless": "sly"
+  },
+  "address_table": {
+    "hostile_or_haughty": {"you": "ngươi", "self": "ta"},
+    "master_to_disciple": {"you": "đồ nhi", "self": "vi sư"},
+    "disciple_to_master": {"you": "sư phụ", "self": "đồ nhi"},
+    "dao_lu": {"you": "đạo lữ", "self": "ta"},
+    "ket_nghia_senior": {"you_m": "hiền đệ", "you_f": "hiền muội", "self_m": "vi huynh", "self_f": "vi tỷ"},
+    "ket_nghia_junior": {"you_m": "huynh trưởng", "you_f": "tỷ tỷ", "self_m": "tiểu đệ", "self_f": "tiểu muội"},
+    "same_sect_senior": {"you_m": "sư đệ", "you_f": "sư muội", "self_m": "sư huynh", "self_f": "sư tỷ"},
+    "same_sect_junior": {"you_m": "sư huynh", "you_f": "sư tỷ", "self_m": "sư đệ", "self_f": "sư muội"},
+    "same_sect_peer": {"you": "đồng môn", "self": "tại hạ"},
+    "senior": {"you": "tiểu hữu", "self_m_old": "lão phu", "self_f_old": "lão thân", "self_high": "bản tọa", "self": "ta"},
+    "junior": {"you": "tiền bối", "self": "vãn bối"},
+    "peer": {"you": "đạo hữu", "self": "tại hạ"}
+  },
+  "supported_tokens": [
+    "{you}",
+    "{self}",
+    "{npc}",
+    "{player}",
+    "{realm}",
+    "{place}",
+    "{sect}",
+    "{history}",
+    "{rumour}",
+    "{target}",
+    "{item}",
+    "{amount}",
+    "{lesson}"
+  ],
+  "person_lines": {
+    "mac_quy_khu": {
+      "greet": {
+        "first_meeting": [
+          "Biển Đông đổi màu mấy độ, lại có kẻ tới tận Dục Nhật Đảo tìm {self}. {you} muốn hỏi chuyện xưa hay chuyện mai sau?"
+        ],
+        "accept": [
+          "Sóng biển vẫn vậy, chỉ có lòng người vội vã. {you} ngồi xuống nghỉ chân một lát đi.",
+          "Gặp lại {you} giữa cõi trăm năm này, xem ra gió trời vẫn chưa thổi lạc bước."
+        ]
+      }
+    },
+    "thoi_khinh_hong": {
+      "greet": {
+        "first_meeting": [
+          "Tùng Đào gió thổi mấy trăm thu, {self} lui về tĩnh thất đã lâu. {you} tới bái kiến, có việc gì?"
+        ],
+        "accept": [
+          "Khí tức của {you} trầm ổn hơn trước đôi phần. Giữ vững đạo tâm, đừng vội cầu nhanh."
+        ]
+      }
+    },
+    "doan_ngoc_hanh": {
+      "greet": {
+        "first_meeting": [
+          "Bắc Đẩu xoay vần có lệ, Thiên Xu hành sự có quy. {you} đến trước mặt {self}, cứ nói thẳng."
+        ],
+        "accept": [
+          "Chuyện thiên hạ nhiều như sao đêm, {you} mang tin gì tới?"
+        ]
+      }
+    },
+    "dam_tung_lai": {
+      "greet": {
+        "first_meeting": [
+          "Tùng Đào Cung luôn mở cửa đón khách hữu lễ. {self} là Đàm Tùng Lại, xin hỏi cao danh của {you}."
+        ],
+        "accept": [
+          "{you} đến thăm, {self} lấy làm vui. Gần đây trên đường hành tẩu có điều gì trắc trở không?"
+        ]
+      }
+    },
+    "to_van_chieu": {
+      "greet": {
+        "first_meeting": [
+          "Ở Lạc Hà Tông, thời gian quý như linh thạch. {you} tới gặp {self}, mong là chuyện đáng nghe."
+        ],
+        "accept": [
+          "Nếu {you} có mối làm ăn hay tin tức đáng giá, cứ mở lời ngay."
+        ]
+      }
+    },
+    "so_ngoc_ho": {
+      "greet": {
+        "first_meeting": [
+          "Ngọc hồ giữ băng tâm, lời thừa dễ làm đục nước. {you} tìm {self} vì duyên cớ gì?"
+        ],
+        "accept": [
+          "Tĩnh khí một nhịp rồi hãy nói, {you}. {self} đang nghe."
+        ]
+      }
+    },
+    "hoa_trieu_duong": {
+      "greet": {
+        "first_meeting": [
+          "Phượng Minh Cung không thiếu kẻ tầm thường tới cầu kiến. {you} có bản lĩnh gì khiến {self} phải nhớ tên?"
+        ],
+        "accept": [
+          "Xem ra {you} vẫn còn chút cốt khí. Nói đi, hôm nay đến vì chuyện gì?"
+        ]
+      }
+    },
+    "phan_vat_hoa": {
+      "greet": {
+        "first_meeting": [
+          "Thiên Bảo Trai đón khách bốn phương, chỉ sợ khách không đủ nhãn lực. {you} muốn mua, bán, hay kết một mối lợi?"
+        ],
+        "accept": [
+          "Khách quý ghé thăm, sổ sách của {self} lúc nào cũng có chỗ cho {you}."
+        ]
+      }
+    }
+  },
+  "lines": {
+    "greet": {
+      "first_meeting": {
+        "generic": [
+          "{self} là {npc}, tu vi {realm}. Hôm nay hữu duyên tương ngộ tại {place}, xin kính chào {you}.",
+          "Lần đầu gặp mặt tại {place}, {self} chắp tay thi lễ với {you}."
+        ],
+        "hostile": [
+          "Hừ, {you} là kẻ nào mà dám cản đường {self} tại {place}?",
+          "Đừng tưởng chắp tay một cái là {self} quên chuyện cũ. Có gì nói mau!"
+        ],
+        "cold": [
+          "{self} là {npc}. Gặp mặt coi như biết tên, không cần khách sáo.",
+          "Duyên gặp gỡ ở {place} cũng chỉ thoáng qua. {you} cần gì?"
+        ],
+        "neutral": [
+          "{self} là {npc}, nay mới biết mặt {you} tại {place}. Mời nói.",
+          "Chào {you}. {self} vốn ít qua lại, hôm nay gặp tại {place} cũng coi là có duyên."
+        ],
+        "warm": [
+          "Gặp {you} tại {place} thật khiến lòng nhẹ nhõm. {self} là {npc}, rất hân hạnh kết giao.",
+          "Nghe danh đã lâu, nay mới gặp {you}. {self} xin chắp tay chào."
+        ],
+        "friendly": [
+          "Ha ha, vừa gặp {you} đã thấy hợp ý! {self} là {npc}, sau này tại {place} có việc cứ tìm.",
+          "Khí độ của {you} thật đáng mến. {self} mong sớm có dịp đàm đạo dài lâu."
+        ],
+        "close": [
+          "Vừa trông thấy {you}, {self} đã có cảm giác như cố nhân trùng phùng tại {place}.",
+          "Đời tu hành hiếm gặp tri âm như {you}. {self} xin ghi lòng cuộc gặp hôm nay."
+        ],
+        "haughty:friendly:senior": [
+          "Hậu bối biết tiến thoái như {you} nay không nhiều. {self} nhớ tên {player} rồi.",
+          "Không tệ, {you} có chút nhãn lực đấy. Đứng dậy nói chuyện với {self} đi."
+        ],
+        "haughty:neutral": [
+          "{self} không quen nhớ tên kẻ vô danh, nhưng đã gặp tại {place} thì cứ xưng danh đi.",
+          "Chắp tay lễ độ như vậy cũng tạm được. {you} muốn tìm {self} việc gì?"
+        ],
+        "gentle:warm": [
+          "Gió ở {place} hôm nay thật dịu. {self} là {npc}, chào mừng {you} ghé lại trò chuyện.",
+          "Gặp {you} hiền hòa như vậy, {self} cũng thấy ấm lòng. Mời ngồi một chút."
+        ],
+        "courteous:neutral": [
+          "Tại {place} gặp được {you}, {self} xin thi lễ. Chúc {you} đạo đồ thuận lợi.",
+          "Hữu lễ rồi, {you}. {self} là {npc}, mong có dịp cùng nhau luận đạo."
+        ],
+        "blunt:neutral": [
+          "{self} là {npc}. Không thích vòng vo, {you} có chuyện gì cứ nói thẳng.",
+          "Biết mặt nhau rồi nhé, {you}. Cần gì thì mở lời."
+        ],
+        "sly:neutral": [
+          "Ô kìa, người mới đến {place} sao? {self} là {npc}, biết đâu hai ta sớm có chuyện để bàn.",
+          "Một cái chắp tay chẳng tốn linh thạch nào, phải không {you}? {self} rất thích người thức thời."
+        ],
+        "pious:neutral": [
+          "Phúc duyên dẫn lối, {self} gặp {you} tại {place}. Mong đôi bên giữ tâm thanh tịnh.",
+          "Vạn pháp giai do duyên khởi. {self} xin chắp tay chào {you}."
+        ],
+        "wild:neutral": [
+          "Ha! Khí huyết của {you} trông cũng khá đấy! {self} là {npc}, gặp nhau tại {place} thật sảng khoái!",
+          "Đừng khách sáo rườm rà! {you} đến {place} tìm cơ duyên hay tìm đối thủ?"
+        ],
+        "cold:cold": [
+          "Nhìn qua là đủ, {you}. {self} không có thói quen hàn huyên với người lạ.",
+          "{self} nhớ mặt {you} rồi. Không có việc gấp thì đừng làm phiền."
+        ]
+      },
+      "accept": {
+        "generic": [
+          "{you} đến đúng lúc lắm. Gần đây {self} vẫn chuyên tâm tu hành tại {place}.",
+          "Gặp lại {you} ở {place}, xem ra tu vi của {you} lại tinh tiến thêm rồi."
+        ],
+        "hostile": [
+          "{you} còn dám bước tới trước mặt {self}? Nói nhanh rồi cút đi.",
+          "Ánh mắt {npc} lạnh như băng: \"Nếu không có chuyện hệ trọng, {you} đừng đứng chắn đường {self}.\""
+        ],
+        "cold": [
+          "Lại là {you} sao? {self} đang bận, nói ngắn gọn thôi.",
+          "{npc} chỉ khẽ gật đầu: \"{you} có việc gì?\""
+        ],
+        "neutral": [
+          "Chào {you}. Gần đây ở {place} cũng yên ả, chưa có biến cố lớn.",
+          "{self} chắp tay đáp lễ. Hôm nay {you} ghé thăm có chuyện gì?"
+        ],
+        "warm": [
+          "Gặp lại {you} thật vui. Dạo này {self} vừa mới {history}, nay rảnh rỗi đôi chút.",
+          "Mời {you} dừng bước hàn huyên. Đạo đồ gần đây của {you} vẫn suôn sẻ chứ?"
+        ],
+        "friendly": [
+          "Ha ha, {you} tới rồi! {self} vừa nhắc chuyện xưa, nay gặp đúng người để trò chuyện.",
+          "Thấy bóng {you} là {self} mừng rồi. Ngồi xuống uống chén nước ấm ở {place} đi."
+        ],
+        "close": [
+          "Bất kể lúc nào {you} tới, cửa của {self} đều rộng mở. Dạo này sức khỏe và đạo tâm thế nào?",
+          "Giữa cõi tu chân đầy sóng gió này, gặp lại {you} bình an là điều {self} mừng nhất."
+        ],
+        "haughty:friendly": [
+          "Không phụ mắt nhìn của {self}, {you} quả nhiên ngày càng có khí tượng.",
+          "Ít ai khiến {self} chịu dừng bước chuyện trò như {you}. Nói đi, gần đây thu hoạch thế nào?"
+        ],
+        "haughty:cold": [
+          "{you} tưởng vài câu hàn huyên là đủ bước vào mắt {self} sao?",
+          "Hừ, {self} không có thời gian tiếp chuyện kẻ chưa đủ phân lượng."
+        ],
+        "gentle:warm": [
+          "Trông sắc mặt {you} hôm nay tươi tỉnh lắm. {self} mừng cho {you}.",
+          "Hàn huyên với {you} một lát, bao mệt mỏi sau đợt tu luyện đều tan biến."
+        ],
+        "gentle:friendly": [
+          "{you} đến thật đúng lúc, {self} vừa pha ấm nước sạch. Mời dùng một chén cho ấm bụng.",
+          "Mỗi lần gặp {you}, {self} lại thấy lòng bình yên thêm một phần."
+        ],
+        "courteous:friendly": [
+          "Tái ngộ {you} tại {place} thật là nhã sự. Xin hỏi gần đây {you} lĩnh ngộ thêm điều gì mới?",
+          "{self} chắp tay mỉm cười: \"Có {you} làm bạn đồng hành trên đường cầu đạo thật đáng quý.\""
+        ],
+        "blunt:neutral": [
+          "Gặp lại rồi. {you} vẫn khỏe chứ? Có việc thì nói thẳng đi.",
+          "Không cần khách sáo đâu, {you}. {self} đang nghe đây."
+        ],
+        "blunt:friendly": [
+          "Được lắm, {you} trông cứng cáp hơn mùa trước. Rảnh thì nói chuyện chút đi.",
+          "Lâu ngày không gặp, {you}! Có chuyện gì hay kể {self} nghe xem."
+        ],
+        "sly:neutral": [
+          "{you} ghé qua đúng lúc thế này, chắc không chỉ để hỏi thăm suông đâu nhỉ?",
+          "Chào {you}. Người khôn ngoan như {you} đi đâu hẳn cũng có tính toán riêng."
+        ],
+        "sly:friendly": [
+          "Chà, quý nhân đến cửa! {you} tới thăm {self}, chắc sắp có chuyện tốt rồi.",
+          "Gặp {you} là {self} thấy vận may mỉm cười. Ngồi xuống bàn chút chuyện thú vị nào."
+        ],
+        "pious:friendly": [
+          "Đạo tâm của {you} ngày một sáng rõ, thật đáng mừng. Xin mời cùng ngồi tĩnh đàm.",
+          "Gặp lại {you} trong cảnh bình an thế này là phúc phần chung của cả hai."
+        ],
+        "wild:warm": [
+          "Ha ha! {you} đến đúng lúc {self} đang ngứa tay chân! Nói chuyện chút cho đỡ buồn nào!",
+          "Tốt lắm {you}! Nhìn khí thế kia chắc vừa luyện công xong hả?"
+        ],
+        "cold:cold": [
+          "Gật đầu chào nhau là đủ rồi, {you}. Không cần nhiều lời.",
+          "{self} nghe rồi. Nếu chỉ để hàn huyên thì xin phép {self} còn việc khác."
+        ],
+        "cold:hostile": [
+          "Nhìn thấy mặt {you} đã khiến {self} khó chịu. Đừng thử kiên nhẫn của {self}.",
+          "{self} không quên mối hận giữa hai ta đâu, {you}."
+        ]
+      }
+    },
+    "news": {
+      "accept": {
+        "generic": [
+          "{self} vừa nghe phong thanh: {rumour}. {you} giữ trong lòng mà liệu đường.",
+          "Gần đây trong vùng có một tin đáng chú ý: {rumour}."
+        ],
+        "warm": [
+          "Vì là {you} hỏi nên {self} mới nói thật: {rumour}.",
+          "{self} mới nghe được chuyện này: {rumour}. Mong giúp ích cho bước đường của {you}."
+        ],
+        "friendly": [
+          "Với {you} thì {self} chẳng giấu làm gì: {rumour}. Hãy cẩn trọng nhé!",
+          "May cho {you} hỏi sớm, {self} vừa hay biết: {rumour}."
+        ],
+        "sly:neutral": [
+          "Tin này ngoài chợ bán cũng chẳng rẻ đâu, nhưng {self} nể mặt {you} kể qua: {rumour}.",
+          "Đừng nói với ai là nghe từ miệng {self} nhé: {rumour}."
+        ],
+        "haughty:neutral": [
+          "Tai mắt của {self} nhanh hơn kẻ thường nhiều. Nghe cho rõ: {rumour}.",
+          "Nếu {you} chịu khó để ý hơn thì đã biết rồi: {rumour}."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Tin tức trong giới tu chân không thể nói bừa với người chưa đủ tin cậy. Xin lỗi {you}.",
+          "{self} không có gì để chia sẻ với {you} lúc này."
+        ],
+        "hostile": [
+          "Mơ đi! {self} thà giữ tin mục nát trong bụng còn hơn nói cho {you} biết.",
+          "{you} lấy tư cách gì mà dò hỏi {self}?"
+        ],
+        "cold": [
+          "Chuyện thiên hạ liên quan gì đến {self} mà phải kể cho {you}?",
+          "Kín miệng giữ thân, {you} tự đi mà tìm hiểu."
+        ],
+        "sly:cold": [
+          "Không công không lợi mà đòi tin tức của {self}? {you} khéo đùa đấy.",
+          "Chưa đủ giao tình để đổi lấy tin mật đâu, {you}."
+        ]
+      },
+      "nothing_new": {
+        "generic": [
+          "Mấy ngày nay {self} chẳng nghe thêm tin gì mới ngoài những chuyện {you} đã biết.",
+          "Tứ phương tạm lắng, {self} không có tin tức mới nào để báo cho {you}."
+        ],
+        "gentle:warm": [
+          "Tiếc quá, {self} lục lại trí nhớ mà chưa có tin nào mới cho {you}. Khi khác có tin {self} sẽ báo ngay."
+        ]
+      }
+    },
+    "about": {
+      "accept": {
+        "generic": [
+          "Nhắc tới {target} à? {self} có biết đôi chút chuyện của người ấy, kể cho {you} nghe đây.",
+          "{target} vốn chẳng xa lạ gì với {self}. {you} muốn biết rõ thì lắng nghe."
+        ],
+        "friendly": [
+          "{you} hỏi về {target} thì tìm đúng người rồi. {self} nói hết những gì biết cho {you}."
+        ],
+        "sly:neutral": [
+          "Hỏi thăm {target} cẩn thận thế, {you} có ý gì chăng? Thôi được, {self} nói những gì tai nghe mắt thấy."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Bàn chuyện người khác sau lưng không phải cách của {self}. {you} tự đi mà hỏi {target}.",
+          "{self} không muốn nhiều lời về {target} với {you}."
+        ],
+        "hostile": [
+          "Ngươi dò la tung tích người khác trước mặt {self} làm gì? Biến đi!"
+        ]
+      }
+    },
+    "gift": {
+      "accept": {
+        "generic": [
+          "Món {item} này thật có lòng. {self} xin đa tạ hậu ý của {you}.",
+          "{you} thật chu đáo khi mang {item} tới tặng. {self} xin nhận lấy."
+        ],
+        "warm": [
+          "Món {item} quý thế này, {you} quá khách khí rồi! {self} xin trân trọng cất giữ.",
+          "Nhận được {item} từ tay {you}, lòng {self} ấm áp hẳn lên."
+        ],
+        "friendly": [
+          "{you} hiểu ý {self} thật đấy! {item} này đúng thứ {self} cần.",
+          "Cảm tạ {you} nhiều lắm, ân tình này {self} ghi nhớ."
+        ],
+        "close": [
+          "Giữa hai ta còn khách sáo lễ vật làm gì, nhưng đã là tâm ý của {you} thì {self} xin nhận."
+        ],
+        "sly:neutral": [
+          "Ồ, {item} không tồi đâu nhé! {you} quả là người biết điều, {self} nhận không khách sáo.",
+          "Nhìn qua là biết món {item} có giá trị. {you} thật biết cách làm đẹp lòng người."
+        ],
+        "haughty:neutral": [
+          "Món {item} này cũng tạm lọt mắt {self}. Coi như {you} có lòng thành.",
+          "Được rồi, {self} nhận lấy tấm lòng của {you}."
+        ],
+        "gentle:warm": [
+          "{you} tốn công mang {item} đến tận nơi, {self} thật cảm kích."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "{self} không nhận lễ của {you}. Mang về đi.",
+          "Không công bất thụ lộc, {you} cất {item} lại đi."
+        ],
+        "hostile": [
+          "Đừng tưởng lấy vài thứ đồ là mua chuộc được {self}! Mang rác của {you} đi khuất mắt!"
+        ]
+      },
+      "worthless": {
+        "generic": [
+          "Thứ này chẳng đáng giá bao nhiêu, {self} nhận cho phải phép chứ không dám coi là trọng lễ.",
+          "{npc} nhìn món {item} rồi khẽ lắc đầu: \"Tâm ý thì nhận, nhưng vật này quả thực tầm thường.\""
+        ],
+        "haughty:neutral": [
+          "Mang thứ tầm thường thế này tới tặng {self}, {you} coi thường {self} quá chăng?"
+        ]
+      }
+    },
+    "work": {
+      "accept": {
+        "generic": [
+          "Đúng lúc {self} đang có một việc cần người đáng tin cậy đảm đương. {you} nghe thử xem.",
+          "Nếu {you} chịu nhận, {self} sẵn lòng giao phó việc này."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Việc của {self} không dám giao cho người chưa đủ tin cậy. Xin thứ lỗi cho {you}.",
+          "{self} tự lo liệu được, không cần phiền tới {you}."
+        ],
+        "hostile": [
+          "Giao việc cho {you} để tự rước họa vào thân à? Không đời nào!"
+        ]
+      },
+      "no_work": {
+        "generic": [
+          "Hiện tại {self} chưa có việc gì cần nhờ vả. Sau này có mối tốt {self} sẽ nhắc {you}.",
+          "Mọi việc quanh {place} tạm đã ổn thỏa, {self} chưa có ủy thác nào cho {you}."
+        ]
+      }
+    },
+    "teach": {
+      "accept": {
+        "generic": [
+          "Thấy {you} cầu đạo thành tâm, {self} sẵn lòng chỉ điểm {lesson}. Hãy tập trung lắng nghe.",
+          "Dành một phần mùa này luận giảng {lesson} cho {you} cũng là việc nên làm. Bắt đầu đi."
+        ],
+        "friendly": [
+          "Tư chất của {you} không tệ, {self} sẽ truyền thụ cặn kẽ {lesson}, đừng bỏ sót một chữ nào.",
+          "Với {you}, {self} không giữ nghề. Hôm nay ta đi sâu vào {lesson}."
+        ],
+        "haughty:friendly:senior": [
+          "Hiếm khi {self} chịu phí tâm chỉ dạy hậu bối. Nghe kỹ {lesson} đây, chỉ nói một lần thôi."
+        ],
+        "pious:warm": [
+          "Truyền đạo giải hoặc vốn là việc thiện. {you} hãy tĩnh tâm tiếp nhận {lesson}."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Đạo pháp không dễ truyền bừa. Giao tình và duyên phận giữa hai ta chưa đủ để {self} chỉ dạy.",
+          "{self} hiện chưa muốn truyền thụ tâm đắc cho {you}. Hãy tu dưỡng thêm đi."
+        ],
+        "hostile": [
+          "Dạy {you} để sau này {you} quay lại đối phó {self} sao? Nực cười!"
+        ],
+        "cold": [
+          "{self} không có hứng làm thầy của {you}. Hỏi người khác đi."
+        ]
+      }
+    },
+    "help": {
+      "accept": {
+        "generic": [
+          "Đã là chỗ quen biết, việc này {self} giúp {you} một tay. Đừng phụ lòng tin của {self}.",
+          "Được, {self} đồng ý giúp {you}. Người trong đạo giúp nhau lúc khó cũng là lẽ thường."
+        ],
+        "friendly": [
+          "{you} mở lời thì {self} sao nỡ từ chối! Cứ để {self} lo cho.",
+          "Không cần khách sáo, {self} sẵn lòng tương trợ {you} phen này."
+        ],
+        "sly:neutral": [
+          "Giúp lần này coi như {you} nợ {self} một chữ tín. Nhớ trả đủ đấy nhé."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Lực bất tòng tâm, chuyện này {self} không thể giúp {you} được.",
+          "Yêu cầu của {you} vượt quá mức {self} sẵn lòng gánh vác lúc này."
+        ],
+        "hostile": [
+          "Còn mặt mũi đến cầu cứu {self} sao? {you} tự lo thân đi!"
+        ],
+        "cold": [
+          "Không tiện. {you} tìm người khác mà nhờ."
+        ]
+      }
+    },
+    "trade": {
+      "accept": {
+        "generic": [
+          "{self} có vài món dư dùng, {you} cứ xem thử. Thuận mua vừa bán, giá theo lệ thị trường.",
+          "Mời {you} xem qua túi đồ dư của {self}, ưng món nào thì định giá."
+        ],
+        "friendly": [
+          "Với {you}, {self} mở cả ngăn đồ tốt ra cho chọn. Xem thử có món nào hợp tay không?"
+        ],
+        "close": [
+          "Cả những vật quý {self} cất kỹ cũng bày ra cho {you} xem. Cần gì cứ lấy."
+        ],
+        "sly:neutral": [
+          "Hàng của {self} toàn đồ thật giá thật. {you} tinh mắt thì chọn nhanh kẻo tiếc!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Hôm nay {self} không có hứng giao dịch với {you}.",
+          "Đồ của {self} không bán cho {you}. Xin mời sang chỗ khác."
+        ],
+        "hostile": [
+          "Kể cả {you} chồng núi linh thạch trước mặt, {self} cũng chẳng bán một cọng cỏ!"
+        ]
+      }
+    },
+    "spar": {
+      "accept": {
+        "generic": [
+          "Đánh một trận luận bàn, điểm đến là dừng, không thương tính mạng. Mời {you} ra chiêu!",
+          "Tốt lắm, {self} cũng đang muốn thử tay nghề của {you}. Xin chỉ giáo!"
+        ],
+        "wild:neutral": [
+          "Ha ha! Nói chuyện bằng nắm đấm và kiếm khí mới sảng khoái! {you} lên đi!"
+        ],
+        "haughty:neutral": [
+          "Muốn thử sức với {self} à? Cũng được, để {self} xem {you} tiến bộ tới đâu."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "{self} hiện không muốn động thủ luận bàn với {you}.",
+          "Tốn tinh lực vô ích, {self} xin khước từ lời mời tỉ thí của {you}."
+        ],
+        "cold": [
+          "Không rảnh. {you} đi tìm người khác mà múa may."
+        ]
+      },
+      "win": {
+        "generic": [
+          "Chiêu thức của {you} thật sắc bén! Trận luận bàn này {self} thua tâm phục khẩu phục.",
+          "{npc} thu thế, thở hắt ra: \"{you} thắng rồi. Bái phục!\""
+        ],
+        "haughty:neutral": [
+          "Hừ… nhất thời sơ suất thôi. Nhưng không thể phủ nhận {you} có chút bản lĩnh."
+        ],
+        "wild:warm": [
+          "Sảng khoái! Đánh thế mới đã tay! Lần sau {self} nhất định gỡ lại, {you} cứ đợi đấy!"
+        ]
+      },
+      "lose": {
+        "generic": [
+          "Điểm đến là dừng. {you} đánh rất có chương pháp, chỉ cần mài giũa thêm chút nữa.",
+          "{npc} thu pháp lực lại: \"Đa tạ {you} nhường chiêu. Trận luận bàn này rất bổ ích.\""
+        ],
+        "haughty:neutral": [
+          "Chênh lệch vẫn còn rõ lắm, {you}. Về tu luyện thêm vài năm rồi hãy tìm {self}."
+        ]
+      }
+    },
+    "threaten": {
+      "accept": {
+        "generic": [
+          "Đủ rồi! Đừng động thủ… {self} giao {amount} linh thạch cho {you}. Chuyện này {self} không quên đâu!",
+          "{npc} nghiến răng ném túi {amount} linh thạch xuống đất: \"Cầm lấy đi, {you} nhớ kỹ món nợ hôm nay!\""
+        ],
+        "cold": [
+          "Lần này {self} chịu thiệt. Cầm lấy {amount} linh thạch rồi biến khỏi mắt {self}."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Lấy vài lời hăm dọa mà định ép {self} cúi đầu sao? {you} nhìn lầm người rồi!",
+          "{npc} cười lạnh: \"Muốn lấy đồ của {self}, {you} chưa đủ bản lĩnh đâu!\""
+        ]
+      },
+      "ambush": {
+        "generic": [
+          "Dám uy hiếp {self} ngay tại {place}?! Chết đi!",
+          "Sát khí bùng lên từ người {npc}: \"Đã muốn giở trò cướp đoạt thì đừng trách {self} ra tay tàn độc!\""
+        ]
+      }
+    },
+    "provoke": {
+      "accept": {
+        "generic": [
+          "Ngươi tự tìm đường chết! Hôm nay tại {place}, ta và ngươi phân rõ sống chết!",
+          "{npc} rút binh khí, ánh mắt rực sát ý: \"Đã khiêu khích đến tận mặt thì đừng hòng toàn thây rời đi!\""
+        ],
+        "wild:neutral": [
+          "Ha ha ha! Đang ngứa tay thì có kẻ tự chui đầu vào chỗ chết! Lên đây!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "{self} không mắc bẫy khích tướng trẻ con của {you}.",
+          "Chờ khi khác đi, hôm nay {self} không rảnh đôi co với {you}."
+        ]
+      }
+    },
+    "declare_enmity": {
+      "accept": {
+        "generic": [
+          "Tốt! Từ hôm nay ân đoạn nghĩa tuyệt, gặp lại nơi nào thì lấy máu mà nói chuyện!",
+          "Cắt áo tuyệt giao! {self} và {you} từ nay không đội trời chung!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Muốn tuyệt giao hay không cũng chẳng còn gì để nói nữa."
+        ]
+      }
+    },
+    "companion": {
+      "accept": {
+        "generic": [
+          "Đường tu hành một mình vốn lạnh lẽo. {self} bằng lòng đồng hành cùng {you} một đoạn đường!",
+          "Đi cùng {you} hẳn sẽ thú vị và vững tâm hơn nhiều. {self} đồng ý!"
+        ],
+        "friendly": [
+          "Không cần nghĩ nhiều, {self} theo bước {you}! Có phúc cùng hưởng, có nạn cùng đương."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Mỗi người một đường tu riêng, hiện tại {self} chưa thể bỏ dở việc mình để theo {you}.",
+          "Giao tình của hai ta chưa đủ sâu để {self} phó thác hành trình cho {you}."
+        ]
+      }
+    },
+    "disciple": {
+      "accept": {
+        "generic": [
+          "Đệ tử bái kiến sư phụ! Từ nay {self} nguyện theo {you} khổ tu, không phụ công chỉ dạy.",
+          "{npc} quỳ gối hành lễ: \"Đa tạ {you} thu nhận! {self} nhất định dốc lòng cầu đạo.\""
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Cảm tạ thịnh tình của {you}, nhưng {self} chưa có ý bái sư lúc này.",
+          "Đạo lộ của {self} tự có định hướng, xin phép khước từ lời thu đồ của {you}."
+        ]
+      }
+    },
+    "brotherhood": {
+      "accept": {
+        "generic": [
+          "Trời đất chứng giám! Từ hôm nay {self} và {you} kết nghĩa kim lan, sống chết có nhau!",
+          "Kiếm đâu ra người hợp tâm ý như {you}! Nâng chén kết nghĩa đi!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Kết nghĩa là lời thề cả đời, {self} chưa thể gật đầu vội vã với {you} được.",
+          "Tình nghĩa giữa hai ta còn cần thời gian thử thách thêm, xin {you} thứ lỗi."
+        ]
+      }
+    },
+    "dao_lu": {
+      "accept": {
+        "generic": [
+          "Trăm năm tu đạo khó gặp tri kỷ, ngàn năm mới có một người cùng chung trường sinh. {self} đồng ý kết làm đạo lữ với {you}.",
+          "Ánh mắt {npc} dịu lại: \"Nếu là {you}, {self} nguyện cùng nhau nắm tay bước qua phong ba tiên đồ.\""
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Kết làm đạo lữ là chuyện hệ trọng cả đời, lòng {self} vẫn chưa đủ định để nhận lời {you}.",
+          "Xin lỗi {you}, duyên đạo lữ giữa hai ta e rằng vẫn chưa tới."
+        ]
+      }
+    },
+    "repay": {
+      "accept": {
+        "generic": [
+          "Có vay có trả, có ân tất báo. {you} giữ chữ tín thế này, {self} rất lấy làm kính trọng.",
+          "Món nợ cũ nay đã thanh thỏa. Cảm ơn {you} đã không quên lời hứa."
+        ],
+        "friendly": [
+          "{you} chu toàn quá! Món này coi như dứt điểm, tình nghĩa giữa hai ta càng thêm bền chặt."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Hiện giữa hai ta chưa có món nợ nào cần thanh toán cả, {you}."
+        ]
+      }
+    },
+    "invoke_clan": {
+      "accept": {
+        "generic": [
+          "Thì ra {you} xuất thân từ danh gia thế tộc! {self} thất kính rồi, sau này tất nhiên sẽ chiếu cố đôi phần.",
+          "Danh tiếng gia tộc của {you} ai ở vùng này mà chẳng nghe qua. {self} rất vui được kết thiện duyên."
+        ],
+        "sly:neutral": [
+          "Ồ, người của thế gia à? Vậy chuyện làm ăn và qua lại giữa hai ta sau này dễ bàn hơn nhiều rồi!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Gia thế lớn cỡ nào thì trên tiên đồ vẫn lấy thực lực làm trọng. {self} không chịu sức ép đó đâu.",
+          "Đem danh hiệu gia tộc ra dọa {self} không có tác dụng gì đâu, {you}."
+        ]
+      }
+    },
+    "command_mortals": {
+      "accept": {
+        "generic": [
+          "Các quản sự và chân chạy ở {place} lập tức theo lệnh {you} đi dò la. Không lâu sau đã mang về tin: {rumour}.",
+          "Quả nhiên phong thái quý tộc vẫn còn sức nặng ở {place}. Người dưới tay nhanh chóng bẩm báo: {rumour}."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Nơi này không phải phủ đệ phàm trần, chẳng mấy ai nghe theo khẩu lệnh của {you} đâu.",
+          "Hơi thở thế tục không dễ sai khiến người ở {place} lúc này."
+        ]
+      }
+    },
+    "haggle": {
+      "accept": {
+        "generic": [
+          "{you} tính toán sắc bén quá, nói một hồi khiến {self} chịu thua! Thôi được, mùa này {self} giảm giá đôi chút cho {you}.",
+          "Gặp đúng tay lão luyện thương trường rồi! Nể tài ăn nói của {you}, giao dịch mùa này {self} bớt lãi một phần."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Giá cả có lệ của nó, {you} có khéo miệng đến mấy {self} cũng không bớt một viên linh thạch nào.",
+          "Đừng mặc cả với {self} nữa, không bớt đâu!"
+        ]
+      }
+    },
+    "charm": {
+      "accept": {
+        "generic": [
+          "Phong thái của {you} thật khiến người ta khó rời mắt… {self} bất giác thấy lòng dịu hẳn xuống.",
+          "Nghe {you} nói vài câu dịu dàng như vậy, {self} dường như quên cả chuyện giữ kẽ."
+        ],
+        "gentle:warm": [
+          "Ở bên cạnh {you} thật dễ chịu, lời nói ánh mắt đều mang theo sức hút khó tả."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Đạo tâm của {self} vững như bàn thạch, sắc đẹp và lời hoa mỹ của {you} không làm lay động được đâu.",
+          "Thu lại vẻ quyến rũ ấy đi, {you}. {self} không dễ mắc bẫy."
+        ]
+      }
+    },
+    "tempt": {
+      "accept": {
+        "generic": [
+          "Con đường chính đạo quả thực quá chậm chạp… Lời {you} nói khiến {self} động tâm rồi. Nói nhỏ thêm chút xem.",
+          "Ánh mắt {npc} lóe lên tia tham vọng: \"Nếu thật sự phá được xiềng xích nhanh như vậy, {self} sẵn lòng nghe theo {you} một phen.\""
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Yêu ngôn hoặc chúng! {you} dám đem tà thuật ma đạo ra dụ dỗ {self} ngay tại {place} sao?!",
+          "Câm miệng! {self} thà chậm một bước còn hơn rơi vào vũng lầy ma đạo của {you}!"
+        ]
+      }
+    },
+    "exhort": {
+      "accept": {
+        "generic": [
+          "Nghe lời khai thị từ bi của {you}, tạp niệm trong lòng {self} chợt lắng xuống, oán khí cũng vơi đi đôi phần.",
+          "Thiện tai… Lời {you} nhắc nhở thật đúng lúc, khiến {self} tỉnh ngộ khỏi chấp niệm."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Kinh kệ cao siêu quá, {self} phàm tâm chưa dứt, không nuốt nổi đạo lý của {you}.",
+          "Đừng giảng đạo lý suông trước mặt {self}, {you} giữ lấy mà tự tụng đi!"
+        ]
+      }
+    },
+    "propose_dual_cultivation": {
+      "accept": {
+        "generic": [
+          "Âm dương điều hòa, linh lực tương sinh. Đã tin tưởng nhau đến mức này, {self} đồng ý cùng {you} song tu một đợt.",
+          "Cơ duyên song tu hiếm có, có {you} phối hợp thì tu vi đôi bên đều tiến triển mạnh. Bắt đầu thôi."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Song tu liên hệ mật thiết đến căn cơ linh lực, {self} chưa thể giao phó bản thân cho {you}.",
+          "Lời đề nghị của {you} quá đường đột rồi, {self} xin từ chối."
+        ]
+      }
+    },
+    "challenge": {
+      "accept": {
+        "generic": [
+          "Chiến thư của {you} {self} nhận! Không lấy mạng nhau, chỉ xem ai xứng đáng đứng cao hơn!",
+          "Khí thế bức người thế này mới đáng đánh một trận! Mời {you} xuất chiêu!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "{self} không rảnh chạy theo cơn khát chiến của {you}. Khi khác đi.",
+          "Chiến thư cứ cầm về, hôm nay {self} không tiếp chiêu."
+        ]
+      },
+      "win": {
+        "generic": [
+          "Thắng đẹp lắm! Bản lĩnh của {you} quả không hổ danh người đi tìm đối thủ khắp thiên hạ!",
+          "Một trận đấu mãn nhãn! {self} thua nhưng lòng lại sảng khoái vô cùng."
+        ]
+      },
+      "lose": {
+        "generic": [
+          "Đánh rất kiên cường, nhưng lần này phần thắng thuộc về {self}. Hãy mài sắc kiếm rồi quay lại tìm {self}!",
+          "Ý chí chiến đấu của {you} đáng nể đấy, tiếc là hôm nay {self} nhỉnh hơn một bậc."
+        ]
+      }
+    },
+    "take_disciple": {
+      "accept": {
+        "generic": [
+          "Nhìn ánh mắt nghiêm cẩn mà tận tâm của {you}, {self} biết gặp được minh sư rồi! Đệ tử xin bái kiến sư phụ!",
+          "Nếu được người thật lòng yêu nghề dạy dỗ như {you} dẫn dắt, {self} nguyện bái làm sư đồ!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "{you} có lòng hảo vi sư thật đáng quý, nhưng {self} hiện chưa muốn nhận sư phụ.",
+          "Xin đa tạ ý tốt của {you}, {self} vẫn muốn tự mình mày mò thêm một thời gian."
+        ]
+      }
+    },
+    "counsel": {
+      "accept": {
+        "generic": [
+          "Ngồi xuống lắng nghe tiếng chuông tâm đi, {you}. {self} giúp {you} gột bớt tạp niệm và tâm ma.",
+          "Khi lòng rối bời, chỉ cần quay về một hơi thở thanh tịnh. {self} cùng {you} tĩnh tọa một khắc."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Lòng {you} lúc này còn động quá, lời khai thị của {self} e rằng chưa lọt tai được.",
+          "Hôm nay {self} chưa đủ thanh tịnh để khai thị cho {you}, hẹn dịp khác."
+        ]
+      }
+    },
+    "counsel_deviation": {
+      "accept": {
+        "generic": [
+          "{self} từng đi qua cửa tử tẩu hỏa nhập ma nên biết từng dấu hiệu nhỏ nhất. {you} nhớ kỹ phép điều tức này để mùa tới tu luyện an ổn.",
+          "Khi linh khí nghịch lưu đừng cưỡng ép trấn áp, hãy thuận thế xả bớt. {self} truyền lại kinh nghiệm xương máu này cho {you}."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Chuyện cũ năm xưa {self} không muốn nhắc lại trước mặt người chưa thân thiết. Xin lỗi {you}.",
+          "Bí quyết giữ mạng sau lần tẩu hỏa không dễ truyền ngoài đâu, {you}."
+        ]
+      }
+    },
+    "ask_history": {
+      "accept": {
+        "generic": [
+          "Nhắc đến chuyện cũ trong sử sách thì {self} nhớ không sót một dòng: {rumour}.",
+          "{self} mở quyển ghi chép cũ, chậm rãi kể cho {you} nghe: {rumour}."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Sử cũ không kể cho kẻ nghe xong rồi quên. {self} hiện không muốn mở sổ ra cho {you}.",
+          "Hôm nay {self} đang biên chép dở, không tiếp chuyện dò hỏi sử tích đâu."
+        ]
+      },
+      "nothing_new": {
+        "generic": [
+          "Những trang sử vùng này {you} đều đã nghe cả rồi, {self} chưa kịp ghi thêm biến cố mới nào.",
+          "Chuyện xưa trong sổ của {self} tại {place} tạm chưa có mục nào mới cho {you}."
+        ]
+      }
+    },
+    "share_tea": {
+      "accept": {
+        "generic": [
+          "Nước vừa sủi tăm, hương linh trà tỏa khắp gian phòng. Mời {you} cùng {self} thưởng một chén cho dịu tâm thần.",
+          "Uống trà không cốt ở giải khát, mà ở tĩnh tâm. Được đối ẩm với {you} thật là nhã hứng."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Trà ngon phải có bạn hợp ý, hôm nay {self} chưa có nhã hứng pha trà cùng {you}.",
+          "Xin thứ lỗi, lúc này {self} không tiện ngồi đối ẩm trà đạo."
+        ]
+      }
+    },
+    "exchange_poems": {
+      "accept": {
+        "generic": [
+          "Câu thơ của {you} ý tứ thanh thoát lắm! {self} xin họa lại một bài để đáp lễ.",
+          "Xướng họa thi từ giữa cảnh sắc {place} thế này, thật khiến người ta quên cả năm tháng tu hành."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Thi hứng chưa đến, miễn cưỡng ghép chữ chỉ làm hỏng cảnh đẹp. Để dịp khác nhé {you}.",
+          "{self} không có hứng xướng họa lúc này."
+        ]
+      }
+    },
+    "play_for": {
+      "accept": {
+        "generic": [
+          "Tiếng cổ cầm chậm rãi ngân vang, linh khí xung quanh cũng hòa nhịp dịu lại. Đôi bên lặng lẽ thưởng âm, tâm ma tiêu tán.",
+          "Khúc cầm này {self} gảy tặng tri âm. Mong {you} thấy lòng thanh thản sau buổi tấu nhạc."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Dây cầm dễ đứt nếu lòng người bất hòa. {self} chưa muốn gảy khúc cùng {you} hôm nay.",
+          "Không phải lúc thích hợp để thưởng cầm đâu, {you}."
+        ]
+      }
+    },
+    "play_go": {
+      "accept": {
+        "generic": [
+          "Đen trắng giao tranh trên mười chín đường kẻ, một ván cờ vây giúp {self} và {you} đều sáng ra nhiều nước đi trong đạo tu.",
+          "Nước cờ vừa rồi của {you} rất có chiều sâu! Đánh xong ván này đầu óc quả thực thông suốt hẳn."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Một ván cờ vây tốn không ít tâm sức, hôm nay {self} không muốn bày bàn cờ với {you}.",
+          "Để dịp khác đi {you}, {self} chưa có tâm trí đánh cờ."
+        ]
+      }
+    },
+    "trade_curio": {
+      "accept": {
+        "generic": [
+          "Món kỳ vật {item} này thật hiếm có! {self} xin cất vào bộ sưu tập và ghi nhận một phần ân tình lớn với {you}.",
+          "Không ngờ {you} lại sở hữu {item}! {self} nhận lấy món quý này, từ nay {self} nợ {you} một ân tình."
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Món {item} đó chưa đủ lạ mắt để {self} đổi lấy ân tình đâu, {you}.",
+          "{self} không cần thứ này vào bộ sưu tập lúc này."
+        ]
+      }
+    },
+    "wager": {
+      "accept": {
+        "generic": [
+          "Cược {amount} linh thạch à? Được thôi, {self} tiếp ván này với {you}! Xem khí vận ai mạnh hơn!",
+          "Nghe mùi linh thạch là {self} ngứa tay rồi! {amount} linh thạch lên bàn, mở ván đi {you}!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Hôm nay {self} không có hứng đỏ đen với {you}.",
+          "Không đủ tiền cược hoặc không đủ hứng thú, ván này {self} bỏ qua."
+        ]
+      },
+      "win": {
+        "generic": [
+          "Khí vận của {you} hôm nay thịnh thật! {amount} linh thạch thuộc về {you}, {self} nhận thua!",
+          "Chà, {you} ăn trọn {amount} linh thạch rồi! Lần sau {self} phải gỡ lại mới được."
+        ]
+      },
+      "lose": {
+        "generic": [
+          "Ha ha! {amount} linh thạch này {self} xin thu nhé! Thua keo này ta bày keo khác, {you}.",
+          "Vận may đứng về phía {self} rồi! Đa tạ {you} đã hào phóng góp {amount} linh thạch."
+        ]
+      }
+    },
+    "drink_with": {
+      "accept": {
+        "generic": [
+          "Linh tửu thơm nồng! Cạn chén với {you}, {self} thấy lòng rộng mở hẳn ra — nhân tiện kể {you} nghe: {rumour}.",
+          "Một chén tiêu sầu, hai chén kết bạn! Uống với {you} hôm nay thật quá sảng khoái!"
+        ]
+      },
+      "refuse": {
+        "generic": [
+          "Rượu ngon không uống với người không hợp gu. Xin lỗi {you}, hôm nay {self} không uống.",
+          "{self} đang giữ mình thanh tỉnh, từ chối chén rượu của {you}."
+        ]
+      }
+    }
+  }
+}

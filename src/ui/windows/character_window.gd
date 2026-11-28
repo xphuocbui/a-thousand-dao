@@ -20,15 +20,6 @@ extends GameWindow
 const SECTIONS := ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap", "formation", "combat", "dao_do", "gear", "crafts", "fate", "lifespan"]
 ## The tabs (the round-3 mock-up's tab row, user 2026-11-24): [key, title, its sections]. Overview holds the mock-up's
 ## page; a jump to a section on another tab opens that tab first. Interact exists only for another person.
-## The verbs of npc-interaction-dialogue.md rules 8-11, by group; only Greet runs in the greybox.
-## The verbs the game runs today (npc-interaction-dialogue.md; the rest show as "Coming later").
-const BUILT_VERBS := ["greet"]
-const PERSON_VERBS := [
-	["Social", ["greet:Greet (Hàn huyên)", "news:Ask for news (Hỏi tin)", "about:Ask about someone (Hỏi về người)", "gift:Give a gift (Tặng lễ)", "work:Ask for work (Xin việc)"]],
-	["Favours", ["teach:Ask for teaching (Thỉnh giáo)", "help:Ask for help (Nhờ giúp)", "trade:Trade (Giao dịch)"]],
-	["Conflict", ["spar:Spar (Luận bàn)", "threaten:Threaten (Uy hiếp)", "provoke:Provoke (Khiêu khích)"]],
-	["Bonds", ["companion:Recruit a companion", "disciple:Take a disciple", "brotherhood:Swear brotherhood (kết nghĩa)", "dao_lu:Seek Dao companionship (đạo lữ)"]],
-]
 const TABS := [["interact", "Interact", ["interact", "verbs"]], ["overview", "Overview", ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap"]],
 	["combat", "Combat", ["formation", "combat"]], ["equipment", "Equipment", ["dao_do", "gear", "crafts"]], ["fate", "Fate & life", ["fate", "lifespan"]]]
 ## Hán marks per element (a shape beside the colour; accessibility-requirements.md colour audit).
@@ -41,12 +32,19 @@ var _chooser_slot: Dictionary = {}   # the slot whose chooser is open ({slot, in
 var _armed: bool = false             # the breakthrough confirm is armed
 var _tab: String = "overview"        # the open tab (TABS)
 var _trigger_held: bool = false      # a trigger already stepped a tab and has not been released
-var _event_locked: bool = false      # an event waits (the Interact tab's verbs say so); `locked` also covers look-only
+var _event_locked: bool = false      # an event waits (timed verbs lock); `locked` also covers look-only
+var _active_verb: String = ""        # verb id whose inline picker / confirm panel is open ("" when none)
+var _verb_params: Dictionary = {}    # in-progress parameter selections for _active_verb
 
 
 ## The open tab's key (for tests).
 func tab() -> String:
 	return _tab
+
+
+## The verb id whose inline picker or confirm panel is currently open ("" when none; for tests).
+func active_verb() -> String:
+	return _active_verb
 
 
 ## Opens tab [param key] (a TABS key).
@@ -56,7 +54,9 @@ func open_tab(key: String) -> void:
 	_tab = key
 	_chooser_slot = {}
 	_armed = false
-	super.show_view(view, "", locked)
+	_active_verb = ""
+	_verb_params = {}
+	super.show_view(view, "", _event_locked)
 
 
 ## The tab that holds section [param section_key] ("" when none does).
@@ -71,7 +71,7 @@ func jump_to(key: String) -> void:
 	var t: String = tab_of(key)
 	if t != "" and t != _tab:
 		_tab = t
-		super.show_view(view, "", locked)
+		super.show_view(view, "", _event_locked)
 	super.jump_to(key)
 
 
@@ -109,6 +109,8 @@ func show_view(v: Dictionary, section: String, is_locked: bool) -> void:
 	if v.get("id", "") != view.get("id", "-"):
 		_chooser_slot = {}
 		_armed = false
+		_active_verb = ""
+		_verb_params = {}
 		_tab = "overview" if bool(v.get("is_player", true)) else "interact"
 	if section != "" and tab_of(section) != "":
 		_tab = tab_of(section)
@@ -272,49 +274,707 @@ func _build_interact(v: Dictionary, g: Control) -> void:
 		line(tr("none"), hist_box)
 	for h in hist:
 		line(str(h), hist_box)
-	# Only the verbs the game has are buttons; the planned ones are one muted line (weak-point review 2026-11-24:
-	# designer notes shown as dead rows made the window read as a spec).
-	var vb: VBoxContainer = section_in(g, "verbs", tr("Verbs"))
-	var here: bool = bool(p.get("here", false)) and bool(v.get("alive", true)) and not bool(p.get("is_beast", false))
-	var first: Button = null
-	var row := HFlowContainer.new()
-	row.add_theme_constant_override("h_separation", 8)
-	vb.add_child(row)
-	var planned: Array = []
-	for group in PERSON_VERBS:
-		for entry in group[1]:
-			var parts: PackedStringArray = str(entry).split(":", true, 1)
-			if not BUILT_VERBS.has(parts[0]):
-				planned.append(tr(parts[1]).get_slice(" (", 0))
+	# Live NPC Interaction & Dialogue (#30) + 19 Trait verb: hooks grouped panel (person.md P3, AC-NI-27).
+	var verbs_heading: String = tr("Verbs") + (("  ·  " + tr("look-only: an event waits")) if _event_locked else "")
+	var vb: VBoxContainer = section_in(g, "verbs", verbs_heading)
+	var alive: bool = bool(v.get("alive", true))
+	var is_beast: bool = bool(p.get("is_beast", false))
+	var here: bool = bool(p.get("here", false))
+	if not alive:
+		line(tr("They are gone."), vb)
+		_person_bar()
+		return
+	if is_beast:
+		line(tr("%s only growls.") % str(v.get("name", "")), vb)
+		_person_bar()
+		return
+	var v_block: Dictionary = Dictionary(p.get("verbs", {}))
+	var used_cnt: int = int(v_block.get("interactions_used", 0))
+	var max_cnt: int = int(v_block.get("interactions_max", 2))
+	var focus_used: float = float(v_block.get("season_time_used", 0.0))
+	var focus_pct: int = int(v_block.get("focus_yield_pct", int(roundf(clampf(1.0 - focus_used, 0.0, 1.0) * 100.0))))
+
+	var meta_row := HBoxContainer.new()
+	meta_row.name = "VerbsMeta"
+	meta_row.add_theme_constant_override("separation", 14)
+	vb.add_child(meta_row)
+	var cnt_lbl := Label.new()
+	cnt_lbl.name = "InteractionsCounter"
+	cnt_lbl.text = tr("Interactions this season: %d / %d") % [used_cnt, max_cnt]
+	cnt_lbl.theme_type_variation = &"RowLabel"
+	meta_row.add_child(cnt_lbl)
+	if focus_used > 0.0 or focus_pct < 100:
+		var fy_lbl := Label.new()
+		fy_lbl.name = "FocusYieldLabel"
+		fy_lbl.text = tr("Season focus left: %d%%") % focus_pct
+		fy_lbl.theme_type_variation = &"RowLabel"
+		fy_lbl.add_theme_color_override("font_color", Color("#9A5B00"))
+		TooltipLayer.set_tip(fy_lbl, {
+			"title": tr("Season focus yield"),
+			"fact": tr("%d%% remaining (%.2f season spent)") % [focus_pct, focus_used],
+			"summary": tr("Timed interactions tax this season's focus yield without ending the turn."),
+		})
+		meta_row.add_child(fy_lbl)
+
+	var open_loans: Array = Array(v_block.get("open_loans", p.get("loans", [])))
+	var npc_flags: Array = Array(v_block.get("flags", p.get("flags", [])))
+	if not open_loans.is_empty() or not npc_flags.is_empty():
+		var fl_box := VBoxContainer.new()
+		fl_box.name = "NpcFlagsLoans"
+		fl_box.add_theme_constant_override("separation", 3)
+		vb.add_child(fl_box)
+		for loan in open_loans:
+			if not (loan is Dictionary):
 				continue
-			var reason: String = ""
-			if not here:
-				reason = tr("not here: %s") % str(p.get("place", "?"))
-			elif _event_locked:
-				reason = tr("locked while an event waits (look only)")
-			var b := Button.new()
-			b.name = "Verb_" + parts[0]
-			b.text = tr(parts[1])
-			b.theme_type_variation = &"CommitButton" if reason == "" else &""
-			b.disabled = reason != ""
-			b.accessibility_name = tr(parts[1]) + ((": " + reason) if reason != "" else "")
-			TooltipLayer.set_tip(b, {"title": tr(parts[1]), "summary": reason if reason != "" else tr("They will accept.")})
-			var vid: String = parts[0]
-			var pid: String = str(v.get("id", ""))
-			b.pressed.connect(func(): action_requested.emit("person_verb", [pid, vid]))
-			row.add_child(b)
-			if first == null and not b.disabled:
-				first = b
-	if not planned.is_empty():
-		var more := Label.new()
-		more.name = "PlannedVerbs"
-		more.text = tr("Coming later: %s.") % ", ".join(planned)
-		more.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		more.modulate = Color(1, 1, 1, 0.65)
-		vb.add_child(more)
-	if first != null:
-		focus_later(first)
+			var ld: Dictionary = loan as Dictionary
+			var l_lbl := Label.new()
+			l_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			if str(ld.get("status", "")) == "overdue":
+				l_lbl.text = tr("⚠ Overdue loan: %d linh thạch") % int(ld.get("amount", 0))
+				l_lbl.add_theme_color_override("font_color", Illustrated.CINNABAR)
+			else:
+				l_lbl.text = tr("Open loan: %d linh thạch (due in %d season(s))") % [int(ld.get("amount", 0)), maxi(0, int(ld.get("seasons_left", 0)))]
+			fl_box.add_child(l_lbl)
+		if not npc_flags.is_empty():
+			var flag_labels: Array = []
+			for fl in npc_flags:
+				if fl is Dictionary:
+					flag_labels.append(str((fl as Dictionary).get("label", (fl as Dictionary).get("key", ""))))
+				else:
+					flag_labels.append(str(fl))
+			var f_lbl := Label.new()
+			f_lbl.name = "RememberedFlags"
+			f_lbl.text = tr("Remembered: %s") % ", ".join(flag_labels)
+			f_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			f_lbl.add_theme_color_override("font_color", Color(Illustrated.INK, 0.78))
+			fl_box.add_child(f_lbl)
+
+	if not here:
+		line(tr("Not here (%s). Travel there to interact.") % str(p.get("place", "?")), vb)
+		_person_bar()
+		return
+
+	var groups: Array = Array(v_block.get("groups", []))
+	# Graceful fallback for synthetic views lacking a GameQuery.person_verbs payload.
+	if groups.is_empty():
+		groups = [{
+			"id": "social",
+			"label": "Social",
+			"verbs": [{
+				"id": "greet", "name": "Greet", "name_vi": "Hàn huyên", "group": "social",
+				"trait_hook": "", "source_trait": "", "source_trait_name": "", "side": "",
+				"time": 0.0, "cooldown_left": 0, "greyed": false, "grey_reason": "",
+				"disabled": false, "disabled_reason": "", "will_accept": true, "always_accept": true,
+				"score": 0.0, "score_parts": [], "confirm": false, "param_kind": "",
+				"f7_warning": "", "threat_chance": -1.0, "loan_max": 0, "wager_max": 0, "options": [],
+			}],
+		}]
+
+	var pid: String = str(v.get("id", ""))
+	var first_btn: Button = null
+	for raw_grp in groups:
+		if not (raw_grp is Dictionary):
+			continue
+		var grp: Dictionary = raw_grp as Dictionary
+		var grp_verbs: Array = Array(grp.get("verbs", []))
+		if grp_verbs.is_empty():
+			continue
+		var gid: String = str(grp.get("id", "social"))
+		var glabel: String = str(grp.get("label", gid.capitalize()))
+		var gbox := VBoxContainer.new()
+		gbox.name = "VerbGroup_" + gid
+		gbox.add_theme_constant_override("separation", 4)
+		vb.add_child(gbox)
+		var gh := Label.new()
+		gh.name = "VerbGroupHeader_" + gid
+		gh.text = tr(glabel).to_upper()
+		gh.theme_type_variation = &"RowLabel"
+		gbox.add_child(gh)
+
+		for raw_vd in grp_verbs:
+			if not (raw_vd is Dictionary):
+				continue
+			var vd: Dictionary = raw_vd as Dictionary
+			var b: Button = _build_verb_row(pid, vd, v_block, gbox)
+			if first_btn == null and b != null and not b.disabled:
+				first_btn = b
+
+	if first_btn != null and _active_verb == "":
+		focus_later(first_btn)
 	_person_bar()
+
+
+func _build_verb_row(pid: String, vd: Dictionary, v_block: Dictionary, parent: Control) -> Button:
+	var vid: String = str(vd.get("id", ""))
+	var v_name: String = str(vd.get("name", vid))
+	var v_vi: String = str(vd.get("name_vi", ""))
+	var disp: String = tr(v_name) + ((" (%s)" % v_vi) if v_vi != "" and v_vi != v_name else "")
+	var v_time: float = float(vd.get("time", 0.0))
+	var is_greyed: bool = bool(vd.get("greyed", false))
+	var is_disabled: bool = is_greyed or bool(vd.get("disabled", false))
+	var dis_reason: String = str(vd.get("grey_reason", "")) if is_greyed else str(vd.get("disabled_reason", ""))
+	if not is_disabled and _event_locked and v_time > 0.0:
+		is_disabled = true
+		dis_reason = tr("An event is waiting.")
+
+	var row_wrap := VBoxContainer.new()
+	row_wrap.name = "VerbRow_" + vid
+	row_wrap.add_theme_constant_override("separation", 4)
+	parent.add_child(row_wrap)
+
+	var line_h := HBoxContainer.new()
+	line_h.custom_minimum_size = Vector2(0, 32)
+	line_h.add_theme_constant_override("separation", 8)
+	row_wrap.add_child(line_h)
+
+	var status_text: String = _verb_status_text(vd, is_greyed, is_disabled, dis_reason)
+	var time_text: String = (tr("%.2f season (focus −%d%%)") % [v_time, int(roundf(v_time * 100.0))]) if v_time > 0.0 else tr("free")
+	var f7_warn: String = str(vd.get("f7_warning", ""))
+	var tip: Dictionary = _verb_tooltip(vd, disp, is_greyed, is_disabled, dis_reason, time_text)
+
+	var b := Button.new()
+	b.name = "Verb_" + vid
+	b.text = disp
+	b.custom_minimum_size = Vector2(0, 32)
+	b.disabled = is_disabled
+	if not is_disabled and (bool(vd.get("always_accept", false)) or bool(vd.get("will_accept", false))):
+		b.theme_type_variation = &"CommitButton"
+	b.accessibility_name = "%s, %s, %s%s" % [disp, status_text, time_text, ((", " + f7_warn) if f7_warn != "" else "")]
+	TooltipLayer.set_tip(b, tip)
+	var vd_copy: Dictionary = vd.duplicate(true)
+	b.pressed.connect(func(): _on_verb_pressed(pid, vd_copy, v_block))
+	line_h.add_child(b)
+
+	var thook: String = str(vd.get("trait_hook", ""))
+	if thook != "":
+		var tname: String = str(vd.get("source_trait_name", vd.get("source_trait", "")))
+		var tside: String = str(vd.get("side", ""))
+		var badge := PanelContainer.new()
+		badge.name = "TraitBadge_" + vid
+		badge.add_theme_stylebox_override("panel", Illustrated.box(Color("#3A2718"), Illustrated.BRASS, 1, 3.0, 2))
+		badge.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		var bl := Label.new()
+		bl.text = "[Trait: %s]" % tname
+		bl.add_theme_color_override("font_color", Illustrated.BONE)
+		bl.add_theme_font_size_override("font_size", 13)
+		badge.add_child(bl)
+		TooltipLayer.set_tip(badge, {
+			"title": tr("Trait interaction: %s") % tname,
+			"fact": tr("Side: %s") % tside if tside != "" else "",
+			"summary": tr("Unlocked by %s (%s).") % [tname, thook],
+		})
+		line_h.add_child(badge)
+
+	var st_lbl := Label.new()
+	st_lbl.name = "VerbStatus_" + vid
+	st_lbl.text = status_text
+	st_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	st_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	st_lbl.focus_mode = Control.FOCUS_ALL if is_disabled else Control.FOCUS_NONE
+	st_lbl.accessibility_name = "%s: %s" % [disp, status_text]
+	if is_greyed or is_disabled:
+		st_lbl.add_theme_color_override("font_color", Color(Illustrated.INK, 0.58))
+	elif bool(vd.get("always_accept", false)) or bool(vd.get("will_accept", false)):
+		st_lbl.add_theme_color_override("font_color", Color("#1F5E2E"))
+	elif vid == "threaten":
+		st_lbl.add_theme_color_override("font_color", Illustrated.CINNABAR)
+	else:
+		st_lbl.add_theme_color_override("font_color", Illustrated.CINNABAR)
+	TooltipLayer.set_tip(st_lbl, tip)
+	line_h.add_child(st_lbl)
+
+	var cost_lbl := Label.new()
+	cost_lbl.name = "VerbCost_" + vid
+	cost_lbl.text = time_text
+	cost_lbl.add_theme_color_override("font_color", Color("#8A4F00") if v_time > 0.0 else Color(Illustrated.INK, 0.65))
+	TooltipLayer.set_tip(cost_lbl, tip)
+	line_h.add_child(cost_lbl)
+
+	if f7_warn != "":
+		var fw := Label.new()
+		fw.name = "VerbF7_" + vid
+		fw.text = "⚠ " + f7_warn
+		fw.add_theme_color_override("font_color", Color("#9A5B00"))
+		fw.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		row_wrap.add_child(fw)
+
+	if _active_verb == vid and not is_disabled:
+		_build_verb_panel(pid, vd, v_block, row_wrap)
+	return b
+
+
+func _verb_status_text(vd: Dictionary, is_greyed: bool, is_disabled: bool, dis_reason: String) -> String:
+	var vid: String = str(vd.get("id", ""))
+	if is_greyed:
+		return "🔒 " + (dis_reason if dis_reason != "" else tr("Requirements not met"))
+	if is_disabled:
+		return "🔒 " + (dis_reason if dis_reason != "" else tr("Unavailable"))
+	if vid == "threaten" and float(vd.get("threat_chance", -1.0)) >= 0.0:
+		return "⚔ %d%% %s" % [int(roundf(float(vd.threat_chance) * 100.0)), tr("odds")]
+	if bool(vd.get("always_accept", false)):
+		return "✓ " + tr("will accept")
+	var sc: int = int(roundf(float(vd.get("score", 0.0))))
+	if bool(vd.get("will_accept", false)):
+		return "✓ " + tr("will accept (%+d)") % sc
+	return "✗ " + tr("won't accept (%+d)") % sc
+
+
+func _verb_tooltip(vd: Dictionary, disp: String, is_greyed: bool, is_disabled: bool, dis_reason: String, time_text: String) -> Dictionary:
+	var vid: String = str(vd.get("id", ""))
+	var sc: float = float(vd.get("score", 0.0))
+	var fact: String = ""
+	if is_greyed or is_disabled:
+		fact = tr("Locked: %s") % dis_reason
+	elif vid == "threaten" and float(vd.get("threat_chance", -1.0)) >= 0.0:
+		fact = tr("Threat success odds: %d%%") % int(roundf(float(vd.threat_chance) * 100.0))
+	elif bool(vd.get("always_accept", false)):
+		fact = tr("Always accepts")
+	elif bool(vd.get("will_accept", false)):
+		fact = tr("Will accept (S = %+d)") % int(roundf(sc))
+	else:
+		fact = tr("Won't accept (S = %+d)") % int(roundf(sc))
+
+	var summary_parts: Array = []
+	if dis_reason != "" and (is_greyed or is_disabled):
+		summary_parts.append(dis_reason)
+	if str(vd.get("f7_warning", "")) != "":
+		summary_parts.append(str(vd.f7_warning))
+	if str(vd.get("trait_hook", "")) != "":
+		summary_parts.append(tr("Unlocked by trait: %s (%s)") % [str(vd.get("source_trait_name", vd.get("source_trait", ""))), str(vd.get("side", ""))])
+	summary_parts.append(tr("Cost: %s") % time_text)
+
+	var bd_lines: Array = []
+	for raw_p in Array(vd.get("score_parts", [])):
+		if raw_p is Dictionary:
+			var pd: Dictionary = raw_p as Dictionary
+			var val: float = float(pd.get("value", 0.0))
+			bd_lines.append("%s: %+.1f" % [str(pd.get("label", pd.get("key", ""))), val])
+	if not bd_lines.is_empty():
+		bd_lines.append("Total score: %+.1f" % sc)
+
+	return {
+		"id": "verb:" + vid,
+		"title": disp,
+		"fact": fact,
+		"summary": " · ".join(summary_parts),
+		"lines": bd_lines,
+	}
+
+
+func _on_verb_pressed(pid: String, vd: Dictionary, v_block: Dictionary) -> void:
+	var vid: String = str(vd.get("id", ""))
+	var pkind: String = str(vd.get("param_kind", ""))
+	var needs_confirm: bool = bool(vd.get("confirm", false))
+	if pkind == "" and not needs_confirm:
+		_active_verb = ""
+		_verb_params = {}
+		action_requested.emit("person_verb", [pid, vid])
+		return
+	if _active_verb == vid:
+		_active_verb = ""
+		_verb_params = {}
+		_rebuild_keep("verbs")
+		return
+	_active_verb = vid
+	_verb_params = _default_verb_params(vd, v_block)
+	_rebuild_keep("verbs")
+
+
+func _default_verb_params(vd: Dictionary, v_block: Dictionary) -> Dictionary:
+	var pkind: String = str(vd.get("param_kind", ""))
+	var opts: Array = Array(vd.get("options", []))
+	match pkind:
+		"gift":
+			var stones: int = int(v_block.get("player_stones", 0))
+			if stones >= 50:
+				return {"stones": 50}
+			if stones > 0:
+				return {"stones": stones}
+			var gitems: Array = Array(v_block.get("giftable_items", opts))
+			if not gitems.is_empty():
+				return {"item_id": str((gitems[0] as Dictionary).get("id", ""))}
+			return {"stones": 0}
+		"lesson":
+			return {"lesson": str((opts[0] as Dictionary).get("id", "insight")) if not opts.is_empty() else "insight"}
+		"help":
+			var lmax: int = int(vd.get("loan_max", 0))
+			if lmax > 0:
+				return {"sub": "loan", "amount": lmax}
+			return {"sub": "guide"}
+		"person":
+			return {"target_id": str((opts[0] as Dictionary).get("id", "")) if not opts.is_empty() else ""}
+		"obligation":
+			return {"obligation_id": str((opts[0] as Dictionary).get("id", "")) if not opts.is_empty() else ""}
+		"curio":
+			return {"item_id": str((opts[0] as Dictionary).get("id", "")) if not opts.is_empty() else ""}
+		"wager":
+			return {"stake": maxi(1, int(vd.get("wager_max", 0)))}
+	return {}
+
+
+func _build_verb_panel(pid: String, vd: Dictionary, v_block: Dictionary, parent: Control) -> void:
+	var vid: String = str(vd.get("id", ""))
+	var pkind: String = str(vd.get("param_kind", ""))
+	var panel := PanelContainer.new()
+	panel.name = "VerbPanel_" + vid
+	panel.add_theme_stylebox_override("panel", Illustrated.box(Illustrated.PAPER_TILE, Illustrated.BRASS, 1, 8.0, 2))
+	parent.add_child(panel)
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 6)
+	panel.add_child(col)
+
+	var opts: Array = Array(vd.get("options", []))
+	var can_confirm: bool = true
+
+	match pkind:
+		"gift":
+			var p_stones: int = int(v_block.get("player_stones", 0))
+			var presets: Array = Array(v_block.get("gift_presets", [{"stones": 50, "delta": 0}, {"stones": 100, "delta": 0}, {"stones": 300, "delta": 0}]))
+			var cur_stones: int = int(_verb_params.get("stones", 0))
+			var cur_item: String = str(_verb_params.get("item_id", ""))
+			var st_head := Label.new()
+			st_head.text = tr("Gift spirit stones (you hold %d linh thạch):") % p_stones
+			st_head.theme_type_variation = &"RowLabel"
+			col.add_child(st_head)
+			var prow := HFlowContainer.new()
+			prow.add_theme_constant_override("h_separation", 6)
+			col.add_child(prow)
+			for pr_rec in presets:
+				if not (pr_rec is Dictionary):
+					continue
+				var amt: int = int((pr_rec as Dictionary).get("stones", 0))
+				var dlt: int = int((pr_rec as Dictionary).get("delta", 0))
+				var pb := Button.new()
+				pb.name = "GiftPreset_%d" % amt
+				pb.toggle_mode = true
+				pb.button_pressed = (cur_item == "" and cur_stones == amt)
+				pb.disabled = p_stones < amt
+				pb.text = "%d LT (+%d att)" % [amt, dlt] if dlt > 0 else "%d LT" % amt
+				pb.pressed.connect(func():
+					_verb_params = {"stones": amt}
+					_rebuild_keep("verbs"))
+				prow.add_child(pb)
+			var step_row := HBoxContainer.new()
+			step_row.add_theme_constant_override("separation", 6)
+			col.add_child(step_row)
+			var dec := Button.new()
+			dec.name = "GiftDec"
+			dec.text = "−10"
+			dec.disabled = p_stones <= 0 or (cur_item == "" and cur_stones <= 0)
+			dec.pressed.connect(func():
+				_verb_params = {"stones": maxi(0, cur_stones - 10)}
+				_rebuild_keep("verbs"))
+			step_row.add_child(dec)
+			var amt_lbl := Label.new()
+			amt_lbl.name = "GiftAmountLabel"
+			amt_lbl.text = (tr("Selected: %d linh thạch") % cur_stones) if cur_item == "" else tr("Selected item: %s") % cur_item
+			step_row.add_child(amt_lbl)
+			var inc := Button.new()
+			inc.name = "GiftInc"
+			inc.text = "+10"
+			inc.disabled = p_stones <= 0 or (cur_item == "" and cur_stones >= p_stones)
+			inc.pressed.connect(func():
+				_verb_params = {"stones": mini(p_stones, cur_stones + 10)}
+				_rebuild_keep("verbs"))
+			step_row.add_child(inc)
+
+			var gitems: Array = Array(v_block.get("giftable_items", opts))
+			if not gitems.is_empty():
+				var ih := Label.new()
+				ih.text = tr("Or gift an unequipped item:")
+				ih.theme_type_variation = &"RowLabel"
+				col.add_child(ih)
+				for it in gitems:
+					if not (it is Dictionary):
+						continue
+					var itd: Dictionary = it as Dictionary
+					var iid: String = str(itd.get("id", ""))
+					var ib := Button.new()
+					ib.name = "GiftItem_" + iid
+					ib.toggle_mode = true
+					ib.button_pressed = cur_item == iid
+					ib.alignment = HORIZONTAL_ALIGNMENT_LEFT
+					var pd: int = int(itd.get("predicted_delta", 0))
+					ib.text = "%s (val %d%s)" % [str(itd.get("name", iid)), int(itd.get("value", 0)), (", +%d att" % pd) if pd > 0 else ""]
+					ib.pressed.connect(func():
+						_verb_params = {"item_id": iid}
+						_rebuild_keep("verbs"))
+					col.add_child(ib)
+			can_confirm = (cur_item != "") or (cur_stones <= p_stones)
+		"lesson":
+			var chosen_l: String = str(_verb_params.get("lesson", "insight"))
+			var lh := Label.new()
+			lh.text = tr("Choose lesson (spends 0.25 season focus):")
+			lh.theme_type_variation = &"RowLabel"
+			col.add_child(lh)
+			for o in opts:
+				if not (o is Dictionary):
+					continue
+				var od: Dictionary = o as Dictionary
+				var oid: String = str(od.get("id", ""))
+				var ob := Button.new()
+				ob.name = "LessonOpt_" + oid.replace(":", "_")
+				ob.toggle_mode = true
+				ob.button_pressed = (chosen_l == oid)
+				ob.alignment = HORIZONTAL_ALIGNMENT_LEFT
+				ob.text = str(od.get("label", oid))
+				ob.pressed.connect(func():
+					_verb_params = {"lesson": oid}
+					_rebuild_keep("verbs"))
+				col.add_child(ob)
+		"help":
+			var cur_sub: String = str(_verb_params.get("sub", "loan"))
+			var lmax: int = int(vd.get("loan_max", 0))
+			var cur_amt: int = clampi(int(_verb_params.get("amount", lmax)), 0, lmax)
+			var hrow := HFlowContainer.new()
+			hrow.add_theme_constant_override("h_separation", 6)
+			col.add_child(hrow)
+			for o in opts:
+				if not (o is Dictionary):
+					continue
+				var od: Dictionary = o as Dictionary
+				var sid: String = str(od.get("id", ""))
+				var sb := Button.new()
+				sb.name = "HelpSub_" + sid
+				sb.toggle_mode = true
+				sb.button_pressed = (cur_sub == sid)
+				sb.text = str(od.get("label", sid))
+				sb.pressed.connect(func():
+					if sid == "loan":
+						_verb_params = {"sub": "loan", "amount": lmax}
+					else:
+						_verb_params = {"sub": sid}
+					_rebuild_keep("verbs"))
+				hrow.add_child(sb)
+			if cur_sub == "loan":
+				if lmax <= 0:
+					line(tr("They have nothing to lend."), col)
+					can_confirm = false
+				else:
+					var lrow := HBoxContainer.new()
+					lrow.add_theme_constant_override("separation", 6)
+					col.add_child(lrow)
+					var ldec := Button.new()
+					ldec.name = "LoanDec"
+					ldec.text = "−10"
+					ldec.disabled = cur_amt <= 1
+					ldec.pressed.connect(func():
+						_verb_params = {"sub": "loan", "amount": maxi(1, cur_amt - 10)}
+						_rebuild_keep("verbs"))
+					lrow.add_child(ldec)
+					var llbl := Label.new()
+					llbl.name = "LoanAmountLabel"
+					llbl.text = tr("Borrow %d / %d linh thạch") % [cur_amt, lmax]
+					lrow.add_child(llbl)
+					var linc := Button.new()
+					linc.name = "LoanInc"
+					linc.text = "+10"
+					linc.disabled = cur_amt >= lmax
+					linc.pressed.connect(func():
+						_verb_params = {"sub": "loan", "amount": mini(lmax, cur_amt + 10)}
+						_rebuild_keep("verbs"))
+					lrow.add_child(linc)
+		"person":
+			var ah := Label.new()
+			ah.text = tr("Ask about whom?")
+			ah.theme_type_variation = &"RowLabel"
+			col.add_child(ah)
+			for o in opts:
+				if not (o is Dictionary):
+					continue
+				var od: Dictionary = o as Dictionary
+				var tid: String = str(od.get("id", ""))
+				var pb := Button.new()
+				pb.name = "AboutPerson_" + tid
+				pb.alignment = HORIZONTAL_ALIGNMENT_LEFT
+				pb.text = str(od.get("name", tid))
+				pb.pressed.connect(func():
+					_active_verb = ""
+					_verb_params = {}
+					action_requested.emit("person_verb", [pid, vid, {"target_id": tid}]))
+				col.add_child(pb)
+			var cancel_p := Button.new()
+			cancel_p.name = "CancelVerb_" + vid
+			cancel_p.text = tr("Cancel")
+			cancel_p.pressed.connect(func(): cancel_inline())
+			col.add_child(cancel_p)
+			return
+		"trade":
+			var p_stones_t: int = int(v_block.get("player_stones", 0))
+			var n_stones_t: int = int(v_block.get("npc_stones", 0))
+			var tr_prev: Dictionary = Dictionary(v_block.get("trade_preview", {}))
+			var trade_cols: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
+			trade_cols.add_theme_constant_override("separation", 10)
+			col.add_child(trade_cols)
+			var buy_col := VBoxContainer.new()
+			buy_col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			trade_cols.add_child(buy_col)
+			var bh := Label.new()
+			bh.text = tr("BUY (your stones: %d)") % p_stones_t
+			bh.theme_type_variation = &"RowLabel"
+			buy_col.add_child(bh)
+			var buy_items: Array = Array(opts)
+			if buy_items.is_empty():
+				for s_it in Array(tr_prev.get("shown", [])):
+					buy_items.append((s_it as Dictionary).merged({"locked": false}, true))
+				for l_it in Array(tr_prev.get("locked", [])):
+					buy_items.append((l_it as Dictionary).merged({"locked": true}, true))
+			if buy_items.is_empty():
+				line(tr("No spare goods offered."), buy_col)
+			for bit in buy_items:
+				if not (bit is Dictionary):
+					continue
+				var bd_it: Dictionary = bit as Dictionary
+				var biid: String = str(bd_it.get("id", ""))
+				if bool(bd_it.get("locked", false)):
+					var lkl := Label.new()
+					lkl.name = "TradeLocked_" + biid
+					lkl.text = "🔒 %s (%s %s)" % [str(bd_it.get("name", biid)), tr("needs"), str(bd_it.get("band_needed", "friendly"))]
+					lkl.add_theme_color_override("font_color", Color(Illustrated.INK, 0.58))
+					buy_col.add_child(lkl)
+				else:
+					var price: int = int(bd_it.get("price", 0))
+					var bb := Button.new()
+					bb.name = "TradeBuy_" + biid
+					bb.alignment = HORIZONTAL_ALIGNMENT_LEFT
+					bb.text = tr("Buy %s (%d LT)") % [str(bd_it.get("name", biid)), price]
+					bb.disabled = p_stones_t < price
+					bb.pressed.connect(func():
+						action_requested.emit("person_verb", [pid, "trade", {"trade_action": "buy", "item_id": biid}]))
+					buy_col.add_child(bb)
+
+			var sell_col := VBoxContainer.new()
+			sell_col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			trade_cols.add_child(sell_col)
+			var sh_lbl := Label.new()
+			sh_lbl.text = tr("SELL (their purse: %d)") % n_stones_t
+			sh_lbl.theme_type_variation = &"RowLabel"
+			sell_col.add_child(sh_lbl)
+			var sellable: Array = Array(v_block.get("player_sellable", []))
+			if sellable.is_empty():
+				line(tr("No unequipped spare items to sell."), sell_col)
+			for sit in sellable:
+				if not (sit is Dictionary):
+					continue
+				var sd_it: Dictionary = sit as Dictionary
+				var siid: String = str(sd_it.get("id", ""))
+				var sprice: int = int(sd_it.get("sell_price", 0))
+				var sb := Button.new()
+				sb.name = "TradeSell_" + siid
+				sb.alignment = HORIZONTAL_ALIGNMENT_LEFT
+				sb.text = tr("Sell %s (+%d LT)") % [str(sd_it.get("name", siid)), sprice]
+				sb.disabled = n_stones_t < sprice or sprice <= 0
+				sb.pressed.connect(func():
+					action_requested.emit("person_verb", [pid, "trade", {"trade_action": "sell", "item_id": siid}]))
+				sell_col.add_child(sb)
+			var close_t := Button.new()
+			close_t.name = "CancelVerb_trade"
+			close_t.text = tr("Close trade")
+			close_t.pressed.connect(func(): cancel_inline())
+			col.add_child(close_t)
+			return
+		"obligation":
+			var chosen_o: String = str(_verb_params.get("obligation_id", ""))
+			for o in opts:
+				if not (o is Dictionary):
+					continue
+				var od: Dictionary = o as Dictionary
+				var oid: String = str(od.get("id", ""))
+				var ob := Button.new()
+				ob.name = "RepayOpt_" + oid.replace(":", "_")
+				ob.toggle_mode = true
+				ob.button_pressed = (chosen_o == oid)
+				ob.alignment = HORIZONTAL_ALIGNMENT_LEFT
+				ob.text = str(od.get("label", oid))
+				ob.pressed.connect(func():
+					_verb_params = {"obligation_id": oid}
+					_rebuild_keep("verbs"))
+				col.add_child(ob)
+			can_confirm = chosen_o != ""
+		"curio":
+			var chosen_c: String = str(_verb_params.get("item_id", ""))
+			for o in opts:
+				if not (o is Dictionary):
+					continue
+				var od: Dictionary = o as Dictionary
+				var cid: String = str(od.get("id", ""))
+				var cb := Button.new()
+				cb.name = "CurioOpt_" + cid
+				cb.toggle_mode = true
+				cb.button_pressed = (chosen_c == cid)
+				cb.alignment = HORIZONTAL_ALIGNMENT_LEFT
+				cb.text = "%s (rarity %d)" % [str(od.get("name", cid)), int(od.get("rarity", 2))]
+				cb.pressed.connect(func():
+					_verb_params = {"item_id": cid}
+					_rebuild_keep("verbs"))
+				col.add_child(cb)
+			can_confirm = chosen_c != ""
+		"wager":
+			var wmax: int = int(vd.get("wager_max", 0))
+			var stake: int = clampi(int(_verb_params.get("stake", wmax)), 0, wmax)
+			if wmax <= 0:
+				line(tr("Nothing to wager (empty purse)."), col)
+				can_confirm = false
+			else:
+				var wrow := HBoxContainer.new()
+				wrow.add_theme_constant_override("separation", 6)
+				col.add_child(wrow)
+				for frac in [[0.25, "25%"], [0.5, "50%"], [1.0, "Max"]]:
+					var val_w: int = maxi(1, int(floorf(float(wmax) * float(frac[0]))))
+					var wb := Button.new()
+					wb.toggle_mode = true
+					wb.button_pressed = (stake == val_w)
+					wb.text = "%s (%d LT)" % [str(frac[1]), val_w]
+					wb.pressed.connect(func():
+						_verb_params = {"stake": val_w}
+						_rebuild_keep("verbs"))
+					wrow.add_child(wb)
+				var wlbl := Label.new()
+				wlbl.name = "WagerAmountLabel"
+				wlbl.text = tr("Stake: %d / %d linh thạch") % [stake, wmax]
+				col.add_child(wlbl)
+		_:
+			var notes: Array = []
+			if float(vd.get("time", 0.0)) > 0.0:
+				notes.append(tr("Spends %.2f season focus (yield −%d%%).") % [float(vd.time), int(roundf(float(vd.time) * 100.0))])
+			if vid == "spar" or vid == "challenge":
+				notes.append(tr("Foreseen non-lethal fight: neither dies; loser takes half vitality loss."))
+			elif vid == "threaten":
+				notes.append(tr("Success odds: %d%%. Drops attitude sharply; bold targets may ambush.") % int(roundf(maxf(0.0, float(vd.get("threat_chance", 0.0))) * 100.0)))
+			elif vid == "provoke":
+				notes.append(tr("Opens an immediate foreseen duel with a post-win mercy choice. Drops attitude by 20."))
+			elif vid == "declare_enmity":
+				notes.append(tr("Declares mutual enmity (+30 both ways) and drops attitude by 30."))
+			elif str(vd.get("group", "")) == "bond":
+				var evict: Dictionary = Dictionary(v_block.get("next_evict", {}))
+				if not evict.is_empty():
+					notes.append(tr("Tie cap full: forming this bond would evict %s (%s).") % [str(evict.get("partner", "")), str(evict.get("kind", ""))])
+			if str(vd.get("f7_warning", "")) != "":
+				notes.append("⚠ " + str(vd.f7_warning))
+			if notes.is_empty():
+				notes.append(tr("Confirm %s?") % tr(str(vd.get("name", vid))))
+			line(" ".join(notes), col)
+
+	var btns := HBoxContainer.new()
+	btns.add_theme_constant_override("separation", 8)
+	col.add_child(btns)
+	var confirm_b := Button.new()
+	confirm_b.name = "ConfirmVerb_" + vid
+	confirm_b.text = tr("Confirm")
+	confirm_b.theme_type_variation = &"CommitButton"
+	confirm_b.disabled = not can_confirm
+	confirm_b.pressed.connect(func():
+		var payload: Dictionary = _verb_params.duplicate(true)
+		_active_verb = ""
+		_verb_params = {}
+		action_requested.emit("person_verb", [pid, vid, payload]))
+	btns.add_child(confirm_b)
+	var cancel_b := Button.new()
+	cancel_b.name = "CancelVerb_" + vid
+	cancel_b.text = tr("Cancel")
+	cancel_b.pressed.connect(func(): cancel_inline())
+	btns.add_child(cancel_b)
+	focus_later(confirm_b if can_confirm else cancel_b)
 
 
 # The tab row in the sticky header: one toggle per tab, the open one pressed (Ctrl+Tab / Ctrl+Shift+Tab step them).
@@ -488,8 +1148,13 @@ func _disarm() -> void:
 	_rebuild_keep("cultivation")
 
 
-## Esc closes an open chooser or disarms first (character-sheet.md Interaction Map). Returns true when it did.
+## Esc closes an open chooser, active verb panel, or disarms first (character-sheet.md Interaction Map). Returns true when it did.
 func cancel_inline() -> bool:
+	if _active_verb != "":
+		_active_verb = ""
+		_verb_params = {}
+		_rebuild_keep("verbs")
+		return true
 	if _armed:
 		_disarm()
 		return true
@@ -502,7 +1167,7 @@ func cancel_inline() -> bool:
 
 func _rebuild_keep(sect: String) -> void:
 	var y: int = scroll.scroll_vertical
-	super.show_view(view, "", locked)
+	super.show_view(view, "", _event_locked)
 	scroll.set_deferred("scroll_vertical", y)
 	if sect != "":
 		pass
@@ -787,7 +1452,7 @@ func _on_formation_node(n: int, look_only: bool) -> void:
 	if look_only:
 		return
 	_sel_node = 0 if _sel_node == n else n
-	show_view(view, "formation", locked)
+	show_view(view, "formation", _event_locked)
 
 
 # A collection card: the formation's shape as a small gold drawing, its name, and what it is now.

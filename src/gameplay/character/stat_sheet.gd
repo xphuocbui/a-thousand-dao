@@ -37,6 +37,8 @@ const KIND_PERK := "perk"
 const KIND_ITEM := "item"
 ## NPC Relationships rule 15a: a row the hook pass gives from a tie (source `tie`).
 const KIND_TIE := "tie"
+## NPC Interaction & Dialogue (#30): temporary seasonal buff granted by an interaction (e.g. teaching insight).
+const KIND_INTERACTION := "interaction"
 
 ## stat -> Array of {source, value, kind}
 var _mods: Dictionary = {}
@@ -68,6 +70,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 		sheet.add_mod(line.source, line.stat, line.value)
 	sheet._add_capability_mods(c)
 	sheet._add_tie_mods(c)
+	sheet._add_interaction_buff_mods(c)
 	if db != null:
 		sheet._add_hall_mods(c, db)
 	# Last, because control is limited by thần thức, which everything above can raise. No affix
@@ -145,6 +148,18 @@ func _add_tie_mods(c: Character) -> void:
 	var label := {"master": "sư phụ", "dao_lu": "đạo lữ"}
 	for row in c.tie_rows:
 		add_mod("Quan hệ: %s" % label.get(str(row.get("source", "")), str(row.get("source", ""))), str(row.stat), float(row.value), KIND_TIE)
+
+
+## NPC Interaction & Dialogue (#30): applies active temporary seasonal buffs stored in [member Character.interaction_buffs].
+func _add_interaction_buff_mods(c: Character) -> void:
+	for raw in c.interaction_buffs:
+		if not (raw is Dictionary):
+			continue
+		var row: Dictionary = raw as Dictionary
+		var st: String = str(row.get("stat", ""))
+		var val: float = float(row.get("value", 0.0))
+		if st != "" and val != 0.0:
+			add_mod(str(row.get("source", "Giao tế")), st, val, KIND_INTERACTION)
 
 
 func _add_trait_mods(c: Character) -> void:

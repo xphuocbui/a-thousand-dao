@@ -32,6 +32,9 @@ var ratings: RatingService
 var rating_clock: Callable
 ## Formations rule 11: the last event fight's diagram Breakdown lines (both sides).
 var last_diagram_lines: Array = []
+## Optional callback [code]Callable(npc_id: String, cause: String) -> void[/code] set by GameSession
+## so mercy/kill post-duel choices can resolve an NPC death through WorldTicker without a cyclic reference.
+var kill_npc_fn: Callable
 
 
 func _init(gd: GameData, db: WorldDB, builds: BuildGenerator, items: ItemFactory) -> void:
@@ -94,7 +97,8 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 		"combat":
 			var enemy_rec: Dictionary = _db.get_record("people", str(choice.check.enemy))
 			var enemy := Character.from_dict(enemy_rec)
-			var fought: Dictionary = fight_check(c, sheet, enemy, rng)
+			var sit: int = _parse_situation(str(event.get("situation", "foreseen")))
+			var fought: Dictionary = fight_check(c, sheet, enemy, rng, sit)
 			if fought.ran:
 				success = fought.win
 				check_line = fought.line
@@ -120,6 +124,12 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 	var outcome: Dictionary = choice.success if success else choice.failure
 	for fx in outcome.effects:
 		lines.append(_apply(c, sheet, rng, event, fx, items))
+	var mercy_npc_id: String = ""
+	if success and str(choice.check.type) == "combat" and _has_mercy_choice(event):
+		var target_id: String = str(choice.check.enemy)
+		var target_rec: Dictionary = _db.get_record("people", target_id)
+		if not target_rec.is_empty() and bool(target_rec.get("alive", false)) and not bool(target_rec.get("is_beast", false)):
+			mercy_npc_id = target_id
 	var died: bool = false
 	if c.vitality <= 0.0 and bool(_gd.session().death.khi_huyet_zero_dies):
 		if c.has_capability(5) and not c.cap_used.has("5"):
@@ -131,18 +141,19 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 			c.alive = false
 			c.death_cause = "Tử nạn: %s" % event.title
 			died = true
-	return {"success": success, "lines": lines.filter(func(l): return l != ""), "items": items, "died": died, "check_line": check_line, "outcome_text": outcome.text}
+	return {"success": success, "lines": lines.filter(func(l): return l != ""), "items": items, "died": died, "check_line": check_line, "outcome_text": outcome.text, "mercy_npc_id": mercy_npc_id}
 
 
 ## The fight engine's combat check (ADR-0001 step 4), when combat_rules.json fight_engine.enabled is on: both sides
 ## compiled by [method FighterCompiler.compile], the fight seeded by one draw from [param rng] (ADR-0002 decision 3),
 ## and only a win for [param c] succeeds (a draw or the time limit is a failure). Returns {ran, win, line}; ran is
 ## false when the flag is off (line "") or a side cannot compile (line says why), and the caller rolls the duel.
-func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNumberGenerator) -> Dictionary:
+func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNumberGenerator, situation: int = FightRequest.Situation.FORESEEN) -> Dictionary:
 	if not bool(_gd.combat().get("fight_engine", {}).get("enabled", false)):
 		return {"ran": false, "win": false, "line": ""}
 	var errors: Array = []
 	var req := FightRequest.new()
+	req.situation = situation as FightRequest.Situation
 	req.a = FighterCompiler.compile(c, _gd, _db, sheet, [], errors)
 	var enemy_sheet: StatSheet = _builds.sheet_of(enemy)
 	req.b = FighterCompiler.compile(enemy, _gd, _db, enemy_sheet, [], errors)   # with its Đạo Đồ
@@ -213,11 +224,14 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 		"linh_thach":
 			var amt: int = int(fx.amount)
 			# Formula K: an event's money comes from the commons of the market here, and a loss goes to it
-			var pool: String = "pool:%s" % MoneyLedger.market_sect_of(_db, str(c.location_id))
+			# (except loan_collection payments, which transfer directly to the lender NPC).
+			var payee: String = "pool:%s" % MoneyLedger.market_sect_of(_db, str(c.location_id))
+			if amt < 0 and str(event.get("source", "")) == "template:loan_collection" and str(event.get("npc_id", "")) != "":
+				payee = "npc:%s" % str(event.npc_id)
 			if amt < 0:
-				amt = -MoneyLedger.player_pay(_db, c, pool, mini(-amt, c.linh_thach), "event")
+				amt = -MoneyLedger.player_pay(_db, c, payee, mini(-amt, c.linh_thach), "event")
 			else:
-				amt = MoneyLedger.player_take(_db, c, pool, amt, "event")
+				amt = MoneyLedger.player_take(_db, c, payee, amt, "event")
 			return "linh thạch %+d (now %d)" % [amt, c.linh_thach]
 		"tu_vi":
 			var res: Dictionary = CultivationRules.add_tu_vi(c, _gd, float(fx.amount))
@@ -347,7 +361,55 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 			var pid: String = _alchemy.add_pills(c, str(fx.recipe), 0, 1)
 			items.append(pid)
 			return "gained %s" % _gd.recipe(fx.recipe).name
+		"set_npc_flag":
+			var target_id: String = str(event.npc_id) if str(fx.get("npc", "event_npc")) == "event_npc" else str(fx.npc)
+			var rec: Dictionary = _db.get_record("people", target_id)
+			if rec.is_empty():
+				return ""
+			var flag_name: String = str(fx.get("flag", ""))
+			if flag_name != "":
+				var fl: Dictionary = Dictionary(rec.get("flags", {}))
+				fl[flag_name] = fx.get("value", true)
+				rec["flags"] = fl
+				if rec.has("interaction_flags"):
+					var ifl: Dictionary = Dictionary(rec.get("interaction_flags", {}))
+					ifl[flag_name] = fx.get("value", true)
+					rec["interaction_flags"] = ifl
+				return "%s remembers: %s" % [str(rec.get("name", target_id)), flag_name]
+			return ""
+		"kill_npc":
+			var ktarget: String = str(event.npc_id) if str(fx.get("npc", "event_npc")) == "event_npc" else str(fx.npc)
+			var krec: Dictionary = _db.get_record("people", ktarget)
+			if krec.is_empty() or not bool(krec.get("alive", false)):
+				return ""
+			if kill_npc_fn.is_valid():
+				kill_npc_fn.call(ktarget, str(fx.get("cause", "Tử chiến")))
+			else:
+				krec["alive"] = false
+				krec["death_cause"] = str(fx.get("cause", "Tử chiến"))
+			return "%s was slain." % str(krec.get("name", ktarget))
 	return ""
+
+
+static func _parse_situation(name: String) -> int:
+	match name.strip_edges().to_lower():
+		"ambush":
+			return FightRequest.Situation.AMBUSH
+		"blind":
+			return FightRequest.Situation.BLIND
+	return FightRequest.Situation.FORESEEN
+
+
+func _has_mercy_choice(event: Dictionary) -> bool:
+	if bool(event.get("mercy_choice", false)):
+		return true
+	var src: String = str(event.get("source", ""))
+	if src.begins_with("template:") and _gd != null:
+		var tid: String = src.trim_prefix("template:")
+		for t in _gd.event_templates().get("templates", []):
+			if t is Dictionary and str((t as Dictionary).get("id", "")) == tid:
+				return bool((t as Dictionary).get("mercy_choice", false))
+	return false
 
 
 func _give(c: Character, item: Dictionary, items: Array) -> String:

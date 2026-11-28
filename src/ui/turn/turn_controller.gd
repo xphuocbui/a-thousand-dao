@@ -34,10 +34,24 @@ var window_open: bool = false
 var resolving: bool = false
 ## The note shown after a fallback to Cultivate ("" when none).
 var fallback_note: String = ""
+## Remaining season focus yield percentage (100 when untouched; lowered by timed NPC interactions per GDD Rule 4).
+var focus_yield_pct: int = 100
 
 
 func _init(session: Object) -> void:
 	_session = session
+
+
+## Updates the current season's focus yield percentage (read from GameQuery.season_focus_yield by the screen).
+func set_focus_yield(pct: int) -> void:
+	focus_yield_pct = clampi(pct, 0, 100)
+
+
+## Short focus-tax note when timed interactions spent part of the season ("" at 100% yield).
+func focus_yield_note() -> String:
+	if focus_yield_pct >= 100:
+		return ""
+	return tr_text("%d%% yield") % focus_yield_pct
 
 
 ## Sets the focus to Cultivate.
@@ -78,8 +92,15 @@ func button_label() -> String:
 	return tr_text("End turn") + ": " + focus_label()
 
 
-## The focus as the selector shows it.
+## The focus as the selector shows it, including remaining yield when timed interactions taxed the season.
 func focus_label() -> String:
+	var base: String = _base_focus_label()
+	if focus_yield_pct < 100:
+		return "%s (%s)" % [base, focus_yield_note()]
+	return base
+
+
+func _base_focus_label() -> String:
 	match focus:
 		FOCUS_TRAVEL:
 			return tr_text("Travel to") + " " + destination_name
@@ -125,11 +146,12 @@ func end_turn() -> Dictionary:
 ## session state of its own, ADR-0006 decision 4).
 func after_turn(result: Dictionary, here_id: String) -> void:
 	fallback_note = ""   # a note is shown for the turn that made it, not carried into the next one
+	focus_yield_pct = 100
 	if focus == FOCUS_CULTIVATE:
 		return
 	if focus != FOCUS_TRAVEL:
 		if not bool(result.get("ok", false)):
-			var label: String = focus_label()
+			var label: String = _base_focus_label()
 			choose_cultivate()
 			fallback_note = label + ": " + tr_text("could not be done") + ". " + tr_text("Focus back to Cultivate.")
 		return

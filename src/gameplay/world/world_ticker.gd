@@ -139,6 +139,8 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 					"delta": int(Ties.cfg(_gd).delta.close_fight_rival), "cause": {"kind": "fight", "event": str(news[-1])}})
 	# NPC Relationships rule 9: S8b, after the season's events
 	news.append_array(TieTick.run(_gd, _db, MapChange.abs_season(year, season)))
+	# NPC Interaction & Dialogue (#30): tick overdue loans & expire temporary seasonal buffs
+	news.append_array(InteractionService.tick_world_season(_gd, _db, abs_season, year, season))
 	return news
 
 
@@ -171,6 +173,7 @@ func npc_death(p: Dictionary, year: int, season: int, cause: String, cause_key: 
 	p["death_cause"] = cause
 	p["death_year"] = year
 	_bereave(p, year, season)
+	InteractionService.on_npc_death(_db, str(p.id), year, season)
 	news.append(_log(year, season, text_id, texts, args))
 	TieTick.enqueue(_db, {"kind": "death", "dead": str(p.id), "killer": killer, "known": killer != "", "cause": cause_key,
 		"place": str(p.get("location_id", "")), "event": str(news[-1])})   # NPC Relationships rule 13 at S8b

@@ -63,7 +63,25 @@ static func _other() -> Dictionary:
 	v["is_player"] = false
 	v["person"] = {"met": true, "attitude": 40, "band": "friendly", "place": "Tùng Hạ Thị", "place_id": "l2", "here": true,
 		"home": "Tùng Hạ Thị", "archetype": "Kiếm tu", "is_beast": false,
-		"ties": [{"partner_id": "p3", "partner": "Lâm Dã Hạc", "kinds": ["friend"], "portrait": {}}], "history": ["Year 1199: travelled."]}
+		"ties": [{"partner_id": "p3", "partner": "Lâm Dã Hạc", "kinds": ["friend"], "portrait": {}}], "history": ["Year 1199: travelled."],
+		"verbs": {
+			"interactions_used": 0, "interactions_max": 2, "season_time_used": 0.0, "season_time_left": 1.0, "focus_yield_pct": 100,
+			"player_stones": 120, "npc_stones": 80, "open_loans": [], "flags": [],
+			"groups": [
+				{"id": "social", "label": "Social", "verbs": [
+					{"id": "greet", "name": "Greet", "name_vi": "Hàn huyên", "group": "social", "trait_hook": "", "source_trait": "", "source_trait_name": "", "side": "",
+						"time": 0.0, "cooldown_left": 0, "greyed": false, "grey_reason": "", "disabled": false, "disabled_reason": "",
+						"will_accept": true, "always_accept": true, "score": 40.0, "score_parts": [{"label": "Attitude (+40)", "value": 40.0}],
+						"confirm": false, "param_kind": "", "f7_warning": "", "threat_chance": -1.0, "loan_max": 0, "wager_max": 0, "options": []},
+				]},
+				{"id": "favour", "label": "Favours", "verbs": [
+					{"id": "trade", "name": "Trade", "name_vi": "Giao dịch", "group": "favour", "trait_hook": "", "source_trait": "", "source_trait_name": "", "side": "",
+						"time": 0.0, "cooldown_left": 0, "greyed": false, "grey_reason": "", "disabled": false, "disabled_reason": "",
+						"will_accept": true, "always_accept": false, "score": 50.0, "score_parts": [{"label": "Base ask", "value": 10.0}, {"label": "Attitude (+40)", "value": 40.0}],
+						"confirm": false, "param_kind": "trade", "f7_warning": "", "threat_chance": -1.0, "loan_max": 0, "wager_max": 0, "options": []},
+				]},
+			],
+		}}
 	return v
 
 
@@ -73,8 +91,8 @@ func test_another_person_opens_on_the_interact_tab_with_their_verbs() -> void:
 	assert_true(w.shows_other())
 	assert_eq(w.window_title(w.view), "Hàn Mặc")
 	assert_false((_find(w, "Verb_greet") as Button).disabled, "Greet runs: they are here")
-	assert_true(_find(w, "Verb_trade") == null, "a verb the game does not have is no button")
-	assert_true(str((_find(w, "PlannedVerbs") as Label).text).contains("Trade"), "it is named in the Coming later line")
+	assert_true(_find(w, "Verb_trade") is Button, "Trade is a live verb button")
+	assert_true(_find(w, "PlannedVerbs") == null, "no temporary Coming later stub remains")
 	assert_true(_find(w, "Pin") is Button and _find(w, "PracticeFight") is Button)
 
 

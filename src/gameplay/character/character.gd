@@ -159,6 +159,18 @@ var attitude: int = 0
 ## Season index of the last conversation with the player (NPCs only).
 var last_talk_season: int = -1
 
+# --- NPC Interaction & Dialogue (#30) ---------------------------------------------
+## Focus share (0.0..1.0) consumed by timed interactions this season (GDD Rule 4).
+var season_time_used: float = 0.0
+## Temporary seasonal stat buffs from interactions [{source, stat, value, expires_season}].
+var interaction_buffs: Array = []
+## F7 heart-demon amount already incurred from acting against traits this season (capped per season).
+var heart_demon_used: float = 0.0
+## Active quest visit stages [{quest_id, npc_id, completed}] completed by greeting the target (AC-NI-12).
+var active_visits: Array = []
+## Remembered interaction deed flags on this person ({flag: value}; mirrored to NPC "flags" in WorldDB).
+var interaction_flags: Dictionary = {}
+
 
 ## Thiên phú value (base, before tree/item bonuses).
 func base_stat(stat_id: String) -> int:
@@ -221,6 +233,9 @@ func to_dict() -> Dictionary:
 		"perks": perks.duplicate(), "background": background, "bt_fate": bt_fate.duplicate(),
 		"sect_id": sect_id, "sect_rank": sect_rank, "location_id": location_id, "home_id": home_id,
 		"master_id": master_id, "parent_id": parent_id, "attitude": attitude, "last_talk_season": last_talk_season,
+		"season_time_used": season_time_used, "interaction_buffs": interaction_buffs.duplicate(true),
+		"heart_demon_used": heart_demon_used, "active_visits": active_visits.duplicate(true),
+		"interaction_flags": interaction_flags.duplicate(true),
 	}
 
 
@@ -312,4 +327,19 @@ static func from_dict(d: Dictionary) -> Character:
 	c.parent_id = str(d.get("parent_id", ""))
 	c.attitude = int(d.get("attitude", 0))
 	c.last_talk_season = int(d.get("last_talk_season", -1))
+	c.season_time_used = clampf(float(d.get("season_time_used", 0.0)), 0.0, 1.0)
+	c.interaction_buffs = []
+	var raw_buffs: Array = Array(d.get("interaction_buffs", d.get("season_buffs", [])))
+	for raw_b in raw_buffs:
+		if raw_b is Dictionary and str((raw_b as Dictionary).get("stat", "")) != "":
+			var bd: Dictionary = raw_b as Dictionary
+			c.interaction_buffs.append({
+				"source": str(bd.get("source", "Giao tế")),
+				"stat": str(bd.get("stat", "")),
+				"value": float(bd.get("value", 0.0)),
+				"expires_season": int(bd.get("expires_season", 0)),
+			})
+	c.heart_demon_used = maxf(0.0, float(d.get("heart_demon_used", 0.0)))
+	c.active_visits = Array(d.get("active_visits", [])).duplicate(true)
+	c.interaction_flags = Dictionary(d.get("interaction_flags", d.get("flags", {}))).duplicate(true)
 	return c

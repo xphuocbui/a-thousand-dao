@@ -69,6 +69,10 @@ var templates: EventTemplateSource
 var validator: EventValidator
 var resolver: EventResolver
 var narrator: Narrator
+## NPC Interaction & Dialogue (#30): verbs, loans, spars, and voiced replies (no back-reference to self).
+var interactions: InteractionService
+## Share of the current season's focus spent on timed interactions (GDD Rule 4, 0.0..1.0).
+var season_time_used: float = 0.0
 
 var seed_value: int = 0
 var year: int = 0
@@ -132,6 +136,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	_wire()
 	life_over = false
 	cheated = false
+	season_time_used = 0.0
 	edge = bool(spec.get("edge", true))
 	co_duyen_used = {}
 	pending_event = {}
@@ -214,7 +219,9 @@ func _wire() -> void:
 	resolver = EventResolver.new(gd, db, builds, items)
 	resolver.ratings = ratings
 	resolver.rating_clock = _rating_clock   # a method, not a lambda: a lambda capturing self would cycle and leak
+	resolver.kill_npc_fn = _kill_npc_from_event
 	narrator = Narrator.new(gd, db, llm, templates, validator)
+	interactions = InteractionService.new(gd, db, builds, items, market, sect_members, resolver, templates, validator, ratings)
 
 
 func _place_player() -> void:
@@ -382,11 +389,12 @@ func fund_building(province_id: String, kind: String) -> Dictionary:
 func _pass_season(mode: String) -> Dictionary:
 	var sh: StatSheet = sheet()
 	var out := {"tu_vi": 0.0, "stages": 0, "points": 0, "news": [], "died": false}
+	var yield_share: float = InteractionRules.focus_yield_share(season_time_used)
 	var cultivating: bool = mode == "cultivate" or mode == "closed_door"
 	out["techniques"] = CongPhap.season_tick(player, gd, sh.effective("ngo_tinh", player), cultivating)
 	if cultivating:
 		var density: float = float(db.get_record("places", player.location_id).get("density", 1.0))
-		var gain: float = CultivationRules.rate_per_season(player, gd, db, sh, density, mode == "closed_door", db.get_record("places", player.location_id).get("qi", {})).total
+		var gain: float = CultivationRules.rate_per_season(player, gd, db, sh, density, mode == "closed_door", db.get_record("places", player.location_id).get("qi", {})).total * yield_share
 		var res: Dictionary = CultivationRules.add_tu_vi(player, gd, gain)
 		out.tu_vi = gain
 		out.stages = res.stages
@@ -395,7 +403,7 @@ func _pass_season(mode: String) -> Dictionary:
 			sh = sheet()
 	elif mode == "travel" and player.has_capability(8):
 		var density_t: float = float(db.get_record("places", player.location_id).get("density", 1.0))
-		var r8: Dictionary = CultivationRules.add_tu_vi(player, gd, float(gd.capability(8).params.rate_mult) * CultivationRules.rate_per_season(player, gd, db, sh, density_t, false, db.get_record("places", player.location_id).get("qi", {})).total)
+		var r8: Dictionary = CultivationRules.add_tu_vi(player, gd, float(gd.capability(8).params.rate_mult) * CultivationRules.rate_per_season(player, gd, db, sh, density_t, false, db.get_record("places", player.location_id).get("qi", {})).total * yield_share)
 		out.tu_vi = r8.gained
 		out.stages = r8.stages
 		out.points = r8.tree_points
@@ -419,6 +427,13 @@ func _pass_season(mode: String) -> Dictionary:
 		season = 0
 		year += 1
 		_yearly()
+	# NPC Interaction & Dialogue (#30): reset seasonal focus tax / F7 counter and expire finished buffs
+	season_time_used = 0.0
+	player.season_time_used = 0.0
+	player.heart_demon_used = 0.0
+	var s_idx: int = season_index()
+	if not player.interaction_buffs.is_empty():
+		player.interaction_buffs = player.interaction_buffs.filter(func(b): return b is Dictionary and int((b as Dictionary).get("expires_season", 0)) > s_idx)
 	_roll_ratings()   # rule 13, one season late: the previous season's batch applies; this season's waits a season
 	db.mark_hook_dirty(player.id)   # NPC Relationships rule 15a: the player's realm and place change often
 	out.news = ticker.tick(rng, year, season)
@@ -447,6 +462,7 @@ func _yearly() -> void:
 	for l in formations.pay_upkeep(player):
 		_notices.append("  " + l)
 		_log("player_formation_decay", {"a": player.id})
+	InteractionService.yearly_attitude_drift(gd, db, db.get_record("people", player.id))
 
 
 func _news_lines(news: Array, limit: int = 3) -> Array:
@@ -472,6 +488,19 @@ func _is_co_duyen(ev: Dictionary) -> bool:
 ## Rolls for a random event at the current place. Returns lines describing it, or [].
 ## At a bình cảnh a life with the edge is likelier to meet one (cơ duyên).
 func _maybe_event(bonus: float) -> Array:
+	# NPC Interaction & Dialogue (#30): fire scheduled follow-up events (e.g. overdue loan collection) first.
+	var fu: Dictionary = InteractionService.pop_due_followup(db, season_index())
+	if not fu.is_empty():
+		var fu_npc: Dictionary = db.get_record("people", str(fu.get("npc_id", "")))
+		if not fu_npc.is_empty() and bool(fu_npc.get("alive", false)):
+			var ctx: Dictionary = event_context()
+			var raw_fu: Dictionary = templates.generate_for_npc(ctx, fu_npc, rng, str(fu.get("template_id", "")))
+			if not raw_fu.is_empty():
+				var norm_fu: Dictionary = validator.normalize(raw_fu, ctx, rng, str(raw_fu.source))
+				if bool(norm_fu.ok):
+					pending_event = norm_fu.event
+					pending_meta = {"source": str(norm_fu.event.source), "warnings": norm_fu.warnings, "llm_error": ""}
+					return ["", "*** EVENT: %s ***  (type 'event' to read, 'choose <n>' to act)" % pending_event.title]
 	var cfg: Dictionary = gd.event_templates().random_event_chance
 	var place: Dictionary = db.get_record("places", player.location_id)
 	var chance: float = float(cfg.base) + float(cfg.per_danger) * float(place.get("danger", 1)) + bonus
@@ -603,6 +632,9 @@ func mission() -> Dictionary:
 	income.base(kind, base)
 	income.mul("Realm scale", float(cfg.income_realm_scale.get(gd.realm(player.realm_index).id, 1.0)))
 	income.mul("Kim/mission multiplier", CharacterRules.mission_income(player, gd, sh).total)
+	var yield_share_m: float = InteractionRules.focus_yield_share(season_time_used)
+	if yield_share_m < 1.0:
+		income.mul("Season focus remaining (%.0f%%)" % (yield_share_m * 100.0), yield_share_m)
 	var earned: int = int(roundf(income.total))
 	# Formula H: a sect mission is paid by the sect's treasury, a bounty by the town's commons (the market's pool)
 	var client: String = "sect:%s" % sect.id if not sect.is_empty() and sect.hq_place_id == player.location_id else "pool:%s" % MoneyLedger.market_sect_of(db, player.location_id)
@@ -641,7 +673,8 @@ func explore() -> Dictionary:
 		if not bool(st.open):
 			return {"ok": false, "lines": ["The gate of %s is sealed. It opens in %d season(s)." % [place.name, int(st.next_open_in)]]}
 	var b: Dictionary = EventContext.budget(player, gd, sheet())
-	var found: int = int(roundf(RngUtils.range_f(rng, cfg.loot_linh_thach_frac) * float(b.linh_thach_max)))
+	var yield_share_e: float = InteractionRules.focus_yield_share(season_time_used)
+	var found: int = int(roundf(RngUtils.range_f(rng, cfg.loot_linh_thach_frac) * float(b.linh_thach_max) * yield_share_e))
 	# Formula K: found money is drawn from the lost stash of the market here (fed by a share of every mine)
 	found = MoneyLedger.player_take(db, player, "stash:%s" % MoneyLedger.market_sect_of(db, player.location_id), found, "found")
 	var lines: Array = ["You explore %s for a season and find %d linh thạch." % [place.name, found]]
@@ -734,6 +767,8 @@ func travel(dest_id: String, how: String = "ground") -> Dictionary:
 		for pid in route.path:
 			if not player.visited.has(pid):
 				player.visited.append(pid)
+	if season_time_used > 0.0:
+		t += season_time_used
 	var split: Dictionary = Travel.split(t)
 	var seasons: int = int(split.seasons)
 	var news: Array = []
@@ -2021,6 +2056,24 @@ func meet(npc: Dictionary) -> void:
 	NpcTraits.first_meeting(gd, db, npc, prec, st, int(gd.session().talk.hostile_threshold))
 
 
+## Executes an NPC Interaction & Dialogue (#30) verb (17 base verbs + 19 trait [code]verb:[/code] hooks)
+## against [param person_id]. Returns [code]{ok, accepted, lines, reply, effect_lines, voice_meta, ...}[/code].
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func interact(person_id: String, verb_id: String, opts: Dictionary = {}) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	var res: Dictionary = interactions.execute(self, person_id, verb_id, opts)
+	sync_player()
+	return res
+
+
+## Backwards-compatible greeting helper delegating cleanly to [method interact].
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func greet(person_id: String) -> Dictionary:
+	return interact(person_id, "greet")
+
+
 ## Talks to a person at the same place (once per season each).
 ## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func talk(npc_id: String, player_line: String) -> Dictionary:
@@ -2071,8 +2124,15 @@ func choose(index: int) -> Dictionary:
 		people.append(event.npc_id)
 	db.log_event(year, season, "story", "%s — %s: %s" % [event.title, event.choices[index].label, "thành công" if result.success else "thất bại"],
 		people, [event.place_id], result.items, {"narration": story.text, "effects": result.lines, "source": pending_meta.get("source", "")})
-	pending_event = {}
-	pending_meta = {}
+	if str(event.get("source", "")) == "template:loan_collection" and index == 0 and bool(result.success):
+		InteractionService.mark_loans_repaid(db, player.id, str(event.npc_id))
+	var mercy_id: String = str(result.get("mercy_npc_id", ""))
+	if mercy_id != "" and not bool(result.died):
+		pending_event = InteractionService.build_mercy_event(db, player, mercy_id, player.location_id, year)
+		pending_meta = {"source": "interaction:mercy_choice", "warnings": [], "llm_error": ""}
+	else:
+		pending_event = {}
+		pending_meta = {}
 	var lines: Array = ["> " + str(event.choices[index].label), ""]
 	lines.append(story.text)
 	lines.append("")
@@ -2100,6 +2160,7 @@ func _end_life(cause: String) -> void:
 	if str(home_d.get("qi", {}).get("abode", {}).get("owner", "")) == player.id:
 		CaveAbode.ruin(home_d)
 	_log("player_death", {"a": player.id, "cause": cause})
+	InteractionService.on_player_death(db, player.id, year, season)
 	var facts: String = "%s, %s, died at age %d in %s. Linh căn: %s. Cause: %s. Notable events: %s" % [
 		player.name, gd.realm_label(player.realm_index, player.stage), int(player.age), clock_label(),
 		player.linh_can.describe(gd), cause, "; ".join(db.events_of(player.id).slice(-8).map(func(e): return str(e.text)))]
@@ -2352,6 +2413,7 @@ func to_dict() -> Dictionary:
 		"year": year, "season": season, "player_id": player.id, "db": db.to_dict(),
 		"pending_event": pending_event, "pending_meta": pending_meta, "life_over": life_over, "epitaph": epitaph_text, "cheated": cheated,
 		"edge": edge, "co_duyen_used": co_duyen_used,
+		"season_time_used": season_time_used,
 		"knowledge": knowledge.to_dict() if knowledge != null else {},
 		"rating_pending": _pending_rating_results(),
 	}
@@ -2428,6 +2490,8 @@ func load_dict(d: Dictionary) -> Dictionary:
 	life_over = bool(d.get("life_over", false))
 	cheated = bool(d.get("cheated", false))
 	edge = bool(d.get("edge", true))
+	season_time_used = clampf(float(d.get("season_time_used", player.season_time_used)), 0.0, 1.0)
+	player.season_time_used = season_time_used
 	co_duyen_used = {}
 	var cdu: Dictionary = d.get("co_duyen_used", {})
 	for k in cdu.keys():
@@ -2513,6 +2577,15 @@ func _reallocate_migrated() -> void:
 
 
 # --- Helpers ------------------------------------------------------------------------
+
+## Callback invoked by [EventResolver] when a post-duel kill choice executes; routes through [WorldTicker]
+## without holding a cyclic lambda reference.
+func _kill_npc_from_event(npc_id: String, cause: String) -> void:
+	var rec: Dictionary = db.get_record("people", npc_id)
+	if rec.is_empty() or not bool(rec.get("alive", false)):
+		return
+	ticker.npc_death(rec, year, season, cause, "duel", player.id, "tick_duel_kill", {"a": player.id, "b": npc_id, "place": player.location_id})
+
 
 func _herb_id(what: String) -> String:
 	if not gd.herb(what).is_empty():

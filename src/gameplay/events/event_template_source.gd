@@ -28,6 +28,8 @@ func _init(gd: GameData, db: WorldDB, builds: BuildGenerator) -> void:
 func eligible(ctx: Dictionary) -> Array:
 	var ptype: String = str(ctx.place.type)
 	return _gd.event_templates().templates.filter(func(t):
+		if str(t.get("hook", "")) != "":
+			return false
 		var types: Array = t.get("place_types", ["any"])
 		if not (types.has("any") or types.has(ptype)):
 			return false
@@ -42,6 +44,58 @@ func eligible(ctx: Dictionary) -> Array:
 		if float(t.get("requires_tam_ma", 0)) > float(ctx.player.tam_ma):
 			return false
 		return true)
+
+
+## Returns authored [code]on_talk[/code] scene templates eligible for [param npc] in [param ctx]
+## (NPC Interaction & Dialogue #30 Rule 18, AC-NI-25). Does not alter random [method eligible] rolls.
+func eligible_on_talk(ctx: Dictionary, npc: Dictionary) -> Array:
+	if npc.is_empty():
+		return []
+	var cast_key: String = str(npc.get("cast_key", ""))
+	var seen: Array = Array(npc.get("seen_scenes", []))
+	var flags: Dictionary = InteractionRules.npc_flags(npc)
+	var cur_band: String = InteractionRules.attitude_band(_gd, int(npc.get("attitude", 0)))
+	var cur_rank: int = InteractionRules.band_rank(cur_band)
+	return _gd.event_templates().templates.filter(func(t):
+		if str(t.get("hook", "")) != "on_talk":
+			return false
+		if bool(t.get("once", false)) and seen.has(str(t.get("id", ""))):
+			return false
+		var cks: Array = Array(t.get("cast_keys", []))
+		if not cks.is_empty() and not cks.has(cast_key):
+			return false
+		var req_flags: Array = Array(t.get("requires_npc_flags", []))
+		for rf in req_flags:
+			var rfs: String = str(rf)
+			if not flags.has(rfs) or (typeof(flags[rfs]) == TYPE_BOOL and not bool(flags[rfs])):
+				return false
+		var min_b: String = str(t.get("attitude_band_min", ""))
+		if min_b != "" and cur_rank < InteractionRules.band_rank(min_b):
+			return false
+		if bool(t.get("requires_sect", false)) and str(ctx.sect.id) == "":
+			return false
+		if int(t.get("requires_realm_min", 0)) > int(ctx.player.get("realm_index", 0)):
+			return false
+		return true)
+
+
+## Generates an authored [code]on_talk[/code] scene for [param npc] by weight (Event Engine Rule 7),
+## or {} if none is eligible (NPC Interaction & Dialogue #30 Rule 18, AC-NI-25).
+func generate_on_talk(ctx: Dictionary, npc: Dictionary, rng: RandomNumberGenerator) -> Dictionary:
+	return generate_for_npc(ctx, npc, rng, "")
+
+
+## Generates a hooked event bound directly to [param npc] (either forced by [param template_id],
+## e.g. [code]provoke_duel[/code] / [code]threat_ambush[/code] / [code]loan_collection[/code],
+## or picked by weight from [method eligible_on_talk] when [param template_id] is empty).
+func generate_for_npc(ctx: Dictionary, npc: Dictionary, rng: RandomNumberGenerator, template_id: String = "") -> Dictionary:
+	if npc.is_empty():
+		return {}
+	var pool: Array = eligible_on_talk(ctx, npc) if template_id == "" else _gd.event_templates().templates.filter(func(t): return str(t.get("id", "")) == template_id)
+	if pool.is_empty():
+		return {}
+	var t: Dictionary = RngUtils.weighted_pick(rng, pool)
+	return _fill(t, ctx, str(npc.get("id", "")), rng)
 
 
 ## Generates a raw event, or {} if no template fits. [param template_id] forces one.
@@ -102,6 +156,11 @@ func _fill(t: Dictionary, ctx: Dictionary, npc_id: String, rng: RandomNumberGene
 	}
 	var raw := {
 		"source": "template:%s" % t.id,
+		"template_id": str(t.id),
+		"hook": str(t.get("hook", "")),
+		"once": bool(t.get("once", false)),
+		"situation": str(t.get("situation", "")),
+		"mercy_choice": bool(t.get("mercy_choice", false)),
 		"title": _sub(str(t.title), subs), "text": _sub(str(t.text), subs),
 		"npc": {"id_resolved": npc_id} if npc_id != "" else null,
 		"choices": [],

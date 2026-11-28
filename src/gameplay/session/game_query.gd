@@ -422,6 +422,303 @@ static func person(s: GameSession, person_id: String) -> Dictionary:
 	out.ties = mine + other.slice(0, 3)
 	for e in s.db.events_of(person_id).slice(-5):
 		out.history.append(str(e.get("text", "")))
+	var can_interact: bool = s.interactions != null and not bool(out.is_player) and bool(out.alive) and not bool(out.is_beast)
+	if can_interact:
+		var pv: Dictionary = person_verbs(s, person_id)
+		out["verbs"] = pv
+		out["loans"] = Array(pv.get("open_loans", [])).duplicate(true)
+		out["flags"] = Array(pv.get("flags", [])).duplicate(true)
+	else:
+		out["verbs"] = {}
+		out["loans"] = []
+		out["flags"] = []
+	return out
+
+
+## Read-only. Current season's focus time spent on timed interactions and remaining focus yield (GDD Rule 4).
+## Returns [code]{used, remaining, pct}[/code] as a copy; never mutates session state.
+static func season_focus_yield(s: GameSession) -> Dictionary:
+	if s == null:
+		return {"used": 0.0, "remaining": 1.0, "pct": 100}
+	var used: float = clampf(s.season_time_used, 0.0, 1.0)
+	var rem: float = InteractionRules.focus_yield_share(used)
+	return {
+		"used": used,
+		"remaining": rem,
+		"pct": int(roundf(rem * 100.0)),
+	}
+
+
+## Read-only. Grouped NPC interaction verbs, acceptance breakdowns, picker options, open loans, remembered flags,
+## trade preview, and focus-yield state for [param person_id] (NPC Interaction & Dialogue #30 + 19 Trait hooks).
+## Returns deep copies only; never mutates [param s], WorldDB, or RNG.
+static func person_verbs(s: GameSession, person_id: String) -> Dictionary:
+	var fy: Dictionary = season_focus_yield(s)
+	var empty_groups: Array = [
+		{"id": "social", "label": "Social", "verbs": []},
+		{"id": "favour", "label": "Favours", "verbs": []},
+		{"id": "conflict", "label": "Conflict", "verbs": []},
+		{"id": "bond", "label": "Bonds", "verbs": []},
+	]
+	var empty_out := {
+		"groups": empty_groups,
+		"interactions_used": 0,
+		"interactions_max": int(InteractionRules.knobs(s.gd).get("interactions_per_person_per_season", 2)) if s != null and s.gd != null else 2,
+		"season_time_used": float(fy.used),
+		"season_time_left": float(fy.remaining),
+		"focus_yield_pct": int(fy.pct),
+		"player_stones": s.player.linh_thach if s != null and s.player != null else 0,
+		"npc_stones": 0,
+		"giftable_items": [],
+		"gift_presets": [],
+		"teachable_manuals": [],
+		"player_sellable": [],
+		"open_loans": [],
+		"flags": [],
+		"trade_preview": {"shown": [], "locked": [], "band": "neutral", "haggled": false},
+		"next_evict": {},
+	}
+	if s == null or s.player == null or s.db == null or s.interactions == null:
+		return empty_out
+	var npc: Dictionary = s.db.get_record("people", person_id)
+	if npc.is_empty() or not bool(npc.get("alive", false)) or bool(npc.get("is_player", false)) or bool(npc.get("is_beast", false)):
+		return empty_out
+
+	var sh: StatSheet = s.sheet()
+	var season_now: int = s.season_index()
+	var year_now: int = s.year
+	var raw_verbs: Array = s.interactions.list_verbs(s.player, sh, person_id, season_now, year_now, s.season_time_used, s.has_pending_event(), s.knowledge)
+	var by_group := {
+		"social": [],
+		"favour": [],
+		"conflict": [],
+		"bond": [],
+	}
+	for raw_v in raw_verbs:
+		if not (raw_v is Dictionary):
+			continue
+		var vc: Dictionary = (raw_v as Dictionary).duplicate(true)
+		var gkey: String = str(vc.get("group", "social"))
+		if not by_group.has(gkey):
+			gkey = "social"
+		(by_group[gkey] as Array).append(vc)
+
+	var groups: Array = [
+		{"id": "social", "label": "Social", "verbs": by_group["social"]},
+		{"id": "favour", "label": "Favours", "verbs": by_group["favour"]},
+		{"id": "conflict", "label": "Conflict", "verbs": by_group["conflict"]},
+		{"id": "bond", "label": "Bonds", "verbs": by_group["bond"]},
+	]
+
+	var flags_dict: Dictionary = InteractionRules.npc_flags(npc)
+	var haggled: bool = flags_dict.has("haggled_season") and int(flags_dict.get("haggled_season", -9999)) == season_now
+	var pr: float = sh.effective("mi_luc", s.player) - 50.0
+	var meta_raw: Dictionary = Dictionary(npc.get("interact_meta", {}))
+	var n_gift: int = int(meta_raw.get("gift_year_count", 0)) if int(meta_raw.get("year", -9999)) == year_now else 0
+
+	var giftable: Array = []
+	var sellable: Array = []
+	for it in s.db.items_of(s.player.id):
+		var iid: String = str(it.get("id", ""))
+		if s.player.equipped.has(iid):
+			continue
+		if str(it.get("kind", "")) == "herb" and int(it.get("plot", -1)) >= 0:
+			continue
+		var val: int = maxi(0, s.items.value_of(it)) if s.items != null else int(it.get("value", 0))
+		var rar: int = ItemRarity.of(s.gd, it)
+		giftable.append({
+			"id": iid,
+			"name": str(it.get("name", iid)),
+			"value": val,
+			"rarity": rar,
+			"predicted_delta": InteractionRules.gift_delta(s.gd, val, npc, pr, n_gift),
+		})
+		if s.market != null:
+			var base_b: int = s.market.buy_price(s.player, sh, it, s.player.location_id)
+			var base_s: int = s.market.sell_price(s.player, sh, it, s.player.location_id)
+			var hp: Dictionary = InteractionRules.haggle_prices(s.gd, base_b, base_s, haggled)
+			sellable.append({
+				"id": iid,
+				"name": str(it.get("name", iid)),
+				"sell_price": int(hp.sell),
+				"rarity": rar,
+			})
+
+	var gift_presets: Array = []
+	for amt in [50, 100, 300]:
+		gift_presets.append({
+			"stones": amt,
+			"delta": InteractionRules.gift_delta(s.gd, amt, npc, pr, n_gift),
+		})
+
+	var manuals: Array = []
+	for m in InteractionRules.teachable_manuals(s.gd, npc, s.player):
+		manuals.append({
+			"tech_id": str(m.tech_id),
+			"name": str(m.name),
+			"layer": int(m.layer),
+		})
+
+	var open_loans: Array = []
+	for loan in InteractionService.loans_of(s.db, s.player.id, person_id):
+		var st: String = str(loan.get("status", ""))
+		if st in ["open", "overdue"]:
+			var lc: Dictionary = loan.duplicate(true)
+			lc["seasons_left"] = int(loan.get("due_season", season_now)) - season_now
+			open_loans.append(lc)
+
+	var tr_raw: Dictionary = InteractionRules.trade_items_for(s.gd, s.db, npc)
+	var tr_shown: Array = []
+	for it in Array(tr_raw.get("shown", [])):
+		var price: int = int(it.get("value", 1))
+		if s.market != null:
+			var bb: int = s.market.buy_price(s.player, sh, it, s.player.location_id)
+			var bs: int = s.market.sell_price(s.player, sh, it, s.player.location_id)
+			price = int(InteractionRules.haggle_prices(s.gd, bb, bs, haggled).buy)
+		tr_shown.append({
+			"id": str(it.get("id", "")),
+			"name": str(it.get("name", "")),
+			"price": price,
+			"rarity": ItemRarity.of(s.gd, it),
+		})
+	var tr_locked: Array = []
+	for lk in Array(tr_raw.get("locked", [])):
+		var lit: Dictionary = lk.item
+		tr_locked.append({
+			"id": str(lit.get("id", "")),
+			"name": str(lit.get("name", "")),
+			"band_needed": str(lk.band_needed),
+			"rarity": ItemRarity.of(s.gd, lit),
+		})
+
+	var next_evict: Dictionary = {}
+	if Ties.enabled(s.gd):
+		var rel: Dictionary = relationships(s)
+		if rel.get("next_evict") is Dictionary:
+			next_evict = (rel.next_evict as Dictionary).duplicate(true)
+
+	return {
+		"groups": groups,
+		"interactions_used": s.interactions.interactions_used_this_season(person_id, season_now),
+		"interactions_max": int(InteractionRules.knobs(s.gd).get("interactions_per_person_per_season", 2)),
+		"season_time_used": float(fy.used),
+		"season_time_left": float(fy.remaining),
+		"focus_yield_pct": int(fy.pct),
+		"player_stones": s.player.linh_thach,
+		"npc_stones": maxi(0, int(floorf(float(npc.get("linh_thach", 0.0))))),
+		"giftable_items": giftable,
+		"gift_presets": gift_presets,
+		"teachable_manuals": manuals,
+		"player_sellable": sellable,
+		"open_loans": open_loans,
+		"flags": _interaction_flag_rows(flags_dict, season_now),
+		"trade_preview": {
+			"shown": tr_shown,
+			"locked": tr_locked,
+			"band": str(tr_raw.get("band", "neutral")),
+			"haggled": haggled,
+		},
+		"next_evict": next_evict,
+	}
+
+
+## Read-only. Everyone the player has met (from [member Character.met_list] and [code]met_player[/code] records),
+## as deep copies with attitude, band, location, open loans, and active flags (GDD UI Requirement "The known list").
+static func known_people(s: GameSession) -> Array:
+	if s == null or s.player == null or s.db == null:
+		return []
+	var seen := {}
+	var ids: Array = []
+	for pid in s.player.met_list:
+		var sid: String = str(pid)
+		if sid != "" and sid != s.player.id and not seen.has(sid):
+			seen[sid] = true
+			ids.append(sid)
+	for rec in s.db.all("people"):
+		var sid: String = str(rec.get("id", ""))
+		if sid == "" or sid == s.player.id or seen.has(sid):
+			continue
+		if bool(rec.get("is_player", false)) or bool(rec.get("is_beast", false)):
+			continue
+		if bool(rec.get("met_player", false)):
+			seen[sid] = true
+			ids.append(sid)
+
+	var season_now: int = s.season_index()
+	var here_id: String = str(s.player.location_id)
+	var out: Array = []
+	for sid in ids:
+		var p: Dictionary = s.db.get_record("people", str(sid))
+		if p.is_empty() or bool(p.get("is_player", false)) or bool(p.get("is_beast", false)):
+			continue
+		var att: int = int(p.get("attitude", 0))
+		var pid_place: String = str(p.get("location_id", ""))
+		var at: Dictionary = s.db.get_record("places", pid_place)
+		var loans: Array = []
+		for loan in InteractionService.loans_of(s.db, s.player.id, str(sid)):
+			if str(loan.get("status", "")) in ["open", "overdue"]:
+				var lc: Dictionary = loan.duplicate(true)
+				lc["seasons_left"] = int(loan.get("due_season", season_now)) - season_now
+				loans.append(lc)
+		out.append({
+			"id": str(sid),
+			"name": str(p.get("name", sid)),
+			"alive": bool(p.get("alive", true)),
+			"realm_index": int(p.get("realm_index", 0)),
+			"realm_label": s.gd.realm_label(int(p.get("realm_index", 0)), int(p.get("stage", 0))),
+			"attitude": att,
+			"band": InteractionRules.attitude_band(s.gd, att),
+			"place_id": pid_place,
+			"place": str(at.get("name", "")),
+			"here": pid_place == here_id,
+			"open_loans": loans,
+			"flags": _interaction_flag_rows(InteractionRules.npc_flags(p), season_now),
+		})
+	out.sort_custom(func(a, b):
+		if bool(a.alive) != bool(b.alive):
+			return bool(a.alive)
+		if bool(a.here) != bool(b.here):
+			return bool(a.here)
+		if int(a.attitude) != int(b.attitude):
+			return int(a.attitude) > int(b.attitude)
+		return str(a.id) < str(b.id))
+	return out
+
+
+static func _interaction_flag_rows(flags: Dictionary, season_now: int) -> Array:
+	const LABELS := {
+		"gifted_by": "Received notable gift",
+		"taught": "Taught you",
+		"owes_loan": "Open loan",
+		"owes_loan_overdue": "Overdue loan",
+		"threatened_by": "Threatened by you",
+		"sparred": "Sparred with you",
+		"challenged": "Challenged you",
+		"spared_by": "Spared by you",
+		"clan_invoked": "Clan name invoked",
+		"haggled_season": "Haggled this season",
+		"charmed": "Charmed",
+		"tempted": "Tempted",
+		"counseled_deviation": "Counseled on deviation",
+		"grudge": "Holds a grudge",
+		"passed_false_clue": "Passed a false clue",
+	}
+	var out: Array = []
+	for k in flags.keys():
+		var ks: String = str(k)
+		var v: Variant = flags[k]
+		if typeof(v) == TYPE_BOOL and not bool(v):
+			continue
+		if ks == "clan_invoked" and (typeof(v) == TYPE_INT or typeof(v) == TYPE_FLOAT) and int(v) <= season_now:
+			continue
+		if ks == "haggled_season" and (typeof(v) == TYPE_INT or typeof(v) == TYPE_FLOAT) and int(v) != season_now:
+			continue
+		out.append({
+			"key": ks,
+			"value": v,
+			"label": str(LABELS.get(ks, ks.replace("_", " ").capitalize())),
+		})
+	out.sort_custom(func(a, b): return str(a.key) < str(b.key))
 	return out
 
 

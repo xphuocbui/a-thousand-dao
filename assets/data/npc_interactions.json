@@ -1,0 +1,1234 @@
+{
+  "schema_version": 1,
+  "_doc": "NPC Interaction & Dialogue (#30) + 19 Trait verb: hooks. Every tuning knob and verb record from design/gdd/npc-interaction-dialogue.md and assets/data/traits.json verb_hooks lives here.",
+  "knobs": {
+    "interactions_per_person_per_season": 2,
+    "k_att": 1.0,
+    "k_pr": 0.25,
+    "k_tr": 10.0,
+    "k_st": 0.2,
+    "k_ch": 0.01,
+    "greet_gain": 2.0,
+    "gift_gain": 15.0,
+    "attitude_change_max": 10,
+    "notable_gift_share": 0.25,
+    "ins_base": 0.10,
+    "spar_loss_share": 0.50,
+    "k_th": 0.10,
+    "threat_p_min": 0.05,
+    "threat_p_max": 0.95,
+    "loan_share": 0.50,
+    "loan_term": 8,
+    "loan_overdue": 30,
+    "loan_early_repay_att": 5,
+    "yearly_drift_step": 1,
+    "f7_tm_a": 2.0,
+    "f7_tm_cap": 6.0,
+    "f7_st_a": 3,
+    "f7_in_char_discount": 0.10,
+    "f7_in_char_max_traits": 2,
+    "haggle_buy_mult": 0.90,
+    "haggle_sell_mult": 1.05,
+    "wager_max_share": 0.25,
+    "never_trait_penalty": -100,
+    "trade_bands": {
+      "common": "neutral",
+      "better": "friendly",
+      "treasure": "close"
+    },
+    "attitude_bands": [
+      [-100, "hostile"],
+      [-29, "cold"],
+      [-9, "neutral"],
+      [10, "warm"],
+      [30, "friendly"],
+      [60, "close"]
+    ],
+    "hostile_threshold": -30,
+    "friendly_threshold": 30,
+    "relationship_min": -100,
+    "relationship_max": 100
+  },
+  "allowed_conditions": [
+    "met",
+    "realm_above_player",
+    "realm_below_player",
+    "realm_at_most_player",
+    "can_teach",
+    "has_spare_items",
+    "band_min",
+    "band_max",
+    "not_hostile",
+    "same_sect",
+    "npc_in_sect",
+    "player_loose",
+    "ties_enabled",
+    "notable_either",
+    "target_no_living_master",
+    "neither_has_dao_lu",
+    "has_open_obligation",
+    "settled_place",
+    "has_known_other",
+    "player_has_giftable"
+  ],
+  "allowed_effects": [
+    "attitude",
+    "set_flag",
+    "clear_flag",
+    "log_deed",
+    "grant_insight",
+    "copy_manual",
+    "loan_issue",
+    "loan_repay",
+    "guide_place",
+    "sect_intro",
+    "open_trade",
+    "run_spar",
+    "run_threat",
+    "open_provoke",
+    "form_bond",
+    "declare_enmity",
+    "share_news",
+    "describe_person",
+    "give_gift",
+    "ask_work",
+    "tam_ma",
+    "grant_season_buff",
+    "wager_stones",
+    "trade_curio_debt",
+    "haggle_flag",
+    "clan_invoke_bonus",
+    "ask_history_lore",
+    "drink_rumour"
+  ],
+  "interaction_events": [
+    "loan_collection",
+    "provoke_duel",
+    "threat_ambush",
+    "on_talk_mac_quy_khu_first",
+    "on_talk_thoi_khinh_hong_retreat",
+    "on_talk_so_ngoc_ho_vessel",
+    "on_talk_phan_vat_hoa_ledger",
+    "on_talk_spared_rival"
+  ],
+  "verbs": [
+    {
+      "id": "greet",
+      "name": "Greet",
+      "name_vi": "Hàn huyên",
+      "group": "social",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 0,
+      "always_accept": true,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["social"],
+      "flag_mods": {},
+      "requirements": [],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["first_meeting", "accept"],
+      "accept_effects": [
+        {"type": "attitude", "formula": "greet"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "news",
+      "name": "Ask for news",
+      "name_vi": "Hỏi tin",
+      "group": "social",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 1,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["social"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse", "nothing_new"],
+      "accept_effects": [
+        {"type": "share_news"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "about",
+      "name": "Ask about someone",
+      "name_vi": "Hỏi về người",
+      "group": "social",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 1,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "person",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["social"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"},
+        {"type": "has_known_other"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "describe_person"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "gift",
+      "name": "Give a gift",
+      "name_vi": "Tặng lễ",
+      "group": "social",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 0,
+      "always_accept": true,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "gift",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["generous"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"},
+        {"type": "not_hostile"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse", "worthless"],
+      "accept_effects": [
+        {"type": "give_gift"},
+        {"type": "attitude", "formula": "gift"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "work",
+      "name": "Ask for work",
+      "name_vi": "Xin việc",
+      "group": "social",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 1,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["diligent"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse", "no_work"],
+      "accept_effects": [
+        {"type": "ask_work"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "teach",
+      "name": "Ask for teaching",
+      "name_vi": "Thỉnh giáo",
+      "group": "favour",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.25,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "lesson",
+      "b_v": -25,
+      "g_v": -5,
+      "tags": ["generous", "diligent"],
+      "flag_mods": {"taught": 10, "spared_by": 20},
+      "requirements": [
+        {"type": "met"},
+        {"type": "can_teach"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "grant_insight"},
+        {"type": "copy_manual"},
+        {"type": "set_flag", "flag": "taught"},
+        {"type": "log_deed", "kind": "taught"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -2, "when_hostile_only": true}
+      ]
+    },
+    {
+      "id": "help",
+      "name": "Ask for help",
+      "name_vi": "Nhờ giúp",
+      "group": "favour",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "help",
+      "b_v": -20,
+      "sub_b_v": {
+        "loan": -20,
+        "guide": -5,
+        "introduction": -15
+      },
+      "g_v": -10,
+      "tags": ["generous", "loyal"],
+      "flag_mods": {"owes_loan": -30, "spared_by": 20, "clan_invoked": 10},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "loan_issue"},
+        {"type": "guide_place"},
+        {"type": "sect_intro"},
+        {"type": "log_deed", "kind": "help"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -3, "when_hostile_only": true}
+      ]
+    },
+    {
+      "id": "trade",
+      "name": "Trade",
+      "name_vi": "Giao dịch",
+      "group": "favour",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 0,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "trade",
+      "b_v": 10,
+      "g_v": 0,
+      "tags": ["greedy", "pragmatic"],
+      "flag_mods": {"spared_by": 20, "clan_invoked": 10},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "open_trade"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "spar",
+      "name": "Spar",
+      "name_vi": "Luận bàn",
+      "group": "conflict",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.1,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -10,
+      "g_v": -15,
+      "tags": ["bold"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse", "win", "lose"],
+      "accept_effects": [
+        {"type": "run_spar", "loss_share": 0.5, "default_att": 2, "martial_att": 4, "arrogant_loss_att": -5},
+        {"type": "set_flag", "flag": "sparred"},
+        {"type": "log_deed", "kind": "spar"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "threaten",
+      "name": "Threaten",
+      "name_vi": "Uy hiếp",
+      "group": "conflict",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["aggressive", "greedy"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse", "ambush"],
+      "accept_effects": [
+        {"type": "run_threat", "yield_share": 0.25, "success_att": -25, "fail_att": -15, "enmity_gain": 20, "ambush_weight_min": 1.5, "ambush_template": "threat_ambush"},
+        {"type": "set_flag", "flag": "threatened_by"},
+        {"type": "log_deed", "kind": "threaten"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -15},
+        {"type": "set_flag", "flag": "threatened_by"}
+      ]
+    },
+    {
+      "id": "provoke",
+      "name": "Provoke",
+      "name_vi": "Khiêu khích",
+      "group": "conflict",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": true,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["aggressive", "bold"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "amount": -20},
+        {"type": "open_provoke", "template": "provoke_duel", "sect_seat_standing": -10.0},
+        {"type": "log_deed", "kind": "provoke"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "declare_enmity",
+      "name": "Declare enmity",
+      "name_vi": "Tuyệt giao",
+      "group": "conflict",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": true,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["vengeful", "aggressive"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"},
+        {"type": "ties_enabled"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "declare_enmity", "strength": 30},
+        {"type": "attitude", "amount": -30},
+        {"type": "log_deed", "kind": "enmity"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "companion",
+      "name": "Recruit companion",
+      "name_vi": "Chiêu mộ đồng hành",
+      "group": "bond",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -40,
+      "g_v": -10,
+      "tags": ["loyal", "social"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"},
+        {"type": "ties_enabled"},
+        {"type": "band_min", "band": "friendly"}
+      ],
+      "show_greyed_on_req_fail": true,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "form_bond", "bond": "companion"},
+        {"type": "log_deed", "kind": "bond_companion"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "disciple",
+      "name": "Take a disciple",
+      "name_vi": "Thu nhận đệ tử",
+      "group": "bond",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -45,
+      "g_v": -10,
+      "tags": ["humble", "diligent"],
+      "flag_mods": {"taught": 10, "spared_by": 20},
+      "requirements": [
+        {"type": "met"},
+        {"type": "ties_enabled"},
+        {"type": "realm_below_player"},
+        {"type": "target_no_living_master"}
+      ],
+      "show_greyed_on_req_fail": true,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "form_bond", "bond": "su_do"},
+        {"type": "log_deed", "kind": "bond_disciple"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "brotherhood",
+      "name": "Swear brotherhood",
+      "name_vi": "Kết nghĩa",
+      "group": "bond",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -50,
+      "g_v": -10,
+      "tags": ["loyal", "social"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"},
+        {"type": "ties_enabled"},
+        {"type": "notable_either"},
+        {"type": "band_min", "band": "friendly"}
+      ],
+      "show_greyed_on_req_fail": true,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "form_bond", "bond": "ket_nghia"},
+        {"type": "log_deed", "kind": "bond_brotherhood"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "dao_lu",
+      "name": "Seek Dao companionship",
+      "name_vi": "Cầu đạo lữ",
+      "group": "bond",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -70,
+      "g_v": -10,
+      "tags": ["loyal", "merciful"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"},
+        {"type": "ties_enabled"},
+        {"type": "notable_either"},
+        {"type": "neither_has_dao_lu"},
+        {"type": "band_min", "band": "close"}
+      ],
+      "show_greyed_on_req_fail": true,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "form_bond", "bond": "dao_lu"},
+        {"type": "log_deed", "kind": "bond_dao_lu"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "repay",
+      "name": "Repay obligation",
+      "name_vi": "Trả nợ / Hoàn ân",
+      "group": "bond",
+      "trait_hook": "",
+      "source_trait": "",
+      "side": "",
+      "time": 0.0,
+      "cooldown": 0,
+      "always_accept": true,
+      "bypass_season_limit": true,
+      "confirm": true,
+      "param_kind": "obligation",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["honest", "loyal"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"},
+        {"type": "has_open_obligation"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "loan_repay"},
+        {"type": "log_deed", "kind": "repay"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "invoke_clan",
+      "name": "Invoke clan name",
+      "name_vi": "Xưng danh thế gia",
+      "group": "favour",
+      "trait_hook": "verb:invoke_clan",
+      "source_trait": "clan_heir",
+      "side": "self",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": -5,
+      "tags": ["ambitious", "social"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "amount": 8},
+        {"type": "clan_invoke_bonus", "flag": "clan_invoked", "duration_seasons": 4}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -2}
+      ]
+    },
+    {
+      "id": "command_mortals",
+      "name": "Command mortal retainers",
+      "name_vi": "Sai khiến phàm tục",
+      "group": "favour",
+      "trait_hook": "verb:command_mortals",
+      "source_trait": "mortal_noble",
+      "side": "self",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": 0,
+      "g_v": 0,
+      "tags": ["ambitious", "pragmatic"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"},
+        {"type": "settled_place"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "share_news", "source": "mortal_retainers"},
+        {"type": "attitude", "amount": 2}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -2}
+      ]
+    },
+    {
+      "id": "haggle",
+      "name": "Haggle",
+      "name_vi": "Mặc cả",
+      "group": "favour",
+      "trait_hook": "verb:haggle",
+      "source_trait": "merchant_child",
+      "side": "self",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": 0,
+      "tags": ["greedy", "pragmatic"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "haggle_flag", "flag": "haggled_season"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -2}
+      ]
+    },
+    {
+      "id": "charm",
+      "name": "Charm",
+      "name_vi": "Mê hoặc",
+      "group": "social",
+      "trait_hook": "verb:charm",
+      "source_trait": "comely",
+      "side": "self",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -10,
+      "g_v": 0,
+      "tags": ["social"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "formula": "charm_tier", "base": 4, "per_tier": 2},
+        {"type": "set_flag", "flag": "charmed"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -2}
+      ]
+    },
+    {
+      "id": "tempt",
+      "name": "Tempt with demonic promise",
+      "name_vi": "Dụ dỗ ma đạo",
+      "group": "conflict",
+      "trait_hook": "verb:tempt",
+      "source_trait": "demonic_path",
+      "side": "self",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -20,
+      "g_v": -5,
+      "tags": ["deceitful", "ambitious", "aggressive"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "amount": 10},
+        {"type": "set_flag", "flag": "tempted"},
+        {"type": "log_deed", "kind": "tempt"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -12, "righteous_amount": -18},
+        {"type": "set_flag", "flag": "grudge"}
+      ]
+    },
+    {
+      "id": "exhort",
+      "name": "Exhort on the Dharma",
+      "name_vi": "Khuyên răn Phật pháp",
+      "group": "social",
+      "trait_hook": "verb:exhort",
+      "source_trait": "buddhist_path",
+      "side": "self",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -15,
+      "g_v": 0,
+      "tags": ["devout", "merciful"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "tam_ma", "amount": -3},
+        {"type": "attitude", "amount": 6, "soften_enmity": 15}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -4, "demonic_amount": -8}
+      ]
+    },
+    {
+      "id": "propose_dual_cultivation",
+      "name": "Propose dual cultivation",
+      "name_vi": "Đề nghị song tu",
+      "group": "favour",
+      "trait_hook": "verb:propose_dual_cultivation",
+      "source_trait": "dual_cultivator",
+      "side": "self",
+      "time": 0.25,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -30,
+      "g_v": -10,
+      "tags": ["loyal", "social"],
+      "flag_mods": {"dao_lu_tie": 30},
+      "requirements": [
+        {"type": "met"},
+        {"type": "band_min", "band": "friendly"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "grant_season_buff", "stat": "cultivation_speed_pct", "value": 15.0, "synergy_value": 20.0},
+        {"type": "attitude", "amount": 6},
+        {"type": "log_deed", "kind": "dual_cultivation"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -5}
+      ]
+    },
+    {
+      "id": "challenge",
+      "name": "Issue a duel challenge",
+      "name_vi": "Hạ chiến thư",
+      "group": "conflict",
+      "trait_hook": "verb:challenge",
+      "source_trait": "duel_seeker",
+      "side": "self",
+      "time": 0.1,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": -10,
+      "tags": ["bold", "aggressive"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse", "win", "lose"],
+      "accept_effects": [
+        {"type": "run_spar", "loss_share": 0.5, "default_att": 6, "martial_att": 10},
+        {"type": "set_flag", "flag": "challenged"},
+        {"type": "log_deed", "kind": "challenge"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -2}
+      ]
+    },
+    {
+      "id": "take_disciple",
+      "name": "Mentor as disciple",
+      "name_vi": "Chiêu đồ thụ nghiệp",
+      "group": "bond",
+      "trait_hook": "verb:take_disciple",
+      "source_trait": "teacher_at_heart",
+      "side": "self",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -30,
+      "g_v": -10,
+      "tags": ["generous", "diligent"],
+      "flag_mods": {"taught": 10},
+      "requirements": [
+        {"type": "met"},
+        {"type": "ties_enabled"},
+        {"type": "realm_at_most_player"},
+        {"type": "target_no_living_master"}
+      ],
+      "show_greyed_on_req_fail": true,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "form_bond", "bond": "su_do"},
+        {"type": "attitude", "amount": 5},
+        {"type": "log_deed", "kind": "bond_disciple"}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "counsel",
+      "name": "Seek spiritual counsel",
+      "name_vi": "Cầu khai thị",
+      "group": "favour",
+      "trait_hook": "verb:counsel",
+      "source_trait": "temple_raised",
+      "side": "other",
+      "time": 0.1,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -10,
+      "g_v": -5,
+      "tags": ["devout", "humble"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "tam_ma", "amount": -4, "per_realm_above": -2},
+        {"type": "attitude", "amount": 3},
+        {"type": "log_deed", "kind": "counsel"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -1}
+      ]
+    },
+    {
+      "id": "counsel_deviation",
+      "name": "Ask about qi deviation",
+      "name_vi": "Thỉnh giáo phòng tẩu hỏa",
+      "group": "favour",
+      "trait_hook": "verb:counsel_deviation",
+      "source_trait": "deviation_survivor",
+      "side": "other",
+      "time": 0.1,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -15,
+      "g_v": -5,
+      "tags": ["cautious", "humble"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "grant_season_buff", "stat": "qi_deviation_pct", "value": -10.0},
+        {"type": "tam_ma", "amount": -3},
+        {"type": "set_flag", "flag": "counseled_deviation"},
+        {"type": "attitude", "amount": 3}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -1}
+      ]
+    },
+    {
+      "id": "ask_history",
+      "name": "Ask about history",
+      "name_vi": "Hỏi sử cũ",
+      "group": "social",
+      "trait_hook": "verb:ask_history",
+      "source_trait": "chronicler",
+      "side": "other",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": 0,
+      "tags": ["diligent", "social"],
+      "flag_mods": {"spared_by": 20},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse", "nothing_new"],
+      "accept_effects": [
+        {"type": "ask_history_lore", "max_events": 2},
+        {"type": "attitude", "amount": 2}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "share_tea",
+      "name": "Share spirit tea",
+      "name_vi": "Đối ẩm trà đạo",
+      "group": "social",
+      "trait_hook": "verb:share_tea",
+      "source_trait": "tea_master",
+      "side": "either",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": 0,
+      "tags": ["humble", "cautious"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "amount": 5, "synergy_amount": 8},
+        {"type": "tam_ma", "amount": -2}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -1}
+      ]
+    },
+    {
+      "id": "exchange_poems",
+      "name": "Exchange poems",
+      "name_vi": "Xướng họa thi từ",
+      "group": "social",
+      "trait_hook": "verb:exchange_poems",
+      "source_trait": "poet",
+      "side": "either",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": 0,
+      "tags": ["social"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "amount": 5, "synergy_amount": 8, "friendly_soft_friend": 10}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -1}
+      ]
+    },
+    {
+      "id": "play_for",
+      "name": "Play guqin together",
+      "name_vi": "Gảy cầm thưởng âm",
+      "group": "social",
+      "trait_hook": "verb:play_for",
+      "source_trait": "qin_player",
+      "side": "either",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": 0,
+      "tags": ["social", "merciful"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "amount": 5},
+        {"type": "tam_ma", "amount": -2, "senior_amount": -3}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -1}
+      ]
+    },
+    {
+      "id": "play_go",
+      "name": "Play a game of Go",
+      "name_vi": "Đánh cờ vây",
+      "group": "social",
+      "trait_hook": "verb:play_go",
+      "source_trait": "go_player",
+      "side": "either",
+      "time": 0.1,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": 0,
+      "tags": ["cautious", "diligent"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "amount": 6, "synergy_amount": 9},
+        {"type": "grant_season_buff", "stat": "cultivation_speed_pct", "value": 5.0}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -1}
+      ]
+    },
+    {
+      "id": "trade_curio",
+      "name": "Trade a curio for a favour",
+      "name_vi": "Đổi kỳ vật lấy ân tình",
+      "group": "favour",
+      "trait_hook": "verb:trade_curio",
+      "source_trait": "collector",
+      "side": "either",
+      "time": 0.0,
+      "cooldown": 4,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "curio",
+      "b_v": -10,
+      "g_v": 0,
+      "tags": ["greedy", "pragmatic"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"},
+        {"type": "player_has_giftable", "rarity_min": 2}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "trade_curio_debt", "debt_strength": 30},
+        {"type": "attitude", "amount": 8},
+        {"type": "log_deed", "kind": "trade_curio"}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -2}
+      ]
+    },
+    {
+      "id": "wager",
+      "name": "Wager spirit stones",
+      "name_vi": "Đánh cược linh thạch",
+      "group": "conflict",
+      "trait_hook": "verb:wager",
+      "source_trait": "gambler",
+      "side": "either",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": true,
+      "param_kind": "wager",
+      "b_v": -5,
+      "g_v": 0,
+      "tags": ["bold", "greedy"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse", "win", "lose"],
+      "accept_effects": [
+        {"type": "wager_stones", "att_gain": 3, "greedy_loss_att": -3}
+      ],
+      "refuse_effects": []
+    },
+    {
+      "id": "drink_with",
+      "name": "Drink spirit wine",
+      "name_vi": "Đối ẩm linh tửu",
+      "group": "social",
+      "trait_hook": "verb:drink_with",
+      "source_trait": "drinker",
+      "side": "either",
+      "time": 0.0,
+      "cooldown": 2,
+      "always_accept": false,
+      "bypass_season_limit": false,
+      "confirm": false,
+      "param_kind": "",
+      "b_v": -5,
+      "g_v": 0,
+      "tags": ["indulgent", "social"],
+      "flag_mods": {},
+      "requirements": [
+        {"type": "met"}
+      ],
+      "show_greyed_on_req_fail": false,
+      "required_results": ["accept", "refuse"],
+      "accept_effects": [
+        {"type": "attitude", "amount": 6, "synergy_amount": 10},
+        {"type": "drink_rumour", "chance": 0.5}
+      ],
+      "refuse_effects": [
+        {"type": "attitude", "amount": -1}
+      ]
+    }
+  ]
+}
