@@ -156,3 +156,96 @@ func test_site_friction_lowers_the_attitude_target_f7() -> void:
 	db2.put("places", {"id": "l_1", "region_id": "r_a", "site": {"base_output": 28800.0}})
 	SectPolitics._begin(gd, db2)
 	assert_eq(SectPolitics.friction(gd, db2, db2.get_record("sects", "s1"), db2.get_record("sects", "s2")), 0.0, "no shared border")
+
+
+func test_retuned_war_weariness_and_loss_share_end_stalemates_briskly() -> void:
+	# Retuned F9 war resolution: equal-strength rivals lose loss_k / 2 per season, accumulate weariness via
+	# weariness_base + weariness_loss_k * loss_share + max(0, -dws) * weariness_score_k, and conclude stalemates
+	# briskly in a truce lasting truce_seasons.
+	var gd := game_data()
+	var c: Dictionary = gd.file("sects_members").politics
+	var db := _db_two("chinh", "ma")
+	var a: Dictionary = db.get_record("sects", "s1")
+	var d: Dictionary = db.get_record("sects", "s2")
+	a["treasury"] = 100000.0
+	d["treasury"] = 100000.0
+	a["wars"] = ["s2"]
+	d["wars"] = ["s1"]
+	a["relation"] = {"s2": "war"}
+	d["relation"] = {"s1": "war"}
+	db.put(MoneyLedger.TABLE, {"id": "m_stipends", "by_sect": {"s1": 0.0, "s2": 0.0}})
+	db.put("markets", {"id": "mk_s1", "sect_id": "s1", "pool": 0.0})
+	db.put("markets", {"id": "mk_s2", "sect_id": "s2", "pool": 0.0})
+	for i in 1000:
+		db.put("people", {"id": "pa_%d" % i, "alive": true, "realm_index": 0, "sect_id": "s1", "location_id": "pl_1"})
+		db.put("people", {"id": "pd_%d" % i, "alive": true, "realm_index": 0, "sect_id": "s2", "location_id": "pl_2"})
+	var war := {
+		"id": "war_eq", "a": "s1", "d": "s2",
+		"goal": {"kind": "vassal", "id": "v_stub", "name": "stub", "threshold": int(c.goal_thresholds.vassal)},
+		"ws": 0, "w_a": 0.0, "w_d": 0.0, "seasons": 0, "began": [1200, 0],
+	}
+	db.put("world", {"id": SectPolitics.WARS, "wars": [war], "next": 2})
+	var money := MoneyLedger.new(db)
+	var st := {"s1": 10000.0, "s2": 10000.0}
+	SectPolitics._begin(gd, db)
+	# Season 1: verify per-season loss share (loss_k / 2) and data-driven weariness formula
+	SectPolitics._resolve_wars(gd, db, money, st, 1200, 0, "eq_seed")
+	var dead_a1: int = db.find("people", func(p): return str(p.get("sect_id", "")) == "s1" and not bool(p.get("alive", false))).size()
+	var dead_d1: int = db.find("people", func(p): return str(p.get("sect_id", "")) == "s2" and not bool(p.get("alive", false))).size()
+	var expected_losses: int = int(floor((float(c.loss_k) / 2.0) * 1000.0))
+	assert_eq(dead_a1, expected_losses, "equal-strength attacker loses floor((loss_k / 2) * N)")
+	assert_eq(dead_d1, expected_losses, "equal-strength defender loses floor((loss_k / 2) * N)")
+	var la: float = float(c.loss_k) * 0.5
+	var dws1: int = int(war.ws)
+	var want_wa: float = float(c.weariness_base) + float(c.weariness_loss_k) * la + maxf(0.0, float(-dws1)) * float(c.weariness_score_k)
+	var want_wd: float = float(c.weariness_base) + float(c.weariness_loss_k) * la + maxf(0.0, float(dws1)) * float(c.weariness_score_k)
+	assert_near(float(war.w_a), want_wa, 1e-6, "attacker weariness uses weariness_base, weariness_loss_k and weariness_score_k")
+	assert_near(float(war.w_d), want_wd, 1e-6, "defender weariness uses weariness_base, weariness_loss_k and weariness_score_k")
+	# Continue resolving until war concludes; stalemate must end briskly within <= 12 seasons with truce_seasons
+	var concluded_season: int = -1
+	for s in range(1, 13):
+		SectPolitics._resolve_wars(gd, db, money, st, 1200 + s / 4, s % 4, "eq_seed")
+		if Array(db.get_record("world", SectPolitics.WARS).wars).is_empty():
+			concluded_season = s + 1
+			break
+	assert_true(concluded_season > 0 and concluded_season <= 12, "stalemate concludes briskly (got %d seasons)" % concluded_season)
+	assert_eq(str(a.relation.get("s2", "")), "truce", "stalemate concludes in a truce")
+	assert_eq(int(a.truce.get("s2", 0)), int(c.truce_seasons), "truce length matches truce_seasons (%d)" % int(c.truce_seasons))
+	assert_eq(int(d.truce.get("s1", 0)), int(c.truce_seasons), "defender truce matches truce_seasons")
+
+
+func test_even_rivals_hold_cold_feud_below_war_odds() -> void:
+	# Equal-strength great sects in a feud at neutral Expansion (2) and war_readiness = 3 stay in cold feud
+	# below war_odds (> 1.0), and declare war once attacker strength ratio reaches war_odds.
+	var gd := game_data()
+	var c: Dictionary = gd.file("sects_members").politics
+	var regions: Array = gd.file(ContinentData.DATA_FILE).get("regions", [])
+	var r0: Dictionary = regions[0]
+	var r1: int = int(r0.neighbours[0].region)
+	var db := _db_two("chinh", "ma")
+	db.put("regions", {"id": "r_a", "continent_id": int(r0.id), "holder": "s1", "name": "R_A"})
+	db.put("regions", {"id": "r_b", "continent_id": r1, "holder": "s2", "name": "R_B"})
+	db.put("places", {"id": "pl_site", "region_id": "r_b", "holder": "s2", "name": "Site_B",
+		"site": {"base_output": 1000.0, "last_output": 1000.0, "resource": "linh_thach"}})
+	db.put("world", {"id": SectPolitics.WARS, "wars": [], "next": 1})
+	var a: Dictionary = db.get_record("sects", "s1")
+	var b: Dictionary = db.get_record("sects", "s2")
+	a.dials["war_readiness"] = 3
+	a.dials["expansion"] = 2
+	b.dials["war_readiness"] = 3
+	b.dials["expansion"] = 2
+	a.relation["s2"] = "feud"
+	b.relation["s1"] = "feud"
+	SectPolitics._begin(gd, db)
+	assert_true(float(c.war_odds) > 1.0, "retuned war_odds exceeds 1.0")
+	# Equal strength (1.0:1.0) -> cold feud, no war declared
+	var news_eq := SectPolitics._declare_wars(gd, db, {"s1": 10000.0, "s2": 10000.0}, 1200, 0)
+	assert_true(news_eq.is_empty(), "equal rivals hold cold feud below war_odds")
+	assert_true(Array(db.get_record("world", SectPolitics.WARS).wars).is_empty(), "no war started at 1.0:1.0")
+	# Just below war_odds -> still no war
+	var news_under := SectPolitics._declare_wars(gd, db, {"s1": 10000.0 * (float(c.war_odds) - 0.02), "s2": 10000.0}, 1200, 1)
+	assert_true(news_under.is_empty(), "still cold feud just below war_odds")
+	# At war_odds -> war is declared
+	var news_over := SectPolitics._declare_wars(gd, db, {"s1": 10000.0 * (float(c.war_odds) + 0.01), "s2": 10000.0}, 1200, 2)
+	assert_false(news_over.is_empty(), "war declared once strength ratio crosses war_odds")
+	assert_eq(Array(db.get_record("world", SectPolitics.WARS).wars).size(), 1, "one war active")

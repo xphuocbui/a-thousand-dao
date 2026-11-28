@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "_doc": "Heavenly Tribulation (Thiên Kiếp) rules and tuning knobs. Design: design/gdd/thien-kiep.md.",
-  "tribulation_enabled": false,
+  "tribulation_enabled": true,
   "wave_count": 3,
   "pool_ramp": 1.5,
   "bm_max": 1.5,

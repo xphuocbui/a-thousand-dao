@@ -75,7 +75,7 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 		var name: String = str(key)
 		if BUILD_FLOATS.has(name) or name in ["realm", "resist", "arts", "companions", "shields", "wards", "purity",
 				"stack_eff", "stack_dur", "cleanse_pulse", "effects", "counters", "layers", "boss", "states", "refusals",
-			"stack_alias", "pill", "tech_layers", "meters"] \
+			"stack_alias", "pill", "tech_layers", "meters", "diagram_always"] \
 				or name in BUILD_NEUTRAL:
 			continue
 		if name in BUILD_NOT_PORTED:
@@ -99,6 +99,7 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 			errors.append("%s: resist type %s is not one of %s" % [where, str(t), str(DTYPES)])
 		p.resist[StringName(str(t))] = float(resist[t])
 	p.boss = bool(d.get("boss", false))
+	p.diagram_always = bool(d.get("diagram_always", false))
 	p.refusals = int(d.get("refusals", 1))
 	for st in d.get("states", []):
 		if not (st is Dictionary) or str(st.get("id", "")) == "":

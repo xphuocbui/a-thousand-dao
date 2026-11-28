@@ -335,3 +335,68 @@ func test_tribulation_preview_pure_and_shows_pool_without_draw_ac80_81() -> void
 	assert_eq(Array(pv.pool).size(), 6, "all 6 starter pool bosses shown with weights")
 	assert_false(pv.has("drawn"), "AC-TK-80: preview never reveals the drawn waves")
 	s.shutdown()
+
+
+func test_new_game_tribulation_toggle_default_on_and_off_persists_across_save_reload() -> void:
+	var gd := _gd_tk(true)
+	gd.breakthrough_rules()["chance_min"] = 1.0
+
+	# 1. Default new_game omits tribulation_enabled -> defaults ON (true) and runs tribulation at NA -> HT.
+	var s_on := _session(gd, 7108)
+	assert_true(s_on.tribulation_enabled, "default new_game has tribulation_enabled == true")
+	assert_true(bool(GameQuery.playthrough_meta(s_on).get("tribulation_enabled", false)), "GameQuery.playthrough_meta exposes tribulation_enabled == true")
+	_prep_ns_gate(s_on)
+	assert_true(bool(GameQuery.tribulation_preview(s_on).enabled), "tribulation_preview.enabled == true when ON")
+	s_on.tribulation_fight_fn = func(_req: FightRequest, _wctx: Dictionary) -> FightResult:
+		return _stub_result(FightResult.Winner.A, FightResult.Ending.KNOCKOUT, 4000.0, 6400.0, 2000.0, 4000.0, 10.0)
+	var r_on: Dictionary = s_on.breakthrough()
+	assert_true(bool(r_on.ok), "default-ON breakthrough ok")
+	assert_false(s_on.last_tribulation.is_empty(), "default-ON breakthrough ran tribulation")
+	assert_eq(s_on.player.realm_index, 4, "survived default-ON tribulation into Hóa Thần")
+	s_on.shutdown()
+
+	# 2. Explicit tribulation_enabled=false disables tribulation, persists across save/reload, and skips gauntlet.
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s_off := GameSession.new(gd, llm, TestFixtures.tree())
+	s_off.ratings_background = false
+	s_off.new_game(7109, {
+		"mode": "custom", "name": "Bỏ Kiếp", "gender": "male", "origin": "tan_tu",
+		"thien_phu": {"ngo_tinh": 95, "dao_tam": 95, "can_cot": 90, "than_hon": 90, "khi_van": 80, "mi_luc": 60},
+		"purities": {"hoa": 90, "kim": 80}, "variants": [], "edge": true,
+		"tribulation_enabled": false,
+	})
+	s_off.pending_event = {}
+	_prep_ns_gate(s_off)
+	assert_false(s_off.tribulation_enabled, "opt-out new_game sets tribulation_enabled == false")
+	assert_false(bool(GameQuery.playthrough_meta(s_off).get("tribulation_enabled", true)), "GameQuery.playthrough_meta exposes tribulation_enabled == false")
+	var pv_off: Dictionary = GameQuery.tribulation_preview(s_off)
+	assert_false(bool(pv_off.enabled), "tribulation_preview.enabled == false when toggled OFF")
+	assert_false(bool(pv_off.active), "tribulation_preview.active == false when toggled OFF")
+
+	var io := TerminalIO.new()
+	io.color = false
+	var bn_lines: Array = TerminalViews.bottleneck(s_off, io)
+	assert_false("\n".join(bn_lines).contains("tribulation: ACTIVE"), "Terminal bottleneck hides ACTIVE tribulation when toggled OFF")
+
+	# Persist OFF across save/reload.
+	var saved_off: Dictionary = JSON.parse_string(JSON.stringify(s_off.to_dict()))
+	assert_false(bool(saved_off.get("tribulation_enabled", true)), "to_dict persists tribulation_enabled == false")
+	var s_reloaded := _session(gd, 7110)
+	assert_true(bool(s_reloaded.load_dict(saved_off).ok), "reload OFF save ok")
+	assert_false(s_reloaded.tribulation_enabled, "tribulation_enabled == false survives save/reload")
+	assert_false(bool(GameQuery.playthrough_meta(s_reloaded).get("tribulation_enabled", true)), "playthrough_meta stays false after reload")
+	var r_off: Dictionary = s_reloaded.breakthrough()
+	assert_true(bool(r_off.ok), "toggled-OFF breakthrough ok")
+	assert_true(s_reloaded.last_tribulation.is_empty(), "toggled-OFF breakthrough skips tribulation")
+	assert_eq(s_reloaded.player.realm_index, 4, "toggled-OFF breakthrough directly advances to Hóa Thần")
+
+	# 3. Legacy save lacking tribulation_enabled cleanly defaults to TribulationRules.is_enabled(gd) (true).
+	var legacy: Dictionary = JSON.parse_string(JSON.stringify(s_off.to_dict()))
+	legacy.erase("tribulation_enabled")
+	var s_leg := _session(gd, 7111)
+	assert_true(bool(s_leg.load_dict(legacy).ok), "legacy save loads cleanly")
+	assert_true(s_leg.tribulation_enabled, "legacy save missing tribulation_enabled defaults to data default (true)")
+	s_off.shutdown()
+	s_reloaded.shutdown()
+	s_leg.shutdown()

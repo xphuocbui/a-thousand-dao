@@ -318,25 +318,29 @@ different.
     | Ice (Băng) | — (Water carries the pair's buff) | +3.9 % art cost (also an art-slot ward's cast cost, never a ward-slot payment, except drain bills under Băng Đạo's Absolute Zero; Combat Defence & Healing Edge Cases) |
     | Thunder (Lôi) | +0.7 pp accuracy, +0.35 pp crit chance | +1.2 pp crit chance and +5 % crit damage taken |
     | Wind (Phong) | +7.5 % art speed (meets `cooldown_min` after a few stacks; to become dampen-shaped) | −1.2 pp evade |
+    | Darkness (Ám) | **Shadow Veil**: +0.85 pp evade (global `evade_cap` still applies) | **Shadow Erosion**: +3.4 % Chaos and Soul damage taken, and healing received **5 % dampened** (`÷ (1 + 0.05 × stacks)`, strictly positive in `(0, 1]`, never inverts to damage) |
 
     **Equal value** (user decision 2026-11-10): every element's buff is worth about the same, and every debuff about
     the same, against the typical foe; the numbers above were fitted to that (Formulas D). Matchups still differ on
-    purpose: Earth resists Physical only, accuracy and evade stacks need a foe with evade, Ice hurts costly kits most.
+    purpose: Earth resists Physical only, accuracy and evade stacks need a foe with evade, Ice hurts costly kits most,
+    and Darkness favours Chaos/Soul kits and anti-sustain matchups.
 
-    - **Two separate tracks.** A side may carry buff stacks, debuff stacks, both or neither. Chaos (Hỗn Độn), Light
-      (Quang) and Darkness (Ám) have no stacks; Void and Blood are archived (Spiritual Roots).
+    - **Two separate tracks.** A side may carry buff stacks, debuff stacks, both or neither. Chaos (Hỗn Độn) and Light
+      (Quang) have no stacks; Void and Blood are archived (Spiritual Roots).
     - **Batches.** Each grant is a batch with its own timer: the source (an art record, an Effect, an item) says how
       many stacks and for how long, or "for the fight". Batches never merge or refresh one another (an Effect may make its owner's batches grow or decay, rule 16), and **a batch lasts at least 2 pulses** (build-run
       suggestion 4d, 2026-11-11). A side's count for an element is the sum of its live batches.
     - **Granted stacks never roll** (build-run suggestion 5, 2026-11-11): stacks an art or Effect grants directly
       always land, with no status chance; cleansing is the answer.
     - **No cap** on stacks (user decision). Global caps still hold: crit chance, the resistance cap, the evade cap.
-      Curse caps do not apply to stacks, so Ice stacks raise art cost past Heavy Breath's +50 %.
-    - **Which element.** A stack belongs to its source's element tag (Kim, Mộc, Thủy, Hỏa, Thổ, Băng, Lôi, Phong),
+      Curse caps do not apply to stacks, so Ice stacks raise art cost past Heavy Breath's +50 % and Darkness debuff
+      stacks dampen healing received past Withering's −50 % without ever inverting a heal to damage.
+    - **Which element.** A stack belongs to its source's element tag (Kim, Mộc, Thủy, Hỏa, Thổ, Băng, Lôi, Phong, Ám),
       never to the damage type, so a converted hit builds the stacks of the art's element.
     - **Purity powers stacks:** every stack's effect is multiplied by `(1 + stack_purity_factor × P)` (0.002), P the
       purity in that element of the **applier** for a debuff (read when the batch is applied) and of the **holder**
-      for a buff, uncapped (Ice's purity is Water's since 2026-11-19, Spiritual Roots rule 10); enemies, beasts and tribulations use `stack_purity` 0 (an NPC cultivator uses its root)
+      for a buff, uncapped (Ice's purity is Water's since 2026-11-19, and Darkness uses its own Convergence purity,
+      Spiritual Roots rule 10); enemies, beasts and tribulations use `stack_purity` 0 (an NPC cultivator uses its root)
       unless their record sets one (Spiritual Roots rule 8a, Formulas H; review decision 2026-11-10).
     - **Debuff ticks are the applier's damage.** Burn and Poison use the applier's values from when each batch was
       applied (Combat Formulas F), so the applier's damage increases count.
@@ -1272,7 +1276,7 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-63** [Logic] Rule 9a, batches. **GIVEN** an art granting 1 Fire buff stack for 10 s fired at t 1, 3 and 5, **THEN** the count is 1, 2, 3 at t 5 and falls to 0 at t 15, and Fire damage dealt is +3.6 % at t 6.
 - **AC-EF-64** [Logic] Rule 9a, no cap. **GIVEN** 250 Water buff stacks, **THEN** maximum linh lực is +125 % and the regeneration bonus +6.25 pp before Combat's diminishing returns; nothing is clipped. **GIVEN** 120 Thunder buff stacks on a side with crit chance 0.1, **THEN** crit chance stops at `crit_chance_cap`.
 - **AC-EF-65** [Logic] Rule 9a, Ice past the curse cap. **GIVEN** Heavy Breath at +50 % and 30 Ice stacks on a side, **THEN** its art costs are ×1.5 × 2.17, and the log names both.
-- **AC-EF-66** [Logic] Rule 9a, element tag. **GIVEN** a Metal-tagged art whose Physical is converted to Fire, granting stacks, **THEN** it grants Metal stacks, not Fire. **GIVEN** a record granting Chaos, Light or Darkness stacks, **THEN** load rejects it.
+- **AC-EF-66** [Logic] Rule 9a, element tag. **GIVEN** a Metal-tagged art whose Physical is converted to Fire, granting stacks, **THEN** it grants Metal stacks, not Fire. **GIVEN** a record granting Chaos or Light stacks, **THEN** load rejects it. **GIVEN** Darkness (Ám) stacks (Shadow Veil / Shadow Erosion, 2026-11-28), **THEN** 10 buff stacks at purity 0 add +8.5 pp evade (clamped at `evade_cap` and zeroed by `no_evade`), 10 debuff stacks multiply Chaos and Soul damage taken (direct Chaos, `dark`/`wood` Chaos arts, converted-to-Chaos parts, Chaos ticks, direct Soul, `soul_part`, and unreflected `soul_hit` health and linh lực losses) by `1.34` while leaving Physical and Fire unchanged, and 10 debuff stacks divide healing received (heal arts, health regeneration, leech; bypassed by `ignore_taken`) by `1.50` — strictly positive at any stack count without inverting to damage.
 - **AC-EF-67** [Logic] Rule 9a, debuff ticks. **GIVEN** a Burn batch applied while the applier has +40 % Fire damage, **WHEN** the applier's bonus later drops, **THEN** that batch still ticks with +40 %; a later batch uses the new value.
 - **AC-EF-68** [Logic] Formulas D, cleansing ward. **GIVEN** `cleanse_share` 0.25 and a Burn batch of 8, **THEN** it is 6, 4.5 and 3.375 after three pulses; a batch below 0.05 stacks is removed. **GIVEN** a cleanse art removing 5 stacks against batches of 3 (older) and 4, **THEN** the older is gone and the newer holds 2. **GIVEN** an element-wide cleanse, **THEN** every debuff batch of that element is removed and other elements stay.
 - **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.28 and c_art 2.55 passes, 2.56 fails (the lint rounds 2.556 down to 0.01). **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.

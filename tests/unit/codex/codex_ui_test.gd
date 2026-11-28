@@ -392,16 +392,21 @@ func test_game_menu_new_game_mode_selector_and_save_slot_badges() -> void:
 	ng_btn.pressed.emit()
 	assert_eq(m.page(), "new_game", "clicking NewGame opens new_game page")
 	assert_eq(m.selected_playthrough_mode(), "one_life", "default new game mode is one_life")
+	assert_true(m.selected_tribulation_enabled(), "default Heavenly Tribulation toggle is ON")
 
 	var got: Array = []
 	m.new_game_requested.connect(func(spec: Dictionary): got.append(spec))
 	(_find(m, "Mode_continue") as Button).pressed.emit()
 	assert_eq(m.selected_playthrough_mode(), "continue", "switched to continue mode")
+	(_find(m, "NewTribulation_off") as Button).pressed.emit()
+	assert_false(m.selected_tribulation_enabled(), "switched Heavenly Tribulation OFF")
 	(_find(m, "NewOrigin_tong_mon") as Button).pressed.emit()
 	(_find(m, "StartNewGame") as Button).pressed.emit()
 	assert_eq(got.size(), 1, "new_game_requested emitted")
 	assert_eq(str(got[0].playthrough_mode), "continue", "emitted continue playthrough_mode")
+	assert_false(bool(got[0].get("tribulation_enabled", true)), "emitted tribulation_enabled == false")
 	assert_eq(str(got[0].origin), "tong_mon", "emitted selected origin")
+	_assert_no_builtin_tooltips(self, m, "GameMenu new_game")
 
 	# Esc from new_game returns to menu
 	m.back_or_close()

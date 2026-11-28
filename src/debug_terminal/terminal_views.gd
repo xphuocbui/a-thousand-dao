@@ -596,7 +596,7 @@ static func bottleneck(s: GameSession, io: TerminalIO) -> Array:
 	lines.append("   attempts this step: %d pill (next insight +%.2f), %d/%d bare" % [c.attempt_log.size(), CultivationRules.failure_insight(gd, c.failed_pills) * CultivationRules.gate_factor(c, gd), c.bare_attempts, int(gd.ladder().bare_attempt_cap)])
 	lines.append("   qi deviation if this fails: %.0f%%" % CultivationRules.backlash_chance(c, gd, sh).total)
 	lines.append("   this attempt: %.1f%% (%s)" % [float(odds.chance) * 100.0, "pill" if not odds.pill.is_empty() and bool(cond.met) else "bare"])
-	if TribulationRules.should_trigger(gd, c.realm_index):
+	if TribulationRules.should_trigger(gd, c.realm_index, s.tribulation_enabled):
 		var tk_step: Dictionary = TribulationRules.step_for(gd, c.realm_index)
 		var wcnt: int = int(tk_step.get("wave_count", TribulationRules.config(gd).get("wave_count", 3)))
 		lines.append(io.paint("   tribulation: ACTIVE — %d waves (losing any wave is death)" % wcnt, "1;31"))

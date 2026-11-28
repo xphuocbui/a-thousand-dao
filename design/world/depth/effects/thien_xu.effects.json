@@ -593,9 +593,29 @@
    ]
   },
   "The Banner Is Raised": {
-   "rule": "Armoured Horse Banner: while you hold the banner, each hit of your companions and summons lays a Darkness stack on the foe. (\"Your summons take a quarter less damage\" is dropped: companions and summons are never struck, Combat rule 19.)",
-   "not_run": "no holder (the banner is lost in abode A-3) and Darkness is not an engine element (darkness-element: decision not_run, checkpoint 2026-11-27, until Darkness's stack effect is ruled); the full record is kept in production/plans/stage6/thien_xu-checkpoint.md",
-   "records": []
+   "rule": "Armoured Horse Banner: while you hold the banner, each hit of your companions and summons lays a Darkness stack on the foe (8 s). (\"Your summons take a quarter less damage\" is dropped: companions and summons are never struck, Combat rule 19.)",
+   "records": [
+    {
+     "id": "eff:The Banner Is Raised",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "dark",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
   },
   "Seal and Weight in One Hand": {
    "rule": "Regalia of the Pivot, full set: once each fight, when a foe below half its health carries 5 or more Earth stacks (Weights), it is judged: its clock stops for 2 s (the stun), its largest buff pile is stripped (its strongest buff), and its guard is broken open (Exposed for 4 s, the engine's reading of \"its wards broken\"). While you hold all three, your own ward holds half as much (one who judges alone stands alone).",
@@ -1310,8 +1330,8 @@
    ]
   },
   "A Fair Copy": {
-   "rule": "Copyist's Pair, full set (2 pieces): once a fight, the first soul art that would land on you does nothing to you and strikes its caster as Cold damage equal to its own (the soul reflect, W2: the engine's reading of \"copied, and your next seal art carries it back\"). The curse half (the first curse cast on you copied back) is not run: the curse-reflect word was not built (checkpoint 2026-11-27: one half of one Effect, no other owner asks for it).",
-   "approx": "the soul art is reflected at once, not carried back by your next seal art; the curse half is not run (curse-reflect: decision not_run, checkpoint 2026-11-27)",
+   "rule": "Copyist's Pair, full set (2 pieces): once a fight, the first soul art that would land on you does nothing to you and strikes its caster as Cold damage equal to its own, and the first curse that would land on you is reflected back to its caster instead of taken (soul_reflect + curse_reflect: the engine's reading of \"copied, and your next seal art carries it back\").",
+   "approx": "both the first soul art and the first curse are reflected at once, not carried back by your next seal art",
    "records": [
     {
      "id": "eff:A Fair Copy",
@@ -1319,7 +1339,8 @@
      "do": [
       {
        "mod": {
-        "soul_reflect": 1
+        "soul_reflect": 1,
+        "curse_reflect": 1
        }
       }
      ]

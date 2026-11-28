@@ -906,6 +906,7 @@ func heal(s: FighterState, amount: float, source: String = "", ignore_taken: boo
 	# ignore_taken: a heal its own closing exempts (Still Water)
 	if not ignore_taken:
 		amount *= maxf(1.0 - k.curse_heal_taken_max, 1.0 + m(s, "heal_taken", null) / 100.0)
+		amount /= 1.0 + s.dsum("heal_taken_down")
 	if s.st("withering") > 0.0:
 		var w_eff: float = maxf(-k.curse_heal_taken_max, k.withering_heal_taken * curse_scale(s, "withering"))
 		amount *= 1.0 + w_eff
@@ -1318,6 +1319,7 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	if soul_d != 0.0:
 		var sr: float = _soul_res(att, dfn)
 		var sd: float = soul_d / (1.0 + sr / 100.0) if sr >= 0.0 else soul_d * (1.0 + absf(sr) / 100.0)
+		sd *= 1.0 + dfn.dsum("chaos_soul_taken")
 		dfn.hp -= sd
 		dealt += sd
 	if dealt > 0.0:
@@ -1431,6 +1433,9 @@ func soul_hit(att: FighterState, dfn: FighterState, art: ArtDef) -> float:
 				_event(dfn, "soul_taken", {"amount": lh, "art_id": str(art.id), "tags": art.tags_s, "reflected": 1.0})
 			return 0.0
 		dfn.soul_charges = live
+	var cs_mult: float = 1.0 + dfn.dsum("chaos_soul_taken")
+	lh *= cs_mult
+	lq *= cs_mult
 	dfn.hp -= lh
 	dfn.qi = maxf(0.0, dfn.qi - lq)
 	if lh > 0.0:
@@ -1511,7 +1516,7 @@ func add_stacks(src: FighterState, target: FighterState, el: String, n: float, d
 ## R22): nothing during its lockout; status resistance and a chance below 1 roll within the chance clamp; a new curse
 ## needs a free curse slot; the duration scales with the source's status_dur, curses last 1 to curse_duration_max
 ## pulses; stacks add up to the cap; the duration restarts; then status_applied. Public for mechanism tests.
-func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> void:
+func apply_status(src: FighterState, target: FighterState, spec: StatusSpec, reflected: bool = false) -> void:
 	var sid: String = spec.id
 	if sid == "internal_injury":
 		var ii: FighterState.StatusState = target.statuses.get(sid)
@@ -1531,13 +1536,14 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 		return   # stacking None: a recast while it runs does nothing (Effects Edge Cases; both engines, 2026-11-14)
 	var is_curse: bool = str(d.kind) == "curse"
 	var sctx: Dictionary = {"status": sid, "kind": str(d.kind), "tags": [str(d.kind), sid]} if _fx else {}
-	var chance: float = spec.chance
-	var resist: float = m(target, "status_resist", sctx) / 100.0
-	if chance <= 0.0:
-		return
-	if not (chance >= 1.0 and resist <= 0.0):
-		if rng.randf() >= minf(k.status_chance_max, maxf(k.status_chance_min, chance * (1.0 - resist))):
+	if not reflected:
+		var chance: float = spec.chance
+		var resist: float = m(target, "status_resist", sctx) / 100.0
+		if chance <= 0.0:
 			return
+		if not (chance >= 1.0 and resist <= 0.0):
+			if rng.randf() >= minf(k.status_chance_max, maxf(k.status_chance_min, chance * (1.0 - resist))):
+				return
 	if is_curse and not target.statuses.has(sid):
 		var live: int = 0
 		for other in target.statuses:
@@ -1545,6 +1551,18 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 				live += 1
 		if live >= k.curse_slots:
 			return
+	if is_curse and not reflected and src != target and not target.curse_charges.is_empty():
+		var live_c: Array[int] = []
+		for u in target.curse_charges:
+			if u > t:
+				live_c.append(u)
+		if not live_c.is_empty():
+			live_c.sort()
+			live_c.remove_at(0)
+			target.curse_charges = live_c
+			apply_status(target, src, spec, true)
+			return
+		target.curse_charges = live_c
 	var dur_v: Variant = spec.extra["dur"] if spec.extra.has("dur") else d.get("dur")
 	var has_dur: bool = dur_v != null
 	var dur: float = float(dur_v) if has_dur else 0.0
@@ -1680,7 +1698,7 @@ func evade_chance(att: FighterState, dfn: FighterState) -> float:
 	var ev_m: float = m(dfn, "evade", null) if has_mods(dfn) else 0.0
 	var acc_m: float = m(att, "acc", null) if has_mods(att) else 0.0
 	var dk: float = att.st("drunk")
-	var p_ev: float = dfn.p.evade + w_ev + ev_m / 100.0 - dfn.dsum("evade_down") \
+	var p_ev: float = dfn.p.evade + w_ev + dfn.bsum("evade") + ev_m / 100.0 - dfn.dsum("evade_down") \
 			- (att.p.acc + acc_m / 100.0 + att.bsum("acc") - att.dsum("acc_down")) \
 			+ float(k.status.drunk.acc_down) * dk * (curse_scale(att, "drunk") if dk > 0.0 else 1.0)   # Drunk: aim lost (2026-11-26)
 	return minf(k.evade_cap, maxf(0.0, p_ev))

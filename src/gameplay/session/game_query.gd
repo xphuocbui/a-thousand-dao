@@ -1996,6 +1996,7 @@ static func playthrough_meta(s: GameSession) -> Dictionary:
 		"playthrough_mode": s.playthrough_mode,
 		"playthrough_status": s.playthrough_status,
 		"playthrough_id": s.playthrough_id,
+		"tribulation_enabled": s.tribulation_enabled,
 		"karma": s.karma,
 		"death_reloaded": s.death_reloaded,
 		"is_heir_life": s.is_heir_life,

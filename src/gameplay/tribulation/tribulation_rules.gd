@@ -27,7 +27,7 @@ static func config(gd: GameData) -> Dictionary:
 
 ## Returns true when Heavenly Tribulation is enabled in config (AC-TK-04; false keeps Realms fallback).
 static func is_enabled(gd: GameData) -> bool:
-	return bool(config(gd).get("tribulation_enabled", false))
+	return bool(config(gd).get("tribulation_enabled", true))
 
 
 ## Returns the tribulation step row whose from_realm matches [param from_realm_idx], or {} if unlisted.
@@ -52,9 +52,10 @@ static func step_by_id(gd: GameData, step_id: String) -> Dictionary:
 
 
 ## True when a successful breakthrough roll leaving [param from_realm_idx] must hand off to a tribulation
-## (Rule 1, AC-TK-01..04, AC-TK-06).
-static func should_trigger(gd: GameData, from_realm_idx: int) -> bool:
-	return is_enabled(gd) and not step_for(gd, from_realm_idx).is_empty()
+## (Rule 1, AC-TK-01..04, AC-TK-06). Pass [param session_enabled] to apply a playthrough's New Game toggle.
+static func should_trigger(gd: GameData, from_realm_idx: int, session_enabled: Variant = null) -> bool:
+	var on: bool = bool(session_enabled) if session_enabled != null else is_enabled(gd)
+	return on and not step_for(gd, from_realm_idx).is_empty()
 
 
 ## Returns all boss records from tribulation_bosses.json serving [param step_id].

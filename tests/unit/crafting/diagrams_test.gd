@@ -54,6 +54,16 @@ func test_the_situation_sets_the_share_ac_fo_08() -> void:
 		[1.0, 0.7, 0.7, 0.5], "laid, carried, ambush, blind")
 
 
+func test_diagram_always_grants_full_share_when_laid_in_ambush_and_blind_rule9() -> void:
+	var gd := game_data()
+	assert_eq([
+		Diagrams.share_of(gd, FightRequest.Situation.AMBUSH, true, true),
+		Diagrams.share_of(gd, FightRequest.Situation.BLIND, true, true),
+		Diagrams.share_of(gd, FightRequest.Situation.AMBUSH, false, true),
+		Diagrams.share_of(gd, FightRequest.Situation.BLIND, false, true),
+	], [1.0, 1.0, 0.7, 0.5], "diagram_always gives 100 % when laid in ambush/blind, carried shares when not laid")
+
+
 func test_the_reservation_is_never_scaled_and_the_cap_and_node_budget_hold_ac_fo_02_24_26() -> void:
 	var d := _ring()
 	assert_near(Diagrams.reserved(d, 25.0), 0.09, 1e-9, "0.12 at 25 % efficiency: 90 of 1,000")

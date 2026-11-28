@@ -101,7 +101,7 @@ would have to mean both a crushing wave and a freezing mist.
    | Earth (Thổ) | Physical |
    | Thunder (Lôi), Ice (Băng), Light (Quang) | Lightning, Cold, Light |
    | Wind (Phong) | Force or Physical, depending on the art |
-   | Darkness (Ám) | Chaos |
+   | Darkness (Ám) | Chaos (Shadow Erosion debuff stacks amplify Chaos and Soul damage taken; Effects rule 9a) |
    | Blood and Void (archived 2026-11-09), Primordial Chaos roots (Huyết, Hư Không, Hỗn Độn) | No type of their own; their arts use whatever is authored |
 
    **Naming** (user decision 2026-11-08, re-review DT 12): the damage type is **Chaos (Tà)**. The spiritual root

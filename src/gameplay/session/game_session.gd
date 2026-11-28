@@ -114,6 +114,15 @@ var _start_home: String = ""
 var _notices: Array = []
 
 # --- Heavenly Tribulation (#22) ---------------------------------------------------
+var _tribulation_enabled: Variant = null
+## Playthrough Heavenly Tribulation toggle (fixed at new_game; default ON from tribulation_rules.json).
+var tribulation_enabled: bool:
+	get:
+		if _tribulation_enabled == null:
+			return TribulationRules.is_enabled(gd) if gd != null else true
+		return bool(_tribulation_enabled)
+	set(v):
+		_tribulation_enabled = bool(v)
 ## Pending survival reward choices until claimed ({step_id, choices, buff}); empty otherwise.
 var pending_tribulation_reward: Dictionary = {}
 ## Transient last tribulation result (wave summaries & Combat logs for UI/Terminal replay; not saved).
@@ -226,6 +235,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	var name: String = str(spec.get("name", "Vô Danh"))
 	var gender: String = str(spec.get("gender", "male"))
 	var origin: String = str(spec.get("origin", "tan_tu"))
+	tribulation_enabled = bool(spec.get("tribulation_enabled", TribulationRules.is_enabled(gd)))
 	playthrough_mode = KarmicRules.normalize_mode(str(spec.get("playthrough_mode", KarmicRules.MODE_ONE_LIFE)))
 	playthrough_id = str(spec.get("playthrough_id", "pt_%d_%d" % [seed_v, RngUtils.stable_hash("%s:%d:%s:%s" % [name, seed_v, playthrough_mode, origin])]))
 	playthrough_status = KarmicRules.STATUS_ACTIVE
@@ -277,8 +287,13 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	lines.append("%s is born: %s" % [player.name, player.linh_can.describe(gd)])
 	lines.append(_start_line())
 	if not rated.is_empty():
-		lines.append("Power Rankings: the player's panel (%d fights) and %d coarse panels (%d fights) rated at load." % [
-			int(rated.player_fights), int(rated.coarse_panels), int(rated.fights)])
+		var pre_cast: int = int(rated.get("precomputed_cast", 0))
+		if pre_cast > 0:
+			lines.append("Power Rankings: the player's panel (%d fights), %d precomputed cast ratings, and %d coarse panels (%d fights) rated at load." % [
+				int(rated.player_fights), pre_cast, int(rated.coarse_panels), int(rated.fights)])
+		else:
+			lines.append("Power Rankings: the player's panel (%d fights) and %d coarse panels (%d fights) rated at load." % [
+				int(rated.player_fights), int(rated.coarse_panels), int(rated.fights)])
 	return {"ok": true, "lines": lines}
 
 
@@ -2259,7 +2274,7 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 			db.remove("items", pill.id)
 		lines.append("  Consumed 1 %s." % pill.name)
 	var tk_step: Dictionary = TribulationRules.step_for(gd, player.realm_index)
-	var tk_on: bool = not tk_step.is_empty() and TribulationRules.is_enabled(gd)
+	var tk_on: bool = TribulationRules.should_trigger(gd, player.realm_index, tribulation_enabled)
 	var res: Dictionary = CultivationRules.resolve_attempt(player, gd, sh, rng, odds, is_pill, tk_on)
 	lines.append("Roll %.0f vs %.0f%%." % [res.roll * 100.0, res.chance * 100.0])
 	if not res.success and not res.died and is_pill and burn_life and player.has_capability(23) and not step_used:
@@ -2310,7 +2325,7 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 func tribulation_preview() -> Dictionary:
 	if player == null or gd == null:
 		return {"enabled": false, "active": false, "step_id": "", "wave_count": 0, "pool": [], "setup": {}, "has_escape_art": false, "escape_warning": ""}
-	var enabled: bool = TribulationRules.is_enabled(gd)
+	var enabled: bool = tribulation_enabled
 	var step: Dictionary = TribulationRules.step_for(gd, player.realm_index)
 	var active: bool = enabled and not step.is_empty()
 	var step_id: String = str(step.get("id", ""))
@@ -2441,6 +2456,9 @@ func _run_tribulation(tk_step: Dictionary, next_realm: Dictionary, sh: StatSheet
 	if not bool(tk.get("ok", false)):
 		lines.append("Heavenly Tribulation error: %s" % str(tk.get("error", "unknown")))
 		return lines
+	var end_m: Dictionary = Dictionary(tk.get("end_meters", {}))
+	if not end_m.is_empty():
+		player.save_fight_meters(end_m)
 	for due in fuel_due:
 		Diagrams.pay_fuel(db, due[0], int(due[1]))
 	# Rule 9 / AC-TK-53: decrement spent consumable stock once, whether the player survives or dies.
@@ -3059,7 +3077,33 @@ func quest_start_stage(quest_id: String) -> Dictionary:
 		res["lines"] = lines
 		return res
 	if kind == "defeat":
-		var dres: Dictionary = quests.run_defeat_stage(player, sheet(), rng, quest_id, Callable(), {
+		var defeat_fight_fn: Callable = Callable()
+		var tid: String = str(st.get("target_id", ""))
+		if bool(gd.combat().get("fight_engine", {}).get("enabled", false)) and tid != "" and db.has_record("people", tid):
+			var trec_chk: Dictionary = db.get_record("people", tid)
+			if bool(trec_chk.get("alive", true)):
+				defeat_fight_fn = func(_q: Dictionary, stage_d: Dictionary, pl: Character) -> Variant:
+					var target_id: String = str(stage_d.get("target_id", tid))
+					var trec: Dictionary = db.get_record("people", target_id)
+					if trec.is_empty() or not bool(trec.get("alive", true)):
+						return ""
+					var sit_raw: Variant = stage_d.get("situation", FightRequest.Situation.FORESEEN)
+					var sit: int = int(sit_raw) if (sit_raw is int or sit_raw is float) else FightRequest.Situation.FORESEEN
+					var gtags: Array = Array(stage_d.get("ground_tags", []))
+					var no_heal: bool = bool(stage_d.get("no_heal", false))
+					var fought: Dictionary = resolver.fight_check(pl, sheet(), Character.from_dict(trec), rng, sit, gtags, no_heal)
+					if not bool(fought.get("ran", false)):
+						return ""
+					match str(fought.get("code", "draw")):
+						"A":
+							return "knockout"
+						"B":
+							return "down"
+						"flight":
+							return "flight"
+						_:
+							return "draw"
+		var dres: Dictionary = quests.run_defeat_stage(player, sheet(), rng, quest_id, defeat_fight_fn, {
 			"year": year,
 			"season": season,
 			"season_idx": season_index(),
@@ -3696,6 +3740,7 @@ func to_dict() -> Dictionary:
 		"death_reloaded": death_reloaded,
 		"past_ties": past_ties.duplicate(true),
 		"recognition_used": recognition_used,
+		"tribulation_enabled": tribulation_enabled,
 		"pending_tribulation_reward": pending_tribulation_reward.duplicate(true),
 		"last_death": {
 			"player_id": _last_death_player_id,
@@ -3799,6 +3844,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 	death_reloaded = bool(d.get("death_reloaded", false))
 	past_ties = Array(d.get("past_ties", [])).duplicate(true)
 	recognition_used = int(d.get("recognition_used", 0))
+	tribulation_enabled = bool(d.get("tribulation_enabled", TribulationRules.is_enabled(gd)))
 	pending_tribulation_reward = Dictionary(d.get("pending_tribulation_reward", {})).duplicate(true)
 	last_tribulation = {}
 	var ld: Dictionary = Dictionary(d.get("last_death", {}))

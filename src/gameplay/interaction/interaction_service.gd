@@ -833,6 +833,7 @@ func _exec_spar(session: GameSession, npc: Dictionary, verb: Dictionary, sh: Sta
 				_combat_service = CombatService.new(CombatConstants.from_game_data(_gd))
 			fight_res = _combat_service.resolve(req)
 			if fight_res != null:
+				# Non-real spar/challenge: intentionally do NOT write back Character.fight_meters (Playing Past the Break).
 				for due in fuel_due:
 					Diagrams.pay_fuel(_db, due[0], int(due[1]))
 				var code: String = fight_res.win_code()

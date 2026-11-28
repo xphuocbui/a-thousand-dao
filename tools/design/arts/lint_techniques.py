@@ -33,7 +33,7 @@ LAYERS = {0: 6, 1: 9, 2: 12, 3: 15}                     # cong-phap.md rule 5
 BUDGET = {0: 8.0, 1: 16.0, 2: 24.0, 3: 32.0}           # cong-phap.md rule 1, combat passive budget (authored)
 KINDS = {"main", "secret", "body"}
 ELEMENT_ID = {"fire": "hoa", "water": "thuy", "earth": "tho", "metal": "kim", "wood": "moc",
-              "ice": "bang", "thunder": "loi", "wind": "phong"}
+              "ice": "bang", "thunder": "loi", "wind": "phong", "dark": "am", "light": "quang"}
 NAMEABLE = {"kim", "moc", "thuy", "hoa", "tho", "phong", "loi", "am", "hon_don", "quang", "bang"}  # Blood, Void archived
 FIELDS = {"id", "name", "tier", "tech_kind", "names", "layers", "bonuses", "passives", "abilities", "effects",
           "origin", "suite", "family", "lore", "notes", "rank", "concept", "owner"}

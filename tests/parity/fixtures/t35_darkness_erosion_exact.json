@@ -1,0 +1,168 @@
+{
+  "name": "t35_darkness_erosion_exact",
+  "slice": 35,
+  "chance_free": true,
+  "seed": 351,
+  "doc": "Darkness (am / dark) Shadow Erosion exact parity (2026-11-28), chance-free: A has purity.dark=60, L1 +14 scoped [dark], a companion with The Banner Is Raised (lays 1 Darkness debuff per companion hit, 8 s, per_pulse 2), a dark elem art (ELEM_TYPE.dark=chaos + L1 dark + chaos_soul_taken), a wood poison art (Chaos tick amplified by chaos_soul_taken), a soul art (lh/lq amplified by chaos_soul_taken), and a phys art with soul_part + convert-to-chaos (both amplified while remaining phys part is not). B has hregen, mend heal art (heal_taken_down dampening), cleanse_share (thinning Darkness debuffs), a dark buff art (against A's acc=1.0 so evade stays 0), and a batch_ended watcher for dark.",
+  "a": {
+    "name": "dark_erosion_caster",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 1.0,
+    "n_body": 4.0,
+    "n_qi": 4.0,
+    "ward_pts": 80.0,
+    "block": 0.0,
+    "purity": {
+      "dark": 60.0
+    },
+    "companions": [
+      {
+        "c": 0.4,
+        "dtype": "phys",
+        "cd": 2.0
+      }
+    ],
+    "arts": [
+      {
+        "name": "dark_bolt",
+        "c": 0.9,
+        "cost": 0.03,
+        "cd": 2.5,
+        "element": "dark",
+        "dtype": "elem",
+        "debuff": [
+          2,
+          6
+        ]
+      },
+      {
+        "name": "poison_cut",
+        "c": 0.5,
+        "cost": 0.02,
+        "cd": 3.5,
+        "element": "wood",
+        "dtype": "elem",
+        "debuff": [
+          2,
+          6
+        ]
+      },
+      {
+        "name": "soul_spike",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "dark",
+        "dtype": "soul",
+        "soul_pct": 0.08
+      },
+      {
+        "name": "split_blade",
+        "c": 0.8,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "",
+        "dtype": "phys",
+        "soul_part": 0.25,
+        "convert": {
+          "to": "chaos",
+          "share": 0.5
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "eff:The Banner Is Raised",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion"
+        },
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "dark",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "item:tx-iron-horse-banner",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "L1": 14,
+              "element": "dark"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "dark_erosion_target",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 1.0,
+    "n_body": 6.0,
+    "n_qi": 4.0,
+    "ward_pts": 80.0,
+    "block": 0.0,
+    "hregen": 0.02,
+    "cleanse_share": 0.25,
+    "arts": [
+      {
+        "name": "mend",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "water",
+        "dtype": "elem",
+        "heal": 2.0
+      },
+      {
+        "name": "shadow_veil",
+        "c": 0.5,
+        "cost": 0.02,
+        "cd": 3.5,
+        "element": "dark",
+        "dtype": "elem",
+        "buff": [
+          2,
+          6
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "b-dark-ended",
+        "on": "batch_ended",
+        "filter": {
+          "element": "dark"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "dark_ended",
+              "add": 1
+            }
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "dark_ended"
+      }
+    ]
+  }
+}

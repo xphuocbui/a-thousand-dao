@@ -78,6 +78,17 @@ def cases():
         out.append(inp)
         i += 1
     out += tree_cases(lib)
+    # Full 3-piece mf-carried-array set case (Formations rule 9: diagram_always compile parity)
+    ca_items = ["mf-loom-of-letters-seal", "mf-carried-array-flag", "mf-paid-shield"]
+    ca_arts = []
+    for iid in ca_items:
+        for aid in lib["items"].get(iid, {}).get("arts", []):
+            if aid not in ca_arts:
+                ca_arts.append(aid)
+    ca_base = copy.deepcopy(lib["typical"][2])
+    out.append({"name": "set_carried_array", "realm": 2, "layers": ca_base["layers"], "n_body": ca_base["n_body"],
+                "n_qi": ca_base["n_qi"], "ward": ca_base["ward"], "arts": [{"lib": a} for a in ca_arts],
+                "items": ca_items, "modifiers": [{"key": "attack_pct", "value": 10.0}], "purity": {"earth": 50.0}})
     return out
 
 
@@ -126,6 +137,8 @@ def compile_case(inp):
     finally:
         F._LIB["techs"].pop("character", None)
     rec = dataclasses.asdict(b)
+    if getattr(b, "diagram_always", False):
+        rec["diagram_always"] = True
     for late in ("pill", "tech_layers", "meters"):   # fields added later stay out at their default (world-depth Stage 5)
         if rec.get(late) == {}:
             rec.pop(late, None)

@@ -1,0 +1,150 @@
+{
+  "name": "t34_curse_reflect_exact",
+  "slice": 34,
+  "chance_free": true,
+  "seed": 341,
+  "doc": "curse_reflect (A Fair Copy, 2026-11-28), chance-free: B starts with soul_reflect=1 and curse_reflect=1; A starts with curse_reflect=1 and casts bleed (tick, does not spend B's charge), a double-curse art (first curse reflects onto A without bouncing back despite A's own charge, second lands on B), and a soul art (reflected by soul_reflect); B casts a curse art (reflected back onto B by A's untouched curse_reflect charge).",
+  "a": {
+    "name": "curse-reflect-a",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 1.0,
+    "n_body": 3.0,
+    "n_qi": 3.0,
+    "ward_pts": 80.0,
+    "block": 0.0,
+    "arts": [
+      {
+        "name": "bleed-nick",
+        "c": 0.4,
+        "cost": 0.02,
+        "cd": 1.5,
+        "element": "metal",
+        "dtype": "phys",
+        "statuses": [
+          {
+            "id": "bleed",
+            "stacks": 2
+          }
+        ]
+      },
+      {
+        "name": "double-hex",
+        "c": 0.5,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "earth",
+        "dtype": "elem",
+        "statuses": [
+          {
+            "id": "heavy_breath",
+            "stacks": 1,
+            "dur": 4
+          },
+          {
+            "id": "sundered",
+            "stacks": 1,
+            "dur": 4
+          }
+        ]
+      },
+      {
+        "name": "cold-gaze",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 4.0,
+        "soul_pct": 0.05
+      }
+    ],
+    "effects": [
+      {
+        "id": "eff:A-curse-mirror",
+        "on": "fight_start",
+        "do": [
+          {
+            "mod": {
+              "curse_reflect": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "a-status-watch",
+        "on": "status_applied",
+        "do": [
+          {
+            "counter": {
+              "id": "applied",
+              "add": 1
+            }
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "applied"
+      }
+    ]
+  },
+  "b": {
+    "name": "curse-reflect-b",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 1.0,
+    "n_body": 3.0,
+    "n_qi": 3.0,
+    "ward_pts": 80.0,
+    "block": 0.0,
+    "arts": [
+      {
+        "name": "wither-seal",
+        "c": 0.6,
+        "cost": 0.03,
+        "cd": 3.5,
+        "element": "water",
+        "dtype": "cold",
+        "statuses": [
+          {
+            "id": "withering",
+            "stacks": 1,
+            "dur": 4
+          }
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "eff:A Fair Copy",
+        "on": "fight_start",
+        "do": [
+          {
+            "mod": {
+              "soul_reflect": 1,
+              "curse_reflect": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "b-status-watch",
+        "on": "status_applied",
+        "do": [
+          {
+            "counter": {
+              "id": "applied",
+              "add": 1
+            }
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "applied"
+      }
+    ]
+  }
+}

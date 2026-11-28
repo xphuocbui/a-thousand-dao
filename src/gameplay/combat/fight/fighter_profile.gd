@@ -106,6 +106,8 @@ var listeners: Dictionary = {}
 var layers: PackedFloat64Array = []
 ## A boss (the boss readable).
 var boss: bool = false
+## Formations rule 9 (a-formation-that-walks): may lay diagram even in ambush or blind fights.
+var diagram_always: bool = false
 ## Stances and forms (R29) by id: {"mods": {key: value}, "suppress": [art ids], "start": bool}; the one it starts in
 ## ("" none). Refusals of Down per fight (Effects rule 11).
 var states: Dictionary = {}

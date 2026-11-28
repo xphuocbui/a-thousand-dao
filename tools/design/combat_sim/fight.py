@@ -166,7 +166,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
             "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
             "stack_eff", "stack_dur", "wards", "pierce_pct", "stage_mult", "tree_effects", "tree_lines_on_sheet",
-            "counts", "stack_alias", "no_ward"}
+            "counts", "stack_alias", "no_ward", "diagram_always"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -176,7 +176,7 @@ ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", 
 CLEANSE_KEYS = {"per_pulse", "fee_share", "share"}
 KEYSTONES = {f for f in sim.Build.__dataclass_fields__ if f.startswith("k_")}
 CURSES = {"withering": "curse_wither", "stagnation": "curse_stagnate"}
-ELEMENTS = {"", "fire", "water", "earth", "metal", "wood", "thunder", "wind", "ice"}
+ELEMENTS = {"", "fire", "water", "earth", "metal", "wood", "thunder", "wind", "ice", "dark"}
 
 
 class BadInput(Exception):
@@ -290,6 +290,8 @@ def add_library_effect(name, d, effects, counters, unmod, who, worn, counts=None
                 tbl[k] = tbl.get(k, 1.0) * v if key == "pool_more" else sorted(set(tbl.get(k, [])) | set(v))
     if lib.get("no_ward"):
         d["no_ward"] = True
+    if lib.get("diagram_always"):
+        d["diagram_always"] = True
     if lib.get("only_tag"):
         d.setdefault("_only_tag", []).append(lib["only_tag"])
     n = _lib_count(lib["count"], worn, counts) if lib.get("count") else 1
@@ -912,6 +914,8 @@ def to_build(d, r, notes, who):
         # Healing rule 5: cannot_slot_wards, no_default_ward)
         eb.ward_pts, eb.drain, eb.wards, eb.shields = 0.0, 0.0, [], []
         eb.reserved = max(0.0, eb.reserved - _xres)
+    if d.get("diagram_always"):
+        eb.diagram_always = True
     eb.tags = tuple(d.get("tags", ()))
     eb.states = list(d.get("states", []))
     try:

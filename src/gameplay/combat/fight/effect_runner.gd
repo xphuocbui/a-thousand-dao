@@ -404,8 +404,12 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 						var until_s: int = f.t + CombatConstants.ms(dur) if dur != 0.0 else FighterState.SOUL_CHARGE_FIGHT
 						for _i in range(int(roundf(float(arg.soul_reflect) * n))):
 							s.soul_charges.append(until_s)
+					if arg.has("curse_reflect"):   # Reflect a curse: charges, each spent by one incoming curse (A Fair Copy)
+						var until_c: int = f.t + CombatConstants.ms(dur) if dur != 0.0 else FighterState.SOUL_CHARGE_FIGHT
+						for _i in range(int(roundf(float(arg.curse_reflect) * n))):
+							s.curse_charges.append(until_c)
 					for key in arg:
-						if f.is_mod_key(str(key)) and str(key) != "next_art_cost" and str(key) != "soul_reflect":
+						if f.is_mod_key(str(key)) and str(key) != "next_art_cost" and str(key) != "soul_reflect" and str(key) != "curse_reflect":
 							var tm := FighterState.TempMod.new()
 							tm.key = str(key)
 							tm.v = float(arg[key]) * n

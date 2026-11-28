@@ -776,6 +776,59 @@ func test_a_reflected_soul_art_hurts_only_its_caster() -> void:
 	assert_near(float(f.b.counters["n"]), 2.0, 1e-9, "soul_taken again")
 
 
+func test_a_reflected_curse_lands_on_its_caster_without_bouncing() -> void:
+	# test_engine.py t_curse_reflect (A Fair Copy, 2026-11-28)
+	var charge := {"id": "m", "on": "fight_start", "do": [{"mod": {"curse_reflect": 1}}]}
+	var seen_a := {"id": "sa", "on": "status_applied", "do": [{"counter": {"id": "app", "add": 1}}]}
+	var seen_b := {"id": "sb", "on": "status_applied", "do": [{"counter": {"id": "app", "add": 1}}]}
+	var f: Fight = M._fight(
+			M._dummy({"effects": [seen_a], "counters": [{"id": "app"}]}),
+			M._dummy({"effects": [charge, seen_b], "counters": [{"id": "app"}]}))
+	EffectRunner.fire(f, f.b, "fight_start", {})
+	var hb := _spec("heavy_breath")
+	hb.extra["dur"] = 3
+	f.apply_status(f.a, f.b, hb)
+	assert_false(f.b.statuses.has("heavy_breath"), "reflected curse does not land on reflector")
+	assert_true(f.a.statuses.has("heavy_breath"), "reflected curse lands on caster")
+	assert_eq((f.a.statuses["heavy_breath"] as FighterState.StatusState).src_idx, 1, "src is reflector (B)")
+	assert_near(float(f.b.counters["app"]), 1.0, 1e-9, "status_applied fires on reflector")
+	assert_near(float(f.a.counters["app"]), 0.0, 1e-9, "status_applied does not fire on original caster")
+	var su := _spec("sundered")
+	su.extra["dur"] = 3
+	f.apply_status(f.a, f.b, su)
+	assert_true(f.b.statuses.has("sundered"), "charge spent: second curse lands on B")
+	assert_eq((f.b.statuses["sundered"] as FighterState.StatusState).src_idx, 0, "second curse src is A")
+
+	# Non-curse tick (bleed) and self-curse do not consume charge
+	var g: Fight = M._fight(M._dummy(), M._dummy({"effects": [charge]}))
+	EffectRunner.fire(g, g.b, "fight_start", {})
+	var bl := _spec("bleed")
+	bl.stacks = 2
+	g.apply_status(g.a, g.b, bl)
+	assert_true(g.b.statuses.has("bleed") and not g.a.statuses.has("bleed"), "tick lands normally on B")
+	assert_eq(g.b.curse_charges.size(), 1, "tick does not spend curse_reflect charge")
+	g.apply_status(g.b, g.b, su)
+	assert_true(g.b.statuses.has("sundered"), "self-curse lands on B")
+	assert_eq(g.b.curse_charges.size(), 1, "self-curse does not spend curse_reflect charge")
+
+	# Mutual curse_reflect does not bounce back; A keeps its charge
+	var h: Fight = M._fight(M._dummy({"effects": [charge]}), M._dummy({"effects": [charge]}))
+	EffectRunner.fire(h, h.a, "fight_start", {})
+	EffectRunner.fire(h, h.b, "fight_start", {})
+	h.apply_status(h.a, h.b, hb)
+	assert_true(h.a.statuses.has("heavy_breath") and not h.b.statuses.has("heavy_breath"), "mutual reflect lands once on A")
+	assert_eq([h.b.curse_charges.size(), h.a.curse_charges.size()], [0, 1], "B spends charge, A keeps charge")
+
+	# Timed curse_reflect charge expires after `for` seconds
+	var timed := {"id": "mt", "on": "fight_start", "do": [{"mod": {"curse_reflect": 1, "for": 2.0}}]}
+	var tm: Fight = M._fight(M._dummy(), M._dummy({"effects": [timed]}))
+	EffectRunner.fire(tm, tm.b, "fight_start", {})
+	tm.t = 2000
+	tm.apply_status(tm.a, tm.b, su)
+	assert_true(tm.b.statuses.has("sundered") and not tm.a.statuses.has("sundered"), "expired charge does not reflect")
+	assert_eq(tm.b.curse_charges.size(), 0, "expired charge pruned")
+
+
 func test_a_granted_decoy_takes_the_hit_and_raises_decoy_struck() -> void:
 	# test_engine.py t_decoy_struck
 	var grant := {"id": "g", "on": "art_fired", "do": [{"decoy": {"n": 1}}]}
@@ -1308,3 +1361,211 @@ func test_step1_passive_mods_and_out_of_fight_compile() -> void:
 	assert_near(f.m(f.a, "companion_speed", null), 15.0, 1e-9, "companion_speed passive mod")
 	assert_near(f.m(f.a, "escape", null), 12.0, 1e-9, "escape passive mod")
 	assert_near(f.m(f.a, "L1", {"kind": "art", "tags": []}), 8.0, 1e-9, "L1 [art] passive mod")
+
+
+# ---- Darkness (am / dark) Shadow Erosion (2026-11-28) ----
+func _stack_count(batches: Array, el: String) -> float:
+	var n := 0.0
+	for b in batches:
+		if b.el == el:
+			n += b.n
+	return n
+
+
+func test_darkness_erosion_buff_evade_cap_and_strip() -> void:
+	# test_engine.py t_darkness_erosion_buff
+	var f0: Fight = M._fight(M._dummy({"acc": 0.0}), M._dummy({"evade": 0.05, "purity": {"dark": 0.0}}))
+	f0.add_stacks(f0.b, f0.b, "dark", 10.0, 10.0, true)
+	assert_near(f0.b.bsum("evade"), 0.085, 1e-9, "10 dark buff stacks at purity 0 -> +0.085 evade")
+	assert_near(f0.evade_chance(f0.a, f0.b), 0.135, 1e-9, "evade_chance adds bsum('evade')")
+
+	var f1: Fight = M._fight(M._dummy({"acc": 0.0}), M._dummy({"evade": 0.05, "purity": {"dark": 50.0}}))
+	f1.add_stacks(f1.b, f1.b, "dark", 10.0, 10.0, true)
+	assert_near(f1.b.bsum("evade"), 0.0935, 1e-9, "10 dark buff stacks at purity 50 -> +0.0935 evade")
+	assert_near(f1.evade_chance(f1.a, f1.b), 0.1435, 1e-9, "evade_chance reflects purity scaling")
+
+	var f2: Fight = M._fight(M._dummy({"acc": 0.0}), M._dummy({"evade": 0.0}))
+	f2.add_stacks(f2.b, f2.b, "dark", 100.0, 10.0, true)
+	assert_near(f2.evade_chance(f2.a, f2.b), f2.k.evade_cap, 1e-9, "100 dark buff stacks clamp at evade_cap 0.40")
+
+	var f_no: Fight = M._fight(M._dummy({"acc": 0.0}), M._dummy({"evade": 0.0, "effects": _step1_fx([{"no_evade": 1}])}))
+	f_no.add_stacks(f_no.b, f_no.b, "dark", 100.0, 10.0, true)
+	assert_near(f_no.evade_chance(f_no.a, f_no.b), 0.0, 1e-9, "no_evade forces 0.0 despite 100 dark buff stacks")
+
+	var st_eff := {"id": "st", "on": "fight_start", "do": [{"strip": {"n": 4}}]}
+	var f3: Fight = M._fight(M._dummy({"effects": [st_eff]}), M._dummy())
+	f3.add_stacks(f3.b, f3.b, "dark", 6.0, 10.0, true)
+	f3.add_stacks(f3.b, f3.b, "fire", 2.0, 10.0, true)
+	EffectRunner.fire(f3, f3.a, "fight_start", {})
+	assert_near(_stack_count(f3.b.buffs, "dark"), 2.0, 1e-9, "strip removes 4 from largest pile (dark 6 -> 2)")
+	assert_near(_stack_count(f3.b.buffs, "fire"), 2.0, 1e-9, "smaller fire buff pile untouched")
+
+
+func test_darkness_erosion_chaos_soul_taken_all_paths() -> void:
+	# test_engine.py t_darkness_erosion_chaos_soul_taken
+	var target := M._dummy({"ward_pts": 0.0, "block": 0.0, "evade": 0.0, "body_pts": 0.0, "n_body": 200.0, "n_qi": 200.0})
+	var arts: Array = [
+		{"name": "dark_bolt", "c": 1.0, "cost": 0.0, "cd": 3.0, "element": "dark", "dtype": "elem"},
+		{"name": "fire_bolt", "c": 1.0, "cost": 0.0, "cd": 3.0, "element": "fire", "dtype": "elem"},
+		{"name": "split_blade", "c": 1.0, "cost": 0.0, "cd": 3.0, "element": "", "dtype": "phys",
+			"soul_part": 0.25, "convert": {"to": "chaos", "share": 0.5}},
+		{"name": "soul_spike", "c": 0.0, "cost": 0.0, "cd": 3.0, "element": "dark", "dtype": "soul", "soul_pct": 0.08},
+	]
+	var f0: Fight = M._fight(M._dummy({}, arts), target)
+	var f1: Fight = M._fight(M._dummy({}, arts), target)
+	f1.add_stacks(f1.a, f1.b, "dark", 10.0, 10.0, false)
+	var mult := 1.34
+
+	var dark_art: ArtDef = f0.a.p.arts[0]
+	var fire_art: ArtDef = f0.a.p.arts[1]
+	var split_art: ArtDef = f0.a.p.arts[2]
+	var soul_art: ArtDef = f0.a.p.arts[3]
+
+	# 1. Direct chaos hit
+	var d0: float = DefencePath.defend(f0, f0.a, f0.b, 100.0, &"chaos", null, {"dtype": "chaos"}, false)
+	var d1: float = DefencePath.defend(f1, f1.a, f1.b, 100.0, &"chaos", null, {"dtype": "chaos"}, false)
+	assert_near(d1, d0 * mult, 1e-9, "direct chaos hit amplified x1.34")
+
+	# 2. dark elem art (ELEM_TYPE.dark == chaos)
+	d0 = DefencePath.defend(f0, f0.a, f0.b, 100.0, &"elem", dark_art, dark_art.ctx, false)
+	d1 = DefencePath.defend(f1, f1.a, f1.b, 100.0, &"elem", dark_art, dark_art.ctx, false)
+	assert_near(d1, d0 * mult, 1e-9, "dark elem art amplified x1.34")
+
+	# 3. Plain phys and fire elem art unchanged
+	var p0: float = DefencePath.defend(f0, f0.a, f0.b, 100.0, &"phys", null, {"dtype": "phys"}, false)
+	var p1: float = DefencePath.defend(f1, f1.a, f1.b, 100.0, &"phys", null, {"dtype": "phys"}, false)
+	var fe0: float = DefencePath.defend(f0, f0.a, f0.b, 100.0, &"elem", fire_art, fire_art.ctx, false)
+	var fe1: float = DefencePath.defend(f1, f1.a, f1.b, 100.0, &"elem", fire_art, fire_art.ctx, false)
+	assert_near(p1, p0, 1e-9, "phys hit unchanged by dark debuff")
+	assert_near(fe1, fe0, 1e-9, "fire elem hit unchanged by dark debuff")
+
+	# 4. Poison Chaos tick amplified
+	var t0: float = f0.tick(f0.a, f0.b, 50.0, &"chaos", "wood")
+	var t1: float = f1.tick(f1.a, f1.b, 50.0, &"chaos", "wood")
+	assert_near(t1, t0 * mult, 1e-9, "chaos tick (poison) amplified x1.34")
+
+	# 5. Direct soul hit
+	var s0: float = DefencePath.defend(f0, f0.a, f0.b, 40.0, &"soul", null, {"dtype": "soul"}, false)
+	var s1: float = DefencePath.defend(f1, f1.a, f1.b, 40.0, &"soul", null, {"dtype": "soul"}, false)
+	assert_near(s1, s0 * mult, 1e-9, "direct soul hit amplified x1.34")
+
+	# 6. split_blade: phys x1.0, converted-chaos & soul_part x1.34
+	f0.b.hp = f0.b.hp_max
+	f1.b.hp = f1.b.hp_max
+	var h0: float = f0.hit(f0.a, f0.b, 1.0, &"phys", split_art, Fight.KIND_ART)
+	var h1: float = f1.hit(f1.a, f1.b, 1.0, &"phys", f1.a.p.arts[2], Fight.KIND_ART)
+	assert_near(h1, h0 * 1.2125, 1e-6, "split_blade: phys x1.0, chaos & soul_part x1.34")
+
+	# 7. Pure soul_hit: lh and lq amplified x1.34
+	f0.b.hp = f0.b.hp_max
+	f0.b.qi = f0.b.qi_use()
+	f1.b.hp = f1.b.hp_max
+	f1.b.qi = f1.b.qi_use()
+	var qi0_before: float = f0.b.qi
+	var qi1_before: float = f1.b.qi
+	var sh0: float = f0.soul_hit(f0.a, f0.b, soul_art)
+	var sh1: float = f1.soul_hit(f1.a, f1.b, f1.a.p.arts[3])
+	assert_near(sh1, sh0 * mult, 1e-6, "soul_hit lh amplified x1.34")
+	assert_near(qi1_before - f1.b.qi, (qi0_before - f0.b.qi) * mult, 1e-6, "soul_hit lq amplified x1.34")
+
+	# 8. Reflected soul_hit sends unamplified damage back to attacker
+	var sr_eff := {"id": "sr", "on": "fight_start", "do": [{"mod": {"soul_reflect": 1}}]}
+	var fr0: Fight = M._fight(M._dummy({"ward_pts": 0.0, "block": 0.0, "evade": 0.0, "body_pts": 0.0, "n_body": 200.0}, [arts[3]]),
+			M._dummy({"effects": [sr_eff]}))
+	var fr1: Fight = M._fight(M._dummy({"ward_pts": 0.0, "block": 0.0, "evade": 0.0, "body_pts": 0.0, "n_body": 200.0}, [arts[3]]),
+			M._dummy({"effects": [sr_eff]}))
+	EffectRunner.fire(fr0, fr0.b, "fight_start", {})
+	EffectRunner.fire(fr1, fr1.b, "fight_start", {})
+	fr1.add_stacks(fr1.a, fr1.b, "dark", 10.0, 10.0, false)
+	var hp_a0: float = fr0.a.hp
+	var hp_a1: float = fr1.a.hp
+	fr0.soul_hit(fr0.a, fr0.b, fr0.a.p.arts[0])
+	fr1.soul_hit(fr1.a, fr1.b, fr1.a.p.arts[0])
+	assert_near(hp_a1 - fr1.a.hp, hp_a0 - fr0.a.hp, 1e-9, "reflected soul_hit sends unamplified damage back")
+	assert_true(hp_a1 - fr1.a.hp > 0.0, "reflected soul_hit dealt Cold damage to attacker")
+
+
+func test_darkness_erosion_heal_taken_down_and_non_inversion() -> void:
+	# test_engine.py t_darkness_erosion_heal_taken_down
+	var f: Fight = M._fight(M._dummy(), M._dummy({"n_body": 20.0}))
+	f.add_stacks(f.a, f.b, "dark", 10.0, 10.0, false)
+	f.b.hp = 100.0
+	f.heal(f.b, 150.0, "art")
+	assert_near(f.b.hp, 200.0, 1e-9, "10 dark debuffs divide art heal by 1.50 (150 -> 100)")
+	f.b.hp = 100.0
+	f.heal(f.b, 150.0, "regen")
+	assert_near(f.b.hp, 200.0, 1e-9, "10 dark debuffs divide regen heal by 1.50")
+	f.b.hp = 100.0
+	f.heal(f.b, 150.0, "leech")
+	assert_near(f.b.hp, 200.0, 1e-9, "10 dark debuffs divide leech heal by 1.50")
+	f.b.hp = 100.0
+	f.heal(f.b, 150.0, "art", true)
+	assert_near(f.b.hp, 250.0, 1e-9, "ignore_taken=true bypasses heal_taken_down")
+
+	var f2: Fight = M._fight(M._dummy(), M._dummy({"n_body": 20.0}))
+	f2.add_stacks(f2.a, f2.b, "dark", 500.0, 10.0, false)
+	f2.b.hp = 100.0
+	f2.heal(f2.b, 260.0)
+	assert_near(f2.b.hp - 100.0, 10.0, 1e-9, "500 dark debuffs divide heal by 26.0 (strictly positive)")
+
+	var f3: Fight = M._fight(M._dummy(), M._dummy({"n_body": 20.0, "effects": _step1_fx([{"heal_taken": -50}])}))
+	f3.add_stacks(f3.a, f3.b, "dark", 10.0, 10.0, false)
+	var wi := _spec("withering")
+	wi.extra["dur"] = 4
+	f3.apply_status(f3.a, f3.b, wi)
+	f3.b.hp = 100.0
+	f3.heal(f3.b, 120.0)
+	assert_near(f3.b.hp - 100.0, 20.0, 1e-9, "composes with heal_taken -50% and withering -50% (120 -> 20)")
+
+
+func test_darkness_am_scope_and_the_banner_is_raised() -> void:
+	# test_engine.py t_darkness_am_scope_and_banner
+	var gd := game_data()
+	var k := CombatConstants.from_game_data(gd)
+	var bfc := BuildFileCompiler.new(gd)
+	var loader := FighterProfileLoader.new(k)
+	var inp := {
+		"name": "am_scope_test", "realm": 1, "layers": [0, 0, 0, 0, 0],
+		"modifiers": [{"key": "attack_pct", "value": 14.0, "scope": ["am"]}],
+		"arts": [
+			{"id": "dark_bolt", "c_art": 1.0, "cost_share": 0.03, "cooldown": 3.0, "element": "dark", "kind": "elem"},
+			{"id": "fire_bolt", "c_art": 1.0, "cost_share": 0.03, "cooldown": 3.0, "element": "fire", "kind": "elem"},
+			{"id": "plain_cut", "c_art": 1.0, "cost_share": 0.03, "cooldown": 3.0, "element": "", "kind": "phys"},
+		],
+	}
+	var rec: Dictionary = bfc.compile(inp)
+	assert_true(bfc.errors.is_empty(), "compiles: %s" % "; ".join(bfc.errors))
+	assert_true(bfc.unmodelled.is_empty(), "no unmodelled: %s" % "; ".join(bfc.unmodelled))
+	var p: FighterProfile = loader.from_sim_build(rec, "am_scope_test")
+	assert_true(p != null and loader.errors.is_empty(), "loads: %s" % "; ".join(loader.errors))
+	if p == null or not loader.errors.is_empty():
+		return
+	var f := Fight.new(p, FighterCompiler.from_data("typical", 1, gd), k, 1, Fight.Order.FIXED)
+	assert_near(f.m(f.a, "L1", f.a.p.arts[0].ctx), 14.0, 1e-9, "attack_pct [am] boosts element=dark art")
+	assert_near(f.m(f.a, "L1", f.a.p.arts[1].ctx), 0.0, 1e-9, "attack_pct [am] ignores element=fire art")
+	assert_near(f.m(f.a, "L1", f.a.p.arts[2].ctx), 0.0, 1e-9, "attack_pct [am] ignores element='' art")
+
+	# The Banner Is Raised active in combat_effects.json
+	var effs: Dictionary = gd.file("combat_effects").get("effects", {})
+	assert_true(effs.has("The Banner Is Raised"), "The Banner Is Raised in combat_effects.json")
+	var banner: Dictionary = effs["The Banner Is Raised"]
+	assert_false(banner.has("not_run"), "The Banner Is Raised is active (no not_run)")
+	var fb: Fight = M._fight(
+		M._dummy({"effects": banner.records}, [{"name": "plain_cut", "c": 0.5, "cost": 0.0, "cd": 3.0}]),
+		M._dummy({"ward_pts": 0.0, "block": 0.0, "evade": 0.0, "body_pts": 0.0, "n_body": 200.0, "cleanse_share": 0.25}))
+	fb.hit(fb.a, fb.b, 0.5, &"phys", fb.a.p.arts[0], Fight.KIND_ART)
+	fb.hit(fb.a, fb.b, 0.5, &"phys", null, Fight.KIND_BASIC)
+	assert_near(_stack_count(fb.b.debuffs, "dark"), 0.0, 1e-9, "The Banner Is Raised ignores art and basic hits")
+	fb.hit(fb.a, fb.b, 0.4, &"phys", null, Fight.KIND_COMPANION)
+	fb.hit(fb.a, fb.b, 0.4, &"phys", null, Fight.KIND_COMPANION)
+	fb.hit(fb.a, fb.b, 0.4, &"phys", null, Fight.KIND_COMPANION)
+	assert_near(_stack_count(fb.b.debuffs, "dark"), 2.0, 1e-9, "companion hits lay dark stacks capped at per_pulse=2")
+	fb.t = 1000
+	fb.pulse(fb.b)
+	assert_near(_stack_count(fb.b.debuffs, "dark"), 1.5, 1e-9, "cleanse_share=0.25 thins dark debuff stacks (2.0 -> 1.5)")
+
+	var cons_eff := {"id": "cons", "on": "fight_start", "do": [{"consume": {"el": "dark", "side": "foe", "kind": "debuff", "n": 10}}]}
+	var fc: Fight = M._fight(M._dummy({"effects": [cons_eff]}), M._dummy())
+	fc.add_stacks(fc.a, fc.b, "dark", 3.0, 8.0, false)
+	EffectRunner.fire(fc, fc.a, "fight_start", {})
+	assert_near(_stack_count(fc.b.debuffs, "dark"), 0.0, 1e-9, "consume clears dark debuffs on foe")

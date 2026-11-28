@@ -48,7 +48,7 @@ BLOCK_UNIT = list(_C["BLOCK_UNIT"])
 # (Combat Damage Types rule 3, the authoring guide, 2026-11-13): all in combat_engine.json, the one source.
 BUFF = _C["BUFF"]
 DEBUFF = _C["DEBUFF"]
-ELEMENTS = {"", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind", "light"}
+ELEMENTS = {"", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind", "light", "dark"}
 DTYPES = {"phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul", "light"}   # light: 2026-11-26
 TICK_TYPE = _C["TICK_TYPE"]
 ELEM_TYPE = _C["ELEM_TYPE"]
@@ -185,6 +185,9 @@ class Build:
     # Đạo Đồ Effects (2026-11-20): buff stacks of an element that also count as another's, {"water": ["wood"]}
     # (Water Begets Wood); read by bsum and buff.<el>
     stack_alias: dict = field(default_factory=dict)
+    # Formations rule 9 (a-formation-that-walks): pre-fight diagram laying flag; unannotated class attribute so
+    # dataclasses.asdict() leaves combat_library.json / sim_defaults.json untouched while compile parity reads it.
+    diagram_always = False
 
 
 def from_sim(b):
@@ -296,6 +299,7 @@ class Side:
         self.sward = 0.0                    # the stance ward's points left (Effects rule 6, Grow a ward; 2026-11-26)
         self.sward_peak = 0.0               # its highest this fight
         self.soul_charges = []              # Reflect a soul art: each charge's end (ms; inf for the fight)
+        self.curse_charges = []             # Reflect a curse: each charge's end (ms; inf for the fight; A Fair Copy)
         self.crit_meter = 0                 # counted crit, per mille (Effects Formulas A)
         self.last_cost = 0.0                # linh lực the last art paid (hit events carry it: Autumn Harvest)
         self.dealt = self.spent = self.healed = self.fat = 0.0
@@ -312,6 +316,10 @@ class Side:
     def qi_use(self):
         """Usable linh lực: the maximum less what reservations hold [Combat Defence & Healing rule 10, reserve_cap 0.9]."""
         return self.qi_max() * (1 - min(K["reserve_cap"], self.b.reserved))
+
+    def end_meters(self):
+        """Kept counted chances at fight end (0.0-1.0 float parity with FighterEnd.meters)."""
+        return {k: v / 1000.0 for k, v in self.meters.items()}
 
     def count(self, lst, el):
         n = sum(x[1] for x in lst if x[0] == el)
@@ -846,7 +854,8 @@ class Fight:
                    else "flight")
         else:
             win = "draw" if A.down and B.down else "A" if B.down else "B" if A.down else "time"
-        return dict(t=self.t / 1000, win=win, A=A, B=B, rows=self.rows, plog=self.plog)
+        return dict(t=self.t / 1000, win=win, A=A, B=B, rows=self.rows, plog=self.plog,
+                    meters_a=A.end_meters(), meters_b=B.end_meters())
 
     def escape_rolls(self):
         """Escape channels ending this instant, after both sides' hits, A (the requesting side) first (Combat rule 10,
@@ -1305,7 +1314,7 @@ class Fight:
         w_ev = sum(xw["w"].get("evade", 0.0) for xw in dfn.xwards
                    if xw["up"] and (xw["w"]["model"] == "reserved" or dfn.qi > 0)) / 100   # evade wards (2026-11-13)
         dk = att.st("drunk")
-        p_ev = min(K["evade_cap"], max(0.0, dfn.b.evade + w_ev + self.mod(dfn, "evade") / 100 - dfn.dsum("evade_down")
+        p_ev = min(K["evade_cap"], max(0.0, dfn.b.evade + w_ev + dfn.bsum("evade") + self.mod(dfn, "evade") / 100 - dfn.dsum("evade_down")
                                        - (att.b.acc + self.mod(att, "acc") / 100 + att.bsum("acc") - att.dsum("acc_down"))
                                        + STATUS["drunk"]["acc_down"] * dk * (self.curse_scale(att, "drunk") if dk else 1.0)))   # Drunk: aim lost (2026-11-26)
         if self.mod(dfn, "no_evade") > 0:
@@ -1376,6 +1385,7 @@ class Fight:
             sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + ss_pts \
                 + self.mod(att, "foe_soul_res")   # Lamp-Lit Reading
             sd = soul_D / (1 + sr / 100) if sr >= 0 else soul_D * (1 + abs(sr) / 100)
+            sd *= 1 + dfn.dsum("chaos_soul_taken")
             dfn.hp -= sd
             dealt += sd
         att.dealt += dealt
@@ -1450,6 +1460,9 @@ class Fight:
 
     def defend(self, att, dfn, D, dtype, art, ctx, is_tick=False):
         """Resistance with the drain bill, block, shields, health. Returns health removed."""
+        eff_dt = ELEM_TYPE.get(art.element, "") if (dtype == "elem" and art is not None) else dtype
+        if eff_dt in ("chaos", "soul"):
+            D *= 1 + dfn.dsum("chaos_soul_taken")
         if dtype == "soul":
             dfn.hp -= D
             return D
@@ -1592,6 +1605,9 @@ class Fight:
             dfn.dealt += got
             self.fire_event(dfn, "soul_taken", {"amount": lh, "art_id": a.name, "tags": a.tags, "reflected": 1.0})
             return 0.0
+        cs_mult = 1 + dfn.dsum("chaos_soul_taken")
+        lh *= cs_mult
+        lq *= cs_mult
         dfn.hp -= lh
         dfn.qi = max(0.0, dfn.qi - lq)
         att.dealt += lh
@@ -1611,6 +1627,7 @@ class Fight:
         # ignore_taken: a heal its own closing exempts (Still Water)
         if not ignore_taken:
             amount *= max(1 - K["curse_heal_taken_max"], 1 + self.mod(s, "heal_taken") / 100)
+            amount /= 1 + s.dsum("heal_taken_down")
         if s.st("withering"):
             w_eff = max(-K["curse_heal_taken_max"], STATUS["withering"]["heal_taken"] * self.curse_scale(s, "withering"))
             amount *= 1 + w_eff
@@ -1659,7 +1676,7 @@ class Fight:
                 self.plog.append(["stacks", self.t, src.label, target.label, el, n, -1 if until is None else until, 0])
             self.fire_event(src, "status_applied", {"element": el, "stacks": n})
 
-    def apply_status(self, src, target, spec):
+    def apply_status(self, src, target, spec, reflected=False):
         sid = spec["id"]
         if sid not in STATUS and sid != "internal_injury":
             raise EngineError("unknown status %r" % sid)
@@ -1678,17 +1695,26 @@ class Fight:
         sctx = {"status": sid, "kind": d["kind"], "tags": (d["kind"], sid)}
         # Combat Formulas F: p = 0 at chance 0; 1 at chance 1 with no status resistance; otherwise
         # clamp(chance x (1 - resist), 0.05, 0.95). Resistance counts against guaranteed statuses too.
-        chance = spec.get("chance", 1.0)
-        resist = self.mod(target, "status_resist", sctx) / 100
-        if chance <= 0:
-            return
-        if not (chance >= 1 and resist <= 0):
-            if self.rng.random() >= min(K["status_chance_max"], max(K["status_chance_min"], chance * (1 - resist))):
+        # A reflected curse already passed its roll on the incoming cast; do not re-roll or spend RNG.
+        if not reflected:
+            chance = spec.get("chance", 1.0)
+            resist = self.mod(target, "status_resist", sctx) / 100
+            if chance <= 0:
                 return
+            if not (chance >= 1 and resist <= 0):
+                if self.rng.random() >= min(K["status_chance_max"], max(K["status_chance_min"], chance * (1 - resist))):
+                    return
         if is_curse and sid not in target.statuses:
             live = [k for k, v in target.statuses.items() if STATUS.get(k, {}).get("kind") == "curse"]
             if len(live) >= K["curse_slots"]:
                 return
+        if is_curse and not reflected and src is not target and target.curse_charges:
+            live_c = [u for u in target.curse_charges if u > self.t]
+            if live_c:
+                target.curse_charges = sorted(live_c)[1:]
+                self.apply_status(target, src, spec, reflected=True)
+                return
+            target.curse_charges = live_c
         dur = spec.get("dur", d["dur"])
         if dur is not None:
             # status_duration_pct, outgoing, may be scoped to curses (modifiers.md); curses then clamp (Effects R22)
@@ -1872,8 +1898,10 @@ class Fight:
                         s.temp_mods = [m for m in s.temp_mods if len(m) < 5 or m[4] != e["id"]]
                     if "soul_reflect" in arg:   # Reflect a soul art: charges, each spent by one soul art (W2)
                         s.soul_charges += [self.t + ms(dur) if dur else float("inf")] * int(round(arg["soul_reflect"] * n))
+                    if "curse_reflect" in arg:   # Reflect a curse: charges, each spent by one incoming curse (A Fair Copy)
+                        s.curse_charges += [self.t + ms(dur) if dur else float("inf")] * int(round(arg["curse_reflect"] * n))
                     for k, v in arg.items():
-                        if k in MOD_KEYS and k not in ("next_art_cost", "soul_reflect"):
+                        if k in MOD_KEYS and k not in ("next_art_cost", "soul_reflect", "curse_reflect"):
                             s.temp_mods.append([k, v * n, self.t + ms(dur) if dur else self.t + 1,
                                                 {kk: arg[kk] for kk in ("dtype", "element", "tags", "kind") if kk in arg},
                                                 e["id"]])

@@ -14,7 +14,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 ICONS = os.path.join(ROOT, "assets", "icons")
-ELEMENTS = ["fire", "water", "wood", "metal", "earth", "ice", "thunder", "wind"]
+ELEMENTS = ["fire", "water", "wood", "metal", "earth", "ice", "thunder", "wind", "dark"]
 # Replays do not name a catalogue ward yet, so the two ward slots show one representative painting each (first found).
 WARD_PICS = {"ward:resist": ["wards/ward_common_ward.png", "wards/ward_resist.png"],
              "ward:shield": ["wards/ward_golden_light_shield.png", "wards/ward_shield.png"]}

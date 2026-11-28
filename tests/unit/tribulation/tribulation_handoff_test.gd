@@ -74,8 +74,12 @@ func test_capability_23_extra_roll_triggers_one_tribulation_ac03() -> void:
 
 
 func test_disabled_flag_keeps_realms_fallback_ac04() -> void:
-	var gd := game_data()
-	assert_false(TribulationRules.is_enabled(gd), "default tribulation_enabled in data is false")
+	var live_gd := game_data()
+	assert_true(TribulationRules.is_enabled(live_gd), "default tribulation_enabled in live data is true")
+	assert_true(TribulationRules.should_trigger(live_gd, 3), "listed step triggers by default on live data")
+	assert_false(TribulationRules.should_trigger(live_gd, 3, false), "session toggle OFF disables tribulation on live data")
+	var gd := _gd_with_enabled(false)
+	assert_false(TribulationRules.is_enabled(gd), "config tribulation_enabled=false disables tribulation")
 	assert_false(TribulationRules.should_trigger(gd, 3), "does not trigger when tribulation_enabled is false")
 	var c := _gate_char(3)
 	var sheet := StatSheet.build(c, gd, null, null)

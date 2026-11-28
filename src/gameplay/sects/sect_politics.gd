@@ -608,8 +608,11 @@ static func _resolve_wars(gd: GameData, db: WorldDB, money: MoneyLedger, strengt
 		# F9's weariness; a Callous head takes half the weariness from losses (F15)
 		var ha: float = 0.5 if bool(pulls_of(gd, db, a).get("half_loss_weariness", false)) else 1.0
 		var hd: float = 0.5 if bool(pulls_of(gd, db, d).get("half_loss_weariness", false)) else 1.0
-		w.w_a = float(w.w_a) + 1.0 + 50.0 * la * ha + maxf(0.0, -dws) / 2.0
-		w.w_d = float(w.w_d) + 1.0 + 50.0 * ld * hd + maxf(0.0, dws) / 2.0
+		var w_base: float = float(c.get("weariness_base", 1.0))
+		var w_loss_k: float = float(c.get("weariness_loss_k", 50.0))
+		var w_score_k: float = float(c.get("weariness_score_k", 0.5))
+		w.w_a = float(w.w_a) + w_base + w_loss_k * la * ha + maxf(0.0, -dws) * w_score_k
+		w.w_d = float(w.w_d) + w_base + w_loss_k * ld * hd + maxf(0.0, dws) * w_score_k
 		for s in [a, d]:   # war cost: half the stipends, paid to the market's commons (suppliers and hired hands)
 			var ms: String = str(s.id) if str(s.get("kind", "")) == "great" else str(s.get("lord_id", ""))
 			money.transfer("sect:%s" % s.id, "pool:%s" % ms, float(c.war_cost) * float(stip.get(str(s.id), 0.0)), "war_cost")

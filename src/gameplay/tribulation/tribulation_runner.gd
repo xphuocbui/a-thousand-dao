@@ -120,6 +120,13 @@ static func run(params: Dictionary, gd: GameData, fight_fn: Callable = Callable(
 	elif player_profile != null and not player_profile.pill.is_empty():
 		prepared_pill = player_profile.pill.duplicate(true)
 
+	var carried_meters: Dictionary = {}
+	if player_profile != null and not player_profile.meters.is_empty():
+		for mid in player_profile.meters:
+			var mdef: Variant = player_profile.meters[mid]
+			if mdef is Dictionary:
+				carried_meters[str(mid)] = clampf(float((mdef as Dictionary).get("start", 0.0)), 0.0, 1.0)
+
 	var on_wave_start: Variant = params.get("on_wave_start", Callable())
 	var wave_results: Array = []
 	var notes: PackedStringArray = []
@@ -154,7 +161,7 @@ static func run(params: Dictionary, gd: GameData, fight_fn: Callable = Callable(
 		if boss_profile == null:
 			return {"ok": false, "error": "failed to compile boss '%s': %s" % [boss_id, "; ".join(wave_notes)]}
 
-		var wave_player: FighterProfile = _wave_player_profile(player_profile, stock, prepared_pill)
+		var wave_player: FighterProfile = _wave_player_profile(player_profile, stock, prepared_pill, carried_meters)
 		var req := FightRequest.new()
 		req.a = wave_player
 		req.b = boss_profile
@@ -193,6 +200,13 @@ static func run(params: Dictionary, gd: GameData, fight_fn: Callable = Callable(
 
 		_apply_wave_stock_spend(wave_player, res, wave_ctx.spent_out, stock, spent_stock)
 
+		var wave_meters: Dictionary = {}
+		if res != null and res.a_end != null and not res.a_end.meters.is_empty():
+			for mid in res.a_end.meters:
+				var mv: float = clampf(float(res.a_end.meters[mid]), 0.0, 1.0)
+				carried_meters[str(mid)] = mv
+				wave_meters[str(mid)] = mv
+
 		var cleared: bool = (res != null and res.winner == FightResult.Winner.A and res.ending == FightResult.Ending.KNOCKOUT)
 		var double_ko_win: bool = cleared and res.a_end != null and res.a_end.health <= 0.0
 		var hp_max: float = res.a_end.health_max if (res != null and res.a_end != null) else 0.0
@@ -225,6 +239,7 @@ static func run(params: Dictionary, gd: GameData, fight_fn: Callable = Callable(
 			"log_rows": res.log_rows if res != null else [],
 			"cleared": cleared,
 			"double_ko_win": double_ko_win,
+			"a_meters": wave_meters,
 			"notes": wave_notes,
 		}
 		wave_results.append(wave_rec)
@@ -267,6 +282,7 @@ static func run(params: Dictionary, gd: GameData, fight_fn: Callable = Callable(
 		"fatal_boss": fatal_boss,
 		"remaining_stock": stock,
 		"spent_stock": spent_stock,
+		"end_meters": carried_meters.duplicate(),
 		"tempered_buff": tempered_buff,
 		"reward_choices": reward_choices,
 		"notes": notes,
@@ -303,7 +319,7 @@ static func _boss_profile_for_wave(boss_rec: Dictionary, dest_realm: int, m_eff:
 	return null
 
 
-static func _wave_player_profile(base: FighterProfile, stock: Dictionary, prepared_pill: Dictionary) -> FighterProfile:
+static func _wave_player_profile(base: FighterProfile, stock: Dictionary, prepared_pill: Dictionary, carried_meters: Dictionary = {}) -> FighterProfile:
 	if base == null:
 		return null
 	var needs_filter: bool = false
@@ -313,7 +329,15 @@ static func _wave_player_profile(base: FighterProfile, stock: Dictionary, prepar
 			needs_filter = true
 			break
 	var needs_pill: bool = not prepared_pill.is_empty() and base.pill.is_empty()
-	if not needs_filter and not needs_pill:
+	var needs_meters: bool = false
+	if not carried_meters.is_empty() and not base.meters.is_empty():
+		for mid in carried_meters:
+			if base.meters.has(mid) and base.meters[mid] is Dictionary:
+				var base_start: float = float((base.meters[mid] as Dictionary).get("start", 0.0))
+				if not is_equal_approx(base_start, float(carried_meters[mid])):
+					needs_meters = true
+					break
+	if not needs_filter and not needs_pill and not needs_meters:
 		return base
 	var clone := FighterProfile.new()
 	for prop in base.get_property_list():
@@ -329,6 +353,12 @@ static func _wave_player_profile(base: FighterProfile, stock: Dictionary, prepar
 		clone.arts = kept
 	if needs_pill:
 		clone.pill = prepared_pill.duplicate(true)
+	if needs_meters:
+		var cloned_meters: Dictionary = base.meters.duplicate(true)
+		for mid in carried_meters:
+			if cloned_meters.has(mid) and cloned_meters[mid] is Dictionary:
+				(cloned_meters[mid] as Dictionary)["start"] = clampf(float(carried_meters[mid]), 0.0, 1.0)
+		clone.meters = cloned_meters
 	return clone
 
 

@@ -325,3 +325,29 @@ func test_a_worn_set_shows_on_the_sheet_and_runs_in_the_fight() -> void:
 	# linh_luc_pct is a pool stat, folded into the build like an item's; attack_pct runs as the set:<id> Effect
 	assert_true(ids.has("set:trio") and not ids.has("set:trio:full"), "two of three: the Modifiers only: %s" % str(ids))
 	assert_true(ids.has("set:pair") and ids.has("set:pair:full"), "a whole 2-piece set: both: %s" % str(ids))
+
+
+func test_darkness_convergence_purity_and_am_scope_compile() -> void:
+	# Darkness (am) Convergence purity (LinhCan rule 10: round(0.8 * sqrt(60 * 60)) = 48) -> purity["dark"] == 48.0
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"tho": 60, "thuy": 60}, 50, 1)
+	var am_p: float = c.linh_can.derived_purity(gd, "am")
+	assert_near(am_p, 48.0, 1e-9, "derived_purity('am') = round(0.8 * 60) = 48")
+	c.linh_can.variants["am"] = am_p
+	var sheet := StatSheet.build(c, gd, db, null)
+	sheet.add_mod("test", "attack_pct", 14.0, StatSheet.KIND_TREE, ["am"])
+	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, sheet)
+	assert_near(float(d.purity.get("dark", 0.0)), 48.0, 1e-9, "build file maps am purity -> purity['dark'] = 48.0")
+	var errors: Array = []
+	var p: FighterProfile = FighterCompiler.compile(c, gd, db, sheet, [], errors)
+	assert_true(p != null and errors.is_empty(), "compiles cleanly: %s" % str(errors))
+	if p == null:
+		return
+	assert_near(float(p.purity.get("dark", 0.0)), 48.0, 1e-9, "profile keeps purity['dark'] = 48.0")
+	var found_dark_l1 := false
+	for e in p.effects:
+		for a in e.actions:
+			if a.verb == "mod" and absf(float(a.arg.get("L1", 0.0)) - 14.0) < 1e-9 and str(a.arg.get("element", "")) == "dark":
+				found_dark_l1 = true
+	assert_true(found_dark_l1, "attack_pct [am] compiles into FighterProfile as L1 element='dark'")

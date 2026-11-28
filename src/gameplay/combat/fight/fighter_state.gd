@@ -189,6 +189,8 @@ var sward: float = 0.0
 var sward_peak: float = 0.0
 ## Reflect a soul art: each charge's end in ms (SOUL_CHARGE_FIGHT for the whole fight).
 var soul_charges: Array[int] = []
+## Reflect a curse: each charge's end in ms (SOUL_CHARGE_FIGHT for the whole fight; A Fair Copy).
+var curse_charges: Array[int] = []
 const SOUL_CHARGE_FIGHT := 1 << 62
 ## Decoys held and hits avoided this pulse (Effects rule 6, Avoid a hit; Combat R6, avoid_budget).
 var decoys: int = 0

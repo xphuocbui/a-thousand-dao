@@ -121,13 +121,14 @@ static func scaled(v: float, polarity: String, s: float, share: float) -> float:
 	return v * share if polarity == "-" else v * s * share
 
 
-## Rule 9 and Combat rule 12: the share by situation (FightRequest.Situation) and whether the diagram is laid.
-static func share_of(gd: GameData, situation: int, laid: bool) -> float:
+## Rule 9 and Combat rule 12: the share by situation (FightRequest.Situation), whether the diagram is laid,
+## and whether the holder has diagram_always (a-formation-that-walks: full laid share in ambush or blind fights).
+static func share_of(gd: GameData, situation: int, laid: bool, diagram_always: bool = false) -> float:
 	var sh: Dictionary = cfg(gd).share
+	if laid and (situation == FightRequest.Situation.FORESEEN or diagram_always):
+		return float(sh.laid)
 	if situation == FightRequest.Situation.BLIND:
 		return float(sh.blind)
-	if situation == FightRequest.Situation.FORESEEN and laid:
-		return float(sh.laid)
 	return float(sh.carried)
 
 
@@ -381,7 +382,7 @@ static func compile_for_info(gd: GameData, db: WorldDB, c: Character, p: Fighter
 	if not bool(ok.ok):
 		info.lines = ["diagram %s not set (%s): the default line" % [record.get("id", ""), ok.reason]]
 		return info
-	var prep: Dictionary = prepare(gd, db, c, record, l_eff, situation, bool(set.get("lay", true)), pending == null)
+	var prep: Dictionary = prepare(gd, db, c, record, l_eff, situation, bool(set.get("lay", true)), pending == null, p.diagram_always)
 	if bool(prep.laid) and pending is Array:
 		pending.append([c, int(prep.fuel)])
 	var s: float = strength(gd, int(record.get("grade", 0)), l_eff, sheet.total("formation_power_pct") if sheet != null else 0.0)
@@ -461,19 +462,21 @@ static func apply_payload(gd: GameData, p: FighterProfile, pay: Dictionary) -> v
 		apply(gd, p, pay.record, Array(pay.placement), float(pay.s), float(pay.share), float(pay.eff), int(pay.level))
 
 
-## Rule 9 and F2: prepares [param c]'s set diagram for a fight in [param situation]: in a foreseen fight the owner
-## lays it when [param lay] and the fuel is affordable (burnt as burn_formation, Formula H), else it is carried.
-## [param level] is the effective level (rule 7). Returns {laid, share, fuel}; nothing is burnt when not laid.
-static func prepare(gd: GameData, db: WorldDB, c: Character, diagram: Dictionary, level: int, situation: int, lay: bool = true, pay: bool = true) -> Dictionary:
+## Rule 9 and F2: prepares [param c]'s set diagram for a fight in [param situation]: in a foreseen fight (or any
+## situation when [param diagram_always] holds, a-formation-that-walks) the owner lays it when [param lay] and the
+## fuel is affordable (burnt as burn_formation, Formula H), else it is carried. [param level] is the effective level
+## (rule 7). Returns {laid, share, fuel}; nothing is burnt when not laid.
+static func prepare(gd: GameData, db: WorldDB, c: Character, diagram: Dictionary, level: int, situation: int, lay: bool = true, pay: bool = true, diagram_always: bool = false) -> Dictionary:
 	if diagram.is_empty():
 		return {"laid": false, "share": 1.0, "fuel": 0}
 	var need: int = fuel(gd, open_count(diagram, level), int(diagram.get("grade", 0)), level, c.realm_index)
 	var npc: bool = str(c.id) != "" and db.has_record("people", c.id) and not bool(db.get_record("people", c.id).get("is_player", false))
 	var purse: float = MoneyLedger.new(db).balance("npc:%s" % c.id) if npc else float(c.linh_thach)
-	var laid: bool = lay and situation == FightRequest.Situation.FORESEEN and purse >= float(need)
+	var can_lay: bool = situation == FightRequest.Situation.FORESEEN or diagram_always
+	var laid: bool = lay and can_lay and purse >= float(need)
 	if laid and pay:
 		pay_fuel(db, c, need)
-	return {"laid": laid, "share": share_of(gd, situation, laid), "fuel": need if laid else 0}
+	return {"laid": laid, "share": share_of(gd, situation, laid, diagram_always), "fuel": need if laid else 0}
 
 
 ## Rule 9: burns [param fuel] linh thạch of lay fuel as burn_formation (Formula H): an NPC from its own purse (rule 12),

@@ -126,3 +126,29 @@ func test_settings_persist_across_a_reload() -> void:
 	var again := PlayerSettings.new(DEFS, path)
 	assert_eq(again.value("reduced_motion"), true, "kept in the file")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+
+
+func test_new_game_heavenly_tribulation_toggle_defaults_on_and_emits_in_spec() -> void:
+	var m := _menu()
+	m.show_page("new_game")
+	assert_true(m.selected_tribulation_enabled(), "Heavenly Tribulation toggle defaults ON")
+	var btn_on: Button = _find(m, "NewTribulation_on") as Button
+	var btn_off: Button = _find(m, "NewTribulation_off") as Button
+	assert_true(btn_on != null and btn_off != null, "both tribulation toggle buttons rendered")
+	assert_eq(btn_on.tooltip_text, "", "ADR-0005: no built-in tooltip on NewTribulation_on")
+	assert_eq(btn_off.tooltip_text, "", "ADR-0005: no built-in tooltip on NewTribulation_off")
+
+	var got: Array = []
+	m.new_game_requested.connect(func(spec: Dictionary): got.append(spec))
+	(_find(m, "StartNewGame") as Button).pressed.emit()
+	assert_eq(got.size(), 1, "default spec emitted")
+	assert_true(bool(got[0].get("tribulation_enabled", false)), "default spec emits tribulation_enabled == true")
+
+	(_find(m, "NewTribulation_off") as Button).pressed.emit()
+	assert_false(m.selected_tribulation_enabled(), "clicking NewTribulation_off switches toggle OFF")
+	(_find(m, "StartNewGame") as Button).pressed.emit()
+	assert_eq(got.size(), 2, "toggled-OFF spec emitted")
+	assert_false(bool(got[1].get("tribulation_enabled", true)), "toggled-OFF spec emits tribulation_enabled == false")
+
+	m.set_tribulation_enabled(true)
+	assert_true(m.selected_tribulation_enabled(), "set_tribulation_enabled(true) restores ON")

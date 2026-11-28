@@ -19,6 +19,9 @@ extends RefCounted
 static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float, dtype: StringName, art: ArtDef,
 		ctx: Dictionary, is_tick: bool) -> float:
 	var k: CombatConstants = f.k
+	var eff_dt: String = str(k.elem_type.get(str(art.element), "")) if (dtype == &"elem" and art != null) else str(dtype)
+	if eff_dt == "chaos" or eff_dt == "soul":
+		amount *= 1.0 + dfn.dsum("chaos_soul_taken")
 	if dtype == &"soul":
 		dfn.hp -= amount
 		return amount

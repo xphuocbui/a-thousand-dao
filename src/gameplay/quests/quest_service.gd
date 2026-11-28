@@ -961,11 +961,15 @@ func run_defeat_stage(
 	if fight_fn.is_valid():
 		var raw_res: Variant = fight_fn.call(quest, st, player)
 		if raw_res is Dictionary:
-			outcome_code = str((raw_res as Dictionary).get("result", (raw_res as Dictionary).get("code", "draw"))).to_lower()
+			var raw_dict: Dictionary = raw_res as Dictionary
+			if raw_dict.get("a_meters") is Dictionary and not (raw_dict.a_meters as Dictionary).is_empty():
+				player.save_fight_meters(raw_dict.a_meters as Dictionary)
+			if not raw_dict.is_empty():
+				outcome_code = str(raw_dict.get("result", raw_dict.get("code", "draw"))).to_lower()
 		else:
 			outcome_code = str(raw_res).to_lower()
-	else:
-		# Fallback deterministic combat power duel when no fight_fn is injected.
+	if outcome_code == "":
+		# Fallback deterministic combat power duel when no fight_fn is injected (or fight_fn deferred to fallback).
 		var tid: String = str(st.get("target_id", ""))
 		var f_pl: float = _QuestRules.fight_power_F(player, _gd, _db, sheet)
 		var f_opp: float = 1.0

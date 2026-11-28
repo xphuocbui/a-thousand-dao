@@ -74,11 +74,16 @@ def check_chance_free(fx, b, where):
                 other = fx["b" if where.endswith(".a") else "a"]
                 if float(other.get("acc", 0.0)) < 1.0:
                     raise FixtureError("%s: chance_free, but art %s lays Drunk on a side with acc < 1" % (where, a.name))
-        # Thunder stacks raise crit chance; Earth debuffs lower accuracy, which lets the other side evade
+        # Thunder stacks raise crit chance; Earth debuffs lower accuracy, which lets the other side evade;
+        # Darkness buffs raise evade chance (chance-free only when the foe has acc >= 1.0, covering evade_cap = 0.40)
         if a.element == "thunder" and (a.buff or a.debuff):
             raise FixtureError("%s: chance_free, but art %s grants Thunder stacks (crit chance)" % (where, a.name))
         if a.element == "earth" and a.debuff:
             raise FixtureError("%s: chance_free, but art %s grants Earth debuffs (evade chance)" % (where, a.name))
+        if a.element == "dark" and a.buff:
+            other = fx["b" if where.endswith(".a") else "a"]
+            if float(other.get("acc", 0.0)) < 1.0:
+                raise FixtureError("%s: chance_free, but art %s grants Darkness buffs (evade chance) against acc < 1" % (where, a.name))
     for w in b.wards:
         if w.get("evade"):
             raise FixtureError("%s: chance_free, but ward %s gives evade" % (where, w.get("id")))

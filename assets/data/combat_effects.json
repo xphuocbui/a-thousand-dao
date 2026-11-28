@@ -78,10 +78,10 @@
       ]
     },
     "A Fair Copy": {
-      "rule": "Copyist's Pair, full set (2 pieces): once a fight, the first soul art that would land on you does nothing to you and strikes its caster as Cold damage equal to its own (the soul reflect, W2: the engine's reading of \"copied, and your next seal art carries it back\"). The curse half (the first curse cast on you copied back) is not run: the curse-reflect word was not built (checkpoint 2026-11-27: one half of one Effect, no other owner asks for it).",
+      "rule": "Copyist's Pair, full set (2 pieces): once a fight, the first soul art that would land on you does nothing to you and strikes its caster as Cold damage equal to its own, and the first curse that would land on you is reflected back to its caster instead of taken (soul_reflect + curse_reflect: the engine's reading of \"copied, and your next seal art carries it back\").",
       "source": "world-depth:thien_xu",
-      "approx": "the soul art is reflected at once, not carried back by your next seal art; the curse half is not run (curse-reflect: decision not_run, checkpoint 2026-11-27)",
-      "records": [{"id": "eff:A Fair Copy", "on": "fight_start", "do": [{"mod": {"soul_reflect": 1}}]}]
+      "approx": "both the first soul art and the first curse are reflected at once, not carried back by your next seal art",
+      "records": [{"id": "eff:A Fair Copy", "on": "fight_start", "do": [{"mod": {"soul_reflect": 1, "curse_reflect": 1}}]}]
     },
     "A Hair Light": {
       "rule": "The House Weight (ck-house-weight): once a fight, you may make one roll that weighs against you come out slightly in your favour (a dodge, a resist or a crit).",
@@ -2876,9 +2876,10 @@
       ]
     },
     "The Array Comes With Me": {
-      "rule": "The Carried Array (Huề Trận Tam Bảo), 3 pieces: your diagram is open at fight start; while your array Field is up, each hit on you is answered once by your array's damage, at most once a second.",
+      "rule": "The Carried Array (Huề Trận Tam Bảo), 3 pieces: your diagram is laid even in an ambush or a blind fight (paying its lay fuel, Formations rule 9) and is open at fight start; while your array Field is up, each hit on you is answered once by your array's damage, at most once a second.",
       "source": "world-depth:market-folk",
-      "approx": "Grants +20 % opening haste to bring your array Field up immediately, and while own.field_up >= 1 answers each incoming hit with a 0.4 c Earth-Physical strike (1 s cooldown).",
+      "approx": "Sets diagram_always (auto-lays diagram in ambush/blind fights when lay fuel is affordable), grants +20 % opening haste to bring your array Field up immediately, and while own.field_up >= 1 answers each incoming hit with a 0.4 c Earth-Physical strike (1 s cooldown).",
+      "diagram_always": true,
       "counters": [],
       "states": [],
       "records": [
@@ -2887,10 +2888,9 @@
       ]
     },
     "The Banner Is Raised": {
-      "rule": "Armoured Horse Banner: while you hold the banner, each hit of your companions and summons lays a Darkness stack on the foe. (\"Your summons take a quarter less damage\" is dropped: companions and summons are never struck, Combat rule 19.)",
+      "rule": "Armoured Horse Banner: while you hold the banner, each hit of your companions and summons lays a Darkness stack on the foe (8 s). (\"Your summons take a quarter less damage\" is dropped: companions and summons are never struck, Combat rule 19.)",
       "source": "world-depth:thien_xu",
-      "not_run": "no holder (the banner is lost in abode A-3) and Darkness is not an engine element (darkness-element: decision not_run, checkpoint 2026-11-27, until Darkness's stack effect is ruled); the full record is kept in production/plans/stage6/thien_xu-checkpoint.md",
-      "records": []
+      "records": [{"id": "eff:The Banner Is Raised", "on": "hit_landed", "filter": {"kind": "companion"}, "limit": {"per_pulse": 2}, "do": [{"stacks": {"el": "dark", "n": 1, "for": 8, "side": "foe"}}]}]
     },
     "The Bell Hears First": {
       "rule": "Bell Under the Eaves: An ambush cannot surprise you: an unseen foe is revealed at the start of a fight, and your first art against them is cast at once.",

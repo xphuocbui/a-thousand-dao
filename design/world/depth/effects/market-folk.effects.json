@@ -819,8 +819,9 @@
    ]
   },
   "The Array Comes With Me": {
-   "rule": "The Carried Array (Huề Trận Tam Bảo), 3 pieces: your diagram is open at fight start; while your array Field is up, each hit on you is answered once by your array's damage, at most once a second.",
-   "approx": "Grants +20 % opening haste to bring your array Field up immediately, and while own.field_up >= 1 answers each incoming hit with a 0.4 c Earth-Physical strike (1 s cooldown).",
+   "rule": "The Carried Array (Huề Trận Tam Bảo), 3 pieces: your diagram is laid even in an ambush or a blind fight (paying its lay fuel, Formations rule 9) and is open at fight start; while your array Field is up, each hit on you is answered once by your array's damage, at most once a second.",
+   "approx": "Sets diagram_always (auto-lays diagram in ambush/blind fights when lay fuel is affordable), grants +20 % opening haste to bring your array Field up immediately, and while own.field_up >= 1 answers each incoming hit with a 0.4 c Earth-Physical strike (1 s cooldown).",
+   "diagram_always": true,
    "counters": [],
    "states": [],
    "records": [

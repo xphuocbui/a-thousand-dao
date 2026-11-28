@@ -12,7 +12,7 @@ signal load_requested(slot: String)
 signal quit_requested(save_first: bool)
 ## Open the wiki.
 signal wiki_requested
-## Start a new game with [param spec] ({playthrough_mode, birth_mode, origin, name, seed}).
+## Start a new game with [param spec] ({playthrough_mode, birth_mode, tribulation_enabled, origin, name, seed}).
 signal new_game_requested(spec: Dictionary)
 ## The menu closed.
 signal closed
@@ -50,6 +50,7 @@ var _copy := Button.new()
 var _box: Control = null          # the page's parchment inset (rebuilt with the page)
 var _new_mode: String = KarmicRules.MODE_ONE_LIFE
 var _new_birth_mode: String = "thien_dinh"
+var _new_tribulation: bool = true
 var _new_origin: String = "tan_tu"
 var _new_name: String = "Lâm Phong"
 var _new_seed: String = ""
@@ -183,6 +184,18 @@ func selected_playthrough_mode() -> String:
 ## Sets the playthrough mode on the New Game page ("one_life" or "continue") and refreshes if open.
 func set_playthrough_mode(mode: String) -> void:
 	_new_mode = KarmicRules.normalize_mode(mode)
+	if visible and _page == "new_game":
+		_build()
+
+
+## Currently selected Heavenly Tribulation toggle on the New Game page (default true).
+func selected_tribulation_enabled() -> bool:
+	return _new_tribulation
+
+
+## Sets the Heavenly Tribulation toggle on the New Game page and refreshes if open.
+func set_tribulation_enabled(on: bool) -> void:
+	_new_tribulation = on
 	if visible and _page == "new_game":
 		_build()
 
@@ -346,6 +359,32 @@ func _build_new_game() -> void:
 			"summary": tr("Writes to the Codex and earns Karma and achievements.") if bmid == "thien_dinh" else tr("Custom build; reads the Codex but writes only Lives and earns 0 Karma."),
 		})
 
+	var tk_head := Label.new()
+	tk_head.text = tr("Heavenly Tribulation (Thiên Kiếp)")
+	tk_head.theme_type_variation = &"RowLabel"
+	_box.add_child(tk_head)
+	var tk_row := HBoxContainer.new()
+	tk_row.add_theme_constant_override("separation", 6)
+	_box.add_child(tk_row)
+	for tk_pair in [
+		[true, "on", tr("On — 3-wave Hóa Thần gauntlet"), tr("Default: crossing from Nguyên Anh to Hóa Thần triggers the 3-wave Heavenly Tribulation gauntlet. Fixed for the playthrough.")],
+		[false, "off", tr("Off — Classic breakthrough roll"), tr("Disables Heavenly Tribulation for this playthrough: breakthroughs resolve via the classic Realms roll only.")],
+	]:
+		var tk_val: bool = bool(tk_pair[0])
+		var tk_key: String = str(tk_pair[1])
+		var tk_sel: bool = _new_tribulation == tk_val
+		var tkb := _button(("%s%s" % [("✓ " if tk_sel else ""), str(tk_pair[2])]), tk_row, func():
+			_new_tribulation = tk_val
+			_build()
+		)
+		tkb.name = "NewTribulation_" + tk_key
+		tkb.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		tkb.theme_type_variation = &"CommitButton" if tk_sel else &""
+		TooltipLayer.set_tip(tkb, {
+			"title": tr("Heavenly Tribulation: %s") % (tr("On") if tk_val else tr("Off")),
+			"summary": str(tk_pair[3]),
+		})
+
 	var orig_head := Label.new()
 	orig_head.text = tr("Origin")
 	orig_head.theme_type_variation = &"RowLabel"
@@ -405,6 +444,7 @@ func _emit_new_game() -> void:
 	var spec := {
 		"playthrough_mode": _new_mode,
 		"birth_mode": _new_birth_mode,
+		"tribulation_enabled": _new_tribulation,
 		"mode": "custom" if _new_birth_mode == "tu_dinh" else "roll",
 		"origin": _new_origin,
 		"name": clean_name if clean_name != "" else "Lâm Phong",

@@ -531,3 +531,79 @@ func test_pending_mercy_guard_hidden_chronicle_codex_sync_and_craft_provenance()
 	assert_eq(int(s.quests.get_quest("q_craft_63").get("stage", 0)), 2, "AC-QS-63: post-accept crafted pill completes craft stage")
 	_assert_money_conserved(ledger, "mercy_chronicle_craft")
 	s.shutdown()
+
+
+func test_quest_defeat_stage_runs_real_fight_and_writes_back_fight_meters() -> void:
+	var base := game_data()
+	var files_copy: Dictionary = base.registry.files().duplicate()
+	var patched_eff: Dictionary = base.file("combat_effects").duplicate(true)
+	patched_eff["effects"]["Playing Past the Break"] = {
+		"records": [{
+			"id": "eff:Playing Past the Break",
+			"on": "fight_start",
+			"do": [{"meter": {"id": "playing_past_the_break", "success": [{"gain_qi": {"share": 0.1}}], "failure": []}}],
+		}],
+	}
+	files_copy["combat_effects"] = patched_eff
+	var gd := GameData.new()
+	gd.setup(DataRegistry.from_files(files_copy))
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, TestFixtures.tree())
+	s.ratings_background = false
+	s.new_game(7307, {
+		"mode": "custom", "name": "Lâm Thử", "gender": "male", "origin": "tan_tu",
+		"thien_phu": {"than_hon": 80, "khi_van": 40, "can_cot": 70, "dao_tam": 70, "ngo_tinh": 70, "mi_luc": 50},
+		"purities": {"hoa": 80, "kim": 50}, "variants": [], "edge": true,
+	})
+	s.pending_event = {}
+	s.pending_meta = {}
+	s.pending_mercy = {}
+
+	var manual := {
+		"tech_id": "shao-remnant-score", "name": "Shao", "tier": 2, "tech_kind": "secret",
+		"names": ["hoa"], "layers": 12, "bonuses": [], "passives": [], "abilities": [],
+		"effects": [{"name": "Playing Past the Break", "unlock_layer": 1}],
+		"seal_clusters": [], "origin": "authored",
+	}
+	CongPhap.learn(s.player, manual)
+	s.player.aux_tech[0] = "shao-remnant-score"
+	s.player.fight_meters["playing_past_the_break"] = 0.0
+	s.player.linh_thach = 500
+	s.sync_player()
+
+	var offerer: Dictionary = _pick_living_npc_here(s, 30)
+	var foe: Dictionary = {}
+	for p in s.db.living():
+		if bool(p.get("is_player", false)) or bool(p.get("is_beast", false)) or str(p.get("id", "")) == str(offerer.id):
+			continue
+		if int(p.get("realm_index", 0)) == s.player.realm_index:
+			foe = p
+			break
+	if foe.is_empty():
+		foe = offerer
+	foe["location_id"] = s.player.location_id
+	var foe_id: String = str(foe.id)
+	var ledger := _open_ledger(s)
+
+	var stages: Array = [
+		{"kind": "defeat", "place_id": s.player.location_id, "target_id": foe_id, "description": "Đánh bại đối thủ"},
+	]
+	_make_custom_offer(s, "q_defeat_meter", "ordinary", stages, str(offerer.id), 0)
+	assert_true(bool(s.quest_accept("q_defeat_meter").ok), "defeat quest accepted")
+	# Ensure defeat hold is open for the test (already opened in a prior check).
+	var q_live: Dictionary = s.quests.get_quest("q_defeat_meter")
+	q_live["defeat_opened"] = {"0": true}
+	s.quests.put_quest(q_live)
+
+	s.resolver.last_fight = null
+	var d_res: Dictionary = s.quest_start_stage("q_defeat_meter")
+	assert_true(bool(d_res.ok), "quest_start_stage on defeat succeeded: %s" % str(d_res))
+	assert_true(s.resolver.last_fight != null, "defeat stage ran through real CombatService via EventResolver.fight_check")
+	var expected_end: float = float(s.resolver.last_fight.a_end.meters.get("playing_past_the_break", -1.0))
+	assert_true(expected_end > 0.0, "real fight advanced playing_past_the_break meter (got %.3f)" % expected_end)
+	assert_near(float(s.player.fight_meters.get("playing_past_the_break", -1.0)), expected_end, 1e-6, "quest defeat real fight wrote back playing_past_the_break")
+	var db_p: Dictionary = s.db.get_record("people", s.player.id)
+	assert_near(float(Dictionary(db_p.get("fight_meters", {})).get("playing_past_the_break", -1.0)), expected_end, 1e-6, "synced player WorldDB record holds updated fight_meters")
+	_assert_money_conserved(ledger, "quest_defeat_meter")
+	s.shutdown()

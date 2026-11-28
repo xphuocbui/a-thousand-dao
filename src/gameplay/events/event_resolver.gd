@@ -336,6 +336,13 @@ func fight_check(
 	var r: FightResult = _service.resolve(req)
 	if r == null:
 		return {"ran": false, "win": false, "line": "fight engine refused the fight: %s" % "; ".join(_service.errors)}
+	if r.a_end != null and not r.a_end.meters.is_empty():
+		c.save_fight_meters(r.a_end.meters)
+	if r.b_end != null and not r.b_end.meters.is_empty() and enemy.id != "" and _db != null:
+		enemy.save_fight_meters(r.b_end.meters)
+		var erec: Dictionary = _db.get_record("people", enemy.id)
+		if not erec.is_empty():
+			erec["fight_meters"] = enemy.fight_meters.duplicate()
 	for due in fuel_due:
 		Diagrams.pay_fuel(_db, due[0], int(due[1]))
 	last_fight = r
@@ -344,11 +351,12 @@ func fight_check(
 	if rated:
 		var score: float = {"A": 1.0, "B": 0.0}.get(code, 0.5)
 		ratings.apply_fight(ratings.ensure(c), ratings.refresh_person(_db.get_record("people", enemy.id)), score)
-	var word: String = {"A": "VICTORY", "B": "DEFEAT", "draw": "DRAW (a failure)", "time": "TIME LIMIT (a failure)"}[code]
+	var word: String = str({"A": "VICTORY", "B": "DEFEAT", "flight": "FLIGHT", "draw": "DRAW (a failure)", "time": "TIME LIMIT (a failure)"}.get(code, code.to_upper()))
 	return {
 		"ran": true,
 		"win": code == "A",
 		"code": code,
+		"ending": r.ending,
 		"line": "Combat: fight against %s, %.1f s -> %s" % [enemy.name, r.seconds, word],
 	}
 

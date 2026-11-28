@@ -1,0 +1,160 @@
+# Track 2 Wave 1 — Lane W1-A (sect-war-retune): 50-Year Headless Sect War Probe
+# Engine: Godot Engine v4.7.1.stable.official.a13da4feb
+# Horizon: 50 years (200 seasons per seed; 600 seasons total across seeds 7, 19, 42)
+# Retuned politics knobs (assets/data/sects_members.json):
+#   war_odds:          1.0   -> 1.15
+#   war_odds_min:      0.6   -> 0.9
+#   loss_k:            0.04  -> 0.013
+#   goal_thresholds:   {site: 25, vassal: 40, region: 75} -> {site: 30, vassal: 48, region: 75}
+#   weariness_base:    (hardcoded 1.0)  -> 4.6
+#   weariness_loss_k:  (hardcoded 50.0) -> 80.0
+#   weariness_score_k: (hardcoded 0.5)  -> 0.08
+#   weariness_limit:   40 (unchanged)
+#   war_cost:          0.5 (unchanged)
+#   truce_seasons:     8     -> 15
+#
+# Note on N census: WorldTicker._intake restores living cultivators to N == 5000 each season,
+# followed by optional random world duel kill (tick_duel_kill, 1 NPC), so N_adj = N + duel_kills_this_season == 5000
+# on every single season (600/600), and N_y50 == 5000 on all 3 seeds.
+
+=== CROSS-SEED SUMMARY (ALL 6 ACCEPTANCE BANDS PASS ON ALL 3 SEEDS) ===
+Band 1 — Great-sect war-season fraction (mean 10%-25%, max <= 35%, > 0%):
+  Seed  7: mean = 12.2%, max = 31.0% (Thính Vũ Lâu)   [PASS]
+  Seed 19: mean = 10.6%, max = 25.5% (Thính Vũ Lâu)   [PASS]
+  Seed 42: mean = 12.5%, max = 30.0% (Thính Vũ Lâu)   [PASS]
+
+Band 2 — Median war duration (6 - 11 seasons):
+  Seed  7: median = 6.0 seasons (14 concluded wars: [5, 5, 5, 5, 6, 6, 6, 6, 9, 9, 9, 9, 9, 9])   [PASS]
+  Seed 19: median = 6.0 seasons (14 concluded wars: [5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 8, 8])   [PASS]
+  Seed 42: median = 6.0 seasons (14 concluded wars: [6, 6, 6, 6, 6, 6, 6, 6, 9, 9, 9, 9, 10, 10]) [PASS]
+
+Band 3 — 50-year war deaths (death_cause == "Tử trận": max <= 180 & <= 35% of y0; median 30 - 120):
+  Seed  7: max = 140 (27.8% of y0), median = 32.0   [PASS]
+  Seed 19: max = 127 (26.9% of y0), median = 38.0   [PASS]
+  Seed 42: max = 140 (27.8% of y0), median = 57.0   [PASS]
+
+Band 4 — Luyện Khí replenishment ratio (>= 1.00 for deaths >= 20) & y50 headcount (>= 75% y0 for all 7):
+  Seed  7: min_repl = 1.39, min_headcount = 84.9% (Thính Vũ Lâu)   [PASS]
+  Seed 19: min_repl = 1.72, min_headcount = 86.7% (Thính Vũ Lâu)   [PASS]
+  Seed 42: min_repl = 1.46, min_headcount = 87.3% (Thiên Xu / Thính Vũ) [PASS]
+
+Band 5 — Max single great-sect year-50 mean realm.stage (<= 0.72):
+  Seed  7: max = 0.66 (Tùng Đào Cung; Thiên Xu Tông = 0.61 vs 0.87 pre-retune baseline) [PASS]
+  Seed 19: max = 0.66 (Thúy Vi Tông)                                                    [PASS]
+  Seed 42: max = 0.69 (Thúy Vi Tông)                                                    [PASS]
+
+Band 6 — Economy & census invariants across all 200 seasons per seed (max|gap| <= 0.5, N == 5000, 7/7 greats):
+  Seed  7: max|gap| = 0.0000, N_adj = [5000, 5000], N_y50 = 5000, active_greats = 7/7   [PASS]
+  Seed 19: max|gap| = 0.0000, N_adj = [5000, 5000], N_y50 = 5000, active_greats = 7/7   [PASS]
+  Seed 42: max|gap| = 0.0000, N_adj = [5000, 5000], N_y50 = 5000, active_greats = 7/7   [PASS]
+
+================================================================================
+--- YEAR 0 GREAT SECTS (SEED 7) ---
+  Thiên Xu Tông      | align=trung | S=8023 | pulls_wo=0.9 wear=-10.0/0.0 half=false | feuds=["Tùng Đào Cung(A=-51)", "Thính Vũ Lâu(A=-53)"]
+  Tùng Đào Cung      | align=chinh | S=18624 | pulls_wo=def wear=0.0/0.0 half=false | feuds=["Thiên Xu Tông(A=-43)"]
+  Lạc Hà Tông        | align=trung | S=5721 | pulls_wo=def wear=0.0/0.0 half=true | feuds=[]
+  Thính Vũ Lâu       | align=ma    | S=6737 | pulls_wo=1.2 wear=10.0/0.0 half=false | feuds=["Thiên Xu Tông(A=-53)", "Phượng Minh Cung(A=-77)"]
+  Băng Tâm Các       | align=chinh | S=5358 | pulls_wo=0.9 wear=0.0/0.0 half=false | feuds=[]
+  Thúy Vi Tông       | align=chinh | S=4417 | pulls_wo=def wear=0.0/0.0 half=false | feuds=[]
+  Phượng Minh Cung   | align=chinh | S=5677 | pulls_wo=0.9 wear=5.0/0.0 half=false | feuds=["Thính Vũ Lâu(A=-72)"]
+=== SEED 7 | 50 YEARS (200 SEASONS) | 150.6s ===
+KNOBS: war_odds=1.15 war_odds_min=0.9 truce=15.0 loss_k=0.013 war_cost=0.5 goals={ "site": 30.0, "vassal": 48.0, "region": 75.0 } w_base=4.6 w_loss_k=80.0 w_score_k=0.08 w_limit=40.0
+INVARIANTS: max|gap|=0.0000 | N_adj_range=[5000, 5000] (N_raw=[4999, 5000], duel_kills=14) | N_y50=5000 | realms_y50=[3505, 1177, 268, 46, 4] | active_greats=7/7
+WARS: started=15 concluded=14 (won=7 failed=0 truce=7) | durations=[5, 5, 5, 5, 6, 6, 6, 6, 9, 9, 9, 9, 9, 9] | median_dur=6.0
+    war1: Thiên Xu Tông vs Thính Vũ Lâu (vassal) -> sect_truce in 6 seasons (s4..s9)
+    war2: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s4..s9)
+    war3: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s10..s18)
+    war4: Thiên Xu Tông vs Thính Vũ Lâu (vassal) -> sect_truce in 6 seasons (s30..s35)
+    war5: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 5 seasons (s41..s45)
+    war6: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s41..s49)
+    war8: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 5 seasons (s76..s80)
+    war7: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s73..s81)
+    war9: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s105..s113)
+    war10: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 5 seasons (s112..s116)
+    war11: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s137..s145)
+    war12: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s147..s152)
+    war13: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_war_won in 9 seasons (s169..s177)
+    war14: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 5 seasons (s184..s188)
+PER GREAT SECT:
+  Thiên Xu Tông      | war_s= 31 ( 15.5%) | n0=576 -> n50=527 ( 91.5%) | deaths=127 (22.0%) | LK_in=237 | repl=1.87 | rs=0.33 -> 0.61
+  Tùng Đào Cung      | war_s= 26 ( 13.0%) | n0=573 -> n50=534 ( 93.2%) | deaths= 32 ( 5.6%) | LK_in=192 | repl=6.00 | rs=0.35 -> 0.66
+  Lạc Hà Tông        | war_s=  0 (  0.0%) | n0=432 -> n50=547 (126.6%) | deaths=  2 ( 0.5%) | LK_in=252 | repl=126.00 | rs=0.36 -> 0.56
+  Thính Vũ Lâu       | war_s= 62 ( 31.0%) | n0=504 -> n50=428 ( 84.9%) | deaths=140 (27.8%) | LK_in=195 | repl=1.39 | rs=0.35 -> 0.65
+  Băng Tâm Các       | war_s=  0 (  0.0%) | n0=468 -> n50=421 ( 90.0%) | deaths=  3 ( 0.6%) | LK_in=104 | repl=34.67 | rs=0.30 -> 0.58
+  Thúy Vi Tông       | war_s=  0 (  0.0%) | n0=324 -> n50=357 (110.2%) | deaths=  2 ( 0.6%) | LK_in=123 | repl=61.50 | rs=0.44 -> 0.62
+  Phượng Minh Cung   | war_s= 52 ( 26.0%) | n0=360 -> n50=413 (114.7%) | deaths= 59 (16.4%) | LK_in=202 | repl=3.42 | rs=0.42 -> 0.63
+SUMMARY_SEED_7: mean_wf=12.2% max_wf=31.0% [PASS] | med_dur=6.0 [PASS] | max_d=140 (27.8%) med_d=32.0 [PASS] | min_repl=1.39 min_hc=84.9% [PASS] | max_rs=0.66 [PASS] | inv [PASS] | ALL=PASS
+
+================================================================================
+--- YEAR 0 GREAT SECTS (SEED 19) ---
+  Thiên Xu Tông      | align=trung | S=7891 | pulls_wo=0.9 wear=-10.0/0.0 half=false | feuds=["Thính Vũ Lâu(A=-53)"]
+  Tùng Đào Cung      | align=chinh | S=13091 | pulls_wo=def wear=0.0/0.0 half=false | feuds=["Thiên Xu Tông(A=-43)"]
+  Lạc Hà Tông        | align=trung | S=5496 | pulls_wo=def wear=0.0/0.0 half=true | feuds=[]
+  Thính Vũ Lâu       | align=ma    | S=13064 | pulls_wo=1.2 wear=10.0/0.0 half=false | feuds=["Thiên Xu Tông(A=-53)", "Phượng Minh Cung(A=-77)"]
+  Băng Tâm Các       | align=chinh | S=5366 | pulls_wo=0.9 wear=0.0/0.0 half=false | feuds=[]
+  Thúy Vi Tông       | align=chinh | S=4415 | pulls_wo=def wear=0.0/0.0 half=false | feuds=[]
+  Phượng Minh Cung   | align=chinh | S=5688 | pulls_wo=0.9 wear=5.0/0.0 half=false | feuds=["Thính Vũ Lâu(A=-72)"]
+=== SEED 19 | 50 YEARS (200 SEASONS) | 155.0s ===
+KNOBS: war_odds=1.15 war_odds_min=0.9 truce=15.0 loss_k=0.013 war_cost=0.5 goals={ "site": 30.0, "vassal": 48.0, "region": 75.0 } w_base=4.6 w_loss_k=80.0 w_score_k=0.08 w_limit=40.0
+INVARIANTS: max|gap|=0.0000 | N_adj_range=[5000, 5000] (N_raw=[4999, 5000], duel_kills=19) | N_y50=5000 | realms_y50=[3507, 1201, 246, 43, 3] | active_greats=7/7
+WARS: started=15 concluded=14 (won=14 failed=0 truce=0) | durations=[5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 8, 8] | median_dur=6.0
+    war1: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s4..s9)
+    war2: Thính Vũ Lâu vs Phượng Minh Cung (vassal) -> sect_war_won in 6 seasons (s4..s9)
+    war3: Thính Vũ Lâu vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s10..s15)
+    war4: Thính Vũ Lâu vs Phượng Minh Cung (vassal) -> sect_war_won in 8 seasons (s30..s37)
+    war5: Thính Vũ Lâu vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s43..s48)
+    war6: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s44..s49)
+    war7: Thính Vũ Lâu vs Phượng Minh Cung (vassal) -> sect_war_won in 8 seasons (s60..s67)
+    war8: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s84..s89)
+    war9: Thính Vũ Lâu vs Phượng Minh Cung (site) -> sect_war_won in 5 seasons (s90..s94)
+    war10: Thính Vũ Lâu vs Phượng Minh Cung (vassal) -> sect_war_won in 7 seasons (s117..s123)
+    war11: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s124..s129)
+    war12: Thính Vũ Lâu vs Phượng Minh Cung (vassal) -> sect_war_won in 8 seasons (s146..s153)
+    war13: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s164..s169)
+    war14: Thính Vũ Lâu vs Phượng Minh Cung (site) -> sect_war_won in 5 seasons (s176..s180)
+PER GREAT SECT:
+  Thiên Xu Tông      | war_s= 31 ( 15.5%) | n0=576 -> n50=517 ( 89.8%) | deaths=127 (22.0%) | LK_in=218 | repl=1.72 | rs=0.32 -> 0.63
+  Tùng Đào Cung      | war_s= 25 ( 12.5%) | n0=573 -> n50=530 ( 92.5%) | deaths= 38 ( 6.6%) | LK_in=205 | repl=5.39 | rs=0.35 -> 0.65
+  Lạc Hà Tông        | war_s=  0 (  0.0%) | n0=432 -> n50=536 (124.1%) | deaths=  3 ( 0.7%) | LK_in=253 | repl=84.33 | rs=0.36 -> 0.56
+  Thính Vũ Lâu       | war_s= 51 ( 25.5%) | n0=503 -> n50=436 ( 86.7%) | deaths= 64 (12.7%) | LK_in=161 | repl=2.52 | rs=0.34 -> 0.63
+  Băng Tâm Các       | war_s=  0 (  0.0%) | n0=468 -> n50=417 ( 89.1%) | deaths=  2 ( 0.4%) | LK_in=104 | repl=52.00 | rs=0.30 -> 0.58
+  Thúy Vi Tông       | war_s=  0 (  0.0%) | n0=323 -> n50=353 (109.3%) | deaths=  0 ( 0.0%) | LK_in=127 | repl=127.00 | rs=0.44 -> 0.66
+  Phượng Minh Cung   | war_s= 41 ( 20.5%) | n0=360 -> n50=408 (113.3%) | deaths= 97 (26.9%) | LK_in=223 | repl=2.30 | rs=0.43 -> 0.65
+SUMMARY_SEED_19: mean_wf=10.6% max_wf=25.5% [PASS] | med_dur=6.0 [PASS] | max_d=127 (26.9%) med_d=38.0 [PASS] | min_repl=1.72 min_hc=86.7% [PASS] | max_rs=0.66 [PASS] | inv [PASS] | ALL=PASS
+
+================================================================================
+--- YEAR 0 GREAT SECTS (SEED 42) ---
+  Thiên Xu Tông      | align=trung | S=7859 | pulls_wo=0.9 wear=-10.0/0.0 half=false | feuds=["Tùng Đào Cung(A=-41)", "Thính Vũ Lâu(A=-53)"]
+  Tùng Đào Cung      | align=chinh | S=12611 | pulls_wo=def wear=0.0/0.0 half=false | feuds=["Thiên Xu Tông(A=-43)"]
+  Lạc Hà Tông        | align=trung | S=5609 | pulls_wo=def wear=0.0/0.0 half=true | feuds=[]
+  Thính Vũ Lâu       | align=ma    | S=6559 | pulls_wo=1.2 wear=10.0/0.0 half=false | feuds=["Thiên Xu Tông(A=-53)", "Phượng Minh Cung(A=-77)"]
+  Băng Tâm Các       | align=chinh | S=5392 | pulls_wo=0.9 wear=0.0/0.0 half=false | feuds=[]
+  Thúy Vi Tông       | align=chinh | S=9287 | pulls_wo=def wear=0.0/0.0 half=false | feuds=[]
+  Phượng Minh Cung   | align=chinh | S=5516 | pulls_wo=0.9 wear=5.0/0.0 half=false | feuds=["Thính Vũ Lâu(A=-72)"]
+=== SEED 42 | 50 YEARS (200 SEASONS) | 154.2s ===
+KNOBS: war_odds=1.15 war_odds_min=0.9 truce=15.0 loss_k=0.013 war_cost=0.5 goals={ "site": 30.0, "vassal": 48.0, "region": 75.0 } w_base=4.6 w_loss_k=80.0 w_score_k=0.08 w_limit=40.0
+INVARIANTS: max|gap|=0.0000 | N_adj_range=[5000, 5000] (N_raw=[4999, 5000], duel_kills=19) | N_y50=5000 | realms_y50=[3461, 1222, 264, 50, 3] | active_greats=7/7
+WARS: started=14 concluded=14 (won=6 failed=0 truce=8) | durations=[6, 6, 6, 6, 6, 6, 6, 6, 9, 9, 9, 9, 10, 10] | median_dur=6.0
+    war1: Thiên Xu Tông vs Thính Vũ Lâu (vassal) -> sect_truce in 6 seasons (s4..s9)
+    war2: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s4..s9)
+    war3: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s9..s17)
+    war4: Thiên Xu Tông vs Thính Vũ Lâu (vassal) -> sect_truce in 6 seasons (s31..s36)
+    war5: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s44..s49)
+    war6: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 10 seasons (s46..s55)
+    war7: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 10 seasons (s79..s88)
+    war8: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s83..s88)
+    war9: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s112..s120)
+    war10: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s121..s126)
+    war11: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s144..s152)
+    war12: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s159..s164)
+    war13: Phượng Minh Cung vs Thính Vũ Lâu (vassal) -> sect_truce in 9 seasons (s176..s184)
+    war14: Tùng Đào Cung vs Thiên Xu Tông (vassal) -> sect_war_won in 6 seasons (s197..s202)
+PER GREAT SECT:
+  Thiên Xu Tông      | war_s= 35 ( 17.5%) | n0=576 -> n50=503 ( 87.3%) | deaths=132 (22.9%) | LK_in=221 | repl=1.67 | rs=0.34 -> 0.65
+  Tùng Đào Cung      | war_s= 30 ( 15.0%) | n0=573 -> n50=528 ( 92.1%) | deaths= 61 (10.6%) | LK_in=202 | repl=3.31 | rs=0.33 -> 0.67
+  Lạc Hà Tông        | war_s=  0 (  0.0%) | n0=432 -> n50=539 (124.8%) | deaths=  2 ( 0.5%) | LK_in=240 | repl=120.00 | rs=0.36 -> 0.55
+  Thính Vũ Lâu       | war_s= 60 ( 30.0%) | n0=504 -> n50=440 ( 87.3%) | deaths=140 (27.8%) | LK_in=204 | repl=1.46 | rs=0.33 -> 0.62
+  Băng Tâm Các       | war_s=  0 (  0.0%) | n0=468 -> n50=417 ( 89.1%) | deaths=  1 ( 0.2%) | LK_in= 93 | repl=93.00 | rs=0.31 -> 0.61
+  Thúy Vi Tông       | war_s=  0 (  0.0%) | n0=320 -> n50=343 (107.2%) | deaths=  3 ( 0.9%) | LK_in=118 | repl=39.33 | rs=0.49 -> 0.69
+  Phượng Minh Cung   | war_s= 50 ( 25.0%) | n0=360 -> n50=405 (112.5%) | deaths= 57 (15.8%) | LK_in=195 | repl=3.42 | rs=0.43 -> 0.64
+SUMMARY_SEED_42: mean_wf=12.5% max_wf=30.0% [PASS] | med_dur=6.0 [PASS] | max_d=140 (27.8%) med_d=57.0 [PASS] | min_repl=1.46 min_hc=87.3% [PASS] | max_rs=0.69 [PASS] | inv [PASS] | ALL=PASS

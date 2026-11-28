@@ -33,7 +33,7 @@ import engine as E   # noqa: E402
 ROOT = os.path.normpath(os.path.join(HERE, "..", "..", ".."))
 D = os.path.join(ROOT, "design", "world", "depth")
 EL = {"thuy": "water", "bang": "ice", "tho": "earth", "hoa": "fire", "kim": "metal", "moc": "wood", "loi": "thunder",
-      "phong": "wind", "quang": "light"}
+      "phong": "wind", "quang": "light", "am": "dark"}
 MAX_ARTS = 6
 
 

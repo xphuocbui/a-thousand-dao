@@ -620,13 +620,18 @@ func _new(args: Array) -> void:
 	if args.size() > 0 and args[0] == "quick":
 		var nm: String = _arg(args, 1, "Vô Danh")
 		var pt_mode: String = KarmicRules.MODE_ONE_LIFE
+		var tk_on: bool = TribulationRules.is_enabled(gd)
 		for ai in range(2, args.size()):
 			var tok: String = str(args[ai]).to_lower()
 			if tok == KarmicRules.MODE_ONE_LIFE or tok == KarmicRules.MODE_CONTINUE:
 				pt_mode = tok
+			elif tok == "no_tribulation" or tok == "no-tribulation" or tok == "tribulation=off":
+				tk_on = false
+			elif tok == "tribulation" or tok == "tribulation=on":
+				tk_on = true
 			elif tok.is_valid_int():
 				seed_v = int(tok)
-		_start(seed_v, {"mode": "roll", "name": nm, "gender": "male", "origin": "tan_tu", "playthrough_mode": pt_mode})
+		_start(seed_v, {"mode": "roll", "name": nm, "gender": "male", "origin": "tan_tu", "playthrough_mode": pt_mode, "tribulation_enabled": tk_on})
 		return
 	var nm2: Variant = io.read_line("Tên (name) [Vô Danh]: ")
 	if nm2 == null:
@@ -644,8 +649,10 @@ func _new(args: Array) -> void:
 		seed_v = int(seed_in)
 	var pt_in: Variant = io.read_line("Playthrough mode: 1) One Life (Nhất Sinh)   2) Continue (Luân Hồi Kế Thừa)  [1]: ")
 	var pt_mode2: String = KarmicRules.MODE_CONTINUE if str(pt_in).strip_edges() == "2" else KarmicRules.MODE_ONE_LIFE
+	var tk_in: Variant = io.read_line("Heavenly Tribulation (Thiên Kiếp): 1) On (default)   2) Off  [1]: ")
+	var tk_on2: bool = str(tk_in).strip_edges() != "2"
 	var mode_in: Variant = io.read_line("Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: ")
-	var spec := {"name": str(nm2).strip_edges() if str(nm2).strip_edges() != "" else "Vô Danh", "gender": gender, "origin": origins[oi].id, "playthrough_mode": pt_mode2}
+	var spec := {"name": str(nm2).strip_edges() if str(nm2).strip_edges() != "" else "Vô Danh", "gender": gender, "origin": origins[oi].id, "playthrough_mode": pt_mode2, "tribulation_enabled": tk_on2}
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_v
 	var c: Character

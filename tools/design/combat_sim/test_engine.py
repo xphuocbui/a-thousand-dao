@@ -417,6 +417,76 @@ def t_soul_reflect():   # Effects rule 6, Reflect a soul art (W2, 2026-11-26)
     check("the charge is spent: the next soul art lands", B.hp < hpB and B.counters["n"] == 2)
 
 
+def t_curse_reflect():   # Effects rule 6, Reflect a curse (A Fair Copy, 2026-11-28)
+    # 1. Incoming curse reflects onto caster with src=reflector, fires status_applied on reflector, consumes charge
+    seen_a = {"id": "sa", "on": "status_applied", "do": [{"counter": {"id": "app", "add": 1}}]}
+    seen_b = {"id": "sb", "on": "status_applied", "do": [{"counter": {"id": "app", "add": 1}}]}
+    f, A, B = setup(a=dummy(effects=[seen_a], counters=[{"id": "app"}]),
+                    b=dummy(effects=[seen_b], counters=[{"id": "app"}]))
+    f.do(B, {"id": "m", "on": "fight_start"}, [{"mod": {"curse_reflect": 1}}], 1.0, {})
+    f.apply_status(A, B, {"id": "heavy_breath", "dur": 3})
+    check("curse_reflect: curse does not land on reflector", "heavy_breath" not in B.statuses)
+    check("curse_reflect: curse lands on caster with src=reflector",
+          "heavy_breath" in A.statuses and A.statuses["heavy_breath"]["src"] is B, str(A.statuses))
+    check("curse_reflect: status_applied fires on reflector, not original caster",
+          B.counters["app"] == 1 and A.counters["app"] == 0, "%s %s" % (A.counters, B.counters))
+    # 2. Second curse lands on B normally
+    f.apply_status(A, B, {"id": "sundered", "dur": 3})
+    check("curse_reflect: charge spent, second curse lands on B",
+          "sundered" in B.statuses and B.statuses["sundered"]["src"] is A)
+    # 3. Non-curse tick (bleed) does NOT consume charge
+    f, A, B = setup()
+    f.do(B, {"id": "m", "on": "fight_start"}, [{"mod": {"curse_reflect": 1}}], 1.0, {})
+    f.apply_status(A, B, {"id": "bleed", "stacks": 2})
+    check("curse_reflect: tick status lands on B without spending charge",
+          "bleed" in B.statuses and "bleed" not in A.statuses and len(B.curse_charges) == 1)
+    # 4. Self-curse does NOT reflect or spend charge
+    f.apply_status(B, B, {"id": "sundered", "dur": 3})
+    check("curse_reflect: self-curse lands on B without spending charge",
+          "sundered" in B.statuses and len(B.curse_charges) == 1)
+    # 5. Mutual curse_reflect does NOT bounce back; A keeps its own charge
+    f, A, B = setup()
+    f.do(A, {"id": "ma", "on": "fight_start"}, [{"mod": {"curse_reflect": 1}}], 1.0, {})
+    f.do(B, {"id": "mb", "on": "fight_start"}, [{"mod": {"curse_reflect": 1}}], 1.0, {})
+    f.apply_status(A, B, {"id": "heavy_breath", "dur": 3})
+    check("curse_reflect: mutual reflect lands once on A without bouncing, A keeps charge",
+          "heavy_breath" in A.statuses and "heavy_breath" not in B.statuses
+          and len(B.curse_charges) == 0 and len(A.curse_charges) == 1,
+          "%s %s %s %s" % (A.statuses, B.statuses, A.curse_charges, B.curse_charges))
+    # 6. Timed curse_reflect expires after `for` seconds
+    f, A, B = setup()
+    f.do(B, {"id": "mt", "on": "fight_start"}, [{"mod": {"curse_reflect": 1, "for": 2.0}}], 1.0, {})
+    f.t = 2000
+    f.apply_status(A, B, {"id": "sundered", "dur": 3})
+    check("curse_reflect: expired timed charge does not reflect",
+          "sundered" in B.statuses and "sundered" not in A.statuses and len(B.curse_charges) == 0)
+
+
+def t_end_meters():   # Side.end_meters() / Fight.run() meters_a & meters_b parity with FighterEnd.meters
+    eff = {"id": "m", "on": "fight_start", "do": [{"meter": {"id": "playing_past_the_break", "success": [], "failure": []}}]}
+    a = dummy(effects=[eff], meters={"playing_past_the_break": {"start": 0.5, "p": 0.3}})
+    b = dummy(effects=[eff], meters={"playing_past_the_break": {"start": 0.8, "p": 0.3}})
+    res = E.Fight(a, b, seed=1, order="fixed").run()
+    check("end_meters: meters_a advances 0.5 + 0.3 -> 0.8",
+          abs(res["meters_a"].get("playing_past_the_break", -1) - 0.8) < 1e-9
+          and res["meters_a"] == res["A"].end_meters(), str(res["meters_a"]))
+    check("end_meters: meters_b wraps 0.8 + 0.3 -> 0.1",
+          abs(res["meters_b"].get("playing_past_the_break", -1) - 0.1) < 1e-9
+          and res["meters_b"] == res["B"].end_meters(), str(res["meters_b"]))
+
+
+def t_diagram_always():   # Formations rule 9 (a-formation-that-walks): mf-carried-array sets diagram_always
+    import fight as F
+    F._library()
+    pieces = ["mf-loom-of-letters-seal", "mf-carried-array-flag", "mf-paid-shield"]
+    d2 = F.expand_library({"name": "t2", "realm": "ket_dan", "layers": [40, 40, 40, 20, 10], "arts": [], "items": pieces[:2]})
+    b2 = F.to_build(d2, 2, [], "t2")
+    check("diagram_always: 2 pieces of mf-carried-array stays False", not b2.diagram_always)
+    d3 = F.expand_library({"name": "t3", "realm": "ket_dan", "layers": [40, 40, 40, 20, 10], "arts": [], "items": pieces})
+    b3 = F.to_build(d3, 2, [], "t3")
+    check("diagram_always: full 3-piece mf-carried-array sets True", bool(b3.diagram_always))
+
+
 def t_decoy_struck():   # Effects rule 6, Avoid a hit: decoy {n} and decoy_struck (W3, 2026-11-26)
     f, A, B = setup(b=dummy(effects=[{"id": "d", "on": "decoy_struck", "do": [{"stacks": {"el": "ice", "n": 2, "for": 8, "side": "foe"}}]}]))
     f.do(B, {"id": "g", "on": "art_fired"}, [{"decoy": {"n": 1}}], 1.0, {})
@@ -1907,6 +1977,213 @@ def t_step1_passive_mods_compile():
           and f.mod(A, "L1", {"kind": "art", "tags": ()}) == 8.0)
     check("step1 passive mods + audited out_of_fight compile cleanly", ok,
           "unmod=%s eff=%s" % (unmod, eff))
+
+
+def t_darkness_erosion_buff():
+    # Darkness buff (Shadow Veil): +0.85 pp evade per stack, scales with purity["dark"], clamps at evade_cap (0.40),
+    # zeroed by no_evade, and stripped from largest buff pile.
+    f0, A0, B0 = setup(a=dummy(acc=0.0), b=dummy(evade=0.05, purity={"dark": 0.0}))
+    f0.add_stacks(B0, B0, "dark", 10, 10.0, buff=True)
+    check("10 dark buff stacks at purity 0 -> +0.085 evade",
+          abs(B0.bsum("evade") - 0.085) < 1e-12, str(B0.bsum("evade")))
+
+    f1, A1, B1 = setup(a=dummy(acc=0.0), b=dummy(evade=0.05, purity={"dark": 50.0}))
+    f1.add_stacks(B1, B1, "dark", 10, 10.0, buff=True)
+    check("10 dark buff stacks at purity 50 -> +0.0935 evade",
+          abs(B1.bsum("evade") - 0.0935) < 1e-12, str(B1.bsum("evade")))
+
+    # Verify evade_cap (0.40) clamp in hit() via high stacks + deterministic seed check & no_evade override
+    f2, A2, B2 = setup(a=dummy(acc=0.0), b=dummy(evade=0.0, effects=_fx({"no_evade": 1})))
+    f2.add_stacks(B2, B2, "dark", 100, 10.0, buff=True)
+    check("100 dark buff stacks raw bsum=0.85 (> evade_cap 0.40)",
+          abs(B2.bsum("evade") - 0.85) < 1e-9, str(B2.bsum("evade")))
+    hp0 = B2.hp
+    f2.hit(A2, B2, 1.0, "phys", None, kind="basic")
+    check("no_evade forces hit to land despite 100 dark buff stacks", B2.hp < hp0, "hp=%s/%s" % (B2.hp, hp0))
+
+    # strip removes Darkness buff stacks from largest pile
+    f3, A3, B3 = setup(
+        a=dummy(effects=[{"id": "st", "on": "fight_start", "do": [{"strip": {"n": 4}}]}]),
+        b=dummy(),
+    )
+    f3.add_stacks(B3, B3, "dark", 6, 10.0, buff=True)
+    f3.add_stacks(B3, B3, "fire", 2, 10.0, buff=True)
+    f3.fire_event(A3, "fight_start", {})
+    check("strip removes 4 from dark buff pile (6 -> 2)",
+          abs(B3.count(B3.buffs, "dark") - 2.0) < 1e-9 and abs(B3.count(B3.buffs, "fire") - 2.0) < 1e-9,
+          "dark=%s fire=%s" % (B3.count(B3.buffs, "dark"), B3.count(B3.buffs, "fire")))
+
+
+def t_darkness_erosion_chaos_soul_taken():
+    # Darkness debuff (Shadow Erosion): +3.4% Chaos & Soul damage taken per stack across all 7 paths,
+    # leaves phys/fire unchanged, and does not amplify reflected soul_hit.
+    target = dummy(ward_pts=0.0, block=0.0, evade=0.0, body_pts=0.0, n_body=200.0, n_qi=200.0)
+    dark_art = E.Art("dark_bolt", 1.0, 0.0, 3.0, element="dark", dtype="elem")
+    fire_art = E.Art("fire_bolt", 1.0, 0.0, 3.0, element="fire", dtype="elem")
+    split_art = E.Art("split_blade", 1.0, 0.0, 3.0, element="", dtype="phys", soul_part=0.25,
+                      convert={"to": "chaos", "share": 0.5})
+    soul_art = E.Art("soul_spike", 0.0, 0.0, 3.0, element="dark", dtype="soul", soul_pct=0.08)
+
+    f0, A0, B0 = setup(a=dummy(arts=[dark_art, fire_art, split_art, soul_art]), b=target)
+    f1, A1, B1 = setup(a=dummy(arts=[dark_art, fire_art, split_art, soul_art]), b=target)
+    f1.add_stacks(A1, B1, "dark", 10, 10.0, buff=False)   # dsum("chaos_soul_taken") = 0.34
+    mult = 1.34
+
+    # 1. Direct chaos hit in defend()
+    d0 = f0.defend(A0, B0, 100.0, "chaos", None, {"dtype": "chaos"}, is_tick=False)
+    d1 = f1.defend(A1, B1, 100.0, "chaos", None, {"dtype": "chaos"}, is_tick=False)
+    check("direct chaos hit amplified x1.34", abs(d1 - d0 * mult) < 1e-9, "%s vs %s" % (d1, d0 * mult))
+
+    # 2. dark elem art (ELEM_TYPE["dark"] == "chaos")
+    d0 = f0.defend(A0, B0, 100.0, "elem", dark_art, E.art_ctx(dark_art), is_tick=False)
+    d1 = f1.defend(A1, B1, 100.0, "elem", dark_art, E.art_ctx(dark_art), is_tick=False)
+    check("dark elem art amplified x1.34", abs(d1 - d0 * mult) < 1e-9, "%s vs %s" % (d1, d0 * mult))
+
+    # 3. Plain phys and fire elem art unchanged
+    p0 = f0.defend(A0, B0, 100.0, "phys", None, {"dtype": "phys"}, is_tick=False)
+    p1 = f1.defend(A1, B1, 100.0, "phys", None, {"dtype": "phys"}, is_tick=False)
+    fe0 = f0.defend(A0, B0, 100.0, "elem", fire_art, E.art_ctx(fire_art), is_tick=False)
+    fe1 = f1.defend(A1, B1, 100.0, "elem", fire_art, E.art_ctx(fire_art), is_tick=False)
+    check("phys and fire elem hits unchanged by dark debuff",
+          abs(p1 - p0) < 1e-9 and abs(fe1 - fe0) < 1e-9, "phys=%s/%s fire=%s/%s" % (p1, p0, fe1, fe0))
+
+    # 4. Poison Chaos tick amplified
+    t0 = f0.tick(A0, B0, 50.0, "chaos", "wood")
+    t1 = f1.tick(A1, B1, 50.0, "chaos", "wood")
+    check("chaos tick (poison) amplified x1.34", abs(t1 - t0 * mult) < 1e-9, "%s vs %s" % (t1, t0 * mult))
+
+    # 5. Direct soul hit in defend()
+    s0 = f0.defend(A0, B0, 40.0, "soul", None, {"dtype": "soul"}, is_tick=False)
+    s1 = f1.defend(A1, B1, 40.0, "soul", None, {"dtype": "soul"}, is_tick=False)
+    check("direct soul hit amplified x1.34", abs(s1 - s0 * mult) < 1e-9, "%s vs %s" % (s1, s0 * mult))
+
+    # 6. Art with soul_part + convert-to-chaos (phys part unchanged, chaos & soul parts x1.34)
+    B0.hp = B0.hp_max
+    B1.hp = B1.hp_max
+    h0 = f0.hit(A0, B0, 1.0, "phys", split_art, kind="art")
+    h1 = f1.hit(A1, B1, 1.0, "phys", split_art, kind="art")
+    # 0.75 * 0.5 = 0.375 phys (x1.0), 0.375 chaos (x1.34), 0.25 soul_part (x1.34) -> factor = 0.375 + 0.625 * 1.34 = 1.2125
+    check("split_blade: phys x1.0, converted-chaos & soul_part x1.34",
+          abs(h1 - h0 * 1.2125) < 1e-6, "%s vs %s" % (h1, h0 * 1.2125))
+
+    # 7. Pure soul_hit (lh and lq amplified x1.34)
+    B0.hp, B0.qi = B0.hp_max, B0.qi_use()
+    B1.hp, B1.qi = B1.hp_max, B1.qi_use()
+    qi0_before, qi1_before = B0.qi, B1.qi
+    sh0 = f0.soul_hit(A0, B0, soul_art)
+    sh1 = f1.soul_hit(A1, B1, soul_art)
+    ql0 = qi0_before - B0.qi
+    ql1 = qi1_before - B1.qi
+    check("soul_hit lh and lq amplified x1.34",
+          abs(sh1 - sh0 * mult) < 1e-6 and abs(ql1 - ql0 * mult) < 1e-6,
+          "lh=%s/%s lq=%s/%s" % (sh1, sh0 * mult, ql1, ql0 * mult))
+
+    # 8. Reflected soul_hit sends UN-amplified lh back to attacker
+    fr0, Ar0, Br0 = setup(
+        a=dummy(arts=[soul_art], ward_pts=0.0, block=0.0, evade=0.0, body_pts=0.0, n_body=200.0),
+        b=dummy(effects=[{"id": "sr", "on": "fight_start", "do": [{"mod": {"soul_reflect": 1}}]}]),
+    )
+    fr1, Ar1, Br1 = setup(
+        a=dummy(arts=[soul_art], ward_pts=0.0, block=0.0, evade=0.0, body_pts=0.0, n_body=200.0),
+        b=dummy(effects=[{"id": "sr", "on": "fight_start", "do": [{"mod": {"soul_reflect": 1}}]}]),
+    )
+    fr0.fire_event(Br0, "fight_start", {})
+    fr1.fire_event(Br1, "fight_start", {})
+    fr1.add_stacks(Ar1, Br1, "dark", 10, 10.0, buff=False)
+    hp_a0, hp_a1 = Ar0.hp, Ar1.hp
+    fr0.soul_hit(Ar0, Br0, soul_art)
+    fr1.soul_hit(Ar1, Br1, soul_art)
+    check("reflected soul_hit sends unamplified damage back to attacker",
+          abs((hp_a0 - Ar0.hp) - (hp_a1 - Ar1.hp)) < 1e-9 and (hp_a1 - Ar1.hp) > 0.0,
+          "%s vs %s" % (hp_a0 - Ar0.hp, hp_a1 - Ar1.hp))
+
+
+def t_darkness_erosion_heal_taken_down():
+    # Darkness debuff healing dampen: amount /= 1 + dsum("heal_taken_down"), strictly positive, bypassed by ignore_taken.
+    f, A, B = setup(a=dummy(), b=dummy(n_body=20.0))
+    f.add_stacks(A, B, "dark", 10, 10.0, buff=False)   # dsum("heal_taken_down") = 0.50 -> / 1.50
+    B.hp = 100.0
+    f.heal(B, 150.0, source="art")
+    check("10 dark debuffs divide art heal by 1.50 (150 -> 100)", abs(B.hp - 200.0) < 1e-9, str(B.hp))
+    B.hp = 100.0
+    f.heal(B, 150.0, source="regen")
+    check("10 dark debuffs divide regen heal by 1.50", abs(B.hp - 200.0) < 1e-9, str(B.hp))
+    B.hp = 100.0
+    f.heal(B, 150.0, source="leech")
+    check("10 dark debuffs divide leech heal by 1.50", abs(B.hp - 200.0) < 1e-9, str(B.hp))
+    B.hp = 100.0
+    f.heal(B, 150.0, source="art", ignore_taken=True)
+    check("ignore_taken=True (Still Water) bypasses heal_taken_down", abs(B.hp - 250.0) < 1e-9, str(B.hp))
+
+    # 500 stacks -> / 26.0, strictly positive (never inverts to damage)
+    f2, A2, B2 = setup(a=dummy(), b=dummy(n_body=20.0))
+    f2.add_stacks(A2, B2, "dark", 500, 10.0, buff=False)
+    B2.hp = 100.0
+    f2.heal(B2, 260.0)
+    check("500 dark debuffs divide heal by 26.0 (strictly positive, never inverts)",
+          abs((B2.hp - 100.0) - 10.0) < 1e-9 and B2.hp > 100.0, str(B2.hp - 100.0))
+
+    # Composes with heal_taken (-50%) and Withering (-50%)
+    f3, A3, B3 = setup(a=dummy(), b=dummy(n_body=20.0, effects=_fx({"heal_taken": -50})))
+    f3.add_stacks(A3, B3, "dark", 10, 10.0, buff=False)
+    f3.apply_status(A3, B3, {"id": "withering", "stacks": 1, "dur": 4})
+    B3.hp = 100.0
+    f3.heal(B3, 120.0)
+    # 120 * 0.50 (heal_taken) / 1.50 (dark) * 0.50 (withering) = 20.0
+    check("composes with heal_taken -50% and withering -50% (120 -> 20)",
+          abs((B3.hp - 100.0) - 20.0) < 1e-9, str(B3.hp - 100.0))
+
+
+def t_darkness_am_scope_and_banner():
+    import fight as F
+    # 1. attack_pct ["am"] compiles to {"L1": 14, "element": "dark"} and only boosts element="dark" arts
+    unmod = []
+    eff = F.passive_effect({"id": "tx-iron-horse-banner"}, unmod,
+                           lines=[{"key": "attack_pct", "value": 14, "scope": ["am"]}], what="item")
+    check("attack_pct [am] compiles cleanly to L1 element=dark",
+          unmod == [] and eff is not None and eff["do"] == [{"mod": {"L1": 14, "element": "dark"}}],
+          "unmod=%s eff=%s" % (unmod, eff))
+    dark_art = E.Art("dark_bolt", 1.0, 0.0, 3.0, element="dark", dtype="elem")
+    fire_art = E.Art("fire_bolt", 1.0, 0.0, 3.0, element="fire", dtype="elem")
+    plain_art = E.Art("plain_cut", 1.0, 0.0, 3.0, element="", dtype="phys")
+    f, A, _ = setup(a=dummy(arts=[dark_art, fire_art, plain_art], effects=[eff]))
+    check("L1 [dark] matches dark art only",
+          f.mod(A, "L1", E.art_ctx(dark_art)) == 14.0
+          and f.mod(A, "L1", E.art_ctx(fire_art)) == 0.0
+          and f.mod(A, "L1", E.art_ctx(plain_art)) == 0.0)
+
+    # 2. The Banner Is Raised from combat_effects.json: companion & summon hits lay 1 dark debuff (8 s, per_pulse 2);
+    # art/basic hits lay 0; cleanse & consume clear dark debuffs.
+    lib = F.effects_library()
+    banner = lib.get("The Banner Is Raised")
+    check("The Banner Is Raised is active in combat_effects.json",
+          banner is not None and not banner.get("not_run") and len(banner.get("records", [])) == 1,
+          str(banner))
+    fb, Ab, Bb = setup(
+        a=dummy(arts=[plain_art], effects=banner["records"]),
+        b=dummy(ward_pts=0.0, block=0.0, evade=0.0, body_pts=0.0, n_body=200.0, cleanse_share=0.25),
+    )
+    fb.hit(Ab, Bb, 0.5, "phys", plain_art, kind="art")
+    fb.hit(Ab, Bb, 0.5, "phys", None, kind="basic")
+    check("The Banner Is Raised ignores art and basic hits", Bb.count(Bb.debuffs, "dark") == 0.0)
+    fb.hit(Ab, Bb, 0.4, "phys", None, kind="companion")
+    fb.hit(Ab, Bb, 0.4, "phys", None, kind="companion")
+    fb.hit(Ab, Bb, 0.4, "phys", None, kind="companion")   # per_pulse: 2 caps third hit in same pulse
+    check("The Banner Is Raised lays 1 dark stack per companion hit, capped at per_pulse=2",
+          abs(Bb.count(Bb.debuffs, "dark") - 2.0) < 1e-9, str(Bb.count(Bb.debuffs, "dark")))
+    # cleanse_share thins dark debuff batches on pulse
+    fb.t = 1000
+    fb.pulse(Bb)
+    check("cleanse_share=0.25 thins dark debuff stacks (2.0 -> 1.5)",
+          abs(Bb.count(Bb.debuffs, "dark") - 1.5) < 1e-9, str(Bb.count(Bb.debuffs, "dark")))
+    # consume clears dark debuffs
+    fc, Ac, Bc = setup(
+        a=dummy(effects=[{"id": "cons", "on": "fight_start", "do": [{"consume": {"el": "dark", "side": "foe", "kind": "debuff", "n": 10}}]}]),
+        b=dummy(),
+    )
+    fc.add_stacks(Ac, Bc, "dark", 3, 8.0, buff=False)
+    fc.fire_event(Ac, "fight_start", {})
+    check("consume clears dark debuffs on foe", abs(Bc.count(Bc.debuffs, "dark")) < 1e-9)
 
 
 def main():
