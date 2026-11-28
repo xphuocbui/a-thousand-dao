@@ -17,8 +17,8 @@
 > Kinh Mạch points → Đạo Đồ points. Not The Way (Đạo): the two stay separate systems. Text only; no rule changed.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-10
-> **Last Verified**: 2026-11-10
+> **Last Updated**: 2026-11-28 (synced for shipped v5 loader, `DaoDoScreen` UI, and `AC-KMD-60` frozen-map measurements)
+> **Last Verified**: 2026-11-28
 > **Implements Pillar**: Pillar 1 (Your Dao, Your Name), Pillar 3 (Power Is Built, Not Given); touches Pillar 2 (Every
 > Number Is Bounded and Visible)
 
@@ -81,10 +81,12 @@ reached by long bridges, and a build that wants them pays for the journey.
 
 ## Detailed Design
 
-The built game still runs the old generated map (`src/gameplay/dao_do/`, 2026-11-05: about 1,300 Dao marks with
-hidden clusters and variant sectors). The drawn tree replaces it at implementation, from a fresh id baseline (rule
-19); until then the difference is listed under **Known gaps in the build** (Open Questions). Quantities in these rules
-are named parameters; their values and ranges are in Formulas.
+The game now loads the frozen v5 map and its filled content (`assets/data/dao_do_map.json` via
+`DaoDoTree.load_map()`, ADR-0004), replacing the retired generated map (`DaoDoGenerator`, hidden
+clusters, unseal flow and variant sectors), and exposes it in both the debug terminal and the
+PoE-style full-screen Godot UI (`DaoDoScreen` in `src/ui/dao_do/`). Remaining follow-ups are listed
+under **Known gaps in the build** (Open Questions). Quantities in these rules are named parameters;
+their values and ranges are in Formulas.
 
 ### Core Rules
 
@@ -704,8 +706,9 @@ The variant sectors (rule 20) and the deterministic topology generator are retir
 
 ### Parameter keys
 
-`dao_do_tree.json` (from the v5 frozen map and `design/dao-do/content/`): regions, Dao marks with ids, positions, kinds,
-regions and modifiers, links, starts, clusters. Data keys: `road_purity`, `purity_price`, `tree_breakthrough_k`,
+`assets/data/dao_do_map.json` (exported by `tools/design/dao_do_rework/content/export_game.py` from the v5 frozen map,
+`design/dao-do/layout/v5-layout-2026-11-20.json` and `design/dao-do/content/`; replaces the retired `dao_do_tree.json`):
+regions/areas, Dao marks with ids, positions, kinds, grants, modifiers, capabilities, Effects, links, starts and clusters. Data keys: `road_purity`, `purity_price`, `tree_breakthrough_k`,
 `cap_realm_min`, `start_targets`, `tree_kind_scores`, `tree_focus_weight` (in `world_generation.json`), the capability
 mapping `dao_do_capabilities.json` (capability id to Dao mark id). Retired keys: `tree_size_target`, `road_stats`,
 `mark_value_highway` (replaced by `road_purity` and `purity_price`), `tree_breakthrough_cap`, the hidden-cluster and
@@ -924,8 +927,9 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/research/dao-do-overnight.md` | The drawn tree, its open points and the PoE comparison |
 | `design/research/side-trees-thoughts.md` | Cultivation-technique and item trees in their own tab (rules 1, 6) |
 | `design/research/linh-can-proficiency-direction.md` | Purity as proficiency; roads grant purity (rule 4) |
-| `tools/design/dao_do_rework/` | The kit, `build_tree.py` (lean build: `KMD_LIGHT=1`), its checks, the viewer, and the editor (`editor/serve.py`, 2026-11-12) |
-| `design/dao-do/versions/` | Graph versions: each generator run writes a new one; the editor saves over only the version it has open (2026-11-12) |
+| `tools/design/dao_do_rework/` | Drawing kit (`kit.py`), cell build (`cells/integrate.sh`), content build (`content/build.py`) and game exporter (`content/export_game.py`, writing `assets/data/dao_do_map.json`). The older `build_tree.py` and `editor/serve.py` were retired on 2026-11-19 |
+| `design/dao-do/cells/versions/v5-frozen-2026-11-19/` | The frozen v5 map (`dao-do-map.json`) and its amendments; `design/dao-do/layout/v5-layout-2026-11-20.json` holds the icon-spacing layout edits applied at export |
+| `src/gameplay/dao_do/dao_do_tree.gd`, `src/ui/dao_do/dao_do_screen.gd` | Shipped v5 loader (`DaoDoTree.load_map()`, ADR-0004) and PoE-style full-screen Godot tree UI (`DaoDoScreen`, `DaoDoCanvas`, `DaoDoMinimap`) |
 | `design/gdd/linh-can.md` | Purities, variants and the purity roads grant (its rule 8a) |
 | `design/gdd/modifiers.md`, `design/gdd/effects.md` | Prices of every Dao mark; capability and keystone rules |
 | `design/gdd/dao.md` | The shared point pool |
@@ -1041,10 +1045,19 @@ Drafted with qa-lead.
   notable is within 5 points, the nearest keystone within 6–13 points and the farthest Dao mark within 110 points
   (`start_targets`); a start outside a target
   is reported.
-- **AC-KMD-60** [Logic, data-driven] Drawing checks (rule 1) on the shipped `tree.json`: 0 crossing links, 0 pairs
-  of Dao marks closer than 0.6, 0 links grazing a Dao mark, 0 Dao marks unreachable from any start, 0 clusters
-  without a bypass, and no Dao mark with more than 6 links. The kit's `check()` prints these and the test asserts
-  them.
+- **AC-KMD-60** [Logic, data-driven] Drawing checks (rule 1) on the shipped `tree.json` (exported to
+  `assets/data/dao_do_map.json`): 0 crossing links, 0 pairs of Dao marks closer than 0.6, 0 links grazing a Dao mark,
+  0 Dao marks unreachable from any start, 0 clusters without a bypass, and no Dao mark with more than 6 links. The
+  kit's `check()` prints these and the test asserts them.
+    - *Frozen v5 map measurements (observation only; does not relax AC-KMD-60):* On the raw frozen v5 map
+      (`v5-frozen-2026-11-19/dao-do-map.json`) prior to the 2026-11-20 layout pass, `export_game.py` reported
+      `0` crossing links and `0` unreachable nodes alongside `95` traced spacing pairs `< 0.6`, `2` grazings,
+      `19` hexagon/cluster bypasses (`no_bypass`), and `8` nodes with `> 6` links (max degree `8`). After applying
+      `design/dao-do/layout/v5-layout-2026-11-20.json` at export, `export_game.py --check` reports
+      `crossings 0, too_close 0, grazing 0, unreached 0, no_bypass 19, max_degree 8` (`#1494`, `#1499`, `#1505`,
+      `#1938` at 8 links; `#1648`, `#1660`, `#1667`, `#6057` at 7 links). `export_game.py --check` fails on any
+      crossing or unreachable node and prints the remaining frozen-map structural observations without altering the
+      strict AC-KMD-60 drawing target above.
 
 **Capabilities (rules 16–18; Formulas E, E2)**
 
@@ -1195,13 +1208,38 @@ Drafted with qa-lead.
 
 ### Known gaps in the build
 
-The spec above is the target. The built game (`src/gameplay/dao_do/`, 2026-11-05) still runs the old generated map (it gained the parents'-lands rule on
-2026-11-19):
-about 1,300 Dao marks with hidden clusters, variant sectors, generic roads and the 8 pp clamp. Replacing it means:
-loading the v5 frozen map (`design/dao-do/cells/versions/v5-frozen-2026-11-19/dao-do-map.json`) with its content
-(`design/dao-do/content/*.json`) as game data, the start choice, road purity (the hub's roads to all five elements),
-the Chaos land gate and its scaling (rules 3-4), the 43 keystones' Effects, fractional purity (AC-KMD-102 uses 30.5), the
-breakthrough curve, `cap_realm_min`, the save migration (rule 19), the optimized allocator (AC-KMD-54) and the
-retirement of the unseal, fill and sector code. Until then every Known-gap row of the generated map (G5–G9, shape
-templates, the unseal flow, variant sectors) is moot.
+**Shipped (2026-11-20 loader cut-over, ADR-0004; 2026-11-24 UI rework).** The game now runs the frozen v5 map and its
+filled content end-to-end, and the old generated map (`DaoDoGenerator`, `dao_do_tree.json`, unseal flow, hidden
+clusters and variant sectors) is retired:
+
+- **Data & loader:** `tools/design/dao_do_rework/content/export_game.py` exports the v5 map +
+  `design/dao-do/layout/v5-layout-2026-11-20.json` + `design/dao-do/content/*.json` into `assets/data/dao_do_map.json`
+  (8,051 nodes, 8,918 edges, 7,289 visible Dao marks, 11 starts, 751 roads, 43 keystones, 817 Chaos-gated nodes).
+  `src/gameplay/dao_do/dao_do_tree.gd` (`DaoDoTree.load_map()`) loads it read-only per `GameData`.
+- **Rules & runtime:** start selection (rule 3, AC-KMD-96), fractional uncapped purity & road purity including hub and
+  border grants (rule 4, AC-KMD-97), Chaos land gate & scaling (rules 3–4, AC-KMD-102), 25 capability notables &
+  `cap_realm_min` Core Formation (rules 16–18, AC-KMD-100), breakthrough curve `k · ln(1 + Σ/k)` (Formulas F,
+  AC-KMD-59), save migration from old generated-map saves (rule 19, AC-KMD-98), and 55 tree Effects wired in both the
+  Python design engine (`tree_effects.py`) and Godot fight runtime (`effect_runner.gd`; verified via `t9_tree_exact_*`
+  parity fixtures and `dao_do_effects_test.gd`).
+- **NPC allocator & performance:** live greedy allocator updated for v5 (`build_generator.gd`); AC-KMD-54 verified at
+  `10.2 s` for a 5,061-person world against the `30 s` budget (`production/qa/evidence/dao-do-v5-loader/02-allocator-perf.txt`,
+  `03-worldgen-perf.txt`).
+- **UI & terminal:** debug terminal `tree` commands (`AC-KMD-56`, `AC-KMD-57`, transcript in
+  `production/qa/evidence/dao-do-v5-loader/01-session-transcript.txt`) plus the full-screen PoE-style Godot UI
+  (`DaoDoScreen`, `DaoDoCanvas`, `DaoDoMinimap` in `src/ui/dao_do/`) with painted node icons, search, route planning,
+  minimap and hover stat cards.
+
+**Remaining open items (2026-11-28):**
+
+- **4 out-of-fight tree Effects Pending non-combat hosts** (tracked in `design/dao-do/tree-effects-engine.md` and
+  `tree_effects_check.py`): non-combat triggers/closings such as *Sun That Never Sets* (seasons / đạo tâm), *Burning
+  Lifespan*'s lifespan burn, *Spirit Garden* (field growth) and *Alchemist's Heart* (pills) load as Pending until their
+  host systems consume them.
+- **38 scoped lines read without hit context in fights** (`33 × linh_luc_on_hit_pct`, `5 × leech_linh_luc_pct` — apply
+  to every hit; flagged by `export_game.py --check` for user call in `production/todo.md`).
+- **Pending user reviews:** one-pass review of filled v5 content (`design/dao-do/content-decisions.md` #1–34) and
+  engine rule choices in `design/dao-do/tree-effects-engine.md`.
+- **Side-tree tab:** separate cultivation-technique and item trees (`design/research/side-trees-thoughts.md`) are not
+  built yet.
 

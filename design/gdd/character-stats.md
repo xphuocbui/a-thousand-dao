@@ -260,11 +260,16 @@ here but not built yet.
       lines are sheet modifiers, not root terms; none of the eight sits on a curve key. Any source of `lifespan_years`
       or `herb_growth_pct` counts under its curve (user decisions 2026-11-04, cross-GDD
       reviews W10 and 04f, B1).
-    - **`lifespan_pct` sources and bound** (user decision 2026-11-05). Two sources grant it:
-      the destiny perk Thọ Nguyên Dư Dả (`tho_nguyen`, +20) and the Wood keystone Vạn Cổ
-      Trường Thanh (+25). Each is held at most once, so the total is at most **+45**. This
-      is a bound on the data, not a runtime clamp: a new source must fit inside +45 or
-      reopen this decision (Open Question 7).
+    - **`lifespan_pct` sources and bound** (user decision 2026-11-05; reconciled 2026-11-28 for v5 Đạo Đồ). Two
+      exact-scale (`rule 4`) perk/keystone sources sit inside this **+45** data bound: the destiny perk Thọ Nguyên
+      Dư Dả (`tho_nguyen`, +20) and the live v5 tree's sole `lifespan_pct` keystone, Sun That Never Sets (Bất Lạc
+      Nhật, `#8995`, +6.6 — replacing the placeholder Wood keystone Vạn Cổ Trường Thanh +25; total **+26.6 ≤ +45**).
+      This is a bound on exact-scale perk and keystone data, not a runtime clamp: a new perk or keystone source must
+      fit inside +45 or reopen this decision (Open Question 7). The filled v5 Đạo Đồ content pass (2026-11-19) also
+      placed **158** purity-scaled small and notable `lifespan_pct` lines across the tree (`131` small/notable
+      remaining in `assets/data/dao_do_map.json` after `content-decisions.md` #34's `breakthrough_spread` converted
+      26 lifespan notables into `breakthrough_chance`); those small/notable lines sit outside the perk-and-keystone
+      bound (reported to the user 2026-11-19; AC-CS-56, Open Question 7).
 15. **Stat keys.** This GDD owns every key, its unit and its meaning. Units:
     - `pct`: percentage points, so 1 = +1 %;
     - `flat`: a plain number;
@@ -1316,10 +1321,20 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 - **AC-CS-55** [Logic] Rule 19, #2. Holding #2 adds a `than_thuc_pct` +20 line, and divine
   sense at CF ×1.00 with soul strength 45 goes from 450 to 540. Without #2 there is no
   line.
-- **AC-CS-56** [Config/Data] Rule 14, `lifespan_pct`. Across the destiny perks and the tree
-  keystones, the only `lifespan_pct` sources are `tho_nguyen` (+20) and the Wood keystone
-  Vạn Cổ Trường Thanh (+25), summing to at most +45. With both at QR and two +15 arts (lifespan bonus 17.7), the
-  cap is (120 + 17.7) × 1.45 = 199.7.
+- **AC-CS-56** [Config/Data] Rule 14, `lifespan_pct` (reconciled 2026-11-28 for the live v5 Đạo Đồ map). Across the
+  destiny perks and the tree keystones (whose lines are exact under Đạo Đồ rule 4), the only `lifespan_pct` sources
+  are `tho_nguyen` (+20) and the v5 keystone Sun That Never Sets (Bất Lạc Nhật, `#8995`, +6.6 — replacing the
+  placeholder Wood keystone Vạn Cổ Trường Thanh +25), summing to **+26.6 ≤ +45** (verified by
+  `tests/unit/character/character_stats_test.gd:test_lifespan_pct_sources_stay_inside_the_bound_ac56`). At QR with
+  two +15 arts (lifespan bonus 17.7), the cap is `(120 + 17.7) × 1.266 = 174.3` with the live pair (and
+  `(120 + 17.7) × 1.45 = 199.7` at the +45 ceiling).
+  - *Reconciliation with v5 tree small and notable lines:* The 2026-11-19 v5 content pass placed **158**
+    purity-scaled small and notable `lifespan_pct` lines across the tree (reported to the user 2026-11-19; **131**
+    small/notable lines — 104 small + 27 notable, making 132 total with the keystone — remain in
+    `assets/data/dao_do_map.json` after `content-decisions.md` #34's `breakthrough_spread` converted 26 lifespan
+    notables into `breakthrough_chance`). Those small and notable tree lines are excluded from the +45 perk-and-keystone
+    bound pending the user's Đạo Đồ content review (Open Question 7); Đạo Đồ v5 loader and Stage 11B balance runs
+    confirmed that Realms gate targets hold with them live.
 - **AC-CS-57** [Integration] Heart demon thresholds. A template with `requires_tam_ma` 20
   is not eligible at 19.9 and is eligible at 20.0; the Nascent Soul condition holds at 20.0
   and fails at 20.1.
@@ -1341,5 +1356,5 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 | 4 | Event Engine budgets for talent, heart demon and vitality effects | Event Engine GDD | Rule 4 (event talent changes) |
 | 5 | The talents' unbuilt roles: soul strength's formation complexity and detection | the respective systems | Rule 1 |
 | 6 | Specified here, not built yet: the provider interface for modifier sources; a talent pill's gain preview (AC-CS-06); the Advisor's per-pill warnings and the Nascent Soul heart demon warning (AC-CS-50; only the general toxicity and heart demon warnings exist); the vitality band names and heart demon bands on the sheet (AC-CS-49); load-time rejection of unknown stat keys and off-grid authored values (AC-CS-34, AC-CS-35); capability #9's +2 heart demon; Spirit Fields mastery's `herb_growth_pct` and timed consumables as sheet sources (AC-CS-30); automated tests for most ACs (`tests/unit/character/` covers few, and none carry AC ids) | implementation story | Building this GDD |
-| 7 | ~~`lifespan_pct` is outside the lifespan ceiling; who may grant it?~~ **Answered 2026-11-05 (user decision):** the perk `tho_nguyen` (+20) and the Wood keystone (+25) are accepted, bound +45 in total (rule 14). Still open: any other source (a Way, a treasure) needs a price and must fit the bound, since it multiplies the whole cap and feeds pill supply through the growing years W; and no bot run has measured these two against the gate targets (AC-CG-60 does not include them) | user, Realms & Bottlenecks | Any new `lifespan_pct` source |
+| 7 | ~~`lifespan_pct` is outside the lifespan ceiling; who may grant it?~~ **Answered 2026-11-05 (user decision); reconciled 2026-11-28:** exact-scale perk + keystone sources stay inside the +45 bound (`tho_nguyen` +20 and v5 keystone Sun That Never Sets `#8995` +6.6 = +26.6 ≤ +45; rule 14, AC-CS-56). Still open for the user's Đạo Đồ content review: the v5 tree's 158 filled small/notable `lifespan_pct` lines (131 small/notable remaining in `assets/data/dao_do_map.json` after #34's `breakthrough_spread`), which sit outside the +45 perk-and-keystone bound, and any future Way/treasure source. Both the v5 loader pass (2026-11-20) and Stage 11B (2026-11-28) confirmed Realms gate targets hold with the live v5 tree | user, Realms & Bottlenecks | Đạo Đồ content review; any new `lifespan_pct` source |
 | 8 | **Realms calibration after the no-caps change (2026-11-10).** The rule 14 ceilings became curves, `alchemy_success` dampens failure and `max_plots` is gone. Realms' gate odds assumed the ceilings and 12 plots at most (12 plots already gave 0.78–0.88 against the 0.30 target): re-run its calibration and, if a gate drifts, tune the curve scales, not caps (review D4: Realms first). Realms text to revise: rule 14 (lifespan "at most 15 %"), Formulas D (`n_plots` clamp to 12, `p_brew`'s additive `alchemy_success`, `herb_growth_pct` "at most 10"), AC-CG-60, its Open Question 12, the `bonus_ceiling_target` note; the tree share is now a curve (Đạo Đồ Formulas F) | user, systems-designer | Realms & Bottlenecks |

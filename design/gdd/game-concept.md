@@ -1,8 +1,8 @@
 # Game Concept: Ten Thousand Daos
 
 *Created: 2026-11-02*
-*Revised: 2026-11-02 — pivot after the first concept prototype (see `prototypes/dao-engine-concept/REPORT.md` and `PIVOT-NOTE.md`)*
-*Status: Draft*
+*Revised: 2026-11-28 — synced to the shipped fixed-continent non-LLM authored engine, Đạo Đồ v5 passive tree, full combat & economy systems, and Godot HUD & illustrated UI (LLM Game Master parked 2026-11-15; earlier pivot 2026-11-02 in `prototypes/dao-engine-concept/REPORT.md` and `PIVOT-NOTE.md`)*
+*Status: Synced Draft (awaits holistic `/review-all-gdds` pass)*
 
 > **Terminology:** cultivation concepts use English terms from `design/glossary.md` (spiritual root,
 > Foundation Establishment, magic treasure…), with the Hán-Việt term in parentheses on first use in
@@ -14,10 +14,11 @@
 ## Elevator Pitch
 
 > It's a cultivation roguelite where you live one cultivator's life — born with a spiritual root
-> (linh căn) that shapes everything — and build your own engine of spirit herbs (linh thảo),
-> pills (đan dược), magic treasures (pháp bảo) and formations (trận pháp) to break through each realm
-> (cảnh giới) and fight beyond your realm, in one hand-crafted world whose people and secrets are new each
-> life, and whose stories an LLM tells within the engine's rules.
+> (linh căn) shaped by the land — and build your own engine of the Đạo Đồ passive tree, spirit herbs
+> (linh thảo), pills (đan dược), magic treasures (pháp bảo) and combat formations (trận pháp) to
+> break through each realm (cảnh giới) and fight beyond your realm, in one hand-crafted continent
+> with centuries of history whose ordinary people, secrets and authored stories unfold deterministically
+> inside the engine's visible rules (fully playable offline; LLM narration parked).
 
 ---
 
@@ -50,16 +51,19 @@ works.
 ## Unique Hook
 
 It's like *Tale of Immortal*'s cultivation world, **and also** a tight roguelite whose power comes
-from a crafting and cultivation economy you build — where your spiritual root (linh căn) decides
-which engine you can build, and an LLM tells the life you lived using numbers the engine owns.
+from a crafting, passive-tree (Đạo Đồ) and cultivation economy you build — where your spiritual root
+(linh căn) decides which engine you can assemble, and every number is owned and explained by the engine.
 
-It's also like *Dwarf Fortress* adventure mode: every life begins in a world that already has a
-history — fallen sects, legendary cultivators, lost cultivation techniques (công pháp) — and you can
-go to any node and talk to anyone, with the LLM voicing people who actually exist in that history.
+It's also like *Dwarf Fortress* and *Crusader Kings III*: every life begins on a fixed continent
+that already has centuries of authored history — 50 active and 11 fallen sects, ~1,900 named
+cultivators, lost cultivation techniques (công pháp) and blood feuds — and you can travel to any
+province and interact with anyone through trait- and relationship-driven verbs, authored event
+chains and template quests grounded in that recorded history.
 
-The hook is systemic, not cosmetic: the spiritual root, cultivation techniques, crafts and realms
-are interlocking rules,
-and the LLM generates events, quests and people the player routes through, inside engine-set budgets.
+The hook is systemic, not cosmetic: the spiritual root, Đạo Đồ, cultivation techniques, crafts,
+provinces, sects and realms are interlocking rules, and authored events, quests and NPC interactions
+all operate inside deterministic, engine-set budgets (LLM narration was parked on 2026-11-15 so the
+full game plays cleanly offline without external API or local-model requirements).
 
 ---
 
@@ -69,9 +73,9 @@ and the LLM generates events, quests and people the player routes through, insid
 
 | Aesthetic | Priority | How We Deliver It |
 | ---- | ---- | ---- |
-| **Sensation** (sensory pleasure) | 6 | Ink-wash art, guqin-led audio, the satisfaction of a harvest or a breakthrough |
+| **Sensation** (sensory pleasure) | 6 | Painted paper campaign map & near diorama terrain, carved-hardwood & brass illustrated windows, ink-and-ledger clarity, planned guqin-led audio, the satisfaction of a harvest or a breakthrough |
 | **Fantasy** (make-believe, role-playing) | 4 | Mortal (phàm nhân) to immortal; cross-realm combat (vượt cấp), fighting beyond your realm, through what you built |
-| **Narrative** (drama, story arc) | 5 | Emergent per-life chronicle written by the LLM from recorded world facts |
+| **Narrative** (drama, story arc) | 5 | Emergent per-life chronicle driven by recorded world facts, authored event chains, template quests, trait-driven NPC interactions and sect politics |
 | **Challenge** (obstacle course, mastery) | 2 | Planning under lifespan (thọ nguyên) pressure; bottlenecks (bình cảnh); tribulations; degenerate-proof economy |
 | **Fellowship** (social connection) | N/A | Single-player; sharing builds and lives happens outside the game |
 | **Discovery** (exploration, secrets) | 3 | Variant roots (biến dị linh căn), the Way (Đạo), recipes, cultivation technique (công pháp) combinations, each world's history, secret domains (bí cảnh) |
@@ -98,11 +102,11 @@ understands and exploits. Discovery ranks above Fantasy because each life's spir
 2. **Realms (cảnh giới) and bottlenecks** — Qi Refining (Luyện Khí), layers (tầng) 1–10 → Foundation Establishment (Trúc Cơ) → Core Formation → Nascent Soul (Nguyên Anh) → Deity Transformation (Hóa Thần), each major realm with early / middle / late stage / great perfection (sơ / trung / hậu kỳ / đại viên mãn). Roughly 10× power per major realm. Every major breakthrough needs specific resources; each realm extends lifespan.
 3. **The building system** — spirit herbs (linh thảo) that gain value with age → alchemy (luyện đan) → pills; artifact refining (luyện chế pháp bảo), with magic treasures refined and nourished over years; spirit beasts / spirit insects (linh thú / linh trùng), bred in numbers; talismans; formations. Crafting affinity comes from the spiritual root.
 4. **Cultivation techniques — the Dao folded in** — found and combined, compatible (or not) with your spiritual root; they set cultivation speed and the divine abilities (thần thông) you gain.
-5. **Combat as a test of what you built** — cultivation base (tu vi) × assets (magic treasures, formations, talismans, swarm size), resolved by the engine and fully inspectable, then narrated by the LLM. Cross-realm combat is only possible through what you built.
-6. **A fixed world with a written history** — the continent, its great sects, starting borders, famous characters and history (sects founded and destroyed, wars, deaths, artifacts and cultivation techniques lost) are authored and the same every life (decided 2026-11-12). Each life rolls the ordinary cultivators, where hidden places and secrets lie, and the size of resource reserves, and writes it all to the world database that seeds the LLM.
-7. **Living world tick** — at each season's end, sects and named NPCs take abstract actions (expand, feud, die, break through, hunt a treasure); the world changes whether or not the player is there.
-8. **Bounded LLM game master** — generates events, quests, NPC dialogue and narration from the world database; may author numbers only inside engine-set budgets, which the engine clamps and records.
-9. **Meta-progression** — a Codex of discovered recipes and variant roots, and karmic carryover across lives.
+5. **Đạo Đồ, Progression Edges & combat as a test of what you built** — a hand-drawn, fixed 8,051-node passive tree (Đạo Đồ) and destiny perks (thiên mệnh) feed a build-heavy deterministic combat engine (layered Modifiers, Effects, wards, 8 damage types, combat formation diagrams, and fight-based Power Rankings) with full hit breakdowns and an interactive fight/replay screen. Cross-realm combat is only possible through what you built.
+6. **A fixed continent with a written history** — one authored continent of 705 provinces, 50 active and 11 fallen sects, ~1,900 named characters, and centuries of authored history (wars, fallen sects, ties, beasts and lost treasures) is the same every life (decided 2026-11-12). Each life rolls the ordinary cultivators up to 5,000+ total (shaped by province land qi and sect admission), hidden spots, tile secrets and resource reserves into the world database.
+7. **Living world tick, traits & relationships** — at each season's end, provinces, regional markets, sects (development, policies, wars), sparse NPC ties (blood feuds, debts, kin) and named NPCs act under 151 personality/lifestyle/talent traits; the world changes whether or not the player is there.
+8. **Authored story, quest & interaction engine (LLM Game Master parked 2026-11-15)** — deterministic Paradox-style Event Engine chains/stories/hooks, authored template quests, and CK-style trait-driven NPC interaction verbs all run offline from the world database inside engine-set budgets and clamping rules. Optional LLM narration stays parked so the full game plays cleanly without a model.
+9. **Meta-progression & Heavenly Tribulation** — Heavenly Tribulation (Thiên Kiếp) tests high-realm ascents; One Life and Continue (heir or lineage rebirth) modes pair with a profile Codex of discovered recipes, variant roots, techniques and lives, plus karmic carryover across runs.
 
 ---
 
@@ -203,9 +207,9 @@ Scale 1–100 with grade bands: **Lower (Hạ)** 1–30 · **Middle (Trung)** 31
 | **Comprehension** (ngộ tính) | How fast you understand | Learning cultivation techniques and how strong they are, enlightenment (đốn ngộ), discovering recipes and variant roots, breaking bottlenecks (bình cảnh) |
 | **Physique** (căn cốt) | Body foundation | Vitality (khí huyết), pill toxicity (đan độc) resistance, body-cultivation techniques |
 | **Soul strength** (thần hồn) | Base of spiritual sense | Divine sense (thần thức): magic treasure (pháp bảo) control count, swarm size, formation (trận pháp) complexity, detection |
-| **Fortune** (khí vận) | Luck | Lucky encounters (kỳ ngộ), rare finds, crafting crits, and the ceiling of LLM-invented reward budgets |
+| **Fortune** (khí vận) | Luck | Lucky encounters (kỳ ngộ), rare finds, crafting crits, and event reward budgets |
 | **Dao heart** (đạo tâm) | Willpower | Resisting heart demons (tâm ma), qi deviation (tẩu hỏa nhập ma) and illusions at breakthroughs and tribulations |
-| **Presence** (mị lực) | How people take to you | NPC attitude, prices, recruitment, what LLM-voiced NPCs will share |
+| **Presence** (mị lực) | How people take to you | NPC attitude, interaction acceptance scores, prices, recruitment and what NPCs will share |
 
 **Birth modes:**
 - **Fated birth (Thiên Định), rolled** — innate talents are rolled at birth; achievements and Codex progress are enabled.
@@ -223,13 +227,13 @@ tested against Dao heart at every breakthrough).
 ### Layer 3 — Craft mastery and combat power (built by doing)
 
 - **Craft mastery (đạo nghệ)** skills rise only through practice: Spirit Farming (Linh Thực), Way of Alchemy (Đan Đạo), Way of Artifacts (Khí Đạo), Way of Formations (Trận Đạo), Way of Talismans (Phù Đạo), Beast Taming (Ngự Thú); ranks First Grade (Nhất phẩm) → Ninth Grade (Cửu phẩm), each multiplied by its element affinity.
-- **Combat power (chiến lực)** is never raised directly: it is computed from realm, spiritual power, cultivation technique, divine abilities (thần thông), magic treasures, formations, talismans (phù lục) and swarm, and always shown as a breakdown.
+- **Combat power / Power Rankings** is never raised directly: in the shipped game, fight-based Elo-style ratings (`design/gdd/power-rankings.md`, replacing the early `chiến lực` sum below) measure what a build actually wins in simulated combat from realm, spiritual power, Đạo Đồ, cultivation techniques, divine abilities (thần thông), magic treasures, formations, talismans (phù lục) and spirit beasts.
 
 ### Draft formulas
 
 - Cultivation per season = realm base × spiritual root curve (element count, stage) × (purity of the cultivation technique's elements ÷ 100) × cultivation technique grade × (1 + Comprehension ÷ 200) × local spiritual qi (linh khí) density × (1 − Pill toxicity ÷ 200)
 - Breakthrough backlash chance = max(0, Heart demon − Dao heart ÷ 2)%
-- LLM reward ceiling = realm budget × (0.75 + Fortune ÷ 200)
+- Event reward ceiling = realm budget × (0.75 + Fortune ÷ 200)
 
 ### Example sheet
 
@@ -287,12 +291,13 @@ Satisfying because it is legible and compounding — you can see the plan gettin
 
 ### Short-Term (5-15 minutes)
 
-One season: tend and harvest spirit herbs, practise alchemy (luyện đan), trade at a market (phường
-thị), explore a secret domain (bí cảnh), talk to anyone the LLM voices from their world-database
-record, take quests that come from people and world state — or go into closed-door cultivation (bế
-quan) for years at a time. Events are resolved by the engine and narrated by the LLM. At season's end
-the living world ticks and lifespan (thọ nguyên) counts down. "One more season" lives here: the herb
-is almost old enough, the breakthrough is almost funded.
+One season: tend and harvest spirit herbs, practise alchemy (luyện đan), trade at regional markets
+(phường thị), tend your cave abode (động phủ), explore a secret domain (bí cảnh), interact with
+NPCs through trait- and relationship-driven verbs, follow authored event chains and template quests
+— or go into closed-door cultivation (bế quan) for years at a time. Events and fights resolve
+deterministically in the engine with full breakdowns. At season's end the living world ticks and
+lifespan (thọ nguyên) counts down. "One more season" lives here: the herb is almost old enough, the
+breakthrough is almost funded.
 
 ### Session-Level (30-120 minutes)
 
@@ -325,11 +330,11 @@ Every life produces a cultivator whose spiritual root (linh căn), cultivation t
 *Design test*: If we're debating between an option that creates more distinct builds and one that is easier to balance, this pillar says we choose **more distinct builds**.
 
 ### Pillar 2: Every Number Is Bounded and Visible
-The LLM may author numbers (rewards, NPC strength, prices, item stats) only inside a budget the engine sets for the current realm, rarity tier and event type; the engine validates, clamps and records the value in the world database, after which it is canonical and inspectable like any other number. The LLM narrates resolved outcomes and never rewrites one after the fact.
+Every event, quest, interaction, economy rule, combat formula — and any future optional LLM layer — may produce or alter numbers (rewards, NPC strength, prices, item stats) only inside explicit budgets the engine sets for the current realm, rarity tier and event type; the engine validates, clamps and records every value in the world database, after which it is canonical and inspectable with a breakdown like any other number. Narrative text describes resolved outcomes and never rewrites one after the fact.
 
-*Design test*: If the LLM wants to introduce a number, the engine supplies the range, clamps and logs it — and if a number has no budget yet, **we define one before the LLM may use it**.
+*Design test*: If a new event, quest, system or optional narration layer wants to introduce a number, the engine supplies the range, clamps and logs it — and if a number has no budget yet, **we define one before it may be used**.
 
-*Rationale:* storytelling sometimes needs invented numbers ("a 300-year spirit herb (linh thảo) worth 40 spirit stones (linh thạch)"); bounding them preserves planning and theory-crafting.
+*Rationale:* storytelling sometimes needs varied rewards or encounters ("a 300-year spirit herb (linh thảo) worth 40 spirit stones (linh thạch)"); bounding and explaining them preserves planning and theory-crafting.
 
 ### Pillar 3: Power Is Built, Not Given
 Power emerges from what the player constructs inside the system — spiritual root, cultivation techniques, crafts and assets — never from picking bigger numbers.
@@ -346,7 +351,7 @@ Time and lifespan (thọ nguyên) are scarce; herbs age, closed-door cultivation
 ### Pillar 5: A World That Remembers
 Stories grow from recorded facts — people, places, items and history in the world database. The world has a history before the player arrives and keeps acting while they travel.
 
-*Design test*: If the LLM wants to introduce something new, we **prefer a callback to an existing entity; anything new must be registered in the database first**.
+*Design test*: If an event, quest or narration layer wants to introduce something new, we **prefer a callback to an existing entity; anything new must be registered in the database first**.
 
 *Intended tensions:* Pillar 1 pulls against Pillar 2 (wild expression vs. provable math); Pillar 3 pulls against Pillar 4 (ever-growing engines vs. scarce time).
 
@@ -354,7 +359,7 @@ Stories grow from recorded facts — people, places, items and history in the wo
 
 - **NOT stat-block card picking**: power never comes from choosing the bigger number off a list — it would compromise *Power Is Built, Not Given*.
 - **NOT reflex or action combat**: outcomes come from what you built, not hand speed — it would compromise *Every Number Is Bounded and Visible*.
-- **NOT an unbounded LLM**: the LLM never creates numbers outside a budget, changes game rules, or alters a recorded value — it would compromise *Every Number Is Bounded and Visible*.
+- **NOT an unbounded LLM**: LLM narration is parked (2026-11-15) so the game runs cleanly offline; neither authored templates nor any future optional LLM may create numbers outside a budget, change game rules, or alter a recorded value — it would compromise *Every Number Is Bounded and Visible*.
 - **NOT fixed classes**: the spiritual root shapes a build but never locks it — locking would compromise *Your Dao, Your Name*.
 - **NOT a granular world simulation (Dwarf Fortress or CK scale)**: the geography and history are authored once and the same every life (decided 2026-11-12), and the land stays fixed (only rare scars change it). The living world ticks once per season with abstract steps per region or per place: faction and NPC actions, mine output, a region's supply. There is no per-tick body, per-item, per-NPC trade, per-tile or pathing simulation (clarified 2026-11-10 with Travel & Map). Anything deeper would break first-game scope — compromising *Power Is Built, Not Given* and *Every Season Counts*.
 - **NOT the novel's IP**: we take the cultivation-economy *systems and genre conventions* of Phàm Nhân Tu Tiên, never its characters, places, sects, plot or signature items — originality protects *Your Dao, Your Name* and the project itself.
@@ -365,7 +370,7 @@ Stories grow from recorded facts — people, places, items and history in the wo
 
 *Proposed during concept (art-director review skipped in Lean mode); `/art-bible` refines it.*
 
-**Direction: Ink and Ledger** — ink-wash (*shuimo*) 2D illustration for the world and map, paired with crisp, ledger-clean UI for the numbers.
+**Direction: Ink and Ledger — Carved Hardwood & Painted Map** (updated 2026-11-22/24 for the shipped Godot UI): a painted paper campaign map (far zoom) transitioning into painted diorama terrain (near zoom), paired with carved hardwood & brass illustrated windows, a PoE-style full-screen Đạo Đồ canvas, and crisp, ledger-clean UI for every number (missing art renders explicit `PlaceholderArt`, never a stand-in).
 
 **Visual rule:** The world is brushed; the math is printed. Nothing mechanical is ever hidden in the art.
 
@@ -385,8 +390,8 @@ Stories grow from recorded facts — people, places, items and history in the wo
 | Phàm Nhân Tu Tiên (novel, Vong Ngữ) | The cultivation economy: spiritual root (linh căn), realm ladder and bottlenecks (bình cảnh), herbs and alchemy, artifacts, beasts, talismans, formations; the mortal who wins by planning | Original world, names and items; a player-built roguelite; more-elements-is-better spiritual root | The developer's anchor for "a system you build inside" |
 | Tale of Immortal | Cultivation-world sandbox, realms, sects | Tight roguelite lives; an engine-building economy as the core | Validates a large audience for cultivation games |
 | Amazing Cultivation Simulator | Systemic cultivation, interlocking production | One cultivator, not a colony | Validates systemic depth in the genre |
-| Dwarf Fortress (adventure mode) | Generated world history and legends; go anywhere, talk to anyone | An authored world and history instead of a generated one; abstract seasonal world tick; roguelite structure; LLM conversation instead of menus | Validates history as a source of emergent stories |
-| Crusader Kings II/III | Emergent character story from systems | One life per run, LLM-narrated | Validates emergent narrative as a hook |
+| Dwarf Fortress (adventure mode) | Generated world history and legends; go anywhere, talk to anyone | An authored fixed continent and history instead of a generated one; abstract seasonal world tick; roguelite structure; trait- and relationship-driven interaction verbs | Validates history as a source of emergent stories |
+| Crusader Kings II/III | Emergent character story from systems, map-centric UI, traits & nested tooltips | One cultivator's life per run (or heir/rebirth Continue mode), cultivation economy & build combat | Validates emergent narrative and map-centric UX as a hook |
 | Europa Universalis IV | Long-horizon planning and min-maxing an economy | Personal scale — one cultivator's engine, not a nation | Matches the creator's and target player's taste |
 
 **Non-game inspirations**: cultivation (tu tiên) / xianxia novels (realms, tribulations, the mortal-to-immortal arc); wuxia film; Chinese ink-wash painting and scroll maps; guqin music.
@@ -414,13 +419,13 @@ Stories grow from recorded facts — people, places, items and history in the wo
 | Consideration | Assessment |
 | ---- | ---- |
 | **Recommended Engine** | Godot 4.7.1, GDScript (configured by `/setup-engine`) |
-| **Key Technical Challenges** | An interlocking economy simulation (herb aging, alchemy, artifacts, cultivation speed) that is deterministic and inspectable; balance across many interacting systems (needs a headless sim); an authored world and history with per-life rolls; seasonal living-world tick; local-LLM integration with structured output, engine-side budgets and clamping |
-| **Art Style** | 2D ink-wash illustration + clean UI |
-| **Art Pipeline Complexity** | Medium (custom 2D; compositable glyph system for icons) |
-| **Audio Needs** | Moderate (guqin-led ambient music, UI and crafting SFX) |
-| **Networking** | None for gameplay; optional HTTPS to an LLM API provider |
-| **Content Volume** | 5 base elements and 8 variant roots (biến dị linh căn); 5 realms (Qi Refining–Deity Transformation, i.e. Luyện Khí–Hóa Thần); ~60 spirit herbs (linh thảo), ~40 pill (đan dược) recipes, ~40 magic treasures (pháp bảo), ~20 spirit beasts/spirit insects (linh thú/linh trùng), ~30 talismans (phù lục), ~20 formations (trận pháp), ~40 cultivation techniques (công pháp); 1-2 provinces; 40+ hours to master |
-| **Procedural Systems** | Spiritual root (linh căn) generation; per-life rolls on the authored world (ordinary cultivators, hidden-place spots, resource reserves); seasonal living-world tick; LLM-generated events, quests, dialogue and narration. The map itself is authored, not procedural (2026-11-12) |
+| **Key Technical Challenges** | An interlocking economy & province simulation (herb aging, alchemy, artifacts, formations, regional markets, cultivation speed) that is deterministic and inspectable; dual-engine (Python + Godot) combat parity across Modifiers, Effects and Power Rankings; an authored fixed continent and history with per-life rolls; seasonal living-world tick at 5,000+ cultivators; responsive Godot 2D map-centric HUD & Đạo Đồ canvas |
+| **Art Style** | Painted paper campaign map (far) + painted diorama terrain (near), carved hardwood & brass illustrated windows, painted node/item icons + clean ledger UI |
+| **Art Pipeline Complexity** | Medium (painted continent crops, character portraits, node/item icons, `PlaceholderArt` for remaining assets) |
+| **Audio Needs** | Moderate (guqin-led ambient music, UI and crafting SFX — unbuilt) |
+| **Networking** | None (offline single-player; optional LLM API parked 2026-11-15) |
+| **Content Volume** | 5 base elements and 6 active variant roots (biến dị linh căn; 2 archived); 5 realms (Qi Refining–Deity Transformation, i.e. Luyện Khí–Hóa Thần); fixed continent of 705 provinces, 50 active & 11 fallen sects, ~1,900 named characters, 965 historical events, 2,054 ties, 21 spirit beasts; 8,051-node Đạo Đồ v5; 247 cultivation techniques, 459 arts, 661 items (166 sets), 50 combat formation diagrams, 151 traits (v1+v2), 23 raw trade goods; 40+ hours to master |
+| **Procedural Systems** | Land-influenced spiritual root (linh căn) generation; per-life rolls on the authored continent (ordinary cultivators to 5,000+, hidden-place spots, tile secrets, resource reserves); seasonal living-world tick; deterministic Event Engine chains, template quests and trait-driven NPC interactions. The continent map and core cast/history are authored, not procedural (2026-11-12); LLM generation is parked (2026-11-15) |
 
 ---
 
@@ -433,20 +438,18 @@ Stories grow from recorded facts — people, places, items and history in the wo
 - Hán-Việt terminology may be opaque to non-Vietnamese players without a glossary.
 
 ### Technical Risks
-- Balancing many interlocking systems needs a headless simulation from the start.
-- Local-model latency and quality on mid-range GPUs (the developer's machine: AMD RX 9070 XT, 61 GB RAM; no model installed yet).
-- Reliable structured output from the LLM (JSON schema or grammar-constrained decoding).
-- Licensing for redistributing model weights.
-- The authored history and the rolled people must stay coherent enough for the LLM to build on without contradicting them.
+- Balancing many interlocking systems needs a headless simulation from the start (addressed: Python combat sim + Godot headless balance suite).
+- *(Parked 2026-11-15 with LLM Game Master)* Local-model latency, structured-output reliability, and model-weight redistribution licensing no longer block gameplay; they return only if optional LLM narration is ever revived.
+- The authored history and the rolled people must stay coherent across seasons and saves (`world_data_version` and `depth_check.py` guard data integrity).
 - Feasibility not assessed by technical-director (TD-FEASIBILITY skipped — Lean mode).
 
 ### Market Risks
 - The core cultivation audience is largely Chinese- and Vietnamese-speaking — localization (Vietnamese, Chinese, English) matters early.
-- Steam requires disclosure of AI-generated content, including guardrails for live-generated content.
+- Steam requires disclosure of AI-generated art/content assets used in development.
 
 ### Scope Risks
-- **Top risk:** five crafting systems, a living world and an LLM is too much for a first game. Mitigation: the MVP has one craft, spirit herbs (linh thảo) + alchemy (luyện đan); the rest arrive tier by tier.
-- The authored world plus a living world is kept abstract to protect the 18-24 month estimate.
+- **Top risk:** five crafting systems, a living continent and deep combat is large for a solo project. Mitigation: systems were built and verified incrementally behind headless balance and parity suites, and live LLM narration was parked (2026-11-15).
+- The authored continent plus living-world tick stays abstract per province/sect/season to keep 5,000-cultivator performance fast.
 - Scope not assessed by producer (PR-SCOPE skipped — Lean mode).
 
 ### Open Questions
@@ -458,44 +461,27 @@ Stories grow from recorded facts — people, places, items and history in the wo
 
 ---
 
-## MVP Definition
+## MVP Definition & Current Scope Status (2026-11-28)
 
-**Core hypothesis**: If the player plans an engine shaped by their spiritual root (linh căn) — spirit herbs (linh thảo) → pills (đan dược) → breakthrough — under lifespan (thọ nguyên) pressure, they will feel the compounding of their own plan — evidenced by deliberate long-term investments the player can explain, and by different spiritual roots leading to visibly different engines.
+**Core hypothesis** *(original 2026-11-02 anchor, preserved)*: If the player plans an engine shaped by their spiritual root (linh căn) — spirit herbs (linh thảo) → pills (đan dược) → breakthrough — under lifespan (thọ nguyên) pressure, they will feel the compounding of their own plan — evidenced by deliberate long-term investments the player can explain, and by different spiritual roots leading to visibly different engines.
 
-**Required for MVP**:
-1. Character generation: innate talents (thiên phú), by Fated birth (Thiên Định) roll and Self-made birth (Tự Định) choice, including spiritual root element count, purity, variant roots (biến dị linh căn), and the slow-early / fast-crossover curve; pill toxicity (đan độc) and heart demon (tâm ma)
-2. Qi Refining (Luyện Khí) → Foundation Establishment (Trúc Cơ) → Core Formation (Kết Đan) with bottlenecks (bình cảnh) and lifespan
-3. Spirit herb aging + alchemy (luyện đan) — the only craft in the MVP
-4. A handful of cultivation techniques (công pháp) with spiritual root compatibility
-5. Combat as an asset check, with one tribulation
-6. A minimal authored world: one province, ~3 sects, ~20 named NPCs, ~100 years of written history
-7. LLM harness (events and narration within budgets) + templated-narration fallback
+**Superseded early MVP:** The original one-province, single-craft, LLM-harness MVP definition (2026-11-02) has been superseded by the shipped fixed-continent, non-LLM Godot build. All five mortal-world realms (Qi Refining → Deity Transformation), the full 705-province authored continent (`world_continent.json` + `world_history.json` with 50 active / 11 fallen sects and 1,909 named characters), the frozen Đạo Đồ v5 passive tree (`DaoDoScreen`), the dual-engine combat system (Modifiers, Effects, 8 damage types including Darkness stacks, combat formation diagrams, Power Rankings), all five economy/abode/regional-trade tracks, Traits v2, NPC Relationships, NPC Interaction (`#30`), Event Engine (`#23`), Template Quests (`#31`), Heavenly Tribulation (`#22`), Codex & Karmic Carryover (`#12`), and the Godot map-centric HUD & illustrated windows (`#37`) are implemented and verified by automated suites.
 
-**Explicitly NOT in MVP** (defer to later):
-- Artifact refining (luyện chế pháp bảo), spirit beasts / spirit insects (linh thú / linh trùng), talismans (phù lục), formations (trận pháp)
-- The Way (Đạo) and changing spiritual roots
-- Nascent Soul (Nguyên Anh) and above
-- Living-world season tick, Codex, karmic carryover
-- Final art and audio; LLM API provider option
+### Scope Tiers (updated 2026-11-28)
 
-### Scope Tiers (if budget/time shrinks)
-
-| Tier | Content | Features | Timeline |
+| Tier | Content | Features | Status |
 | ---- | ---- | ---- | ---- |
-| **MVP** | Qi Refining → Core Formation, 1 small province | Spiritual root, herbs + alchemy, combat check, LLM harness, minimal authored world | ~2-3 months |
-| **Vertical Slice** | + Nascent Soul | + Artifact refining, living-world tick, Codex, NPC memory, quests, art direction | ~6 months |
-| **Alpha** | Qi Refining → Deity Transformation (Hóa Thần), the Way (Đạo) | All five crafts rough; changing spiritual roots; the full authored history; local/API settings | ~13 months |
-| **Full Vision** | 1-2 provinces, full content | Polish, Vietnamese / Chinese / English localization, Steam release | 18-24 months |
+| **MVP** | Qi Refining → Deity Transformation, full 705-province fixed continent | Spiritual roots + land roll, Đạo Đồ v5, herbs + alchemy + artifacts + formations + talismans + beasts, full combat & Power Rankings, authored history, offline Event Engine | **Shipped** (Power Rankings Track 1 precompute in progress) |
+| **Vertical Slice** | Full mortal-world playable loop in Godot | Map-centric HUD & carved-hardwood illustrated windows, `DaoDoScreen`, Living World Tick, Traits v2, Relationships, Interaction `#30`, Quests `#31`, Tribulation `#22`, Codex & Karmic Carryover `#12` | **Shipped** |
+| **Alpha** | Remaining feature breadth & holistic design sign-off | The Way (`#39`), Localization (`#34`), spirit insects, side-tree tab, remaining GDD `/reverse-document` + single `/review-all-gdds` pass, remaining beast/trait art | **In Progress** |
+| **Full Vision** | Polish & release | Audio (`#38`), Vietnamese / Chinese / English localization, release polish, Steam launch | **Planned** |
 
 ---
 
-## Next Steps
+## Next Steps (2026-11-28)
 
-- [ ] **Prototype the cultivation system** (`/prototype` — revised hypothesis in `prototypes/dao-engine-concept/PIVOT-NOTE.md`; paper / spreadsheet sim first)
-- [ ] If the prototype PROCEEDS: author the art bible (`/art-bible`)
-- [ ] Validate the concept (`/design-review design/gdd/game-concept.md`)
-- [ ] Decompose concept into systems (`/map-systems`)
-- [ ] Design each system (`/design-system [system-name]`) — spiritual root (linh căn), realms (cảnh giới), spirit herbs (linh thảo) + alchemy (luyện đan) first
-- [ ] Build vertical slice in Pre-Production (`/vertical-slice`)
-- [ ] Validate core loop with playtest (`/playtest-report`)
-- [ ] Plan first milestone (`/sprint-plan new`)
+- [x] Core systems built & playable in Godot (fixed continent, Đạo Đồ v5, combat + formations + Darkness stacks, economy/sects/provinces/abode, traits/ties/interaction/events/quests/tribulation/codex, Godot HUD & illustrated windows)
+- [ ] Complete Track 1 Power Rankings post-Đạo-Đồ calibration & offline `cast_ratings.json` precompute
+- [ ] Finish remaining unbuilt Alpha/Full Vision systems: The Way (`#39`), Localization (`#34`), Audio (`#38`), remaining beast/trait art
+- [ ] Finish remaining `/reverse-document` GDDs and run `/consistency-check` + single `/review-all-gdds` pass (including this concept doc)
+- [ ] Run `/project-stage-detect`, `/gate-check`, and playtest validation (`/playtest-report`) toward Alpha/release

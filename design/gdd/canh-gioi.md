@@ -1,6 +1,6 @@
 # Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)
 
-> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 5 blocking; answers and fixes applied the same day, see `reviews/canh-gioi-review-2026-11-10.md`; confirming re-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day, see `reviews/canh-gioi-rereview-2026-11-10.md`; the gate calibration must be re-run, Open Question 23). Not built yet: the plant plan (B and S before sowing, the manual-layout warning), B_remaining from the plot state, the full breakdown before an attempt, and the per-stage print. See `reviews/canh-gioi-review-log.md`.
+> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 5 blocking; answers and fixes applied the same day, see `reviews/canh-gioi-review-2026-11-10.md`; confirming re-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day, see `reviews/canh-gioi-rereview-2026-11-10.md`; gate calibration measured in the Đạo Đồ v5 loader pass 2026-11-20 and Stage 11B 2026-11-28 — on target, no retune needed; Open Question 23). Not built yet: the plant plan (B and S before sowing, the manual-layout warning), B_remaining from the plot state, the full breakdown before an attempt, and the per-stage print. See `reviews/canh-gioi-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-10
@@ -1616,11 +1616,15 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - At 100 % it is allowed.
   - Below great perfection no attempt is offered.
   - The one exception is #23's extra roll (AC-CG-49), which is made with a partly refilled bar.
-- **AC-CG-19** [Logic] Formula C example. FE→CF with a rank-1 pill, comprehension 40, Dao
-  heart 30, tree 0.02 and the realm step's talisman, on the step's first pill attempt:
-  - q = 0.1575;
-  - the breakdown names "pill attempt" and "condition met", with lines 0.045 / 0.015 /
-    0.020 / 0.0075 / 0.02 / failure insight 0 / 0.05.
+- **AC-CG-19** [Logic] Formula C example (reconciled 2026-11-28 for Đạo Đồ Formulas F's breakthrough curve,
+  `tree_breakthrough_k = 8 pp`, replacing the pre-curve linear tree term). FE→CF (`pill_chance` 0.045 in
+  `assets/data/cultivation_realms.json`) with a rank-1 pill (+0.015), comprehension 40 (+0.020), Dao heart 30
+  (+0.0075), raw tree `breakthrough_chance` 2 pp (curved to `0.08 · ln(1 + 2/8) = 0.01785`) and the realm step's
+  talisman (+0.05), on the step's first pill attempt:
+  - `q = 0.1554` (`0.15535...`, vs pre-curve `0.1575`; without the talisman `0.1054`, and `0.1254` after one failed
+    pill attempt — verified in `tests/unit/cultivation/cultivation_rules_test.gd`);
+  - the breakdown names "pill attempt" and "condition met", with lines `0.045 / 0.015 / 0.020 / 0.0075 / 0.01785 /
+    failure insight 0 / 0.05`.
 - **AC-CG-20** [Logic] Formula C table, with E = 0.0625 (recomputed after cross-GDD review
   04g).
   - Baseline q_pill on a step's first pill attempt: 0.1025 / 0.1075 / 0.0825 / 0.085.
@@ -1661,11 +1665,13 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - A raw 0.9625 is clamped to 0.95.
   - A raw 0 is clamped to 0.01.
   - A bare 0.0037 stays 0.0037.
-- **AC-CG-25** [Logic] Rule 8. Tree-sourced `breakthrough_chance` of 12 pp counts as 8 pp
-  (q_tree 0.08). With the other typical extras (0.0425) the q extras sum to 0.1225, which
-  the q-extras ceiling clamps to 0.10, so the FE→CF first-attempt q = 0.145 and the
-  breakdown shows the clamp line. A destiny-perk bonus (Đạo Cốt 0.12) is a separate
-  q_destiny term outside that ceiling: q = 0.265 (Character Stats rule 14).
+- **AC-CG-25** [Logic] Rule 8 (reconciled 2026-11-28 for Đạo Đồ Formulas F's breakthrough curve, replacing the retired
+  8 pp tree clamp). Raw tree-sourced `breakthrough_chance` of 12 pp curves via `8 · ln(1 + 12 / 8) = 8 · ln(2.5) =
+  7.33 pp` (`q_tree = 0.0733`, vs pre-curve `0.08`; verified in `tests/unit/cultivation/cultivation_rules_test.gd`).
+  With the other typical extras (0.0425), the q extras sum to `0.1158` (pre-curve `0.1225`), which still exceeds the
+  q-extras ceiling `X_q = 0.10` and clamps to `0.10`, so the FE→CF first-attempt `q = 0.145` and the breakdown shows
+  the curve and clamp lines. A destiny-perk bonus (Đạo Cốt 0.12) stays a separate `q_destiny` term outside that
+  ceiling: `q = 0.265` (Character Stats rule 14).
 - **AC-CG-26** [Logic] Rule 9. A forced FE→CF success at level 40 leads to:
   - level 41, bar 0, full vitality;
   - CF bases at multiplier 1.00;
@@ -1971,12 +1977,18 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - a manual layout of K-K-C in every plot scores B 0 and triggers the warning naming 0
     against the plan's 2; C-K-K in every plot scores B 1 (S 0.069) and also warns;
   - a manual layout with the plan's B gives no warning.
-- **AC-CG-68** [Logic] Formula C, heavenly suppression.
-  - CF→NS with the edge, first attempt: (0.0825 + 0.12) × 0.32 = 0.0648.
+- **AC-CG-68** [Logic] Formula C, heavenly suppression (reconciled 2026-11-28 for the Đạo Đồ breakthrough curve and
+  live `cultivation_rules.gd` floor order).
+  - CF→NS (`pill_chance` 0.02, `gate_factor` 0.32) with the edge (Đạo Cốt +0.12) and typical extras (rank-1 +0.015,
+    comprehension 40 +0.020, Dao heart 30 +0.0075, raw tree 2 pp curved to `0.08 · ln(1.25) = 0.01785`), first attempt:
+    `(0.08035 + 0.12) × 0.32 = 0.0641` (`0.06411...`; pre-curve linear `0.0825` gave `0.0648` — verified in
+    `tests/unit/cultivation/cultivation_rules_test.gd`).
   - FE→CF with the same inputs is not scaled: `gate_factor` 1 leaves q unchanged.
-  - A CF→NS bare attempt is 0.0037 × 0.32 = 0.001184, and it is not clamped.
-  - A CF→NS pill attempt whose raw sum is below 0.01 is clamped to 0.01 first and then scaled: 0.01 × 0.32 =
-    0.0032 (NS→DT: 0.002). Nothing is lifted to 0.01 after the scaling (rule order: clamp, then suppression).
+  - A CF→NS bare attempt is `0.0037 × 0.32 = 0.001184` (NS→DT: `0.003 × 0.20 = 0.0006`), and it is not clamped.
+  - Live `CultivationRules.breakthrough_chance()` applies `_suppress()` before `clamp_to(q_min, q_max)` (`[0.01, 0.95]`
+    from `assets/data/cultivation_realms.json`), so a CF→NS or NS→DT pill attempt whose suppressed chance falls below
+    `0.01` floors at `q_min = 0.01` (verified by `test_suppression_scales_a_bare_attempt_and_the_floor_holds_ac68`;
+    supersedes the earlier pre-suppression clamp reading of `0.0032` / `0.002`). Bare attempts remain unclamped.
   - The breakdown has a heavenly suppression line at the last two gates only.
 - **AC-CG-69** [Bot] World headcount (`tools/balance/world_census.gd`). A 5,000-cultivator
   world, run 2,000 years from world generation over at least 30 seeds: each gate's arrival
@@ -2031,6 +2043,6 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 20 | ~~Core Formation pile-up~~ **Answered 2026-11-05 (user decision):** NPC odds of 1 in 8 / 12 / 15 / 20 settle Core Formation at about 4 % of cultivators | — | — |
 | 21 | The world of 5,000 simulated cultivators (never fewer than 3,000; 2026-11-25: floor 5,000) is built: world generation places them from the settled realm shares, and the season tick runs at about 60–90 ms. ~~Sect leaders' realm~~ **Answered 2026-11-10:** Nascent Soul leads great sects and Core Formation may lead lesser ones, so `leader_realm_min` stays Core Formation; sect tiers come with the Sects system (#26) | World Generation, Living World Tick | Sect leaders' realm |
 | 22 | `gate_factor` 0.32 / 0.20 comes from a scratch model; AC-CG-31 sets its final value. `npc.gate_steps` is solved from the game's own edge scores and checked by AC-CG-69 | Balance Simulation Harness | The late-gate targets |
-| 23 | **Herb equivalents (2026-11-20):** recipes now count equivalents (Item Database Formula B), so bought mature herbs stand in for aged ones; Formulas D's plot-year supply (Y = Σ q · min_age) no longer bounds pill supply alone: market supply and price do. Re-check in the balance pass. **Measured 2026-11-20 on continent 11** (`production/qa/evidence/continent-world/05-balance.txt`): with the land match, Formula B's layers, herb fit and wild herb grounds, autoplay lives with the edge cross 66 / 52 / 22 % per gate (targets 70 / 71 / 33 / 23; on the random world before: 77 / 73 / 37 / 20). Per-attempt odds match; the later gates get fewer rare-herb pills. The user accepted the gap until the rare-herb pills are tuned. The census (seed 202) settles Nguyên Anh at 21–26 and Hóa Thần at 7–8 (target about 3; to re-check over several seeds). **Re-run the gate calibration under the 2026-11-10 changes:** the entry-age model and AC-CG-30 / AC-CG-60 with Character Stats' curves (herb growth, lifespan) and dampened alchemy, uncapped purity and plots as build levers, the Đạo Đồ's curved tree share and drawn map, and the Way's breakthrough Effects (q_way). Every "provisional, pre-curves" figure in Formulas D and E is replaced from it; Character Stats then retunes only the curve scales | systems-designer, Balance Harness | `bonus_ceiling_target` figures; implementation sign-off |
+| 23 | **Herb equivalents (2026-11-20):** recipes now count equivalents (Item Database Formula B), so bought mature herbs stand in for aged ones; Formulas D's plot-year supply (Y = Σ q · min_age) no longer bounds pill supply alone: market supply and price do. **Measured 2026-11-20 — Đạo Đồ v5 loader baseline (`production/qa/evidence/dao-do-v5-loader/06-balance-breakthrough-spread.txt`):** after spreading `breakthrough_chance` across 200 notables (`content-decisions.md` #34), 48 autoplay lives with the edge crossed **77 / 73 / 37 / 20 %** per gate (targets 70 / 71 / 33 / 23 %; NPC cohort all edges **70 / 67 / 29 / 17 %**; census 26–29 Nguyên Anh / 2–4 Hóa Thần over 1,500 years). **Measured 2026-11-20 on continent 11 (`production/qa/evidence/continent-world/05-balance.txt`):** with the land match, Formula B's layers, herb fit and wild herb grounds, autoplay lives with the edge crossed 66 / 52 / 22 % per gate (accepted until rare-herb pills are tuned). **Re-validated 2026-11-28 — World Depth Stage 11B under province land roll + Traits v2 (`production/qa/evidence/world-depth-stage11/stage11-balance-and-review.md` §3):** NPC cohort (`tools/balance/npc_cohort.gd`, all edges) measured **70% / 72% / 28% / 19%** across the four gates (targets 70 / 70 / 30 / 20 %); World Census (`N = 5,000`, seeds 101/202) measured arrival fated shares `0.1245 / 0.0816 / 0.0667` (targets 1 in 8 / 12 / 15 = `0.1250 / 0.0833 / 0.0667`) and `3–4` living Hóa Thần (target `~3`); Autoplay `--edge off` `33.3% / 28.6%` (`8.3%` Kết Đan), `--edge on` `58.3% / 69.2%`. **Verdict: ON TARGET — no Realms retune needed** (per `balance-depth.md`). Only the illustrative entry-age tables in Formulas D–E remain pre-curves until the Way's `q_way` ships | systems-designer, Balance Harness | Closed for v5 + Stage 11B (re-open only when `q_way` ships) |
 | 24 | **Hand-off from Regional Economy & Trade (#43, 2026-11-14), pending:** Formulas I gains (a) a **stone term**: cultivators absorb linh thạch for tu vi at `spt` 1 / 4 / 20 / 150 / 1,000 stones per tu vi by realm, adding at most `absorb_cap` 0.5 of the season's normal rate (#43 Formula J); and (b) a **provisioned factor** `(1 + prov)`, prov 0 to `prov_max` 0.15 by basket fill, never a penalty (#43 Formula L2). The bot then re-runs the NPC targets (1 in 8 / 12 / 15 / 20; about 27 Nascent Soul, about 3 Hóa Thần) and the player edge with both (#43 Open Questions 2 and 12) | systems-designer, Balance Harness | The Realms revision |
 | 25 | **Hand-off from Trade Goods (#45, 2026-11-14), pending:** crafted-pill demand includes breakthrough pills. Per realm, Realms supplies the share of cultivators attempting a breakthrough this season (`bt_rate`), the value of the breakthrough pill they buy (`V_bt`) and that pill's tier (`tp_bt`) (Trade Goods Formula H) | Realms, Trade Goods | The Realms revision |
