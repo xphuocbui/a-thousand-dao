@@ -1,7 +1,6 @@
 # World depth in the running game: plan (2026-11-25, rewritten 2026-11-26)
 
-**Status:** PLAN. The content review and its fixes are done. The art is painted (portraits in the xianxia style,
-places in the grand style). Stage 0 is next.
+**Status:** COMPLETE (Stages 0-11 + offline 1,769-entry cast precompute shipped through 2026-11-28; commits `bfc48f75`, `c75beac2`, `c5e2ecec`, `408fc35a`, `3941106f`, `31cd736e`).
 
 **Asked:**
 - the user, 2026-11-25: "before the implementation work, could you please first mark down the plan, then before the
@@ -33,6 +32,13 @@ groups 1-12:
 The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
 
 ## Start here (for a new session)
+
+**Completion & Hand-off (2026-11-28):** All World Depth Stages 0-11, post-overnight balance/combat/Darkness follow-ups (`3941106f`), and the offline 1,769-entry Power Rankings cast precompute (`31cd736e`) are complete and verified green on `main` (1,486/1,486 GdUnit4 across 169 processes, 10 Python checks, `export_cast_ratings.gd --check`). For all next-session work, start at:
+- `production/todo.md` (Section 6: Next Session Continuity Plan, Phases A–D);
+- `design/gdd/systems-index.md` (live system statuses, Progress Tracker, and Next Steps);
+- `production/session-state/active.md` (current HEAD status and guardrails).
+
+The 2026-11-26 working notes below are kept for historical reference.
 
 0. **Resume point (2026-11-26, late): Băng Tâm Các has finished Stages 6 and 7** (last commit 07e6f3b3; its gap report
    reads 0). The record is `production/plans/stage6/bang_tam.md`, with its review in `bang_tam-review.md`.
@@ -578,12 +584,13 @@ Each job follows this method through step 6; with decisions auto-accepted it doe
   (Linh Căn OQ 16).
 - Builds a little overpowered are fine; do not chase outliers or loop rebalances (memory: balance depth).
 - The one design review over everything, per the user's rule of one pass at the end.
-- **Later (user, 2026-11-26): precompute the cast's ranking.** With the large fixed cast (1,889 authored people), run
-  the full Power Rankings panels for the cast offline, ship the result as the game's initial ranking, and at world
-  generation only insert the newly generated characters at their right place, instead of rating everyone at start
-  (today: provisional ratings by Formulas G, then background panels; Power Rankings rules 16 and the Provisional and
-  Stale states). Needs a Power Rankings GDD amendment and a re-run whenever the cast or the fight data changes. Not
-  scheduled; do it when the cast and its builds settle.
+- **DONE (`31cd736e`, 2026-11-28): precompute the cast's ranking.** Shipped post-Đạo-Đồ `POST_DAO_DO_TYPICAL`
+  reference fighters (`combat_reference_fighters.json` & `t6` mirrors), recalibrated `combat_rankings.json`
+  (`data_version 6c829cf0107774f4`, `k_max = 256`, 0 saturation errors across 2,560 rung gaps, 0/2 Hóa Thần & 0/27
+  Nguyên Anh clipping), offline `tools/design/ranking/export_cast_ratings.gd` -> `assets/data/cast_ratings.json`
+  (1,748 living cast + 21 beasts = 1,769 entries), `RatingService` digest validation & Rule 16 fallback, and synced
+  `design/gdd/power-rankings.md` (Core Rule 16a, `AC-PR-58/59`) + `docs/data-schemas.md`. Re-run
+  `export_cast_ratings.gd` whenever cast builds or fight data change.
 
 ## Before Stage 0: the content review (DONE 2026-11-25)
 
