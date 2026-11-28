@@ -19,6 +19,8 @@ extends RefCounted
 const LOANS_REC := "w_loans"
 ## WorldDB [code]world[/code] table record id holding scheduled interaction follow-up events.
 const FOLLOWUPS_REC := "w_followups"
+const _EventEngine := preload("res://src/gameplay/events/event_engine.gd")
+const _QuestService := preload("res://src/gameplay/quests/quest_service.gd")
 
 var _gd: GameData
 var _db: WorldDB
@@ -30,6 +32,7 @@ var _resolver: EventResolver
 var _templates: EventTemplateSource
 var _validator: EventValidator
 var _ratings: RatingService
+var _quests: _QuestService
 var _combat_service: CombatService
 
 
@@ -43,7 +46,8 @@ func _init(
 	resolver: EventResolver,
 	templates: EventTemplateSource,
 	validator: EventValidator,
-	ratings: RatingService = null
+	ratings: RatingService = null,
+	quests: _QuestService = null
 ) -> void:
 	_gd = gd
 	_db = db
@@ -55,6 +59,7 @@ func _init(
 	_templates = templates
 	_validator = validator
 	_ratings = ratings
+	_quests = quests
 
 
 # --- Read-Only Menu Query (ADR-0006 decision 1: never writes) ---------------------------------------------------------
@@ -398,8 +403,18 @@ func _exec_greet(session: GameSession, npc: Dictionary, _sh: StatSheet, pr: floa
 	session.meet(npc)
 	var meta: Dictionary = _ensure_meta(npc, season_now, year_now)
 
-	# AC-NI-12: complete any active visit quest stage naming this NPC.
+	# AC-NI-12 / AC-QS-43: complete any active visit quest stage naming this NPC (no season action spent).
 	var completed_visits: Array = _complete_visits(player, npc_id, effect_lines, str(npc.name))
+	if _quests != null:
+		var q_visits: Array = _quests.on_greet_npc(player, npc_id, session.year, session.season, {"season_idx": season_now})
+		for qv in q_visits:
+			if qv is Dictionary and bool((qv as Dictionary).get("ok", false)):
+				var qrec: Dictionary = Dictionary((qv as Dictionary).get("quest", {}))
+				var qid: String = str(qrec.get("id", (qv as Dictionary).get("quest_id", "")))
+				if qid != "" and not completed_visits.has(qid):
+					completed_visits.append(qid)
+				var qname: String = str(qrec.get("name", qid))
+				effect_lines.append("Completed visit stage for '%s' (%s)." % [qname, str(npc.name)])
 
 	var result_key: String = "accept"
 	if not was_met:
@@ -559,19 +574,35 @@ func _exec_gift(session: GameSession, npc: Dictionary, _verb: Dictionary, _sh: S
 
 func _exec_work(session: GameSession, npc: Dictionary, verb: Dictionary, sh: StatSheet, season_now: int, year_now: int, effect_lines: Array) -> Dictionary:
 	var player: Character = session.player
-	_complete_visits(player, str(npc.id), effect_lines, str(npc.name))
+	var npc_id: String = str(npc.id)
+	_complete_visits(player, npc_id, effect_lines, str(npc.name))
+	if _quests != null:
+		var q_visits: Array = _quests.on_greet_npc(player, npc_id, session.year, session.season, {"season_idx": season_now})
+		for qv in q_visits:
+			if qv is Dictionary and bool((qv as Dictionary).get("ok", false)):
+				var qrec: Dictionary = Dictionary((qv as Dictionary).get("quest", {}))
+				effect_lines.append("Completed visit stage for '%s' (%s)." % [str(qrec.get("name", qrec.get("id", ""))), str(npc.name)])
 	var sc: Dictionary = InteractionRules.acceptance_score(_gd, _db, verb, player, sh, npc, _sect_standing(player, npc), {}, "", season_now)
 	var meta: Dictionary = _ensure_meta(npc, season_now, year_now)
 	if not bool(sc.accept):
 		meta["season_count"] = int(meta.season_count) + 1
 		return {"ok": true, "accepted": false, "result_key": "refuse"}
 	var offer: Dictionary = Dictionary(npc.get("quest_offer", {}))
-	if offer.is_empty():
-		return {"ok": true, "accepted": true, "no_work": true, "result_key": "no_work"}
-	meta["season_count"] = int(meta.season_count) + 1
-	_set_cooldown(meta, "work", season_now + int(verb.get("cooldown", 1)))
-	effect_lines.append("Work accepted: %s" % str(offer.get("title", "task")))
-	return {"ok": true, "accepted": true, "quest_offer": offer.duplicate(true), "result_key": "accept"}
+	if not offer.is_empty():
+		meta["season_count"] = int(meta.season_count) + 1
+		_set_cooldown(meta, "work", season_now + int(verb.get("cooldown", 1)))
+		effect_lines.append("Work accepted: %s" % str(offer.get("title", "task")))
+		return {"ok": true, "accepted": true, "quest_offer": offer.duplicate(true), "result_key": "accept"}
+	if _quests != null:
+		var q_res: Dictionary = _quests.ask_for_work(player, sh, npc_id, session.seed_value, season_now, {"place_id": player.location_id})
+		if bool(q_res.get("ok", false)) and str(q_res.get("result", "")) == "offered":
+			var q_offer: Dictionary = Dictionary(q_res.get("quest", {})).duplicate(true)
+			meta["season_count"] = int(meta.season_count) + 1
+			_set_cooldown(meta, "work", season_now + int(verb.get("cooldown", 1)))
+			effect_lines.append("Quest offered: %s [%s]" % [str(q_offer.get("name", "commission")), str(q_offer.get("id", ""))])
+			return {"ok": true, "accepted": true, "quest_offer": q_offer, "quest": q_offer, "result_key": "accept"}
+		return {"ok": true, "accepted": true, "no_work": true, "reason": str(q_res.get("reason", "")), "result_key": "no_work"}
+	return {"ok": true, "accepted": true, "no_work": true, "result_key": "no_work"}
 
 
 func _exec_teach(session: GameSession, npc: Dictionary, verb: Dictionary, sh: StatSheet, season_now: int, year_now: int, params: Dictionary, effect_lines: Array) -> Dictionary:
@@ -1717,6 +1748,8 @@ func _pull_news_item(session: GameSession, npc: Dictionary, season_now: int) -> 
 		var eid: String = str(ev.get("id", ""))
 		if eid == "" or seen_ev.has(eid):
 			continue
+		if _EventEngine.is_hidden_chronicle(ev):
+			continue
 		var ev_abs: int = int(ev.get("year", 0)) * spyr + int(ev.get("season", 0))
 		if season_now - ev_abs > 4 or ev_abs > season_now:
 			continue
@@ -1743,6 +1776,8 @@ func _pull_history_lore(session: GameSession, npc: Dictionary) -> Dictionary:
 		var ev: Dictionary = all_ev[i]
 		var eid: String = str(ev.get("id", ""))
 		if eid == "" or seen.has(eid):
+			continue
+		if _EventEngine.is_hidden_chronicle(ev):
 			continue
 		var txt: String = str(ev.get("text", "")).strip_edges()
 		if txt == "":

@@ -1,0 +1,3200 @@
+{
+  "schema_version": 1,
+  "stories": [
+    {
+      "id": "story_chronicle_lang_dao_03",
+      "name": "Thuế Bến Ngư Ca",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.0,
+      "items_max": 2,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_arrive",
+        "conditions": {
+          "type": "chronicle_hidden",
+          "chronicle_id": "N-lang_dao-03"
+        }
+      },
+      "scopes": {
+        "other": {
+          "mode": "cast_key",
+          "key": "giang_cuu_khuc"
+        },
+        "sect": {
+          "mode": "named_key",
+          "key": "lang_dao"
+        }
+      },
+      "variables": {
+        "clues": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1_whisper",
+          "event_id": "st_lang_dao_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2_ledger",
+          "event_id": "st_lang_dao_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "clues",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3_uncover",
+          "event_id": "st_lang_dao_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "clues",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_chronicle_lang_dao_03.abandoned"
+      ],
+      "required_living_scopes": [],
+      "on_scope_death": {},
+      "log_done": "{player} phơi bày sự thật về khoản thuế trái lệnh của Lãng Đào Môn tại bến Ngư Ca.",
+      "log_failed": "Cuộc điều tra chuyện thuế bến Ngư Ca của {player} đứt đoạn giữa chừng.",
+      "log_timeout": "Dấu vết khoản thuế cũ ở bến Ngư Ca dần chìm vào quên lãng."
+    },
+    {
+      "id": "story_chronicle_suong_tung_02",
+      "name": "Chiếc Hộp Cấm Chế Ca Sư",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.0,
+      "items_max": 2,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_arrive",
+        "conditions": {
+          "type": "chronicle_hidden",
+          "chronicle_id": "N-suong_tung-02"
+        }
+      },
+      "scopes": {
+        "sect": {
+          "mode": "named_key",
+          "key": "tung_dao"
+        }
+      },
+      "variables": {
+        "notes": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1_melody",
+          "event_id": "st_suong_tung_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2_seal",
+          "event_id": "st_suong_tung_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "notes",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3_box",
+          "event_id": "st_suong_tung_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "notes",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_chronicle_suong_tung_02.abandoned"
+      ],
+      "required_living_scopes": [],
+      "on_scope_death": {},
+      "log_done": "{player} mở niêm phong chiếc hộp ghi chép cấm chế bằng khúc hát giữa Sương Tùng và Tùng Đào.",
+      "log_failed": "Hành trình tìm chiếc hộp cấm chế của {player} dừng lại giữa chừng.",
+      "log_timeout": "Dấu vết khúc hát cấm chế năm 1135 tan vào sương núi."
+    },
+    {
+      "id": "story_chronicle_thai_chi_04",
+      "name": "Ánh Đèn Ruộng Dưới Thải Chi",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.0,
+      "items_max": 2,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_arrive",
+        "conditions": {
+          "type": "chronicle_hidden",
+          "chronicle_id": "N-thai_chi-04"
+        }
+      },
+      "scopes": {
+        "other": {
+          "mode": "cast_key",
+          "key": "nghiem_linh_chi"
+        },
+        "place": {
+          "mode": "named_continent_id",
+          "id": 12
+        }
+      },
+      "variables": {
+        "trust": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1_lamp",
+          "event_id": "st_thai_chi_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2_field",
+          "event_id": "st_thai_chi_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "trust",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3_uncover",
+          "event_id": "st_thai_chi_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "trust",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_chronicle_thai_chi_04.abandoned"
+      ],
+      "required_living_scopes": [],
+      "on_scope_death": {},
+      "log_done": "{player} làm sáng tỏ chuyện chủ cốc Thải Chi lặng lẽ cứu chữa kẻ cướp Lạc Hà năm 1174.",
+      "log_failed": "Ngươi dừng tìm hiểu chuyện ánh đèn đêm ở ruộng dưới Thải Chi.",
+      "log_timeout": "Ánh đèn đêm ở ruộng dưới Thải Chi chỉ còn là lời đồn mơ hồ."
+    },
+    {
+      "id": "story_chronicle_van_hac_03",
+      "name": "Bản Nhạc Không Chữ",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.5,
+      "items_max": 3,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_talk",
+        "conditions": {
+          "type": "chronicle_hidden",
+          "chronicle_id": "N-van_hac-03"
+        }
+      },
+      "scopes": {
+        "other": {
+          "mode": "cast_key",
+          "key": "ha_thinh_tung"
+        },
+        "place": {
+          "mode": "named_continent_id",
+          "id": 11
+        }
+      },
+      "variables": {
+        "trust": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1_whisper",
+          "event_id": "st_van_hac_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2_recital",
+          "event_id": "st_van_hac_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "trust",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3_uncover",
+          "event_id": "st_van_hac_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "trust",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_chronicle_van_hac_03.broken"
+      ],
+      "required_living_scopes": [],
+      "on_scope_death": {},
+      "log_done": "{player} khám phá bí mật bản nhạc không chữ giữa Tùng Đào Cung và Vạn Hác Viện.",
+      "log_failed": "Duyên tìm hiểu khúc nhạc cổ của {player} đứt đoạn giữa chừng.",
+      "log_timeout": "Câu chuyện về khúc nhạc cổ phai nhạt theo năm tháng."
+    },
+    {
+      "id": "story_chronicle_clans_09",
+      "name": "Sự Im Lặng Ở Phong Lâm",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.0,
+      "items_max": 2,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_arrive",
+        "conditions": {
+          "type": "chronicle_hidden",
+          "chronicle_id": "N-clans-09"
+        }
+      },
+      "scopes": {
+        "place": {
+          "mode": "named_continent_id",
+          "id": 79
+        }
+      },
+      "variables": {
+        "letters": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1_silence",
+          "event_id": "st_clans_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2_courier",
+          "event_id": "st_clans_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "letters",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3_uncover",
+          "event_id": "st_clans_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "letters",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_chronicle_clans_09.abandoned"
+      ],
+      "required_living_scopes": [],
+      "on_scope_death": {},
+      "log_done": "{player} phát hiện sự cắt đứt âm thầm giữa hai họ Vương – Tạ tại Phong Lâm từ năm 1160.",
+      "log_failed": "Ngươi dừng tra xét chuyện hai họ Vương – Tạ ở Phong Lâm.",
+      "log_timeout": "Sự im lặng giữa hai họ Vương – Tạ vẫn không lời giải đáp."
+    },
+    {
+      "id": "story_cast_mac_quy_khu",
+      "name": "Lời Đáp Bên Quy Khư Bình",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.5,
+      "items_max": 3,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_talk",
+        "conditions": {
+          "type": "cast_key",
+          "scope": "other",
+          "value": "mac_quy_khu"
+        }
+      },
+      "scopes": {
+        "other": {
+          "mode": "cast_key",
+          "key": "mac_quy_khu"
+        },
+        "place": {
+          "mode": "named_continent_id",
+          "id": 198
+        }
+      },
+      "variables": {
+        "bond": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1",
+          "event_id": "st_mqk_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2",
+          "event_id": "st_mqk_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "bond",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3",
+          "event_id": "st_mqk_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "bond",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_cast_mac_quy_khu.failed"
+      ],
+      "required_living_scopes": [
+        "other"
+      ],
+      "on_scope_death": {
+        "other": ""
+      },
+      "log_done": "{player} hoàn thành cuộc vấn đạo sâu xa cùng Mạc Quy Khư.",
+      "log_failed": "Duyên vấn đạo cùng Mạc Quy Khư dừng lại giữa chừng.",
+      "log_timeout": "Mùa xuân trôi qua, lời hẹn cùng Mạc Quy Khư lặng lẽ khép lại."
+    },
+    {
+      "id": "story_cast_so_ngoc_ho",
+      "name": "Ngọc Hồ Trận Rạn Nứt",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.5,
+      "items_max": 3,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_talk",
+        "conditions": {
+          "type": "cast_key",
+          "scope": "other",
+          "value": "so_ngoc_ho"
+        }
+      },
+      "scopes": {
+        "other": {
+          "mode": "cast_key",
+          "key": "so_ngoc_ho"
+        },
+        "place": {
+          "mode": "named_continent_id",
+          "id": 214
+        }
+      },
+      "variables": {
+        "bond": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1",
+          "event_id": "st_snh_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2",
+          "event_id": "st_snh_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "bond",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3",
+          "event_id": "st_snh_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "bond",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_cast_so_ngoc_ho.failed"
+      ],
+      "required_living_scopes": [
+        "other"
+      ],
+      "on_scope_death": {
+        "other": ""
+      },
+      "log_done": "{player} góp sức gia cố Ngọc Hồ Trận cho Sở Ngọc Hồ và Băng Tâm Các.",
+      "log_failed": "Công việc trợ giúp Sở Ngọc Hồ bị gián đoạn.",
+      "log_timeout": "Thời cơ tu sửa Ngọc Hồ Trận đã qua đi theo năm tháng."
+    },
+    {
+      "id": "story_cast_manh_da_vu",
+      "name": "Bóng Đêm Đan Sơn Mạch",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.5,
+      "items_max": 3,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_talk",
+        "conditions": {
+          "type": "cast_key",
+          "scope": "other",
+          "value": "manh_da_vu"
+        }
+      },
+      "scopes": {
+        "other": {
+          "mode": "cast_key",
+          "key": "manh_da_vu"
+        },
+        "place": {
+          "mode": "named_continent_id",
+          "id": 874
+        }
+      },
+      "variables": {
+        "bond": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1",
+          "event_id": "st_mdv_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2",
+          "event_id": "st_mdv_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "bond",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3",
+          "event_id": "st_mdv_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "bond",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_cast_manh_da_vu.failed"
+      ],
+      "required_living_scopes": [
+        "other"
+      ],
+      "on_scope_death": {
+        "other": ""
+      },
+      "log_done": "{player} chứng kiến trọn vẹn nước cờ và bí mật của Mạnh Dạ Vũ.",
+      "log_failed": "Mối giao kết với Mạnh Dạ Vũ đứt gãy giữa chừng.",
+      "log_timeout": "Cơn mưa Thính Vũ Lâu lắng xuống, chuyện Đan Sơn Mạch tạm khép lại."
+    },
+    {
+      "id": "story_cast_ngu_lam_son",
+      "name": "Mạch Đá Cũ Thúy Vi",
+      "priority": false,
+      "once_per_world": true,
+      "npc_capable": false,
+      "budget_mult": 2.0,
+      "items_max": 2,
+      "timeout_seasons": 24,
+      "start": {
+        "mode": "hook",
+        "hook": "on_talk",
+        "conditions": {
+          "type": "cast_key",
+          "scope": "other",
+          "value": "ngu_lam_son"
+        }
+      },
+      "scopes": {
+        "other": {
+          "mode": "cast_key",
+          "key": "ngu_lam_son"
+        },
+        "place": {
+          "mode": "named_continent_id",
+          "id": 1110
+        }
+      },
+      "variables": {
+        "bond": {
+          "init": 0,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "stages": [
+        {
+          "id": "s1",
+          "event_id": "st_nls_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2",
+          "event_id": "st_nls_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "bond",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3",
+          "event_id": "st_nls_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "bond",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_cast_ngu_lam_son.failed"
+      ],
+      "required_living_scopes": [
+        "other"
+      ],
+      "on_scope_death": {
+        "other": ""
+      },
+      "log_done": "{player} hiểu trọn tâm ý giữ gìn Thúy Vi Tông của Ngu Lam Sơn.",
+      "log_failed": "Chuyện thăm dò sơn môn cũ Thúy Vi dừng lại.",
+      "log_timeout": "Sương xanh phủ kín Thúy Vi, câu chuyện năm xưa lắng vào quá khứ."
+    },
+    {
+      "id": "story_ancient_abode_three_visits",
+      "name": "Động Phủ Ba Lần Gõ Cửa",
+      "priority": false,
+      "once_per_world": false,
+      "npc_capable": false,
+      "budget_mult": 2.0,
+      "items_max": 2,
+      "timeout_seasons": 16,
+      "start": {
+        "mode": "event",
+        "hook": "",
+        "conditions": {}
+      },
+      "scopes": {
+        "place": {
+          "mode": "current"
+        }
+      },
+      "variables": {
+        "seals_opened": {
+          "init": 0,
+          "min": 0,
+          "max": 3
+        }
+      },
+      "stages": [
+        {
+          "id": "s1_outer",
+          "event_id": "st_abode_1",
+          "conditions": {}
+        },
+        {
+          "id": "s2_inner",
+          "event_id": "st_abode_2",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "seals_opened",
+            "op": ">=",
+            "value": 1
+          }
+        },
+        {
+          "id": "s3_chamber",
+          "event_id": "st_abode_3",
+          "conditions": {
+            "type": "var_cmp",
+            "scope": "story",
+            "var": "seals_opened",
+            "op": ">=",
+            "value": 2
+          },
+          "end": "done"
+        }
+      ],
+      "fail_flags": [
+        "story_ancient_abode_three_visits.collapsed"
+      ],
+      "required_living_scopes": [],
+      "on_scope_death": {},
+      "log_done": "{player} mở trọn ba tầng cấm chế của cổ động phủ và thu hoạch di bảo.",
+      "log_failed": "Cổ động phủ sụp đổ trước khi {player} kịp mở tầng cuối.",
+      "log_timeout": "Dấu vết cổ động phủ bị đất đá che lấp theo thời gian."
+    }
+  ],
+  "events": [
+    {
+      "id": "st_lang_dao_1",
+      "kind": "story",
+      "story_id": "story_chronicle_lang_dao_03",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Lời thì thầm của lái đò sông lớn",
+      "text": "Bên bến nước gần {place}, một lão lái đò nhắc khẽ rằng trước Chiến tranh Đò Sông, thuyền Lạc Hà từng phải nộp một thứ thuế lạ ở bến Ngư Ca mà lệnh bài Tùng Đào chưa hề ghi.",
+      "log": "{root} nghe manh mối đầu tiên về khoản thuế lạ ở bến Ngư Ca.",
+      "choices": [
+        {
+          "label": "Mời rượu lão lái đò để hỏi tên sổ thu (Mị lực)",
+          "tags": [
+            "social",
+            "diligent"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 45
+          },
+          "always": [],
+          "success": {
+            "text": "Lão chỉ chỗ cất bản sao phiếu thuế cũ ở kho thuyền.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "clues",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_ledger"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Lão sợ liên lụy nên chỉ nhắc vài chữ rời rạc, nhưng vẫn đủ để ngươi lần tiếp.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "clues",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_ledger"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Gác lại chuyện cũ sông nước",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi không muốn dính líu tới ân oán hai tông môn.",
+            "effects": [
+              {
+                "type": "set_flag",
+                "scope": "story",
+                "flag": "story_chronicle_lang_dao_03.abandoned"
+              },
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_lang_dao_2",
+      "kind": "story",
+      "story_id": "story_chronicle_lang_dao_03",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Bản sao phiếu thuế Ngư Ca",
+      "text": "Trong kho giấy cũ gần {place}, ngươi tìm thấy xấp phiếu thu đóng ấn chủ đò Lãng Đào từ năm 1162 — đúng mười năm trước khi chiến hỏa bùng nổ.",
+      "log": "{root} tìm thấy xấp phiếu thuế Ngư Ca từ năm 1162.",
+      "choices": [
+        {
+          "label": "Đối chiếu con dấu với lệnh bài Tùng Đào (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "honest"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 48
+          },
+          "always": [],
+          "success": {
+            "text": "Ấn ký xác thực hoàn toàn: Tùng Đào Cung chưa từng ban thứ thuế này!",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "clues",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_uncover"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Mực hơi phai nhưng nét khắc vẫn đủ làm bằng chứng rõ ràng.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "clues",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_uncover"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Đốt hủy phiếu cũ tránh sinh biến",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Xấp giấy hóa tro, bí mật năm xưa tiếp tục bị chôn vùi.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_lang_dao_3",
+      "kind": "story",
+      "story_id": "story_chronicle_lang_dao_03",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Sự thật bến Ngư Ca ra ánh sáng",
+      "text": "Mọi mảnh ghép đã rõ: chính chủ đò Lãng Đào Môn đã tự ý thu thuế thuyền Lạc Hà tại bến Ngư Ca, châm ngòi cho mối oán kéo Tùng Đào Cung vào cuộc chiến.",
+      "log": "{root} ghi chép sự thật về khoản thuế bến Ngư Ca vào sử sách.",
+      "choices": [
+        {
+          "label": "Công bố bằng chứng vào biên niên sử",
+          "tags": [
+            "honest",
+            "just"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Sự kiện bị che giấu năm 1162 được vén màn và ghi nhận vào sử biên niên!",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-lang_dao-03"
+              },
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.15,
+                  0.25
+                ]
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Ghi chép vào sổ riêng rồi âm thầm truyền ra giới sử gia",
+          "tags": [
+            "cautious",
+            "pragmatic"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Không lâu sau, sự thật bến Ngư Ca vẫn được sử gia xác nhận và ghi chép đầy đủ.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-lang_dao-03"
+              },
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.15,
+                  0.25
+                ],
+                "source": "commons"
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_suong_tung_1",
+      "kind": "story",
+      "story_id": "story_chronicle_suong_tung_02",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Khúc hát bày trận năm xưa",
+      "text": "Trong bia đá đổ gần {place}, ngươi nghe kể về một ca sư già của Trận Đường Tùng Đào từng bày cấm chế chỉ bằng tiếng hát — và người sáng lập Sương Tùng đã lén chép lại.",
+      "log": "{root} tìm thấy dấu tích khúc hát bày trận của ca sư Trận Đường.",
+      "choices": [
+        {
+          "label": "Dò theo tiết tấu trận văn khắc trên đá (Ngộ tính)",
+          "tags": [
+            "diligent"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 48
+          },
+          "always": [],
+          "success": {
+            "text": "Nhịp điệu khớp nhau hé lộ phương vị chiếc hộp niêm phong.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "notes",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_seal"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Ngươi mất công suy diễn lâu hơn nhưng vẫn tìm ra manh mối tiếp theo.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "notes",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_seal"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Bỏ qua giai thoại cũ",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi không đào sâu thêm vào bí mật trận pháp cổ.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_suong_tung_2",
+      "kind": "story",
+      "story_id": "story_chronicle_suong_tung_02",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Niêm phong âm luật dưới gốc tùng",
+      "text": "Một hốc đá cổ gần {place} cất giữ chiếc hộp gỗ sơn đen phủ đầy phù văn âm luật từ năm 1135.",
+      "log": "{root} tìm thấy chiếc hộp niêm phong phù văn âm luật.",
+      "choices": [
+        {
+          "label": "Dẫn linh lực gõ đúng ba nhịp mở niêm (Thần hồn)",
+          "tags": [
+            "diligent",
+            "bold"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 50
+          },
+          "always": [],
+          "success": {
+            "text": "Phù văn sáng dịu rồi tự tách mở mà không làm hỏng giấy bên trong.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "notes",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_box"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Phù văn phản chấn nhẹ, nhưng nắp hộp cuối cùng cũng hé mở.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 12
+              },
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "notes",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_box"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Để nguyên chiếc hộp không động vào",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi khép hốc đá lại, giữ kín bí mật năm xưa.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_suong_tung_3",
+      "kind": "story",
+      "story_id": "story_chronicle_suong_tung_02",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Bản chép cấm chế của Sương Tùng",
+      "text": "Bên trong hộp là những trang giấy chép nguyên vẹn các cấm chế mà vị ca sư già Trận Đường Tùng Đào từng bày bằng tiếng hát, có lời đề tay của người sáng lập Sương Tùng.",
+      "log": "{root} hé lộ lịch sử chiếc hộp cấm chế Sương Tùng năm 1135.",
+      "choices": [
+        {
+          "label": "Sao chép nghiên cứu và ghi sự việc vào sử sách",
+          "tags": [
+            "diligent",
+            "honest"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Bí mật năm 1135 được công bố vào biên niên sử; ngươi cũng lĩnh hội thêm tinh hoa trận đạo.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-suong_tung-02"
+              },
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.18,
+                  0.3
+                ]
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Ghi chép công bố rồi niêm hộp lại trao cho người giữ sử",
+          "tags": [
+            "humble",
+            "just"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Bản ghi lịch sử được bổ sung đầy đủ mà không gây xáo trộn trận mạch.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-suong_tung-02"
+              },
+              {
+                "type": "material",
+                "rarity_max": 3
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_thai_chi_1",
+      "kind": "story",
+      "story_id": "story_chronicle_thai_chi_04",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Mùi thuốc đêm ở ruộng dưới",
+      "text": "Đêm xuống gần {place}, một dược đồng lớn tuổi lỡ miệng kể rằng năm 1174 từng thấy ánh đèn sáng suốt đêm ở ruộng dưới Thải Chi Cốc, nồng mùi thuốc trị kiếm thương.",
+      "log": "{root} nghe chuyện ánh đèn đêm năm 1174 ở ruộng dưới Thải Chi Cốc.",
+      "choices": [
+        {
+          "label": "Nhẹ nhàng hỏi thêm về những thương binh đêm ấy (Mị lực)",
+          "tags": [
+            "merciful",
+            "social"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 45
+          },
+          "always": [],
+          "success": {
+            "text": "Dược đồng kể họ mặc áo rách mang phù hiệu Lạc Hà Tông, bị thương ở Đào Sa.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "trust",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_field"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Dược đồng ngập ngừng chỉ về phía chòi canh ruộng dưới.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "trust",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_field"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Không hỏi thêm chuyện cũ của dược cốc",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi khép lại câu chuyện để giữ sự bình yên cho thung lũng.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_thai_chi_2",
+      "kind": "story",
+      "story_id": "story_chronicle_thai_chi_04",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Sổ dược liệu khuyết trang",
+      "text": "Trong chòi phơi thuốc ở {place}, một quyển sổ phát thuốc năm 1174 ghi lượng lớn kim sang dược xuất kho không tên người nhận, kèm nét chữ mềm mại của cốc chủ.",
+      "log": "{root} xem quyển sổ phát thuốc năm 1174 tại Thải Chi Cốc.",
+      "choices": [
+        {
+          "label": "Kiểm chứng nét chữ và đối chiếu biến cố Đào Sa (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "honest"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 46
+          },
+          "always": [],
+          "success": {
+            "text": "Ngày xuất thuốc trùng khít với đêm toán cướp Lạc Hà thua trận ở Đào Sa.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "trust",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_uncover"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Dù thiếu vài dòng, dấu vết băng gạc cũ vẫn xác nhận điều đó.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "trust",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_uncover"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Đặt sổ lại chỗ cũ rồi rút lui",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi không đào bới thêm chuyện riêng của cốc chủ.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_thai_chi_3",
+      "kind": "story",
+      "story_id": "story_chronicle_thai_chi_04",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Lòng y giả dưới ánh đèn khuya",
+      "text": "Sự thật hiển lộ: năm 1174, giữa lúc hai phe gầm ghè, bà chủ thung lũng Thải Chi vẫn lặng lẽ chữa thương cho những kẻ cướp Lạc Hà bị thương ở Đào Sa rồi thả họ về nhà.",
+      "log": "{root} ghi nhận sự thật ánh đèn ruộng dưới Thải Chi vào sử biên niên.",
+      "choices": [
+        {
+          "label": "Ghi chép công tâm lòng từ bi ấy vào sử sách",
+          "tags": [
+            "merciful",
+            "honest"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Câu chuyện năm 1174 được vén màn trong biên niên sử; ngươi cũng nhận được gốc linh thảo quý từ ruộng dược.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-thai_chi-04"
+              },
+              {
+                "type": "herb",
+                "age_range": [
+                  20,
+                  60
+                ],
+                "rarity_max": 4
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Ghi lại sự thật như lời nhắc về cái giá của chiến tranh",
+          "tags": [
+            "just",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Biên niên sử ghi nhận đầy đủ sự kiện Thải Chi năm 1174; đạo tâm ngươi càng sáng tỏ.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-thai_chi-04"
+              },
+              {
+                "type": "tam_ma",
+                "amount": -8
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_van_hac_1",
+      "kind": "story",
+      "story_id": "story_chronicle_van_hac_03",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Phổ cầm lạ từ năm 1162",
+      "text": "Trên hiên đá Vạn Hác gần {place}, một khúc cầm phổ viết bằng ký hiệu của Vạn Hác Viện nhưng nhịp phách lại tựa tiếng gió qua rặng thông Tùng Đào khiến ngươi lưu tâm.",
+      "log": "{root} chú ý tới khúc cầm phổ lạ tại Vạn Hác Viện.",
+      "choices": [
+        {
+          "label": "Lắng nghe tinh tế từng nhịp chuyển âm (Thần hồn)",
+          "tags": [
+            "diligent",
+            "humble"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 48
+          },
+          "always": [],
+          "success": {
+            "text": "Không phải âm nhạc tầm thường — mỗi đoạn ngắt nhịp đều mang cấu trúc khẩu quyết!",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "trust",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_recital"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Ngươi chưa giải được hết nhưng chắc chắn khúc phổ này giấu điều lớn.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "trust",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_recital"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Chỉ thưởng nhạc như khách qua đường",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Tiếng đàn tan vào gió núi; ngươi không dò hỏi thêm.",
+            "effects": [
+              {
+                "type": "set_flag",
+                "scope": "story",
+                "flag": "story_chronicle_van_hac_03.broken"
+              },
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_van_hac_2",
+      "kind": "story",
+      "story_id": "story_chronicle_van_hac_03",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Dư âm cuộc tấu đàn kín",
+      "text": "Một cầm đồng cao tuổi nhớ lại đêm năm 1162: người kế vị của Tùng Đào từng ghé Vạn Hác Viện đàn một khúc riêng cho chưởng môn Hà Thính Tùng nghe đến tận khuya.",
+      "log": "{root} lần ra dấu tích đêm tấu đàn năm 1162 giữa Vi Thanh Âm và Hà Thính Tùng.",
+      "choices": [
+        {
+          "label": "Đem đoạn phổ cầm ra đối chiếu cùng nhịp kinh Tùng Đào (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "bold"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 52
+          },
+          "always": [],
+          "success": {
+            "text": "Bốn trăm trang kinh không chữ của rặng thông đã được mã hóa trong cầm phổ!",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "trust",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_uncover"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Dù chỉ giải được vài câu, bản chất bộ kinh không chữ đã hiện rõ trước mắt ngươi.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "trust",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_uncover"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giữ kín không chạm vào điều cấm kỵ của đại tông",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi cất đoạn phổ cầm đi, tránh gây sóng gió cho Tùng Đào.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_van_hac_3",
+      "kind": "story",
+      "story_id": "story_chronicle_van_hac_03",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Kinh không chữ giữa rặng thông",
+      "text": "Ngươi đã chứng thực điều chưởng môn Vạn Hác từng nghe thấy năm 1162: Vi Thanh Âm đã gửi gắm bộ kinh không chữ của Tùng Đào vào cầm phổ Vạn Hác Viện để tránh thất truyền.",
+      "log": "{root} vén màn bí mật bản nhạc không chữ năm 1162.",
+      "choices": [
+        {
+          "label": "Ghi chép sự thật này vào sử biên niên",
+          "tags": [
+            "honest",
+            "diligent"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Bí mật năm 1162 được ghi vào biên niên sử; ngươi lĩnh hội được một phần đạo vận từ tiếng đàn.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-van_hac-03"
+              },
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.2,
+                  0.35
+                ]
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Ghi nhận sử liệu nhưng giữ kín nơi cất bản phổ gốc",
+          "tags": [
+            "merciful",
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Sự kiện năm 1162 hiện lên trong sử sách mà vẫn giữ được tấm lòng truyền thừa của đôi bên.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-van_hac-03"
+              },
+              {
+                "type": "tam_ma",
+                "amount": -8
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_clans_1",
+      "kind": "story",
+      "story_id": "story_chronicle_clans_09",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Trạm dịch bỏ trống tuyến thư",
+      "text": "Ở trạm dịch Phong Lâm gần {place}, sổ giao nhận thư từ nhà Vương sang nhà Tạ vốn đều đặn suốt hàng trăm năm bỗng đứt hẳn từ mùa thu năm 1160 mà không hề có lời giải thích.",
+      "log": "{root} nhận ra tuyến thư Vương – Tạ tại Phong Lâm đứt đoạn từ năm 1160.",
+      "choices": [
+        {
+          "label": "Hỏi chủ trạm về bức thư cuối cùng (Mị lực)",
+          "tags": [
+            "social",
+            "diligent"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 45
+          },
+          "always": [],
+          "success": {
+            "text": "Chủ trạm chỉ ngươi tìm người đưa thư già từng chạy tuyến ấy.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "letters",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_courier"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Chủ trạm không biết nguyên do, nhưng cho ngươi xem trang sổ cũ năm 1160.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "letters",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_courier"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Chuyện riêng các thế gia, không nên can dự",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi khép sổ dịch trạm lại và rời đi.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_clans_2",
+      "kind": "story",
+      "story_id": "story_chronicle_clans_09",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Bức thư không bao giờ gửi",
+      "text": "Người đưa thư già ở {place} xác nhận: không có cãi vã, không có cáo thị — nhà Vương đơn giản ngừng viết cho nhà Tạ từ năm 1160, và chẳng ai ở Phong Lâm được thông báo.",
+      "log": "{root} xác minh sự đoạn tuyệt không lời giữa nhà Vương và nhà Tạ.",
+      "choices": [
+        {
+          "label": "Kiểm chứng thêm dấu niêm phong gia tộc năm 1160 (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "honest"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 45
+          },
+          "always": [],
+          "success": {
+            "text": "Mọi bằng chứng trùng khớp: sự im lặng kéo dài bốn mươi năm không phải ngẫu nhiên.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "letters",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_uncover"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Dấu niêm đã cũ nhưng lời kể hai phía hoàn toàn ăn khớp.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "letters",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_uncover"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Tôn trọng sự im lặng ấy mà rút lui",
+          "tags": [
+            "humble",
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi dừng cuộc điều tra tại đây.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_clans_3",
+      "kind": "story",
+      "story_id": "story_chronicle_clans_09",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Rạn nứt không tiếng động ở Phong Lâm",
+      "text": "Bằng chứng về sự im lặng từ năm 1160 giữa nhà Vương và nhà Tạ đã rõ ràng — một vết nứt ngầm định hình cả vùng Phong Lâm suốt bốn thập kỷ.",
+      "log": "{root} ghi nhận sự đoạn tuyệt ngầm giữa hai họ Vương – Tạ năm 1160 vào sử biên niên.",
+      "choices": [
+        {
+          "label": "Ghi chép sự kiện vào biên niên sử",
+          "tags": [
+            "honest",
+            "just"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Sự im lặng năm 1160 tại Phong Lâm được ghi nhận trong sử sách.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-clans-09"
+              },
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.15,
+                  0.25
+                ],
+                "source": "commons"
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Lưu vào sử liệu để cảnh báo hậu nhân",
+          "tags": [
+            "cautious",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Sự kiện năm 1160 hiện rõ trong biên niên sử; ngươi cũng mở mang thêm hiểu biết nhân tình thế thái.",
+            "effects": [
+              {
+                "type": "uncover_chronicle",
+                "chronicle_id": "N-clans-09"
+              },
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.1,
+                  0.18
+                ]
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_mqk_1",
+      "kind": "story",
+      "story_id": "story_cast_mac_quy_khu",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "mac_quy_khu"
+      },
+      "title": "Câu hỏi duy nhất trong năm",
+      "text": "Tại {place}, {other} ({other_realm}) hé mở một phần tâm sự và giao cho ngươi phép thử đầu tiên xoay quanh câu chuyện '{story_name}'.",
+      "log": "{root} mở đầu câu chuyện cùng {other} tại {place}.",
+      "choices": [
+        {
+          "label": "Nhận lời dốc tâm tìm hiểu (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "loyal"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 50
+          },
+          "always": [],
+          "success": {
+            "text": "{other} gật đầu hài lòng trước sự thấu đáo của ngươi.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2"
+              }
+            ]
+          },
+          "failure": {
+            "text": "{other} chỉ điểm thêm đôi câu để ngươi đi tiếp bước sau.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Cáo từ, không dám gánh việc lớn",
+          "tags": [
+            "cautious",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{other} khẽ thở dài rồi cho ngươi lui bước.",
+            "effects": [
+              {
+                "type": "set_flag",
+                "scope": "story",
+                "flag": "story_cast_mac_quy_khu.failed"
+              },
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_mqk_2",
+      "kind": "story",
+      "story_id": "story_cast_mac_quy_khu",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "mac_quy_khu"
+      },
+      "title": "Bình cổ và dấu vết thiên kiếp",
+      "text": "Tiến sâu hơn vào chuyện cũ tại {place}, ngươi chạm tới bí mật mà {other} giấu kín bấy lâu.",
+      "log": "{root} chạm tới bí mật sâu kín của {other} tại {place}.",
+      "choices": [
+        {
+          "label": "Giữ kín lời hứa, cùng {other} tìm cách tháo gỡ (Đạo tâm)",
+          "tags": [
+            "honest",
+            "loyal"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 52
+          },
+          "always": [],
+          "success": {
+            "text": "{other} hoàn toàn tin cậy ngươi và chuẩn bị cho bước quyết định cuối.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3"
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 12
+              }
+            ]
+          },
+          "failure": {
+            "text": "Áp lực không nhỏ nhưng ngươi vẫn đứng vững bên lời hứa.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Rút lui vì bí mật quá nặng nề",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi khép lại mối duyên này tại đây.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_mqk_3",
+      "kind": "story",
+      "story_id": "story_cast_mac_quy_khu",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "mac_quy_khu"
+      },
+      "title": "Lời đáp thật trước cổng Phù Tang",
+      "text": "Đến hồi kết của câu chuyện tại {place}, {other} ({other_realm}) bày tỏ lòng tin tuyệt đối và trao cho ngươi phần hậu lễ xứng đáng.",
+      "log": "{root} cùng {other} khép lại câu chuyện lớn tại {place}.",
+      "choices": [
+        {
+          "label": "Lĩnh hội tâm đắc tu hành của tiền bối",
+          "tags": [
+            "diligent",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Lời chỉ điểm của {other} giúp tu vi và đạo tâm ngươi cùng thăng hoa.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ]
+              },
+              {
+                "type": "tam_ma",
+                "amount": -8
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Nhận hậu lễ tài vật và lời hẹn hữu hảo",
+          "tags": [
+            "pragmatic",
+            "social"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{other} tặng ngươi lễ vật quý và ghi nhận tình giao hảo bền chặt.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ],
+                "source": "other_purse"
+              },
+              {
+                "type": "material",
+                "rarity_max": 4
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_snh_1",
+      "kind": "story",
+      "story_id": "story_cast_so_ngoc_ho",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "so_ngoc_ho"
+      },
+      "title": "Hàn khí bất thường nơi Ngọc Hồ",
+      "text": "Tại {place}, {other} ({other_realm}) hé mở một phần tâm sự và giao cho ngươi phép thử đầu tiên xoay quanh câu chuyện '{story_name}'.",
+      "log": "{root} mở đầu câu chuyện cùng {other} tại {place}.",
+      "choices": [
+        {
+          "label": "Nhận lời dốc tâm tìm hiểu (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "loyal"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 50
+          },
+          "always": [],
+          "success": {
+            "text": "{other} gật đầu hài lòng trước sự thấu đáo của ngươi.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2"
+              }
+            ]
+          },
+          "failure": {
+            "text": "{other} chỉ điểm thêm đôi câu để ngươi đi tiếp bước sau.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Cáo từ, không dám gánh việc lớn",
+          "tags": [
+            "cautious",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{other} khẽ thở dài rồi cho ngươi lui bước.",
+            "effects": [
+              {
+                "type": "set_flag",
+                "scope": "story",
+                "flag": "story_cast_so_ngoc_ho.failed"
+              },
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_snh_2",
+      "kind": "story",
+      "story_id": "story_cast_so_ngoc_ho",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "so_ngoc_ho"
+      },
+      "title": "Vết rạn trong trận pháp hộ sơn",
+      "text": "Tiến sâu hơn vào chuyện cũ tại {place}, ngươi chạm tới bí mật mà {other} giấu kín bấy lâu.",
+      "log": "{root} chạm tới bí mật sâu kín của {other} tại {place}.",
+      "choices": [
+        {
+          "label": "Giữ kín lời hứa, cùng {other} tìm cách tháo gỡ (Đạo tâm)",
+          "tags": [
+            "honest",
+            "loyal"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 52
+          },
+          "always": [],
+          "success": {
+            "text": "{other} hoàn toàn tin cậy ngươi và chuẩn bị cho bước quyết định cuối.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3"
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 12
+              }
+            ]
+          },
+          "failure": {
+            "text": "Áp lực không nhỏ nhưng ngươi vẫn đứng vững bên lời hứa.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Rút lui vì bí mật quá nặng nề",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi khép lại mối duyên này tại đây.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_snh_3",
+      "kind": "story",
+      "story_id": "story_cast_so_ngoc_ho",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "so_ngoc_ho"
+      },
+      "title": "Giữ vững Băng Tâm Các",
+      "text": "Đến hồi kết của câu chuyện tại {place}, {other} ({other_realm}) bày tỏ lòng tin tuyệt đối và trao cho ngươi phần hậu lễ xứng đáng.",
+      "log": "{root} cùng {other} khép lại câu chuyện lớn tại {place}.",
+      "choices": [
+        {
+          "label": "Lĩnh hội tâm đắc tu hành của tiền bối",
+          "tags": [
+            "diligent",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Lời chỉ điểm của {other} giúp tu vi và đạo tâm ngươi cùng thăng hoa.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ]
+              },
+              {
+                "type": "tam_ma",
+                "amount": -8
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Nhận hậu lễ tài vật và lời hẹn hữu hảo",
+          "tags": [
+            "pragmatic",
+            "social"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{other} tặng ngươi lễ vật quý và ghi nhận tình giao hảo bền chặt.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ],
+                "source": "other_purse"
+              },
+              {
+                "type": "material",
+                "rarity_max": 4
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_mdv_1",
+      "kind": "story",
+      "story_id": "story_cast_manh_da_vu",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "manh_da_vu"
+      },
+      "title": "Mật lệnh nơi Thính Vũ Lâu",
+      "text": "Tại {place}, {other} ({other_realm}) hé mở một phần tâm sự và giao cho ngươi phép thử đầu tiên xoay quanh câu chuyện '{story_name}'.",
+      "log": "{root} mở đầu câu chuyện cùng {other} tại {place}.",
+      "choices": [
+        {
+          "label": "Nhận lời dốc tâm tìm hiểu (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "loyal"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 50
+          },
+          "always": [],
+          "success": {
+            "text": "{other} gật đầu hài lòng trước sự thấu đáo của ngươi.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2"
+              }
+            ]
+          },
+          "failure": {
+            "text": "{other} chỉ điểm thêm đôi câu để ngươi đi tiếp bước sau.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Cáo từ, không dám gánh việc lớn",
+          "tags": [
+            "cautious",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{other} khẽ thở dài rồi cho ngươi lui bước.",
+            "effects": [
+              {
+                "type": "set_flag",
+                "scope": "story",
+                "flag": "story_cast_manh_da_vu.failed"
+              },
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_mdv_2",
+      "kind": "story",
+      "story_id": "story_cast_manh_da_vu",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "manh_da_vu"
+      },
+      "title": "Hồi ức đoạn hậu ở Đan Sơn Mạch",
+      "text": "Tiến sâu hơn vào chuyện cũ tại {place}, ngươi chạm tới bí mật mà {other} giấu kín bấy lâu.",
+      "log": "{root} chạm tới bí mật sâu kín của {other} tại {place}.",
+      "choices": [
+        {
+          "label": "Giữ kín lời hứa, cùng {other} tìm cách tháo gỡ (Đạo tâm)",
+          "tags": [
+            "honest",
+            "loyal"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 52
+          },
+          "always": [],
+          "success": {
+            "text": "{other} hoàn toàn tin cậy ngươi và chuẩn bị cho bước quyết định cuối.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3"
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 12
+              }
+            ]
+          },
+          "failure": {
+            "text": "Áp lực không nhỏ nhưng ngươi vẫn đứng vững bên lời hứa.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Rút lui vì bí mật quá nặng nề",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi khép lại mối duyên này tại đây.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_mdv_3",
+      "kind": "story",
+      "story_id": "story_cast_manh_da_vu",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "manh_da_vu"
+      },
+      "title": "Chọn người kế vị giữa cơn mưa sắt",
+      "text": "Đến hồi kết của câu chuyện tại {place}, {other} ({other_realm}) bày tỏ lòng tin tuyệt đối và trao cho ngươi phần hậu lễ xứng đáng.",
+      "log": "{root} cùng {other} khép lại câu chuyện lớn tại {place}.",
+      "choices": [
+        {
+          "label": "Lĩnh hội tâm đắc tu hành của tiền bối",
+          "tags": [
+            "diligent",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Lời chỉ điểm của {other} giúp tu vi và đạo tâm ngươi cùng thăng hoa.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ]
+              },
+              {
+                "type": "tam_ma",
+                "amount": -8
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Nhận hậu lễ tài vật và lời hẹn hữu hảo",
+          "tags": [
+            "pragmatic",
+            "social"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{other} tặng ngươi lễ vật quý và ghi nhận tình giao hảo bền chặt.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ],
+                "source": "other_purse"
+              },
+              {
+                "type": "material",
+                "rarity_max": 4
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_nls_1",
+      "kind": "story",
+      "story_id": "story_cast_ngu_lam_son",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "ngu_lam_son"
+      },
+      "title": "Lý do dời sơn môn năm xưa",
+      "text": "Tại {place}, {other} ({other_realm}) hé mở một phần tâm sự và giao cho ngươi phép thử đầu tiên xoay quanh câu chuyện '{story_name}'.",
+      "log": "{root} mở đầu câu chuyện cùng {other} tại {place}.",
+      "choices": [
+        {
+          "label": "Nhận lời dốc tâm tìm hiểu (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "loyal"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 50
+          },
+          "always": [],
+          "success": {
+            "text": "{other} gật đầu hài lòng trước sự thấu đáo của ngươi.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2"
+              }
+            ]
+          },
+          "failure": {
+            "text": "{other} chỉ điểm thêm đôi câu để ngươi đi tiếp bước sau.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Cáo từ, không dám gánh việc lớn",
+          "tags": [
+            "cautious",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{other} khẽ thở dài rồi cho ngươi lui bước.",
+            "effects": [
+              {
+                "type": "set_flag",
+                "scope": "story",
+                "flag": "story_cast_ngu_lam_son.failed"
+              },
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_nls_2",
+      "kind": "story",
+      "story_id": "story_cast_ngu_lam_son",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "ngu_lam_son"
+      },
+      "title": "Mạch Kim khắc Mộc dưới sườn cũ",
+      "text": "Tiến sâu hơn vào chuyện cũ tại {place}, ngươi chạm tới bí mật mà {other} giấu kín bấy lâu.",
+      "log": "{root} chạm tới bí mật sâu kín của {other} tại {place}.",
+      "choices": [
+        {
+          "label": "Giữ kín lời hứa, cùng {other} tìm cách tháo gỡ (Đạo tâm)",
+          "tags": [
+            "honest",
+            "loyal"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 52
+          },
+          "always": [],
+          "success": {
+            "text": "{other} hoàn toàn tin cậy ngươi và chuẩn bị cho bước quyết định cuối.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3"
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 12
+              }
+            ]
+          },
+          "failure": {
+            "text": "Áp lực không nhỏ nhưng ngươi vẫn đứng vững bên lời hứa.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "bond",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Rút lui vì bí mật quá nặng nề",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi khép lại mối duyên này tại đây.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_nls_3",
+      "kind": "story",
+      "story_id": "story_cast_ngu_lam_son",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "cast_key",
+        "key": "ngu_lam_son"
+      },
+      "title": "Gửi gắm sơn môn êm đềm",
+      "text": "Đến hồi kết của câu chuyện tại {place}, {other} ({other_realm}) bày tỏ lòng tin tuyệt đối và trao cho ngươi phần hậu lễ xứng đáng.",
+      "log": "{root} cùng {other} khép lại câu chuyện lớn tại {place}.",
+      "choices": [
+        {
+          "label": "Lĩnh hội tâm đắc tu hành của tiền bối",
+          "tags": [
+            "diligent",
+            "humble"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Lời chỉ điểm của {other} giúp tu vi và đạo tâm ngươi cùng thăng hoa.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ]
+              },
+              {
+                "type": "tam_ma",
+                "amount": -8
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Nhận hậu lễ tài vật và lời hẹn hữu hảo",
+          "tags": [
+            "pragmatic",
+            "social"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "{other} tặng ngươi lễ vật quý và ghi nhận tình giao hảo bền chặt.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ],
+                "source": "other_purse"
+              },
+              {
+                "type": "material",
+                "rarity_max": 4
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_abode_1",
+      "kind": "story",
+      "story_id": "story_ancient_abode_three_visits",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Lần ghé thứ nhất: tầng cấm chế ngoài",
+      "text": "Cửa đá động phủ cổ gần {place} được khóa bằng ba tầng cấm chế liên hoàn; lần này ngươi có thể thử mở tầng ngoài cùng.",
+      "log": "{root} thử mở tầng cấm chế ngoài của cổ động phủ tại {place}.",
+      "choices": [
+        {
+          "label": "Dò mạch giải khóa tầng ngoài (Thần hồn)",
+          "tags": [
+            "diligent",
+            "cautious"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 48
+          },
+          "always": [],
+          "success": {
+            "text": "Tầng ngoài tách mở, lộ ra hành lang phủ đầy bụi đá.",
+            "effects": [
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "seals_opened",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_inner"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Cấm chế phản chấn nhẹ, nhưng một góc khóa đã lỏng ra.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 12
+              },
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "seals_opened",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s2_inner"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Đóng cửa bỏ qua động phủ hiểm nguy",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi lùi bước, để động phủ cổ ngủ yên dưới lòng núi.",
+            "effects": [
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_abode_2",
+      "kind": "story",
+      "story_id": "story_ancient_abode_three_visits",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Lần ghé thứ hai: dược viên khô cạn",
+      "text": "Bước vào tầng giữa động phủ tại {place}, dược viên cổ gần như khô héo nhưng vẫn còn sót vài gốc linh thảo bám rễ bên phiến đá khóa tầng trong.",
+      "log": "{root} tiến vào tầng giữa cổ động phủ tại {place}.",
+      "choices": [
+        {
+          "label": "Phá giải cấm chế tầng giữa (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "bold"
+          ],
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 52
+          },
+          "always": [],
+          "success": {
+            "text": "Cánh cửa đá dẫn vào thạch thất chính ầm ầm hé mở!",
+            "effects": [
+              {
+                "type": "herb",
+                "age_range": [
+                  15,
+                  45
+                ],
+                "rarity_max": 3
+              },
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "seals_opened",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_chamber"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Cơ quan đá rơi khiến ngươi xây xát nhẹ trước khi cửa tầng trong chịu mở.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 18
+              },
+              {
+                "type": "var_add",
+                "scope": "story",
+                "var": "seals_opened",
+                "amount": 1
+              },
+              {
+                "type": "story_stage",
+                "stage": "s3_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Lấy tạm ít linh thảo rồi rút khỏi động",
+          "tags": [
+            "pragmatic",
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi không tham tầng sâu, cầm gốc linh thảo rời đi an toàn.",
+            "effects": [
+              {
+                "type": "herb",
+                "age_range": [
+                  10,
+                  25
+                ],
+                "rarity_max": 2
+              },
+              {
+                "type": "story_end",
+                "status": "failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "st_abode_3",
+      "kind": "story",
+      "story_id": "story_ancient_abode_three_visits",
+      "weight": 10,
+      "place_kinds": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Lần ghé thứ ba: thạch thất di bảo",
+      "text": "Thạch thất sâu nhất của cổ động phủ tại {place} hiện ra trước mắt: trên bàn đá là một bình linh thạch cổ cùng kiện pháp khí còn ánh quang.",
+      "log": "{root} mở trọn thạch thất cổ động phủ tại {place}.",
+      "choices": [
+        {
+          "label": "Bái tạ tiền nhân rồi thu nhận di bảo",
+          "tags": [
+            "humble",
+            "devout"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi thu về pháp khí và linh thạch cổ, khép lại chuyến thám hiểm mỹ mãn.",
+            "effects": [
+              {
+                "type": "artifact",
+                "grade_offset": 0
+              },
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ],
+                "source": "stash"
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Tham ngộ bích họa trong thạch thất thay vì lấy hết đồ",
+          "tags": [
+            "diligent"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Bích họa cổ truyền lại tâm đắc tu hành tinh diệu.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ]
+              },
+              {
+                "type": "story_end",
+                "status": "done"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

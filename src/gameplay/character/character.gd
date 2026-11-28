@@ -176,6 +176,15 @@ var interaction_flags: Dictionary = {}
 ## ([{step_id, source, label, mods: [{stat, value}]}]).
 var tribulation_buffs: Array = []
 
+# --- Template Quests (#31) --------------------------------------------------------
+## Permanent stat boons earned from Major/Legendary quests
+## ([{quest_id, title, mods: [{stat, value}]}]).
+var quest_boons: Array = []
+## Cumulative lifetime W spent on quest lasting gains (boons + Đạo Đồ points; cap quest_gain_cap_w = 48 W).
+var quest_gain_total_w: float = 0.0
+## Cumulative lifetime Đạo Đồ points earned from quests (cap quest_tree_point_cap = 3).
+var quest_tree_points_used: int = 0
+
 
 ## Thiên phú value (base, before tree/item bonuses).
 func base_stat(stat_id: String) -> int:
@@ -242,6 +251,9 @@ func to_dict() -> Dictionary:
 		"heart_demon_used": heart_demon_used, "active_visits": active_visits.duplicate(true),
 		"interaction_flags": interaction_flags.duplicate(true),
 		"tribulation_buffs": tribulation_buffs.duplicate(true),
+		"quest_boons": quest_boons.duplicate(true),
+		"quest_gain_total_w": quest_gain_total_w,
+		"quest_tree_points_used": quest_tree_points_used,
 	}
 
 
@@ -368,4 +380,26 @@ static func from_dict(d: Dictionary) -> Character:
 					})
 			tb["mods"] = clean_mods
 			c.tribulation_buffs.append(tb)
+	c.quest_boons = []
+	for raw_qb in Array(d.get("quest_boons", [])):
+		if raw_qb is Dictionary:
+			var qb: Dictionary = (raw_qb as Dictionary).duplicate(true)
+			var clean_qmods: Array = []
+			for rm in Array(qb.get("mods", [])):
+				if rm is Dictionary and str((rm as Dictionary).get("stat", "")) != "":
+					clean_qmods.append({
+						"stat": str((rm as Dictionary).get("stat", "")),
+						"value": float((rm as Dictionary).get("value", 0.0)),
+					})
+			qb["mods"] = clean_qmods
+			c.quest_boons.append(qb)
+	c.quest_gain_total_w = maxf(0.0, float(d.get("quest_gain_total_w", 0.0)))
+	var raw_qtp: Variant = d.get("quest_tree_points_used", 0)
+	if raw_qtp is Dictionary:
+		var tp_sum: int = 0
+		for v in (raw_qtp as Dictionary).values():
+			tp_sum += int(v)
+		c.quest_tree_points_used = maxi(0, tp_sum)
+	else:
+		c.quest_tree_points_used = maxi(0, int(raw_qtp))
 	return c

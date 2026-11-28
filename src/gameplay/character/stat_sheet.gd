@@ -41,6 +41,8 @@ const KIND_TIE := "tie"
 const KIND_INTERACTION := "interaction"
 ## Heavenly Tribulation (#22): lasting stat buff granted on surviving a tribulation (tribulation_tempered).
 const KIND_TRIBULATION := "tribulation"
+## Template Quests (#31): lasting stat boon granted on completing a Major or Legendary quest.
+const KIND_QUEST_BOON := "quest_boon"
 
 ## stat -> Array of {source, value, kind}
 var _mods: Dictionary = {}
@@ -73,6 +75,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 		sheet.add_mod(line.source, line.stat, line.value)
 	sheet._add_capability_mods(c)
 	sheet._add_tie_mods(c)
+	sheet._add_quest_boon_mods(c)
 	sheet._add_interaction_buff_mods(c)
 	if db != null:
 		sheet._add_hall_mods(c, db)
@@ -151,6 +154,23 @@ func _add_tie_mods(c: Character) -> void:
 	var label := {"master": "sư phụ", "dao_lu": "đạo lữ"}
 	for row in c.tie_rows:
 		add_mod("Quan hệ: %s" % label.get(str(row.get("source", "")), str(row.get("source", ""))), str(row.stat), float(row.value), KIND_TIE)
+
+
+## Template Quests (#31): applies lasting stat boons stored in [member Character.quest_boons]
+## under source "Ủy thác: <title>" with kind [constant KIND_QUEST_BOON] (AC-QS-71).
+func _add_quest_boon_mods(c: Character) -> void:
+	for raw in c.quest_boons:
+		if not (raw is Dictionary):
+			continue
+		var row: Dictionary = raw as Dictionary
+		var title: String = str(row.get("title", row.get("quest_id", "Ủy thác")))
+		var src: String = title if title.begins_with("Ủy thác:") else ("Ủy thác: %s" % title)
+		for m in Array(row.get("mods", [])):
+			if m is Dictionary:
+				var st: String = str((m as Dictionary).get("stat", ""))
+				var val: float = float((m as Dictionary).get("value", 0.0))
+				if st != "" and val != 0.0:
+					add_mod(src, st, val, KIND_QUEST_BOON)
 
 
 ## NPC Interaction & Dialogue (#30): applies active temporary seasonal buffs stored in [member Character.interaction_buffs].

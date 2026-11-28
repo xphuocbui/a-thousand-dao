@@ -19,6 +19,7 @@ extends RefCounted
 ## [/codeblock]
 
 const SEVERITY_ORDER := {"urgent": 0, "warn": 1, "goal": 2, "tip": 3}
+const _QuestRules := preload("res://src/gameplay/quests/quest_rules.gd")
 
 
 ## Every goal that applies now, most severe first.
@@ -32,6 +33,10 @@ static func goals(s: GameSession) -> Array:
 	var cfg: Dictionary = gd.file("session_advisor")
 	if s.has_pending_event():
 		out.append(_g("event", "urgent", "An event is waiting: %s" % s.pending_event.title, "event", "Answer the event"))
+	if s.has_pending_mercy():
+		var m_tid: String = str(s.pending_mercy.get("target_id", ""))
+		var m_name: String = str(s.db.get_record("people", m_tid).get("name", m_tid)) if s.db != null and m_tid != "" else "your foe"
+		out.append(_g("mercy", "urgent", "Decide the fate of %s (spare or kill)." % m_name, "mercy", "Decide fate of %s" % m_name))
 
 	var life: float = CultivationRules.lifespan(c, gd, sh).total
 	var left: float = life - c.age
@@ -53,6 +58,7 @@ static func goals(s: GameSession) -> Array:
 		if int(b.get("loyalty", 0)) < int(cfg.beast_loyalty_warning):
 			out.append(_g("beast_" + str(b.id), "warn", "%s is hungry and may leave (loyalty %d); feeding costs %d LT a year." % [b.name, int(b.get("loyalty", 0)), s.beasts.feed_cost(c)], "beasts", "Check your linh thú"))
 	out.append_array(_sect_goals(s, c))
+	out.append_array(_quest_goals(s, c))
 	if c.tree_points > 0:
 		out.append(_g("tree", "goal", "%d Đạo Đồ point(s) to spend." % c.tree_points, "tree", "Spend %d Đạo Đồ point(s)" % c.tree_points))
 	out.append_array(_field_goals(s, c, gd, sh))
@@ -98,6 +104,57 @@ static func _sect_goals(s: GameSession, c: Character) -> Array:
 		if (need.missing as Array).is_empty():
 			out.append(_g("sect_promote", "goal", "You may be promoted to %s (%d contribution)." % [
 				s.sect_members.rank_name(str(need.rank)), int(need.gate.contribution)], "promote", "Seek promotion"))
+	return out
+
+
+## Active Template Quests (#31): current stage objective/destination, with tight-deadline warning when
+## remaining required stage seasons exceed remaining deadline seasons.
+static func _quest_goals(s: GameSession, c: Character) -> Array:
+	var out: Array = []
+	if s.quests == null or s.db == null:
+		return out
+	var now_s: int = s.season_index()
+	for q in s.quests.active_quests(c.id):
+		var qid: String = str(q.get("id", ""))
+		var qname: String = str(q.get("name", qid))
+		var plan_q: Dictionary = Dictionary(q.get("plan", q))
+		var stages: Array = Array(plan_q.get("stages", q.get("stages", [])))
+		var st_idx: int = clampi(int(q.get("stage", 1)) - 1, 0, maxi(0, stages.size() - 1))
+		if stages.is_empty():
+			continue
+		var cur_st: Dictionary = Dictionary(stages[st_idx])
+		var kind: String = str(cur_st.get("kind", ""))
+		var seasons_left: int = maxi(0, int(q.get("deadline_season", now_s)) - now_s)
+		var rem_s: int = 0
+		for i in range(st_idx, stages.size()):
+			var si: int = _QuestRules.stage_seasons(s.gd, Dictionary(stages[i]))
+			if i == st_idx and str(Dictionary(stages[i]).get("kind", "")) == "mission":
+				si = maxi(0, si - int(Dictionary(stages[i]).get("seasons_done", 0)))
+			rem_s += si
+		var tight: bool = rem_s > seasons_left
+		var sev: String = "warn" if tight else "goal"
+		var place_id: String = str(cur_st.get("place_id", ""))
+		var place_name: String = str(s.db.get_record("places", place_id).get("name", "")) if place_id != "" else ""
+		var desc: String = str(cur_st.get("description", kind))
+		var text: String = "Quest '%s' (stage %d/%d, %s): %s%s (%d season(s) left)." % [
+			qname,
+			int(q.get("stage", 1)),
+			stages.size(),
+			kind,
+			desc,
+			(" at %s" % place_name) if place_name != "" else "",
+			seasons_left,
+		]
+		if tight:
+			text = "Tight deadline! " + text
+		var cmd: String = ""
+		var action_lbl: String = ""
+		if place_id != "" and place_id != c.location_id:
+			var hop: String = next_hop(s, c.location_id, place_id)
+			if hop != "":
+				cmd = "go %s" % hop
+				action_lbl = "Travel toward %s for '%s'" % [place_name, qname]
+		out.append(_g("quest_" + qid, sev, text, cmd, action_lbl))
 	return out
 
 

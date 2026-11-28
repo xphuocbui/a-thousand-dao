@@ -1,5 +1,9 @@
 class_name GameQuery
 extends RefCounted
+
+const _EventEngine := preload("res://src/gameplay/events/event_engine.gd")
+const _EventStore := preload("res://src/gameplay/events/event_store.gd")
+const _QuestRules := preload("res://src/gameplay/quests/quest_rules.gd")
 ## The read-only queries a shipped frontend uses beside GameSession's read methods, StateSnapshot and Advisor
 ## (ADR-0006 decision 3). Static functions that take the session and return deep copies built for the purpose, never a
 ## World DB record or a live service object, and never change the world (tests/unit/session/session_reads_test.gd).
@@ -97,9 +101,128 @@ static func has_clues(s: GameSession) -> bool:
 	return s.knowledge != null and not s.knowledge.clues.is_empty()
 
 
-## A copy of the pending event (title, text, choices), or {}.
+## Enriched deep copy of the pending event (or pending Mercy decision), preserving all base keys
+## (title, text, choices, source, ...) and adding Event Engine (#23) choice previews, badges,
+## check breakdowns, fight odds, and story/follow-up metadata. Strictly read-only (never mutates DB or RNG).
 static func pending_event(s: GameSession) -> Dictionary:
-	return s.pending_event.duplicate(true)
+	if s == null:
+		return {}
+	if s.pending_event.is_empty() and not s.has_pending_mercy():
+		return {}
+	if s.pending_event.is_empty() and s.has_pending_mercy():
+		var m_tid: String = str(s.pending_mercy.get("target_id", ""))
+		var m_rec: Dictionary = s.db.get_record("people", m_tid) if s.db != null and m_tid != "" else {}
+		var m_name: String = str(m_rec.get("name", m_tid))
+		return {
+			"title": str(s.pending_mercy.get("title", "Định đoạt sinh tử")),
+			"text": "%s đã gục ngã. Bạn chọn tha mạng hay kết liễu?" % m_name,
+			"kind": "mercy",
+			"story_name": "",
+			"story_stage": "",
+			"followup_of": "",
+			"illustration": "",
+			"mercy_pending": true,
+			"mercy_target_id": m_tid,
+			"mercy_target_name": m_name,
+			"choices": [],
+		}
+	var ev: Dictionary = s.pending_event.duplicate(true)
+	ev["kind"] = str(ev.get("kind", "pulse"))
+	var sinst: String = str(ev.get("story_instance_id", ""))
+	var sname: String = str(ev.get("story_name", ""))
+	if sname == "" and sinst != "" and s.db != null:
+		var srec: Dictionary = _EventStore.get_story(s.db, sinst)
+		sname = str(srec.get("name", ""))
+	ev["story_name"] = sname
+	ev["story_stage"] = str(ev.get("story_stage", ""))
+	ev["followup_of"] = str(ev.get("followup_of", ""))
+	ev["illustration"] = str(ev.get("illustration", ""))
+	ev["mercy_pending"] = s.has_pending_mercy()
+	ev["mercy_target_id"] = str(s.pending_mercy.get("target_id", ""))
+	var sh: StatSheet = s.sheet() if s.player != null else null
+	var choices_in: Array = Array(ev.get("choices", []))
+	var enriched: Array = []
+	for i in choices_in.size():
+		if not (choices_in[i] is Dictionary):
+			enriched.append(choices_in[i])
+			continue
+		var ch: Dictionary = (choices_in[i] as Dictionary).duplicate(true)
+		var afford: Dictionary = s.resolver.can_choose(s.player, ev, i) if (s.resolver != null and s.player != null) else {"ok": true, "reason": ""}
+		ch["affordable"] = bool(afford.get("ok", true))
+		ch["disable_reason"] = str(afford.get("reason", ""))
+		ch["trait_badge"] = str(ch.get("trait_badge", ch.get("trait", "")))
+		ch["always_costs"] = Array(ch.get("always", [])).duplicate(true)
+		var is_hidden: bool = bool(ch.get("hidden", false))
+		ch["hidden"] = is_hidden
+		ch["deadly"] = bool(ch.get("deadly", false))
+		var chk: Dictionary = Dictionary(ch.get("check", {}))
+		var ctype: String = str(chk.get("type", "none"))
+		ch["situation"] = str(chk.get("situation", "foreseen"))
+		var check_bd: Dictionary = {}
+		var fight_odds: Dictionary = {}
+		if s.resolver != null and s.player != null and sh != null:
+			if ctype == "stat":
+				var cstat: String = str(chk.get("stat", ""))
+				var cdiff: float = float(chk.get("difficulty", 50.0))
+				var b_ch: Breakdown = s.resolver.stat_check_chance(s.player, sh, cstat, cdiff)
+				check_bd = {
+					"type": "stat",
+					"stat": cstat,
+					"difficulty": cdiff,
+					"chance": b_ch.total,
+					"lines": Array(b_ch.lines()),
+				}
+			elif ctype == "combat":
+				var enemy_id: String = str(chk.get("enemy", ev.get("npc_id", "")))
+				var enemy_rec: Dictionary = s.db.get_record("people", enemy_id) if (s.db != null and enemy_id != "") else {}
+				if not enemy_rec.is_empty():
+					var foe := Character.from_dict(enemy_rec.duplicate(true))
+					var foe_sh: StatSheet = s.builds.sheet_of(foe) if s.builds != null else null
+					if foe_sh != null:
+						var od: Dictionary = s.resolver.combat_odds(s.player, sh, foe, foe_sh)
+						fight_odds = {
+							"enemy_id": enemy_id,
+							"enemy_name": str(enemy_rec.get("name", enemy_id)),
+							"chance": float(od.get("chance", 0.5)),
+							"player_power": float(od.get("player_power", 0.0)),
+							"enemy_power": float(od.get("enemy_power", 0.0)),
+							"situation": ch["situation"],
+						}
+		ch["check_breakdown"] = check_bd
+		ch["fight_odds"] = fight_odds
+		ch["outcome_summary"] = "" if is_hidden else _summarize_choice_outcomes(ch)
+		enriched.append(ch)
+	ev["choices"] = enriched
+	return ev
+
+
+static func _summarize_choice_outcomes(ch: Dictionary) -> String:
+	var parts: Array = []
+	var fmt_effs := func(effs: Array) -> String:
+		var tags: Array = []
+		for fx in effs:
+			if fx is Dictionary:
+				var d: Dictionary = fx as Dictionary
+				var t: String = str(d.get("type", ""))
+				if t == "linh_thach":
+					tags.append("%+d LT" % int(d.get("amount", 0)))
+				elif t == "tu_vi":
+					tags.append("%+.0f tu vi" % float(d.get("amount", 0.0)))
+				elif t == "relationship":
+					tags.append("hảo cảm %+d" % int(d.get("amount", 0)))
+				elif t != "":
+					tags.append(t)
+		return ", ".join(tags)
+	var alw: String = fmt_effs.call(Array(ch.get("always", [])))
+	if alw != "":
+		parts.append("Chi phí: " + alw)
+	var suc: String = fmt_effs.call(Array(Dictionary(ch.get("success", {})).get("effects", [])))
+	if suc != "":
+		parts.append("Thành công: " + suc)
+	var fail: String = fmt_effs.call(Array(Dictionary(ch.get("failure", {})).get("effects", [])))
+	if fail != "":
+		parts.append("Thất bại: " + fail)
+	return " | ".join(parts)
 
 
 ## The market's goods at [param place_id] as display lines (a stand-in until the trade window is designed).
@@ -1367,6 +1490,10 @@ static func outliner(s: GameSession, pins: Array) -> Dictionary:
 		out.seat = place_row.call(str(db.get_record("sects", c.sect_id).get("hq_place_id", "")))
 	if s.has_pending_event():
 		out.event = {"title": str(s.pending_event.get("title", ""))}
+	if s.has_pending_mercy():
+		out["mercy"] = {"title": str(s.pending_mercy.get("title", "")), "target_id": str(s.pending_mercy.get("target_id", ""))}
+	out["quests"] = _outliner_quests(s)
+	out["stories"] = event_stories(s)
 	return out
 
 
@@ -1979,5 +2106,259 @@ static func recipes_view(s: GameSession) -> Array:
 			"has_ingredients": bool(ing.get("ok", false)),
 			"usable": level_ok and bool(ing.get("ok", false)),
 			"chance": chance,
+		})
+	return out
+
+
+# --- Event Engine (#23) & Template Quests (#31) Read-Only Views -----------------------
+
+## Read-only. Active non-quest Event Engine stories for the player:
+## [{id, story_id, name, stage, stage_label, last_event, budget_left, items_left, timeout_left}].
+static func event_stories(s: GameSession) -> Array:
+	if s == null or s.player == null or s.db == null:
+		return []
+	var out: Array = []
+	var now_s: int = s.season_index()
+	for st in _EventStore.active_stories(s.db, s.player.id, false):
+		var sid_def: String = str(st.get("story_id", ""))
+		var stage_id: String = str(st.get("stage", ""))
+		var stage_label: String = stage_id
+		if s.templates != null:
+			var st_def: Dictionary = s.templates.get_story(sid_def)
+			for sd in Array(st_def.get("stages", [])):
+				if sd is Dictionary and str((sd as Dictionary).get("id", "")) == stage_id:
+					stage_label = str((sd as Dictionary).get("label", (sd as Dictionary).get("name", stage_id)))
+					break
+		var ch_id: String = str(st.get("chain_id", ""))
+		var cb: Dictionary = _EventStore.get_chain_budget(s.db, ch_id) if ch_id != "" else {}
+		var b_left: int = int(roundf(float(Dictionary(cb.get("left", {})).get("linh_thach", 0.0)))) if not cb.is_empty() else 0
+		var i_left: int = maxi(0, int(cb.get("items_max", 0)) - int(cb.get("items_used", 0))) if not cb.is_empty() else 0
+		var timeout_at: int = int(st.get("started_season", now_s)) + int(st.get("timeout_seasons", 24))
+		out.append({
+			"id": str(st.get("id", "")),
+			"story_id": sid_def,
+			"name": str(st.get("name", sid_def)),
+			"stage": stage_id,
+			"stage_label": stage_label,
+			"last_event": str(st.get("last_event", "")),
+			"budget_left": b_left,
+			"items_left": i_left,
+			"timeout_left": maxi(0, timeout_at - now_s),
+		})
+	return out
+
+
+## Read-only. Recent player-relevant news and uncovered chronicles: {news: Array, annals_uncovered: Array}.
+## Strictly excludes hidden chronicles where [method EventEngine.is_hidden_chronicle] is true (AC-WG-56).
+static func event_news(s: GameSession, limit: int = 50) -> Dictionary:
+	if s == null or s.player == null or s.db == null:
+		return {"news": [], "annals_uncovered": []}
+	var news: Array = []
+	var annals: Array = []
+	var all_ev: Array = s.db.all("events")
+	var cap: int = maxi(0, limit)
+	for i in range(all_ev.size() - 1, -1, -1):
+		var ev: Dictionary = all_ev[i]
+		if _EventEngine.is_hidden_chronicle(ev):
+			continue
+		var data: Dictionary = Dictionary(ev.get("data", {}))
+		if bool(data.get("uncovered", false)) and annals.size() < cap:
+			annals.append(ev.duplicate(true))
+		if news.size() < cap and _EventEngine.is_news_for_player(s.db, ev, s.player.id):
+			news.append(ev.duplicate(true))
+		if news.size() >= cap and annals.size() >= cap:
+			break
+	return {
+		"news": news,
+		"annals_uncovered": annals,
+	}
+
+
+## Read-only. Full Template Quests (#31) journal view:
+## {active_cap, active, offers, board, completed, stories, gain_total_w, gain_cap_w, can_gain_boon}.
+## Never mutates WorldDB, QuestBoard, or RNG.
+static func quests_journal(s: GameSession) -> Dictionary:
+	if s == null or s.player == null or s.db == null or s.quests == null:
+		return {
+			"active_cap": 3,
+			"active": [],
+			"offers": [],
+			"board": [],
+			"completed": [],
+			"stories": [],
+			"gain_total_w": 0.0,
+			"gain_cap_w": 48.0,
+			"can_gain_boon": false,
+		}
+	var c: Character = s.player
+	var cfg: Dictionary = _QuestRules.config(s.gd)
+	var cap: int = int(cfg.get("active_cap", 3))
+	var room: Dictionary = _QuestRules.lasting_gain_room(s.gd, float(c.quest_gain_total_w), int(c.quest_tree_points_used))
+	var active_views: Array = []
+	for q in s.quests.active_quests(c.id):
+		active_views.append(_quest_entry_view(s, q))
+	var offer_views: Array = []
+	for q in s.quests.offered_quests(c.id):
+		offer_views.append(_quest_entry_view(s, q))
+	var board_views: Array = []
+	if s.quest_board != null and s.quest_board.has_board(c.location_id):
+		for bq in s.quest_board.list_board(c.location_id):
+			board_views.append(_quest_entry_view(s, bq))
+	var completed_views: Array = []
+	for q in s.quests.ended_quests(c.id):
+		completed_views.append(_quest_entry_view(s, q))
+	return {
+		"active_cap": cap,
+		"active": active_views,
+		"offers": offer_views,
+		"board": board_views,
+		"completed": completed_views,
+		"stories": event_stories(s),
+		"gain_total_w": float(c.quest_gain_total_w),
+		"gain_cap_w": float(cfg.get("quest_gain_cap_w", 48.0)),
+		"can_gain_boon": float(room.get("allowed_w", 0.0)) > 0.0,
+	}
+
+
+## Read-only. Full Wave 4 Quest Offer sheet view for [param quest_id] (AC-QS-79..81, 89, 119, 128).
+## Looks up both offered quests in WorldDB and current place's QuestBoard without mutating anything.
+static func quest_offer_view(s: GameSession, quest_id: String) -> Dictionary:
+	if s == null or s.player == null or s.db == null or s.quests == null or quest_id == "":
+		return {}
+	var q: Dictionary = s.quests.get_quest(quest_id)
+	if q.is_empty() and s.quest_board != null and s.quest_board.has_board(s.player.location_id):
+		for bq in s.quest_board.list_board(s.player.location_id):
+			if str(bq.get("id", "")) == quest_id:
+				q = bq.duplicate(true)
+				break
+	if q.is_empty():
+		return {}
+	var summ: Dictionary = s.quests.offer_summary(s.player, q)
+	var plan_q: Dictionary = Dictionary(q.get("plan", q))
+	var stages: Array = Array(plan_q.get("stages", q.get("stages", [])))
+	var stage_1: Dictionary = Dictionary(stages[0]).duplicate(true) if not stages.is_empty() else {}
+	if not stage_1.is_empty():
+		var p1: String = str(stage_1.get("place_id", ""))
+		stage_1["place_name"] = str(s.db.get_record("places", p1).get("name", "")) if p1 != "" else ""
+	var later: Array = []
+	for i in range(1, stages.size()):
+		var st_i: Dictionary = Dictionary(stages[i])
+		var pi: String = str(st_i.get("place_id", ""))
+		later.append({
+			"stage": i + 1,
+			"kind": str(st_i.get("kind", "")),
+			"place_id": pi,
+			"place_name": str(s.db.get_record("places", pi).get("name", "")) if pi != "" else "",
+		})
+	var off_id: String = str(q.get("offerer_id", ""))
+	var off_rec: Dictionary = s.db.lookup(off_id) if off_id != "" else {}
+	var adv_id: String = str(q.get("adversary_id", ""))
+	var adv_rec: Dictionary = s.db.lookup(adv_id) if adv_id != "" else {}
+	var pl_id: String = str(q.get("place_id", ""))
+	var pl_rec: Dictionary = s.db.get_record("places", pl_id) if pl_id != "" else {}
+	var out: Dictionary = summ.duplicate(true)
+	out["id"] = str(q.get("id", quest_id))
+	out["template_id"] = str(q.get("template_id", ""))
+	out["name"] = str(q.get("name", quest_id))
+	out["tier"] = str(q.get("tier", "minor"))
+	out["offer_kind"] = str(q.get("offer_kind", "person"))
+	out["state"] = str(q.get("state", "offered"))
+	out["offerer_id"] = off_id
+	out["offerer_name"] = str(off_rec.get("name", off_id))
+	out["adversary_id"] = adv_id
+	out["adversary_name"] = str(adv_rec.get("name", adv_id)) if adv_id != "" else ""
+	out["place_id"] = pl_id
+	out["place_name"] = str(pl_rec.get("name", pl_id)) if pl_id != "" else ""
+	out["source_fact"] = Dictionary(q.get("source_fact", {})).duplicate(true)
+	out["stake_text"] = str(q.get("stake_text", ""))
+	var ot_raw: Variant = q.get("offer_text", [])
+	out["offer_text"] = (ot_raw as Array).duplicate(true) if ot_raw is Array else ([str(ot_raw)] if str(ot_raw) != "" else [])
+	out["outcomes"] = Array(q.get("outcomes", [])).duplicate(true)
+	out["budget"] = Dictionary(q.get("budget", {})).duplicate(true)
+	out["deadline"] = int(q.get("deadline", 0))
+	out["stage_1"] = stage_1
+	out["later_stages"] = later
+	return out
+
+
+static func _quest_entry_view(s: GameSession, q: Dictionary) -> Dictionary:
+	var now_s: int = s.season_index()
+	var plan_q: Dictionary = Dictionary(q.get("plan", q))
+	var stages: Array = Array(plan_q.get("stages", q.get("stages", [])))
+	var stage_num: int = int(q.get("stage", 1))
+	var st_idx: int = clampi(stage_num - 1, 0, maxi(0, stages.size() - 1))
+	var cur_stage: Dictionary = Dictionary(stages[st_idx]).duplicate(true) if not stages.is_empty() else {}
+	if not cur_stage.is_empty():
+		var cp: String = str(cur_stage.get("place_id", ""))
+		cur_stage["place_name"] = str(s.db.get_record("places", cp).get("name", "")) if cp != "" else ""
+	var later: Array = []
+	for i in range(st_idx + 1, stages.size()):
+		var st_i: Dictionary = Dictionary(stages[i])
+		var pi: String = str(st_i.get("place_id", ""))
+		later.append({
+			"stage": i + 1,
+			"kind": str(st_i.get("kind", "")),
+			"place_id": pi,
+			"place_name": str(s.db.get_record("places", pi).get("name", "")) if pi != "" else "",
+		})
+	var rem_s: int = 0
+	for i in range(st_idx, stages.size()):
+		var st_r: Dictionary = Dictionary(stages[i])
+		var si: int = _QuestRules.stage_seasons(s.gd, st_r)
+		if i == st_idx and str(st_r.get("kind", "")) == "mission":
+			si = maxi(0, si - int(st_r.get("seasons_done", 0)))
+		rem_s += si
+	var state_s: String = str(q.get("state", ""))
+	var seasons_left: int = maxi(0, int(q.get("deadline_season", now_s)) - now_s) if state_s in ["active", "orphaned"] else int(q.get("deadline", 0))
+	var off_id: String = str(q.get("offerer_id", ""))
+	var adv_id: String = str(q.get("adversary_id", ""))
+	var pl_id: String = str(q.get("place_id", ""))
+	return {
+		"id": str(q.get("id", "")),
+		"template_id": str(q.get("template_id", "")),
+		"name": str(q.get("name", "")),
+		"tier": str(q.get("tier", "minor")),
+		"offer_kind": str(q.get("offer_kind", "person")),
+		"state": state_s,
+		"stage": stage_num,
+		"stage_count": stages.size(),
+		"offerer_id": off_id,
+		"offerer_name": str(s.db.lookup(off_id).get("name", off_id)) if off_id != "" else "",
+		"adversary_id": adv_id,
+		"adversary_name": str(s.db.lookup(adv_id).get("name", adv_id)) if adv_id != "" else "",
+		"place_id": pl_id,
+		"place_name": str(s.db.get_record("places", pl_id).get("name", pl_id)) if pl_id != "" else "",
+		"seasons_left": seasons_left,
+		"remaining_s_i": rem_s,
+		"tight_deadline_warn": (state_s in ["active", "orphaned"]) and rem_s > seasons_left,
+		"current_stage": cur_stage,
+		"later_stages": later,
+		"outcomes": Array(q.get("outcomes", [])).duplicate(true),
+		"budget": Dictionary(q.get("budget", {})).duplicate(true),
+		"paid_total": int(q.get("paid_total", 0)),
+		"story_id": str(q.get("story_id", "")),
+		"stake_text": str(q.get("stake_text", "")),
+		"offer_text": (q.get("offer_text") as Array).duplicate(true) if q.get("offer_text") is Array else ([str(q.get("offer_text", ""))] if str(q.get("offer_text", "")) != "" else []),
+	}
+
+
+static func _outliner_quests(s: GameSession) -> Array:
+	if s == null or s.player == null or s.quests == null:
+		return []
+	var out: Array = []
+	for q in s.quests.active_quests(s.player.id):
+		var v: Dictionary = _quest_entry_view(s, q)
+		var cur: Dictionary = Dictionary(v.get("current_stage", {}))
+		out.append({
+			"id": str(v.id),
+			"name": str(v.name),
+			"tier": str(v.tier),
+			"state": str(v.state),
+			"stage": int(v.stage),
+			"stage_count": int(v.stage_count),
+			"current_kind": str(cur.get("kind", "")),
+			"target_place": str(cur.get("place_name", "")),
+			"seasons_left": int(v.seasons_left),
+			"tight_deadline_warn": bool(v.tight_deadline_warn),
 		})
 	return out

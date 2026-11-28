@@ -11,11 +11,15 @@ extends RefCounted
 ## var news: Array = ticker.tick(rng, year, season)   # event ids logged this season
 ## [/codeblock]
 
+const _EventEngine = preload("res://src/gameplay/events/event_engine.gd")
+
 var _gd: GameData
 var _db: WorldDB
 var _builds: BuildGenerator
 ## Power Rankings (rule 11): when set and enabled, a duel is Formulas F's roll on the two ratings instead of chiến lực.
 var ratings: RatingService
+## Event Engine (#23, Rules 19-20): when set, runs the off-screen NPC seasonal event step after S8b.
+var event_engine: _EventEngine
 ## The last season's money flows by kind (WorldMoney.season), for the harness and the economy probe.
 var last_money: Dictionary = {}
 
@@ -142,6 +146,16 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	news.append_array(TieTick.run(_gd, _db, MapChange.abs_season(year, season)))
 	# NPC Interaction & Dialogue (#30): tick overdue loans & expire temporary seasonal buffs
 	news.append_array(InteractionService.tick_world_season(_gd, _db, abs_season, year, season))
+	# Event Engine (#23, Rules 19-20): off-screen NPC event step using keyed RNG streams
+	if event_engine != null:
+		var seed_str: String = str(_db.get_record("world", "w_meta").get("seed", "0"))
+		var game_seed: int = int(seed_str) if seed_str.is_valid_int() else int(RngUtils.stable_hash(seed_str))
+		var player_id: String = ""
+		for p in _db.living():
+			if bool(p.get("is_player", false)):
+				player_id = str(p.id)
+				break
+		news.append_array(event_engine.run_npc_season(rng, year, season, game_seed, player_id))
 	return news
 
 
@@ -168,6 +182,8 @@ func npc_death(p: Dictionary, year: int, season: int, cause: String, cause_key: 
 	var texts: Dictionary = _gd.world_gen().history.texts
 	var news: Array = []
 	var heir: String = killer if killer != "" else Inheritance.heir_of(_db, _gd, p)
+	# Quests (#31, Rule 10, AC-QS-53..54): snapshot purse before settlement so orphaned quests can check estate solvency
+	p["estate_at_death"] = float(p.get("linh_thach", 0.0))
 	if _db.count(WorldEconomy.TABLE) > 0:   # the purse goes to the killer, the heir, the sect or the lost stash (Formula H)
 		WorldMoney.settle_death(_gd, _db, MoneyLedger.new(_db), p, heir)
 	p["alive"] = false

@@ -122,6 +122,11 @@ func test_every_read_method_and_guidance_read_leaves_the_world_unchanged() -> vo
 		"GameQuery.person_verbs": func(): return GameQuery.person_verbs(s, npc),
 		"GameQuery.known_people": func(): return GameQuery.known_people(s),
 		"GameQuery.season_focus_yield": func(): return GameQuery.season_focus_yield(s),
+		"has_pending_mercy": func(): return s.has_pending_mercy(),
+		"GameQuery.event_stories": func(): return GameQuery.event_stories(s),
+		"GameQuery.event_news": func(): return GameQuery.event_news(s),
+		"GameQuery.quests_journal": func(): return GameQuery.quests_journal(s),
+		"GameQuery.quest_offer_view": func(): return GameQuery.quest_offer_view(s, ""),
 		"GameQuery.people_at": func(): return GameQuery.people_at(s, here),
 		"GameQuery.practice_fight": func(): return GameQuery.practice_fight(s, npc),
 		"GameQuery.character": func(): return GameQuery.character(s),
@@ -473,4 +478,58 @@ func test_a_formation_manual_teaches_its_formation_when_read() -> void:
 		var pick: String = Diagrams.manual_pick(s.gd, rng, 0)
 		assert_false(special.has(pick), "the special five never drop")
 		assert_true(int(Diagrams.record_of(s.gd, pick).realm_min) <= 1, "a Luyện Khí finder finds formations up to one realm ahead")
+	s.shutdown()
+
+
+func test_event_and_quest_queries_are_read_only_deep_copies_and_hide_secret_chronicles() -> void:
+	var s := _session()
+	# Add one hidden chronicle and one uncovered chronicle to verify AC-WG-56 filtering.
+	s.db.log_event(s.year, s.season, "hidden", "Bí mật tuyệt đối", [s.player.id], [s.player.location_id], [], {
+		"id": "chr_secret_read_test",
+		"secret": true,
+		"tier": "hidden",
+	})
+	s.db.log_event(s.year, s.season, "tale", "Sử ký đã giải mã", [s.player.id], [s.player.location_id], [], {
+		"id": "chr_known_read_test",
+		"secret": false,
+		"uncovered": true,
+		"tier": "annal",
+	})
+	# Set a synthetic pending event to verify enriched pending_event read purity.
+	s.pending_event = {
+		"id": "ev_read_test",
+		"title": "Thử nghiệm đọc",
+		"text": "Một tình huống thử nghiệm.",
+		"place_id": s.player.location_id,
+		"npc_id": "",
+		"choices": [
+			{
+				"label": "Quan sát",
+				"check": {"type": "stat", "stat": "than_thuc", "difficulty": 40.0},
+				"always": [],
+				"success": {"text": "Ổn.", "effects": [{"type": "tu_vi", "amount": 5.0}]},
+				"failure": {"text": "Hụt.", "effects": []},
+			},
+		],
+	}
+	var before: String = _state(s)
+	var pev: Dictionary = GameQuery.pending_event(s)
+	var stories: Array = GameQuery.event_stories(s)
+	var news: Dictionary = GameQuery.event_news(s, 50)
+	var journal: Dictionary = GameQuery.quests_journal(s)
+	var outliner: Dictionary = GameQuery.outliner(s, [])
+	assert_eq(_state(s), before, "all Wave 3 GameQuery reads leave to_dict() byte-identical")
+	assert_eq(str(pev.get("title", "")), "Thử nghiệm đọc")
+	assert_eq(Array(pev.get("choices", [])).size(), 1)
+	assert_true(Dictionary(Array(pev.choices)[0]).has("check_breakdown"), "enriched choice preview includes check_breakdown")
+	assert_true(stories is Array)
+	assert_true(journal.has("active_cap") and journal.has("gain_cap_w") and journal.has("stories"))
+	assert_true(outliner.has("quests") and outliner.has("stories"))
+	# Verify hidden chronicle never leaks into event_news.
+	for row in Array(news.get("news", [])) + Array(news.get("annals_uncovered", [])):
+		assert_true(str(Dictionary(row.get("data", {})).get("id", "")) != "chr_secret_read_test", "hidden chronicle excluded (AC-WG-56)")
+	assert_true(Array(news.get("annals_uncovered", [])).any(func(r): return str(Dictionary(r.get("data", {})).get("id", "")) == "chr_known_read_test"), "uncovered chronicle appears in annals_uncovered")
+	# Mutating returned copies must not mutate session state.
+	pev["title"] = "MUTATED"
+	assert_eq(str(s.pending_event.get("title", "")), "Thử nghiệm đọc", "pending_event returns a deep copy")
 	s.shutdown()

@@ -9,12 +9,6 @@
     {
       "id": "lao_gia_ban_thao",
       "weight": 10,
-      "place_types": [
-        "thanh",
-        "tran",
-        "phuong_thi",
-        "thon"
-      ],
       "npc": {
         "mode": "new",
         "archetype": "linh_thuc_su",
@@ -49,7 +43,11 @@
                 "rarity_max": 3
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic",
+            "greedy"
+          ]
         },
         {
           "label": "Mặc cả (Mị lực)",
@@ -92,7 +90,11 @@
                 "amount": -5
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic",
+            "greedy"
+          ]
         },
         {
           "label": "Bỏ đi",
@@ -102,27 +104,25 @@
           "success": {
             "text": "Ngươi lắc đầu bước qua.",
             "effects": []
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} gặp lão giả bán linh thảo {npc} tại {place}.",
+      "place_kinds": [
+        "city",
+        "town",
+        "sect_hall",
+        "market",
+        "village"
       ]
     },
     {
       "id": "cuop_tu_chan_duong",
       "weight": 10,
-      "place_types": [
-        "son",
-        "coc",
-        "dao",
-        "tran",
-        "thon",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
-      ],
       "npc": {
         "mode": "new",
         "archetype": "tan_tu",
@@ -168,7 +168,11 @@
                 ]
               }
             ]
-          }
+          },
+          "tags": [
+            "aggressive",
+            "bold"
+          ]
         },
         {
           "label": "Bỏ chạy (Thần hồn)",
@@ -190,7 +194,10 @@
                 "amount": 30
               }
             ]
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         },
         {
           "label": "Nộp linh thạch",
@@ -214,26 +221,34 @@
                 "amount": 3
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} bị cướp tu {npc} chặn đường gần {place}.",
+      "place_kinds": [
+        "peak",
+        "gorge",
+        "island",
+        "town",
+        "sect_hall",
+        "village",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ]
     },
     {
       "id": "linh_thao_hoang_da",
       "weight": 12,
-      "place_types": [
-        "son",
-        "coc",
-        "ho",
-        "dao",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
-      ],
       "npc": {
         "mode": "none"
       },
@@ -272,7 +287,10 @@
                 "rarity_max": 2
               }
             ]
-          }
+          },
+          "tags": [
+            "diligent"
+          ]
         },
         {
           "label": "Thử vận may (Khí vận)",
@@ -306,26 +324,32 @@
                 "amount": 8
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} phát hiện linh thảo hoang dã tại {place}.",
+      "place_kinds": [
+        "peak",
+        "gorge",
+        "lake",
+        "island",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ]
     },
     {
       "id": "dong_phu_co",
       "weight": 6,
-      "place_types": [
-        "son",
-        "coc",
-        "bi_canh",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "di_tich",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
-      ],
       "npc": {
         "mode": "none"
       },
@@ -364,7 +388,10 @@
                 "amount": 5
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Phá cửa bằng sức mạnh (Căn cốt)",
@@ -397,7 +424,10 @@
                 "amount": 45
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Ghi nhớ vị trí rồi rời đi",
@@ -407,28 +437,32 @@
           "success": {
             "text": "Ngươi khắc dấu vị trí vào ngọc giản, để dành sau này.",
             "effects": []
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} thăm dò một động phủ cổ gần {place}.",
+      "place_kinds": [
+        "peak",
+        "gorge",
+        "secret_realm",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "ruin",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ]
     },
     {
       "id": "yeu_thu",
       "weight": 10,
-      "place_types": [
-        "son",
-        "coc",
-        "ho",
-        "dao",
-        "bi_canh",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "di_tich",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
-      ],
       "npc": {
         "mode": "beast",
         "realm_offset": 0
@@ -466,7 +500,11 @@
                 "amount": 55
               }
             ]
-          }
+          },
+          "tags": [
+            "aggressive",
+            "bold"
+          ]
         },
         {
           "label": "Lặng lẽ lui đi (Thần hồn)",
@@ -488,28 +526,34 @@
                 "amount": 25
               }
             ]
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} chạm trán yêu thú tại {place}.",
+      "place_kinds": [
+        "peak",
+        "gorge",
+        "lake",
+        "island",
+        "secret_realm",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "ruin",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ]
     },
     {
       "id": "don_ngo",
       "weight": 5,
-      "place_types": [
-        "son",
-        "coc",
-        "ho",
-        "bi_canh",
-        "dao",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "di_tich",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
-      ],
       "npc": {
         "mode": "none"
       },
@@ -550,7 +594,10 @@
                 "amount": 6
               }
             ]
-          }
+          },
+          "tags": [
+            "diligent"
+          ]
         },
         {
           "label": "Giữ tâm bình thản (Đạo tâm)",
@@ -578,16 +625,34 @@
           "failure": {
             "text": "Tâm không tĩnh, cảm ngộ hóa thành hư ảo.",
             "effects": []
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} nảy sinh đốn ngộ giữa non nước {place}.",
+      "place_kinds": [
+        "peak",
+        "gorge",
+        "lake",
+        "secret_realm",
+        "island",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "ruin",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ]
     },
     {
       "id": "dong_mon_nho_giup",
       "weight": 8,
-      "place_types": [
-        "any"
-      ],
       "requires_sect": true,
       "npc": {
         "mode": "existing_sect"
@@ -618,7 +683,11 @@
                 "amount": 20
               }
             ]
-          }
+          },
+          "tags": [
+            "merciful",
+            "generous"
+          ]
         },
         {
           "label": "Từ chối khéo (Mị lực)",
@@ -640,17 +709,21 @@
                 "amount": -15
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "Đồng môn {npc} nhờ {root} giúp đỡ tại {place}.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "bi_canh_mo",
       "weight": 4,
-      "place_types": [
-        "bi_canh",
-        "di_tich"
-      ],
       "npc": {
         "mode": "new",
         "archetype": "kiem_tu",
@@ -689,7 +762,11 @@
                 "amount": 60
               }
             ]
-          }
+          },
+          "tags": [
+            "aggressive",
+            "bold"
+          ]
         },
         {
           "label": "Thu thập ở tầng ngoài (Khí vận)",
@@ -718,17 +795,22 @@
           "failure": {
             "text": "Tầng ngoài đã bị vét sạch.",
             "effects": []
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} chứng kiến bí cảnh khai mở tại {place} và chạm mặt {npc}.",
+      "place_kinds": [
+        "secret_realm",
+        "ruin"
       ]
     },
     {
       "id": "dau_gia_nho",
       "weight": 6,
-      "place_types": [
-        "thanh",
-        "phuong_thi"
-      ],
       "npc": {
         "mode": "none"
       },
@@ -768,7 +850,11 @@
                 "grade_offset": -1
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic",
+            "greedy"
+          ]
         },
         {
           "label": "Chỉ xem",
@@ -778,16 +864,22 @@
           "success": {
             "text": "Ngươi ghi nhớ mặt những kẻ ra giá cao.",
             "effects": []
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} ghé xem một phiên đấu giá nhỏ ở {place}.",
+      "place_kinds": [
+        "city",
+        "market"
       ]
     },
     {
       "id": "tam_ma_xam_nhap",
       "weight": 6,
-      "place_types": [
-        "any"
-      ],
       "npc": {
         "mode": "none"
       },
@@ -819,7 +911,10 @@
                 "amount": 8
               }
             ]
-          }
+          },
+          "tags": [
+            "diligent"
+          ]
         },
         {
           "label": "Tụng kinh tĩnh tâm",
@@ -834,16 +929,22 @@
                 "amount": -4
               }
             ]
-          }
+          },
+          "tags": [
+            "humble",
+            "devout"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "Tâm ma quấy nhiễu {root} trong đêm thanh vắng.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "co_nhan",
       "weight": 6,
-      "place_types": [
-        "any"
-      ],
       "npc": {
         "mode": "existing_any"
       },
@@ -877,7 +978,10 @@
           "failure": {
             "text": "{npc} chỉ gật đầu chiếu lệ.",
             "effects": []
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Lặng lẽ quan sát",
@@ -887,26 +991,21 @@
           "success": {
             "text": "Ngươi ghi nhớ khí tức của {npc}.",
             "effects": []
-          }
+          },
+          "tags": [
+            "diligent"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} tình cờ gặp lại cố nhân {npc} tại {place}.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "thuong_nhan_bi_nan",
       "weight": 7,
-      "place_types": [
-        "son",
-        "tran",
-        "coc",
-        "thon",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
-      ],
       "npc": {
         "mode": "new",
         "archetype": "tan_tu",
@@ -942,7 +1041,11 @@
                 "amount": 25
               }
             ]
-          }
+          },
+          "tags": [
+            "merciful",
+            "generous"
+          ]
         },
         {
           "label": "Lấy hàng rồi đi",
@@ -964,26 +1067,34 @@
                 "amount": 8
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic",
+            "greedy"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} bắt gặp thương nhân {npc} gặp nạn gần {place}.",
+      "place_kinds": [
+        "peak",
+        "town",
+        "sect_hall",
+        "gorge",
+        "village",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ]
     },
     {
       "id": "linh_can_qua_chin",
       "weight": 2,
-      "place_types": [
-        "son",
-        "coc",
-        "bi_canh",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "di_tich",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
-      ],
       "requires_realm_min": 1,
       "npc": {
         "mode": "beast",
@@ -1015,7 +1126,11 @@
                 "amount": 40
               }
             ]
-          }
+          },
+          "tags": [
+            "aggressive",
+            "bold"
+          ]
         },
         {
           "label": "Chờ nó ngủ say rồi lẻn tới (Thần hồn)",
@@ -1043,7 +1158,10 @@
                 "amount": 20
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Ghi nhớ nơi này rồi rời đi",
@@ -1054,16 +1172,32 @@
           "success": {
             "text": "Ngươi lặng lẽ rời đi; có lẽ duyên chưa tới.",
             "effects": []
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} bắt gặp Linh Căn Quả chín giữa {place}.",
+      "place_kinds": [
+        "peak",
+        "gorge",
+        "secret_realm",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "ruin",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ]
     },
     {
       "id": "co_duyen_chi_diem",
       "weight": 30,
-      "place_types": [
-        "any"
-      ],
       "requires_edge": true,
       "requires_bottleneck": true,
       "npc": {
@@ -1101,7 +1235,10 @@
                 "amount": 5
               }
             ]
-          }
+          },
+          "tags": [
+            "diligent"
+          ]
         },
         {
           "label": "Nghi ngờ, lặng lẽ rời đi",
@@ -1112,16 +1249,21 @@
           "success": {
             "text": "Ngươi rời đi; tiếng sáo cũng tắt.",
             "effects": []
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} gặp tiền bối ẩn thế chỉ điểm phá cảnh tại {place}.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "co_duyen_linh_duoc",
       "weight": 30,
-      "place_types": [
-        "any"
-      ],
       "requires_edge": true,
       "requires_bottleneck": true,
       "npc": {
@@ -1157,7 +1299,10 @@
                 "amount": 15
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Để nó lại cho trời đất",
@@ -1168,16 +1313,21 @@
           "success": {
             "text": "Ngươi để linh dược lại.",
             "effects": []
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} gặp cơ duyên tìm thấy linh dược phá cảnh gần {place}.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "co_duyen_di_dan",
       "weight": 30,
-      "place_types": [
-        "any"
-      ],
       "requires_edge": true,
       "requires_bottleneck": true,
       "npc": {
@@ -1213,7 +1363,10 @@
                 "amount": 25
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Không động vào",
@@ -1224,27 +1377,21 @@
           "success": {
             "text": "Ngươi rời khỏi động phủ.",
             "effects": []
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} tìm thấy bình đan dược di lưu trong động phủ gần {place}.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "co_dong_phu",
       "weight": 3,
-      "place_types": [
-        "son",
-        "coc",
-        "bi_canh",
-        "dao",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "di_tich",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
-      ],
       "requires_realm_min": 1,
       "npc": {
         "mode": "none"
@@ -1275,7 +1422,10 @@
                 "amount": 3
               }
             ]
-          }
+          },
+          "tags": [
+            "diligent"
+          ]
         },
         {
           "label": "Rời đi",
@@ -1286,19 +1436,32 @@
             "text": "Ngươi để động phủ lại cho người hữu duyên.",
             "effects": []
           },
-          "failure": {
-            "text": "",
-            "effects": []
-          }
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} tìm thấy đồ hình cổ trong động phủ tại {place}.",
+      "place_kinds": [
+        "peak",
+        "gorge",
+        "secret_realm",
+        "island",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "ruin",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ]
     },
     {
       "id": "thien_co_chi_hinh",
       "weight": 3,
-      "place_types": [
-        "any"
-      ],
       "requires_realm_min": 0,
       "npc": {
         "mode": "none"
@@ -1324,7 +1487,10 @@
           "failure": {
             "text": "Ngươi tỉnh giấc, chỉ còn dư âm.",
             "effects": []
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Tĩnh tâm bỏ qua",
@@ -1335,54 +1501,101 @@
             "text": "Giấc mộng tan.",
             "effects": []
           },
-          "failure": {
-            "text": "",
-            "effects": []
-          }
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{root} chiêm bao thấy thiên cơ đồ hình trong lúc tu hành.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "dao_an_co_vat",
+      "kind": "pulse",
       "weight": 2,
-      "place_types": [
-        "son",
-        "coc",
-        "bi_canh",
-        "dao",
-        "phuong_thi",
-        "lam",
-        "khoang",
-        "linh_mach",
-        "hoa_son",
-        "di_tich",
-        "yeu_sao",
-        "on_tuyen",
-        "hoa_khau"
+      "place_kinds": [
+        "peak",
+        "gorge",
+        "secret_realm",
+        "island",
+        "market",
+        "forest",
+        "lightning_wood",
+        "mine",
+        "spirit_vein",
+        "volcano",
+        "ruin",
+        "beast_lair",
+        "hot_spring",
+        "lava_vent"
       ],
       "requires_realm_min": 1,
+      "conditions": {
+        "type": "realm_min",
+        "value": 1
+      },
       "npc": {
         "mode": "none"
       },
-      "title": "Đạo Ấn cổ vật",
-      "text": "Giữa đống phế vật ở {place}, một phiến ngọc khắc đồ hình kinh mạch tỏa sáng khi ngươi chạm vào.",
+      "title": "Cổ ngọc Đạo Đồ",
+      "text": "Giữa đống phế vật ở {place}, một phiến ngọc khắc đạo văn cổ tỏa sáng ấm áp khi ngươi chạm vào.",
+      "log": "{root} phát hiện một phiến cổ ngọc khắc đạo văn tại {place}.",
       "choices": [
         {
-          "label": "Nhận lấy",
+          "label": "Tham ngộ đạo văn trên phiến ngọc (Ngộ tính)",
+          "tags": [
+            "diligent",
+            "bold"
+          ],
           "check": {
-            "type": "none"
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 50
           },
+          "always": [],
           "success": {
-            "text": "Ngọc phiến nóng lên trong tay ngươi.",
+            "text": "Đạo văn trên phiến ngọc hóa thành lưu quang nhập vào thức hải, mở mang cảm ngộ Đạo Đồ của ngươi.",
             "effects": [
               {
-                "type": "treasure",
-                "treasure": "dao_an"
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.15,
+                  0.25
+                ]
+              },
+              {
+                "type": "tree_point",
+                "amount": 1
               }
             ]
           },
           "failure": {
-            "text": "",
+            "text": "Cổ ngọc rạn vỡ trước khi ngươi kịp đọc hết, chỉ giữ lại được chút linh khí tản mát.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Thu cất mảnh ngọc rồi lặng lẽ rời đi",
+          "tags": [
+            "cautious"
+          ],
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi cẩn trọng gói mảnh ngọc lại, không vội cưỡng cầu tham ngộ giữa nơi hoang vắng.",
             "effects": []
           }
         }
@@ -1422,7 +1635,11 @@
                 "amount": 10
               }
             ]
-          }
+          },
+          "tags": [
+            "merciful",
+            "generous"
+          ]
         },
         {
           "label": "Khéo lời xin khất thêm (Mị lực)",
@@ -1455,7 +1672,10 @@
                 "amount": -15
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Trở mặt không trả, giao chiến",
@@ -1498,9 +1718,16 @@
                 "amount": -25
               }
             ]
-          }
+          },
+          "tags": [
+            "aggressive",
+            "bold"
+          ]
         }
-      ]
+      ],
+      "kind": "hook",
+      "log": "{npc} tìm đến {root} tại {place} để đòi khoản nợ linh thạch.",
+      "place_kinds": []
     },
     {
       "id": "provoke_duel",
@@ -1545,7 +1772,11 @@
                 "amount": -15
               }
             ]
-          }
+          },
+          "tags": [
+            "aggressive",
+            "bold"
+          ]
         },
         {
           "label": "Thu khí lùi bước, tránh giao tranh",
@@ -1566,9 +1797,15 @@
                 "amount": -10
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
-      ]
+      ],
+      "kind": "hook",
+      "log": "{root} và {npc} bước vào sinh tử quyết đấu tại {place}.",
+      "place_kinds": []
     },
     {
       "id": "threat_ambush",
@@ -1619,7 +1856,11 @@
                 "amount": -20
               }
             ]
-          }
+          },
+          "tags": [
+            "aggressive",
+            "bold"
+          ]
         },
         {
           "label": "Lẩn tránh rút lui (Thần hồn)",
@@ -1653,9 +1894,15 @@
                 "amount": -15
               }
             ]
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
-      ]
+      ],
+      "kind": "hook",
+      "log": "{npc} phản kích bất ngờ nhắm vào {root} tại {place}.",
+      "place_kinds": []
     },
     {
       "id": "on_talk_mac_quy_khu_first",
@@ -1713,7 +1960,10 @@
                 "amount": 5
               }
             ]
-          }
+          },
+          "tags": [
+            "diligent"
+          ]
         },
         {
           "label": "Chắp tay lắng nghe chuyện thời tiền tông môn",
@@ -1734,9 +1984,16 @@
                 "amount": 10
               }
             ]
-          }
+          },
+          "tags": [
+            "humble",
+            "devout"
+          ]
         }
-      ]
+      ],
+      "kind": "hook",
+      "log": "{root} lần đầu vấn đạo cùng Mạc Quy Khư tại {place}.",
+      "place_kinds": []
     },
     {
       "id": "on_talk_thoi_khinh_hong_retreat",
@@ -1784,7 +2041,10 @@
                 "amount": 3
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Khiêm nhường bái lễ, xin ghi nhớ lời răn",
@@ -1801,9 +2061,16 @@
                 "amount": 5
               }
             ]
-          }
+          },
+          "tags": [
+            "humble",
+            "devout"
+          ]
         }
-      ]
+      ],
+      "kind": "hook",
+      "log": "{root} nghe Thôi Khinh Hồng vấn tâm trước tĩnh thất tại {place}.",
+      "place_kinds": []
     },
     {
       "id": "on_talk_so_ngoc_ho_vessel",
@@ -1854,7 +2121,10 @@
                 "amount": 4
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Chắp tay thi lễ theo đúng quy củ",
@@ -1871,9 +2141,16 @@
                 "amount": 5
               }
             ]
-          }
+          },
+          "tags": [
+            "humble",
+            "devout"
+          ]
         }
-      ]
+      ],
+      "kind": "hook",
+      "log": "{root} diện kiến Sở Ngọc Hồ giữa hàn khí tại {place}.",
+      "place_kinds": []
     },
     {
       "id": "on_talk_phan_vat_hoa_ledger",
@@ -1924,7 +2201,10 @@
                 "amount": 4
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Khiêm tốn chào hỏi, hẹn dịp giao dịch",
@@ -1941,9 +2221,16 @@
                 "amount": 5
               }
             ]
-          }
+          },
+          "tags": [
+            "humble",
+            "devout"
+          ]
         }
-      ]
+      ],
+      "kind": "hook",
+      "log": "{root} đàm đạo chữ tín và thương đạo cùng Phan Vật Hoa tại {place}.",
+      "place_kinds": []
     },
     {
       "id": "on_talk_spared_rival",
@@ -1975,7 +2262,11 @@
                 "amount": 15
               }
             ]
-          }
+          },
+          "tags": [
+            "merciful",
+            "generous"
+          ]
         },
         {
           "label": "Gật đầu bình thản, nhắc đối phương tự trọng",
@@ -1996,17 +2287,20 @@
                 "amount": 5
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
-      ]
+      ],
+      "kind": "hook",
+      "log": "{root} gặp lại {npc}, người từng được tha mạng năm xưa tại {place}.",
+      "place_kinds": []
     },
     {
       "id": "tien_kiep_co_nhan",
       "requires_past_ties": true,
       "weight": 12,
-      "place_types": [
-        "any"
-      ],
       "npc": {
         "mode": "past_tie"
       },
@@ -2047,7 +2341,10 @@
                 "amount": 5
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Cáo từ nhã nhặn, không nhận quen biết",
@@ -2058,17 +2355,22 @@
           "success": {
             "text": "Ngươi chắp tay cáo biệt; {npc} đứng lặng nhìn theo rồi khẽ lắc đầu rời đi.",
             "effects": []
-          }
+          },
+          "tags": [
+            "cautious"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "Cố nhân tiền kiếp {npc} nhận ra thần thái quen thuộc của {root} tại {place}.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "tien_kiep_cuu_thu",
       "requires_past_ties": true,
       "weight": 10,
-      "place_types": [
-        "any"
-      ],
       "npc": {
         "mode": "past_tie"
       },
@@ -2110,7 +2412,10 @@
                 "amount": 3
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Lùi bước tránh tranh chấp",
@@ -2121,17 +2426,22 @@
           "success": {
             "text": "Ngươi khiêm nhường giải thích mình chỉ là vãn bối mới nhập đạo; {npc} hừ nhẹ rồi phất tay bỏ đi.",
             "effects": []
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{npc} ngờ vực khí tức kiếp trước của {root} tại {place}.",
+      "place_kinds": [
+        "any"
       ]
     },
     {
       "id": "tien_kiep_di_vat",
       "requires_past_ties": true,
       "weight": 10,
-      "place_types": [
-        "any"
-      ],
       "npc": {
         "mode": "past_tie"
       },
@@ -2153,7 +2463,10 @@
                 "amount": 12
               }
             ]
-          }
+          },
+          "tags": [
+            "pragmatic"
+          ]
         },
         {
           "label": "Chắp tay kính lễ rồi tiếp tục hành trình",
@@ -2164,8 +2477,17 @@
           "success": {
             "text": "Ngươi mỉm cười chào từ biệt, giữ khoảng cách với chuyện tiền trần.",
             "effects": []
-          }
+          },
+          "tags": [
+            "humble",
+            "devout"
+          ]
         }
+      ],
+      "kind": "pulse",
+      "log": "{npc} bâng khuâng trước dư âm tiền kiếp của {root} tại {place}.",
+      "place_kinds": [
+        "any"
       ]
     }
   ]

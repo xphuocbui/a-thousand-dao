@@ -335,6 +335,14 @@ func _step_cast() -> void:
 		rec["cast_key"] = str(p.key)
 		rec["born_year"] = int(p.born)
 		rec["role"] = str(p.get("role", ""))
+		if p.has("secret") and str(p.secret).strip_edges() != "":
+			rec["secret"] = str(p.secret)
+			rec["secrets"] = str(p.secret)
+		elif p.has("secrets") and str(p.secrets).strip_edges() != "":
+			rec["secrets"] = str(p.secrets)
+			rec["secret"] = str(p.secrets)
+		if p.has("wants") and str(p.wants).strip_edges() != "":
+			rec["wants"] = str(p.wants)
 		rec["npc_traits"] = NpcTraits.from_authored(_gd, p.get("traits", {}), current_year * 4)   # the cast's authored traits, as catalogue ids
 		NpcTraits.grant_authored(_gd, rec, Array(p.get("traits", {}).get("gained", [])), current_year * 4)   # world-depth
 		_builds.refresh_power(pid)

@@ -15,6 +15,8 @@ extends Control
 ## Greybox limits (stated on screen): the LLM is off.
 
 const UI_FILE := "ui_hud"
+const _QuestsWindow := preload("res://src/ui/windows/quests_window.gd")
+const _NewsWindow := preload("res://src/ui/windows/news_window.gd")
 
 var gd: GameData
 var session: GameSession
@@ -320,6 +322,9 @@ func _shot_and_quit(path: String) -> void:
 			_win.close_panel()
 			_panel.close_panel()
 			_places.close_panel()
+			_centre.hide_window()
+			_centre.showing_event = false
+			_centre.showing_mercy = false
 			_tips.close_all()
 			await _frames(2)
 			match tag_k:
@@ -337,6 +342,35 @@ func _shot_and_quit(path: String) -> void:
 					_open_full_fixture("succession", _succession_fixture())
 					_succession_screen.select_heir("h_kd")
 					_succession_screen.set_perk_extra(1)
+				"events_card":
+					var efx: Dictionary = _event_card_fixture()
+					_centre.show_event(efx.event, efx.odds)
+				"events_mercy":
+					var mfx: Dictionary = _event_mercy_fixture()
+					_centre.show_mercy_result(mfx.title, mfx.check_line, mfx.effect_lines, mfx.outcome_text, mfx.mercy_info)
+				"quests_offer":
+					_open_window("quests", "", "offers", _end_turn)
+					await _frames(2)
+					var qw_o: GameWindow = _win.window("quests")
+					if qw_o != null:
+						qw_o.show_view(_quests_offer_fixture(), "offers", false)
+						_win.sync_title()
+				"quests_journal":
+					_open_window("quests", "", "journal", _end_turn)
+					await _frames(2)
+					var qw_j: GameWindow = _win.window("quests")
+					if qw_j != null:
+						qw_j.show_view(_quests_journal_fixture(), "journal", false)
+						_win.sync_title()
+					_outliner.set_open(true)
+					_outliner.show_view(_outliner_quests_fixture())
+				"news_chronicle":
+					_open_window("news", "", "all", _end_turn)
+					await _frames(2)
+					var nw: GameWindow = _win.window("news")
+					if nw != null:
+						nw.show_view(_news_chronicle_fixture(), "all", false)
+						_win.sync_title()
 				_:
 					continue
 			await _frames(8)
@@ -605,6 +639,8 @@ func _process(_delta: float) -> void:
 			_on_turn_done(out)
 		"choose":
 			_on_choice_done(out)
+		"mercy":
+			_on_mercy_done(out)
 		"talk":
 			_on_talk_done(out)
 		"interact":
@@ -763,12 +799,13 @@ func _build_layout() -> void:
 	note.offset_top = BAR_TOP + _bar_h + 8
 	add_child(note)
 
-	# Z2 window buttons
+	# Z2 window buttons + scrollable outliner (clamped above Z5 End turn panel so rows never hide behind Z5)
 	var z2 := VBoxContainer.new()
-	z2.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	z2.offset_left = -196   # room for the icon and the longest label, "Relationships (R)"
+	z2.set_anchors_and_offsets_preset(Control.PRESET_RIGHT_WIDE)
+	z2.offset_left = -210   # room for the icon and the longest label, "Relationships (R)"
 	z2.offset_right = -16
 	z2.offset_top = BAR_TOP + _bar_h + 20   # clear of the hanging date cartouche
+	z2.offset_bottom = -170                 # clear of Z5 season turn box at bottom right
 	add_child(z2)
 	_zones.append(z2)
 	_sheet_button.text = tr("Character") + " (C)"
@@ -780,6 +817,8 @@ func _build_layout() -> void:
 	_outliner.place_requested.connect(_on_outliner_place)
 	_outliner.abode_requested.connect(func(): _open_full("abode"))
 	_outliner.event_requested.connect(_show_event)
+	_outliner.quest_requested.connect(func(id: String): _open_window("quests", id, "journal", _end_turn))
+	_outliner.story_requested.connect(func(id: String): _open_window("quests", id, "stories", _end_turn))
 	_outliner.unpin_requested.connect(_on_pin.bind(false))
 	_outliner.toggled.connect(func(on: bool): if _settings != null: _settings.set_value("outliner_open", on))
 
@@ -910,9 +949,11 @@ func _build_layout() -> void:
 	_win.register(_province)   # the province window (branch provinces-v2, moved into the host 2026-11-24)
 	_win.register(WikiWindow.new())
 	_win.register(CodexWindow.new())   # design/gdd/codex-karmic-carryover.md (10-book ink-wash Thiên Thư, hotkey X)
+	_win.register(_QuestsWindow.new())   # Template Quests (#31) + Event Engine Stories (#23), hotkey J
+	_win.register(_NewsWindow.new())     # World News (AC-EV-36) + Uncovered Chronicles (AC-WG-56), hotkey N
 	# (a "provinces" window kind is the province panel on branch provinces-v2, another session: register it here)
 	_win.reader = _read_window
-	_win.is_locked = func() -> bool: return session != null and not _busy() and session.has_pending_event()
+	_win.is_locked = _has_blocking_event
 	_win.action_requested.connect(_on_window_action)
 	_win.unknown_requested.connect(_on_unknown_window)
 	_win.visibility_changed.connect(_on_window_visibility)
@@ -947,6 +988,7 @@ func _build_layout() -> void:
 	_comparison.cancelled.connect(_on_comparison_closed)
 	_centre.closed.connect(_on_centre_closed)
 	_centre.option_chosen.connect(_on_option_chosen)
+	_centre.mercy_chosen.connect(_on_mercy_chosen)
 
 	# Loading overlay
 	_loading.name = "LoadingCover"
@@ -973,7 +1015,7 @@ func _build_layout() -> void:
 	_tribulation_screen.continue_requested.connect(_on_tribulation_continue)
 	_dao_do_screen.node_reader = func(id: int, pending: Array) -> Dictionary: return {} if _busy() else GameQuery.dao_do_node(session, id, pending)
 	_full.reader = _read_window
-	_full.is_locked = func() -> bool: return session != null and not _busy() and session.has_pending_event()
+	_full.is_locked = _has_blocking_event
 	_full.back_requested.connect(_close_full)
 	_full.action_requested.connect(_on_window_action)
 	_full.open_requested.connect(_on_full_open)
@@ -1033,7 +1075,11 @@ func _greybox_theme() -> Theme:
 
 
 func _process_dim() -> void:
-	_dim.visible = _centre.visible or _comparison.visible or _job_kind == "choose"
+	_dim.visible = _centre.visible or _comparison.visible or _job_kind in ["choose", "mercy"]
+
+
+func _has_blocking_event() -> bool:
+	return session != null and not _busy() and (session.has_pending_event() or session.has_pending_mercy())
 
 
 func _show_loading(text: String) -> void:
@@ -1053,8 +1099,9 @@ func _refresh() -> void:
 	# review 2026-11-24 #8: "date clipped by the buttons"): icon 28 + gap 6 + text + the art's 22 px rims, plus air
 	_cartouche.custom_minimum_size.x = maxf(170.0, _season.get_minimum_size().x + 28.0 + 6.0 + 44.0 + 16.0)
 	_refresh_boxes(snap)
-	_alerts.text = tr("Alerts:") + " " + (tr("an event is waiting") if session.has_pending_event() else tr("none"))
-	_alert_row.visible = session.has_pending_event()   # element 1 shows only while alerts are open
+	var ev_waiting: bool = session.has_pending_event() or session.has_pending_mercy()
+	_alerts.text = tr("Alerts:") + " " + (tr("a mercy decision is waiting") if (session.has_pending_mercy() and not session.has_pending_event()) else (tr("an event is waiting") if ev_waiting else tr("none")))
+	_alert_row.visible = ev_waiting   # element 1 shows only while alerts are open
 	_alert_row.reset_size()
 	_alert_row.offset_left = -_alert_row.size.x / 2.0
 	_alert_row.offset_right = _alert_row.size.x / 2.0
@@ -1197,6 +1244,11 @@ func _refresh_focus() -> void:
 
 
 func _refresh_turn_button() -> void:
+	if session != null and not _busy() and session.has_pending_mercy() and not session.has_pending_event():
+		_end_turn.text = tr("Mercy waiting")
+		TooltipLayer.set_tip(_end_turn, tr("Decide whether to spare or kill your defeated foe first."))
+		_turn_note.text = turn.fallback_note
+		return
 	_end_turn.text = turn.button_label()
 	var g: Dictionary = turn.gate()
 	TooltipLayer.set_tip(_end_turn, g.reason if not g.ok else tr("End the season (Enter)"))
@@ -1314,7 +1366,7 @@ func _bubbles(places: Array, here_id: String, here_tile: Vector2i) -> Array:
 		var k: Dictionary = BubbleModel.kinds_for(rec, id == here_id, met_here, can_work, Array(cfg.get("explore_kinds", [])))
 		if not k.is_empty():
 			kinds_by_place[id] = k
-	var locked: bool = session.has_pending_event()
+	var locked: bool = session.has_pending_event() or session.has_pending_mercy()
 	for b in BubbleModel.build(kinds_by_place, dist, here_id, int(cfg.get("max", 12))):
 		var pl: Dictionary = by_id.get(b.place_id, {})
 		if pl.is_empty():
@@ -1381,7 +1433,7 @@ func _toggle_places(opener: Control) -> void:
 			"people": met_here if is_here else -1, "actions": acts, "here": is_here, "seasons": 0.0 if is_here else -1.0,
 			"seasons_known": is_here, "fee": int(fee.get("fee", -1)) if not fee.is_empty() else -1})
 	var clues: Array = session.clue_lines() if GameQuery.has_clues(session) else []
-	_places.open_panel(str(here.get("name", "")), here_actions, session.has_pending_event(), rows, clues, opener)
+	_places.open_panel(str(here.get("name", "")), here_actions, session.has_pending_event() or session.has_pending_mercy(), rows, clues, opener)
 	_refresh()
 
 
@@ -1650,7 +1702,7 @@ func _on_interact_done(result: Dictionary) -> void:
 	if _needs_succession():
 		_open_full("succession")
 		return
-	if bool(result.get("scene_started", false)) or session.has_pending_event():
+	if bool(result.get("scene_started", false)) or session.has_pending_event() or session.has_pending_mercy():
 		_show_event()
 	elif result.has("fight_view") and result.fight_view is Dictionary and bool((result.fight_view as Dictionary).get("ok", false)):
 		_tips.close_all()
@@ -1675,7 +1727,7 @@ func _people_lines(place_id: String) -> Array:
 
 ## Opens the focus comparison (element 29) with [param preselect] chosen; [param travel_place] names a Travel option.
 func _open_comparison(preselect: String, travel_place: String) -> void:
-	if _busy() or session.has_pending_event():
+	if _busy() or session.has_pending_event() or session.has_pending_mercy():
 		return
 	var fy: Dictionary = GameQuery.season_focus_yield(session)
 	var tax_note: String = ""
@@ -1733,6 +1785,10 @@ func _on_comparison_closed() -> void:
 func _try_end_turn() -> void:
 	if session == null or _job.is_running():
 		return
+	if session.has_pending_mercy():
+		_show_event()
+		_turn_note.text = tr("Decide whether to spare or kill your defeated foe first.")
+		return
 	var g: Dictionary = turn.gate()
 	var cooldown_ms: int = int(float(_cfg.get("end_turn_cooldown", 0.5)) * 1000.0)
 	if g.ok and Time.get_ticks_msec() - _last_turn_msec < cooldown_ms:
@@ -1768,14 +1824,14 @@ func _on_turn_done(result: Dictionary) -> void:
 func _centre_summary(title: String, lines: Array) -> void:
 	_tips.close_all()   # a window opening over the chain closes it
 	turn.window_open = true
-	_summary_pending_event = session.has_pending_event()
+	_summary_pending_event = session.has_pending_event() or session.has_pending_mercy()
 	_centre.show_summary(title, lines)
 	_refresh_turn_button()
 
 
 func _on_centre_closed() -> void:
 	turn.window_open = false
-	if _summary_pending_event or session.has_pending_event():
+	if _summary_pending_event or session.has_pending_event() or session.has_pending_mercy():
 		_summary_pending_event = false
 		_show_event()
 		return
@@ -1784,13 +1840,14 @@ func _on_centre_closed() -> void:
 
 
 func _show_event() -> void:
-	if not session.has_pending_event():
+	if not session.has_pending_event() and not session.has_pending_mercy():
 		return
 	turn.window_open = true
 	var ev: Dictionary = GameQuery.pending_event(session)
 	var odds: Array = []
-	for i in Array(ev.get("choices", [])).size():
-		odds.append(Advisor.choice_odds(session, i))
+	if session.has_pending_event():
+		for i in Array(ev.get("choices", [])).size():
+			odds.append(Advisor.choice_odds(session, i))
 	_centre.show_event(ev, odds)
 	_refresh_turn_button()
 
@@ -1807,6 +1864,49 @@ func _on_choice_done(result: Dictionary) -> void:
 	turn.window_open = false
 	_rebuild_places()
 	_refresh()
+	if _needs_succession():
+		_open_full("succession")
+		return
+	var lines: Array = Array(result.get("lines", []))
+	if session.has_pending_mercy():
+		var mview: Dictionary = GameQuery.pending_event(session)
+		var check_line: String = ""
+		var eff_lines: Array = []
+		var body_parts: PackedStringArray = PackedStringArray()
+		for raw_l in lines:
+			var s: String = str(raw_l)
+			if s.begins_with("> "):
+				check_line = s.substr(2)
+			elif s.begins_with("  "):
+				eff_lines.append(s.strip_edges())
+			elif s.strip_edges() != "":
+				body_parts.append(s)
+		turn.window_open = true
+		_centre.show_mercy_result(
+			str(mview.get("title", tr("Định đoạt sinh tử"))),
+			check_line,
+			eff_lines,
+			"\n".join(body_parts) if not body_parts.is_empty() else str(mview.get("text", "")),
+			mview
+		)
+		_refresh_turn_button()
+		return
+	_centre_summary(tr("Outcome"), lines)
+
+
+func _on_mercy_chosen(kill: bool) -> void:
+	if _job.is_running():
+		return
+	_centre.hide_window()
+	_job_kind = "mercy"
+	_job.start(session.run.bind(session.choose_mercy.bind(kill)))
+
+
+func _on_mercy_done(result: Dictionary) -> void:
+	turn.window_open = false
+	_rebuild_places()
+	_refresh()
+	_win.refresh()
 	if _needs_succession():
 		_open_full("succession")
 		return
@@ -1864,7 +1964,14 @@ func _setup_windows() -> void:
 		_z2_box.add_child(b)
 	var plate := PanelContainer.new()   # the outliner on a wood plate, readable over the bright map (art bible 7.13)
 	plate.theme_type_variation = &"WoodPanel"
-	plate.add_child(_outliner)
+	plate.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var osc := ScrollContainer.new()
+	osc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
+	osc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	osc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_outliner.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	osc.add_child(_outliner)
+	plate.add_child(osc)
 	_z2_box.add_child(plate)
 	_pins = OutlinerPins.new("" if test_run else "user://outliner_pins.cfg", int(_wcfg.get("outliner_pins_max", 12)))
 	_dao_do_screen.cfg = _wcfg.get("dao_do", {})
@@ -1908,7 +2015,11 @@ func _open_window(kind: String, subject: String = "", section: String = "", open
 	var cx: CodexWindow = _win.window("codex") as CodexWindow
 	if cx != null:
 		cx.cfg = _wcfg
-	for k in ["character", "inventory", "relationships", "rankings", "sect", "wiki", "codex"]:
+	for qk in ["quests", "news"]:
+		var qnw: GameWindow = _win.window(qk)
+		if qnw != null and "cfg" in qnw:
+			qnw.set("cfg", _wcfg)
+	for k in ["character", "inventory", "relationships", "rankings", "sect", "wiki", "codex", "quests", "news"]:
 		if _win.window(k) != null:
 			_win.window(k).compact = get_viewport_rect().size.x < float(_wcfg.get("compact_width", 1500))
 	var w: CharacterWindow = _win.window("character") as CharacterWindow
@@ -1966,6 +2077,27 @@ func _read_window(kind: String, subject: String) -> Dictionary:
 			if subject != "":
 				cxv["active_book"] = subject
 			return cxv
+		"quests":
+			var qv: Dictionary = GameQuery.quests_journal(session)
+			var rich_offers: Array = []
+			for raw_o in Array(qv.get("offers", [])):
+				if raw_o is Dictionary:
+					var oid: String = str((raw_o as Dictionary).get("id", ""))
+					var full_o: Dictionary = GameQuery.quest_offer_view(session, oid)
+					rich_offers.append(full_o if not full_o.is_empty() else raw_o)
+			qv["offers"] = rich_offers
+			var rich_board: Array = []
+			for raw_b in Array(qv.get("board", [])):
+				if raw_b is Dictionary:
+					var bid: String = str((raw_b as Dictionary).get("id", ""))
+					var full_b: Dictionary = GameQuery.quest_offer_view(session, bid)
+					rich_board.append(full_b if not full_b.is_empty() else raw_b)
+			qv["board"] = rich_board
+			if subject != "":
+				qv["focus_id"] = subject
+			return qv
+		"news":
+			return GameQuery.event_news(session)
 		"tribulation":
 			return _tribulation_view(subject)
 		"succession":
@@ -2075,6 +2207,24 @@ func _on_window_action(_kind: String, action: String, args: Array) -> void:
 			act = session.fund_building.bind(str(args[0]), str(args[1]))
 		"claim_abode":
 			act = session.claim_abode
+		"choose_mercy":
+			act = session.choose_mercy.bind(bool(args[0]))
+		"quest_accept":
+			act = session.quest_accept.bind(str(args[0]))
+		"quest_decline":
+			act = session.quest_decline.bind(str(args[0]))
+		"quest_abandon":
+			act = session.quest_abandon.bind(str(args[0]))
+		"quest_drop":
+			act = session.quest_drop.bind(str(args[0]))
+		"quest_deliver":
+			act = session.quest_deliver.bind(str(args[0]), str(args[1]) if args.size() > 1 else "")
+		"quest_mission":
+			act = session.quest_mission.bind(str(args[0]))
+		"quest_start_stage":
+			act = session.quest_start_stage.bind(str(args[0]))
+		"quest_ask_work":
+			act = session.quest_ask_work.bind(str(args[0]))
 		"tree_apply":   # the Đạo Đồ plan: one tree_allocate job per mark, in order (dao-do-view.md)
 			_tree_queue = Array(args[0]).duplicate()
 			_tree_lines = []
@@ -2140,6 +2290,8 @@ func _on_window_action_done(result: Dictionary) -> void:
 		return
 	if (done_action == "breakthrough" and bool(result.get("ok", false))) or ended:
 		_centre_summary(tr("This life has ended") if ended else tr("Breakthrough"), lines)
+	elif session.has_pending_event() or session.has_pending_mercy():
+		_show_event()
 
 
 func _on_window_visibility() -> void:
@@ -3606,6 +3758,408 @@ func _succession_fixture() -> Dictionary:
 		"rebirth_years": KarmicRules.rebirth_years(gd),
 		"rebirth_seasons": KarmicRules.rebirth_seasons(gd),
 		"perk_extra_max": KarmicRules.perk_extra_max(gd),
+	}
+
+
+func _event_card_fixture() -> Dictionary:
+	var ev := {
+		"id": "st_vanhac_2",
+		"kind": "story",
+		"story_name": "Bản Nhạc Không Chữ",
+		"story_stage": "Giai đoạn 2 · Phục kích Tùng Đào",
+		"followup_of": "Dư âm bến Ngư Ca",
+		"title": "Hẻm Núi Tùng Đào — Kẻ Cũ Chặn Đường",
+		"text": "Giữa rừng thông sương phủ, Lục Vô Tâm (Trúc Cơ Trung Kỳ) cùng hai tên đồ đệ Lạc Hà Phái bất ngờ vây kín lối mòn. Hắn lạnh giọng đòi lại quyển cổ phổ không chữ mà ngươi tìm thấy ở bến Ngư Ca.",
+		"choices": [
+			{
+				"label": "Vận thần thức soi thấu trận pháp mai phục rồi phá vòng vây",
+				"affordable": true,
+				"disable_reason": "",
+				"trait_badge": "",
+				"always_costs": [],
+				"check": {"type": "stat", "stat": "than_thuc", "difficulty": 50},
+				"check_breakdown": {
+					"type": "stat",
+					"stat": "than_thuc",
+					"difficulty": 50.0,
+					"chance": 0.60,
+					"lines": ["Thần thức cơ bản: 60", "Độ khó kiểm tra: 50", "Khí vận (50): +0%", "Xác suất thành công: 60%"],
+				},
+				"fight_odds": {},
+				"situation": "foreseen",
+				"outcome_summary": "Thành công: +180 tu vi, mở manh mối N-lang_dao-03 | Thất bại: -15% khí huyết",
+				"hidden": false,
+				"deadly": false,
+			},
+			{
+				"label": "Rút kiếm nghênh chiến trực diện với Lục Vô Tâm",
+				"affordable": true,
+				"disable_reason": "",
+				"trait_badge": "sword_heart",
+				"trait_label": "Kiếm Tâm",
+				"always_costs": [{"type": "khi_huyet_loss_pct", "amount": 5}],
+				"check": {"type": "combat", "enemy": "npc_luc_vo_tam", "situation": "ambush", "mercy_allowed": true},
+				"check_breakdown": {},
+				"fight_odds": {
+					"enemy_id": "npc_luc_vo_tam",
+					"enemy_name": "Lục Vô Tâm",
+					"chance": 0.58,
+					"player_power": 142.0,
+					"enemy_power": 128.0,
+					"situation": "ambush",
+				},
+				"situation": "ambush",
+				"outcome_summary": "Thành công: +240 linh thạch (túi đối thủ), Định đoạt sinh tử | Thất bại: trọng thương",
+				"hidden": false,
+				"deadly": false,
+			},
+			{
+				"label": "Liều mình lao xuống vực sương mù phía sau để cắt đuôi",
+				"affordable": true,
+				"disable_reason": "",
+				"trait_badge": "",
+				"always_costs": [],
+				"check": {"type": "none"},
+				"check_breakdown": {},
+				"fight_odds": {},
+				"situation": "foreseen",
+				"outcome_summary": "",
+				"hidden": true,
+				"deadly": true,
+			},
+			{
+				"label": "Thương lượng bằng ám hiệu bí mật của thương hội",
+				"affordable": true,
+				"disable_reason": "",
+				"trait_badge": "",
+				"always_costs": [],
+				"check": {"type": "none"},
+				"check_breakdown": {},
+				"fight_odds": {},
+				"situation": "foreseen",
+				"outcome_summary": "",
+				"hidden": true,
+				"deadly": false,
+			},
+			{
+				"label": "Dùng 500 linh thạch mua đường thoát thân ngay lập tức",
+				"affordable": false,
+				"disable_reason": "Không đủ linh thạch (cần 500 LT, hiện có 120 LT)",
+				"trait_badge": "",
+				"always_costs": [{"type": "linh_thach", "amount": -500}],
+				"check": {"type": "none"},
+				"check_breakdown": {},
+				"fight_odds": {},
+				"situation": "foreseen",
+				"outcome_summary": "Chi phí: -500 LT | Thoát khỏi vòng vây an toàn",
+				"hidden": false,
+				"deadly": false,
+			},
+		],
+	}
+	var odds := [
+		{"ok": true, "chance": 0.60, "text": "Thần thức 60 vs 50 (Khí vận 50 -> 60%)", "reason": ""},
+		{"ok": true, "chance": 0.58, "text": "Giao đấu: chiến lực 142 vs 128 (Phục kích)", "reason": ""},
+		{"ok": true, "chance": -1.0, "text": "Không kiểm tra — kết quả ẩn, nguy cơ tử vong", "reason": ""},
+		{"ok": true, "chance": -1.0, "text": "Không kiểm tra — kết quả ẩn", "reason": ""},
+		{"ok": false, "chance": -1.0, "text": "", "reason": "Không đủ linh thạch (cần 500 LT, hiện có 120 LT)"},
+	]
+	return {"event": ev, "odds": odds}
+
+
+func _event_mercy_fixture() -> Dictionary:
+	return {
+		"title": "Hẻm Núi Tùng Đào — Kết Cục Giao Đấu",
+		"check_line": "⚔ Giao đấu · Thắng lợi trước Lục Vô Tâm (Tỉ lệ 58% · Phục kích / ambush)",
+		"outcome_text": "Kiếm quang xuyên qua màn sương, chém vỡ hộ thân linh phù của Lục Vô Tâm. Hắn quỳ sụp trên phiến đá xanh, pháp bảo vỡ nát, miệng trào máu tươi nhưng vẫn trừng mắt nhìn ngươi không chịu khuất phục.",
+		"effect_lines": [
+			"Thu được +180 linh thạch từ túi trữ vật của Lục Vô Tâm (other_purse).",
+			"Khí huyết tiêu hao -12% do trúng đòn phục kích đầu trận.",
+			"Hảo cảm với Tùng Đào Sơn tăng +8; manh mối 'Bản Nhạc Không Chữ' tiến sang Giai đoạn 3.",
+		],
+		"mercy_info": {
+			"mercy_pending": true,
+			"mercy_target_id": "npc_luc_vo_tam",
+			"mercy_target_name": "Lục Vô Tâm",
+		},
+	}
+
+
+func _quests_offer_fixture() -> Dictionary:
+	return {
+		"active_cap": 3,
+		"active": [],
+		"board": [],
+		"completed": [],
+		"stories": [
+			{
+				"id": "st_inst_1",
+				"story_id": "story_van_hac_unwritten_canon",
+				"name": "Bản Nhạc Không Chữ",
+				"stage": "s2_recital",
+				"stage_label": "Giai đoạn 2 · Cổ cầm Tùng Đào",
+				"last_event": "Hẻm Núi Tùng Đào",
+				"budget_left": 540,
+				"items_left": 2,
+				"timeout_left": 18,
+			},
+		],
+		"gain_total_w": 48.0,
+		"gain_cap_w": 48.0,
+		"can_gain_boon": false,
+		"offers": [
+			{
+				"id": "q_offer_major_01",
+				"name": "Đòi Lại Cổ Phổ Vạn Hác Tông",
+				"tier": "major",
+				"offer_kind": "sect",
+				"state": "offered",
+				"offerer_id": "npc_vi_thanh_am",
+				"offerer_name": "Vi Thanh Âm (Trưởng lão Vạn Hác Tông)",
+				"adversary_id": "npc_luc_vo_tam",
+				"adversary_name": "Lục Vô Tâm (Lạc Hà Phái)",
+				"place_id": "p_vanhac",
+				"place_name": "Vạn Hác Sơn",
+				"source_fact": {
+					"kind": "grudge",
+					"text": "Lục Vô Tâm đánh úp đoàn hộ tống cổ phổ của Vạn Hác Tông tại Hắc Phong Cốc mùa Thu trước.",
+				},
+				"stake_text": "Nếu cổ phổ lọt vào tay Lạc Hà Phái, đại trận hộ sơn của Vạn Hác Tông sẽ bị nhìn thấu.",
+				"offer_text": ["Vi Thanh Âm khẩn khoản ủy thác ngươi lần theo dấu vết từ Hắc Phong Cốc, đoạt lại cổ phổ và đánh gục kẻ chủ mưu trước khi đại hội tông môn khai mở."],
+				"deadline": 24,
+				"budget": {
+					"S_plan": 8,
+					"B": 640,
+					"stage_pays": [48, 48, 96, 448],
+					"final_pay": 448,
+					"cash_max": 128,
+					"deliver_max": 320,
+				},
+				"stage_1": {
+					"kind": "visit",
+					"title": "Dò hỏi chứng nhân tại bến Ngư Ca",
+					"place_id": "p_nguca",
+					"place_name": "Bến Ngư Ca",
+					"window": 3,
+					"description": "Gặp lão lái đò tại Bến Ngư Ca để xác định hướng rút lui của Lạc Hà Phái (không tốn lượt mùa).",
+				},
+				"later_stages": [
+					{"stage": 2, "kind": "deliver", "place_id": "p_thanhvan", "place_name": "Thanh Vân Thành"},
+					{"stage": 3, "kind": "defeat", "place_id": "p_hacphong", "place_name": "Hắc Phong Cốc"},
+					{"stage": 4, "kind": "event", "place_id": "p_vanhac", "place_name": "Vạn Hác Sơn"},
+				],
+				"outcomes": [
+					{"on": "completed", "role": "offerer", "effect": "wealth", "amount": 240},
+					{"on": "completed", "role": "adversary", "effect": "injury", "amount": 0.25},
+					{"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 8},
+					{"on": "failed", "role": "offerer_sect", "effect": "standing", "amount": -6},
+				],
+				"has_lasting_gain": true,
+				"can_gain_boon": false,
+			},
+		],
+	}
+
+
+func _quests_journal_fixture() -> Dictionary:
+	return {
+		"active_cap": 3,
+		"gain_total_w": 16.0,
+		"gain_cap_w": 48.0,
+		"can_gain_boon": true,
+		"active": [
+			{
+				"id": "q_act_01",
+				"name": "Hộ Tống Linh Thảo Qua Hắc Phong Cốc",
+				"tier": "ordinary",
+				"offer_kind": "person",
+				"state": "active",
+				"stage": 2,
+				"stage_count": 4,
+				"offerer_id": "npc_so_ngoc_ho",
+				"offerer_name": "Sở Ngọc Hồ",
+				"place_id": "p_thanhvan",
+				"place_name": "Thanh Vân Thành",
+				"seasons_left": 2,
+				"remaining_s_i": 4,
+				"tight_deadline_warn": true,
+				"budget": {"B": 360, "S_plan": 6},
+				"paid_total": 45,
+				"current_stage": {
+					"kind": "mission",
+					"title": "Áp tiêu dược liệu vượt đèo sương",
+					"place_id": "p_hacphong",
+					"place_name": "Hắc Phong Cốc",
+					"description": "Dành 1 mùa hộ tống đoàn xe linh thảo qua Hắc Phong Cốc (0 thu nhập nhiệm vụ ngoài ngân sách ủy thác).",
+				},
+				"later_stages": [
+					{"stage": 3, "kind": "deliver", "place_id": "p_thanhvan", "place_name": "Thanh Vân Thành"},
+					{"stage": 4, "kind": "event", "place_id": "p_thanhvan", "place_name": "Thanh Vân Thành"},
+				],
+			},
+			{
+				"id": "q_act_02",
+				"name": "Tìm Mảnh Trận Bàn Thất Lạc",
+				"tier": "errand",
+				"offer_kind": "board",
+				"state": "orphaned",
+				"stage": 2,
+				"stage_count": 2,
+				"offerer_id": "npc_dead_elder",
+				"offerer_name": "Trần Hạc Niên (đã tọa hóa)",
+				"place_id": "p_tungha",
+				"place_name": "Tùng Hạ Thị",
+				"seasons_left": 5,
+				"remaining_s_i": 1,
+				"tight_deadline_warn": false,
+				"budget": {"B": 140, "S_plan": 2},
+				"paid_total": 20,
+				"current_stage": {
+					"kind": "deliver",
+					"title": "Nộp mảnh trận bàn cho người thừa kế di sản",
+					"place_id": "p_tungha",
+					"place_name": "Tùng Hạ Thị",
+					"description": "Chủ ủy thác đã qua đời. Hoàn thành vẫn nhận 50% phần chưa trả từ di sản, hoặc bỏ ủy thác không bị phạt.",
+				},
+				"later_stages": [],
+			},
+		],
+		"offers": [
+			{
+				"id": "q_off_mini",
+				"name": "Thu Thập Băng Tâm Thảo",
+				"tier": "errand",
+				"offer_kind": "person",
+				"state": "offered",
+				"offerer_name": "Mạc Quy Khư",
+				"place_name": "Bắc Hàn Thị",
+				"deadline": 10,
+				"budget": {"B": 120, "stage_pays": [36, 84], "final_pay": 84, "cash_max": 24, "deliver_max": 60, "S_plan": 2},
+				"stage_1": {"kind": "deliver", "title": "Giao 2 gốc Băng Tâm Thảo", "place_name": "Bắc Hàn Thị", "window": 2, "description": "Thu thập và giao nộp dược thảo băng hệ."},
+				"later_stages": [],
+				"outcomes": [],
+			},
+		],
+		"board": [
+			{"id": "qb_1", "name": "Dọn Yêu Thú Quanh Mỏ Quặng", "tier": "errand", "offer_kind": "board", "offerer_name": "Bảng ủy thác Tùng Hạ", "place_name": "Tùng Hạ Thị", "deadline": 8, "budget": {"B": 110, "stage_pays": [33, 77], "final_pay": 77, "cash_max": 22, "deliver_max": 55, "S_plan": 2}, "stage_1": {"kind": "defeat", "title": "Đuổi bầy Xích Hỏa Lang", "place_name": "Mỏ Xích Thạch", "window": 2, "description": "Đánh bại đầu đàn yêu thú."}, "later_stages": [], "outcomes": []},
+			{"id": "qb_2", "name": "Đưa Thư Tới Thanh Vân Sơn", "tier": "errand", "offer_kind": "board", "offerer_name": "Bảng ủy thác Tùng Hạ", "place_name": "Tùng Hạ Thị", "deadline": 10, "budget": {"B": 90, "stage_pays": [27, 63], "final_pay": 63, "cash_max": 18, "deliver_max": 45, "S_plan": 1}, "stage_1": {"kind": "visit", "title": "Chuyển mật thư", "place_name": "Thanh Vân Sơn", "window": 2, "description": "Trao thư tận tay chấp sự."}, "later_stages": [], "outcomes": []},
+			{"id": "qb_3", "name": "Luyện Lô Tụ Khí Đan", "tier": "ordinary", "offer_kind": "board", "offerer_name": "Bảng ủy thác Tùng Hạ", "place_name": "Tùng Hạ Thị", "deadline": 14, "budget": {"B": 220, "stage_pays": [66, 154], "final_pay": 154, "cash_max": 44, "deliver_max": 110, "S_plan": 3}, "stage_1": {"kind": "craft", "title": "Luyện chế Tụ Khí Đan mới", "place_name": "Tùng Hạ Thị", "window": 3, "description": "Luyện sau khi nhận phiếu."}, "later_stages": [{"stage": 2, "kind": "deliver", "place_name": "Tùng Hạ Thị"}], "outcomes": []},
+		],
+		"completed": [],
+		"stories": [
+			{
+				"id": "st_inst_1",
+				"story_id": "story_van_hac_unwritten_canon",
+				"name": "Bản Nhạc Không Chữ",
+				"stage": "s2_recital",
+				"stage_label": "Giai đoạn 2 · Cổ cầm Tùng Đào",
+				"last_event": "Hẻm Núi Tùng Đào",
+				"budget_left": 540,
+				"items_left": 2,
+				"timeout_left": 18,
+			},
+			{
+				"id": "st_inst_2",
+				"story_id": "story_lang_dao_toll",
+				"name": "Lệ Phí Bến Ngư Ca",
+				"stage": "s1_ledger",
+				"stage_label": "Giai đoạn 1 · Sổ sách thất lạc",
+				"last_event": "Bến Ngư Ca",
+				"budget_left": 320,
+				"items_left": 1,
+				"timeout_left": 14,
+			},
+		],
+	}
+
+
+func _outliner_quests_fixture() -> Dictionary:
+	return {
+		"people": [
+			{"id": "p_so", "name": "Sở Ngọc Hồ", "alive": true, "place": "Thanh Vân Thành", "travelling": false, "attitude": 42, "band": "warm", "realm": "Kết Đan Sơ Kỳ"},
+		],
+		"home": {"id": "p_home", "name": "Tùng Hạ Thị", "here": true, "seasons": 0.0},
+		"seat": {},
+		"event": {},
+		"quests": [
+			{
+				"id": "q_act_01",
+				"name": "Hộ Tống Linh Thảo Qua Hắc Phong Cốc",
+				"tier": "ordinary",
+				"state": "active",
+				"stage": 2,
+				"stage_count": 4,
+				"current_kind": "mission",
+				"target_place": "Hắc Phong Cốc",
+				"seasons_left": 2,
+				"tight_deadline_warn": true,
+			},
+		],
+		"stories": [
+			{
+				"id": "st_inst_1",
+				"name": "Bản Nhạc Không Chữ",
+				"stage": "s2_recital",
+				"stage_label": "Giai đoạn 2 · Cổ cầm Tùng Đào",
+				"budget_left": 540,
+			},
+		],
+	}
+
+
+func _news_chronicle_fixture() -> Dictionary:
+	return {
+		"annals_uncovered": [
+			{
+				"id": "ev_hist_langdao_03",
+				"year": 942,
+				"season": 2,
+				"type": "tale",
+				"text": "Hơn ba trăm năm trước, bến Ngư Ca từng bị nội ứng Lãng Đạo Tông cấu kết cùng Lạc Hà Phái thu thuế ngầm suốt bảy mùa liền; sổ mật được giấu dưới cột đá bến cũ nay đã bị ngươi phanh phui trước tông môn.",
+				"data": {
+					"id": "N-lang_dao-03",
+					"title": "Án Thuế Ngầm Bến Ngư Ca",
+					"tier": "annal",
+					"secret": false,
+					"uncovered": true,
+				},
+			},
+		],
+		"news": [
+			{
+				"id": "ev_news_1",
+				"year": 1204,
+				"season": 1,
+				"type": "story",
+				"text": "Sở Ngọc Hồ giao đấu bất phân thắng bại với trưởng lão Lạc Hà Phái tại Thanh Vân Thành để bảo vệ lô dược liệu mùa Hạ.",
+				"data": {
+					"newsworthy": true,
+					"narration": "Tin tức lan khắp ba vùng lân cận; giá linh thảo tại Thanh Vân Thành tăng nhẹ.",
+				},
+			},
+			{
+				"id": "ev_news_2",
+				"year": 1204,
+				"season": 0,
+				"type": "story",
+				"text": "Mạc Quy Khư xuất quan sớm tại Bắc Hàn Thị sau khi phát hiện dấu vết dị động ở cổ trận phía Bắc.",
+				"data": {
+					"newsworthy": false,
+					"narration": "Người quen của bạn tại Bắc Hàn gửi lời nhắc hãy thận trọng nếu đi qua vùng băng nguyên.",
+				},
+			},
+			{
+				"id": "ev_news_3",
+				"year": 1203,
+				"season": 3,
+				"type": "story",
+				"text": "Bí cảnh Thiết Mã Cảnh khép cửa sau kỳ mở ba năm; hai đệ tử Vạn Hác Tông mang được tàn phiến trận đồ trở về.",
+				"data": {
+					"newsworthy": true,
+					"narration": "Đại hội luận kiếm mùa Xuân tới dự kiến thu hút đông đảo tu sĩ Trúc Cơ.",
+				},
+			},
+		],
 	}
 
 

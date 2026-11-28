@@ -26,6 +26,11 @@ const SAVE_VERSION := 3
 ## Save versions load_dict can read. 1 is the old stage ladder, which migrates. 2 is the
 ## 300-level ladder, which is refused (canh-gioi.md Edge Cases, Saves).
 const SAVE_VERSIONS_READ := [1, 3]
+const _EventEngine := preload("res://src/gameplay/events/event_engine.gd")
+const _EventStore := preload("res://src/gameplay/events/event_store.gd")
+const _EventBudget := preload("res://src/gameplay/events/event_budget.gd")
+const _QuestBoard := preload("res://src/gameplay/quests/quest_board.gd")
+const _QuestService := preload("res://src/gameplay/quests/quest_service.gd")
 
 var gd: GameData
 var tree: DaoDoTree
@@ -68,6 +73,12 @@ var _bulk_share: int = 0
 var templates: EventTemplateSource
 var validator: EventValidator
 var resolver: EventResolver
+## Event Engine (#23) orchestrator: pulses, hooks, follow-ups, stories, NPC off-screen events (no back-ref to self).
+var event_engine: _EventEngine
+## Template Quests (#31) standing town/sect boards (no back-ref to self).
+var quest_board: _QuestBoard
+## Template Quests (#31) lifecycle, stages, payouts, and Event Engine story bridge (no back-ref to self).
+var quests: _QuestService
 var narrator: Narrator
 ## NPC Interaction & Dialogue (#30): verbs, loans, spars, and voiced replies (no back-reference to self).
 var interactions: InteractionService
@@ -82,6 +93,8 @@ var player: Character
 var pending_event: Dictionary = {}
 ## {source, warnings, llm_error} of the pending event.
 var pending_meta: Dictionary = {}
+## Post-duel cultivator Mercy decision waiting for spare/kill ({event, choice_index, target_id, title}; {} when none).
+var pending_mercy: Dictionary = {}
 var life_over: bool = false
 ## Set when debug commands touched this life: it can no longer earn achievements.
 var cheated: bool = false
@@ -205,6 +218,8 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	edge = bool(spec.get("edge", true))
 	co_duyen_used = {}
 	pending_event = {}
+	pending_meta = {}
+	pending_mercy = {}
 	epitaph_text = ""
 	pending_tribulation_reward = {}
 	last_tribulation = {}
@@ -312,8 +327,13 @@ func _wire() -> void:
 	resolver.ratings = ratings
 	resolver.rating_clock = _rating_clock   # a method, not a lambda: a lambda capturing self would cycle and leak
 	resolver.kill_npc_fn = _kill_npc_from_event
+	event_engine = _EventEngine.new(gd, db, builds, templates, validator, resolver)
+	event_engine.ratings = ratings
+	ticker.event_engine = event_engine
+	quest_board = _QuestBoard.new(gd, db, builds)
+	quests = _QuestService.new(gd, db, builds, items, event_engine, quest_board)
 	narrator = Narrator.new(gd, db, llm, templates, validator)
-	interactions = InteractionService.new(gd, db, builds, items, market, sect_members, resolver, templates, validator, ratings)
+	interactions = InteractionService.new(gd, db, builds, items, market, sect_members, resolver, templates, validator, ratings, quests)
 
 
 func _place_player() -> void:
@@ -437,6 +457,12 @@ func has_pending_event() -> bool:
 	return not pending_event.is_empty()
 
 
+## True while a post-duel cultivator Mercy decision waits for spare/kill (Event Engine Rule 17, AC-EV-30).
+## Read-only. Never changes the world (ADR-0006 decision 1).
+func has_pending_mercy() -> bool:
+	return not pending_mercy.is_empty()
+
+
 # --- Time ---------------------------------------------------------------------------
 
 func _guard(needs_time: bool) -> Dictionary:
@@ -445,8 +471,145 @@ func _guard(needs_time: bool) -> Dictionary:
 	if life_over:
 		return {"ok": false, "lines": ["This life has ended. Use 'new' to begin another."]}
 	if needs_time and has_pending_event():
-		return {"ok": false, "lines": ["An event is waiting: '%s'. Use 'event' to read it and 'choose <n>'." % pending_event.title]}
+		return {"ok": false, "lines": ["An event is waiting: '%s'. Use 'event' to read it and 'choose <n>'." % str(pending_event.get("title", "event"))]}
+	if needs_time and has_pending_mercy():
+		return {"ok": false, "lines": ["An event is waiting: '%s' (Mercy decision). Use 'choose_mercy' to spare or kill." % str(pending_mercy.get("title", "duel"))]}
 	return {"ok": true, "lines": []}
+
+
+## Session extras passed to [EventEngine] pulses, hooks, and queue drains (no cyclic ref to self).
+func _event_extras(extra: Dictionary = {}) -> Dictionary:
+	var per: int = ProgressionEdges.co_duyen_limit(gd, player.realm_index) if player != null else 0
+	var left: int = per - int(co_duyen_used.get(player.realm_index, 0)) if (edge and player != null) else 0
+	var rec_max: int = KarmicRules.recognition_max(gd)
+	var rec_left: int = maxi(0, rec_max - recognition_used)
+	var out := {
+		"year": year,
+		"season": season,
+		"language": llm.language if llm != null else "vi",
+		"edge": edge,
+		"co_duyen_left": left,
+		"past_ties": past_ties,
+		"recognition_left": rec_left,
+	}
+	for k in extra.keys():
+		out[k] = extra[k]
+	return out
+
+
+## Activates a normalized event returned by [EventEngine] as [member pending_event] and returns its banner lines.
+func _activate_engine_event(ev: Dictionary, extra_meta: Dictionary = {}) -> Array:
+	if ev.is_empty():
+		return []
+	pending_event = ev
+	pending_meta = {"source": str(ev.get("source", "")), "warnings": Array(ev.get("_warnings", [])), "llm_error": ""}
+	for k in extra_meta.keys():
+		pending_meta[k] = extra_meta[k]
+	if _is_co_duyen(pending_event):
+		co_duyen_used[player.realm_index] = int(co_duyen_used.get(player.realm_index, 0)) + 1
+		_log("player_co_duyen", {"a": player.id, "place": player.location_id})
+	if _is_past_life_event(pending_event):
+		recognition_used += 1
+	return ["", "*** EVENT: %s ***  (type 'event' to read, 'choose <n>' to act)" % str(pending_event.get("title", ""))]
+
+
+## Raises an [EventEngine] hook; if an event fires and none is waiting, activates it and returns banner lines.
+func _raise_event_hook(hook_id: String, payload: Dictionary = {}) -> Array:
+	if event_engine == null or player == null or life_over:
+		return []
+	var res: Dictionary = event_engine.raise_hook(hook_id, player, sheet(), rng, _event_extras(payload))
+	if not bool(res.get("ok", false)):
+		return []
+	var ev: Dictionary = Dictionary(res.get("event", {}))
+	if ev.is_empty() or has_pending_event() or has_pending_mercy():
+		return []
+	return _activate_engine_event(ev, {"hook": hook_id})
+
+
+## Detects cycled secret realm transitions after [method WorldTicker.tick], emitting [code]on_secret_realm[/code]
+## and enforcing AC-EV-45 (closing event when player is inside a closing secret realm, else fallback move to gate).
+## Opened/announced phases are gated on player relevance (known place or same region) and enqueued via
+## [code]queue_only[/code] so [method _maybe_event] drains them on interactive actions rather than blocking mid-season.
+func _check_secret_realm_transitions(realm_was_open: Dictionary) -> void:
+	if db == null or player == null or life_over:
+		return
+	var meta_seed: String = str(db.get_record("world", "w_meta").get("seed", ""))
+	var abs_s: int = MapChange.abs_season(year, season)
+	var player_place: Dictionary = db.get_record("places", player.location_id)
+	var player_region: String = str(player_place.get("region_id", ""))
+	for p in db.all("places"):
+		if not p.has("cycle"):
+			continue
+		var pid: String = str(p.id)
+		var was_open: bool = bool(realm_was_open.get(pid, false))
+		var now_open: bool = bool(p.get("open", false))
+		var st: Dictionary = MapChange.realm_state(p, abs_s, meta_seed)
+		if not was_open and now_open:
+			if _secret_realm_relevant_to_player(p, pid, player_region):
+				_raise_event_hook("on_secret_realm", {
+					"secret_realm_phase": "opened",
+					"secret_realm_id": pid,
+					"secret_realm_name": str(p.get("name", pid)),
+					"secret_realm_slot": str(p.get("slot", "")),
+					"queue_only": true,
+				})
+		elif was_open and not now_open:
+			if player.location_id == pid:
+				var cbanner: Array = _raise_event_hook("on_secret_realm", {
+					"secret_realm_phase": "closing",
+					"secret_realm_id": pid,
+					"secret_realm_name": str(p.get("name", pid)),
+					"secret_realm_slot": str(p.get("slot", "")),
+					"chance_override": 1.0,
+				})
+				if not cbanner.is_empty():
+					for l in cbanner:
+						_notices.append(str(l))
+				else:
+					var gate_id: String = _secret_realm_gate(p)
+					if gate_id != "" and gate_id != pid:
+						player.location_id = gate_id
+						for b in beasts.owned(player):
+							b["location_id"] = gate_id
+						var gname: String = str(db.get_record("places", gate_id).get("name", gate_id))
+						_notices.append("  %s closes behind you; you are cast out to %s." % [str(p.get("name", pid)), gname])
+		elif not now_open and int(st.get("next_open_in", 99)) == int(Dictionary(p.get("cycle", {})).get("rumour_lead", 4)):
+			if _secret_realm_relevant_to_player(p, pid, player_region):
+				_raise_event_hook("on_secret_realm", {
+					"secret_realm_phase": "announced",
+					"secret_realm_id": pid,
+					"secret_realm_name": str(p.get("name", pid)),
+					"secret_realm_slot": str(p.get("slot", "")),
+					"queue_only": true,
+				})
+
+
+## True when a cycled secret realm's opening/announcement is relevant to the player
+## (either already known on their map or located in their current region).
+func _secret_realm_relevant_to_player(place_rec: Dictionary, pid: String, player_region: String) -> bool:
+	if knowledge != null and knowledge.knows_place(pid):
+		return true
+	var p_region: String = str(place_rec.get("region_id", ""))
+	return player_region != "" and p_region == player_region
+
+
+## Fallback gate place when a player is expelled from a closing secret realm (AC-EV-45).
+func _secret_realm_gate(realm_place: Dictionary) -> String:
+	var pid: String = str(realm_place.get("id", ""))
+	for link in Array(realm_place.get("links", [])):
+		var lid: String = str(link.get("to", "")) if link is Dictionary else str(link)
+		if lid != "" and lid != pid and db.has_record("places", lid):
+			return lid
+	var reg: String = str(realm_place.get("region_id", ""))
+	for p in db.all("places"):
+		if str(p.id) != pid and not p.has("cycle") and not bool(p.get("hidden", false)) and str(p.get("region_id", "")) == reg:
+			return str(p.id)
+	if player != null and player.home_id != "" and player.home_id != pid and db.has_record("places", player.home_id):
+		return player.home_id
+	for p in db.all("places"):
+		if str(p.id) != pid and not p.has("cycle"):
+			return str(p.id)
+	return ""
 
 
 ## Provinces rule 9 (provinces-runtime Stage 8): the player funds the next level (or the repair) of building
@@ -516,11 +679,17 @@ func _pass_season(mode: String) -> Dictionary:
 	player.vitality = minf(player.vitality + float(d.injury_recovery_frac_per_season), 1.0)
 	var aging: float = float(gd.capability(7).params.age_mult) if mode == "closed_door" and player.has_capability(7) else 1.0
 	player.age += aging / float(gd.cultivation_rules().seasons_per_year)
+	# Snapshot cycled secret realms before WorldTicker advances MapChange.season() (AC-EV-45).
+	var realm_was_open: Dictionary = {}
+	for p in db.all("places"):
+		if p.has("cycle"):
+			realm_was_open[str(p.id)] = bool(p.get("open", false))
 	season += 1
+	var year_rolled: bool = false
 	if season >= int(gd.cultivation_rules().seasons_per_year):
 		season = 0
 		year += 1
-		_yearly()
+		year_rolled = true
 	# NPC Interaction & Dialogue (#30): reset seasonal focus tax / F7 counter and expire finished buffs
 	season_time_used = 0.0
 	player.season_time_used = 0.0
@@ -528,11 +697,29 @@ func _pass_season(mode: String) -> Dictionary:
 	var s_idx: int = season_index()
 	if not player.interaction_buffs.is_empty():
 		player.interaction_buffs = player.interaction_buffs.filter(func(b): return b is Dictionary and int((b as Dictionary).get("expires_season", 0)) > s_idx)
+	# Event Engine (#23): expire flags and clear prior-season leftovers BEFORE yearly/new-season hooks enqueue.
+	_EventStore.expire_flags(db, s_idx)
+	if event_engine != null:
+		event_engine.end_of_season_cleanup(year, season)
+	if year_rolled:
+		_yearly()
+	if event_engine != null:
+		event_engine.on_season_start(player, sh, rng, year, season, _event_extras())
 	_roll_ratings()   # rule 13, one season late: the previous season's batch applies; this season's waits a season
 	db.mark_hook_dirty(player.id)   # NPC Relationships rule 15a: the player's realm and place change often
 	out.news = ticker.tick(rng, year, season)
 	# NPC Relationships rule 15a: the hook pass wrote the player's tie rows on the World DB record
 	player.tie_rows = Array(db.get_record("people", player.id).get("tie_rows", [])).duplicate(true)
+	_check_secret_realm_transitions(realm_was_open)
+	# Template Quests (#31): AC-QS-57 strict 4-step season-end resolution order & local board refresh.
+	if quests != null and not life_over:
+		quests.on_season_end(player, sheet(), year, season, {
+			"season_idx": s_idx,
+			"seed": seed_value,
+			"refresh_board": true,
+		})
+	if quest_board != null and not life_over and quest_board.has_board(player.location_id):
+		quest_board.refresh_place(player.location_id, player, sheet(), seed_value, s_idx)
 	if _bulk_left > 0:
 		_bulk_left -= 1
 	_start_ratings()
@@ -557,6 +744,7 @@ func _yearly() -> void:
 		_notices.append("  " + l)
 		_log("player_formation_decay", {"a": player.id})
 	InteractionService.yearly_attitude_drift(gd, db, db.get_record("people", player.id))
+	_raise_event_hook("on_year_start", {"year": year, "season": season, "queue_only": true})
 
 
 func _news_lines(news: Array, limit: int = 3) -> Array:
@@ -579,9 +767,11 @@ func _is_co_duyen(ev: Dictionary) -> bool:
 	return false
 
 
-## Rolls for a random event at the current place. Returns lines describing it, or [].
+## Rolls for a random event at the current place via [EventEngine]. Returns lines describing it, or [].
 ## At a bình cảnh a life with the edge is likelier to meet one (cơ duyên).
-func _maybe_event(bonus: float) -> Array:
+func _maybe_event(bonus: float, mode: String = "cultivate") -> Array:
+	if has_pending_event() or has_pending_mercy():
+		return []
 	# NPC Interaction & Dialogue (#30): fire scheduled follow-up events (e.g. overdue loan collection) first.
 	var fu: Dictionary = InteractionService.pop_due_followup(db, season_index())
 	if not fu.is_empty():
@@ -595,6 +785,16 @@ func _maybe_event(bonus: float) -> Array:
 					pending_event = norm_fu.event
 					pending_meta = {"source": str(norm_fu.event.source), "warnings": norm_fu.warnings, "llm_error": ""}
 					return ["", "*** EVENT: %s ***  (type 'event' to read, 'choose <n>' to act)" % pending_event.title]
+	if event_engine != null:
+		var extras: Dictionary = _event_extras()
+		var queued: Dictionary = event_engine.drain_queue(player, sheet(), rng, year, season, extras)
+		if not queued.is_empty():
+			return _activate_engine_event(queued, {"queued": true})
+		var p_res: Dictionary = event_engine.roll_pulse(player, sheet(), rng, mode, bonus, extras)
+		var pulsed: Dictionary = Dictionary(p_res.get("event", {})) if bool(p_res.get("ok", false)) else {}
+		if not pulsed.is_empty():
+			return _activate_engine_event(pulsed)
+		return []
 	var cfg: Dictionary = gd.event_templates().random_event_chance
 	var place: Dictionary = db.get_record("places", player.location_id)
 	var chance: float = float(cfg.base) + float(cfg.per_danger) * float(place.get("danger", 1)) + bonus
@@ -750,7 +950,7 @@ func mission() -> Dictionary:
 	var r: Dictionary = _pass_season("")
 	lines.append_array(_news_lines(r.news))
 	if not r.died:
-		lines.append_array(_maybe_event(0.0))
+		lines.append_array(_maybe_event(0.0, "mission"))
 	else:
 		lines.append_array(death_lines())
 	return {"ok": true, "lines": lines}
@@ -803,7 +1003,7 @@ func explore() -> Dictionary:
 	var r: Dictionary = _pass_season("")
 	lines.append_array(_news_lines(r.news))
 	if not r.died:
-		lines.append_array(_maybe_event(float(gd.event_templates().random_event_chance.explore_bonus)))
+		lines.append_array(_maybe_event(float(gd.event_templates().random_event_chance.explore_bonus), "explore"))
 	else:
 		lines.append_array(death_lines())
 	return {"ok": true, "lines": lines}
@@ -898,8 +1098,11 @@ func travel(dest_id: String, how: String = "ground") -> Dictionary:
 		var seen: Array = knowledge.reveal_path(db, path_tiles, MapKnowledge.sight_radius(gd, ds))
 		if not seen.is_empty():
 			lines.append("You see %d place(s) you did not know along the way." % seen.size())
+		var found_before: int = knowledge.found.size()
 		lines.append_array(Discovery.check_path(gd, db, knowledge, rng, player, ds, path_tiles, how == "flight", year, season))
 		_codex_note_knowledge_secrets()
+		if knowledge.found.size() > found_before:
+			lines.append_array(_raise_event_hook("on_discover", {"place_id": dest_id}))
 	if str(dest.get("slot", "")) != "":
 		_codex_note(Codex.BOOK_SECRETS, str(dest.slot), CodexStore.LEVEL_KNOWN)
 	if flown > 0.0:
@@ -915,31 +1118,49 @@ func travel(dest_id: String, how: String = "ground") -> Dictionary:
 		lines.append("The rest of the season (%d%%) you cultivate there: +%.1f tu vi." % [int(round(left * 100.0)), float(res.gained)])
 	sync_player()
 	market.ensure_stock(rng, dest_id, year, player.realm_index, player.linh_can)
+	if quests != null:
+		var q_arr: Array = quests.on_arrive_place(player, dest_id, year, season, {"season_idx": season_index()})
+		for qa in q_arr:
+			if qa is Dictionary and bool((qa as Dictionary).get("ok", false)):
+				var qrec: Dictionary = Dictionary((qa as Dictionary).get("quest", {}))
+				lines.append("  Quest stage completed: %s." % str(qrec.get("name", qrec.get("id", ""))))
+		quests.on_reach(player, sheet(), year, season, {"season_idx": season_index()})
+	if quest_board != null and quest_board.has_board(dest_id):
+		quest_board.refresh_place(dest_id, player, sheet(), seed_value, season_index())
 	lines.append_array(_news_lines(news))
 	if not encounter.is_empty():
 		lines.append_array(_road_encounter(encounter))
 	else:
-		lines.append_array(_maybe_event(0.0))
+		var arr_ev: Array = _raise_event_hook("on_arrive", {"place_id": dest_id})
+		if not arr_ev.is_empty():
+			lines.append_array(arr_ev)
+		else:
+			lines.append_array(_maybe_event(0.0, "travel"))
 	return {"ok": true, "lines": lines}
 
 
-## Formula E: an encounter on the way, set where the stretch spent most of its time; its biome sets the kind of
-## place the Event Engine draws for (travel_rules.json encounter_place_type).
+## Formula E & Event Engine AC-EV-08: an encounter on the way draws exclusively from [code]on_travel_stretch[/code]
+## filtered by biome and travel mode, with no pulse roll.
 func _road_encounter(st: Dictionary) -> Array:
 	var tg: TravelGrid = TravelGrid.of(gd)
 	var legend: Dictionary = gd.file(ContinentData.DATA_FILE).get("legend", {}).get("biome_ids", {})
 	var biome: String = str(legend.get(str(tg.biome_at(st.tile)), "")).to_lower().replace(" ", "_")
 	var types: Dictionary = gd.file(Travel.RULES_FILE).get("encounter_place_type", {})
 	var ptype: String = str(types.get(biome, types.get("default", "son")))
-	var ctx: Dictionary = event_context()
-	ctx.place = {"id": player.location_id, "name": "giữa đường (%s)" % biome.replace("_", " "), "type": ptype, "danger": int(st.danger),
-		"region": ctx.place.get("region", ""), "biome": biome, "mode": str(st.mode)}
-	var res: Dictionary = narrator.generate_event(ctx, rng, "")
-	if not res.ok:
-		return []
-	pending_event = res.event
-	pending_meta = {"source": res.source, "warnings": res.warnings, "llm_error": res.llm_error, "on_the_road": st}
-	return ["", "*** ON THE ROAD (%s, danger %d): %s ***  (type 'event' to read, 'choose <n>' to act)" % [str(st.mode), int(st.danger), pending_event.title]]
+	if event_engine != null:
+		var r_res: Dictionary = event_engine.raise_hook("on_travel_stretch", player, sheet(), rng, _event_extras({
+			"biome": biome,
+			"travel_mode": str(st.mode),
+			"danger": int(st.danger),
+			"place_type": ptype,
+			"chance_override": 1.0,
+		}))
+		var ev: Dictionary = Dictionary(r_res.get("event", {})) if bool(r_res.get("ok", false)) else {}
+		if ev.is_empty():
+			return []
+		_activate_engine_event(ev, {"on_the_road": st, "hook": "on_travel_stretch"})
+		return ["", "*** ON THE ROAD (%s, danger %d): %s ***  (type 'event' to read, 'choose <n>' to act)" % [str(st.mode), int(st.danger), str(pending_event.get("title", ""))]]
+	return []
 
 
 ## Travel & Map rule 18 and Trade Goods Formula K: gathering at a wild herb ground while exploring it. Returns lines.
@@ -990,6 +1211,7 @@ func search() -> Dictionary:
 	var region_id: String = str(place.get("region_id", ""))
 	var ds: float = CharacterRules.than_thuc(player, gd, sheet()).total
 	var f: float = Travel.speed_factor(gd, sheet().total("travel_speed_pct"))
+	var found_before_s: int = knowledge.found.size()
 	var res: Dictionary = Discovery.search(gd, db, knowledge, rng, player, ds, f, region_id, year, season)
 	_codex_note_knowledge_secrets()
 	var lines: Array = ["You spend a season searching the wilds of %s." % db.get_record("regions", region_id).get("name", "")]
@@ -998,10 +1220,12 @@ func search() -> Dictionary:
 	lines.append_array(_news_lines(r.news))
 	if r.died:
 		return {"ok": true, "lines": lines + death_lines()}
+	if knowledge.found.size() > found_before_s or not Array(res.get("found", [])).is_empty():
+		lines.append_array(_raise_event_hook("on_discover", {"region_id": region_id, "place_id": player.location_id}))
 	var hz: Array = gd.file(Travel.RULES_FILE).get("hazard_per_season", [0.15, 0.35, 0.7, 1.2])
 	var danger: int = clampi(int(place.get("danger", 1)) + 1, 1, hz.size())
 	var chance: float = 1.0 - exp(-float(hz[danger - 1]) * float(gd.file(Travel.RULES_FILE).get("mode_factor", {}).get("search", 1.0)))
-	if rng.randf() < chance:
+	if not has_pending_event() and rng.randf() < chance:
 		lines.append_array(_road_encounter({"tile": place.get("tile", [0, 0]), "mode": "search", "danger": danger}))
 	return {"ok": true, "lines": lines}
 
@@ -1080,7 +1304,17 @@ func teleport(dest_id: String) -> Dictionary:
 		var res: Dictionary = CultivationRules.add_tu_vi(player, gd, rate * left * float(gd.file(Travel.RULES_FILE).get("partial_season_efficiency", 1.0)))
 		lines.append("The rest of the season you cultivate there: +%.1f tu vi." % float(res.gained))
 	sync_player()
+	if quests != null:
+		var q_tp: Array = quests.on_arrive_place(player, dest_id, year, season, {"season_idx": season_index()})
+		for qa in q_tp:
+			if qa is Dictionary and bool((qa as Dictionary).get("ok", false)):
+				var qrec: Dictionary = Dictionary((qa as Dictionary).get("quest", {}))
+				lines.append("  Quest stage completed: %s." % str(qrec.get("name", qrec.get("id", ""))))
+		quests.on_reach(player, sheet(), year, season, {"season_idx": season_index()})
+	if quest_board != null and quest_board.has_board(dest_id):
+		quest_board.refresh_place(dest_id, player, sheet(), seed_value, season_index())
 	lines.append_array(_news_lines(r.news))
+	lines.append_array(_raise_event_hook("on_arrive", {"place_id": dest_id}))
 	return {"ok": true, "lines": lines}
 
 
@@ -1444,6 +1678,8 @@ func craft(recipe_id: String) -> Dictionary:
 		return {"ok": false, "lines": [r.message]}
 	if bool(r.get("success", false)):
 		_codex_note(Codex.BOOK_RECIPES, recipe_id, CodexStore.LEVEL_KNOWN)
+		if quests != null and str(r.get("pill_id", "")) != "":
+			quests.on_item_crafted(player, str(r.pill_id), season_index())
 	else:
 		_codex_note(Codex.BOOK_RECIPES, recipe_id, CodexStore.LEVEL_SEEN)
 	var lines: Array = [r.message]
@@ -1472,6 +1708,8 @@ func refine(base_id: String, tier: int = -1) -> Dictionary:
 		_log("player_refined", {"a": player.id, "item": r.item_id})
 		_codex_note(Codex.BOOK_RECIPES, base_id, CodexStore.LEVEL_KNOWN)
 		_codex_note_item(db.get_record("items", str(r.item_id)))
+		if quests != null and str(r.get("item_id", "")) != "":
+			quests.on_item_crafted(player, str(r.item_id), season_index())
 	else:
 		_codex_note(Codex.BOOK_RECIPES, base_id, CodexStore.LEVEL_SEEN)
 	var lines: Array = [r.message]
@@ -1493,6 +1731,11 @@ func draw_talisman(talisman_id: String) -> Dictionary:
 		return {"ok": false, "lines": [r.message]}
 	if bool(r.get("success", false)):
 		_codex_note(Codex.BOOK_RECIPES, talisman_id, CodexStore.LEVEL_KNOWN)
+		if quests != null:
+			for it in db.items_of(player.id):
+				if str(it.get("kind", "")) == "talisman" and str(it.get("template", "")) == talisman_id:
+					quests.on_item_crafted(player, str(it.id), season_index())
+					break
 	else:
 		_codex_note(Codex.BOOK_RECIPES, talisman_id, CodexStore.LEVEL_SEEN)
 	var lines: Array = [r.message]
@@ -2054,6 +2297,11 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 	lines.append_array(_news_lines(t.news))
 	if t.died:
 		lines.append_array(death_lines())
+	elif not life_over:
+		var bt_lines: Array = _raise_event_hook("on_breakthrough", {"success": bool(res.success), "realm_index": player.realm_index})
+		lines.append_array(bt_lines)
+		if bool(res.success) and not has_pending_event():
+			lines.append_array(_raise_event_hook("on_realm_enter", {"realm_index": player.realm_index}))
 	return {"ok": true, "lines": lines}
 
 
@@ -2239,6 +2487,12 @@ func _run_tribulation(tk_step: Dictionary, next_realm: Dictionary, sh: StatSheet
 			int(tk.waves_cleared), int(tk.wave_count), gd.realm_label(player.realm_index, player.stage),
 			pts, CultivationRules.lifespan(player, gd, sheet()).total])
 		lines.append_array(_on_breakthrough_succeeded())
+		lines.append_array(_raise_event_hook("on_tribulation_end", {
+			"survived": true,
+			"step_id": str(tk.step_id),
+			"waves_cleared": int(tk.waves_cleared),
+			"realm_index": player.realm_index,
+		}))
 		_events.append({
 			"kind": "tribulation",
 			"survived": true,
@@ -2279,6 +2533,10 @@ func _run_tribulation(tk_step: Dictionary, next_realm: Dictionary, sh: StatSheet
 func _on_breakthrough_succeeded() -> Array:
 	breakthrough_succeeded.emit(player.realm_index)
 	_events.append({"kind": "breakthrough", "realm_index": player.realm_index})
+	if db != null and gd != null and player != null:
+		_EventBudget.on_realm_change(db, gd, player, sheet())
+		if quests != null:
+			quests.on_reach(player, sheet(), year, season, {"season_idx": season_index()})
 	if not player.has_capability(int(gd.attributes().linh_can.awakening_capability)):
 		return []
 	var formed: Array = player.linh_can.awakening_pass(gd, rng)
@@ -2472,15 +2730,40 @@ func choose(index: int) -> Dictionary:
 	if not check.ok:
 		return {"ok": false, "lines": ["Cannot choose that: %s." % check.reason]}
 	var event: Dictionary = pending_event
+	var ev_src_pre: String = str(event.get("source", ""))
 	var sh: StatSheet = sheet()
 	var beasts_before: int = player.beasts.size()
-	var result: Dictionary = resolver.resolve(player, sh, rng, event, index)
-	var story: Dictionary = narrator.narrate(event, index, result)
-	var people: Array = [player.id]
-	if str(event.npc_id) != "":
-		people.append(event.npc_id)
-	db.log_event(year, season, "story", "%s — %s: %s" % [event.title, event.choices[index].label, "thành công" if result.success else "thất bại"],
-		people, [event.place_id], result.items, {"narration": story.text, "effects": result.lines, "source": pending_meta.get("source", "")})
+	var result: Dictionary
+	var story: Dictionary
+	if event_engine != null:
+		var emit_fe: bool = ev_src_pre != "template:provoke_duel" and not ev_src_pre.begins_with("interaction:")
+		result = event_engine.resolve_event(player, sh, rng, event, index, year, season, {
+			"map_knowledge": knowledge,
+			"emit_fight_end_hook": emit_fe,
+		})
+		story = narrator.narrate(event, index, result)
+		var log_id: String = str(result.get("event_log_id", ""))
+		if log_id != "":
+			var ev_log: Dictionary = db.get_record("events", log_id)
+			if not ev_log.is_empty():
+				var ev_data: Dictionary = Dictionary(ev_log.get("data", {}))
+				ev_data["narration"] = story.text
+				if pending_meta.has("source") and str(ev_data.get("source", "")) == "":
+					ev_data["source"] = pending_meta.get("source", "")
+				ev_log["data"] = ev_data
+	else:
+		result = resolver.resolve(player, sh, rng, event, index)
+		story = narrator.narrate(event, index, result)
+		var people: Array = [player.id]
+		if str(event.get("npc_id", "")) != "":
+			people.append(event.npc_id)
+		db.log_event(year, season, "story", "%s — %s: %s" % [event.title, event.choices[index].label, "thành công" if result.success else "thất bại"],
+			people, [event.place_id], result.items, {"narration": story.text, "effects": result.lines, "source": pending_meta.get("source", "")})
+	# AC-WG-56: sync uncovered hidden chronicles into the profile Codex History book.
+	for raw_cid in Array(result.get("uncovered_chronicles", [])):
+		var cid: String = str(raw_cid)
+		if cid != "" and codex != null:
+			_codex_note(Codex.BOOK_HISTORY, cid, CodexStore.LEVEL_KNOWN)
 	if player.beasts.size() > beasts_before:
 		for bi in range(beasts_before, player.beasts.size()):
 			var brec: Dictionary = db.get_record("people", str(player.beasts[bi]))
@@ -2495,13 +2778,6 @@ func choose(index: int) -> Dictionary:
 	elif ev_src.begins_with("template:tien_kiep_") and index == 0 and bool(result.success) and str(event.get("npc_id", "")) != "" and Ties.enabled(gd):
 		var sk_tie: String = "rival" if ev_src == "template:tien_kiep_cuu_thu" else "friend"
 		TieTick.enqueue(db, {"kind": "soft", "holder": str(event.npc_id), "other": player.id, "sk": sk_tie, "delta": 25, "cause": {"kind": "past_life"}})
-	var mercy_id: String = str(result.get("mercy_npc_id", ""))
-	if mercy_id != "" and not bool(result.died):
-		pending_event = InteractionService.build_mercy_event(db, player, mercy_id, player.location_id, year)
-		pending_meta = {"source": "interaction:mercy_choice", "warnings": [], "llm_error": ""}
-	else:
-		pending_event = {}
-		pending_meta = {}
 	var lines: Array = ["> " + str(event.choices[index].label), ""]
 	lines.append(story.text)
 	lines.append("")
@@ -2509,13 +2785,304 @@ func choose(index: int) -> Dictionary:
 		lines.append("  " + l)
 	if story.error != "":
 		lines.append("  (%s)" % story.error)
+	# Template Quests (#31): advance linked quest event stage if this event belonged to a quest.
+	var qid_ev: String = str(event.get("quest_id", ""))
+	if qid_ev != "" and quests != null and not bool(result.died):
+		var q_res: Dictionary = quests.trigger_stage_event(player, sheet(), rng, qid_ev, {
+			"event_result": bool(result.success),
+			"year": year,
+			"season": season,
+			"season_idx": season_index(),
+		})
+		if bool(q_res.get("stage_completed", false)):
+			lines.append("  Quest stage advanced (%s)." % qid_ev)
+	# Post-duel Mercy (Event Engine Rule 17, AC-EV-30; Dialogue #30 provoke_duel compatibility).
+	var mercy_id: String = str(result.get("mercy_npc_id", result.get("mercy_target_id", "")))
+	if mercy_id != "" and not bool(result.died):
+		if ev_src == "template:provoke_duel":
+			pending_event = InteractionService.build_mercy_event(db, player, mercy_id, player.location_id, year)
+			pending_meta = {"source": "interaction:mercy_choice", "warnings": [], "llm_error": ""}
+		else:
+			pending_event = {}
+			pending_meta = {}
+			pending_mercy = {
+				"event": event.duplicate(true),
+				"choice_index": index,
+				"target_id": mercy_id,
+				"title": str(event.get("title", "")),
+			}
+	else:
+		pending_event = {}
+		pending_meta = {}
 	if result.died:
 		var killer_id: String = str(event.get("npc_id", "")) if str(event.choices[index].check.type) == "combat" else ""
 		var ckey: String = "duel" if killer_id != "" else "event"
 		_end_life(player.death_cause, killer_id, ckey)
 		lines.append_array(death_lines())
+	elif not has_pending_event() and not has_pending_mercy() and event_engine != null:
+		# AC-EV-43: drain any queued hook/follow-up under the season pacing cap after resolution.
+		var next_ev: Dictionary = event_engine.drain_queue(player, sheet(), rng, year, season, _event_extras())
+		if not next_ev.is_empty():
+			lines.append_array(_activate_engine_event(next_ev, {"queued": true}))
 	_sync_and_rate()
 	return {"ok": true, "lines": lines}
+
+
+## Resolves the pending post-duel cultivator Mercy choice (Event Engine Rule 17, AC-EV-30).
+## [param kill] == false spares the foe ([code]spared_by[/code] flag); true kills via [WorldTicker].
+## Action. Returns {ok, lines, killed, target_id}; a frontend calls it through run() (ADR-0006).
+func choose_mercy(kill: bool) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if not has_pending_mercy():
+		if has_pending_event() and str(pending_event.get("source", "")) == "interaction:mercy_choice":
+			return choose(1 if kill else 0)
+		return {"ok": false, "lines": ["No mercy decision is waiting."]}
+	var target_id: String = str(pending_mercy.get("target_id", ""))
+	var mres: Dictionary = resolver.resolve_mercy(player, target_id, kill, year, season)
+	pending_mercy = {}
+	var lines: Array = Array(mres.get("lines", [])).duplicate()
+	if not has_pending_event() and event_engine != null and not life_over:
+		var next_ev: Dictionary = event_engine.drain_queue(player, sheet(), rng, year, season, _event_extras())
+		if not next_ev.is_empty():
+			lines.append_array(_activate_engine_event(next_ev, {"queued": true}))
+	_sync_and_rate()
+	return {
+		"ok": bool(mres.get("ok", true)),
+		"killed": bool(mres.get("killed", false)),
+		"target_id": target_id,
+		"lines": lines,
+	}
+
+
+# --- Template Quests (#31) Actions (ADR-0006) ----------------------------------------
+
+## Accepts an offered or board quest [param quest_id] (Quests Rule 7, AC-QS-01, AC-QS-44).
+## Action. Returns {ok, lines, quest, reason}; a frontend calls it through run() (ADR-0006).
+func quest_accept(quest_id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if quests == null:
+		return {"ok": false, "reason": "quests_unavailable", "lines": ["Quest service is unavailable."]}
+	var res: Dictionary = quests.accept(player, quest_id, season_index(), {
+		"year": year,
+		"place_id": player.location_id,
+	})
+	_sync_and_rate()
+	var lines: Array = []
+	if bool(res.get("ok", false)):
+		var q: Dictionary = Dictionary(res.get("quest", {}))
+		lines.append("Accepted quest: %s [%s]." % [str(q.get("name", quest_id)), str(q.get("id", quest_id))])
+	else:
+		lines.append("Cannot accept quest '%s': %s." % [quest_id, str(res.get("reason", "unknown"))])
+	res["lines"] = lines
+	return res
+
+
+## Declines an open person/sect quest offer [param quest_id] (Quests Rule 7, AC-QS-45..47).
+## Action. Returns {ok, lines, quest, reason}; a frontend calls it through run() (ADR-0006).
+func quest_decline(quest_id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if quests == null:
+		return {"ok": false, "reason": "quests_unavailable", "lines": ["Quest service is unavailable."]}
+	var res: Dictionary = quests.decline(quest_id, season_index(), year)
+	_sync_and_rate()
+	var lines: Array = []
+	if bool(res.get("ok", false)):
+		lines.append("Declined quest offer '%s'." % quest_id)
+	else:
+		lines.append("Cannot decline quest '%s': %s." % [quest_id, str(res.get("reason", "unknown"))])
+	res["lines"] = lines
+	return res
+
+
+## Abandons an active quest [param quest_id] (or drops an orphaned quest with no penalty; AC-QS-49, AC-QS-53).
+## Action. Returns {ok, lines, quest, reason}; a frontend calls it through run() (ADR-0006).
+func quest_abandon(quest_id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if quests == null:
+		return {"ok": false, "reason": "quests_unavailable", "lines": ["Quest service is unavailable."]}
+	var res: Dictionary = quests.abandon(player, quest_id, year, season, {"season_idx": season_index()})
+	_sync_and_rate()
+	var lines: Array = []
+	if bool(res.get("ok", false)):
+		lines.append("Abandoned quest '%s'." % quest_id)
+	else:
+		lines.append("Cannot abandon quest '%s': %s." % [quest_id, str(res.get("reason", "unknown"))])
+	res["lines"] = lines
+	return res
+
+
+## Drops an orphaned quest [param quest_id] cleanly with no penalty (Quests Rule 10, AC-QS-53).
+## Action. Returns {ok, lines, quest, reason}; a frontend calls it through run() (ADR-0006).
+func quest_drop(quest_id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if quests == null:
+		return {"ok": false, "reason": "quests_unavailable", "lines": ["Quest service is unavailable."]}
+	var res: Dictionary = quests.drop_orphaned(player, quest_id, year, season, {"season_idx": season_index()})
+	_sync_and_rate()
+	var lines: Array = []
+	if bool(res.get("ok", false)):
+		lines.append("Dropped orphaned quest '%s'." % quest_id)
+	else:
+		lines.append("Cannot drop quest '%s': %s." % [quest_id, str(res.get("reason", "unknown"))])
+	res["lines"] = lines
+	return res
+
+
+## Submits [param item_id] (or linh thạch when empty) for a [code]deliver[/code] quest stage (1 season; AC-QS-61).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func quest_deliver(quest_id: String, item_id: String = "") -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	if quests == null:
+		return {"ok": false, "reason": "quests_unavailable", "lines": ["Quest service is unavailable."]}
+	var res: Dictionary = quests.submit_deliver(player, quest_id, item_id, year, season, {"season_idx": season_index()})
+	if not bool(res.get("ok", false)):
+		res["lines"] = ["Cannot deliver for quest '%s': %s." % [quest_id, str(res.get("reason", "unknown"))]]
+		return res
+	var lines: Array = ["Delivered item for quest '%s'." % quest_id]
+	if bool(res.get("action_spent", true)) and not life_over:
+		var p: Dictionary = _pass_season("")
+		lines.append_array(_news_lines(p.news))
+		if p.died:
+			lines.append_array(death_lines())
+	_sync_and_rate()
+	res["lines"] = lines
+	return res
+
+
+## Spends one season on a quest's [code]mission[/code] stage with [code]mission_income = 0[/code] (AC-QS-62, AC-QS-69).
+## Action. Returns {ok, lines, mission_income, ...}; a frontend calls it through run() (ADR-0006).
+func quest_mission(quest_id: String) -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	if quests == null:
+		return {"ok": false, "reason": "quests_unavailable", "mission_income": 0, "lines": ["Quest service is unavailable."]}
+	var res: Dictionary = quests.run_mission_stage(player, quest_id, year, season, {"season_idx": season_index()})
+	if not bool(res.get("ok", false)):
+		res["lines"] = ["Cannot work mission stage for '%s': %s." % [quest_id, str(res.get("reason", "unknown"))]]
+		return res
+	var lines: Array = ["Worked quest mission stage (%d/%d season(s), 0 mission income)." % [
+		int(res.get("seasons_done", 1)), int(res.get("seasons_needed", 1))]]
+	var p: Dictionary = _pass_season("")
+	lines.append_array(_news_lines(p.news))
+	if p.died:
+		lines.append_array(death_lines())
+	_sync_and_rate()
+	res["mission_income"] = 0
+	res["lines"] = lines
+	return res
+
+
+## Starts the current [code]event[/code] or [code]defeat[/code] stage of [param quest_id] (1 season).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func quest_start_stage(quest_id: String) -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	if quests == null:
+		return {"ok": false, "reason": "quests_unavailable", "lines": ["Quest service is unavailable."]}
+	var q: Dictionary = quests.get_quest(quest_id)
+	if q.is_empty() or not (str(q.get("state", "")) in ["active", "orphaned"]):
+		return {"ok": false, "reason": "quest_not_active", "lines": ["Quest '%s' is not active." % quest_id]}
+	var plan_q: Dictionary = Dictionary(q.get("plan", q))
+	var stages: Array = Array(plan_q.get("stages", q.get("stages", [])))
+	var st_idx: int = clampi(int(q.get("stage", 1)) - 1, 0, maxi(0, stages.size() - 1))
+	if stages.is_empty():
+		return {"ok": false, "reason": "no_stages", "lines": ["Quest '%s' has no stages." % quest_id]}
+	var st: Dictionary = Dictionary(stages[st_idx])
+	var kind: String = str(st.get("kind", ""))
+	if kind == "event":
+		var res: Dictionary = quests.trigger_stage_event(player, sheet(), rng, quest_id, {
+			"auto_pass": false,
+			"year": year,
+			"season": season,
+			"season_idx": season_index(),
+		})
+		if not bool(res.get("ok", false)):
+			res["lines"] = ["Cannot start event stage for '%s': %s." % [quest_id, str(res.get("reason", "unknown"))]]
+			return res
+		var lines: Array = []
+		var raw_ev: Dictionary = Dictionary(res.get("event", {}))
+		if bool(res.get("pending", false)) and not raw_ev.is_empty():
+			var cstat: String = str(raw_ev.get("check_stat", st.get("check_stat", "")))
+			var cdiff: float = float(raw_ev.get("check_difficulty", st.get("check_difficulty", 50.0)))
+			var ev_obj := {
+				"id": str(raw_ev.get("id", "qev_%s" % quest_id)),
+				"template_id": str(raw_ev.get("id", "qev_%s" % quest_id)),
+				"source": "quest:%s" % quest_id,
+				"kind": "story",
+				"quest_id": quest_id,
+				"story_instance_id": str(raw_ev.get("story_id", q.get("story_id", ""))),
+				"story_id": str(raw_ev.get("story_id", q.get("story_id", ""))),
+				"story_name": str(q.get("name", quest_id)),
+				"story_stage": "stage_%d" % int(q.get("stage", 1)),
+				"chain_id": str(raw_ev.get("chain_id", q.get("chain_id", ""))),
+				"title": str(raw_ev.get("title", q.get("name", "Sự kiện ủy thác"))),
+				"text": str(raw_ev.get("text", st.get("description", "Bạn bắt tay xử lý bước ủy thác này."))),
+				"place_id": str(raw_ev.get("place_id", st.get("place_id", player.location_id))),
+				"npc_id": str(raw_ev.get("target_id", st.get("target_id", ""))),
+				"choices": [
+					{
+						"label": "Thực hiện",
+						"check": {"type": "stat", "stat": cstat, "difficulty": cdiff} if cstat != "" else {"type": "none"},
+						"always": [],
+						"success": {"text": "Bạn hoàn tất bước ủy thác thuận lợi.", "effects": []},
+						"failure": {"text": "Mọi việc không suôn sẻ như dự tính.", "effects": []},
+					},
+					{
+						"label": "Tạm lùi chờ thời cơ",
+						"check": {"type": "none"},
+						"always": [],
+						"success": {"text": "Bạn tạm rút lui để chuẩn bị lại.", "effects": []},
+						"failure": {"text": "", "effects": []},
+					},
+				],
+			}
+			lines.append_array(_activate_engine_event(ev_obj, {"quest_id": quest_id}))
+		var p: Dictionary = _pass_season("")
+		lines.append_array(_news_lines(p.news))
+		if p.died:
+			lines.append_array(death_lines())
+		_sync_and_rate()
+		res["lines"] = lines
+		return res
+	if kind == "defeat":
+		var dres: Dictionary = quests.run_defeat_stage(player, sheet(), rng, quest_id, Callable(), {
+			"year": year,
+			"season": season,
+			"season_idx": season_index(),
+		})
+		if not bool(dres.get("ok", false)):
+			dres["lines"] = ["Cannot start defeat stage for '%s': %s." % [quest_id, str(dres.get("reason", "unknown"))]]
+			return dres
+		var lines_d: Array = ["Quest combat resolved: %s." % str(dres.get("result", "done"))]
+		if bool(dres.get("action_spent", false)) and not life_over:
+			var pd: Dictionary = _pass_season("")
+			lines_d.append_array(_news_lines(pd.news))
+			if pd.died:
+				lines_d.append_array(death_lines())
+		_sync_and_rate()
+		dres["lines"] = lines_d
+		return dres
+	return {"ok": false, "reason": "stage_not_startable", "lines": ["Current stage '%s' cannot be started via quest_start_stage." % kind]}
+
+
+## Asks [param npc_id] for work through the Dialogue #30 [code]work[/code] bridge (Quests Rule 2, AC-QS-154).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func quest_ask_work(npc_id: String) -> Dictionary:
+	return interact(npc_id, "work")
 
 
 # --- Death & Succession (Codex & Karmic Carryover #12) -------------------------------
@@ -2553,6 +3120,14 @@ func _end_life(cause: String, killer_id: String = "", cause_key: String = "") ->
 		ticker.bereave_close_ties(p_rec, year, season)
 	var death_eid: String = _log("player_death", {"a": player.id, "cause": cause})
 	InteractionService.on_player_death(db, player.id, year, season)
+	# Event Engine (#23) AC-EV-44 & Template Quests (#31) AC-QS-58 / AC-QS-145: root death cleanup.
+	if quests != null:
+		quests.on_player_death(player, year, season, {"season_idx": season_index()})
+	if event_engine != null:
+		event_engine.on_root_death(player.id, year, season)
+	pending_event = {}
+	pending_meta = {}
+	pending_mercy = {}
 	db.items_on_death(player.id, player.location_id, killer_id, estate_heir)
 	if ticker != null:
 		var succ_leader: String = ticker.settle_sect_leader(p_rec)
@@ -2697,6 +3272,7 @@ func succeed_heir(heir_id: String, opts: Dictionary = {}) -> Dictionary:
 	co_duyen_used = {}
 	pending_event = {}
 	pending_meta = {}
+	pending_mercy = {}
 	pending_tribulation_reward = {}
 	last_tribulation = {}
 	epitaph_text = ""
@@ -2812,6 +3388,7 @@ func succeed_rebirth(opts: Dictionary = {}) -> Dictionary:
 	co_duyen_used = {}
 	pending_event = {}
 	pending_meta = {}
+	pending_mercy = {}
 	pending_tribulation_reward = {}
 	last_tribulation = {}
 	epitaph_text = ""
@@ -2929,7 +3506,9 @@ func join_sect(sect_id: String = "") -> Dictionary:
 	sect_members.join(player, s)
 	_log("player_joined_sect", {"a": player.id, "s1": s.id})
 	_sync_and_rate()
-	return {"ok": true, "lines": ["You join %s as an %s." % [s.name, sect_members.rank_name(player.sect_rank)]]}
+	var lines_j: Array = ["You join %s as an %s." % [s.name, sect_members.rank_name(player.sect_rank)]]
+	lines_j.append_array(_raise_event_hook("on_join_sect", {"sect_id": str(s.id)}))
+	return {"ok": true, "lines": lines_j}
 
 
 ## Promotion to the next rank when its gate is met (Sects F13). No time passes. Returns {ok, lines}.
@@ -2941,6 +3520,9 @@ func promote() -> Dictionary:
 	var r: Dictionary = sect_members.promote(player)
 	if r.ok:
 		_sync_and_rate()
+		var ev_l: Array = _raise_event_hook("on_rank_change", {"sect_id": player.sect_id, "rank": player.sect_rank})
+		if not ev_l.is_empty():
+			r["lines"] = Array(r.get("lines", [])) + ev_l
 	return r
 
 
@@ -2950,9 +3532,13 @@ func leave_sect(desert: bool) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
 		return g
+	var old_sect: String = player.sect_id
 	var r: Dictionary = sect_members.leave(player, desert)
 	if r.ok:
 		_sync_and_rate()
+		var ev_l: Array = _raise_event_hook("on_leave_sect", {"sect_id": old_sect, "desert": desert})
+		if not ev_l.is_empty():
+			r["lines"] = Array(r.get("lines", [])) + ev_l
 	return r
 
 
@@ -3095,7 +3681,7 @@ func to_dict() -> Dictionary:
 	return {
 		"version": SAVE_VERSION, "seed": seed_value, "rng_state": str(rng.state), "rng_seed": str(rng.seed),
 		"year": year, "season": season, "player_id": player.id, "db": db.to_dict(),
-		"pending_event": pending_event, "pending_meta": pending_meta, "life_over": life_over, "epitaph": epitaph_text, "cheated": cheated,
+		"pending_event": pending_event, "pending_meta": pending_meta, "pending_mercy": pending_mercy.duplicate(true), "life_over": life_over, "epitaph": epitaph_text, "cheated": cheated,
 		"edge": edge, "co_duyen_used": co_duyen_used,
 		"season_time_used": season_time_used,
 		"knowledge": knowledge.to_dict() if knowledge != null else {},
@@ -3191,6 +3777,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 	var migrated: bool = _player_migrated
 	pending_event = d.get("pending_event", {})
 	pending_meta = d.get("pending_meta", {})
+	pending_mercy = Dictionary(d.get("pending_mercy", {})).duplicate(true)
 	life_over = bool(d.get("life_over", false))
 	cheated = bool(d.get("cheated", false))
 	edge = bool(d.get("edge", true))
@@ -3314,6 +3901,8 @@ func _kill_npc_from_event(npc_id: String, cause: String) -> void:
 	if rec.is_empty() or not bool(rec.get("alive", false)):
 		return
 	ticker.npc_death(rec, year, season, cause, "duel", player.id, "tick_duel_kill", {"a": player.id, "b": npc_id, "place": player.location_id})
+	if quests != null and player != null:
+		quests.on_person_death(npc_id, player.id, year, season, {"player": player, "season_idx": season_index()})
 
 
 func _herb_id(what: String) -> String:

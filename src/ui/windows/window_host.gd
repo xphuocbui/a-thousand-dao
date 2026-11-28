@@ -75,6 +75,18 @@ func register(w: GameWindow) -> void:
 	var k: String = w.kind()
 	w.action_requested.connect(func(action: String, args: Array): action_requested.emit(k, action, args))
 	w.open_requested.connect(func(kind: String, subject: String, sect: String): open(kind, subject, sect))
+	for sig_name in ["tab_selected", "book_selected", "filter_selected"]:
+		if w.has_signal(sig_name):
+			w.connect(sig_name, func(_sub: String): sync_title())
+
+
+## Refreshes the frame title from the currently shown window (e.g. after switching a sub-tab).
+func sync_title() -> void:
+	var w: GameWindow = current()
+	if w == null:
+		return
+	_title.text = w.window_title(w.view)
+	accessibility_name = _title.text
 
 
 ## True when the host has a window of [param kind].

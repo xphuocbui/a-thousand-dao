@@ -1,0 +1,1162 @@
+{
+  "schema_version": 1,
+  "_doc": "Authored no-LLM Template Quests (#31) library across Errand (12), Ordinary (14), Major (10), and Legendary (6) tiers — 42 templates total. Covers all 3 offer kinds (person, sect, board), all 7 stage kinds (event, visit, deliver, craft, mission, reach, defeat), role slots, if_target_lost clauses (orphan, skip, drop), outcomes, and fixed-world Legendary anchors. Every template passes QuestValidator.validate_templates() across its realm band.",
+  "templates": [
+    {
+      "id": "qt_errand_herb_delivery",
+      "name": "Chuyển giao linh thảo cho {offerer}",
+      "tier": "errand",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["shortage", "trade", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 12,
+      "stake_text": "{offerer} cần bổ sung linh thảo gấp sau biến cố tại {place}.",
+      "offer_text": ["{offerer} nhờ ngươi mang lô linh thảo tươi tới {target_place} trước hạn."],
+      "slots": {
+        "target_person": {"bind": "nearest_living_calling", "calling": "herbalist", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "skip", "title": "Đến điểm hẹn tại {target_place}", "text": ["Tìm đến {target_place} và báo tin cho người nhận hàng."]},
+        {"kind": "deliver", "item_class": "herb", "deliver_share": 0.35, "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "orphan", "title": "Giao linh thảo cho {target_person}", "text": ["Trao lô linh thảo đạt chuẩn tận tay người phụ trách."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.25},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.15}
+      ]
+    },
+    {
+      "id": "qt_errand_pill_dispatch",
+      "name": "Luyện đan cấp cứu cho {offerer}",
+      "tier": "errand",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["shortage", "death", "duel", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "{offerer} thiếu đan dược hồi phục sau đợt giao tranh gần {place}.",
+      "offer_text": ["{offerer} thuê ngươi tự luyện một lô đan dược mới và giao lại trước hạn."],
+      "slots": {},
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "craft", "item_class": "pill", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Luyện chế đan dược", "text": ["Khai lò luyện một lô đan dược sau khi nhận ủy thác."]},
+        {"kind": "deliver", "item_class": "pill", "deliver_share": 0.30, "window": 2, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Nộp đan dược cho {offerer}", "text": ["Giao thành phẩm mới luyện cho {offerer} tại {place}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.20},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.10}
+      ]
+    },
+    {
+      "id": "qt_errand_patrol_duty",
+      "name": "Tuần tra ngoại vi {place}",
+      "tier": "errand",
+      "offer_kinds": ["sect", "board"],
+      "fact_kinds": ["war", "duel", "grudge", "place_fact", "any"],
+      "place_kinds": ["great_seat", "minor_seat", "sect_hall", "city", "town", "thanh", "tran"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 11,
+      "stake_text": "Tông môn cần giữ yên vùng ven {place} trong mùa này.",
+      "offer_text": ["Tông môn đăng bảng tuyển người tuần tra ngoại vi {place} rồi hồi báo."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tới điểm canh tại {target_place}", "text": ["Di chuyển tới {target_place} khảo sát dấu vết khả nghi."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Trực canh vùng ngoại vi", "text": ["Bỏ mùa tu hành đứng gác và giữ trật tự cho tuyến đường."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Hồi báo tình hình", "text": ["Trở về {place} trình báo tường tận những gì đã thấy."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 4},
+        {"on": "failed", "role": "offerer_sect", "effect": "standing", "amount": -2}
+      ]
+    },
+    {
+      "id": "qt_errand_sealed_letter",
+      "name": "Đưa mật thư của {offerer}",
+      "tier": "errand",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["grudge", "debt", "war", "secret", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 11,
+      "stake_text": "{offerer} cần chuyển gấp một phong mật thư mà không lộ hành tung.",
+      "offer_text": ["{offerer} giao cho ngươi một phong thư niêm phong sáp, dặn chuyển tận tay tới {target_place}."],
+      "slots": {
+        "target_person": {"bind": "fact_other", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "drop", "title": "Gặp người nhận tại {target_place}", "text": ["Tìm gặp người được dặn ở {target_place} và đối chiếu ám hiệu."]},
+        {"kind": "event", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Bàn giao mật thư", "text": ["Xác nhận thân phận rồi trao thư và nhận hồi âm."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.20}
+      ]
+    },
+    {
+      "id": "qt_errand_ore_requisition",
+      "name": "Thu gom khoáng thạch tại {place}",
+      "tier": "errand",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["shortage", "trade", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "{offerer} đang thiếu khoáng liệu để tu bổ pháp khí.",
+      "offer_text": ["{offerer} cần một lô khoáng thạch sạch để rèn lại binh khí."],
+      "slots": {},
+      "params": {"cash_share": [0.05, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Kiểm định mẫu khoáng", "text": ["Xem qua mẫu vật mà {offerer} yêu cầu tại {place}."]},
+        {"kind": "deliver", "item_class": "material", "deliver_share": 0.40, "window": 3, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Giao khoáng liệu", "text": ["Nộp đủ khoáng liệu theo đúng phẩm cấp đã hẹn."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.25}
+      ]
+    },
+    {
+      "id": "qt_errand_talisman_stock",
+      "name": "Vẽ phù hộ thân cho {offerer}",
+      "tier": "errand",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["duel", "war", "shortage", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} chuẩn bị đi xa và cần thêm phù lục dự phòng.",
+      "offer_text": ["{offerer} nhờ ngươi vẽ mới vài lá phù phòng thân trước chuyến đi."],
+      "slots": {},
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "craft", "item_class": "talisman", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Họa phù mới", "text": ["Tập trung linh lực vẽ phù mới theo yêu cầu của {offerer}."]},
+        {"kind": "deliver", "item_class": "talisman", "deliver_share": 0.35, "window": 2, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Trao phù lục", "text": ["Đem phù vừa vẽ bàn giao tận tay {offerer}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.25}
+      ]
+    },
+    {
+      "id": "qt_errand_debt_reminder",
+      "name": "Nhắc món nợ cũ giúp {offerer}",
+      "tier": "errand",
+      "offer_kinds": ["person", "board"],
+      "fact_kinds": ["debt", "trade", "grudge", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} có khoản nợ kéo dài chưa thu hồi được.",
+      "offer_text": ["{offerer} nhờ ngươi đến tận nơi đòi lại phần linh thạch đã cho vay."],
+      "slots": {
+        "target_person": {"bind": "fact_other", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"cash_share": [0.15, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "skip", "title": "Tìm người vay tại {target_place}", "text": ["Dò hỏi tung tích con nợ tại {target_place}."]},
+        {"kind": "event", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Thương lượng thu nợ", "text": ["Xuất trình khế ước và thuyết phục đối phương trả nợ."]},
+        {"kind": "deliver", "item_class": "linh_thach", "deliver_share": 0.25, "window": 2, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Hoàn trả khoản thu", "text": ["Mang số linh thạch thu hồi giao lại cho {offerer}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.35},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.20}
+      ]
+    },
+    {
+      "id": "qt_errand_market_audit",
+      "name": "Kiểm kê phường thị {place}",
+      "tier": "errand",
+      "offer_kinds": ["sect", "board"],
+      "fact_kinds": ["trade", "shortage", "debt", "place_fact", "any"],
+      "place_kinds": ["great_seat", "minor_seat", "sect_hall", "city", "market", "town", "thanh", "tran", "phuong_thi"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "Phường thị quanh {place} cần rà soát sổ sách và hàng hóa tồn kho.",
+      "offer_text": ["Ban quản sự tại {place} tuyển người phụ trách kiểm kê phường thị trong một mùa."],
+      "slots": {},
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Kiểm kê kho bãi", "text": ["Dành trọn mùa đối chiếu sổ sách và kho linh liệu."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Báo cáo chênh lệch", "text": ["Trình kết quả kiểm kê lên chấp sự tại {place}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 5}
+      ]
+    },
+    {
+      "id": "qt_errand_herb_gathering",
+      "name": "Hái linh thảo vùng hoang gần {place}",
+      "tier": "errand",
+      "offer_kinds": ["person", "board"],
+      "fact_kinds": ["shortage", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "{offerer} cần bổ sung thảo dược hoang dã ngoài địa phận {place}.",
+      "offer_text": ["{offerer} mời ngươi ra vùng dã ngoại quanh {target_place} thu hái linh thảo."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"cash_share": [0.05, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Vào sơn cốc {target_place}", "text": ["Lần theo địa mạch tới bãi mọc linh thảo ở {target_place}."]},
+        {"kind": "event", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Thu hái cẩn trọng", "text": ["Xử lý chướng khí và hái lấy phần thảo dược nguyên vẹn."]},
+        {"kind": "deliver", "item_class": "herb", "deliver_share": 0.30, "window": 2, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Nộp thảo dược cho {offerer}", "text": ["Mang linh thảo còn nguyên linh khí về giao cho {offerer}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.25}
+      ]
+    },
+    {
+      "id": "qt_errand_sparring_partner",
+      "name": "Tỉ thí thăm dò cho {offerer}",
+      "tier": "errand",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["duel", "grudge", "breakthrough", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 7,
+      "stake_text": "{offerer} muốn kiểm chứng thực lực của một đối thủ vừa xuất hiện gần {place}.",
+      "offer_text": ["{offerer} nhờ ngươi giao thủ điểm đáo vi chỉ để thăm dò chiêu thức đối phương."],
+      "slots": {
+        "target_person": {"bind": "nearest_living_calling", "calling": "duelist", "optional": false}
+      },
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "offer_place", "target_slot": "target_person", "if_target_lost": "drop", "title": "Gặp đối thủ {target_person}", "text": ["Tìm gặp {target_person} và hẹn ước tỉ thí công bằng."]},
+        {"kind": "defeat", "window": 3, "place_slot": "offer_place", "target_slot": "target_person", "if_target_lost": "drop", "title": "Tỉ thí cùng {target_person}", "text": ["Đánh bại {target_person} trong trận tỉ thí không sát thương."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.20}
+      ]
+    },
+    {
+      "id": "qt_errand_steward_escort",
+      "name": "Hộ tống thương đội của {offerer}",
+      "tier": "errand",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["trade", "shortage", "war", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "Chuyến hàng của {offerer} đi qua tuyến đường gần {place} đang thiếu người hộ vệ.",
+      "offer_text": ["{offerer} thuê ngươi theo bảo vệ đoàn hàng tới {target_place} bình an."],
+      "slots": {
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Áp tải dọc đường", "text": ["Theo sát đoàn xe, cảnh giới sơn tặc và yêu thú dọc đường."]},
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Bàn giao tại {target_place}", "text": ["Đưa đoàn hàng vào thành {target_place} nguyên vẹn."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.30},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.20}
+      ]
+    },
+    {
+      "id": "qt_errand_archive_copy",
+      "name": "Sao lục điển tịch giúp {offerer}",
+      "tier": "errand",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["secret", "breakthrough", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} cần sao chép một phần địa chí lưu trữ tại {place}.",
+      "offer_text": ["{offerer} nhờ ngươi dành công phu sao lục một bộ ghi chép cổ không thể mang rời thư các."],
+      "slots": {},
+      "params": {"cash_share": [0.05, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Đối chiếu cổ bản", "text": ["Đọc và hiệu đính các đoạn chữ mờ trong cổ bản."]},
+        {"kind": "mission", "seasons": 1, "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Chép lại điển tịch", "text": ["Chăm chú chép tay và niêm phong ngọc giản giao lại."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.20}
+      ]
+    },
+    {
+      "id": "qt_ordinary_multi_supply",
+      "name": "Tiếp tế liên trạm cho {offerer}",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["shortage", "war", "trade", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 12,
+      "stake_text": "Tuyến tiếp tế của {offerer} quanh {place} bị gián đoạn và cần người khơi thông.",
+      "offer_text": ["{offerer} ủy thác ngươi chuẩn bị dược liệu, luyện chế rồi giao tới trạm tiền tiêu ở {target_place}."],
+      "slots": {
+        "target_person": {"bind": "nearest_living_calling", "calling": "merchant", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Nhận đơn hàng và ấn tín", "text": ["Trao đổi danh mục vật tư cần gấp với {offerer}."]},
+        {"kind": "craft", "item_class": "pill", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Luyện chế lô đan tiếp tế", "text": ["Tự tay luyện chế lô đan dược mới đạt yêu cầu."]},
+        {"kind": "deliver", "item_class": "pill", "deliver_share": 0.40, "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "orphan", "title": "Chuyển giao tại {target_place}", "text": ["Mang đan dược tới {target_place} giao tận tay người giữ trạm."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.30},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.20}
+      ]
+    },
+    {
+      "id": "qt_ordinary_forge_commission",
+      "name": "Chế tác pháp khí cho {offerer}",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["trade", "shortage", "duel", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "{offerer} cần một kiện pháp khí mới thay cho món đã nứt vỡ.",
+      "offer_text": ["{offerer} đặt ngươi rèn một kiện pháp khí theo đúng bản vẽ rồi kiểm thử."],
+      "slots": {},
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Nhận bản vẽ luyện khí", "text": ["Xem kỹ thông số và thuộc tính mà {offerer} cần."]},
+        {"kind": "craft", "item_class": "artifact", "quality_min": 0, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Rèn pháp khí", "text": ["Tụ hỏa luyện khí cho đến khi linh văn thành hình."]},
+        {"kind": "deliver", "item_class": "artifact", "deliver_share": 0.45, "window": 2, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Bàn giao pháp khí", "text": ["Dâng kiện pháp khí mới rèn cho {offerer} nghiệm thu."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.35},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.20}
+      ]
+    },
+    {
+      "id": "qt_ordinary_frontier_sweep",
+      "name": "Thanh lọc vùng biên {target_place}",
+      "tier": "ordinary",
+      "offer_kinds": ["sect", "board"],
+      "fact_kinds": ["war", "duel", "death", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 11,
+      "stake_text": "Biên giới quanh {place} xuất hiện nhiều dị biến cần thanh tra nhiều mùa.",
+      "offer_text": ["Tông môn giao nhiệm vụ dài ngày thanh lọc tuyến đường sang {target_place}."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Khảo sát cửa ngõ {target_place}", "text": ["Lập trạm trinh sát đầu tuyến đường tới {target_place}."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 4, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tuần tiễu dài ngày", "text": ["Đóng chốt nhiều mùa xua đuổi yêu thú và đạo tặc."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Tổng kết biên vụ", "text": ["Ghi chép bản đồ an toàn nộp về {place}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 7},
+        {"on": "failed", "role": "offerer_sect", "effect": "standing", "amount": -4}
+      ]
+    },
+    {
+      "id": "qt_ordinary_rival_reprimand",
+      "name": "Dạy cho kẻ gây sự một bài học",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["grudge", "duel", "debt", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} chịu nhục từ kẻ đối đầu và muốn giành lại thể diện mà không kết tử thù.",
+      "offer_text": ["{offerer} nhờ ngươi tìm đối thủ phân cao thấp, hạ gục nhưng tuyệt đối không lấy mạng."],
+      "slots": {
+        "adversary": {"bind": "fact_adversary", "optional": false},
+        "target_place": {"bind": "slot_person_place", "person_slot": "adversary"}
+      },
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "target_slot": "adversary", "if_target_lost": "drop", "title": "Truy tìm {adversary}", "text": ["Tìm đến nơi {adversary} đang lưu trú và gửi chiến thư."]},
+        {"kind": "defeat", "window": 3, "place_slot": "target_place", "target_slot": "adversary", "if_target_lost": "drop", "title": "Đánh bại {adversary}", "text": ["Khống chế {adversary} trên lôi đài mà không sát hại."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Báo tin thắng trận", "text": ["Trở về {place} báo lại kết cục cho {offerer}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.30},
+        {"on": "failed", "role": "offerer", "effect": "injury", "amount": 0.20}
+      ]
+    },
+    {
+      "id": "qt_ordinary_cultivation_vow",
+      "name": "Lời hẹn tinh tiến cùng {offerer}",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["breakthrough", "duel", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 8,
+      "stake_text": "{offerer} đặt kỳ vọng vào bước tiến tu vi của ngươi trước kỳ hội ngộ sắp tới.",
+      "offer_text": ["{offerer} hẹn ngươi tiến thêm một bậc tu vi trước khi cùng tham dự sự kiện tại {place}."],
+      "slots": {},
+      "params": {"cash_share": [0.05, 0.20]},
+      "stages": [
+        {"kind": "reach", "target_level": 5, "window": 8, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Đột phá tầng tu vi mới", "text": ["Dốc sức tu luyện đạt ngưỡng thực lực đã hẹn."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Ứng ước cùng {offerer}", "text": ["Trở lại {place} nghiệm chứng thành quả tu hành."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.25}
+      ]
+    },
+    {
+      "id": "qt_ordinary_stranger_search",
+      "name": "Truy tung nhân chứng mất tích",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["death", "secret", "grudge", "debt", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} cần tìm một tán tu mới xuất hiện nắm giữ manh mối quan trọng.",
+      "offer_text": ["{offerer} nhờ ngươi tìm kiếm một nhân chứng lánh mặt quanh {target_place} và lấy lời khai."],
+      "slots": {
+        "target_person": {"bind": "new_person", "archetype": "tan_tu", "realm_offset": 0},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "skip", "title": "Gặp nhân chứng", "text": ["Lần theo manh mối gặp được người biết chuyện tại {target_place}."]},
+        {"kind": "event", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Thu thập chứng cứ", "text": ["Thuyết phục nhân chứng giao ra tín vật ghi chép."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Báo cáo cho {offerer}", "text": ["Đem chứng cứ trở lại {place} trình cho {offerer}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.30},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.15}
+      ]
+    },
+    {
+      "id": "qt_ordinary_alchemy_chain",
+      "name": "Dây chuyền dược liệu của {offerer}",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["shortage", "trade", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "{offerer} cần đồng thời thu gom linh thảo, luyện đan và chuyển giao cho dược phòng.",
+      "offer_text": ["{offerer} ủy thác một chuỗi công việc dược phẩm trọn gói tại vùng {place}."],
+      "slots": {
+        "target_person": {"bind": "nearest_living_calling", "calling": "alchemist", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "deliver", "item_class": "herb", "deliver_share": 0.25, "window": 2, "place_slot": "offer_place", "target_slot": "target_person", "if_target_lost": "skip", "title": "Nộp dược liệu thô", "text": ["Cung cấp lô linh thảo sơ chế cho dược phòng."]},
+        {"kind": "craft", "item_class": "pill", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Luyện đan thành phẩm", "text": ["Đích thân luyện thành lô đan mới."]},
+        {"kind": "deliver", "item_class": "pill", "deliver_share": 0.35, "window": 2, "place_slot": "target_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Bàn giao dược phòng", "text": ["Chuyển đan thành phẩm về kho tại {target_place}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.35}
+      ]
+    },
+    {
+      "id": "qt_ordinary_talisman_ward",
+      "name": "Bố trí phù trận bảo vệ {place}",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["war", "duel", "shortage", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} muốn gia cố phòng ngự tại {place} bằng bộ phù lục mới.",
+      "offer_text": ["{offerer} cần ngươi họa một bộ phù phòng hộ rồi trực tiếp bố trí quanh {place}."],
+      "slots": {},
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "craft", "item_class": "talisman", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Vẽ bộ phù phòng hộ", "text": ["Vẽ đủ số phù theo trận đồ yêu cầu."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Bố trí trận nhãn", "text": ["Gắn phù lên các vị trí linh mạch quanh {place}."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Kích hoạt kiểm tra", "text": ["Dẫn linh khí thử nghiệm độ ổn định của vòng phòng hộ."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.30}
+      ]
+    },
+    {
+      "id": "qt_ordinary_sect_mediation",
+      "name": "Hòa giải tranh chấp đất đai",
+      "tier": "ordinary",
+      "offer_kinds": ["sect", "board"],
+      "fact_kinds": ["grudge", "war", "debt", "trade", "any"],
+      "place_kinds": ["great_seat", "minor_seat", "sect_hall", "city", "town", "thanh", "tran"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Một vụ tranh chấp nguồn lợi kéo dài làm ảnh hưởng danh tiếng tông môn tại {place}.",
+      "offer_text": ["Tông môn cử ngươi đi lại hai bên làm trung gian dàn xếp vụ tranh chấp."],
+      "slots": {
+        "target_person": {"bind": "fact_other", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "skip", "title": "Gặp đại diện đối phương", "text": ["Tới {target_place} lắng nghe yêu sách của phía bên kia."]},
+        {"kind": "event", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Đàm phán điều khoản", "text": ["Đưa ra phương án chia lợi ích hợp lý cho cả hai."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Lập văn khế hòa giải", "text": ["Giám sát việc ký kết và đóng ấn xác nhận tại {place}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 8},
+        {"on": "failed", "role": "offerer_sect", "effect": "standing", "amount": -5}
+      ]
+    },
+    {
+      "id": "qt_ordinary_ruin_survey",
+      "name": "Khảo sát di tích cổ ở {target_place}",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["secret", "place_fact", "trade", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "{offerer} nghe tin một phế tích gần {target_place} vừa lộ tầng địa cung mới.",
+      "offer_text": ["{offerer} nhờ ngươi vào {target_place} vẽ lại sơ đồ và mang mẫu vật về."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tìm lối vào di tích", "text": ["Vượt địa hình hiểm trở tới cửa phế tích ở {target_place}."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Đo vẽ bản đồ địa cung", "text": ["Ghi chép cấm chế và vị trí các gian thạch thất."]},
+        {"kind": "event", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Phá giải cơ quan ngoài", "text": ["Mở một hộp đá cổ và rút lui an toàn."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Trình bản đồ cho {offerer}", "text": ["Bàn giao toàn bộ ghi chép tại {place}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.35}
+      ]
+    },
+    {
+      "id": "qt_ordinary_beast_cull",
+      "name": "Dẹp yêu thú quấy nhiễu {target_place}",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["duel", "death", "shortage", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Linh thú hung hãn xuất hiện quanh {target_place} làm gián đoạn thu hái.",
+      "offer_text": ["{offerer} nhờ ngươi vào {target_place} dẹp yên ổ yêu thú và mang chiến lợi phẩm về."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Lần theo dấu vết thú", "text": ["Truy tìm hang ổ thú dữ tại {target_place}."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Đánh đuổi đàn yêu thú", "text": ["Dành trọn mùa tiêu trừ và xua đuổi bầy thú dữ."]},
+        {"kind": "deliver", "item_class": "material", "deliver_share": 0.30, "window": 2, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Nộp vật liệu xác nhận", "text": ["Giao phần linh liệu thu được làm bằng chứng."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.30}
+      ]
+    },
+    {
+      "id": "qt_ordinary_trade_caravan",
+      "name": "Mở tuyến thương hội cho {offerer}",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["trade", "debt", "shortage", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "{offerer} muốn nối lại tuyến trao đổi hàng hóa giữa {place} và {target_place}.",
+      "offer_text": ["{offerer} nhờ ngươi chạy tiền trạm, giao mẫu hàng và ký kết giao kèo mới."],
+      "slots": {
+        "target_person": {"bind": "nearest_living_calling", "calling": "merchant", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"cash_share": [0.15, 0.20]},
+      "stages": [
+        {"kind": "deliver", "item_class": "material", "deliver_share": 0.30, "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "skip", "title": "Gửi hàng mẫu tới {target_place}", "text": ["Mang mẫu hàng của {offerer} tới thương quán ở {target_place}."]},
+        {"kind": "event", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Thương thảo giá cả", "text": ["Chốt mức chiết khấu và lịch giao hàng định kỳ."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Chuyển khế ước về {place}", "text": ["Giao lại bản giao kèo có dấu ấn cho {offerer}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.40},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.20}
+      ]
+    },
+    {
+      "id": "qt_ordinary_sect_debt_collect",
+      "name": "Thu hồi cống nạp bị trì hoãn",
+      "tier": "ordinary",
+      "offer_kinds": ["sect", "board"],
+      "fact_kinds": ["debt", "war", "grudge", "any"],
+      "place_kinds": ["great_seat", "minor_seat", "sect_hall", "city", "town", "thanh", "tran"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Một phân đường chậm nộp phần cống nạp khiến kho tông môn thiếu hụt.",
+      "offer_text": ["Tông môn giao ngươi tới {target_place} đối chiếu sổ sách và thu đủ cống phẩm."],
+      "slots": {
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tới phân đường {target_place}", "text": ["Xuất trình lệnh bài tông môn tại {target_place}."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Kiểm toán sổ cống", "text": ["Đối chiếu từng khoản thu chi của phân đường."]},
+        {"kind": "deliver", "item_class": "linh_thach", "deliver_share": 0.35, "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Nộp lại ngân khố", "text": ["Chuyển phần cống nạp thu đủ về kho {place}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 8},
+        {"on": "failed", "role": "offerer_sect", "effect": "standing", "amount": -5}
+      ]
+    },
+    {
+      "id": "qt_ordinary_formation_repair",
+      "name": "Tu sửa linh mạch bị nghẽn",
+      "tier": "ordinary",
+      "offer_kinds": ["person", "sect", "board"],
+      "fact_kinds": ["shortage", "secret", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Một nhánh linh mạch gần {place} bị tắt nghẽn làm suy giảm linh khí.",
+      "offer_text": ["{offerer} nhờ ngươi chế tạo khí cụ trợ trận rồi khai thông nhánh linh mạch."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "craft", "item_class": "talisman", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Chế phù dẫn mạch", "text": ["Họa các lá phù chuyên dùng để điều hòa linh khí."]},
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tìm điểm nghẽn tại {target_place}", "text": ["Dò xét long mạch để xác định vị trí bị đá sụp chèn ép."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Khai thông linh mạch", "text": ["Dùng phù và công lực dẫn lại dòng linh khí ổn định."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Nghiệm thu kết quả", "text": ["Đo lại mật độ linh khí cùng {offerer} tại {place}."]}
+      ],
+      "rare_reward": null,
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.35}
+      ]
+    },
+    {
+      "id": "qt_major_feud_strike",
+      "name": "Đòn phản kích vào thế lực {adversary}",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["grudge", "war", "death", "duel", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "{offerer} quyết tâm đánh gãy thế lực của {adversary} sau mối thù ghi trong sử sách.",
+      "offer_text": ["{offerer} giao cho ngươi mật kế phản kích toàn diện nhằm vào {adversary}."],
+      "slots": {
+        "adversary": {"bind": "fact_adversary", "optional": false},
+        "target_place": {"bind": "slot_person_place", "person_slot": "adversary"}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Vạch kế hoạch phản công", "text": ["Nghiên cứu điểm yếu tuyến tiếp tế của {adversary} cùng {offerer}."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 4, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Cắt đứt nguồn lợi đối địch", "text": ["Gây rối kho bãi và nguồn thu của phe {adversary}."]},
+        {"kind": "defeat", "window": 4, "place_slot": "target_place", "target_slot": "adversary", "if_target_lost": "drop", "title": "Đối đầu trực diện {adversary}", "text": ["Đánh bại {adversary} khiến đối phương trọng thương mất thế."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Khải hoàn báo công", "text": ["Trở về {place} nhận thưởng lớn từ {offerer}."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Chiến Ý Rèn Tâm", "mods": [{"stat": "attack_pct", "value": 6.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.40},
+        {"on": "completed", "role": "adversary", "effect": "wealth", "amount_share": -0.35},
+        {"on": "completed", "role": "adversary", "effect": "injury", "amount": 0.35},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.30},
+        {"on": "failed", "role": "adversary", "effect": "wealth", "amount_share": 0.25}
+      ]
+    },
+    {
+      "id": "qt_major_blood_reckoning",
+      "name": "Thanh toán huyết thù với {adversary}",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["grudge", "death", "war", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 8,
+      "stake_text": "{offerer} không thể chung trời với {adversary} và sẵn sàng dốc gia sản để trừ hậu họa.",
+      "offer_text": ["{offerer} nhờ ngươi kết liễu ân oán sinh tử với {adversary} trong một trận quyết chiến."],
+      "slots": {
+        "adversary": {"bind": "fact_adversary", "optional": false},
+        "target_place": {"bind": "slot_person_place", "person_slot": "adversary"}
+      },
+      "params": {"cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "craft", "item_class": "talisman", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Chuẩn bị phù sát chiêu", "text": ["Luyện trước phù lục khóa không gian không cho kẻ địch chạy thoát."]},
+        {"kind": "visit", "window": 3, "place_slot": "target_place", "target_slot": "adversary", "if_target_lost": "drop", "title": "Định vị hành tung {adversary}", "text": ["Khóa chặt vị trí {adversary} tại {target_place}."]},
+        {"kind": "defeat", "window": 4, "place_slot": "target_place", "target_slot": "adversary", "if_target_lost": "drop", "title": "Quyết chiến sinh tử với {adversary}", "text": ["Hạ gục hoàn toàn {adversary} — trận chiến này không chừa đường lui."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Đem tín vật về báo {offerer}", "text": ["Trao tín vật xác nhận cho {offerer} tại {place}."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Sát Phạt Quyết Đoán", "mods": [{"stat": "crit_chance_pct", "value": 4.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.40},
+        {"on": "completed", "role": "adversary", "effect": "death"},
+        {"on": "failed", "role": "offerer", "effect": "injury", "amount": 0.30},
+        {"on": "failed", "role": "adversary", "effect": "wealth", "amount_share": 0.30}
+      ]
+    },
+    {
+      "id": "qt_major_sect_rank_rise",
+      "name": "Trợ công thăng vị cho {offerer}",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["trade", "shortage", "war", "secret", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} cần một đại công để tranh đoạt vị trí cao hơn trong tông môn.",
+      "offer_text": ["{offerer} hứa chia trọng thưởng nếu ngươi giúp hoàn tất đại sự lập công trước kỳ bình xét."],
+      "slots": {
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "craft", "item_class": "pill", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Luyện lô đan thượng phẩm", "text": ["Luyện thành lô đan để làm lễ vật hiến tông môn."]},
+        {"kind": "deliver", "item_class": "pill", "deliver_share": 0.35, "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Hiến dược tại {target_place}", "text": ["Giao dược phẩm đúng hạn cho kỳ kiểm duyệt."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Hiệp trợ tông vụ trọng yếu", "text": ["Dành nhiều mùa giúp {offerer} xử lý công vụ trọng tâm."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Chứng kiến đại công cáo thành", "text": ["Cùng {offerer} bước ra công đường nhận khen thưởng."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Kinh Nghiệm Tông Vụ", "mods": [{"stat": "defense_pct", "value": 6.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.40},
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 9},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.25}
+      ]
+    },
+    {
+      "id": "qt_major_nascent_insight",
+      "name": "Cảm ngộ thiên cơ Hóa Thần",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["secret", "breakthrough", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 3,
+      "realm_max": 3,
+      "weight": 10,
+      "stake_text": "{offerer} phát hiện di khắc cổ chứa manh mối cảm ngộ Hóa Thần gần {place}.",
+      "offer_text": ["{offerer} mời một vị Nguyên Anh đồng hành phá giải di khắc cổ để chia sẻ thiên cơ đột phá."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.05, 0.15]},
+      "stages": [
+        {"kind": "visit", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Bước vào thánh địa cổ", "text": ["Tìm đến vách đá khắc đạo văn tại {target_place}."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 5, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tĩnh tọa tham ngộ", "text": ["Dành nhiều mùa cảm nhận đạo vận lưu lại trên vách đá."]},
+        {"kind": "craft", "item_class": "talisman", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Khắc lại đạo văn", "text": ["Dùng phù trận ghi chép lại mạch vận hành thiên địa."]},
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Bừng ngộ thiên cơ", "text": ["Cùng {offerer} đối chiếu lời giải, khai mở một tia cảm ngộ Hóa Thần."]}
+      ],
+      "rare_reward": {"type": "insight"},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.30},
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 8}
+      ]
+    },
+    {
+      "id": "qt_major_dao_enlightenment",
+      "name": "Di chỉ Đạo Văn cổ xưa",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["secret", "breakthrough", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} cần người cùng khai mở bí trận lưu giữ Đạo Văn tại {target_place}.",
+      "offer_text": ["{offerer} hứa chia phần tâm đắc Đạo Đồ nếu ngươi giúp mở được mật thất cổ."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "deliver", "item_class": "material", "deliver_share": 0.30, "window": 3, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Chuẩn bị trận liệu", "text": ["Góp khoáng liệu mở khóa thạch môn cho {offerer}."]},
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tới mật thất {target_place}", "text": ["Hội quân cùng {offerer} trước cửa bí trận."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Phá giải cấm chế", "text": ["Đồng lực hóa giải lớp cấm chế ngoài mật thất."]},
+        {"kind": "event", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Lĩnh hội Đạo Văn", "text": ["Ghi nhận một điểm lĩnh ngộ Đạo Đồ khắc trên bia đá."]}
+      ],
+      "rare_reward": {"type": "tree_point", "tree_points": 1},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.35},
+        {"on": "failed", "role": "offerer", "effect": "injury", "amount": 0.25}
+      ]
+    },
+    {
+      "id": "qt_major_grand_forge",
+      "name": "Đúc bảo khí trấn phái",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["trade", "shortage", "war", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 1,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "{offerer} chủ trì công cuộc đúc một kiện bảo khí trọng yếu nhưng thiếu trợ thủ.",
+      "offer_text": ["{offerer} mời ngươi góp vật liệu, luyện chế phôi khí và giữ lửa lò suốt kỳ khai lò."],
+      "slots": {},
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "deliver", "item_class": "material", "deliver_share": 0.35, "window": 3, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Góp tinh kim thượng hạng", "text": ["Cung cấp khoáng liệu chủ chốt để phối hợp luyện phôi."]},
+        {"kind": "craft", "item_class": "artifact", "quality_min": 0, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Rèn phôi trợ trận", "text": ["Chế tác khí cụ phụ trợ ổn định địa hỏa."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Trông lò giữ hỏa", "text": ["Không rời lò nửa bước suốt kỳ tôi luyện bảo khí."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Khai lò thành khí", "text": ["Bảo khí xuất lò, dư ấm linh lực tôi luyện gân cốt ngươi."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Khí Hỏa Tôi Thể", "mods": [{"stat": "khi_huyet_pct", "value": 6.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.45},
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 10},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.35}
+      ]
+    },
+    {
+      "id": "qt_major_sanctuary_defense",
+      "name": "Cố thủ linh mạch trước địch họa",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["war", "grudge", "duel", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Linh mạch trọng yếu của {offerer} đang đứng trước nguy cơ bị chiếm đoạt.",
+      "offer_text": ["{offerer} cầu viện ngươi gia cố trận pháp và giữ vững địa điểm trước đợt tập kích."],
+      "slots": {
+        "adversary": {"bind": "fact_adversary", "optional": true},
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "craft", "item_class": "talisman", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Luyện phù hộ trận", "text": ["Họa sẵn lượng lớn phù phòng ngự cho tiền đồn."]},
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tiến vào tiền đồn {target_place}", "text": ["Nhanh chóng có mặt tại linh mạch {target_place}."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 4, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Cố thủ trận địa", "text": ["Đánh bật nhiều đợt quấy nhiễu giữ nguyên vẹn linh mạch."]},
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Ký kết bảo hộ", "text": ["Linh mạch an toàn; {offerer} tặng trọng lễ tạ ơn."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Thủ Trận Bất Động", "mods": [{"stat": "linh_luc_pct", "value": 6.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.40},
+        {"on": "completed", "role": "adversary", "effect": "wealth", "amount_share": -0.30},
+        {"on": "completed", "role": "adversary_sect", "effect": "standing", "amount": -6},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.30}
+      ]
+    },
+    {
+      "id": "qt_major_medicine_expedition",
+      "name": "Viễn chinh tìm dược liệu giải độc",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["death", "shortage", "secret", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Người thân cận của {offerer} trúng dị độc, cần một phương thuốc đặc chế mới cứu được.",
+      "offer_text": ["{offerer} nhờ ngươi vượt vùng nguy hiểm tìm thảo dược, luyện giải độc đan rồi cứu người."],
+      "slots": {
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Thâm nhập hiểm địa {target_place}", "text": ["Tìm vùng đầm chướng nơi dị thảo sinh trưởng."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Thu thập dược dẫn", "text": ["Kiên nhẫn canh thời điểm dị thảo nở hoa để thu hái."]},
+        {"kind": "craft", "item_class": "pill", "quality_min": 0, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Luyện giải độc đan", "text": ["Hòa dược dẫn luyện thành viên giải độc đan."]},
+        {"kind": "deliver", "item_class": "pill", "deliver_share": 0.30, "window": 2, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Dâng thuốc cứu người", "text": ["Trao viên giải độc đan đúng lúc cho {offerer}."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Bách Độc Bất Xâm", "mods": [{"stat": "dan_doc_resist_pct", "value": 8.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.35},
+        {"on": "completed", "role": "offerer_ties", "effect": "wealth", "amount_share": 0.20},
+        {"on": "failed", "role": "offerer_ties", "effect": "injury", "amount": 0.30}
+      ]
+    },
+    {
+      "id": "qt_major_hidden_ledger",
+      "name": "Truy tìm mật sổ tại {target_place}",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["debt", "grudge", "secret", "trade", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 8,
+      "stake_text": "{offerer} phát hiện dấu tích một cuốn mật sổ có thể phơi bày âm mưu của đối thủ.",
+      "offer_text": ["{offerer} ủy thác ngươi lần theo manh mối, giành lấy mật sổ và đem ra công đường."],
+      "slots": {
+        "target_person": {"bind": "new_person", "archetype": "tan_tu", "realm_offset": 0},
+        "adversary": {"bind": "fact_adversary", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 2, "place_slot": "target_place", "target_slot": "target_person", "if_target_lost": "skip", "title": "Tiếp cận người giữ tin", "text": ["Gặp mặt nhân vật bí ẩn tại {target_place}."]},
+        {"kind": "event", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Giải mã mật hiệu", "text": ["Lần ra nơi cất giấu mật sổ trong kho cũ."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Đoạt lại mật sổ", "text": ["Âm thầm đột nhập lấy mật sổ mà không để lộ dấu vết."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Phơi bày sự thật", "text": ["Giao mật sổ cho {offerer} trước công chúng."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Thần Thức Minh Sát", "mods": [{"stat": "than_thuc_pct", "value": 6.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.40},
+        {"on": "completed", "role": "adversary", "effect": "wealth", "amount_share": -0.35},
+        {"on": "completed", "role": "adversary_sect", "effect": "standing", "amount": -8},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.25}
+      ]
+    },
+    {
+      "id": "qt_major_trial_ascent",
+      "name": "Khảo nghiệm truyền thừa của {offerer}",
+      "tier": "major",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["breakthrough", "secret", "duel", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 0,
+      "realm_max": 4,
+      "weight": 8,
+      "stake_text": "{offerer} muốn chọn một tu sĩ đủ nghị lực để kế thừa một phần tâm đắc tu luyện.",
+      "offer_text": ["{offerer} đặt ra năm cửa ải từ tu vi, luyện chế tới thực chiến để thử thách ngươi."],
+      "slots": {},
+      "params": {"mission_seasons": [1, 2], "cash_share": [0.05, 0.15]},
+      "stages": [
+        {"kind": "reach", "target_level": 8, "window": 10, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Đạt ngưỡng tu vi khảo nghiệm", "text": ["Tích lũy tu vi đạt mức {offerer} đề ra."]},
+        {"kind": "craft", "item_class": "pill", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Cửa ải đan đạo", "text": ["Luyện thành một lô đan không tì vết."]},
+        {"kind": "mission", "seasons": 1, "use_mission_param": true, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Cửa ải kiên tâm", "text": ["Tĩnh tọa vượt qua khảo nghiệm tâm ma suốt một mùa."]},
+        {"kind": "event", "window": 2, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Truyền thụ tâm đắc", "text": ["Nhận lời điểm hóa trực tiếp từ {offerer}."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Tâm Đắc Tinh Tiến", "mods": [{"stat": "cultivation_speed_pct", "value": 6.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.25},
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 8}
+      ]
+    },
+    {
+      "id": "qt_legendary_bang_tam_frost_seal",
+      "name": "Ấn Băng Tâm và lời thề Hàn Trì",
+      "tier": "legendary",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["secret", "war", "grudge", "breakthrough", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 2,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "Sở Ngọc Hồ cần người đáng tin cậy nối lại cổ ấn đang rạn nứt dưới đáy hàn trì Băng Tâm.",
+      "offer_text": ["{offerer} truyền mật lệnh: nếu ngươi giữ vững được Hàn Trì Cổ Ấn, một kiện chí bảo vượt phẩm cấp sẽ thuộc về ngươi."],
+      "slots": {
+        "anchor_cast": {"bind": "cast_key", "key": "so_ngoc_ho", "optional": true},
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Nhận mật chỉ Hàn Trì", "text": ["Lắng nghe bí sử cổ ấn từ {offerer}."]},
+        {"kind": "deliver", "item_class": "material", "deliver_share": 0.35, "window": 3, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Hiến hàn liệu bổ ấn", "text": ["Chuẩn bị linh liệu khắc phục vết nứt cổ ấn."]},
+        {"kind": "craft", "item_class": "artifact", "quality_min": 0, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Đúc khóa hàn ấn", "text": ["Tự tay luyện chế pháp khí dẫn hàn khí vào trận nhãn."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 5, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Trấn thủ đáy hàn trì", "text": ["Chống chọi hàn sát suốt nhiều mùa cho tới khi cổ ấn khép kín."]},
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Nhận chí bảo truyền thừa", "text": ["Cổ ấn vững bền; {offerer} mở bảo khố trao tặng kỳ trân hiếm có."]}
+      ],
+      "rare_reward": {"type": "above_cap_item", "item_class": "artifact"},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.45},
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 10},
+        {"on": "failed", "role": "offerer", "effect": "injury", "amount": 0.35}
+      ]
+    },
+    {
+      "id": "qt_legendary_phu_tang_gate",
+      "name": "Dấu chân Phù Tang của Mạc Quy Khư",
+      "tier": "legendary",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["secret", "breakthrough", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 2,
+      "realm_max": 4,
+      "weight": 10,
+      "stake_text": "Mạc Quy Khư lưu lại tọa độ dị mạch dẫn về cửa Phù Tang Cảnh trên Dục Nhật Đảo.",
+      "offer_text": ["{offerer} mời ngươi truy tìm cổ đồ Phù Tang, nối lại năm dấu ấn dẫn đường tới di bảo thượng cổ."],
+      "slots": {
+        "anchor_cast": {"bind": "cast_key", "key": "mac_quy_khu", "optional": true},
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tầm dấu cổ bia", "text": ["Đến {target_place} tìm vết khắc nhật nguyệt thời khai lịch."]},
+        {"kind": "event", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Giải ấn Thiên Nguyên", "text": ["Đối chiếu niên lịch cổ để mở cơ quan bí mật."]},
+        {"kind": "craft", "item_class": "talisman", "quality_min": 0, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Vẽ phù dẫn nhật", "text": ["Họa bộ phù chuyên dụng phá lớp sương mù cổ cảnh."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 5, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Thám hiểm ngoại vi Phù Tang", "text": ["Đi sâu vào vết nứt không gian tìm lấy di bảo."]},
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Mang bảo vật trở về", "text": ["Kỳ trân từ cổ cảnh nằm gọn trong tay ngươi."]}
+      ],
+      "rare_reward": {"type": "above_cap_item", "item_class": "artifact"},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.45},
+        {"on": "completed", "role": "offerer_ties", "effect": "wealth", "amount_share": 0.25},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.35}
+      ]
+    },
+    {
+      "id": "qt_legendary_thinh_vu_shadow_war",
+      "name": "Ám kỳ Thính Vũ và chiến cục Bắc Cương",
+      "tier": "legendary",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["war", "grudge", "death", "secret", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 2,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Mạnh Dạ Vũ muốn xoay chuyển thế cờ Bắc Cương bằng một đòn chí mạng vào kẻ đối địch.",
+      "offer_text": ["{offerer} giao cho ngươi năm bước mật lệnh bẻ gãy thế lực đối thủ trên chiến trường ngầm."],
+      "slots": {
+        "anchor_cast": {"bind": "cast_key", "key": "manh_da_vu", "optional": true},
+        "adversary": {"bind": "fact_adversary", "optional": false},
+        "target_place": {"bind": "slot_person_place", "person_slot": "adversary"}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Định kế ám kỳ", "text": ["Nhận danh sách trọng điểm của phe {adversary}."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 4, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Phá hủy tuyến hậu cần", "text": ["Lần lượt chặt đứt nguồn tiếp tế của {adversary}."]},
+        {"kind": "craft", "item_class": "talisman", "quality_min": 0, "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Chế phù đoạt thế", "text": ["Chuẩn bị phù trận áp chế đối thủ trong trận cuối."]},
+        {"kind": "defeat", "window": 4, "place_slot": "target_place", "target_slot": "adversary", "if_target_lost": "drop", "title": "Hạ gục {adversary}", "text": ["Quyết chiến đánh gục {adversary}, định đoạt cục diện."]},
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Định đoạt đại cục", "text": ["Chiến cục ngã ngũ; phần thưởng truyền kỳ được trao tận tay."]}
+      ],
+      "rare_reward": {"type": "above_cap_item", "item_class": "artifact"},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.45},
+        {"on": "completed", "role": "adversary", "effect": "wealth", "amount_share": -0.40},
+        {"on": "completed", "role": "adversary", "effect": "injury", "amount": 0.40},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.35},
+        {"on": "failed", "role": "adversary", "effect": "wealth", "amount_share": 0.35}
+      ]
+    },
+    {
+      "id": "qt_legendary_thien_bao_ledger",
+      "name": "Sổ vàng Thiên Bảo của Phan Vật Hoa",
+      "tier": "legendary",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["trade", "debt", "shortage", "secret", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 2,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Phan Vật Hoa cần thu hồi một thương khế truyền đời liên quan tới bảo khố Thiên Bảo.",
+      "offer_text": ["{offerer} hứa đổi ngang một kiện kỳ trân hiếm có nếu ngươi thu hồi trọn vẹn thương khế cổ."],
+      "slots": {
+        "anchor_cast": {"bind": "cast_key", "key": "phan_vat_hoa", "optional": true},
+        "target_place": {"bind": "same_region_settled", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.15, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Đối chiếu ấn vàng", "text": ["Nhận bản sao thương khế và mật ấn của Thiên Bảo."]},
+        {"kind": "visit", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tới tổng hội {target_place}", "text": ["Truy dấu thương đoàn nắm giữ nửa còn lại của khế ước."]},
+        {"kind": "deliver", "item_class": "material", "deliver_share": 0.40, "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Đóng tiền thế chân", "text": ["Dùng vật liệu quý để chuộc lại bản gốc thương khế."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 5, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Thanh toán đại hội", "text": ["Chủ trì phiên đối soát khép lại món nợ trăm năm."]},
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Mở bảo khố Thiên Bảo", "text": ["Phan gia giữ lời, trao ngươi một món kỳ trân vượt cấp."]}
+      ],
+      "rare_reward": {"type": "above_cap_item", "item_class": "cong_phap"},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.50},
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 10},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.40}
+      ]
+    },
+    {
+      "id": "qt_legendary_tung_dao_canon",
+      "name": "Khúc cầm vô tự của Thôi Khinh Hồng",
+      "tier": "legendary",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["secret", "breakthrough", "grudge", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 2,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Thôi Khinh Hồng tìm người hữu duyên hoàn thiện khúc cầm cổ còn thiếu hai chương cuối.",
+      "offer_text": ["{offerer} giao cho ngươi hành trình thu hồi cổ phổ, rèn lại dây cầm và lĩnh ngộ đạo âm."],
+      "slots": {
+        "anchor_cast": {"bind": "cast_key", "key": "thoi_khinh_hong", "optional": true},
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "visit", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Nghe gió tùng {target_place}", "text": ["Đến rừng tùng cổ ghi lại nhịp âm thiên địa."]},
+        {"kind": "craft", "item_class": "artifact", "quality_min": 0, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Chế dây cầm linh ty", "text": ["Luyện chế khí cụ dẫn âm từ linh liệu thượng hạng."]},
+        {"kind": "deliver", "item_class": "artifact", "deliver_share": 0.35, "window": 3, "place_slot": "offer_place", "target_slot": "offerer", "if_target_lost": "orphan", "title": "Dâng dây cầm cổ", "text": ["Bàn giao linh ty để nối lại đàn cổ."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 5, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Hợp tấu thử âm", "text": ["Tĩnh tâm điều hòa thần hồn theo từng cung bậc đạo âm."]},
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Khúc cầm viên mãn", "text": ["Đạo âm vang vọng khiến thần hồn ngươi thoát thai hoán cốt."]}
+      ],
+      "rare_reward": {"type": "quest_boon", "title": "Tùng Đào Đạo Âm", "mods": [{"stat": "than_thuc_pct", "value": 4.0}, {"stat": "cultivation_speed_pct", "value": 4.0}]},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.40},
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 10},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.25}
+      ]
+    },
+    {
+      "id": "qt_legendary_thuy_vi_legacy",
+      "name": "Di chúc Không Sơn và núi Thúy Vi",
+      "tier": "legendary",
+      "offer_kinds": ["person", "sect"],
+      "fact_kinds": ["secret", "death", "war", "place_fact", "any"],
+      "place_kinds": ["any"],
+      "realm_min": 2,
+      "realm_max": 4,
+      "weight": 9,
+      "stake_text": "Ngu Lam Sơn lần ra manh mối di bảo thất lạc của Không Sơn Viện năm xưa.",
+      "offer_text": ["{offerer} mời ngươi giải khai phong ấn cổ sơn và mang di bảo về trước khi rơi vào tay kẻ khác."],
+      "slots": {
+        "anchor_cast": {"bind": "cast_key", "key": "ngu_lam_son", "optional": true},
+        "target_place": {"bind": "same_region_wild", "max_travel": 3}
+      },
+      "params": {"mission_seasons": [2, 3], "cash_share": [0.10, 0.20]},
+      "stages": [
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Đọc di thư Không Sơn", "text": ["Tra cứu địa đồ thất lạc trong thư khố."]},
+        {"kind": "visit", "window": 3, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Tìm phế tích sơn môn", "text": ["Đặt chân lên ngọn núi hoang mang dấu tích Không Sơn Viện."]},
+        {"kind": "craft", "item_class": "pill", "quality_min": 0, "window": 4, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Luyện phá chướng đan", "text": ["Chuẩn bị đan dược chống chướng khí ngàn năm."]},
+        {"kind": "mission", "seasons": 2, "use_mission_param": true, "window": 5, "place_slot": "target_place", "if_target_lost": "orphan", "title": "Mở niêm phong cổ điện", "text": ["Xuyên qua đại trận phòng hộ thu hồi bảo hộp."]},
+        {"kind": "event", "window": 3, "place_slot": "offer_place", "if_target_lost": "orphan", "title": "Kế thừa cổ bảo", "text": ["Di bảo cổ sơn hiện thế, tỏa hào quang vượt bậc."]}
+      ],
+      "rare_reward": {"type": "above_cap_item", "item_class": "artifact"},
+      "outcomes": [
+        {"on": "completed", "role": "offerer", "effect": "wealth", "amount_share": 0.45},
+        {"on": "completed", "role": "offerer_sect", "effect": "standing", "amount": 10},
+        {"on": "failed", "role": "offerer", "effect": "wealth", "amount_share": -0.30}
+      ]
+    }
+  ]
+}

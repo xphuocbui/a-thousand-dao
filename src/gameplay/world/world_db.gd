@@ -27,7 +27,9 @@ signal event_logged(event_id: String)
 ## (WorldEconomy, rules 1-11). "ties" holds NPC Relationships' records, one per pair (Ties; npc-relationships.md
 ## rule 1), indexed from both people.
 const TABLES := {"people": "p", "sects": "s", "places": "l", "regions": "r", "items": "i", "events": "e", "ratings": "q",
-	"standing": "y", "world": "w", "money": "m", "markets": "k", "ties": "t", "provinces": "v"}
+	"standing": "y", "world": "w", "money": "m", "markets": "k", "ties": "t", "provinces": "v",
+	"event_flags": "f", "event_followups": "u", "event_stories": "a", "event_meta": "g",
+	"quests": "d", "quest_boards": "b", "quest_meta": "h"}
 
 var _tables: Dictionary = {}
 var _next_id: Dictionary = {}
@@ -147,7 +149,8 @@ func has_record(table: String, record_id: String) -> bool:
 ## Finds the table an id belongs to by its prefix ("" if unknown).
 func table_of(record_id: String) -> String:
 	for t in TABLES.keys():
-		if record_id.begins_with(TABLES[t]) and record_id.substr(1).is_valid_int():
+		var pref: String = str(TABLES[t])
+		if record_id.begins_with(pref) and record_id.substr(pref.length()).is_valid_int():
 			return t
 	return ""
 

@@ -10,8 +10,12 @@ signal person_requested(id: String)
 signal place_requested(id: String)
 ## Open the abode screen.
 signal abode_requested
-## Open the waiting event.
+## Open the waiting event or mercy decision.
 signal event_requested
+## Open the Quests window focused on quest [param id].
+signal quest_requested(id: String)
+## Open the Quests window Stories tab focused on story [param id].
+signal story_requested(id: String)
 ## Unpin that person.
 signal unpin_requested(id: String)
 ## The header was toggled.
@@ -57,6 +61,37 @@ func show_view(v: Dictionary) -> void:
 		c.queue_free()
 	var people: Array = Array(v.get("people", []))
 	var any: bool = false
+	var ev: Dictionary = v.get("event", {})
+	var mercy: Dictionary = Dictionary(v.get("mercy", {}))
+	if not ev.is_empty() or not mercy.is_empty():
+		_heading(tr("Ongoing"))
+		if not ev.is_empty():
+			var b := _small_button("! " + tr("Event waiting: %s") % str(ev.title))
+			b.name = "EventWaiting"
+			TooltipLayer.set_tip(b, {"title": tr("Event waiting"), "summary": str(ev.title)})
+			b.pressed.connect(func(): event_requested.emit())
+			_rows.add_child(b)
+		if not mercy.is_empty():
+			var mb := _small_button("! " + tr("Mercy: %s") % str(mercy.get("title", tr("Duel"))))
+			mb.name = "MercyWaiting"
+			TooltipLayer.set_tip(mb, {"title": tr("Định đoạt sinh tử (Mercy)"), "summary": tr("Click to choose spare or kill.")})
+			mb.pressed.connect(func(): event_requested.emit())
+			_rows.add_child(mb)
+		any = true
+	var quests: Array = Array(v.get("quests", []))
+	if not quests.is_empty():
+		_heading(tr("Quests"))
+		for q in quests:
+			if q is Dictionary:
+				_quest_row(q as Dictionary)
+		any = true
+	var stories: Array = Array(v.get("stories", []))
+	if not stories.is_empty():
+		_heading(tr("Stories"))
+		for st in stories:
+			if st is Dictionary:
+				_story_row(st as Dictionary)
+		any = true
 	if not people.is_empty():
 		_heading(tr("People"))
 		for p in people:
@@ -70,15 +105,8 @@ func show_view(v: Dictionary) -> void:
 			_place_row(tr("Home") + ": " + str(home.name), home, true)
 		if not seat.is_empty():
 			_place_row(tr("Seat") + ": " + str(seat.name), seat, false)
-	var ev: Dictionary = v.get("event", {})
-	if not ev.is_empty():
-		_heading(tr("Ongoing"))
-		var b := _small_button("! " + tr("Event waiting: %s") % str(ev.title))
-		b.pressed.connect(func(): event_requested.emit())
-		_rows.add_child(b)
-		any = true
 	if not any:
-		# one line (weak-point review 2026-11-24 #7); how to pin is in its tooltip (quests are not in the game yet)
+		# one line (weak-point review 2026-11-24 #7); how to pin is in its tooltip
 		var l := _small_label(tr("Nothing pinned yet"))
 		l.name = "Empty"
 		l.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -89,6 +117,16 @@ func show_view(v: Dictionary) -> void:
 ## The number of person rows (for tests).
 func person_rows() -> int:
 	return _rows.get_children().filter(func(c): return str(c.name).begins_with("Pin_")).size()
+
+
+## The number of quest rows (for tests).
+func quest_rows() -> int:
+	return _rows.get_children().filter(func(c): return str(c.name).begins_with("Quest_")).size()
+
+
+## The number of story rows (for tests).
+func story_rows() -> int:
+	return _rows.get_children().filter(func(c): return str(c.name).begins_with("Story_")).size()
 
 
 func _heading(text: String) -> void:
@@ -147,6 +185,58 @@ func _place_row(text: String, r: Dictionary, is_home: bool) -> void:
 	row.add_child(wl)
 	_rows.add_child(row)
 	b.accessibility_name = "%s, %s" % [text, when]
+
+
+func _quest_row(q: Dictionary) -> void:
+	var qid: String = str(q.get("id", ""))
+	var qname: String = str(q.get("name", qid))
+	var warn: bool = bool(q.get("tight_deadline_warn", q.get("warn", false)))
+	var stage_n: int = int(q.get("stage", 1))
+	var stage_cnt: int = maxi(1, int(q.get("stage_count", 1)))
+	var left: int = int(q.get("seasons_left", 0))
+	var place_nm: String = str(q.get("target_place", ""))
+	var stage_txt: String = str(q.get("stage_text", ""))
+	if stage_txt == "":
+		stage_txt = "%d/%d %s%s" % [stage_n, stage_cnt, str(q.get("current_kind", "")), (" · " + place_nm) if place_nm != "" else ""]
+
+	var col := VBoxContainer.new()
+	col.name = "Quest_" + qid
+	var b := _small_button(("%s%s" % ["⚠ " if warn else "", qname]))
+	b.pressed.connect(func(): quest_requested.emit(qid))
+	col.add_child(b)
+	var sub := _small_label("  %s · %d mùa" % [stage_txt, left])
+	if warn:
+		sub.add_theme_color_override("font_color", Color("#E87A5D"))
+	col.add_child(sub)
+	b.accessibility_name = "%s, %s, %d mùa%s" % [qname, stage_txt, left, (", gấp hạn" if warn else "")]
+	TooltipLayer.set_tip(b, {
+		"title": qname,
+		"fact": "%s · %d mùa còn lại" % [stage_txt, left],
+		"summary": tr("⚠ Gấp hạn! Nhấn để mở Sổ Ủy Thác.") if warn else tr("Nhấn để mở Sổ Ủy Thác."),
+	})
+	_rows.add_child(col)
+
+
+func _story_row(st: Dictionary) -> void:
+	var sid: String = str(st.get("id", ""))
+	var sname: String = str(st.get("name", sid))
+	var stage_lbl: String = str(st.get("stage_label", st.get("stage", "")))
+	var budget_left: int = int(st.get("budget_left", 0))
+
+	var col := VBoxContainer.new()
+	col.name = "Story_" + sid
+	var b := _small_button("✦ " + sname)
+	b.pressed.connect(func(): story_requested.emit(sid))
+	col.add_child(b)
+	var sub := _small_label("  %s" % stage_lbl)
+	col.add_child(sub)
+	b.accessibility_name = "%s, %s" % [sname, stage_lbl]
+	TooltipLayer.set_tip(b, {
+		"title": sname,
+		"fact": stage_lbl,
+		"summary": tr("Ngân sách chuỗi còn: %d LT · Nhấn để xem trong mục Chuỗi sự kiện.") % budget_left,
+	})
+	_rows.add_child(col)
 
 
 func _small_button(text: String) -> Button:
