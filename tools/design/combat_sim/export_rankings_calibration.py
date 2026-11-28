@@ -8,9 +8,11 @@ stage_mult x g (offence: the damage unit), n_body x g and n_qi x g (both pools),
 stage multiplier's effect on block cancels). Strength damage x health is g^2 = 2^(k / rung_div).
 
 Run:
-  python -I tools/design/combat_sim/export_rankings_calibration.py           measure and write (about a minute)
-  python -I tools/design/combat_sim/export_rankings_calibration.py --check   re-measure and compare; exit 1 on drift
+  python -I tools/design/combat_sim/export_rankings_calibration.py [--workers N]           measure and write
+  python -I tools/design/combat_sim/export_rankings_calibration.py --check [--workers N]   re-measure and compare; exit 1 on drift
 """
+import argparse
+import concurrent.futures
 import copy
 import hashlib
 import json
@@ -19,7 +21,8 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, HERE)
+if HERE not in sys.path:
+    sys.path.insert(0, HERE)
 import engine as E  # noqa: E402
 import parity_export as P  # noqa: E402
 
@@ -28,15 +31,17 @@ DATA = os.path.join(ROOT, "assets", "data")
 OUT = os.path.join(DATA, "combat_rankings.json")
 # the data the ladder depends on; their hash is the data version (ADR-0003 decision 6)
 VERSIONED = ("combat_engine.json", "combat_reference_fighters.json", "combat_effects.json")
+_TYPICALS_CACHE = None
 
 # rung_div 32 (not the GDD's first guess of 4): measured 2026-11-14, one rung at rung_div 4 wins 96-100 % because a
 # rung scales linh lực as well as offence and health, and linh lực decides sustain fights; at 32 a rung wins 66-69 %
 # (about 120 Elo). The rung-counted knobs (k_max, warm_step, cold_step, coarse_bracket) scale with it.
+# k_max 256 spans strength x1/256..x256 (Power Rankings Rule 4: 2^(±256/32) = 2^(±8)).
 KNOBS = {
     "enabled": True,
     "A_0": 1000.0,
     "rung_div": 32,
-    "k_max": 192,
+    "k_max": 256,
     "probe_fights": 4,
     "coarse_probe_fights": 2,
     "warm_step": 16,
@@ -151,24 +156,76 @@ def search(probe, ladder, k_max, start_k, step, bracket_stop, fights, prior):
     return solve_base(rungs, ladder[start_k + k_max], ladder, prior), done
 
 
-def calibrate():
+def default_workers():
+    return min(8, os.cpu_count() or 1)
+
+
+def _typicals():
+    global _TYPICALS_CACHE
+    if _TYPICALS_CACHE is None:
+        with open(os.path.join(DATA, "combat_reference_fighters.json"), encoding="utf-8") as f:
+            _TYPICALS_CACHE = json.load(f)["fighters"]["typical"]
+    return _TYPICALS_CACHE
+
+
+def _run_gap_task(task):
+    r, k, rd, n_fights, prior, seed0 = task
+    typ = _typicals()[r]
+    upper = rung_record(typ, k + 1, rd)
+    lower = rung_record(typ, k, rd)
+    s = score(upper, lower, n_fights, seed0)
+    sp = shrunk_share(s, n_fights, prior)
+    gap = 400.0 * math.log10(sp / (1.0 - sp))
+    return (r, k, sp, gap)
+
+
+def _run_health_task(task):
+    r, n_fights, prior, seed0 = task
+    typ = _typicals()[r]
+    up = copy.deepcopy(typ)
+    up["n_body"] = up["n_body"] * 1.2
+    s = score(up, typ, n_fights, seed0)
+    sp = shrunk_share(s, n_fights, prior)
+    return 400.0 * math.log10(sp / (1.0 - sp))
+
+
+def calibrate(workers=None):
     knobs = dict(KNOBS)
     rd, km, prior = knobs["rung_div"], knobs["k_max"], knobs["prior_games"]
-    typicals = json.load(open(os.path.join(DATA, "combat_reference_fighters.json"), encoding="utf-8"))["fighters"]["typical"]
+    n_cal = knobs["calibration_fights"]
+    typicals = _typicals()
+    n_workers = default_workers() if workers is None else max(1, int(workers))
+
+    # Pre-assign deterministic seeds per (r, k) gap and per-realm health_elo before parallel dispatch
+    # so any --workers value produces byte-for-byte identical output.
+    gap_tasks = []
+    for r in range(5):
+        for k in range(-km, km):
+            idx = r * (2 * km) + (k + km)
+            gap_tasks.append((r, k, rd, n_cal, prior, 1 + idx * n_cal))
+    health_seed_base = 1 + 5 * (2 * km) * n_cal
+    health_tasks = [(r, n_cal, prior, health_seed_base + r * n_cal) for r in range(5)]
+
+    if n_workers == 1:
+        gap_results = [_run_gap_task(t) for t in gap_tasks]
+        gaps_h = [_run_health_task(t) for t in health_tasks]
+    else:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=n_workers) as ex:
+            health_futs = [ex.submit(_run_health_task, t) for t in health_tasks]
+            gap_results = list(ex.map(_run_gap_task, gap_tasks, chunksize=16))
+            gaps_h = [f.result() for f in health_futs]
+
+    gaps_by_realm = [[] for _ in range(5)]
+    for r, k, sp, gap in gap_results:
+        if sp > SATURATION or sp < 1.0 - SATURATION:
+            raise SystemExit("calibration saturated: realm %d rungs %d-%d share %.4f; raise rung_div" % (r, k, k + 1, sp))
+        gaps_by_realm[r].append(gap)
+
     anchors = [knobs["A_0"]]
     ladders = []
-    seed = 1
+    anchor_seed = health_seed_base + 5 * n_cal
     for r in range(5):
-        gaps = []
-        for k in range(-km, km):
-            upper = rung_record(typicals[r], k + 1, rd)
-            lower = rung_record(typicals[r], k, rd)
-            s = score(upper, lower, knobs["calibration_fights"], seed)
-            seed += knobs["calibration_fights"]
-            sp = shrunk_share(s, knobs["calibration_fights"], prior)
-            if sp > SATURATION or sp < 1.0 - SATURATION:
-                raise SystemExit("calibration saturated: realm %d rungs %d-%d share %.4f; raise rung_div" % (r, k, k + 1, sp))
-            gaps.append(400.0 * math.log10(sp / (1.0 - sp)))
+        gaps = gaps_by_realm[r]
         ladder = [0.0] * (2 * km + 1)
         ladder[km] = anchors[r]
         for i in range(km, 2 * km):
@@ -181,21 +238,12 @@ def calibrate():
             fights = knobs["calibration_probe_fights"]
 
             def probe(k, n, nxt=nxt, r=r):
-                nonlocal seed
-                s = score(nxt, rung_record(typicals[r], k, rd), n, seed)
-                seed += n
+                nonlocal anchor_seed
+                s = score(nxt, rung_record(typicals[r], k, rd), n, anchor_seed)
+                anchor_seed += n
                 return s
             base, _ = search(probe, ladder, km, 0, knobs["cold_step"], 1, fights, prior)
             anchors.append(base)
-    # health_elo: realm r's typical with health x1.2 against the unscaled one, averaged over the realms
-    gaps_h = []
-    for r in range(5):
-        up = copy.deepcopy(typicals[r])
-        up["n_body"] = up["n_body"] * 1.2
-        s = score(up, typicals[r], knobs["calibration_fights"], seed)
-        seed += knobs["calibration_fights"]
-        sp = shrunk_share(s, knobs["calibration_fights"], prior)
-        gaps_h.append(400.0 * math.log10(sp / (1.0 - sp)))
     health_elo = sum(gaps_h) / len(gaps_h) / math.log10(1.2)
     return knobs, anchors, ladders, health_elo
 
@@ -208,8 +256,8 @@ def data_version():
     return h.hexdigest()[:16]
 
 
-def build():
-    knobs, anchors, ladders, health_elo = calibrate()
+def build(workers=None):
+    knobs, anchors, ladders, health_elo = calibrate(workers=workers)
     out = {"schema_version": 1,
            "_doc": "Power Rankings data (design/gdd/power-rankings.md; ADR-0003). Written by "
                    "tools/design/combat_sim/export_rankings_calibration.py; do not edit the measured fields by hand. "
@@ -228,8 +276,12 @@ def build():
 
 
 def main(argv):
-    text = json.dumps(build(), indent=1, ensure_ascii=False) + "\n"
-    if "--check" in argv:
+    parser = argparse.ArgumentParser(description="Measure and export Power Rankings calibration.")
+    parser.add_argument("--check", action="store_true", help="Re-measure and compare against combat_rankings.json; exit 1 on drift.")
+    parser.add_argument("--workers", type=int, default=default_workers(), help="Worker process count (default: min(8, cpu_count)).")
+    args = parser.parse_args(argv)
+    text = json.dumps(build(workers=args.workers), indent=1, ensure_ascii=False) + "\n"
+    if args.check:
         old = open(OUT, encoding="utf-8").read() if os.path.exists(OUT) else None
         same = old == text
         print(("same  " if same else "DRIFT ") + OUT)
