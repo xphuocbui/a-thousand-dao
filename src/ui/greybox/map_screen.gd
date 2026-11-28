@@ -76,8 +76,13 @@ var _win_action: String = ""            # the window action whose job runs
 var _win_args: Array = []
 var _last_action_line: String = ""      # the last window action's first answer line (the actions smoke)
 var _menu := GameMenu.new()             # design/ux/game-menu.md
-var _full := FullScreenHost.new()       # full screens (hud.md Layout Zones): the abode and the Đạo Đồ
+var _full := FullScreenHost.new()       # full screens (hud.md Layout Zones): the abode, Đạo Đồ, tribulation, succession
 var _dao_do_screen := DaoDoScreen.new()  # design/ux/dao-do-view.md
+var _tribulation_screen := TribulationScreen.new()   # design/gdd/thien-kiep.md (AC-TK-80..83)
+var _succession_screen := SuccessionScreen.new()     # design/gdd/codex-karmic-carryover.md (AC-CK-18)
+var _codex_store: CodexStore = null      # profile-level Thiên Thư store (user://codex.json in play, "" in test runs)
+var _pending_bt_args: Array = []         # breakthrough args forwarded into TribulationScreen confirmation
+var _return_to_tribulation: bool = false # Watch Fight returns focus to TribulationScreen on close
 var _tree_queue: Array = []              # the plan's marks still to open (one tree_allocate job each)
 var _tree_lines: Array = []
 var _menu_dim := ColorRect.new()
@@ -151,6 +156,7 @@ func _ready() -> void:
 		if rankings.has("enabled"):
 			rankings["enabled"] = false
 	var seed_v: int = int(_arg_value("--seed", str(_greybox().get("seed", 7))))
+	_codex_store = CodexStore.new(_codex_path())
 	_job_kind = "new_game"
 	_world_start_msec = Time.get_ticks_msec()
 	_job.start(_new_game.bind(seed_v))
@@ -286,6 +292,61 @@ func _shot_and_quit(path: String) -> void:
 		if rw != null:
 			rw.show_view(_relationships_fixture(), "", false)
 		await _frames(4)
+	if _args.has("--codex-fixture"):   # AC-CK-19: 10-book ink-wash CodexWindow display fixture
+		_open_window("codex", "secrets", "", _end_turn)
+		await _frames(2)
+		var cw: CodexWindow = _win.window("codex") as CodexWindow
+		if cw != null:
+			cw.show_view(_codex_fixture(), "secrets", false)
+		await _frames(4)
+	if _args.has("--succession-fixture"):   # AC-CK-18: Continue-mode SuccessionScreen display fixture
+		_open_full_fixture("succession", _succession_fixture())
+		await _frames(4)
+	if _args.has("--tribulation-confirm-fixture"):   # AC-TK-80..81: TribulationScreen confirmation display fixture
+		_open_full_fixture("tribulation", _tribulation_confirm_fixture())
+		await _frames(4)
+	if _args.has("--tribulation-result-fixture"):   # AC-TK-82..83: TribulationScreen result display fixture
+		_open_full_fixture("tribulation", _tribulation_result_fixture())
+		await _frames(4)
+	var batch_spec: String = _arg_value("--batch-fixtures", "")
+	if batch_spec != "":   # single-launch batched evidence capture: tag=path,tag=path (zero temp scripts)
+		for entry in batch_spec.split(",", false):
+			var eq: int = entry.find("=")
+			if eq <= 0:
+				continue
+			var tag_k: String = entry.substr(0, eq).strip_edges()
+			var out_p: String = entry.substr(eq + 1).strip_edges()
+			_close_full()
+			_win.close_panel()
+			_panel.close_panel()
+			_places.close_panel()
+			_tips.close_all()
+			await _frames(2)
+			match tag_k:
+				"tribulation_confirm":
+					_open_full_fixture("tribulation", _tribulation_confirm_fixture())
+				"tribulation_result":
+					_open_full_fixture("tribulation", _tribulation_result_fixture())
+				"codex_books":
+					_open_window("codex", "secrets", "", _end_turn)
+					await _frames(2)
+					var cw2: CodexWindow = _win.window("codex") as CodexWindow
+					if cw2 != null:
+						cw2.show_view(_codex_fixture(), "secrets", false)
+				"codex_succession":
+					_open_full_fixture("succession", _succession_fixture())
+					_succession_screen.select_heir("h_kd")
+					_succession_screen.set_perk_extra(1)
+				_:
+					continue
+			await _frames(8)
+			await RenderingServer.frame_post_draw
+			var abs_out: String = ProjectSettings.globalize_path(out_p)
+			DirAccess.make_dir_recursive_absolute(abs_out.get_base_dir())
+			get_viewport().get_texture().get_image().save_png(abs_out)
+			print("BATCH_SHOT %s -> %s (%s)" % [tag_k, abs_out, str(get_viewport_rect().size)])
+		get_tree().quit()
+		return
 	if _arg_value("--open-menu", "") != "":   # --open-menu=menu|save|load|settings: the game menu in the shot
 		_open_menu(_arg_value("--open-menu", "menu"), null, _args.has("--menu-fight"))
 		await _frames(5)
@@ -457,10 +518,20 @@ func _bubble_cfg() -> Dictionary:
 	return _cfg.get("bubbles", {})
 
 
+## Path for the profile-level Codex store: --codex-file wins; test runs stay in-memory (""); real play uses user://codex.json.
+func _codex_path() -> String:
+	var custom: String = _arg_value("--codex-file", "")
+	if custom != "":
+		return custom
+	if _args.has("--demo") or _arg_value("--shot-and-quit", "") != "" or _args.has("--windowed-run"):
+		return ""
+	return "user://codex.json"
+
+
 func _new_game(seed_v: int) -> Dictionary:
 	var llm := LlmService.new(gd)
 	llm.enabled = false
-	var s := GameSession.new(gd, llm)
+	var s := GameSession.new(gd, llm, null, _codex_store)
 	var grid := ContinentGrid.from_continent(gd)
 	# Test runs (--demo, --shot-and-quit, or --world-cache) reuse the world generated for this seed and these data
 	# files: generated once, saved to user://, loaded after (about 35 s saved a launch). --fresh-world regenerates.
@@ -480,6 +551,18 @@ func _new_game(seed_v: int) -> Dictionary:
 			f.close()
 			print("World saved to the test cache %s" % cache)
 	return {"session": s, "result": r, "grid": grid}
+
+
+## Off the main thread (a job): starts a fresh playthrough from GameMenu's New Game spec (carries playthrough_mode).
+func _new_game_with_spec(seed_v: int, spec: Dictionary) -> Dictionary:
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, null, _codex_store)
+	var clean: Dictionary = spec.duplicate(true)
+	if not clean.has("gender"):
+		clean["gender"] = "male"
+	var r: Dictionary = s.new_game(seed_v, clean)
+	return {"ok": bool(r.get("ok", true)), "session": s, "result": r}
 
 
 ## True when this run plays without Power Rankings' fights: --ratings-off, or a test run without --ratings-on.
@@ -532,6 +615,8 @@ func _process(_delta: float) -> void:
 			_on_save_done(out)
 		"load":
 			_on_load_done(out)
+		"start_new_game":
+			_on_start_new_game_done(out)
 
 
 func _on_world_ready(out: Dictionary) -> void:
@@ -824,6 +909,7 @@ func _build_layout() -> void:
 	_win.register(SectWindow.new())
 	_win.register(_province)   # the province window (branch provinces-v2, moved into the host 2026-11-24)
 	_win.register(WikiWindow.new())
+	_win.register(CodexWindow.new())   # design/gdd/codex-karmic-carryover.md (10-book ink-wash Thiên Thư, hotkey X)
 	# (a "provinces" window kind is the province panel on branch provinces-v2, another session: register it here)
 	_win.reader = _read_window
 	_win.is_locked = func() -> bool: return session != null and not _busy() and session.has_pending_event()
@@ -880,6 +966,11 @@ func _build_layout() -> void:
 	add_child(_full)
 	_full.register(AbodeScreen.new())
 	_full.register(_dao_do_screen)
+	_full.register(_tribulation_screen)
+	_full.register(_succession_screen)
+	_tribulation_screen.confirm_cancelled.connect(_close_full)
+	_tribulation_screen.watch_fight_requested.connect(_on_tribulation_watch_fight)
+	_tribulation_screen.continue_requested.connect(_on_tribulation_continue)
 	_dao_do_screen.node_reader = func(id: int, pending: Array) -> Dictionary: return {} if _busy() else GameQuery.dao_do_node(session, id, pending)
 	_full.reader = _read_window
 	_full.is_locked = func() -> bool: return session != null and not _busy() and session.has_pending_event()
@@ -888,6 +979,14 @@ func _build_layout() -> void:
 	_full.open_requested.connect(_on_full_open)
 	add_child(_fight)   # configured in _ready once ui_hud.json is loaded
 	_fight.closed.connect(func():
+		if _return_to_tribulation:
+			_return_to_tribulation = false
+			if _full.visible and _tribulation_screen.visible:
+				var fctl: Control = _tribulation_screen.first_focus()
+				if fctl != null:
+					_tribulation_screen.focus_later(fctl)
+			_refresh()
+			return
 		if _fight_person != "" and _person_after_fight and not _person_open():
 			_open_person(_fight_person, _end_turn)   # the person's sheet comes back when the fight screen closes
 		_fight_person = ""
@@ -908,6 +1007,7 @@ func _build_layout() -> void:
 	_menu.visibility_changed.connect(_on_menu_visibility)
 	_menu.save_requested.connect(_on_save_requested)
 	_menu.load_requested.connect(_on_load_requested)
+	_menu.new_game_requested.connect(_on_new_game_requested)
 	_menu.quit_requested.connect(_on_quit_requested)
 	_menu.wiki_requested.connect(_on_menu_wiki)
 	_fight.settings_requested.connect(func(): _open_menu("settings", null, true))
@@ -1547,6 +1647,9 @@ func _on_interact_done(result: Dictionary) -> void:
 		_win.refresh()
 	_win.show_reply(lines)
 	_refresh()
+	if _needs_succession():
+		_open_full("succession")
+		return
 	if bool(result.get("scene_started", false)) or session.has_pending_event():
 		_show_event()
 	elif result.has("fight_view") and result.fight_view is Dictionary and bool((result.fight_view as Dictionary).get("ok", false)):
@@ -1652,6 +1755,9 @@ func _on_turn_done(result: Dictionary) -> void:
 	turn.after_turn(result, _here_id())
 	_rebuild_places()
 	_refresh()
+	if _needs_succession():
+		_open_full("succession")
+		return
 	var lines: Array = Array(result.get("lines", []))
 	if turn.fallback_note != "":
 		lines.append("")
@@ -1701,6 +1807,9 @@ func _on_choice_done(result: Dictionary) -> void:
 	turn.window_open = false
 	_rebuild_places()
 	_refresh()
+	if _needs_succession():
+		_open_full("succession")
+		return
 	_centre_summary(tr("Outcome"), Array(result.get("lines", [])))
 
 
@@ -1796,7 +1905,10 @@ func _open_window(kind: String, subject: String = "", section: String = "", open
 	if rk != null:
 		rk.cfg = _wcfg
 		rk.realm_names = gd.realms().map(func(r): return str(r.get("name", "")))
-	for k in ["character", "inventory", "relationships", "rankings", "sect", "wiki"]:
+	var cx: CodexWindow = _win.window("codex") as CodexWindow
+	if cx != null:
+		cx.cfg = _wcfg
+	for k in ["character", "inventory", "relationships", "rankings", "sect", "wiki", "codex"]:
 		if _win.window(k) != null:
 			_win.window(k).compact = get_viewport_rect().size.x < float(_wcfg.get("compact_width", 1500))
 	var w: CharacterWindow = _win.window("character") as CharacterWindow
@@ -1849,6 +1961,15 @@ func _read_window(kind: String, subject: String) -> Dictionary:
 			return GameQuery.province(session, pid)
 		"rankings":   # subject: "" the player's realm, "0".."4", or "top" (design/ux/rankings.md)
 			return GameQuery.rankings(session, subject if subject != "" else str(StateSnapshot.take(session).get("realm_index", 0)))
+		"codex":
+			var cxv: Dictionary = GameQuery.codex_view(session)
+			if subject != "":
+				cxv["active_book"] = subject
+			return cxv
+		"tribulation":
+			return _tribulation_view(subject)
+		"succession":
+			return GameQuery.succession_view(session)
 	return {}
 
 
@@ -1907,7 +2028,21 @@ func _on_window_action(_kind: String, action: String, args: Array) -> void:
 		"learn_sect_diagram":   # the sect window's formation teaching
 			act = session.learn_sect_diagram.bind(str(args[0]))
 		"breakthrough":
-			act = session.breakthrough.bind(bool(args[0]), bool(args[1]))
+			if _kind != "tribulation" and bool(GameQuery.tribulation_preview(session).get("active", false)):
+				_pending_bt_args = args.duplicate()
+				_open_full("tribulation", "confirm")
+				return
+			act = session.breakthrough.bind(bool(args[0]), bool(args[1]), bool(args[2]) if args.size() > 2 else false)
+		"choose_tribulation_reward":
+			act = session.choose_tribulation_reward.bind(int(args[0]))
+		"succeed_heir":
+			var h_opts: Dictionary = Dictionary(args[1]) if args.size() > 1 and args[1] is Dictionary else {}
+			act = session.succeed_heir.bind(str(args[0]), h_opts)
+		"succeed_rebirth":
+			var r_opts: Dictionary = Dictionary(args[0]) if args.size() > 0 and args[0] is Dictionary else {}
+			act = session.succeed_rebirth.bind(r_opts)
+		"end_playthrough":
+			act = session.end_playthrough
 		"equip":
 			act = session.equip.bind(str(args[0]), str(args[1]) if args.size() > 1 else "")
 		"unequip":
@@ -1960,7 +2095,8 @@ func _on_window_action(_kind: String, action: String, args: Array) -> void:
 ## big moment, hud.md Feedback) or a life's end also opens the centre summary with its lines.
 func _on_window_action_done(result: Dictionary) -> void:
 	_last_action_line = ("ok: " if bool(result.get("ok", false)) else "refused: ") + (str(Array(result.get("lines", [""]))[0]) if not Array(result.get("lines", [])).is_empty() else "")
-	if _win_action == "tree_step":
+	var done_action: String = _win_action
+	if done_action == "tree_step":
 		_tree_lines.append_array(Array(result.get("lines", [])))
 		if bool(result.get("ok", false)) and not _tree_queue.is_empty():
 			_next_tree_step()
@@ -1968,7 +2104,9 @@ func _on_window_action_done(result: Dictionary) -> void:
 		if not bool(result.get("ok", false)):
 			_tree_queue.clear()   # a refused mark stops the plan (the points stay unspent from there)
 		result = {"ok": result.get("ok", false), "lines": _tree_lines.slice(-3) if _tree_lines.size() > 3 else _tree_lines}
+		done_action = ""
 		_win_action = ""
+	_win_action = ""
 	_rebuild_places()
 	_refresh()
 	_win.refresh()
@@ -1979,10 +2117,29 @@ func _on_window_action_done(result: Dictionary) -> void:
 	if bool(result.get("needs_element", false)) and _win.current() is InventoryWindow:
 		# a treasure that asks for an element (a Linh Căn Quả): the element chooser under its row (inventory.md)
 		(_win.current() as InventoryWindow).ask_element(str(_win_args[0]), Array(result.get("options", [])), lines)
-	var ended: bool = Array(result.get("events", [])).any(func(e): return str(e.get("kind", "")) == "life_ended")
-	if (_win_action == "breakthrough" and bool(result.get("ok", false))) or ended:
+	var events: Array = Array(result.get("events", []))
+	var has_tribulation: bool = events.any(func(e): return e is Dictionary and str(e.get("kind", "")) == "tribulation")
+	if has_tribulation:
+		_open_full("tribulation", "result")
+		return
+	if done_action in ["succeed_heir", "succeed_rebirth"] and bool(result.get("ok", false)):
+		_seen_player = ""
+		_close_full()
+		_rebuild_places()
+		_refresh()
+		_centre_summary(tr("A new life"), lines)
+		return
+	if done_action == "end_playthrough" and bool(result.get("ok", false)):
+		_close_full()
+		_refresh()
+		_centre_summary(tr("This playthrough has ended"), lines)
+		return
+	var ended: bool = events.any(func(e): return e is Dictionary and str(e.get("kind", "")) == "life_ended")
+	if ended and _needs_succession():
+		_open_full("succession")
+		return
+	if (done_action == "breakthrough" and bool(result.get("ok", false))) or ended:
 		_centre_summary(tr("This life has ended") if ended else tr("Breakthrough"), lines)
-	_win_action = ""
 
 
 func _on_window_visibility() -> void:
@@ -2108,9 +2265,12 @@ func _on_save_done(out: Dictionary) -> void:
 	var err: int = SaveStore.new(_saves_dir()).write(slot, out) if out.has("db") else ERR_INVALID_DATA
 	if err == OK:
 		var clock: Dictionary = GameQuery.clock(session)
+		var pt_meta: Dictionary = GameQuery.playthrough_meta(session)
 		SaveStore.new(_saves_dir().path_join("meta")).write(slot, {"name": str(_save_target.get("name", slot)),
 			"date": str(clock.label), "realm": str(GameQuery.player(session).get("realm_label", "")),
 			"time": Time.get_datetime_string_from_system(false, true), "unix": int(Time.get_unix_time_from_system()),
+			"playthrough_mode": str(pt_meta.get("playthrough_mode", KarmicRules.MODE_ONE_LIFE)),
+			"playthrough_status": str(pt_meta.get("playthrough_status", KarmicRules.STATUS_ACTIVE)),
 			"version": int(out.get("version", 0)), "map_version": str(gd.file(ContinentData.DATA_FILE).get("map_version", ""))})
 	_menu.saves = _save_rows()
 	_menu.set_busy(false, (tr("Saved as \"%s\" (file %s.json).") % [str(_save_target.get("name", "")), slot]) if err == OK else tr("The save failed (error %d): is the disk full?") % err)
@@ -2137,7 +2297,7 @@ func _load_game(slot: String) -> Dictionary:
 		return {"ok": false, "lines": [tr("Cannot read this file.")]}
 	var llm := LlmService.new(gd)
 	llm.enabled = false
-	var s := GameSession.new(gd, llm)
+	var s := GameSession.new(gd, llm, null, _codex_store)
 	var r: Dictionary = s.load_dict(d)
 	return {"ok": bool(r.get("ok", false)), "lines": Array(r.get("lines", [])), "session": s if bool(r.get("ok", false)) else null,
 		"frontend": d.get("frontend", null)}
@@ -2158,11 +2318,48 @@ func _on_load_done(out: Dictionary) -> void:
 	_win.close_panel()
 	_panel.close_panel()
 	_places.close_panel()
+	_full.close_screen()
+	_set_zones_shown(true)
 	_menu.set_busy(false, "")
 	_menu.close_menu()
 	_rebuild_places()
 	_refresh()
+	if _needs_succession():
+		_open_full("succession")
+		return
 	_centre_summary(tr("Game loaded"), Array(out.get("lines", [])))
+
+
+func _on_new_game_requested(spec: Dictionary) -> void:
+	if _busy():
+		_menu.show_status(tr("Not while a job is running."))
+		return
+	var seed_v: int = int(spec.get("seed", int(Time.get_unix_time_from_system()) % 1000000007))
+	_menu.set_busy(true, tr("Generating the world…"))
+	_job_kind = "start_new_game"
+	_job.start(_new_game_with_spec.bind(seed_v, spec))
+
+
+func _on_start_new_game_done(out: Dictionary) -> void:
+	if not bool(out.get("ok", false)) or out.get("session") == null:
+		_menu.set_busy(false, tr("Could not start a new game."))
+		return
+	var old: GameSession = session
+	session = out.session
+	turn = TurnController.new(session)
+	if old != null:
+		old.shutdown()
+	_seen_player = ""
+	_win.close_panel()
+	_panel.close_panel()
+	_places.close_panel()
+	_full.close_screen()
+	_set_zones_shown(true)
+	_menu.set_busy(false, "")
+	_menu.close_menu()
+	_rebuild_places()
+	_refresh()
+	_centre_summary(tr("A new life"), Array(out.get("result", {}).get("lines", [])))
 
 
 func _on_quit_requested(save_first: bool) -> void:
@@ -3049,16 +3246,367 @@ func _open_relations_for(person_name: String) -> void:
 
 # --- Full screens (hud.md Layout Zones; design/ux/abode-screen.md) ---------------------------------------------------
 
-## Opens full screen [param kind] (the abode): the Z6 windows and the places list close; Z1 stays.
-func _open_full(kind: String) -> void:
+## Opens full screen [param kind] (the abode, Đạo Đồ, tribulation, succession): Z6 windows and places close; Z1 stays.
+func _open_full(kind: String, subject: String = "") -> void:
 	if _busy():
 		return
 	_win.close_panel()
 	_panel.close_panel()
 	_places.close_panel()
 	_tips.close_all()
-	if _full.open(kind):
+	var is_compact: bool = get_viewport_rect().size.x < float(_wcfg.get("compact_width", 1500))
+	_tribulation_screen.compact = is_compact
+	_succession_screen.compact = is_compact
+	if _full.open(kind, subject):
 		_set_zones_shown(false)
+
+
+## Opens full screen [param kind] directly from a display-only fixture view (screenshot runs).
+func _open_full_fixture(kind: String, v: Dictionary) -> void:
+	_win.close_panel()
+	_panel.close_panel()
+	_places.close_panel()
+	_tips.close_all()
+	var is_compact: bool = get_viewport_rect().size.x < float(_wcfg.get("compact_width", 1500))
+	_tribulation_screen.compact = is_compact
+	_succession_screen.compact = is_compact
+	_full.open_view(kind, v)
+	_set_zones_shown(false)
+
+
+## True when this Continue playthrough is awaiting succession (ADR-0006: reads via GameQuery only).
+func _needs_succession() -> bool:
+	if session == null or _busy():
+		return false
+	var meta: Dictionary = GameQuery.playthrough_meta(session)
+	var st: String = str(meta.get("playthrough_status", ""))
+	return st == KarmicRules.STATUS_SUCCESSION or st == "awaiting_succession"
+
+
+## Builds the read-only TribulationScreen snapshot for [param subject] ("confirm" or "result").
+func _tribulation_view(subject: String) -> Dictionary:
+	if subject == "confirm":
+		var prev: Dictionary = GameQuery.tribulation_preview(session)
+		var ch: Dictionary = GameQuery.character(session)
+		var bn: Dictionary = Dictionary(ch.get("cultivation", {}).get("bottleneck", {}))
+		var bds: Dictionary = Dictionary(ch.get("breakdowns", {}))
+		return {
+			"mode": "confirm",
+			"preview": prev,
+			"chance": float(bn.get("chance", -1.0)),
+			"backlash": float(bn.get("backlash", 0.0)),
+			"pill": str(bn.get("pill", "")),
+			"pill_quality": int(bn.get("pill_quality", -1)),
+			"talisman": str(bn.get("talisman", "none")),
+			"breakthrough_breakdown": Dictionary(bds.get("breakthrough", {})),
+			"confirm_bare": bool(_pending_bt_args[0]) if _pending_bt_args.size() > 0 else false,
+			"use_talisman": bool(_pending_bt_args[1]) if _pending_bt_args.size() > 1 else true,
+			"burn_life": bool(_pending_bt_args[2]) if _pending_bt_args.size() > 2 else false,
+		}
+	var res: Dictionary = GameQuery.tribulation_result(session)
+	if subject == "result" or not res.is_empty():
+		res["mode"] = "result"
+		return res
+	var p2: Dictionary = GameQuery.tribulation_preview(session)
+	if bool(p2.get("active", false)):
+		return _tribulation_view("confirm")
+	return {}
+
+
+## Hands off a recorded tribulation wave to [FightScreen] for pulse-by-pulse playback.
+func _on_tribulation_watch_fight(wave_index: int, fight_data: Dictionary) -> void:
+	if _busy():
+		return
+	var replay: Dictionary = {}
+	if fight_data.get("fight") is Dictionary and bool((fight_data.fight as Dictionary).get("ok", false)):
+		replay = (fight_data.fight as Dictionary).duplicate(true)
+	else:
+		replay = _build_tribulation_replay(fight_data)
+	_tips.close_all()
+	_return_to_tribulation = true
+	var title: String = tr("Heavenly Tribulation — %s") % str(fight_data.get("header", tr("Wave %d") % (wave_index + 1)))
+	_fight.open_fight(replay, title)
+
+
+## Constructs a FightScreen-compatible dictionary from a tribulation wave summary (read-only).
+func _build_tribulation_replay(w: Dictionary) -> Dictionary:
+	var rows: Array = []
+	for raw_r in Array(w.get("log_rows", [])):
+		if raw_r is FightLogRow:
+			var row: FightLogRow = raw_r as FightLogRow
+			rows.append({
+				"kind": FightLogRow.Kind.keys()[row.kind].to_lower(),
+				"t_ms": row.t_ms,
+				"side": row.side,
+				"other": row.other,
+				"art": str(row.art_id),
+				"hit_kind": str(row.hit_kind),
+				"values": Array(row.values),
+			})
+		elif raw_r is Dictionary:
+			rows.append((raw_r as Dictionary).duplicate(true))
+	var me: Dictionary = GameQuery.player(session)
+	var bname: String = str(w.get("boss_name", w.get("boss_id", tr("Tribulation Boss"))))
+	var empty_side := func(nm: String, rlm: String, p: Dictionary) -> Dictionary:
+		return {
+			"name": nm, "realm": rlm, "roots": "", "portrait": p, "diagram": {}, "diagram_lines": [],
+			"arts": [], "wards": [], "shields": [], "body_shield": 0.0, "block": 0.0, "evade": 0.0,
+			"crit": 0.0, "reserved": 0.0, "feeds": [], "effects": [], "effect_info": {}, "items": [],
+			"sheet": {"ward_pts": 0.0, "ward_layer": 0, "drain": 0.0, "resist": {}, "soul_res": 0.0,
+				"divine_sense": 0.0, "crit_mult": 1.5, "hregen": 0.0, "healing": 1.0, "power": ""},
+		}
+	return {
+		"ok": true,
+		"rows": rows,
+		"a": empty_side.call(str(me.get("name", tr("You"))), str(me.get("realm_label", "")), Dictionary(me.get("portrait", {}))),
+		"b": empty_side.call(bname, tr("Heavenly Tribulation"), {}),
+		"winner": str(w.get("winner", "A")),
+		"ending": str(w.get("ending", "knockout")),
+		"seconds": float(w.get("seconds", 0.0)),
+	}
+
+
+## Continues after viewing a Heavenly Tribulation result: opens Succession on Continue-mode death, else returns to map.
+func _on_tribulation_continue(survived: bool) -> void:
+	if not survived and _needs_succession():
+		_open_full("succession")
+		return
+	_close_full()
+	if not survived:
+		_centre_summary(tr("This life has ended"), [tr("Fallen under Heavenly Tribulation.")])
+
+
+# --- Display-only Fixtures for Run-and-Observe Screenshots (AC-TK-80..83, AC-CK-18..19) ------------------------------
+
+func _tribulation_confirm_fixture() -> Dictionary:
+	var pool: Array = []
+	for b in TribulationRules.bosses_for_step(gd, "nguyen_anh_to_hoa_than"):
+		var rew: Dictionary = b.get("reward", {}) if b.get("reward") is Dictionary else {}
+		var art_names: Array = []
+		for ra in Array(b.get("build", {}).get("arts", [])):
+			if ra is Dictionary:
+				art_names.append(str((ra as Dictionary).get("lib", (ra as Dictionary).get("id", ""))))
+		pool.append({
+			"id": str(b.get("id", "")),
+			"name": str(b.get("name", "")),
+			"main_kind": str(b.get("main_kind", "")),
+			"weight": float(b.get("weight", 1.0)),
+			"boss_pool_mult": float(b.get("boss_pool_mult", 1.0)),
+			"off_estimate": float(b.get("off_estimate", 0.0)),
+			"ehp_estimate": float(b.get("ehp_estimate", 0.0)),
+			"off_shares": Dictionary(b.get("off_shares", {})).duplicate(true),
+			"resist": Dictionary(b.get("resist", {})).duplicate(true),
+			"arts": art_names,
+			"reward_label": str(rew.get("label", str(rew.get("template", "")))),
+			"provisional": bool(b.get("provisional", false)),
+		})
+	return {
+		"mode": "confirm",
+		"chance": 0.222,
+		"backlash": 12.0,
+		"pill": "Hóa Thần Đan",
+		"pill_quality": 3,
+		"talisman": "Phá Cảnh Phù (held)",
+		"confirm_bare": false,
+		"use_talisman": true,
+		"burn_life": false,
+		"preview": {
+			"enabled": true,
+			"active": true,
+			"step_id": "nguyen_anh_to_hoa_than",
+			"from_realm": "nguyen_anh",
+			"to_realm": "hoa_than",
+			"wave_count": 3,
+			"pool": pool,
+			"setup": {
+				"realm_index": 3,
+				"realm_label": "Nguyên Anh Đại viên mãn",
+				"vitality": 0.96,
+				"diagram_id": "ngu_hanh_tran",
+				"place_id": "pl_1",
+				"place_tags": ["vein", "tribulation"],
+				"arts": ["iron-spark", "forked-light", "bone-turning-palm", "wind-escape"],
+				"talismans": {"loi_phu": 2, "kim_giap_phu": 1},
+			},
+			"has_escape_art": true,
+			"escape_warning": "Escape arts cannot flee a Heavenly Tribulation — fleeing fails the tribulation.",
+		},
+	}
+
+
+func _tribulation_result_fixture() -> Dictionary:
+	var step: Dictionary = TribulationRules.step_by_id(gd, "nguyen_anh_to_hoa_than")
+	var buff: Dictionary = Dictionary(step.get("tempered_buff", {})).duplicate(true)
+	var bosses: Array = TribulationRules.bosses_for_step(gd, "nguyen_anh_to_hoa_than")
+	var b0: Dictionary = bosses[0] if bosses.size() > 0 else {"id": "tk_kim_loi_ton", "name": "Kim Lôi Tôn (Golden Thunder Sovereign)", "main_kind": "body", "boss_pool_mult": 1.15, "reward": {"kind": "material", "template": "loi_kich_moc", "qty": 3, "rarity": 4, "label": "Lôi Kích Mộc ×3"}}
+	var b1: Dictionary = bosses[2] if bosses.size() > 2 else {"id": "tk_thien_hoa_kiem", "name": "Thiên Hỏa Kiếp (Skyfire Tribulation)", "main_kind": "qi", "boss_pool_mult": 1.10, "reward": {"kind": "material", "template": "dia_hoa_tinh", "qty": 4, "rarity": 4, "label": "Địa Hỏa Tinh ×4"}}
+	var b2: Dictionary = bosses[4] if bosses.size() > 4 else {"id": "tk_tam_ma_loi_anh", "name": "Tâm Ma Lôi Ảnh (Heart-Demon Thunder Shade)", "main_kind": "soul", "boss_pool_mult": 1.05, "reward": {"kind": "pill", "template": "dinh_than_dan", "qty": 2, "rarity": 4, "label": "Định Thần Đan ×2"}}
+	var waves := [
+		{
+			"wave": 1, "boss_id": str(b0.get("id", "")), "boss_name": str(b0.get("name", "")),
+			"main_kind": str(b0.get("main_kind", "body")), "m_eff": float(b0.get("boss_pool_mult", 1.15)), "m_capped": false,
+			"start_h": 1.0, "start_q": 1.0, "fight_seed": 1101, "winner": "A", "ending": "knockout",
+			"seconds": 21.5, "health_end": 4200.0, "health_max": 6400.0, "qi_end": 1200.0, "qi_max": 2600.0,
+			"deciding_layer": 0, "log_rows": [], "cleared": true,
+		},
+		{
+			"wave": 2, "boss_id": str(b1.get("id", "")), "boss_name": str(b1.get("name", "")),
+			"main_kind": str(b1.get("main_kind", "qi")), "m_eff": float(b1.get("boss_pool_mult", 1.10)) * 1.5, "m_capped": false,
+			"start_h": 0.65625, "start_q": 0.742, "fight_seed": 2202, "winner": "A", "ending": "knockout",
+			"seconds": 28.4, "health_end": 2500.0, "health_max": 6400.0, "qi_end": 880.0, "qi_max": 2600.0,
+			"deciding_layer": 1, "log_rows": [], "cleared": true,
+		},
+		{
+			"wave": 3, "boss_id": str(b2.get("id", "")), "boss_name": str(b2.get("name", "")),
+			"main_kind": str(b2.get("main_kind", "soul")), "m_eff": float(b2.get("boss_pool_mult", 1.05)) * 2.25, "m_capped": false,
+			"start_h": 0.3906, "start_q": 0.618, "fight_seed": 3303, "winner": "A", "ending": "knockout",
+			"seconds": 36.2, "health_end": 940.0, "health_max": 6400.0, "qi_end": 410.0, "qi_max": 2600.0,
+			"deciding_layer": 2, "log_rows": [], "cleared": true,
+		},
+	]
+	var choices := [
+		Dictionary(b0.get("reward", {})).duplicate(true),
+		Dictionary(b1.get("reward", {})).duplicate(true),
+		Dictionary(b2.get("reward", {})).duplicate(true),
+	]
+	return {
+		"mode": "result",
+		"tribulation_id": 77421,
+		"step_id": "nguyen_anh_to_hoa_than",
+		"wave_count": 3,
+		"waves_cleared": 3,
+		"survived": true,
+		"waves": waves,
+		"tempered_buff": buff,
+		"pending_reward": {"step_id": "nguyen_anh_to_hoa_than", "choices": choices, "buff": buff},
+		"reward_choices": choices,
+		"reward_claimed": false,
+		"notes": ["All 3 waves cleared under Foreseen no-heal rules; full vitality restored on ascension."],
+	}
+
+
+func _codex_fixture() -> Dictionary:
+	var books := [
+		{"id": "recipes", "name": "Đan & Khí Phương (Recipes)", "effect": "Known recipes appear in the craft list from day one; materials, skill and odds stay unchanged.", "seen": 2, "known": 4, "total": 6},
+		{"id": "variants", "name": "Biến Dị Linh Căn (Variant Roots)", "effect": "Seen: description. Known: formation conditions.", "seen": 2, "known": 1, "total": 3},
+		{"id": "secrets", "name": "Bí Cảnh & Bí Mật (Secrets & Hidden Places)", "effect": "Known: lore and candidate regions/sites as rumours (never this game's rolled site).", "seen": 1, "known": 1, "total": 2},
+		{"id": "cast", "name": "Nhân Vật Chí (Fixed Cast)", "effect": "Profile and fates across past lives.", "seen": 4, "known": 2, "total": 6},
+		{"id": "history", "name": "Cổ Sử (World History)", "effect": "Learned history and uncovered hidden annals readable from the start.", "seen": 1, "known": 3, "total": 4},
+		{"id": "techniques", "name": "Công Pháp (Techniques)", "effect": "Requirements and description; never the manual itself.", "seen": 3, "known": 2, "total": 5},
+		{"id": "items", "name": "Danh Bảo (Named Items)", "effect": "Requirements and description; never the item itself.", "seen": 2, "known": 1, "total": 3},
+		{"id": "beasts", "name": "Linh Thú (Spirit Beasts)", "effect": "Kinds and taming traits.", "seen": 1, "known": 1, "total": 2},
+		{"id": "herbs", "name": "Linh Thảo (Herbs)", "effect": "Elements, ages and uses.", "seen": 1, "known": 5, "total": 6},
+		{"id": "lives", "name": "Ký Lục Kiếp Trước (Lives)", "effect": "Epitaph, chronicle summary, realm, age and cause of death of every life.", "seen": 0, "known": 2, "total": 2},
+	]
+	var by_book := {
+		"secrets": {
+			"id": "secrets",
+			"name": "Bí Cảnh & Bí Mật (Secrets & Hidden Places)",
+			"effect": "Known: lore and candidate regions/sites as rumours (never this game's rolled site).",
+			"seen": 1, "known": 1, "total": 2,
+			"entries": [
+				{
+					"id": "R-1", "book": "secrets", "level": "known", "title": "Hàn Băng Cổ Điện (Ancient Frost Hall)",
+					"desc": "An ancient frost-vein sanctum buried beneath northern glaciers, sealed by a Fourth-Order array.",
+					"effect": "Known: lore and candidate regions/sites as rumours (never this game's rolled site).",
+					"first_year": 1242, "first_life": "Lâm Phong",
+					"candidates": [
+						{"index": 0, "region_id": 1, "region_name": "Bắc Hàn", "tile": [12, 34]},
+						{"index": 1, "region_id": 2, "region_name": "Tuyết Nguyên", "tile": [48, 29]},
+						{"index": 2, "region_id": 5, "region_name": "Hàn Sơn", "tile": [71, 63]},
+					],
+					"candidate_regions": [
+						{"region_id": 1, "region_name": "Bắc Hàn"},
+						{"region_id": 2, "region_name": "Tuyết Nguyên"},
+						{"region_id": 5, "region_name": "Hàn Sơn"},
+					],
+				},
+				{
+					"id": "R-3", "book": "secrets", "level": "seen", "title": "U Minh Đạo Tích (Nether Dao Vestige)",
+					"desc": "Whispered of by wandering diviners; said to open only after a great storm.",
+					"effect": "Known: lore and candidate regions/sites as rumours (never this game's rolled site).",
+					"first_year": 1355, "first_life": "Trần Hạo",
+				},
+			],
+		},
+		"lives": {
+			"id": "lives",
+			"name": "Ký Lục Kiếp Trước (Lives)",
+			"effect": "Epitaph, chronicle summary, realm, age and cause of death of every life.",
+			"seen": 0, "known": 2, "total": 2,
+			"entries": [
+				{"playthrough_id": "pt_1", "mode": "one_life", "name": "Lâm Phong", "realm_label": "Trúc Cơ Hậu Kỳ", "age": 142.0, "year": 1326, "cause": "Old age", "epitaph": "Walked softly through frost and left three disciples to guard the pass.", "chronicle_summary": "Reached Foundation Establishment; charted Bắc Hàn."},
+				{"playthrough_id": "pt_2", "mode": "continue", "name": "Trần Hạo", "realm_label": "Nguyên Anh Đại Viên Mãn", "age": 488.0, "year": 1410, "cause": "Heavenly Tribulation (Wave 3)", "epitaph": "Stood beneath the ninefold thunder without retreating a step.", "chronicle_summary": "Formed Golden Core and Nascent Soul; challenged Deity Transformation."},
+			],
+		},
+	}
+	return {
+		"active_book": "secrets",
+		"books": books,
+		"by_book": by_book,
+		"total_entries": 38,
+		"lives_count": 2,
+		"notice": "",
+	}
+
+
+func _succession_fixture() -> Dictionary:
+	var portraits: Array = []
+	for pl in [{"id": _here_id()}] + GameQuery.known_places(session):
+		for rec in GameQuery.people_at(session, str(pl.id)):
+			var pv: Dictionary = GameQuery.person(session, str(rec.id))
+			if not pv.is_empty() and pv.get("portrait") is Dictionary:
+				portraits.append(Dictionary(pv.portrait))
+			if portraits.size() >= 3:
+				break
+		if portraits.size() >= 3:
+			break
+	while portraits.size() < 3:
+		portraits.append({})
+	return {
+		"status": KarmicRules.STATUS_SUCCESSION,
+		"mode": KarmicRules.MODE_CONTINUE,
+		"epitaph": "Here rests Lâm Phong of Băng Tâm Các, who broke through three great realms and tempered his blade against the northern winds before falling at year 1388.",
+		"karma": 5,
+		"karma_earned": 3,
+		"birth_mode": "thien_dinh",
+		"total_perks": 8,
+		"heirs": [
+			{
+				"id": "h_lk", "name": "Lâm Tiểu Vũ", "relation": "child", "realm_index": 0,
+				"realm_label": "Luyện Khí Tầng 7", "age": 24.0, "sect_id": "s_bt", "sect_name": "Băng Tâm Các",
+				"place_id": "p_1", "place_name": "Hàn Sơn Thành", "cost": 0, "affordable": true, "greyed": false,
+				"unheld_perks": 8,
+				"notable_ties": [{"id": "n1", "name": "Sở Ngọc Hồ", "kinds": ["master"]}],
+				"portrait": portraits[0],
+			},
+			{
+				"id": "h_kd", "name": "Lý Thanh Huyền", "relation": "disciple", "realm_index": 2,
+				"realm_label": "Kết Đan Sơ Kỳ", "age": 72.0, "sect_id": "s_bt", "sect_name": "Băng Tâm Các",
+				"place_id": "p_2", "place_name": "Tuyết Cốc", "cost": 3, "affordable": true, "greyed": false,
+				"unheld_perks": 6,
+				"notable_ties": [{"id": "n2", "name": "Mạc Vô Trần", "kinds": ["rival"]}],
+				"portrait": portraits[1],
+			},
+			{
+				"id": "h_na", "name": "Chu Vô Nhai", "relation": "child & disciple", "realm_index": 3,
+				"realm_label": "Nguyên Anh Sơ Kỳ", "age": 186.0, "sect_id": "s_bt", "sect_name": "Băng Tâm Các",
+				"place_id": "p_3", "place_name": "Thiên Xu Phong", "cost": 6, "affordable": false, "greyed": true,
+				"unheld_perks": 5,
+				"notable_ties": [{"id": "n3", "name": "Băng Tâm Lão Tổ", "kinds": ["kin"]}],
+				"portrait": portraits[2],
+			},
+		],
+		"lineage": {
+			"sect_id": "s_bt", "sect_name": "Băng Tâm Các", "sect_alive": true,
+			"clan_region_id": "r_1", "clan_surname": "Lâm", "clan_available": true,
+			"cost": 3, "affordable": true,
+		},
+		"origins": Array(gd.attributes().get("origins", [])).duplicate(true),
+		"rebirth_years": KarmicRules.rebirth_years(gd),
+		"rebirth_seasons": KarmicRules.rebirth_seasons(gd),
+		"perk_extra_max": KarmicRules.perk_extra_max(gd),
+	}
 
 
 func _close_full() -> void:

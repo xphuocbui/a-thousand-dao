@@ -311,18 +311,24 @@ static func bare_attempt_left(c: Character, gd: GameData) -> bool:
 	return c.bare_attempts < int(gd.ladder().bare_attempt_cap)
 
 
-## Rolls an attempt at [param chance]. Success enters the next realm's early stage; failure
-## takes rule 10's penalties. [param is_pill] marks a pill attempt for failure insight and the
-## attempt log. Returns {success, chance, roll, backlash, died, tu_vi_lost, tam_ma_gained, points}.
-static func resolve_attempt(c: Character, gd: GameData, sheet: StatSheet, rng: Variant, chance: float, is_pill: bool) -> Dictionary:
+## Rolls an attempt at [param chance]. Success enters the next realm's early stage unless
+## [param defer_advance] is true (used when a successful roll hands off to Heavenly Tribulation
+## before realm entry); failure takes rule 10's penalties. [param is_pill] marks a pill attempt
+## for failure insight and the attempt log. Returns
+## {success, deferred, chance, roll, backlash, died, tu_vi_lost, tam_ma_gained, points}.
+static func resolve_attempt(c: Character, gd: GameData, sheet: StatSheet, rng: Variant, chance: float, is_pill: bool, defer_advance: bool = false) -> Dictionary:
 	var rules: Dictionary = gd.breakthrough_rules()
 	var roll: float = rng.randf()
-	var out := {"success": false, "chance": chance, "roll": roll, "backlash": false, "died": false, "tu_vi_lost": 0.0, "tam_ma_gained": 0.0, "points": 0}
+	var out := {"success": false, "deferred": false, "chance": chance, "roll": roll, "backlash": false, "died": false, "tu_vi_lost": 0.0, "tam_ma_gained": 0.0, "points": 0}
 	if is_pill:
 		c.attempt_log.append(chance)
 	else:
 		c.bare_attempts += 1
 	if roll < chance:
+		if defer_advance:
+			out.success = true
+			out.deferred = true
+			return out
 		_enter_next_realm(c, gd, out)
 		return out
 	if is_pill:
@@ -343,6 +349,14 @@ static func resolve_attempt(c: Character, gd: GameData, sheet: StatSheet, rng: V
 		else:
 			c.vitality = floor_v
 	return out
+
+
+## Enters the next realm's early stage (level +1, bar 0, full vitality, points paid, step state cleared).
+## Returns the tree points gained. Used after a deferred breakthrough (e.g. Heavenly Tribulation survival).
+static func enter_next_realm(c: Character, gd: GameData) -> int:
+	var out := {"success": false, "points": 0}
+	_enter_next_realm(c, gd, out)
+	return int(out.points)
 
 
 ## Moves to the next realm: level +1, bar 0, full vitality, points paid, step state cleared.

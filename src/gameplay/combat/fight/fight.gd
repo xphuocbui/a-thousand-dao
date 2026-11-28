@@ -53,7 +53,10 @@ var _bare_ctx: Dictionary = {}
 var depth: int = 0
 ## Counts hits and ticks, so a per-hit ward pays one fee per hit (all its parts) and one per tick.
 var hit_id: int = 0
+## No healing in this fight (Combat Defence & Healing rule 19, e.g. Heavenly Tribulation waves).
+var no_heal: bool = false
 
+var _last_dmg_layer: PackedInt32Array = PackedInt32Array([-1, -1])
 var _order: Order
 var _log_enabled: bool
 var _log: Array[FightLogRow] = []
@@ -393,6 +396,7 @@ func pulse(s: FighterState) -> void:
 		inj.next_release = t + CombatConstants.ms(inj.every)
 		s.hp -= amt
 		_side(inj.src_idx).dealt += amt
+		_note_dmg(s, 0)
 	# regeneration; Stagnation dampens both pools by regen_dampen % per stack
 	var stag_n: float = s.st("stagnation")
 	var stag: float = 1.0 + stag_n * k.stagnation_dampen * (curse_scale(s, "stagnation") if stag_n > 0.0 else 1.0) / 100.0
@@ -445,6 +449,8 @@ func pulse(s: FighterState) -> void:
 		var f: float = s.u * k.fatigue_units * pow(float(1 + nf), k.fatigue_pow) * (s.g if k.fatigue_by_realm else 1.0)
 		s.hp -= f
 		s.fat += f
+		if f > 0.0:
+			_note_dmg(s, 3)
 	# expiries: stack batches, then statuses (a status with a lockout cannot return until it ends)
 	if not s.buffs.is_empty():
 		s.buffs = _live(s.buffs)
@@ -894,6 +900,8 @@ func end_status(s: FighterState, sid: String, early: bool = false) -> void:
 func heal(s: FighterState, amount: float, source: String = "", ignore_taken: bool = false) -> void:
 	if s.window_on:   # an extended last act: the side cannot be healed (Effects rule 11)
 		return
+	if no_heal:   # Combat Defence & Healing rule 19 (e.g. Heavenly Tribulation waves)
+		return
 	amount *= 1.0 + s.p.healing + m(s, "healing", null) / 100.0
 	# ignore_taken: a heal its own closing exempts (Still Water)
 	if not ignore_taken:
@@ -1312,6 +1320,8 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		var sd: float = soul_d / (1.0 + sr / 100.0) if sr >= 0.0 else soul_d * (1.0 + absf(sr) / 100.0)
 		dfn.hp -= sd
 		dealt += sd
+	if dealt > 0.0:
+		_note_dmg(dfn, 2 if (dtype == &"soul" or (soul_d > 0.0 and dealt <= soul_d + 1e-9)) else _layer_of(dtype))
 	att.dealt += dealt
 	if trig:
 		att.trig_dmg += dealt
@@ -1375,6 +1385,8 @@ func tick(src: FighterState, s: FighterState, amount: float, dtype: StringName, 
 		heal(s, amount * minf(1.0, tc / 100.0), "tick")
 	else:
 		dealt = DefencePath.defend(self, src, s, amount, dtype, null, {"dtype": str(dtype)} if _fx else {}, true)
+	if dealt > 0.0:
+		_note_dmg(s, _layer_of(dtype))
 	src.dealt += dealt
 	if _log_enabled:
 		_row(FightLogRow.Kind.TICK, src.label, &"", StringName(sid), [amount, dealt, s.hp, s.qi])
@@ -1421,6 +1433,8 @@ func soul_hit(att: FighterState, dfn: FighterState, art: ArtDef) -> float:
 		dfn.soul_charges = live
 	dfn.hp -= lh
 	dfn.qi = maxf(0.0, dfn.qi - lq)
+	if lh > 0.0:
+		_note_dmg(dfn, 2)
 	att.dealt += lh
 	att.direct_dmg += lh
 	if _log_enabled:
@@ -1849,6 +1863,18 @@ func _row(kind: FightLogRow.Kind, side: String, hit_kind: StringName, art_id: St
 	_log.append(r)
 
 
+func _note_dmg(target: FighterState, layer: int) -> void:
+	_last_dmg_layer[_idx(target)] = layer
+
+
+static func _layer_of(dtype: StringName) -> int:
+	if dtype == &"phys":
+		return 0
+	if dtype == &"soul":
+		return 2
+	return 1
+
+
 func _result() -> FightResult:
 	var r := FightResult.new()
 	r.t_ms = t
@@ -1876,6 +1902,8 @@ func _result() -> FightResult:
 		r.winner = FightResult.Winner.DRAW
 		r.ending = FightResult.Ending.DRAW
 		r.timed_out = true
+	if r.ending == FightResult.Ending.KNOCKOUT:
+		r.deciding_layer = _last_dmg_layer[1] if r.winner == FightResult.Winner.A else _last_dmg_layer[0]
 	r.a_end = FighterEnd.of(a)
 	r.b_end = FighterEnd.of(b)
 	r.log_rows = _log

@@ -94,6 +94,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		elif realm_index < _gd.realms().size() - 1:
 			# Fate is rolled once per realm at the bình cảnh (ProgressionEdges, per-gate odds); a
 			# fated NPC breaks through within a few years.
+			# Heavenly Tribulation (#22, Rule 1, AC-TK-05): NPC breakthroughs never trigger tribulation.
 			var fate: Dictionary = p.get("bt_fate", {})
 			if int(fate.get("realm", -1)) != realm_index:
 				fate = {"realm": realm_index, "ok": rng.randf() < ProgressionEdges.npc_step_chance(p, _gd, _db).total}
@@ -198,6 +199,32 @@ func _bereave(dead: Dictionary, year: int, season: int) -> void:
 func _grant(p: Dictionary, id: String, year: int, season: int) -> void:
 	if _gd.registry.has_file(NpcTraits.FILE) and not bool(p.get("is_player", false)):
 		NpcTraits.grant(_gd, p, id, MapChange.abs_season(year, season))
+
+
+## Advances the living world by [param count] seasons without a player (used during Continue-mode
+## rebirth gaps, Codex & Karmic Carryover #12 Rule 4, AC-CK-06). Returns `{year, season, news}`.
+func advance_seasons(rng: RandomNumberGenerator, start_year: int, start_season: int, count: int) -> Dictionary:
+	var spy: int = maxi(1, int(_gd.cultivation_rules().seasons_per_year))
+	var y: int = start_year
+	var s: int = start_season
+	var news: Array = []
+	for _i in maxi(0, count):
+		s += 1
+		if s >= spy:
+			s = 0
+			y += 1
+		news.append_array(tick(rng, y, s))
+	return {"year": y, "season": s, "news": news}
+
+
+## Public entry for sect leader succession when a player or NPC sect leader dies (Tick rule 9).
+func settle_sect_leader(dead: Dictionary) -> String:
+	return _succeed_leader(dead)
+
+
+## Public entry for bereaving close living ties of [param dead] before S8b removes the dead's ties.
+func bereave_close_ties(dead: Dictionary, year: int, season: int) -> void:
+	_bereave(dead, year, season)
 
 
 ## When [param dead] led a sect, its successor (Inheritance.sect_successor) becomes the leader. Returns the new

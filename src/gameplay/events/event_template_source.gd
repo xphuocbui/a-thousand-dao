@@ -43,6 +43,11 @@ func eligible(ctx: Dictionary) -> Array:
 			return false
 		if float(t.get("requires_tam_ma", 0)) > float(ctx.player.tam_ma):
 			return false
+		if bool(t.get("requires_past_ties", false)):
+			if int(ctx.get("recognition_left", 0)) <= 0:
+				return false
+			if not _has_living_past_tie(ctx):
+				return false
 		return true)
 
 
@@ -143,7 +148,33 @@ func _bind_npc(spec: Dictionary, ctx: Dictionary, rng: RandomNumberGenerator) ->
 			pick["location_id"] = ctx.place.id
 			_db.mark_hook_dirty(str(pick.id))   # NPC Relationships rule 15a: a đạo lữ may have moved
 			return pick.id
+		"past_tie":
+			var pt_cands: Array = _living_past_ties(ctx)
+			if pt_cands.is_empty():
+				return "!"
+			var pick_pt: Dictionary = RngUtils.pick(rng, pt_cands)
+			pick_pt["location_id"] = ctx.place.id
+			_db.mark_hook_dirty(str(pick_pt.id))
+			return str(pick_pt.id)
 	return ""
+
+
+func _has_living_past_tie(ctx: Dictionary) -> bool:
+	return not _living_past_ties(ctx).is_empty()
+
+
+func _living_past_ties(ctx: Dictionary) -> Array:
+	var out: Array = []
+	var seen := {}
+	for entry in Array(ctx.get("past_ties", [])):
+		var pid: String = str(entry.get("id", "")) if entry is Dictionary else str(entry)
+		if pid == "" or seen.has(pid):
+			continue
+		var prec: Dictionary = _db.get_record("people", pid)
+		if not prec.is_empty() and bool(prec.get("alive", false)) and not bool(prec.get("is_player", false)) and not bool(prec.get("is_beast", false)):
+			seen[pid] = true
+			out.append(prec)
+	return out
 
 
 func _fill(t: Dictionary, ctx: Dictionary, npc_id: String, rng: RandomNumberGenerator) -> Dictionary:

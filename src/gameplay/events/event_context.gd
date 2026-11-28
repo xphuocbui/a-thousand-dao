@@ -35,6 +35,8 @@ static func build(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, yea
 	var ctx := {
 		"year": year, "season": season, "language": language,
 		"edge": bool(extras.get("edge", false)), "co_duyen_left": int(extras.get("co_duyen_left", 0)),
+		"past_ties": Array(extras.get("past_ties", [])).duplicate(true),
+		"recognition_left": int(extras.get("recognition_left", 0)),
 		"player": {
 			"at_bottleneck": CultivationRules.at_bottleneck(c, gd),
 			"id": c.id, "name": c.name, "realm": gd.realm_label(c.realm_index, c.stage), "realm_index": c.realm_index,

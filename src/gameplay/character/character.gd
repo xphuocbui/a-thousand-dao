@@ -171,6 +171,11 @@ var active_visits: Array = []
 ## Remembered interaction deed flags on this person ({flag: value}; mirrored to NPC "flags" in WorldDB).
 var interaction_flags: Dictionary = {}
 
+# --- Heavenly Tribulation (#22) ---------------------------------------------------
+## Lasting stat buffs earned by surviving Heavenly Tribulations
+## ([{step_id, source, label, mods: [{stat, value}]}]).
+var tribulation_buffs: Array = []
+
 
 ## Thiên phú value (base, before tree/item bonuses).
 func base_stat(stat_id: String) -> int:
@@ -236,6 +241,7 @@ func to_dict() -> Dictionary:
 		"season_time_used": season_time_used, "interaction_buffs": interaction_buffs.duplicate(true),
 		"heart_demon_used": heart_demon_used, "active_visits": active_visits.duplicate(true),
 		"interaction_flags": interaction_flags.duplicate(true),
+		"tribulation_buffs": tribulation_buffs.duplicate(true),
 	}
 
 
@@ -257,7 +263,14 @@ static func from_dict(d: Dictionary) -> Character:
 	c.tie_rows = Array(d.get("tie_rows", [])).duplicate(true)
 	c.met_list = Array(d.get("met_list", [])).duplicate()
 	c.diagram = Dictionary(d.get("diagram", {})).duplicate(true)
+	if c.diagram.has("level"):
+		c.diagram["level"] = int(c.diagram["level"])
+	if c.diagram.has("lay"):
+		c.diagram["lay"] = bool(c.diagram["lay"])
 	c.known_diagrams = Array(d.get("known_diagrams", [])).duplicate(true)
+	for kd in c.known_diagrams:
+		if kd is Dictionary and (kd as Dictionary).has("level"):
+			(kd as Dictionary)["level"] = int((kd as Dictionary)["level"])
 	c.is_beast = bool(d.get("is_beast", false))
 	var tp: Dictionary = d.get("thien_phu", {})
 	for k in tp.keys():
@@ -342,4 +355,17 @@ static func from_dict(d: Dictionary) -> Character:
 	c.heart_demon_used = maxf(0.0, float(d.get("heart_demon_used", 0.0)))
 	c.active_visits = Array(d.get("active_visits", [])).duplicate(true)
 	c.interaction_flags = Dictionary(d.get("interaction_flags", d.get("flags", {}))).duplicate(true)
+	c.tribulation_buffs = []
+	for raw_tb in Array(d.get("tribulation_buffs", [])):
+		if raw_tb is Dictionary:
+			var tb: Dictionary = (raw_tb as Dictionary).duplicate(true)
+			var clean_mods: Array = []
+			for rm in Array(tb.get("mods", [])):
+				if rm is Dictionary and str((rm as Dictionary).get("stat", "")) != "":
+					clean_mods.append({
+						"stat": str((rm as Dictionary).get("stat", "")),
+						"value": float((rm as Dictionary).get("value", 0.0)),
+					})
+			tb["mods"] = clean_mods
+			c.tribulation_buffs.append(tb)
 	return c

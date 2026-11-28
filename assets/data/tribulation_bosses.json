@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "_doc": "Provisional starter boss pool for Heavenly Tribulation (Thiên Kiếp). Design: design/gdd/thien-kiep.md (OQ3/OQ9 deferred content pass). No record carries equiv_realm.",
+  "bosses": [
+    {
+      "id": "tk_kim_loi_ton",
+      "name": "Kim Lôi Tôn (Golden Thunder Sovereign)",
+      "provisional": true,
+      "steps": [
+        "nguyen_anh_to_hoa_than"
+      ],
+      "weight": 2.0,
+      "main_kind": "body",
+      "boss_pool_mult": 1.15,
+      "off_estimate": 420.0,
+      "ehp_estimate": 8200.0,
+      "off_shares": {
+        "body": 0.65,
+        "qi": 0.25,
+        "soul": 0.10
+      },
+      "resist": {
+        "phys": 25.0,
+        "lightning": 40.0
+      },
+      "build": {
+        "layers": [220, 35, 30, 15, 10],
+        "n_body": 1.10,
+        "n_qi": 1.05,
+        "ward": {
+          "ws_base": 75.0,
+          "block": 16.0
+        },
+        "purity": {
+          "thunder": 80.0,
+          "metal": 60.0
+        },
+        "divine_sense": 4.0,
+        "stage_mult": 1.0,
+        "arts": [
+          {"lib": "iron-spark"},
+          {"lib": "anchor-drop"},
+          {"lib": "bone-turning-palm"}
+        ]
+      },
+      "reward": {
+        "kind": "material",
+        "template": "loi_kich_moc",
+        "qty": 3,
+        "rarity": 5,
+        "label": "Lôi Kích Mộc ×3 (Lightning-Struck Wood)"
+      }
+    },
+    {
+      "id": "tk_cuu_tieu_hinh",
+      "name": "Cửu Tiêu Hình (Nine-Heavens Executioner)",
+      "provisional": true,
+      "steps": [
+        "nguyen_anh_to_hoa_than"
+      ],
+      "weight": 1.0,
+      "main_kind": "body",
+      "boss_pool_mult": 1.25,
+      "off_estimate": 450.0,
+      "ehp_estimate": 8400.0,
+      "off_shares": {
+        "body": 0.70,
+        "qi": 0.20,
+        "soul": 0.10
+      },
+      "resist": {
+        "phys": 35.0,
+        "lightning": 30.0
+      },
+      "build": {
+        "layers": [230, 35, 35, 15, 10],
+        "n_body": 1.15,
+        "n_qi": 1.00,
+        "ward": {
+          "ws_base": 72.0,
+          "block": 18.0
+        },
+        "purity": {
+          "thunder": 75.0,
+          "metal": 70.0
+        },
+        "divine_sense": 3.5,
+        "stage_mult": 1.0,
+        "arts": [
+          {"lib": "iron-spark"},
+          {"lib": "bleeding-slash"},
+          {"lib": "binding-thrust"}
+        ]
+      },
+      "reward": {
+        "kind": "material",
+        "template": "tu_kim_sa",
+        "qty": 3,
+        "rarity": 5,
+        "label": "Tử Kim Sa ×3 (Purple-Gold Sand)"
+      }
+    },
+    {
+      "id": "tk_thien_hoa_kiem",
+      "name": "Thiên Hỏa Kiếp (Skyfire Tribulation)",
+      "provisional": true,
+      "steps": [
+        "nguyen_anh_to_hoa_than"
+      ],
+      "weight": 2.0,
+      "main_kind": "qi",
+      "boss_pool_mult": 1.10,
+      "off_estimate": 430.0,
+      "ehp_estimate": 7800.0,
+      "off_shares": {
+        "body": 0.20,
+        "qi": 0.65,
+        "soul": 0.15
+      },
+      "resist": {
+        "fire": 40.0,
+        "lightning": 40.0
+      },
+      "build": {
+        "layers": [225, 40, 30, 15, 10],
+        "n_body": 1.05,
+        "n_qi": 1.15,
+        "ward": {
+          "ws_base": 82.0,
+          "block": 12.0
+        },
+        "purity": {
+          "thunder": 85.0,
+          "fire": 75.0
+        },
+        "divine_sense": 4.2,
+        "stage_mult": 1.0,
+        "arts": [
+          {"lib": "forked-light"},
+          {"lib": "rolling-thunder"},
+          {"lib": "cut-the-horse"}
+        ]
+      },
+      "reward": {
+        "kind": "material",
+        "template": "dia_hoa_tinh",
+        "qty": 4,
+        "rarity": 4,
+        "label": "Địa Hỏa Tinh ×4 (Earth-Fire Essence)"
+      }
+    },
+    {
+      "id": "tk_huyen_bang_loi",
+      "name": "Huyền Băng Lôi (Profound Ice-Lightning)",
+      "provisional": true,
+      "steps": [
+        "nguyen_anh_to_hoa_than"
+      ],
+      "weight": 1.0,
+      "main_kind": "qi",
+      "boss_pool_mult": 1.20,
+      "off_estimate": 410.0,
+      "ehp_estimate": 8500.0,
+      "off_shares": {
+        "body": 0.20,
+        "qi": 0.70,
+        "soul": 0.10
+      },
+      "resist": {
+        "cold": 40.0,
+        "lightning": 35.0
+      },
+      "build": {
+        "layers": [215, 40, 30, 15, 10],
+        "n_body": 1.08,
+        "n_qi": 1.18,
+        "ward": {
+          "ws_base": 85.0,
+          "block": 12.0
+        },
+        "purity": {
+          "thunder": 80.0,
+          "water": 75.0
+        },
+        "divine_sense": 4.2,
+        "stage_mult": 1.0,
+        "arts": [
+          {"lib": "rolling-peal"},
+          {"lib": "static-charge"},
+          {"lib": "drowning-palm"}
+        ]
+      },
+      "reward": {
+        "kind": "treasure",
+        "template": "dao_an",
+        "qty": 1,
+        "rarity": 4,
+        "label": "Đạo Ấn (Dao Seal)"
+      }
+    },
+    {
+      "id": "tk_tam_ma_loi_anh",
+      "name": "Tâm Ma Lôi Ảnh (Heart-Demon Thunder Shade)",
+      "provisional": true,
+      "steps": [
+        "nguyen_anh_to_hoa_than"
+      ],
+      "weight": 2.0,
+      "main_kind": "soul",
+      "boss_pool_mult": 1.05,
+      "off_estimate": 400.0,
+      "ehp_estimate": 7600.0,
+      "off_shares": {
+        "body": 0.22,
+        "qi": 0.30,
+        "soul": 0.48
+      },
+      "resist": {
+        "soul": 30.0,
+        "lightning": 35.0
+      },
+      "build": {
+        "layers": [210, 35, 25, 15, 10],
+        "n_body": 1.00,
+        "n_qi": 1.15,
+        "ward": {
+          "ws_base": 78.0,
+          "block": 10.0
+        },
+        "purity": {
+          "thunder": 80.0
+        },
+        "divine_sense": 5.5,
+        "stage_mult": 1.0,
+        "arts": [
+          {"lib": "heart-lamp-lance"},
+          {"lib": "mind-thorn"},
+          {"lib": "forked-light"}
+        ]
+      },
+      "reward": {
+        "kind": "treasure",
+        "template": "linh_can_qua",
+        "qty": 1,
+        "rarity": 5,
+        "label": "Linh Căn Quả (Spirit Root Fruit)"
+      }
+    },
+    {
+      "id": "tk_u_minh_than_kiep",
+      "name": "U Minh Thần Kiếp (Nether Spirit Tribulation)",
+      "provisional": true,
+      "steps": [
+        "nguyen_anh_to_hoa_than"
+      ],
+      "weight": 1.0,
+      "main_kind": "soul",
+      "boss_pool_mult": 1.15,
+      "off_estimate": 410.0,
+      "ehp_estimate": 7900.0,
+      "off_shares": {
+        "body": 0.20,
+        "qi": 0.32,
+        "soul": 0.48
+      },
+      "resist": {
+        "soul": 35.0,
+        "lightning": 35.0
+      },
+      "build": {
+        "layers": [215, 35, 25, 15, 10],
+        "n_body": 1.02,
+        "n_qi": 1.18,
+        "ward": {
+          "ws_base": 80.0,
+          "block": 10.0
+        },
+        "purity": {
+          "thunder": 85.0
+        },
+        "divine_sense": 5.8,
+        "stage_mult": 1.0,
+        "arts": [
+          {"lib": "mountain-splitting-thought"},
+          {"lib": "lamp-threading-needle"},
+          {"lib": "rolling-thunder"}
+        ]
+      },
+      "reward": {
+        "kind": "talisman",
+        "template": "pha_canh",
+        "qty": 2,
+        "rarity": 4,
+        "label": "Phá Cảnh Phù ×2 (Realm-Breaking Talisman)"
+      }
+    }
+  ]
+}

@@ -885,7 +885,8 @@ static func character(s: GameSession, person_id: String = "") -> Dictionary:
 			"pill_quality": int(odds.pill.get("quality", 0)) if not (odds.pill as Dictionary).is_empty() else -1,
 			"talisman": "used" if c.talisman_used else ("held" if s.talisman_available() else "none"),
 			"chance": float(odds.chance), "backlash": bl.total,
-			"bare_attempts": c.bare_attempts, "bare_cap": int(gd.ladder().get("bare_attempt_cap", 0))}
+			"bare_attempts": c.bare_attempts, "bare_cap": int(gd.ladder().get("bare_attempt_cap", 0)),
+			"tribulation": tribulation_preview(s)}
 		if odds.get("breakdown") != null:
 			out.breakdowns["breakthrough"] = bd.call(odds.breakdown)
 	if is_me:   # the Combat tab's formation editor (design/ux/diagram-editor.md)
@@ -1838,3 +1839,145 @@ static func _place_view(s: GameSession, p: Dictionary) -> Dictionary:
 	v["here"] = str(p.id) == str(s.player.location_id)
 	v["known"] = true
 	return v
+
+
+# --- Heavenly Tribulation (#22) & Codex / Succession (#12) Read-Only Views -----------
+
+## Read-only. Previews the active Heavenly Tribulation step, boss pool with draw weights, player setup,
+## and escape-art warning as a deep copy. Never calls the wave draw or mutates session state (AC-TK-80, 81).
+static func tribulation_preview(s: GameSession) -> Dictionary:
+	if s == null:
+		return {}
+	return s.tribulation_preview().duplicate(true)
+
+
+## Read-only. Deep copy of the last tribulation result (per-wave summaries, FightLogRows, tempered buff,
+## and pending reward choices). Never mutates session state (AC-TK-58, 59, 82, 83).
+static func tribulation_result(s: GameSession) -> Dictionary:
+	if s == null:
+		return {}
+	var out: Dictionary = s.last_tribulation.duplicate(true) if not s.last_tribulation.is_empty() else {}
+	out["pending_reward"] = s.pending_tribulation_reward.duplicate(true)
+	return out
+
+
+## Read-only. Playthrough mode, lifecycle status, id, karma, and death_reloaded metadata.
+static func playthrough_meta(s: GameSession) -> Dictionary:
+	if s == null:
+		return {}
+	return {
+		"playthrough_mode": s.playthrough_mode,
+		"playthrough_status": s.playthrough_status,
+		"playthrough_id": s.playthrough_id,
+		"karma": s.karma,
+		"death_reloaded": s.death_reloaded,
+		"is_heir_life": s.is_heir_life,
+		"k_new_this_life": s.k_new_this_life,
+		"recognition_used": s.recognition_used,
+		"recognition_max": KarmicRules.recognition_max(s.gd) if s.gd != null else 2,
+	}
+
+
+## Read-only. Overview of all 10 Codex books with seen/known/total counts and metadata (AC-CK-19).
+static func codex_overview(s: GameSession) -> Dictionary:
+	if s == null or s.codex == null or s.codex_store == null:
+		return {"books": [], "total_entries": 0, "lives_count": 0, "notice": ""}
+	var books_out: Array = []
+	for bm in s.codex.books_meta():
+		var bid: String = str(bm.get("id", ""))
+		var counts: Dictionary = s.codex_store.count_book(bid)
+		books_out.append({
+			"id": bid,
+			"name": str(bm.get("name", bid)),
+			"effect": str(bm.get("effect", "")),
+			"counts_for_karma": bool(bm.get("counts_for_karma", true)),
+			"has_known_tier": bool(bm.get("has_known_tier", true)),
+			"seen": int(counts.get("seen", 0)),
+			"known": int(counts.get("known", 0)),
+			"total": int(counts.get("total", 0)),
+		})
+	return {
+		"books": books_out,
+		"total_entries": s.codex_store.total_entries(),
+		"lives_count": s.codex_store.lives.size(),
+		"notice": s.codex_store.load_notice,
+	}
+
+
+## Read-only. Detailed deep-copy view of one Codex book [param book_id] (entries with seen/known levels,
+## descriptions, gameplay effects, and candidate-only regions/sites for known secrets — never rolled sites; AC-CK-14, 19).
+static func codex_book(s: GameSession, book_id: String) -> Dictionary:
+	if s == null or s.codex == null or s.codex_store == null:
+		return {"id": book_id, "name": book_id, "effect": "", "seen": 0, "known": 0, "total": 0, "entries": []}
+	var meta: Dictionary = s.codex.book_meta(book_id)
+	var counts: Dictionary = s.codex_store.count_book(book_id)
+	return {
+		"id": book_id,
+		"name": str(meta.get("name", book_id)),
+		"effect": str(meta.get("effect", "")),
+		"counts_for_karma": bool(meta.get("counts_for_karma", true)),
+		"has_known_tier": bool(meta.get("has_known_tier", true)),
+		"seen": int(counts.get("seen", 0)),
+		"known": int(counts.get("known", 0)),
+		"total": int(counts.get("total", 0)),
+		"entries": s.codex.visible_entries(book_id).duplicate(true),
+	}
+
+
+## Read-only. Full 10-book Codex view combining overview counts and per-book visible entries (AC-CK-14, 19).
+static func codex_view(s: GameSession) -> Dictionary:
+	var ov: Dictionary = codex_overview(s)
+	var by_book: Dictionary = {}
+	for b in Array(ov.get("books", [])):
+		var bid: String = str(b.get("id", ""))
+		by_book[bid] = codex_book(s, bid)
+	ov["by_book"] = by_book
+	return ov
+
+
+## Read-only. Succession screen view (epitaph, karma, heirs with portraits & costs, lineage survival,
+## rebirth origins, perk-extra bounds). Never mutates session state or RNG (AC-CK-18).
+static func succession_view(s: GameSession) -> Dictionary:
+	if s == null:
+		return {}
+	var opts: Dictionary = s.succession_options().duplicate(true)
+	var heirs_with_portraits: Array = []
+	for h in Array(opts.get("heirs", [])):
+		var hc: Dictionary = Dictionary(h).duplicate(true)
+		var prec: Dictionary = s.db.get_record("people", str(hc.get("id", ""))) if s.db != null else {}
+		hc["portrait"] = portrait_of(s, prec) if not prec.is_empty() else {}
+		heirs_with_portraits.append(hc)
+	opts["heirs"] = heirs_with_portraits
+	return opts
+
+
+## Read-only. Alchemy recipes with Codex remembered status and current craftability (AC-CK-13).
+## Materials, Đan Đạo level, and success odds stay unchanged by Codex knowledge.
+static func recipes_view(s: GameSession) -> Array:
+	if s == null or s.player == null:
+		return []
+	var c: Character = s.player
+	var sh: StatSheet = s.sheet()
+	var dan_lv: int = c.skill_level(Alchemy.SKILL)
+	var out: Array = []
+	for r in s.gd.recipes():
+		var rid: String = str(r.get("id", ""))
+		var remembered: bool = s.codex != null and s.codex.is_recipe_known(rid)
+		var req_lv: int = int(r.get("min_level", 0))
+		var level_ok: bool = dan_lv >= req_lv
+		var ing: Dictionary = s.alchemy.find_ingredients(c, r) if s.alchemy != null else {"ok": false}
+		var chance: float = s.alchemy.success_chance(c, sh, r).total if s.alchemy != null else 0.0
+		out.append({
+			"id": rid,
+			"name": str(r.get("name", rid)),
+			"desc": str(r.get("desc", "")),
+			"min_level": req_lv,
+			"difficulty": int(r.get("difficulty", 50)),
+			"price": int(r.get("price", 0)),
+			"remembered": remembered,
+			"level_ok": level_ok,
+			"has_ingredients": bool(ing.get("ok", false)),
+			"usable": level_ok and bool(ing.get("ok", false)),
+			"chance": chance,
+		})
+	return out

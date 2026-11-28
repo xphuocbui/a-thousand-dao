@@ -140,6 +140,16 @@ func test_every_read_method_and_guidance_read_leaves_the_world_unchanged() -> vo
 		"GameQuery.dao_do": func(): return GameQuery.dao_do(s),
 		"GameQuery.dao_do_node": func(): return GameQuery.dao_do_node(s, int(s.tree.frontier(s.player, s.gd)[0]) if not s.tree.frontier(s.player, s.gd).is_empty() else 0, []),
 		"GameQuery.sect other": func(): return GameQuery.sect(s, str(s.db.all("sects")[0].id)),
+		"GameSession.tribulation_preview": func(): return s.tribulation_preview(),
+		"GameSession.succession_options": func(): return s.succession_options(),
+		"GameQuery.tribulation_preview": func(): return GameQuery.tribulation_preview(s),
+		"GameQuery.tribulation_result": func(): return GameQuery.tribulation_result(s),
+		"GameQuery.codex_overview": func(): return GameQuery.codex_overview(s),
+		"GameQuery.codex_book": func(): return GameQuery.codex_book(s, Codex.BOOK_RECIPES),
+		"GameQuery.codex_view": func(): return GameQuery.codex_view(s),
+		"GameQuery.succession_view": func(): return GameQuery.succession_view(s),
+		"GameQuery.recipes_view": func(): return GameQuery.recipes_view(s),
+		"GameQuery.playthrough_meta": func(): return GameQuery.playthrough_meta(s),
 	}
 	var before: String = _state(s)
 	for name in reads:

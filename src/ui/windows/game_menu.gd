@@ -12,10 +12,17 @@ signal load_requested(slot: String)
 signal quit_requested(save_first: bool)
 ## Open the wiki.
 signal wiki_requested
+## Start a new game with [param spec] ({playthrough_mode, birth_mode, origin, name, seed}).
+signal new_game_requested(spec: Dictionary)
 ## The menu closed.
 signal closed
 
-const PAGES := ["menu", "save", "load", "settings"]
+const PAGES := ["menu", "new_game", "save", "load", "settings"]
+const NEW_GAME_ORIGINS := [
+	{"id": "tan_tu", "name": "Tán tu", "desc": "Nobody. Free, poor, no sect obligations."},
+	{"id": "tong_mon", "name": "Đệ tử tông môn", "desc": "Outer disciple of a sect: stipend and missions."},
+	{"id": "gia_toc", "name": "Con cháu gia tộc", "desc": "Minor clan heir: more linh thạch and a growing herb field."},
+]
 
 ## The settings store the Settings page edits (set before opening).
 var settings: PlayerSettings = null
@@ -41,6 +48,11 @@ var _name_field: LineEdit = null
 var _settings_only: bool = false  # in a fight or tribulation Esc opens settings only (hud.md Esc rules)
 var _copy := Button.new()
 var _box: Control = null          # the page's parchment inset (rebuilt with the page)
+var _new_mode: String = KarmicRules.MODE_ONE_LIFE
+var _new_birth_mode: String = "thien_dinh"
+var _new_origin: String = "tan_tu"
+var _new_name: String = "Lâm Phong"
+var _new_seed: String = ""
 static var _cfg_cache: Dictionary = {}
 
 
@@ -163,6 +175,32 @@ func status_text() -> String:
 	return _status.text
 
 
+## Currently selected playthrough mode on the New Game page ("one_life" or "continue").
+func selected_playthrough_mode() -> String:
+	return _new_mode
+
+
+## Sets the playthrough mode on the New Game page ("one_life" or "continue") and refreshes if open.
+func set_playthrough_mode(mode: String) -> void:
+	_new_mode = KarmicRules.normalize_mode(mode)
+	if visible and _page == "new_game":
+		_build()
+
+
+## Formats the playthrough mode and lifecycle badge for a save row (empty string when absent on legacy rows).
+static func mode_badge(s: Dictionary) -> String:
+	var mode: String = str(s.get("playthrough_mode", s.get("mode", "")))
+	if mode == "":
+		return ""
+	var status: String = str(s.get("playthrough_status", s.get("status", "")))
+	var label: String = "Continue · Luân Hồi" if mode == KarmicRules.MODE_CONTINUE else "One Life · Nhất Sinh"
+	if status == KarmicRules.STATUS_ENDED:
+		return "[%s · Ended]" % label
+	if status == KarmicRules.STATUS_SUCCESSION:
+		return "[%s · Succession]" % label
+	return "[%s]" % label
+
+
 func _build() -> void:
 	for c in _body.get_children():
 		_body.remove_child(c)
@@ -181,6 +219,18 @@ func _build() -> void:
 		"menu":
 			_title.text = tr("Game menu")
 			_build_menu()
+			if not _settings_only:
+				var ng_box: VBoxContainer = Illustrated.inset(g, "")
+				ng_box.get_parent().name = "NewGameBox"
+				var ng_btn := _button(tr("New game"), ng_box, show_page.bind("new_game"))
+				ng_btn.name = "NewGame"
+				TooltipLayer.set_tip(ng_btn, {
+					"title": tr("New game"),
+					"summary": tr("Start a fresh playthrough in One Life (Nhất Sinh) or Continue (Luân Hồi Kế Thừa) mode."),
+				})
+		"new_game":
+			_title.text = tr("New game")
+			_build_new_game()
 		"save":
 			_title.text = tr("Save game")
 			_build_save()
@@ -245,6 +295,125 @@ func _build_menu() -> void:
 		_button(tr("Quit to desktop"), _box, _arm.bind("quit")).name = "Quit"
 
 
+func _build_new_game() -> void:
+	var mode_head := Label.new()
+	mode_head.text = tr("Playthrough mode (fixed for the entire playthrough)")
+	mode_head.theme_type_variation = &"RowLabel"
+	_box.add_child(mode_head)
+
+	var modes := [
+		{
+			"id": KarmicRules.MODE_ONE_LIFE,
+			"label": tr("One Life (Nhất Sinh)"),
+			"desc": tr("First death ends the playthrough. Eligible for One Life prestige achievements."),
+		},
+		{
+			"id": KarmicRules.MODE_CONTINUE,
+			"label": tr("Continue (Luân Hồi Kế Thừa)"),
+			"desc": tr("On death, continue in the same world as an heir or reborn successor using Karma."),
+		},
+	]
+	for md in modes:
+		var mid: String = str(md.id)
+		var sel: bool = _new_mode == mid
+		var mb := _button(("%s%s — %s" % [("✓ " if sel else ""), str(md.label), str(md.desc)]), _box, func():
+			_new_mode = mid
+			_build()
+		)
+		mb.name = "Mode_" + mid
+		mb.theme_type_variation = &"CommitButton" if sel else &""
+		mb.accessibility_name = "%s: %s" % [str(md.label), str(md.desc)]
+		TooltipLayer.set_tip(mb, {"title": str(md.label), "summary": str(md.desc)})
+
+	var bm_head := Label.new()
+	bm_head.text = tr("Birth mode")
+	bm_head.theme_type_variation = &"RowLabel"
+	_box.add_child(bm_head)
+	var bm_row := HBoxContainer.new()
+	bm_row.add_theme_constant_override("separation", 6)
+	_box.add_child(bm_row)
+	for bm_pair in [["thien_dinh", tr("Fated (Thiên Định)")], ["tu_dinh", tr("Self-made (Tự Định)")]]:
+		var bmid: String = str(bm_pair[0])
+		var bsel: bool = _new_birth_mode == bmid
+		var bmb := _button(("%s%s" % [("✓ " if bsel else ""), str(bm_pair[1])]), bm_row, func():
+			_new_birth_mode = bmid
+			_build()
+		)
+		bmb.name = "NewBirth_" + bmid
+		bmb.theme_type_variation = &"CommitButton" if bsel else &""
+		TooltipLayer.set_tip(bmb, {
+			"title": str(bm_pair[1]),
+			"summary": tr("Writes to the Codex and earns Karma and achievements.") if bmid == "thien_dinh" else tr("Custom build; reads the Codex but writes only Lives and earns 0 Karma."),
+		})
+
+	var orig_head := Label.new()
+	orig_head.text = tr("Origin")
+	orig_head.theme_type_variation = &"RowLabel"
+	_box.add_child(orig_head)
+	for o in NEW_GAME_ORIGINS:
+		var oid: String = str(o.id)
+		var osel: bool = _new_origin == oid
+		var ob := _button(("%s%s — %s" % [("✓ " if osel else ""), str(o.name), tr(str(o.desc))]), _box, func():
+			_new_origin = oid
+			_build()
+		)
+		ob.name = "NewOrigin_" + oid
+		ob.theme_type_variation = &"CommitButton" if osel else &""
+		TooltipLayer.set_tip(ob, {"title": str(o.name), "summary": tr(str(o.desc))})
+
+	var meta_row := HBoxContainer.new()
+	meta_row.add_theme_constant_override("separation", 6)
+	_box.add_child(meta_row)
+	var nm := LineEdit.new()
+	nm.name = "NewName"
+	nm.text = _new_name
+	nm.placeholder_text = tr("Character name")
+	nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	nm.accessibility_name = tr("Character name")
+	nm.editable = not _busy
+	nm.text_changed.connect(func(t: String): _new_name = t)
+	meta_row.add_child(nm)
+
+	var sd := LineEdit.new()
+	sd.name = "NewSeed"
+	sd.text = _new_seed
+	sd.placeholder_text = tr("World seed (optional)")
+	sd.custom_minimum_size = Vector2(150, 0)
+	sd.accessibility_name = tr("World seed")
+	sd.editable = not _busy
+	sd.text_changed.connect(func(t: String): _new_seed = t)
+	meta_row.add_child(sd)
+
+	var act_row := HBoxContainer.new()
+	act_row.add_theme_constant_override("separation", 8)
+	_box.add_child(act_row)
+	var start_b := _button(tr("Start new game"), act_row, _emit_new_game)
+	start_b.name = "StartNewGame"
+	start_b.theme_type_variation = &"CommitButton"
+	TooltipLayer.set_tip(start_b, {
+		"title": tr("Start new game"),
+		"summary": tr("Begin a new playthrough in %s mode.") % (tr("Continue") if _new_mode == KarmicRules.MODE_CONTINUE else tr("One Life")),
+	})
+	_button(tr("Back"), act_row, show_page.bind("menu")).name = "BackNewGame"
+
+
+func _emit_new_game() -> void:
+	if _busy:
+		return
+	var clean_name: String = _new_name.strip_edges()
+	var seed_txt: String = _new_seed.strip_edges()
+	var spec := {
+		"playthrough_mode": _new_mode,
+		"birth_mode": _new_birth_mode,
+		"mode": "custom" if _new_birth_mode == "tu_dinh" else "roll",
+		"origin": _new_origin,
+		"name": clean_name if clean_name != "" else "Lâm Phong",
+	}
+	if seed_txt.is_valid_int():
+		spec["seed"] = int(seed_txt)
+	new_game_requested.emit(spec)
+
+
 func _build_save() -> void:
 	var row := HBoxContainer.new()
 	_box.add_child(row)
@@ -263,12 +432,17 @@ func _build_save() -> void:
 	for s in saves:
 		var r := HBoxContainer.new()
 		_box.add_child(r)
+		var slot: String = str(s.slot)
+		var col := VBoxContainer.new()
+		col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		col.add_theme_constant_override("separation", 2)
+		r.add_child(col)
 		var l := Label.new()
 		l.text = _row_text(s)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		r.add_child(l)
-		var slot: String = str(s.slot)
+		col.add_child(l)
+		_add_mode_badge(col, s, slot)
 		if _armed == "overwrite:" + slot:
 			_button(tr("Overwrite?"), r, func(): _save_as(str(s.get("name", slot)), slot)).name = "ConfirmOverwrite"
 			_button(tr("Cancel"), r, _disarm)
@@ -314,15 +488,19 @@ func _build_load() -> void:
 	for s in saves:
 		var r := HBoxContainer.new()
 		_box.add_child(r)
+		var slot: String = str(s.slot)
+		var col := VBoxContainer.new()
+		col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		col.add_theme_constant_override("separation", 2)
+		r.add_child(col)
 		var l := Label.new()
 		l.text = _row_text(s) + ("" if bool(s.get("ok", true)) else "\n" + str(s.get("reason", "")))
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		r.add_child(l)
-		var slot: String = str(s.slot)
+		col.add_child(l)
+		_add_mode_badge(col, s, slot)
 		l.focus_mode = Control.FOCUS_ALL   # a greyed row stays reachable, its reason in its name
-		l.accessibility_name = l.text.replace("
-", ", ")
+		l.accessibility_name = l.text.replace("\n", ", ")
 		if _armed == "load:" + slot:
 			var ask := _button(tr("Load? Unsaved progress is lost."), r, func(): load_requested.emit(slot))
 			ask.name = "ConfirmLoad"
@@ -335,8 +513,29 @@ func _build_load() -> void:
 	_button(tr("Back"), _box, show_page.bind("menu"))
 
 
+func _add_mode_badge(parent: Control, s: Dictionary, slot: String) -> void:
+	var badge: String = mode_badge(s)
+	if badge == "":
+		return
+	var mode: String = str(s.get("playthrough_mode", s.get("mode", "")))
+	var b := Label.new()
+	b.name = "ModeBadge_" + slot
+	b.text = badge
+	b.theme_type_variation = &"RowLabel"
+	b.add_theme_color_override("font_color", Illustrated.GILT if mode == KarmicRules.MODE_CONTINUE else Illustrated.CINNABAR)
+	TooltipLayer.set_tip(b, {
+		"title": badge,
+		"summary": tr("Continue mode: death opens succession in the same world.") if mode == KarmicRules.MODE_CONTINUE else tr("One Life mode: first death ends the playthrough."),
+	})
+	parent.add_child(b)
+
+
 func _row_text(s: Dictionary) -> String:
-	return "%s\n%s · %s · %s" % [str(s.get("name", s.get("slot", ""))), str(s.get("date", "")), str(s.get("realm", "")), str(s.get("time", ""))]
+	var badge: String = mode_badge(s)
+	var head: String = str(s.get("name", s.get("slot", "")))
+	if badge != "":
+		head += "  " + badge
+	return "%s\n%s · %s · %s" % [head, str(s.get("date", "")), str(s.get("realm", "")), str(s.get("time", ""))]
 
 
 func _build_settings() -> void:

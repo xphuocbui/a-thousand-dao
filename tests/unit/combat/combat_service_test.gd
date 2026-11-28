@@ -44,13 +44,48 @@ func test_requests_the_engine_cannot_run_are_refused_by_name() -> void:
 		["start_health_share", func(r: FightRequest) -> void: r.start_health_share = 0.0],
 		["start_health_share", func(r: FightRequest) -> void: r.start_health_share = 1.5],
 		["start_qi_share", func(r: FightRequest) -> void: r.start_qi_share = -0.1],
-		["no_heal", func(r: FightRequest) -> void: r.no_heal = true],
 	]
 	for c in cases:
 		var req := _request(gd, 1)
 		c[1].call(req)
 		assert_true(service.resolve(req) == null, "%s is refused" % c[0])
 		assert_true("; ".join(service.errors).contains(c[0]), "the error names %s: %s" % [c[0], "; ".join(service.errors)])
+
+
+func test_no_heal_blocks_all_healing_in_fight() -> void:
+	# Combat Defence & Healing rule 19 / thien-kiep.md #21a: no_heal blocks healing arts, hregen, and leech.
+	var gd := game_data()
+	var service := CombatService.new(CombatConstants.from_game_data(gd))
+	var healer := FighterCompiler.from_data("typical", 1, gd)
+	healer.hregen = 0.05
+	healer.leech_hp = 0.25
+	var heal_art := ArtDef.new()
+	heal_art.id = &"test_heal"
+	heal_art.heal = 4.0
+	heal_art.cost = 0.02
+	heal_art.cd = 1.5
+	healer.arts.insert(0, heal_art)
+
+	var req_allow := FightRequest.new()
+	req_allow.a = healer
+	req_allow.b = FighterCompiler.from_data("typical", 1, gd)
+	req_allow.fight_seed = 11
+	req_allow.start_health_share = 0.6
+	req_allow.no_heal = false
+	var r_allow: FightResult = service.resolve(req_allow)
+	assert_true(r_allow != null and service.errors.is_empty(), "fight runs with no_heal=false")
+	assert_true(r_allow.a_end.healed > 0.0, "healing occurs when no_heal is false: %.2f" % r_allow.a_end.healed)
+
+	var req_block := FightRequest.new()
+	req_block.a = healer
+	req_block.b = FighterCompiler.from_data("typical", 1, gd)
+	req_block.fight_seed = 11
+	req_block.start_health_share = 0.6
+	req_block.no_heal = true
+	var r_block: FightResult = service.resolve(req_block)
+	assert_true(r_block != null and service.errors.is_empty(), "fight runs with no_heal=true")
+	assert_eq(r_block.a_end.healed, 0.0, "zero health healed when no_heal is true")
+	assert_eq(r_block.b_end.healed, 0.0, "both sides heal zero when no_heal is true")
 
 
 func test_place_tags_are_ignored_once_and_tribulation_is_kept() -> void:

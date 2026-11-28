@@ -549,7 +549,11 @@
       "player_variant_awakened": "Biến dị linh căn của {a} khai mở.",
       "player_formation": "{a} bố trí trận pháp tại động phủ ở {place}.",
       "player_formation_decay": "Trận pháp tại động phủ của {a} suy yếu vì thiếu linh thạch duy trì.",
-      "player_joined_sect": "{a} bái nhập {s1}."
+      "player_joined_sect": "{a} bái nhập {s1}.",
+      "player_tribulation_survived": "{a} vượt qua Thiên Kiếp ({waves} đợt), tấn cấp {realm}.",
+      "player_tribulation_failed": "{a} vẫn lạc dưới Thiên Kiếp tại đợt {wave} trước {boss}.",
+      "player_heir_succeeded": "{a} kế thừa y bát của {b}, bước tiếp đạo đồ.",
+      "player_reborn": "{a} tái sinh bước lên con đường tu tiên tại {place}."
     },
     "fallen_sects": 1,
     "duel_kill_chance": 0.3,

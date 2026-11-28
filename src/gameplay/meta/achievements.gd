@@ -30,12 +30,54 @@ static func enabled_for(c: Character) -> bool:
 	return c != null and c.birth_mode == "thien_dinh"
 
 
+## True when a session is eligible for `one_life` prestige achievements (codex-karmic-carryover.md
+## Rule 11, AC-CK-21): requires One Life playthrough mode and `death_reloaded == false`.
+## Reads `playthrough_mode` and `death_reloaded` from [param s] (property or metadata) unless
+## explicitly overridden.
+static func one_life_eligible(s: GameSession, mode_override: String = "", death_reloaded_override: Variant = null) -> bool:
+	if s == null:
+		return false
+	var mode: String = mode_override
+	if mode == "":
+		var raw_mode: Variant = s.get("playthrough_mode")
+		if raw_mode != null and str(raw_mode) != "":
+			mode = str(raw_mode)
+		elif s.has_meta("playthrough_mode"):
+			mode = str(s.get_meta("playthrough_mode"))
+		else:
+			mode = "one_life"
+	var reloaded: bool = false
+	if death_reloaded_override != null:
+		reloaded = bool(death_reloaded_override)
+	else:
+		var raw_reloaded: Variant = s.get("death_reloaded")
+		if raw_reloaded != null:
+			reloaded = bool(raw_reloaded)
+		elif s.has_meta("death_reloaded"):
+			reloaded = bool(s.get_meta("death_reloaded"))
+	return mode == "one_life" and not reloaded
+
+
+## Rule 11 (AC-CK-21): returns true when loading a One Life save whose [param playthrough_id]
+## already has a Lives death entry in [param codex_store], requiring the save to be marked
+## `death_reloaded`.
+static func should_mark_death_reloaded(playthrough_mode: String, playthrough_id: String, codex_store: CodexStore) -> bool:
+	if playthrough_mode != "one_life" or playthrough_id == "" or codex_store == null:
+		return false
+	return codex_store.has_life_for_playthrough(playthrough_id)
+
+
 ## Evaluates every unearned achievement; records and returns the newly earned ones.
-func check(s: GameSession) -> Array:
+## Achievements tagged `"one_life": true` are skipped in Continue mode or when `death_reloaded`
+## is set (Rule 11, AC-CK-21). Optional overrides allow isolated testing before session fields exist.
+func check(s: GameSession, playthrough_mode: String = "", death_reloaded: Variant = null) -> Array:
 	if s == null or s.player == null or not enabled_for(s.player) or s.cheated:
 		return []
+	var can_one_life: bool = one_life_eligible(s, playthrough_mode, death_reloaded)
 	var fresh: Array = []
 	for a in all():
+		if bool(a.get("one_life", false)) and not can_one_life:
+			continue
 		if store.has(str(a.id)):
 			continue
 		if met(s, a.condition):

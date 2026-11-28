@@ -6,7 +6,8 @@
   "refusal_seconds": 2.0,
   "compact_width": 1500,
   "panel_share": 0.33,
-  "widths": {"_doc": "Per-kind width shares of the side-panel windows (round-3 mock-ups, user 2026-11-24); the rule for which windows are side panels, full screens or centre windows is design/ux/interaction-patterns.md Window sizes.", "character": 0.62, "sect": 0.62, "relationships": 0.62, "rankings": 0.62, "inventory": 0.5, "wiki": 0.62},
+  "widths": {"_doc": "Per-kind width shares of the side-panel windows (round-3 mock-ups, user 2026-11-24); the rule for which windows are side panels, full screens or centre windows is design/ux/interaction-patterns.md Window sizes.", "character": 0.62, "sect": 0.62, "relationships": 0.62, "rankings": 0.62, "inventory": 0.5, "wiki": 0.62, "codex": 0.62},
+  "codex": {"_doc": "The Codex (Thiên Thư) window (src/ui/windows/codex_window.gd; design/gdd/codex-karmic-carryover.md): seen_alpha is faint ink for seen-only entries; known_alpha is full ink for known entries; nav_width is the left 10-book index width.", "seen_alpha": 0.65, "known_alpha": 1.0, "nav_width": 270},
   "sect": {"notables": 4},
   "menu": {"_doc": "The game menu (src/ui/windows/game_menu.gd). banner: the painting over the main page (a place-catalogue painting).", "banner": "res://assets/art/places/5.webp"},
   "illustrated": {"_doc": "The illustrated windows (round-3 mock-ups, user 2026-11-24; src/ui/windows/illustrated.gd). element_colours: the linh căn gauge fills; element_icons: a technique card's icon by its first element when it has no painted icon of its own; vital_icons: the vitals tiles; talent_icons: the Thiên phú tiles (absent: no icon).",
@@ -51,7 +52,8 @@
       {"kind": "news", "label": "News", "key": "N", "built": false, "reason": "News is not in the game yet (no news system)."},
       {"kind": "places", "icon": "res://assets/icons/ui/win_places.png", "label": "Places", "key": "P", "built": true},
       {"kind": "dao_do", "icon": "res://assets/icons/ui/win_dao_do.png", "label": "Đạo Đồ", "key": "D", "built": true},
-      {"kind": "abode", "icon": "res://assets/icons/ui/win_abode.png", "label": "Abode", "key": "A", "built": true}
+      {"kind": "abode", "icon": "res://assets/icons/ui/win_abode.png", "label": "Abode", "key": "A", "built": true},
+      {"kind": "codex", "label": "Codex", "key": "X", "built": true}
     ]
   }
 }

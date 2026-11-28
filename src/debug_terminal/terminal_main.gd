@@ -5,6 +5,7 @@ extends SceneTree
 ##       [-- --seed N] [--color | --no-color] [--echo] [--commands file.txt] [--exit-after-commands]
 ##          [--no-llm] [--llm-url http://localhost:18080] [--llm-model name]
 ##          [--achievements-file path]   (default user://achievements.json; memory only with --commands)
+##          [--codex-file path]          (default user://codex.json; memory only with --commands)
 ##          [--set file.key.path=value ...]   (in-memory data overrides for this run only, e.g.
 ##           --set combat_rankings.enabled=true --set combat_rules.fight_engine.enabled=true)
 ##
@@ -53,6 +54,12 @@ static func run(args: PackedStringArray) -> int:
 	if af != -1 and af + 1 < args.size():
 		ach_path = args[af + 1]
 	app.achievements = Achievements.new(gd, AchievementStore.new(ach_path))
+	# Codex persists for real play; scripted runs (--commands) keep it in memory unless --codex-file is passed.
+	var codex_path: String = "" if args.has("--commands") else "user://codex.json"
+	var cf: int = args.find("--codex-file")
+	if cf != -1 and cf + 1 < args.size():
+		codex_path = args[cf + 1]
+	app.codex_store = CodexStore.new(codex_path)
 	var i: int = args.find("--seed")
 	if i != -1 and i + 1 < args.size():
 		app.next_seed = int(args[i + 1])

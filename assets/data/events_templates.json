@@ -1999,6 +1999,174 @@
           }
         }
       ]
+    },
+    {
+      "id": "tien_kiep_co_nhan",
+      "requires_past_ties": true,
+      "weight": 12,
+      "place_types": [
+        "any"
+      ],
+      "npc": {
+        "mode": "past_tie"
+      },
+      "title": "Cố nhân tiền kiếp",
+      "text": "Tại {place}, {npc} ({npc_realm}) chợt dừng bước nhìn ngươi thật lâu, ánh mắt thoáng hiện nét kinh ngạc: \"Thần thái của đạo hữu... thật giống một cố nhân ta từng quen biết nhiều năm trước.\"",
+      "choices": [
+        {
+          "label": "Bình thản đáp lễ, gợi chuyện xưa (Mị lực)",
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 45
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} khẽ thở dài rồi mỉm cười hòa nhã: \"Hữu duyên thiên lý, hôm nay xem như kết lại một đoạn thiện duyên.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 15
+              },
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.1,
+                  0.2
+                ]
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} lắc đầu cười nhẹ: \"Chắc là ta già rồi nên nhìn lầm người cũ.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 5
+              }
+            ]
+          }
+        },
+        {
+          "label": "Cáo từ nhã nhặn, không nhận quen biết",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi chắp tay cáo biệt; {npc} đứng lặng nhìn theo rồi khẽ lắc đầu rời đi.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "tien_kiep_cuu_thu",
+      "requires_past_ties": true,
+      "weight": 10,
+      "place_types": [
+        "any"
+      ],
+      "npc": {
+        "mode": "past_tie"
+      },
+      "title": "Ánh mắt ngờ vực từ kiếp trước",
+      "text": "Giữa dòng người ở {place}, {npc} ({npc_realm}) đột ngột chắn trước mặt ngươi, giọng trầm lạnh: \"Thủ pháp và khí tức của ngươi mang bóng dáng kẻ từng kết oán với ta năm xưa. Ngươi có quan hệ gì với người ấy?\"",
+      "choices": [
+        {
+          "label": "Thản nhiên đối đáp, giữ vững khí thế (Đạo tâm)",
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 50
+          },
+          "always": [],
+          "success": {
+            "text": "{npc} nheo mắt đánh giá ngươi hồi lâu rồi hừ lạnh: \"Khí phách không tầm thường. Hôm nay ta ghi nhớ cái tên này.\"",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -5
+              },
+              {
+                "type": "tam_ma",
+                "amount": -2
+              }
+            ]
+          },
+          "failure": {
+            "text": "Áp lực từ {npc} khiến tâm thần ngươi chấn động nhẹ trước khi đối phương bỏ đi.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -10
+              },
+              {
+                "type": "tam_ma",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "Lùi bước tránh tranh chấp",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi khiêm nhường giải thích mình chỉ là vãn bối mới nhập đạo; {npc} hừ nhẹ rồi phất tay bỏ đi.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "tien_kiep_di_vat",
+      "requires_past_ties": true,
+      "weight": 10,
+      "place_types": [
+        "any"
+      ],
+      "npc": {
+        "mode": "past_tie"
+      },
+      "title": "Dư âm kiếp cũ",
+      "text": "Đi ngang qua {place}, {npc} ({npc_realm}) ngẩn người khi nghe giọng ngươi, bâng khuâng nhắc về một tu sĩ đã khuất năm nào. \"Thói quen và khẩu khí ấy thật khiến người ta hoài niệm.\"",
+      "choices": [
+        {
+          "label": "Ngồi lại nghe chuyện cũ, kết giao đạo hữu",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Hai người đối ẩm đàm đạo một hồi tại {place}; {npc} tỏ rõ thiện ý với ngươi.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 12
+              }
+            ]
+          }
+        },
+        {
+          "label": "Chắp tay kính lễ rồi tiếp tục hành trình",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi mỉm cười chào từ biệt, giữ khoảng cách với chuyện tiền trần.",
+            "effects": []
+          }
+        }
+      ]
     }
   ]
 }

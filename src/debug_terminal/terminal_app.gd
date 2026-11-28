@@ -20,8 +20,8 @@ const HELP := [
 		["color on|off", "ANSI colours (on by default in a console)"],
 	]],
 	["New life", [
-		["new", "character creation (Thiên Định roll or Tự Định choose), then world generation"],
-		["new quick [name] [seed]", "roll and accept immediately (scripts)"],
+		["new", "character creation (One Life / Continue, Thiên Định or Tự Định), then world generation"],
+		["new quick [name] [seed] [one_life|continue]", "roll and accept immediately (scripts)"],
 	]],
 	["Character", [
 		["sheet", "full character sheet"], ["explain <what>", "breakdown of any number: rate power life ngo_tinh attack_pct ..."],
@@ -32,6 +32,9 @@ const HELP := [
 		["continent [region id | place <id>]", "the authored continent (read only: regions, sects, places, routes and trip times)"],
 		["join [sect id] | promote | leave [desert]", "join a sect at its seat; rise a rank (realm, contribution, standing); leave, or desert"],
 		["achievements", "thành tựu across lives (Thiên Định lives only; debug commands disqualify a life)"],
+		["codex [book]", "Thiên Thư: 10-book profile knowledge (seen/known) and past lives chronicle"],
+		["tribulation [preview|result|reward <n>]", "Heavenly Tribulation preview, last wave summary, or claim survival reward"],
+		["succession | heir <id> [extra] | rebirth [opts] | end_playthrough", "Continue-mode succession after death"],
 	]],
 	["Actions (cost time)", [
 		["cul [seasons]", "tu luyện (default 1 season)"], ["bequan <years>", "closed-door cultivation, no events"],
@@ -84,6 +87,8 @@ var session: GameSession
 var store: SaveStore = SaveStore.new("user://saves")
 ## Thành tựu across lives; terminal_main swaps in a file-backed store for real play.
 var achievements: Achievements
+## Thiên Thư profile store across lives; terminal_main swaps in a file-backed store for real play.
+var codex_store: CodexStore
 var quit_requested: bool = false
 ## Seed for the next 'new' (from --seed); 0 = random.
 var next_seed: int = 0
@@ -101,6 +106,7 @@ func _init(game_data: GameData, llm_service: LlmService, terminal_io: TerminalIO
 	llm = llm_service
 	io = terminal_io
 	achievements = Achievements.new(gd, AchievementStore.new())
+	codex_store = CodexStore.new("")
 
 
 ## Read-eval-print loop.
@@ -169,6 +175,8 @@ func _dispatch(text: String) -> void:
 			io.out("Saves: %s (in %s)" % [", ".join(store.list_slots()), ProjectSettings.globalize_path(store.root)])
 		"llm":
 			_llm(args)
+		"codex", "thienthu":
+			_codex_command(args)
 		_:
 			if session == null or session.player == null:
 				io.out("No life in progress. 'new' to begin, 'load' to continue, 'help' for commands.")
@@ -275,6 +283,15 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 		"breakthrough", "bt":
 			var no_talisman: bool = args.has("notalisman")
 			var burn: bool = args.has("burn")
+			var skip_tk_prompt: bool = args.has("confirm")
+			var tk_prev: Dictionary = GameQuery.tribulation_preview(s)
+			var tk_active: bool = bool(tk_prev.get("active", false))
+			if tk_active and not skip_tk_prompt:
+				io.out_lines(TerminalViews.tribulation_preview_for(s, io))
+				var tk_yes: Variant = io.read_line("  Confirm Heavenly Tribulation attempt? (yes/no): ")
+				if str(tk_yes).strip_edges().to_lower() != "yes":
+					io.out("Cancelled.")
+					return
 			var bt: Dictionary = s.breakthrough(false, not no_talisman, burn)
 			if bool(bt.get("needs_confirm", false)):
 				io.out_lines(bt.lines)
@@ -284,6 +301,20 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 				else:
 					return
 			_r(bt)
+			if tk_active and not s.last_tribulation.is_empty():
+				io.out_lines(TerminalViews.tribulation_result_for(s, io))
+			if s.playthrough_status == KarmicRules.STATUS_SUCCESSION:
+				io.out(io.paint("Succession awaits: type 'succession' to inspect heirs/rebirth, 'heir <id>', 'rebirth', or 'end_playthrough'.", "1;33"))
+		"tribulation", "tk", "thienkiep":
+			_tribulation_command(args)
+		"succession", "succeed":
+			_succession_command()
+		"heir":
+			_heir_command(args)
+		"rebirth":
+			_rebirth_command(args)
+		"end_playthrough":
+			_r(s.end_playthrough())
 		"plant":
 			var what: String = " ".join(args) if args.size() > 0 else _pick_seed()
 			if what != "":
@@ -588,9 +619,14 @@ func _new(args: Array) -> void:
 	next_seed = 0
 	if args.size() > 0 and args[0] == "quick":
 		var nm: String = _arg(args, 1, "Vô Danh")
-		if args.size() > 2 and str(args[2]).is_valid_int():
-			seed_v = int(args[2])
-		_start(seed_v, {"mode": "roll", "name": nm, "gender": "male", "origin": "tan_tu"})
+		var pt_mode: String = KarmicRules.MODE_ONE_LIFE
+		for ai in range(2, args.size()):
+			var tok: String = str(args[ai]).to_lower()
+			if tok == KarmicRules.MODE_ONE_LIFE or tok == KarmicRules.MODE_CONTINUE:
+				pt_mode = tok
+			elif tok.is_valid_int():
+				seed_v = int(tok)
+		_start(seed_v, {"mode": "roll", "name": nm, "gender": "male", "origin": "tan_tu", "playthrough_mode": pt_mode})
 		return
 	var nm2: Variant = io.read_line("Tên (name) [Vô Danh]: ")
 	if nm2 == null:
@@ -606,8 +642,10 @@ func _new(args: Array) -> void:
 	var seed_in: Variant = io.read_line("World seed [%d]: " % seed_v)
 	if str(seed_in).is_valid_int():
 		seed_v = int(seed_in)
+	var pt_in: Variant = io.read_line("Playthrough mode: 1) One Life (Nhất Sinh)   2) Continue (Luân Hồi Kế Thừa)  [1]: ")
+	var pt_mode2: String = KarmicRules.MODE_CONTINUE if str(pt_in).strip_edges() == "2" else KarmicRules.MODE_ONE_LIFE
 	var mode_in: Variant = io.read_line("Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: ")
-	var spec := {"name": str(nm2).strip_edges() if str(nm2).strip_edges() != "" else "Vô Danh", "gender": gender, "origin": origins[oi].id}
+	var spec := {"name": str(nm2).strip_edges() if str(nm2).strip_edges() != "" else "Vô Danh", "gender": gender, "origin": origins[oi].id, "playthrough_mode": pt_mode2}
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_v
 	var c: Character
@@ -718,7 +756,7 @@ func _preview(c: Character) -> Array:
 
 func _start(seed_v: int, spec: Dictionary) -> void:
 	io.out("Generating the world (seed %d)..." % seed_v)
-	session = GameSession.new(gd, llm)
+	session = GameSession.new(gd, llm, null, codex_store)
 	var r: Dictionary = session.new_game(seed_v, spec)
 	io.out_lines(r.lines)
 	io.out("")
@@ -744,7 +782,7 @@ func _load(args: Array) -> void:
 	if typeof(d) != TYPE_DICTIONARY:
 		io.out("No save '%s'." % slot)
 		return
-	var s := GameSession.new(gd, llm)
+	var s := GameSession.new(gd, llm, null, codex_store)
 	var r: Dictionary = s.load_dict(d)
 	io.out_lines(r.lines)
 	if r.ok:
@@ -984,3 +1022,200 @@ func _buildgen(args: Array) -> void:
 	io.out("Đạo Đồ (%d đạo văn): %s" % [c.tree_nodes.size(), ", ".join(c.tree_nodes.filter(func(n): return s.tree.node(n).kind in ["notable", "keystone"]).map(func(n): return s.tree.node(n).name))])
 	io.out_lines(CombatPower.compute(c, gd, s.db, sh).lines)
 	io.out("(registered as %s at your location; 'talk %s' works)" % [pid, pid])
+
+
+# --- Heavenly Tribulation (#22), Codex & Succession (#12) ------------------------------
+
+func _tribulation_command(args: Array) -> void:
+	var s: GameSession = session
+	var sub: String = _arg(args, 0, "").to_lower()
+	match sub:
+		"preview":
+			io.out_lines(TerminalViews.tribulation_preview_for(s, io))
+		"result":
+			io.out_lines(TerminalViews.tribulation_result_for(s, io))
+		"reward", "claim":
+			var pend: Dictionary = s.pending_tribulation_reward
+			if pend.is_empty():
+				io.out("No tribulation reward is waiting.")
+				return
+			var choices: Array = Array(pend.get("choices", []))
+			var pick_str: String = _arg(args, 1, "")
+			if pick_str == "":
+				var rows: Array = []
+				for i in choices.size():
+					var ch: Dictionary = Dictionary(choices[i])
+					rows.append({"label": "%s [%s · qty %d · rarity %d]" % [
+						str(ch.get("label", ch.get("template", "?"))), str(ch.get("kind", "item")),
+						int(ch.get("qty", 1)), int(ch.get("rarity", 1))
+					], "value": str(i + 1)})
+				pick_str = _pick("Choose one tribulation reward:", rows)
+				if pick_str == "":
+					return
+			if not pick_str.is_valid_int():
+				io.out("Usage: tribulation reward <1-%d>" % choices.size())
+				return
+			_r(s.choose_tribulation_reward(int(pick_str) - 1))
+		"":
+			if not s.pending_tribulation_reward.is_empty() or (not s.last_tribulation.is_empty() and not bool(GameQuery.tribulation_preview(s).get("active", false))):
+				io.out_lines(TerminalViews.tribulation_result_for(s, io))
+			else:
+				io.out_lines(TerminalViews.tribulation_preview_for(s, io))
+		_:
+			io.out("Usage: tribulation [preview|result|reward <n>]")
+
+
+func _codex_command(args: Array) -> void:
+	var view: Dictionary
+	if session != null:
+		view = GameQuery.codex_view(session)
+	else:
+		var tmp := Codex.new(gd, codex_store)
+		var books_out: Array = []
+		var by_book: Dictionary = {}
+		for bm in tmp.books_meta():
+			var bid: String = str(bm.get("id", ""))
+			var counts: Dictionary = codex_store.count_book(bid)
+			var bdict := {
+				"id": bid,
+				"name": str(bm.get("name", bid)),
+				"effect": str(bm.get("effect", "")),
+				"seen": int(counts.get("seen", 0)),
+				"known": int(counts.get("known", 0)),
+				"total": int(counts.get("total", 0)),
+				"entries": tmp.visible_entries(bid),
+			}
+			books_out.append(bdict)
+			by_book[bid] = bdict
+		view = {
+			"books": books_out,
+			"by_book": by_book,
+			"total_entries": codex_store.total_entries(),
+			"lives_count": codex_store.lives.size(),
+			"notice": codex_store.load_notice,
+		}
+	var notice: String = str(view.get("notice", "")).strip_edges()
+	if notice != "":
+		io.out(io.paint("Notice: " + notice, "33"))
+	var book_arg: String = _arg(args, 0, "").to_lower()
+	if book_arg == "":
+		io.out(TerminalViews.rule(io, "CODEX (THIÊN THƯ) · %d entries · %d lives" % [int(view.get("total_entries", 0)), int(view.get("lives_count", 0))], "━"))
+		for b in Array(view.get("books", [])):
+			if not (b is Dictionary):
+				continue
+			var bid: String = str(b.get("id", ""))
+			var counts_txt: String = ("%d lives" % int(b.get("total", 0))) if bid == "lives" else ("known %d / seen %d / total %d" % [int(b.get("known", 0)), int(b.get("seen", 0)), int(b.get("total", 0))])
+			io.out("  %-12s %-34s %s" % [bid, str(b.get("name", bid)), counts_txt])
+			if str(b.get("effect", "")) != "":
+				io.out(io.paint("               " + str(b.get("effect", "")), "2"))
+		io.out(io.paint("Type 'codex <book>' to inspect a book.", "2"))
+		return
+	var by_b: Dictionary = Dictionary(view.get("by_book", {}))
+	if not by_b.has(book_arg):
+		io.out("Unknown Codex book '%s'. Try: %s" % [book_arg, ", ".join(by_b.keys())])
+		return
+	var bd: Dictionary = Dictionary(by_b[book_arg])
+	io.out(TerminalViews.rule(io, "%s (%s)" % [str(bd.get("name", book_arg)), book_arg], "━"))
+	if str(bd.get("effect", "")) != "":
+		io.out("  Effect: %s" % str(bd.get("effect", "")))
+	var entries: Array = Array(bd.get("entries", []))
+	if entries.is_empty():
+		io.out(io.paint("  (no entries recorded yet)", "2"))
+		return
+	if book_arg == "lives":
+		for i in entries.size():
+			var l: Dictionary = Dictionary(entries[i])
+			io.out("  #%d %s [%s] · %s · age %d · year %d · cause: %s" % [
+				i + 1, str(l.get("name", "?")), str(l.get("mode", "one_life")),
+				str(l.get("realm_label", "")), int(roundf(float(l.get("age", 0.0)))),
+				int(l.get("year", 0)), str(l.get("cause", ""))
+			])
+			if str(l.get("epitaph", "")) != "":
+				io.out("      \"%s\"" % str(l.get("epitaph", "")))
+		return
+	for raw in entries:
+		var e: Dictionary = Dictionary(raw)
+		var lv: String = str(e.get("level", CodexStore.LEVEL_SEEN))
+		var tag: String = io.paint("[KNOWN]", "1;32") if lv == CodexStore.LEVEL_KNOWN else io.paint("[SEEN] ", "2")
+		io.out("  %s %s — %s" % [tag, str(e.get("title", e.get("id", "?"))), str(e.get("desc", ""))])
+		if book_arg == Codex.BOOK_SECRETS and lv == CodexStore.LEVEL_KNOWN:
+			var regs: PackedStringArray = []
+			for r in Array(e.get("candidate_regions", [])):
+				if r is Dictionary:
+					regs.append(str(r.get("region_name", "Region %d" % int(r.get("region_id", 0)))))
+			if not regs.is_empty():
+				io.out("          Candidate regions (rumours): %s" % ", ".join(regs))
+
+
+func _succession_command() -> void:
+	var sv: Dictionary = GameQuery.succession_view(session)
+	if sv.is_empty():
+		io.out("No succession data available.")
+		return
+	var st: String = str(sv.get("status", ""))
+	var k_tot: int = int(sv.get("karma", 0))
+	var k_earn: int = int(sv.get("karma_earned", 0))
+	var k_carry: int = maxi(0, k_tot - k_earn)
+	io.out(TerminalViews.rule(io, "SUCCESSION (LUÂN HỒI KẾ THỪA) · status: %s" % st, "━"))
+	if str(sv.get("epitaph", "")) != "":
+		io.out("  Epitaph: %s" % str(sv.get("epitaph", "")))
+	io.out("  Karma: %d (earned %d + carried %d) · birth mode: %s" % [k_tot, k_earn, k_carry, str(sv.get("birth_mode", "thien_dinh"))])
+	var heirs: Array = Array(sv.get("heirs", []))
+	io.out(io.paint("  HEIRS (%d):" % heirs.size(), "1"))
+	if heirs.is_empty():
+		io.out("    (none eligible)")
+	for h in heirs:
+		var hd: Dictionary = Dictionary(h)
+		var aff: String = io.paint("OK", "32") if bool(hd.get("affordable", false)) else io.paint("NEED %d KARMA" % int(hd.get("cost", 0)), "31")
+		io.out("    %-6s %-18s (%s) · %s · age %d · cost %d [%s]" % [
+			str(hd.get("id", "")), str(hd.get("name", "")), str(hd.get("relation", "heir")),
+			str(hd.get("realm_label", "")), int(roundf(float(hd.get("age", 16.0)))),
+			int(hd.get("cost", 0)), aff
+		])
+	var lin: Dictionary = Dictionary(sv.get("lineage", {}))
+	io.out(io.paint("  REBIRTH (+%d years / %d seasons):" % [int(sv.get("rebirth_years", 16)), int(sv.get("rebirth_seasons", 64))], "1"))
+	io.out("    Free origins: tan_tu, tong_mon, gia_toc (0 karma)")
+	io.out("    Lineage (%d karma): sect=%s (%s) · clan=%s" % [
+		int(lin.get("cost", 3)),
+		str(lin.get("sect_name", "none")),
+		"active" if bool(lin.get("sect_alive", false)) else "fallen/none",
+		"available" if bool(lin.get("clan_available", false)) else "unavailable",
+	])
+	io.out(io.paint("  Commands: heir <id> [perk_extra] | rebirth [origin] [sect|clan] [perk_extra] | end_playthrough", "2"))
+
+
+func _heir_command(args: Array) -> void:
+	var hid: String = _arg(args, 0, "")
+	if hid == "":
+		io.out("Usage: heir <heir_id> [perk_extra] [perk_id]")
+		return
+	var opts: Dictionary = {}
+	if args.size() > 1 and str(args[1]).is_valid_int():
+		opts["perk_extra"] = int(args[1])
+	if args.size() > 2:
+		opts["perk"] = str(args[2])
+	_r(session.succeed_heir(hid, opts))
+
+
+func _rebirth_command(args: Array) -> void:
+	var opts: Dictionary = {"origin": "tan_tu", "birth_mode": "thien_dinh", "mode": "roll", "lineage_kind": "", "perk_extra": 0}
+	for a in args:
+		var tok: String = str(a)
+		var low: String = tok.to_lower()
+		if low in ["tan_tu", "tong_mon", "gia_toc"]:
+			opts["origin"] = low
+		elif low in ["sect", "clan"]:
+			opts["lineage_kind"] = low
+		elif low == "tu_dinh" or low == "custom":
+			opts["birth_mode"] = "tu_dinh"
+			opts["mode"] = "custom"
+		elif low == "thien_dinh" or low == "roll":
+			opts["birth_mode"] = "thien_dinh"
+			opts["mode"] = "roll"
+		elif low.begins_with("name="):
+			opts["name"] = tok.substr(5)
+		elif low.begins_with("gender="):
+			opts["gender"] = low.substr(7)
+		elif low.is_valid_int():
+			opts["perk_extra"] = int(low)
+	_r(session.succeed_rebirth(opts))

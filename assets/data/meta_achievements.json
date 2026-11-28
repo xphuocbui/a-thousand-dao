@@ -15,6 +15,10 @@
     {"id": "ngu_thu", "name": "Ngự thú sư", "desc": "Keep a linh thú.", "condition": {"type": "beasts", "count": 1}},
     {"id": "di_linh_can", "name": "Dị linh căn", "desc": "Own three biến dị at once.", "condition": {"type": "bien_di", "count": 3}},
     {"id": "truong_tho", "name": "Trường thọ", "desc": "Live to 300.", "condition": {"type": "age", "age": 300}},
-    {"id": "thay_can", "name": "Thay căn đổi cốt", "desc": "Change your linh căn with a treasure.", "condition": {"type": "event", "event": "player_linh_can_changed"}}
+    {"id": "thay_can", "name": "Thay căn đổi cốt", "desc": "Change your linh căn with a treasure.", "condition": {"type": "event", "event": "player_linh_can_changed"}},
+    {"id": "one_life_truc_co", "name": "Nhất Sinh Trúc Cơ", "desc": "Reach Trúc Cơ in an unbroken One Life.", "one_life": true, "condition": {"type": "realm", "realm": "truc_co"}},
+    {"id": "one_life_ket_dan", "name": "Nhất Sinh Kết Đan", "desc": "Reach Kết Đan in an unbroken One Life.", "one_life": true, "condition": {"type": "realm", "realm": "ket_dan"}},
+    {"id": "one_life_nguyen_anh", "name": "Nhất Sinh Nguyên Anh", "desc": "Reach Nguyên Anh in an unbroken One Life.", "one_life": true, "condition": {"type": "realm", "realm": "nguyen_anh"}},
+    {"id": "one_life_hoa_than", "name": "Nhất Sinh Hóa Thần", "desc": "Reach Hóa Thần in an unbroken One Life.", "one_life": true, "condition": {"type": "realm", "realm": "hoa_than"}}
   ]
 }

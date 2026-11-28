@@ -100,11 +100,76 @@ var _start_home: String = ""
 ## Lines from the yearly tick (upkeep, stipend) shown with the next action's result.
 var _notices: Array = []
 
+# --- Heavenly Tribulation (#22) ---------------------------------------------------
+## Pending survival reward choices until claimed ({step_id, choices, buff}); empty otherwise.
+var pending_tribulation_reward: Dictionary = {}
+## Transient last tribulation result (wave summaries & Combat logs for UI/Terminal replay; not saved).
+var last_tribulation: Dictionary = {}
+## Optional injected fight callable for deterministic tribulation integration tests (empty = real CombatService).
+var tribulation_fight_fn: Callable = Callable()
 
-func _init(game_data: GameData, llm_service: LlmService, dao_do_tree: DaoDoTree = null) -> void:
+# --- Codex & Karmic Carryover (#12) -----------------------------------------------
+## Profile-level Codex store (defaults to pure in-memory "" unless configured; no cyclic back-reference).
+var codex_store: CodexStore
+## Pure domain Codex rules over GameData + codex_store (no cyclic back-reference).
+var codex: Codex
+var _playthrough_mode: String = KarmicRules.MODE_ONE_LIFE
+## Playthrough mode ("one_life" | "continue"), fixed at new_game and immutable thereafter (AC-CK-01).
+var playthrough_mode: String:
+	get:
+		return str(get_meta("playthrough_mode")) if has_meta("playthrough_mode") else _playthrough_mode
+	set(v):
+		_playthrough_mode = v
+		if has_meta("playthrough_mode"):
+			remove_meta("playthrough_mode")
+## Stable identifier for this playthrough (used for AC-CK-21 death_reloaded detection).
+var playthrough_id: String = ""
+## Playthrough lifecycle status ("active" | "succession" | "ended").
+var playthrough_status: String = KarmicRules.STATUS_ACTIVE
+## Unspent karma accumulated across deaths in this Continue playthrough (always 0 at start, AC-CK-10).
+var karma: int = 0
+## Count of Codex entries raised to "known" for the first time during the current life (Formula A).
+var k_new_this_life: int = 0
+## Realm index at which the current life began (0 for new/reborn, heir's realm for heir lives).
+var start_realm_this_life: int = 0
+## True when the current life began via heir succession (Rule 6: realm karma only if advancing past start_realm).
+var is_heir_life: bool = false
+var _death_reloaded: bool = false
+## True when loading a One Life pre-death save after a prior death of the same playthrough_id (Rule 11, AC-CK-21).
+var death_reloaded: bool:
+	get:
+		return bool(get_meta("death_reloaded")) if has_meta("death_reloaded") else _death_reloaded
+	set(v):
+		_death_reloaded = v
+		if has_meta("death_reloaded"):
+			remove_meta("death_reloaded")
+## Living partners from the dead life carried into a reborn life for past-life recognition events (AC-CK-22).
+var past_ties: Array = []
+## Number of past-life recognition events fired in this reborn life (capped at recognition_max = 2, AC-CK-22).
+var recognition_used: int = 0
+## Pre-death snapshot fields for Continue-mode succession (persisted if saved during succession).
+var _last_death_player_id: String = ""
+var _last_death_killer: String = ""
+var _last_death_disciples: Array = []
+var _last_death_sect_id: String = ""
+var _last_death_region_id: String = ""
+var _last_death_surname: String = ""
+var _last_death_karma_earned: int = 0
+
+
+func _init(game_data: GameData, llm_service: LlmService, dao_do_tree: DaoDoTree = null, codex_inst: Variant = null) -> void:
 	gd = game_data
 	llm = llm_service
 	tree = dao_do_tree if dao_do_tree != null else DaoDoTree.load_map(gd)
+	if codex_inst is Codex:
+		codex = codex_inst as Codex
+		codex_store = codex.store
+	elif codex_inst is CodexStore:
+		codex_store = codex_inst as CodexStore
+		codex = Codex.new(gd, codex_store)
+	else:
+		codex_store = CodexStore.new("")
+		codex = Codex.new(gd, codex_store)
 
 
 # --- Life cycle -------------------------------------------------------------------
@@ -141,9 +206,28 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	co_duyen_used = {}
 	pending_event = {}
 	epitaph_text = ""
+	pending_tribulation_reward = {}
+	last_tribulation = {}
 	var name: String = str(spec.get("name", "Vô Danh"))
 	var gender: String = str(spec.get("gender", "male"))
 	var origin: String = str(spec.get("origin", "tan_tu"))
+	playthrough_mode = KarmicRules.normalize_mode(str(spec.get("playthrough_mode", KarmicRules.MODE_ONE_LIFE)))
+	playthrough_id = str(spec.get("playthrough_id", "pt_%d_%d" % [seed_v, RngUtils.stable_hash("%s:%d:%s:%s" % [name, seed_v, playthrough_mode, origin])]))
+	playthrough_status = KarmicRules.STATUS_ACTIVE
+	karma = KarmicRules.starting_karma()
+	k_new_this_life = 0
+	start_realm_this_life = 0
+	is_heir_life = false
+	death_reloaded = false
+	past_ties = []
+	recognition_used = 0
+	_last_death_player_id = ""
+	_last_death_killer = ""
+	_last_death_disciples = []
+	_last_death_sect_id = ""
+	_last_death_region_id = ""
+	_last_death_surname = ""
+	_last_death_karma_earned = 0
 	_start_home = str(spec.get("home", ""))
 	if spec.has("character"):
 		# A character already created and approved in a frontend (e.g. the rerollable
@@ -168,6 +252,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 				tal["owner_id"] = player.id
 				db.add("items", tal)
 	sync_player()
+	_codex_note_player_variants()
 	var rated: Dictionary = {}
 	if ratings_on():   # Power Rankings rule 16, while the game loads
 		rated = ratings.worldgen(seed_value, player, sheet(), player.location_id)
@@ -190,12 +275,19 @@ func _grant_edge(perk_id: String) -> void:
 	ProgressionEdges.apply_birth(player, gd, pid)
 
 
-## Event context with the session facts the rules need (edge, cơ duyên left this realm).
+## Event context with the session facts the rules need (edge, cơ duyên left this realm, past-life recognition).
 ## Internal: a frontend never calls it (ADR-0006 decision 2).
 func event_context() -> Dictionary:
 	var per: int = ProgressionEdges.co_duyen_limit(gd, player.realm_index)
 	var left: int = per - int(co_duyen_used.get(player.realm_index, 0)) if edge else 0
-	return EventContext.build(player, gd, db, sheet(), year, season, llm.language, {"edge": edge, "co_duyen_left": left})
+	var rec_max: int = KarmicRules.recognition_max(gd)
+	var rec_left: int = maxi(0, rec_max - recognition_used)
+	return EventContext.build(player, gd, db, sheet(), year, season, llm.language, {
+		"edge": edge,
+		"co_duyen_left": left,
+		"past_ties": past_ties,
+		"recognition_left": rec_left,
+	})
 
 
 ## Rebuilds services around the current database (after new_game or load).
@@ -312,6 +404,8 @@ func sync_player() -> void:
 		rec["power"] = builds.power_of(player)
 	if old.has("death_year"):
 		rec["death_year"] = old.death_year
+	if old.has("cast_key"):
+		rec["cast_key"] = old.cast_key
 	db.put("people", rec)
 
 
@@ -530,6 +624,8 @@ func start_event(template_id: String) -> Array:
 	if _is_co_duyen(pending_event):
 		co_duyen_used[player.realm_index] = int(co_duyen_used.get(player.realm_index, 0)) + 1
 		_log("player_co_duyen", {"a": player.id, "place": player.location_id})
+	if _is_past_life_event(pending_event):
+		recognition_used += 1
 	return ["", "*** EVENT: %s ***  (type 'event' to read, 'choose <n>' to act)" % pending_event.title]
 
 
@@ -701,6 +797,9 @@ func explore() -> Dictionary:
 		var heard: String = Discovery.rumour(gd, db, knowledge, rng, str(place.get("region_id", "")))
 		if heard != "":
 			lines.append(heard)
+			_codex_note_knowledge_secrets()
+	if str(place.get("slot", "")) != "":
+		_codex_note(Codex.BOOK_SECRETS, str(place.slot), CodexStore.LEVEL_KNOWN)
 	var r: Dictionary = _pass_season("")
 	lines.append_array(_news_lines(r.news))
 	if not r.died:
@@ -800,6 +899,9 @@ func travel(dest_id: String, how: String = "ground") -> Dictionary:
 		if not seen.is_empty():
 			lines.append("You see %d place(s) you did not know along the way." % seen.size())
 		lines.append_array(Discovery.check_path(gd, db, knowledge, rng, player, ds, path_tiles, how == "flight", year, season))
+		_codex_note_knowledge_secrets()
+	if str(dest.get("slot", "")) != "":
+		_codex_note(Codex.BOOK_SECRETS, str(dest.slot), CodexStore.LEVEL_KNOWN)
 	if flown > 0.0:
 		var v_eff: float = TravelGrid.of(gd).flight_speed(str(gd.realm(player.realm_index).id)) * f
 		var last_tiles: float = minf(flown, v_eff * float(split.last_share))
@@ -870,6 +972,7 @@ func _gather_herbs(place: Dictionary) -> Array:
 		item["owner_id"] = player.id
 		item["origin_market"] = WorldEconomy.market_of_region(db, db.get_record("regions", str(place.get("region_id", ""))))   # Formula G: gathered here
 		db.add("items", item)
+		_codex_note(Codex.BOOK_HERBS, str(pick.herb), CodexStore.LEVEL_KNOWN)
 		out.append("  You gather %s (%.0f năm) from the wild herb ground here." % [herb.get("name", pick.herb), age])
 	return out
 
@@ -888,6 +991,7 @@ func search() -> Dictionary:
 	var ds: float = CharacterRules.than_thuc(player, gd, sheet()).total
 	var f: float = Travel.speed_factor(gd, sheet().total("travel_speed_pct"))
 	var res: Dictionary = Discovery.search(gd, db, knowledge, rng, player, ds, f, region_id, year, season)
+	_codex_note_knowledge_secrets()
 	var lines: Array = ["You spend a season searching the wilds of %s." % db.get_record("regions", region_id).get("name", "")]
 	lines.append_array(res.lines)
 	var r: Dictionary = _pass_season("")
@@ -1338,6 +1442,10 @@ func craft(recipe_id: String) -> Dictionary:
 	var r: Dictionary = alchemy.craft(player, sheet(), rng, recipe_id)
 	if not r.ok:
 		return {"ok": false, "lines": [r.message]}
+	if bool(r.get("success", false)):
+		_codex_note(Codex.BOOK_RECIPES, recipe_id, CodexStore.LEVEL_KNOWN)
+	else:
+		_codex_note(Codex.BOOK_RECIPES, recipe_id, CodexStore.LEVEL_SEEN)
 	var lines: Array = [r.message]
 	if player.has_capability(10) and not player.cap_used.has("10_brew"):
 		player.cap_used["10_brew"] = true
@@ -1362,6 +1470,10 @@ func refine(base_id: String, tier: int = -1) -> Dictionary:
 		return {"ok": false, "lines": [r.message]}
 	if r.success:
 		_log("player_refined", {"a": player.id, "item": r.item_id})
+		_codex_note(Codex.BOOK_RECIPES, base_id, CodexStore.LEVEL_KNOWN)
+		_codex_note_item(db.get_record("items", str(r.item_id)))
+	else:
+		_codex_note(Codex.BOOK_RECIPES, base_id, CodexStore.LEVEL_SEEN)
 	var lines: Array = [r.message]
 	var p: Dictionary = _pass_season("")
 	lines.append_array(_news_lines(p.news))
@@ -1379,6 +1491,10 @@ func draw_talisman(talisman_id: String) -> Dictionary:
 	var r: Dictionary = talismans.draw(player, sheet(), rng, talisman_id)
 	if not r.ok:
 		return {"ok": false, "lines": [r.message]}
+	if bool(r.get("success", false)):
+		_codex_note(Codex.BOOK_RECIPES, talisman_id, CodexStore.LEVEL_KNOWN)
+	else:
+		_codex_note(Codex.BOOK_RECIPES, talisman_id, CodexStore.LEVEL_SEEN)
 	var lines: Array = [r.message]
 	var p: Dictionary = _pass_season("")
 	lines.append_array(_news_lines(p.news))
@@ -1451,8 +1567,11 @@ func harvest(plot: int) -> Dictionary:
 		plots = plots.filter(func(p): return not young.has(p))
 	var any_ok: bool = false
 	for p in plots:
+		var tpl_h: String = str(planted.get(p, {}).get("template", ""))
 		var r: Dictionary = field.harvest(player, int(p))
 		lines.append(r.message)
+		if r.ok and tpl_h != "":
+			_codex_note(Codex.BOOK_HERBS, tpl_h, CodexStore.LEVEL_KNOWN)
 		any_ok = any_ok or r.ok
 	return {"ok": any_ok, "lines": lines}
 
@@ -1472,6 +1591,7 @@ func use_item(item_id: String, element: String = "") -> Dictionary:
 			return {"ok": false, "needs_element": true, "options": t.options, "lines": TreasureEffects.preview_lines(player, gd, t.options, item_id)}
 		if t.ok:
 			_log_root_changes("player_linh_can_changed", t.changes)
+			_codex_note_player_variants()
 		_sync_and_rate()
 		return {"ok": t.ok, "lines": [t.message]}
 	var r: Dictionary = PillEffects.consume(player, gd, db, sheet(), item_id)
@@ -1507,6 +1627,7 @@ func equip(item_id: String, slot: String = "") -> Dictionary:
 		return {"ok": false, "lines": ["No free slot fits %s." % item.name]}
 	player.equipped.append(item_id)
 	player.equip_slots[item_id] = to
+	_codex_note_item(item)
 	_sync_and_rate()
 	var p: Dictionary = CombatPower.compute(player, gd, db, sheet())
 	var where: String = "an extra slot" if to == EquipSlots.EXTRA else "the %s slot" % to
@@ -1569,6 +1690,7 @@ func learn(item_id: String) -> Dictionary:
 		return {"ok": false, "lines": ["You own no manual %s." % item_id]}
 	if not CongPhap.learn(player, item):
 		return {"ok": false, "lines": ["You already know %s." % item.name]}
+	_codex_note(Codex.BOOK_TECHNIQUES, str(item.get("tech_id", "")), CodexStore.LEVEL_KNOWN)
 	_sync_and_rate()
 	var lines: Array = ["You learn %s at layer 1. Put it in a slot with 'slot'." % item.name]
 	if not CongPhap.usable(player, player.techniques[str(item.tech_id)].def):
@@ -1893,7 +2015,9 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 		if int(pill.qty) <= 0:
 			db.remove("items", pill.id)
 		lines.append("  Consumed 1 %s." % pill.name)
-	var res: Dictionary = CultivationRules.resolve_attempt(player, gd, sh, rng, odds, is_pill)
+	var tk_step: Dictionary = TribulationRules.step_for(gd, player.realm_index)
+	var tk_on: bool = not tk_step.is_empty() and TribulationRules.is_enabled(gd)
+	var res: Dictionary = CultivationRules.resolve_attempt(player, gd, sh, rng, odds, is_pill, tk_on)
 	lines.append("Roll %.0f vs %.0f%%." % [res.roll * 100.0, res.chance * 100.0])
 	if not res.success and not res.died and is_pill and burn_life and player.has_capability(23) and not step_used:
 		var burn: float = CultivationRules.burn_cost(player, gd)
@@ -1906,9 +2030,12 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 			var s_g: float = CultivationRules.guard_success(player, gd, maxi(held - 1, 0), q)
 			var retry: float = CultivationRules.q_retry(gd, q, insight, s_g, CultivationRules.gate_factor(player, gd))
 			lines.append("Thiêu Thọ Phá Cảnh: %.0f years burn; an extra roll at %.1f%%." % [burn, retry * 100.0])
-			res = CultivationRules.resolve_attempt(player, gd, sheet(), rng, retry, true)
+			res = CultivationRules.resolve_attempt(player, gd, sheet(), rng, retry, true, tk_on)
 			lines.append("Roll %.0f vs %.0f%%." % [res.roll * 100.0, res.chance * 100.0])
-	if res.success:
+	if res.success and tk_on:
+		var tk_lines: Array = _run_tribulation(tk_step, next, sh)
+		lines.append_array(tk_lines)
+	elif res.success:
 		_log("player_breakthrough", {"a": player.id, "realm": next.name})
 		lines.append("*** BREAKTHROUGH! You are now %s. +%d Đạo Đồ points. Lifespan rises to %.0f. ***" % [gd.realm_label(player.realm_index, player.stage), res.points, CultivationRules.lifespan(player, gd, sheet()).total])
 		lines.append_array(_on_breakthrough_succeeded())
@@ -1918,14 +2045,233 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 		if res.backlash:
 			lines.append("  Tẩu hỏa nhập ma! Your meridians convulse.")
 		if res.died:
-			_end_life(player.death_cause)
+			_end_life(player.death_cause, "", "backlash")
 			lines.append_array(death_lines())
 	_sync_and_rate()
 	var t: Dictionary = {"died": false, "news": []}
 	if not life_over:
 		t = _pass_season("")
 	lines.append_array(_news_lines(t.news))
+	if t.died:
+		lines.append_array(death_lines())
 	return {"ok": true, "lines": lines}
+
+
+## Read-only. Previews the Heavenly Tribulation step, boss pool with weights, player setup,
+## and escape-art warning without rolling or calling the wave draw (AC-TK-80, AC-TK-81).
+func tribulation_preview() -> Dictionary:
+	if player == null or gd == null:
+		return {"enabled": false, "active": false, "step_id": "", "wave_count": 0, "pool": [], "setup": {}, "has_escape_art": false, "escape_warning": ""}
+	var enabled: bool = TribulationRules.is_enabled(gd)
+	var step: Dictionary = TribulationRules.step_for(gd, player.realm_index)
+	var active: bool = enabled and not step.is_empty()
+	var step_id: String = str(step.get("id", ""))
+	var cfg: Dictionary = TribulationRules.config(gd)
+	var wave_count: int = int(step.get("wave_count", cfg.get("wave_count", 3))) if not step.is_empty() else 0
+	var pool_views: Array = []
+	if step_id != "":
+		for b in TribulationRules.bosses_for_step(gd, step_id):
+			var rew: Dictionary = b.get("reward", {}) if b.get("reward") is Dictionary else {}
+			var raw_arts: Array = Array(b.get("build", {}).get("arts", []))
+			var art_names: Array = []
+			for ra in raw_arts:
+				if ra is Dictionary:
+					art_names.append(str((ra as Dictionary).get("lib", (ra as Dictionary).get("id", ""))))
+			pool_views.append({
+				"id": str(b.get("id", "")),
+				"name": str(b.get("name", "")),
+				"main_kind": str(b.get("main_kind", "")),
+				"weight": float(b.get("weight", 1.0)),
+				"boss_pool_mult": float(b.get("boss_pool_mult", 1.0)),
+				"off_estimate": float(b.get("off_estimate", 0.0)),
+				"ehp_estimate": float(b.get("ehp_estimate", 0.0)),
+				"off_shares": Dictionary(b.get("off_shares", {})).duplicate(true),
+				"resist": Dictionary(b.get("resist", {})).duplicate(true),
+				"arts": art_names,
+				"reward_label": str(rew.get("label", str(rew.get("template", "")))),
+				"provisional": bool(b.get("provisional", false)),
+			})
+	var sh: StatSheet = sheet()
+	var prof: FighterProfile = FighterCompiler.compile(player, gd, db, sh)
+	if prof != null:
+		Diagrams.compile_read(gd, db, player, prof, sh)
+	var has_escape: bool = TribulationRules.has_escape_art(prof)
+	var art_ids: Array = []
+	if prof != null:
+		for a in prof.arts:
+			art_ids.append(str(a.id))
+	var place_tags: Array = _tribulation_place_tags()
+	var stock: Dictionary = _tribulation_talisman_stock()
+	return {
+		"enabled": enabled,
+		"active": active,
+		"step_id": step_id,
+		"from_realm": str(step.get("from_realm", "")),
+		"to_realm": str(step.get("to_realm", "")),
+		"wave_count": wave_count,
+		"pool": pool_views,
+		"setup": {
+			"realm_index": player.realm_index,
+			"realm_label": gd.realm_label(player.realm_index, player.stage),
+			"vitality": player.vitality,
+			"diagram_id": str(player.diagram.get("id", "")),
+			"place_id": player.location_id,
+			"place_tags": place_tags,
+			"arts": art_ids,
+			"talismans": stock,
+		},
+		"has_escape_art": has_escape,
+		"escape_warning": "Escape arts cannot flee a Heavenly Tribulation — fleeing fails the tribulation." if has_escape else "",
+	}
+
+
+## Action. Claims one survival reward choice by 0-based [param choice_idx] after clearing a Heavenly Tribulation
+## (AC-TK-51, AC-TK-52). Returns {ok, lines, item_id, choice}; a frontend calls it through run() (ADR-0006).
+func claim_tribulation_reward(choice_idx: int) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if pending_tribulation_reward.is_empty():
+		return {"ok": false, "lines": ["No tribulation reward is waiting."]}
+	var choices: Array = Array(pending_tribulation_reward.get("choices", []))
+	if choice_idx < 0 or choice_idx >= choices.size():
+		return {"ok": false, "lines": ["Choose a reward between 1 and %d." % choices.size()]}
+	var choice: Dictionary = Dictionary(choices[choice_idx]).duplicate(true)
+	var item: Dictionary = _create_tribulation_reward_item(choice)
+	if item.is_empty():
+		return {"ok": false, "lines": ["Could not materialize reward '%s'." % str(choice.get("label", choice.get("template", "?")))]}
+	item["owner_id"] = player.id
+	var iid: String = db.add("items", item)
+	_codex_note_item(item)
+	pending_tribulation_reward = {}
+	_sync_and_rate()
+	var lbl: String = str(choice.get("label", items.describe(item)))
+	return {"ok": true, "lines": ["Claimed tribulation reward: %s [%s]." % [lbl, iid]], "item_id": iid, "choice": choice}
+
+
+## Action. Alias for [method claim_tribulation_reward]. Returns {ok, lines, item_id, choice}.
+func choose_tribulation_reward(index: int) -> Dictionary:
+	return claim_tribulation_reward(index)
+
+
+func _run_tribulation(tk_step: Dictionary, next_realm: Dictionary, sh: StatSheet) -> Array:
+	var lines: Array = []
+	var prof: FighterProfile = FighterCompiler.compile(player, gd, db, sh)
+	var fuel_due: Array = []
+	if prof != null:
+		Diagrams.compile_for(gd, db, player, prof, sh, FightRequest.Situation.FORESEEN, -1, fuel_due)
+	var stock: Dictionary = _tribulation_talisman_stock()
+	var place_tags: Array = _tribulation_place_tags()
+	var stock_norm: Dictionary = {}
+	for sk in stock.keys():
+		stock_norm[str(sk)] = int(stock[sk])
+	var diag_place: Array = []
+	for dp in Array(player.diagram.get("placement", [])):
+		diag_place.append(str(dp))
+	var prep := {
+		"ward": str(player.diagram.get("id", "")),
+		"diagram_level": int(player.diagram.get("level", 0)),
+		"diagram_placement": diag_place,
+		"diagram_lay": bool(player.diagram.get("lay", true)),
+		"place_id": str(player.location_id),
+		"consumable_stock": stock_norm,
+	}
+	var params := {
+		"world_seed": seed_value,
+		"char_id": player.id,
+		"step": tk_step,
+		"step_id": str(tk_step.get("id", "")),
+		"player_profile": prof,
+		"prep": prep,
+		"place_tags": place_tags,
+		"start_vitality": player.vitality,
+		"abs_season": season_index(),
+		"log_enabled": true,
+	}
+	var tk: Dictionary = TribulationRunner.run(params, gd, tribulation_fight_fn)
+	last_tribulation = tk
+	if not bool(tk.get("ok", false)):
+		lines.append("Heavenly Tribulation error: %s" % str(tk.get("error", "unknown")))
+		return lines
+	for due in fuel_due:
+		Diagrams.pay_fuel(db, due[0], int(due[1]))
+	# Rule 9 / AC-TK-53: decrement spent consumable stock once, whether the player survives or dies.
+	_spend_tribulation_stock(Dictionary(tk.get("spent_stock", {})))
+	for w in Array(tk.get("waves", [])):
+		lines.append(str(w.get("header", "")))
+		lines.append("  -> %s (%s, %.1f s | HP %.0f/%.0f, Qi %.0f/%.0f)" % [
+			"CLEARED" if bool(w.get("cleared", false)) else "FAILED",
+			str(w.get("ending", "")), float(w.get("seconds", 0.0)),
+			float(w.get("health_end", 0.0)), float(w.get("health_max", 0.0)),
+			float(w.get("qi_end", 0.0)), float(w.get("qi_max", 0.0)),
+		])
+	if bool(tk.get("survived", false)):
+		var pts: int = CultivationRules.enter_next_realm(player, gd)
+		var tb: Dictionary = Dictionary(tk.get("tempered_buff", {})).duplicate(true)
+		if not tb.is_empty():
+			tb["step_id"] = str(tk.get("step_id", ""))
+			var replaced: bool = false
+			for bi in player.tribulation_buffs.size():
+				if str(Dictionary(player.tribulation_buffs[bi]).get("step_id", "")) == str(tb.step_id):
+					player.tribulation_buffs[bi] = tb
+					replaced = true
+					break
+			if not replaced:
+				player.tribulation_buffs.append(tb)
+		var boss_ids: Array = Array(tk.get("waves", [])).map(func(w): return str(w.get("boss_id", "")))
+		var surv_text: String = str(gd.world_gen().history.texts.get("player_tribulation_survived", "{a} vượt qua Thiên Kiếp ({waves} đợt), tấn cấp {realm}."))
+		surv_text = surv_text.replace("{a}", player.name).replace("{waves}", str(int(tk.waves_cleared))).replace("{realm}", str(next_realm.name))
+		db.log_event(year, season, "player_tribulation_survived", surv_text, [player.id], [player.location_id], [], {
+			"step_id": str(tk.step_id),
+			"bosses": boss_ids,
+			"waves_cleared": int(tk.waves_cleared),
+			"cause": "tribulation",
+		})
+		_log("player_breakthrough", {"a": player.id, "realm": next_realm.name})
+		var choices: Array = Array(tk.get("reward_choices", [])).duplicate(true)
+		if not choices.is_empty():
+			pending_tribulation_reward = {
+				"step_id": str(tk.step_id),
+				"choices": choices,
+				"buff": tb.duplicate(true),
+			}
+		lines.append("*** HEAVENLY TRIBULATION CLEARED (%d/%d)! You are now %s. +%d Đạo Đồ points. Lifespan rises to %.0f. ***" % [
+			int(tk.waves_cleared), int(tk.wave_count), gd.realm_label(player.realm_index, player.stage),
+			pts, CultivationRules.lifespan(player, gd, sheet()).total])
+		lines.append_array(_on_breakthrough_succeeded())
+		_events.append({
+			"kind": "tribulation",
+			"survived": true,
+			"step_id": str(tk.step_id),
+			"waves_cleared": int(tk.waves_cleared),
+			"needs_reward": not choices.is_empty(),
+		})
+	else:
+		var fb: Dictionary = Dictionary(tk.get("fatal_boss", {}))
+		var fw: int = int(tk.get("fatal_wave", int(tk.get("waves_cleared", 0)) + 1))
+		var fb_name: String = str(fb.get("name", str(fb.get("id", "?"))))
+		var fail_text: String = str(gd.world_gen().history.texts.get("player_tribulation_failed", "{a} vẫn lạc dưới Thiên Kiếp tại đợt {wave} trước {boss}."))
+		fail_text = fail_text.replace("{a}", player.name).replace("{wave}", str(fw)).replace("{boss}", fb_name)
+		db.log_event(year, season, "player_tribulation_failed", fail_text, [player.id], [player.location_id], [], {
+			"step_id": str(tk.step_id),
+			"cause": "tribulation",
+			"waves_cleared": int(tk.waves_cleared),
+			"fatal_wave": fw,
+			"fatal_boss": str(fb.get("id", "")),
+			"fail_reason": str(tk.get("fail_reason", "")),
+		})
+		_end_life("Thiên Kiếp (%s, đợt %d)" % [fb_name, fw], "", "tribulation")
+		_events.append({
+			"kind": "tribulation",
+			"survived": false,
+			"step_id": str(tk.step_id),
+			"waves_cleared": int(tk.waves_cleared),
+			"fatal_wave": fw,
+			"fatal_boss": fb_name,
+		})
+		lines.append("Heavenly Tribulation failed on wave %d against %s." % [fw, fb_name])
+		lines.append_array(death_lines())
+	return lines
 
 
 ## The player-only breakthrough_succeeded event: Mutation Awakening when capability #24 is held
@@ -1940,6 +2286,7 @@ func _on_breakthrough_succeeded() -> Array:
 	for id in formed:
 		changes.append({"what": "variant", "id": id, "from": 0, "to": player.linh_can.purity(id)})
 	_log_root_changes("player_variant_awakened", changes)
+	_codex_note_player_variants()
 	return [TreasureEffects.variants_text(gd, player.linh_can, formed).strip_edges()] if not formed.is_empty() else []
 
 
@@ -2021,6 +2368,8 @@ func buy(item_id: String) -> Dictionary:
 	if not g.ok:
 		return g
 	var r: Dictionary = market.buy(player, sheet(), player.location_id, item_id)
+	if bool(r.get("ok", false)):
+		_codex_note_item(db.get_record("items", item_id))
 	sync_player()
 	return {"ok": r.ok, "lines": [r.message]}
 
@@ -2054,6 +2403,13 @@ func meet(npc: Dictionary) -> void:
 	if prec.is_empty():
 		prec = player.to_dict()
 	NpcTraits.first_meeting(gd, db, npc, prec, st, int(gd.session().talk.hostile_threshold))
+	var ck: String = str(npc.get("cast_key", ""))
+	if ck != "":
+		_codex_note(Codex.BOOK_CAST, ck, CodexStore.LEVEL_SEEN)
+	var n_lc: Variant = npc.get("linh_can", {})
+	if n_lc is Dictionary:
+		for vid in Dictionary((n_lc as Dictionary).get("variants", {})).keys():
+			_codex_note(Codex.BOOK_VARIANTS, str(vid), CodexStore.LEVEL_SEEN)
 
 
 ## Executes an NPC Interaction & Dialogue (#30) verb (17 base verbs + 19 trait [code]verb:[/code] hooks)
@@ -2117,6 +2473,7 @@ func choose(index: int) -> Dictionary:
 		return {"ok": false, "lines": ["Cannot choose that: %s." % check.reason]}
 	var event: Dictionary = pending_event
 	var sh: StatSheet = sheet()
+	var beasts_before: int = player.beasts.size()
 	var result: Dictionary = resolver.resolve(player, sh, rng, event, index)
 	var story: Dictionary = narrator.narrate(event, index, result)
 	var people: Array = [player.id]
@@ -2124,8 +2481,20 @@ func choose(index: int) -> Dictionary:
 		people.append(event.npc_id)
 	db.log_event(year, season, "story", "%s — %s: %s" % [event.title, event.choices[index].label, "thành công" if result.success else "thất bại"],
 		people, [event.place_id], result.items, {"narration": story.text, "effects": result.lines, "source": pending_meta.get("source", "")})
-	if str(event.get("source", "")) == "template:loan_collection" and index == 0 and bool(result.success):
+	if player.beasts.size() > beasts_before:
+		for bi in range(beasts_before, player.beasts.size()):
+			var brec: Dictionary = db.get_record("people", str(player.beasts[bi]))
+			var bkey: String = str(brec.get("cast_key", brec.get("species", "")))
+			if bkey != "":
+				_codex_note(Codex.BOOK_BEASTS, bkey, CodexStore.LEVEL_KNOWN)
+	for gained_iid in Array(result.get("items", [])):
+		_codex_note_item(db.get_record("items", str(gained_iid)))
+	var ev_src: String = str(event.get("source", ""))
+	if ev_src == "template:loan_collection" and index == 0 and bool(result.success):
 		InteractionService.mark_loans_repaid(db, player.id, str(event.npc_id))
+	elif ev_src.begins_with("template:tien_kiep_") and index == 0 and bool(result.success) and str(event.get("npc_id", "")) != "" and Ties.enabled(gd):
+		var sk_tie: String = "rival" if ev_src == "template:tien_kiep_cuu_thu" else "friend"
+		TieTick.enqueue(db, {"kind": "soft", "holder": str(event.npc_id), "other": player.id, "sk": sk_tie, "delta": 25, "cause": {"kind": "past_life"}})
 	var mercy_id: String = str(result.get("mercy_npc_id", ""))
 	if mercy_id != "" and not bool(result.died):
 		pending_event = InteractionService.build_mercy_event(db, player, mercy_id, player.location_id, year)
@@ -2141,34 +2510,349 @@ func choose(index: int) -> Dictionary:
 	if story.error != "":
 		lines.append("  (%s)" % story.error)
 	if result.died:
-		_end_life(player.death_cause)
+		var killer_id: String = str(event.get("npc_id", "")) if str(event.choices[index].check.type) == "combat" else ""
+		var ckey: String = "duel" if killer_id != "" else "event"
+		_end_life(player.death_cause, killer_id, ckey)
 		lines.append_array(death_lines())
 	_sync_and_rate()
 	return {"ok": true, "lines": lines}
 
 
-# --- Death ----------------------------------------------------------------------------
+# --- Death & Succession (Codex & Karmic Carryover #12) -------------------------------
 
-func _end_life(cause: String) -> void:
+func _end_life(cause: String, killer_id: String = "", cause_key: String = "") -> void:
 	if life_over:
 		return
 	life_over = true
 	_finish_ratings(false)
+	# Snapshot pre-death relationships, disciples, sect, region, and surname BEFORE S8b removes the dead player's ties.
+	_last_death_player_id = player.id
+	_last_death_killer = killer_id
+	_last_death_sect_id = player.sect_id
+	_last_death_region_id = str(db.get_record("places", player.location_id).get("region_id", ""))
+	_last_death_surname = Families.surname_of(gd, player.name)
+	_snapshot_pre_death_ties()
+
+	# Sync live player state before world death settlement.
+	sync_player()
+	var p_rec: Dictionary = db.get_record("people", player.id)
+
+	# Settle world death (Rule 4, AC-CK-04: estate, sect leader succession, bereavement, S8b) BEFORE offering succession.
+	var estate_heir: String = _resolve_player_estate_heir(p_rec, killer_id)
+	_settle_player_purse(estate_heir)
+
 	player.alive = false
 	player.death_cause = cause
+	p_rec["alive"] = false
+	p_rec["death_cause"] = cause
+	p_rec["death_year"] = year
 	var home_d: Dictionary = db.get_record("places", player.home_id)   # Cave Abode rule 10: the dead owner's abode is a Ruin
 	if str(home_d.get("qi", {}).get("abode", {}).get("owner", "")) == player.id:
 		CaveAbode.ruin(home_d)
-	_log("player_death", {"a": player.id, "cause": cause})
+	if ticker != null:
+		ticker.bereave_close_ties(p_rec, year, season)
+	var death_eid: String = _log("player_death", {"a": player.id, "cause": cause})
 	InteractionService.on_player_death(db, player.id, year, season)
+	db.items_on_death(player.id, player.location_id, killer_id, estate_heir)
+	if ticker != null:
+		var succ_leader: String = ticker.settle_sect_leader(p_rec)
+		if succ_leader != "":
+			_log("tick_succession", {"a": succ_leader, "b": player.id})
+	TieTick.enqueue(db, {
+		"kind": "death",
+		"dead": player.id,
+		"killer": killer_id,
+		"known": killer_id != "",
+		"cause": cause_key if cause_key != "" else "death",
+		"place": player.location_id,
+		"event": death_eid,
+	})
+	TieTick.run(gd, db, season_index())
+
 	var facts: String = "%s, %s, died at age %d in %s. Linh căn: %s. Cause: %s. Notable events: %s" % [
 		player.name, gd.realm_label(player.realm_index, player.stage), int(player.age), clock_label(),
 		player.linh_can.describe(gd), cause, "; ".join(db.events_of(player.id).slice(-8).map(func(e): return str(e.text)))]
 	epitaph_text = narrator.epitaph(facts).text
 	sync_player()
-	var summary := {"name": player.name, "realm": gd.realm_label(player.realm_index, player.stage), "age": player.age, "cause": cause}
+
+	# Always write Lives entry to profile Codex (Rule 9, AC-CK-02, 03, 12).
+	if codex != null:
+		codex.record_life(self, cause, playthrough_mode, playthrough_id)
+
+	# Mode branching: One Life ends; Continue awards karma and opens succession.
+	if playthrough_mode == KarmicRules.MODE_CONTINUE:
+		_last_death_karma_earned = KarmicRules.karma_earned(
+			gd, playthrough_mode, player.birth_mode, cheated,
+			player.realm_index, is_heir_life, start_realm_this_life, k_new_this_life
+		)
+		karma += _last_death_karma_earned
+		playthrough_status = KarmicRules.STATUS_SUCCESSION
+	else:
+		_last_death_karma_earned = 0
+		playthrough_status = KarmicRules.STATUS_ENDED
+
+	var summary := {
+		"name": player.name,
+		"realm": gd.realm_label(player.realm_index, player.stage),
+		"age": player.age,
+		"cause": cause,
+		"mode": playthrough_mode,
+		"status": playthrough_status,
+		"karma": karma,
+		"karma_earned": _last_death_karma_earned,
+	}
 	life_ended.emit(summary)
 	_events.append({"kind": "life_ended", "summary": summary})
+
+
+## Read-only. Returns the succession choices available after death in Continue mode
+## (heirs with karma costs, lineage rebirth status, free origins, epitaph, karma).
+func succession_options() -> Dictionary:
+	var dead_id: String = _last_death_player_id if _last_death_player_id != "" else (player.id if player != null else "")
+	var heirs: Array = KarmicRules.heir_candidates(gd, db, dead_id, _last_death_killer, karma, _last_death_disciples) if db != null else []
+	var sect_rec: Dictionary = db.get_record("sects", _last_death_sect_id) if db != null and _last_death_sect_id != "" else {}
+	var sect_alive: bool = not sect_rec.is_empty() and str(sect_rec.get("status", "active")) == "active"
+	var l_cost: int = KarmicRules.lineage_cost(gd)
+	var origins: Array = Array(gd.attributes().get("origins", [])).duplicate(true)
+	return {
+		"status": playthrough_status,
+		"mode": playthrough_mode,
+		"epitaph": epitaph_text,
+		"karma": karma,
+		"karma_earned": _last_death_karma_earned,
+		"birth_mode": player.birth_mode if player != null else "thien_dinh",
+		"heirs": heirs,
+		"lineage": {
+			"sect_id": _last_death_sect_id,
+			"sect_name": str(sect_rec.get("name", "")),
+			"sect_alive": sect_alive,
+			"clan_region_id": _last_death_region_id,
+			"clan_surname": _last_death_surname,
+			"clan_available": _last_death_region_id != "",
+			"cost": l_cost,
+			"affordable": karma >= l_cost,
+		},
+		"origins": origins,
+		"rebirth_years": KarmicRules.rebirth_years(gd),
+		"rebirth_seasons": KarmicRules.rebirth_seasons(gd),
+		"perk_extra_max": KarmicRules.perk_extra_max(gd),
+	}
+
+
+## Action. Continues a dead Continue-mode playthrough as eligible heir [param heir_id]
+## (Rule 4-6, AC-CK-04, 05, 07, 20). [param opts]: perk_extra (int), perk / chosen_perk_id (String).
+## Returns {ok, lines, karma_spent, karma_left, offered_perks}; a frontend calls it through run() (ADR-0006).
+func succeed_heir(heir_id: String, opts: Dictionary = {}) -> Dictionary:
+	if db == null or player == null:
+		return {"ok": false, "lines": ["No playthrough in progress."]}
+	if playthrough_mode != KarmicRules.MODE_CONTINUE or playthrough_status != KarmicRules.STATUS_SUCCESSION:
+		return {"ok": false, "lines": ["Succession is only available after death in Continue mode."]}
+	var dead_id: String = _last_death_player_id if _last_death_player_id != "" else player.id
+	var cands: Array = KarmicRules.heir_candidates(gd, db, dead_id, _last_death_killer, karma, _last_death_disciples)
+	var found: Dictionary = {}
+	for cand in cands:
+		if str(cand.get("id", "")) == heir_id:
+			found = cand
+			break
+	if found.is_empty():
+		return {"ok": false, "lines": ["'%s' is not an eligible living heir." % heir_id]}
+	var heir_rec: Dictionary = db.get_record("people", heir_id)
+	var birth_mode: String = KarmicRules.successor_birth_mode(player.birth_mode, true)
+	var perk_extra: int = int(opts.get("perk_extra", 0))
+	var unheld_count: int = KarmicRules.unheld_perks(gd, Array(heir_rec.get("perks", []))).size()
+	var spend: Dictionary = KarmicRules.validate_spend(gd, karma, true, int(heir_rec.get("realm_index", 0)), false, perk_extra, unheld_count, birth_mode)
+	if not bool(spend.ok):
+		return {"ok": false, "reason": str(spend.reason), "lines": ["Cannot succeed as %s: %s." % [str(heir_rec.get("name", heir_id)), str(spend.reason)]]}
+	karma = int(spend.karma_left)
+
+	# Release player flag from dead predecessor record.
+	var old_rec: Dictionary = db.get_record("people", dead_id)
+	if not old_rec.is_empty():
+		old_rec["is_player"] = false
+		db.put("people", old_rec)
+
+	var new_p := Character.from_dict(heir_rec.duplicate(true))
+	new_p.is_player = true
+	new_p.birth_mode = birth_mode
+	if new_p.home_id == "":
+		new_p.home_id = new_p.location_id
+	var offered_perks: Array = KarmicRules.roll_successor_perks(gd, rng, new_p.perks, perk_extra, birth_mode)
+	var chosen_perk: String = str(opts.get("perk", opts.get("chosen_perk_id", "")))
+	if chosen_perk != "" and offered_perks.has(chosen_perk):
+		ProgressionEdges.apply_birth(new_p, gd, chosen_perk)
+	elif not offered_perks.is_empty():
+		ProgressionEdges.apply_birth(new_p, gd, str(offered_perks[0]))
+
+	player = new_p
+	edge = KarmicRules.successor_gets_edge()
+	if player.known_diagrams.is_empty():
+		_teach_starter_diagram()
+	if player.tree_nodes.is_empty():
+		_choose_start("")
+	is_heir_life = true
+	start_realm_this_life = player.realm_index
+	k_new_this_life = 0
+	past_ties = []
+	recognition_used = 0
+	co_duyen_used = {}
+	pending_event = {}
+	pending_meta = {}
+	pending_tribulation_reward = {}
+	last_tribulation = {}
+	epitaph_text = ""
+	life_over = false
+	playthrough_status = KarmicRules.STATUS_ACTIVE
+	season_time_used = 0.0
+	knowledge = MapKnowledge.start(gd, db, player) if db.has_record("world", "w_meta") else null
+	start_residence()
+	_log("player_heir_succeeded", {"a": player.id, "b": dead_id})
+	_sync_and_rate()
+	_codex_note_player_variants()
+	_start_ratings()
+	return {
+		"ok": true,
+		"lines": ["You continue as %s (%s), carrying on the legacy." % [player.name, gd.realm_label(player.realm_index, player.stage)]],
+		"karma_spent": int(spend.total_cost),
+		"karma_left": karma,
+		"offered_perks": offered_perks,
+	}
+
+
+## Action. Advances the same world by 64 seasons (16 years) and enters as a newly born age-16 cultivator
+## (Rules 4-6, AC-CK-06, 07, 11, 22). [param opts]: name, gender, origin, mode ("roll"|"custom"),
+## birth_mode, lineage_kind (""|"sect"|"clan"), perk_extra (int), perk (String), thien_phu, purities, variants, start,
+## optional on_mid_gap (Callable for tests).
+## Returns {ok, lines, seasons_passed, news, lineage_refunded, refund_amount, karma_left, offered_perks}.
+func succeed_rebirth(opts: Dictionary = {}) -> Dictionary:
+	if db == null or player == null:
+		return {"ok": false, "lines": ["No playthrough in progress."]}
+	if playthrough_mode != KarmicRules.MODE_CONTINUE or playthrough_status != KarmicRules.STATUS_SUCCESSION:
+		return {"ok": false, "lines": ["Rebirth is only available after death in Continue mode."]}
+	var lineage_kind: String = str(opts.get("lineage_kind", opts.get("lineage", "")))
+	var lineage: bool = lineage_kind == "sect" or lineage_kind == "clan"
+	var origin: String = str(opts.get("origin", "tan_tu"))
+	var req_mode: String = str(opts.get("mode", "roll"))
+	var chosen_bm: String = "tu_dinh" if req_mode == "custom" else str(opts.get("birth_mode", "thien_dinh"))
+	var birth_mode: String = KarmicRules.successor_birth_mode(player.birth_mode, false, chosen_bm)
+	var perk_extra: int = int(opts.get("perk_extra", 0))
+	var unheld_count: int = KarmicRules.unheld_perks(gd, []).size()
+	var spend: Dictionary = KarmicRules.validate_spend(gd, karma, false, 0, lineage, perk_extra, unheld_count, birth_mode)
+	if not bool(spend.ok):
+		return {"ok": false, "reason": str(spend.reason), "lines": ["Cannot afford rebirth options: %s." % str(spend.reason)]}
+	karma = int(spend.karma_left)
+
+	# Release player flag from dead predecessor record before ticking world.
+	var dead_id: String = _last_death_player_id if _last_death_player_id != "" else player.id
+	var old_rec: Dictionary = db.get_record("people", dead_id)
+	if not old_rec.is_empty():
+		old_rec["is_player"] = false
+		db.put("people", old_rec)
+
+	# Advance the same world by 64 seasons (16 years, Formula C, AC-CK-06).
+	var seasons_n: int = KarmicRules.rebirth_seasons(gd, origin)
+	var mid_cb: Variant = opts.get("on_mid_gap", Callable())
+	var gap_news: Array = _advance_world_only(seasons_n, mid_cb if mid_cb is Callable else Callable())
+
+	# Check lineage survival after the 64-season gap (Edge Cases, AC-CK-11).
+	var lineage_alive: bool = true
+	if lineage_kind == "sect":
+		var srec: Dictionary = db.get_record("sects", _last_death_sect_id)
+		lineage_alive = not srec.is_empty() and str(srec.get("status", "active")) == "active"
+	elif lineage_kind == "clan":
+		lineage_alive = _is_clan_lineage_alive()
+	var lin_res: Dictionary = KarmicRules.resolve_lineage_survival(gd, karma, lineage_kind, lineage_alive, _last_death_region_id)
+	karma = int(lin_res.karma)
+	var refunded: bool = bool(lin_res.refunded)
+	if refunded:
+		origin = str(lin_res.fallback_origin)
+		lineage_kind = ""
+
+	# Roll or build the newly born age-16 successor.
+	var new_name: String = str(opts.get("name", "Tái Sinh"))
+	var new_gender: String = str(opts.get("gender", "male"))
+	_start_home = str(opts.get("home", ""))
+	if birth_mode == "tu_dinh" or req_mode == "custom":
+		player = CharacterFactory.custom_player(gd, rng, new_name, new_gender, origin, opts.get("thien_phu", {}), opts.get("purities", {}), opts.get("variants", []))
+	else:
+		player = CharacterFactory.roll_player(gd, rng, new_name, new_gender, origin)
+	edge = KarmicRules.successor_gets_edge()
+	var offered_perks: Array = KarmicRules.roll_successor_perks(gd, rng, player.perks, perk_extra, birth_mode)
+	var chosen_perk: String = str(opts.get("perk", opts.get("chosen_perk_id", "")))
+	if chosen_perk != "" and offered_perks.has(chosen_perk):
+		ProgressionEdges.apply_birth(player, gd, chosen_perk)
+	elif not offered_perks.is_empty():
+		ProgressionEdges.apply_birth(player, gd, str(offered_perks[0]))
+	_choose_start(str(opts.get("start", "")))
+	player.id = db.add("people", player.to_dict())
+
+	if lineage_kind == "sect" and lineage_alive:
+		_place_reborn_in_sect(_last_death_sect_id)
+	elif lineage_kind == "clan" and lineage_alive:
+		player.origin = "gia_toc"
+		_place_reborn_in_region(_last_death_region_id, true)
+	elif refunded and _last_death_region_id != "":
+		_place_reborn_in_region(_last_death_region_id, false)
+	else:
+		_place_player()
+	_teach_starter_diagram()
+	knowledge = MapKnowledge.start(gd, db, player) if db.has_record("world", "w_meta") else null
+	# Rule 5 (AC-CK-07): a reborn receives the two starting Phá Cảnh Phù.
+	for si in KarmicRules.successor_starting_talismans(gd, false):
+		if si.has("talisman"):
+			var tal: Dictionary = items.talisman(str(si.talisman), int(si.qty))
+			tal["owner_id"] = player.id
+			db.add("items", tal)
+
+	# Keep past_ties from the dead life for past-life recognition events (up to recognition_max = 2, AC-CK-22).
+	# Crucially, NO tie records exist between the reborn player and past_ties NPCs unless formed by an event.
+	recognition_used = 0
+	is_heir_life = false
+	start_realm_this_life = 0
+	k_new_this_life = 0
+	co_duyen_used = {}
+	pending_event = {}
+	pending_meta = {}
+	pending_tribulation_reward = {}
+	last_tribulation = {}
+	epitaph_text = ""
+	life_over = false
+	playthrough_status = KarmicRules.STATUS_ACTIVE
+	season_time_used = 0.0
+	_log("player_reborn", {"a": player.id, "place": player.location_id})
+	_sync_and_rate()
+	_codex_note_player_variants()
+	_start_ratings()
+
+	var lines: Array = ["%d seasons pass (%s). %s enters the world anew at age %d." % [seasons_n, clock_label(), player.name, int(player.age)]]
+	if refunded:
+		lines.append("Your old lineage fell during the passing years; %d karma was refunded and you begin as a loose cultivator in that region." % int(lin_res.refund_amount))
+	return {
+		"ok": true,
+		"lines": lines,
+		"seasons_passed": seasons_n,
+		"news": gap_news,
+		"lineage_refunded": refunded,
+		"refund_amount": int(lin_res.refund_amount),
+		"karma_left": karma,
+		"offered_perks": offered_perks,
+	}
+
+
+## Action. Ends a Continue-mode playthrough from the succession screen (Rule 3).
+## Returns {ok, lines, status}; a frontend calls it through run() (ADR-0006).
+func end_playthrough() -> Dictionary:
+	if playthrough_status != KarmicRules.STATUS_SUCCESSION:
+		return {"ok": false, "lines": ["No succession is waiting to end."]}
+	playthrough_status = KarmicRules.STATUS_ENDED
+	return {"ok": true, "lines": ["This playthrough has ended."], "status": playthrough_status}
+
+
+## Action. Records an uncovered hidden chronicle/history entry in the Codex (World Generation rule 3a back-link).
+func uncover_history(event_id: String) -> Dictionary:
+	if event_id == "":
+		return {"ok": false, "lines": ["No history entry specified."]}
+	_codex_note(Codex.BOOK_HISTORY, event_id, CodexStore.LEVEL_KNOWN)
+	return {"ok": true, "lines": ["Recorded chronicle entry %s in the Codex." % event_id]}
 
 
 ## Job. Runs [param action] (a bound action method of this session, e.g. [code]session.cultivate.bind(1)[/code]) and
@@ -2416,6 +3100,26 @@ func to_dict() -> Dictionary:
 		"season_time_used": season_time_used,
 		"knowledge": knowledge.to_dict() if knowledge != null else {},
 		"rating_pending": _pending_rating_results(),
+		"playthrough_mode": playthrough_mode,
+		"playthrough_id": playthrough_id,
+		"playthrough_status": playthrough_status,
+		"karma": karma,
+		"k_new_this_life": k_new_this_life,
+		"start_realm_this_life": start_realm_this_life,
+		"is_heir_life": is_heir_life,
+		"death_reloaded": death_reloaded,
+		"past_ties": past_ties.duplicate(true),
+		"recognition_used": recognition_used,
+		"pending_tribulation_reward": pending_tribulation_reward.duplicate(true),
+		"last_death": {
+			"player_id": _last_death_player_id,
+			"killer": _last_death_killer,
+			"disciples": _last_death_disciples.duplicate(),
+			"sect_id": _last_death_sect_id,
+			"region_id": _last_death_region_id,
+			"surname": _last_death_surname,
+			"karma_earned": _last_death_karma_earned,
+		},
 	}
 
 
@@ -2497,6 +3201,31 @@ func load_dict(d: Dictionary) -> Dictionary:
 	for k in cdu.keys():
 		co_duyen_used[int(k)] = int(cdu[k])
 	epitaph_text = str(d.get("epitaph", ""))
+	playthrough_mode = KarmicRules.normalize_mode(str(d.get("playthrough_mode", KarmicRules.MODE_ONE_LIFE)))
+	playthrough_id = str(d.get("playthrough_id", ""))
+	var default_status: String = KarmicRules.STATUS_ENDED if life_over else KarmicRules.STATUS_ACTIVE
+	playthrough_status = str(d.get("playthrough_status", default_status))
+	karma = int(d.get("karma", 0))
+	k_new_this_life = int(d.get("k_new_this_life", 0))
+	start_realm_this_life = int(d.get("start_realm_this_life", 0))
+	is_heir_life = bool(d.get("is_heir_life", false))
+	death_reloaded = bool(d.get("death_reloaded", false))
+	past_ties = Array(d.get("past_ties", [])).duplicate(true)
+	recognition_used = int(d.get("recognition_used", 0))
+	pending_tribulation_reward = Dictionary(d.get("pending_tribulation_reward", {})).duplicate(true)
+	last_tribulation = {}
+	var ld: Dictionary = Dictionary(d.get("last_death", {}))
+	_last_death_player_id = str(ld.get("player_id", ""))
+	_last_death_killer = str(ld.get("killer", ""))
+	_last_death_disciples = Array(ld.get("disciples", [])).duplicate()
+	_last_death_sect_id = str(ld.get("sect_id", ""))
+	_last_death_region_id = str(ld.get("region_id", ""))
+	_last_death_surname = str(ld.get("surname", ""))
+	_last_death_karma_earned = int(ld.get("karma_earned", 0))
+	# Rule 11 (AC-CK-21): loading a One Life pre-death save after a prior death of this playthrough_id
+	# marks the save death_reloaded so one_life prestige achievements are blocked.
+	if not life_over and Achievements.should_mark_death_reloaded(playthrough_mode, playthrough_id, codex_store):
+		death_reloaded = true
 	var kd: Dictionary = d.get("knowledge", {})
 	knowledge = MapKnowledge.from_dict(kd) if not kd.is_empty() else null
 	ratings.normalise_loaded()
@@ -2621,3 +3350,334 @@ func _log(type: String, refs: Dictionary) -> String:
 			"items":
 				its.append(v)
 	return db.log_event(year, season, type, text, people, places, its, {"refs": refs})
+
+
+# --- Tribulation & Codex Helpers --------------------------------------------------
+
+func _codex_note(book: String, entry_id: String, level: String) -> void:
+	if codex == null or player == null or entry_id == "":
+		return
+	if codex.record(book, entry_id, level, player, cheated, year):
+		k_new_this_life += 1
+
+
+func _codex_note_player_variants() -> void:
+	if player == null:
+		return
+	for vid in player.linh_can.variants.keys():
+		_codex_note(Codex.BOOK_VARIANTS, str(vid), CodexStore.LEVEL_KNOWN)
+
+
+func _codex_note_item(item: Dictionary) -> void:
+	if item.is_empty():
+		return
+	var named_id: String = str(item.get("named", ""))
+	if named_id != "":
+		_codex_note(Codex.BOOK_ITEMS, named_id, CodexStore.LEVEL_KNOWN)
+	elif str(item.get("kind", "")) == "treasure":
+		_codex_note(Codex.BOOK_ITEMS, str(item.get("template", "")), CodexStore.LEVEL_KNOWN)
+	elif str(item.get("kind", "")) == "cong_phap":
+		_codex_note(Codex.BOOK_TECHNIQUES, str(item.get("tech_id", "")), CodexStore.LEVEL_SEEN)
+
+
+func _codex_note_knowledge_secrets() -> void:
+	if knowledge == null:
+		return
+	for clue in knowledge.clues:
+		var slot_s: String = str(clue.get("slot", ""))
+		if slot_s != "":
+			_codex_note(Codex.BOOK_SECRETS, slot_s, CodexStore.LEVEL_SEEN)
+	for slot_f in knowledge.found.keys():
+		var sf: String = str(slot_f)
+		if sf != "":
+			_codex_note(Codex.BOOK_SECRETS, sf, CodexStore.LEVEL_KNOWN)
+
+
+func _is_past_life_event(ev: Dictionary) -> bool:
+	var src: String = str(ev.get("source", ""))
+	if not src.begins_with("template:"):
+		return false
+	var tid: String = src.trim_prefix("template:")
+	for t in gd.event_templates().get("templates", []):
+		if t is Dictionary and str((t as Dictionary).get("id", "")) == tid:
+			return bool((t as Dictionary).get("requires_past_ties", false))
+	return false
+
+
+func _tribulation_place_tags() -> Array:
+	var tags: Array = []
+	if db == null or player == null:
+		return tags
+	var place: Dictionary = db.get_record("places", player.location_id)
+	if place.is_empty():
+		return tags
+	for raw_t in Array(place.get("tags", [])):
+		var ts: String = str(raw_t)
+		if ts != "" and not tags.has(ts):
+			tags.append(ts)
+	var ptype: String = str(place.get("type", ""))
+	var pkind: String = str(place.get("kind", ""))
+	if (ptype == "linh_mach" or pkind == "spirit_vein" or bool(place.get("vein", false))) and not tags.has("vein"):
+		tags.append("vein")
+	if ptype != "" and not tags.has(ptype):
+		tags.append(ptype)
+	return tags
+
+
+func _tribulation_talisman_stock() -> Dictionary:
+	var stock: Dictionary = {}
+	if db == null or player == null:
+		return stock
+	for it in db.items_of(player.id):
+		if str(it.get("kind", "")) == "talisman":
+			var tpl: String = str(it.get("template", ""))
+			if tpl != "":
+				stock[tpl] = int(stock.get(tpl, 0)) + maxi(1, int(it.get("qty", 1)))
+	return stock
+
+
+func _spend_tribulation_stock(spent: Dictionary) -> void:
+	if db == null or player == null or spent.is_empty():
+		return
+	for raw_k in spent.keys():
+		var tpl: String = str(raw_k)
+		var rem: int = maxi(0, int(spent[raw_k]))
+		if rem <= 0:
+			continue
+		for it in db.items_of(player.id):
+			if rem <= 0:
+				break
+			if str(it.get("kind", "")) == "talisman" and str(it.get("template", "")) == tpl:
+				var q: int = maxi(1, int(it.get("qty", 1)))
+				var take: int = mini(q, rem)
+				rem -= take
+				if q - take <= 0:
+					db.remove("items", str(it.id))
+				else:
+					it["qty"] = q - take
+
+
+func _create_tribulation_reward_item(choice: Dictionary) -> Dictionary:
+	var kind: String = str(choice.get("kind", ""))
+	var tpl: String = str(choice.get("template", ""))
+	var qty: int = maxi(1, int(choice.get("qty", 1)))
+	match kind:
+		"material":
+			return items.material(tpl, qty)
+		"treasure":
+			var tr: Dictionary = items.treasure(tpl)
+			if qty > 1:
+				tr["qty"] = qty
+			return tr
+		"talisman":
+			return items.talisman(tpl, qty)
+		"pill":
+			return items.pill(tpl, int(choice.get("quality", 1)), qty)
+		"herb":
+			return items.herb(tpl, float(choice.get("age", 10.0)))
+		"artifact":
+			if not gd.named_item(tpl).is_empty():
+				var na: Dictionary = items.named_artifact(tpl, player.realm_index, db, year)
+				if not na.is_empty():
+					return na
+			return items.artifact(rng, player.realm_index, int(choice.get("grade", 3)), "", tpl)
+		"cong_phap":
+			for cp in gd.file("items_cong_phap").get("templates", []):
+				if str(cp.get("id", "")) == tpl:
+					return items.manual_from_template(cp)
+			return items.cong_phap(rng, 2)
+	return {}
+
+
+func _snapshot_pre_death_ties() -> void:
+	past_ties = []
+	_last_death_disciples = []
+	if db == null or player == null:
+		return
+	var seen_pt := {}
+	var seen_disc := {}
+	for rec in db.ties_of(player.id):
+		var other: String = str(rec.b) if str(rec.a) == player.id else str(rec.a)
+		var orec: Dictionary = db.get_record("people", other)
+		if orec.is_empty() or not bool(orec.get("alive", false)) or bool(orec.get("is_beast", false)):
+			continue
+		var kinds: Array = []
+		var pin: Dictionary = rec.get("pin", {})
+		for pk in pin.keys():
+			if str(pk) == "su_do":
+				if str(pin.su_do) == player.id:
+					kinds.append("disciple")
+					if not seen_disc.has(other):
+						seen_disc[other] = true
+						_last_death_disciples.append(other)
+				else:
+					kinds.append("master")
+			else:
+				kinds.append(str(pk))
+		if not Dictionary(rec.get("feud", {})).is_empty():
+			kinds.append("feud")
+		var soft: Dictionary = rec.get("soft", {})
+		if not soft.is_empty() and str(soft.get("kind", "")) != "":
+			kinds.append(str(soft.kind))
+		if not Dictionary(rec.get("debt", {})).is_empty():
+			kinds.append("debt")
+		if not seen_pt.has(other):
+			seen_pt[other] = true
+			past_ties.append({"id": other, "name": str(orec.get("name", other)), "kinds": kinds})
+	for p in db.living():
+		if str(p.get("master_id", "")) == player.id and not bool(p.get("is_beast", false)):
+			var did: String = str(p.id)
+			if not seen_disc.has(did):
+				seen_disc[did] = true
+				_last_death_disciples.append(did)
+			if not seen_pt.has(did):
+				seen_pt[did] = true
+				past_ties.append({"id": did, "name": str(p.get("name", did)), "kinds": ["disciple"]})
+	for cid in db.children_of(player.id):
+		var cs: String = str(cid)
+		var crec: Dictionary = db.get_record("people", cs)
+		if not crec.is_empty() and bool(crec.get("alive", false)) and not seen_pt.has(cs):
+			seen_pt[cs] = true
+			past_ties.append({"id": cs, "name": str(crec.get("name", cs)), "kinds": ["child"]})
+
+
+func _resolve_player_estate_heir(p_rec: Dictionary, killer_id: String) -> String:
+	if killer_id != "":
+		return killer_id
+	var h: String = Inheritance.heir_of(db, gd, p_rec)
+	if h != "":
+		return h
+	var living_kids: Array = []
+	for cid in db.children_of(player.id):
+		var crec: Dictionary = db.get_record("people", str(cid))
+		if not crec.is_empty() and bool(crec.get("alive", false)):
+			living_kids.append(crec)
+	if not living_kids.is_empty():
+		living_kids.sort_custom(func(a, b): return int(a.get("realm_index", 0)) > int(b.get("realm_index", 0)))
+		return str(living_kids[0].id)
+	return ""
+
+
+func _settle_player_purse(estate_heir: String) -> void:
+	var amt: int = maxi(0, player.linh_thach)
+	if amt <= 0:
+		return
+	var has_econ: bool = db.count(WorldEconomy.TABLE) > 0
+	if estate_heir != "" and db.has_record("people", estate_heir) and bool(db.get_record("people", estate_heir).get("alive", false)):
+		if has_econ:
+			MoneyLedger.player_pay(db, player, "npc:%s" % estate_heir, amt, "inheritance")
+		else:
+			var hr: Dictionary = db.get_record("people", estate_heir)
+			hr["linh_thach"] = int(hr.get("linh_thach", 0)) + amt
+			player.linh_thach = 0
+		return
+	if player.sect_id != "" and db.has_record("sects", player.sect_id):
+		if has_econ:
+			MoneyLedger.player_pay(db, player, "sect:%s" % player.sect_id, amt, "inheritance")
+		else:
+			var sr: Dictionary = db.get_record("sects", player.sect_id)
+			sr["treasury"] = int(sr.get("treasury", 0)) + amt
+			player.linh_thach = 0
+		return
+	if has_econ:
+		var lost_frac: float = float(gd.file(WorldEconomy.FILE).get("money", {}).get("lost_frac", 0.5))
+		var burned: int = int(roundf(float(amt) * lost_frac))
+		if burned > 0:
+			MoneyLedger.player_pay(db, player, "", burned, "heirless")
+		var left_amt: int = maxi(0, player.linh_thach)
+		var ms: String = MoneyLedger.market_sect_of(db, player.location_id)
+		if left_amt > 0 and ms != "":
+			MoneyLedger.player_pay(db, player, "stash:%s" % ms, left_amt, "heirless")
+		elif left_amt > 0:
+			MoneyLedger.player_pay(db, player, "", left_amt, "heirless")
+	else:
+		player.linh_thach = 0
+
+
+func _advance_world_only(seasons_n: int, on_mid_gap: Callable = Callable()) -> Array:
+	var spy: int = maxi(1, int(gd.cultivation_rules().seasons_per_year))
+	var news: Array = []
+	var mid: int = int(seasons_n / 2)
+	for i in maxi(0, seasons_n):
+		season += 1
+		if season >= spy:
+			season = 0
+			year += 1
+		news.append_array(ticker.tick(rng, year, season))
+		if i == mid and on_mid_gap.is_valid():
+			on_mid_gap.call()
+	return news
+
+
+func _is_clan_lineage_alive() -> bool:
+	if _last_death_region_id == "" or db == null:
+		return false
+	if not db.has_record("regions", _last_death_region_id):
+		return false
+	for p in db.living():
+		if bool(p.get("is_beast", false)) or bool(p.get("is_player", false)):
+			continue
+		var pl: Dictionary = db.get_record("places", str(p.get("location_id", "")))
+		if str(pl.get("region_id", "")) == _last_death_region_id:
+			if _last_death_surname == "" or Families.surname_of(gd, str(p.get("name", ""))) == _last_death_surname:
+				return true
+	return false
+
+
+func _place_reborn_in_sect(sect_id: String) -> void:
+	var srec: Dictionary = db.get_record("sects", sect_id)
+	if srec.is_empty():
+		_place_player()
+		return
+	var hq: Dictionary = db.get_record("places", str(srec.get("hq_place_id", "")))
+	if hq.is_empty():
+		_place_player()
+		return
+	player.origin = "tong_mon"
+	player.sect_id = str(srec.id)
+	player.sect_rank = str(gd.session().sect.join_rank)
+	srec.members.append(player.id)
+	sect_members.record(str(srec.id), player.id)
+	player.home_id = str(hq.id)
+	player.location_id = str(hq.id)
+	start_residence()
+	_grant_starting_kit(hq)
+	_log("player_born", {"a": player.id, "place": str(hq.id)})
+	_log("player_joined_sect", {"a": player.id, "s1": player.sect_id})
+
+
+func _place_reborn_in_region(region_id: String, with_clan: bool) -> void:
+	var types: Array = gd.session().home_place_types
+	var reg_places: Array = db.find("places", func(p): return str(p.get("region_id", "")) == region_id and types.has(p.get("type", "")))
+	if reg_places.is_empty():
+		reg_places = db.find("places", func(p): return str(p.get("region_id", "")) == region_id)
+	var home: Dictionary = RngUtils.pick(rng, reg_places) if not reg_places.is_empty() else RngUtils.pick(rng, db.all("places"))
+	player.home_id = str(home.id)
+	player.location_id = str(home.id)
+	start_residence()
+	if with_clan:
+		_clan_family(home)
+	_grant_starting_kit(home)
+	_log("player_born", {"a": player.id, "place": str(home.id)})
+
+
+func _grant_starting_kit(home: Dictionary) -> void:
+	var o: Dictionary = gd.origin(player.origin)
+	var cp: Dictionary = items.cong_phap(rng, gd.cong_phap_tier_rank(str(o.get("cong_phap_tier", "hoang"))), [_starting_element()])
+	cp["owner_id"] = player.id
+	db.add("items", cp)
+	CongPhap.learn(player, cp)
+	player.main_tech = str(cp.tech_id)
+	var province: Array = db.find("places", func(p): return bool(p.get("market", false)) and p.get("region_id", "") == home.get("region_id", ""))
+	if province.is_empty():
+		province = db.find("places", func(p): return bool(p.get("market", false)))
+	if not province.is_empty():
+		market.stock_guaranteed(province[0].id)
+	var plot: int = 0
+	for h in o.get("starting_herbs", []):
+		for _k in int(h.qty):
+			var herb: Dictionary = items.herb(str(h.herb), float(h.age))
+			herb["owner_id"] = player.id
+			herb["plot"] = plot
+			plot += 1
+			db.add("items", herb)

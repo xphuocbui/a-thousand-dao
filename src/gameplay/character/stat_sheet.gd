@@ -39,6 +39,8 @@ const KIND_ITEM := "item"
 const KIND_TIE := "tie"
 ## NPC Interaction & Dialogue (#30): temporary seasonal buff granted by an interaction (e.g. teaching insight).
 const KIND_INTERACTION := "interaction"
+## Heavenly Tribulation (#22): lasting stat buff granted on surviving a tribulation (tribulation_tempered).
+const KIND_TRIBULATION := "tribulation"
 
 ## stat -> Array of {source, value, kind}
 var _mods: Dictionary = {}
@@ -65,6 +67,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 	ProgressionEdges.add_perk_mods(c, gd, sheet)
 	Formations.add_mods(c, gd, sheet, db)
 	sheet._add_trait_mods(c)
+	sheet._add_tribulation_mods(c)
 	# Physique and comprehension may be raised by anything above (including talent tiers), so techniques come after them.
 	for line in CongPhap.bonus_lines(c, gd, sheet.effective("can_cot", c), sheet.effective("ngo_tinh", c)):
 		sheet.add_mod(line.source, line.stat, line.value)
@@ -160,6 +163,22 @@ func _add_interaction_buff_mods(c: Character) -> void:
 		var val: float = float(row.get("value", 0.0))
 		if st != "" and val != 0.0:
 			add_mod(str(row.get("source", "Giao tế")), st, val, KIND_INTERACTION)
+
+
+## Heavenly Tribulation (#22): applies lasting buffs (e.g. tribulation_tempered, 60 W) stored in
+## [member Character.tribulation_buffs], preserving their source key for Breakdown & save/reload (AC-TK-49).
+func _add_tribulation_mods(c: Character) -> void:
+	for raw in c.tribulation_buffs:
+		if not (raw is Dictionary):
+			continue
+		var row: Dictionary = raw as Dictionary
+		var src: String = str(row.get("source", "tribulation_tempered"))
+		for m in Array(row.get("mods", [])):
+			if m is Dictionary:
+				var st: String = str((m as Dictionary).get("stat", ""))
+				var val: float = float((m as Dictionary).get("value", 0.0))
+				if st != "" and val != 0.0:
+					add_mod(src, st, val, KIND_TRIBULATION)
 
 
 func _add_trait_mods(c: Character) -> void:

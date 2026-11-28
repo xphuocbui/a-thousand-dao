@@ -596,6 +596,10 @@ static func bottleneck(s: GameSession, io: TerminalIO) -> Array:
 	lines.append("   attempts this step: %d pill (next insight +%.2f), %d/%d bare" % [c.attempt_log.size(), CultivationRules.failure_insight(gd, c.failed_pills) * CultivationRules.gate_factor(c, gd), c.bare_attempts, int(gd.ladder().bare_attempt_cap)])
 	lines.append("   qi deviation if this fails: %.0f%%" % CultivationRules.backlash_chance(c, gd, sh).total)
 	lines.append("   this attempt: %.1f%% (%s)" % [float(odds.chance) * 100.0, "pill" if not odds.pill.is_empty() and bool(cond.met) else "bare"])
+	if TribulationRules.should_trigger(gd, c.realm_index):
+		var tk_step: Dictionary = TribulationRules.step_for(gd, c.realm_index)
+		var wcnt: int = int(tk_step.get("wave_count", TribulationRules.config(gd).get("wave_count", 3)))
+		lines.append(io.paint("   tribulation: ACTIVE — %d waves (losing any wave is death)" % wcnt, "1;31"))
 	return lines
 
 
@@ -1032,3 +1036,235 @@ static func fight_log(s: GameSession, io: TerminalIO, n: int) -> Array:
 			parts.append("%.1f" % row[j] if (row[j] is float) else str(row[j]))
 		lines.append("%7.2f  %s  %-7s %s" % [float(row[1]) / 1000.0, str(row[2]), str(row[0]), " ".join(parts)])
 	return lines
+
+
+# --- Heavenly Tribulation (#22) Terminal Views (AC-TK-80..83, strictly read-only) -----------------------------
+
+## Human-readable deciding layer name for a tribulation wave summary.
+static func tribulation_deciding_layer(layer: int) -> String:
+	match layer:
+		0:
+			return "Body (Physical)"
+		1:
+			return "Qi (Elemental)"
+		2:
+			return "Soul"
+		3:
+			return "Fatigue"
+		-1:
+			return "None / Draw"
+	return "Layer %d" % layer
+
+
+static func _tk_pct(share: float) -> String:
+	var pct: float = clampf(share, 0.0, 1.0) * 100.0
+	if absf(pct - roundf(pct)) < 0.05:
+		return "%d%%" % int(roundf(pct))
+	return "%.1f%%" % pct
+
+
+static func _tk_mod_line(m: Dictionary) -> String:
+	var stat: String = str(m.get("stat", ""))
+	var val: float = float(m.get("value", 0.0))
+	var num_s: String = ("%+d" % int(roundf(val))) if absf(val - roundf(val)) < 0.01 else ("%+.1f" % val)
+	var suffix: String = "%" if stat.ends_with("_pct") else ""
+	return "%s%s %s" % [num_s, suffix, stat]
+
+
+## Formats the Heavenly Tribulation attempt confirmation screen from a read-only preview snapshot
+## (AC-TK-80, AC-TK-81): breakthrough odds, high-stakes warning, wave_count, full boss pool profiles
+## and draw weights, player setup summary, and escape-art warning if slotted. Never displays a draw.
+static func tribulation_preview(preview: Dictionary, io: TerminalIO = null, odds: Dictionary = {}) -> Array:
+	if io == null:
+		io = TerminalIO.new()
+	if preview.is_empty():
+		return ["No Heavenly Tribulation preview available."]
+	var lines: Array = []
+	var wave_count: int = int(preview.get("wave_count", 3))
+	lines.append(rule(io, "HEAVENLY TRIBULATION (THIÊN KIẾP) — CONFIRMATION", "━"))
+	lines.append(io.paint(" WARNING: Clearing all %d waves enters the next realm; losing any wave is DEATH." % wave_count, "1;31"))
+	if not odds.is_empty():
+		var ch: float = float(odds.get("chance", 0.0))
+		var pct: float = ch * 100.0 if ch <= 1.0 else ch
+		var pill_d: Dictionary = odds.get("pill", {}) if odds.get("pill") is Dictionary else {}
+		var pill_txt: String = ("%s (quality %d)" % [str(pill_d.get("name", "")), int(pill_d.get("quality", 0))]) if not pill_d.is_empty() else str(odds.get("pill_name", "none (bare)"))
+		lines.append(" Breakthrough roll: %.1f%% · Pill: %s" % [pct, pill_txt])
+		if odds.has("backlash"):
+			lines.append(" Qi deviation if roll fails: %.0f%%" % float(odds.get("backlash", 0.0)))
+	elif preview.has("chance"):
+		var ch2: float = float(preview.get("chance", 0.0))
+		var pct2: float = ch2 * 100.0 if ch2 <= 1.0 else ch2
+		lines.append(" Breakthrough roll: %.1f%%" % pct2)
+	lines.append(" Waves: %d (Foreseen · no healing between waves · health carries exactly)" % wave_count)
+	if bool(preview.get("has_escape_art", false)):
+		var warn: String = str(preview.get("escape_warning", "Escape arts cannot flee a Heavenly Tribulation — fleeing fails the tribulation."))
+		lines.append(io.paint(" WARNING (Escape Art): %s" % warn, "1;33"))
+	var setup: Dictionary = preview.get("setup", {}) if preview.get("setup") is Dictionary else {}
+	if not setup.is_empty():
+		lines.append(io.paint(" YOUR SETUP (locked on confirm):", C_BOLD))
+		var diag: String = str(setup.get("diagram_id", ""))
+		var arts: Array = Array(setup.get("arts", []))
+		var ptags: Array = Array(setup.get("place_tags", []))
+		var tag_list: PackedStringArray = []
+		for pt in ptags:
+			tag_list.append(str(pt))
+		if not tag_list.has("tribulation"):
+			tag_list.append("tribulation")
+		lines.append("   Realm: %s · Vitality: %s · Formation: %s" % [
+			str(setup.get("realm_label", "?")), _tk_pct(float(setup.get("vitality", 1.0))), diag if diag != "" else "Plain Row"
+		])
+		lines.append("   Ground tags: %s" % ", ".join(tag_list))
+		lines.append("   Arts (%d): %s" % [arts.size(), ", ".join(arts.map(func(a): return str(a))) if not arts.is_empty() else "none"])
+		var tals: Dictionary = setup.get("talismans", {}) if setup.get("talismans") is Dictionary else {}
+		if not tals.is_empty():
+			var tparts: PackedStringArray = []
+			for tk in tals.keys():
+				tparts.append("%s x%d" % [str(tk), int(tals[tk])])
+			lines.append("   Prepared talismans: %s" % ", ".join(tparts))
+	var pool: Array = Array(preview.get("pool", []))
+	lines.append(io.paint(" BOSS POOL (%d bosses · %d drawn weighted without replacement; draw hidden):" % [pool.size(), wave_count], C_BOLD))
+	var total_w: float = 0.0
+	for raw_b in pool:
+		if raw_b is Dictionary:
+			total_w += maxf(0.0, float((raw_b as Dictionary).get("weight", 0.0)))
+	for raw_b in pool:
+		if not (raw_b is Dictionary):
+			continue
+		var b: Dictionary = raw_b as Dictionary
+		var w: float = float(b.get("weight", 1.0))
+		var share_s: String = _tk_pct(w / total_w) if total_w > 0.0 else "—"
+		var b_arts: Array = Array(b.get("arts", []))
+		var shares: Dictionary = b.get("off_shares", {}) if b.get("off_shares") is Dictionary else {}
+		var resist: Dictionary = b.get("resist", {}) if b.get("resist") is Dictionary else {}
+		lines.append("   • %s [%s] weight %.1f (%s) · pool x%.2f · Off %.0f / eHP %.0f" % [
+			str(b.get("name", b.get("id", "?"))), str(b.get("main_kind", "")), w, share_s,
+			float(b.get("boss_pool_mult", 1.0)), float(b.get("off_estimate", 0.0)), float(b.get("ehp_estimate", 0.0))
+		])
+		if not shares.is_empty():
+			lines.append("       Offence shares: body %s, qi %s, soul %s" % [
+				_tk_pct(float(shares.get("body", 0.0))), _tk_pct(float(shares.get("qi", 0.0))), _tk_pct(float(shares.get("soul", 0.0)))
+			])
+		var res_parts: PackedStringArray = []
+		for rk in resist.keys():
+			res_parts.append("%s %+.0f" % [str(rk), float(resist[rk])])
+		lines.append("       Arts: %s%s" % [
+			", ".join(b_arts.map(func(a): return str(a))) if not b_arts.is_empty() else "none",
+			(" · Resist: " + ", ".join(res_parts)) if not res_parts.is_empty() else ""
+		])
+		var rew_lbl: String = str(b.get("reward_label", ""))
+		if rew_lbl != "":
+			lines.append("       Reward offer: %s" % rew_lbl)
+	lines.append(io.paint(" Draw: hidden until each wave begins (no boss pre-rolled).", C_DIM))
+	return lines
+
+
+## Read-only convenience wrapper formatting [method GameQuery.tribulation_preview] and current breakthrough odds.
+static func tribulation_preview_for(s: GameSession, io: TerminalIO = null) -> Array:
+	if io == null:
+		io = TerminalIO.new()
+	if s == null:
+		return ["No active session."]
+	var prev: Dictionary = GameQuery.tribulation_preview(s)
+	var odds: Dictionary = Advisor.breakthrough_odds(s) if s.player != null else {}
+	if s.player != null and not odds.is_empty():
+		odds = odds.duplicate(true)
+		odds["backlash"] = CultivationRules.backlash_chance(s.player, s.gd, s.sheet()).total
+	return tribulation_preview(prev, io, odds)
+
+
+## Canonical single-wave header line (AC-TK-82): "Wave k / N — <Boss> | Start HP X% · Qi Y%".
+static func tribulation_wave_header(wave: Dictionary, wave_count: int, io: TerminalIO = null) -> String:
+	if io == null:
+		io = TerminalIO.new()
+	var k: int = int(wave.get("wave", 1))
+	var n: int = maxi(wave_count, k)
+	var bname: String = str(wave.get("boss_name", wave.get("boss_id", "?")))
+	var text: String = "Wave %d / %d — %s | Start HP %s · Qi %s" % [
+		k, n, bname, _tk_pct(float(wave.get("start_h", 1.0))), _tk_pct(float(wave.get("start_q", 1.0)))
+	]
+	return io.paint(text, C_BOLD)
+
+
+## Formats one tribulation wave's header and fight summary lines (ending, time, HP/Qi remaining, deciding layer).
+static func tribulation_wave_summary(wave: Dictionary, wave_count: int, io: TerminalIO = null) -> Array:
+	if io == null:
+		io = TerminalIO.new()
+	var lines: Array = [tribulation_wave_header(wave, wave_count, io)]
+	var cleared: bool = bool(wave.get("cleared", false))
+	var status_s: String = io.paint("CLEARED", C_GREEN) if cleared else io.paint("FAILED", "1;31")
+	var hp_end: float = float(wave.get("health_end", 0.0))
+	var hp_max: float = float(wave.get("health_max", 0.0))
+	var qi_end: float = float(wave.get("qi_end", 0.0))
+	var qi_max: float = float(wave.get("qi_max", 0.0))
+	var layer: int = int(wave.get("deciding_layer", -1))
+	lines.append("  %s · ending %s · %.1f s · HP %.0f/%.0f · Qi %.0f/%.0f · deciding layer: %s" % [
+		status_s, str(wave.get("ending", "")), float(wave.get("seconds", 0.0)),
+		hp_end, hp_max, qi_end, qi_max, tribulation_deciding_layer(layer)
+	])
+	for note in Array(wave.get("notes", [])):
+		lines.append(io.paint("  note: " + str(note), C_DIM))
+	return lines
+
+
+## Formats a complete Heavenly Tribulation result snapshot (AC-TK-82, AC-TK-83): ordered wave headers,
+## per-wave fight summaries, and survival buff + numbered reward choices or failure summary.
+static func tribulation_result(result: Dictionary, io: TerminalIO = null) -> Array:
+	if io == null:
+		io = TerminalIO.new()
+	if result.is_empty():
+		return ["No Heavenly Tribulation result recorded."]
+	var waves: Array = Array(result.get("waves", []))
+	var wave_count: int = int(result.get("wave_count", waves.size()))
+	var waves_cleared: int = int(result.get("waves_cleared", 0))
+	var survived: bool = bool(result.get("survived", false))
+	var lines: Array = []
+	var title: String = ("HEAVENLY TRIBULATION — SURVIVED (%d/%d)" % [waves_cleared, wave_count]) if survived \
+		else ("HEAVENLY TRIBULATION — FAILED (%d/%d)" % [waves_cleared, wave_count])
+	lines.append(rule(io, title, "━"))
+	for raw_w in waves:
+		if raw_w is Dictionary:
+			lines.append_array(tribulation_wave_summary(raw_w as Dictionary, wave_count, io))
+	if survived:
+		var pend: Dictionary = result.get("pending_reward", {}) if result.get("pending_reward") is Dictionary else {}
+		var buff: Dictionary = result.get("tempered_buff", {}) if result.get("tempered_buff") is Dictionary else {}
+		if buff.is_empty() and pend.get("buff") is Dictionary:
+			buff = pend.buff
+		var b_src: String = str(buff.get("source", "tribulation_tempered"))
+		var b_lbl: String = str(buff.get("label", "Thiên Kiếp tôi luyện (Tribulation-Tempered)"))
+		var mod_parts: PackedStringArray = []
+		for raw_m in Array(buff.get("mods", [])):
+			if raw_m is Dictionary:
+				mod_parts.append(_tk_mod_line(raw_m as Dictionary))
+		lines.append(io.paint(" LASTING BUFF: %s [%s]" % [b_lbl, b_src], C_GREEN) + ((" — " + ", ".join(mod_parts)) if not mod_parts.is_empty() else ""))
+		var choices: Array = Array(pend.get("choices", []))
+		if choices.is_empty() and not bool(result.get("reward_claimed", false)):
+			choices = Array(result.get("reward_choices", []))
+		if not choices.is_empty():
+			lines.append(io.paint(" REWARD CHOICES (pick one):", C_BOLD))
+			for i in choices.size():
+				if choices[i] is Dictionary:
+					var ch: Dictionary = choices[i] as Dictionary
+					lines.append("   %d) %s [%s · qty %d · rarity %d]" % [
+						i + 1, str(ch.get("label", ch.get("template", "?"))),
+						str(ch.get("kind", "item")), int(ch.get("qty", 1)), int(ch.get("rarity", 1))
+					])
+			lines.append(io.paint(" Claim with: tribulation reward <n>", C_DIM))
+	else:
+		var fw: int = int(result.get("fatal_wave", waves_cleared + 1))
+		var fb: Dictionary = result.get("fatal_boss", {}) if result.get("fatal_boss") is Dictionary else {}
+		var fb_name: String = str(fb.get("name", fb.get("id", "?")))
+		var last_layer: int = int((waves[-1] as Dictionary).get("deciding_layer", -1)) if (not waves.is_empty() and waves[-1] is Dictionary) else -1
+		lines.append(io.paint(" RESULT: Fallen on Wave %d against %s (ending: %s, deciding layer: %s)." % [
+			fw, fb_name, str(result.get("fail_reason", "failed")), tribulation_deciding_layer(last_layer)
+		], "1;31"))
+		lines.append(" No lasting buff or reward granted.")
+	return lines
+
+
+## Read-only convenience wrapper formatting [method GameQuery.tribulation_result].
+static func tribulation_result_for(s: GameSession, io: TerminalIO = null) -> Array:
+	if io == null:
+		io = TerminalIO.new()
+	if s == null:
+		return ["No active session."]
+	return tribulation_result(GameQuery.tribulation_result(s), io)

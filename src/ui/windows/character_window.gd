@@ -30,6 +30,7 @@ var lifespan_warn_share: float = 0.1
 
 var _chooser_slot: Dictionary = {}   # the slot whose chooser is open ({slot, index}), {} when none
 var _armed: bool = false             # the breakthrough confirm is armed
+var _tk_pool_open: bool = false      # the tribulation boss pool preview is expanded inside Bottleneck
 var _tab: String = "overview"        # the open tab (TABS)
 var _trigger_held: bool = false      # a trigger already stepped a tab and has not been released
 var _event_locked: bool = false      # an event waits (timed verbs lock); `locked` also covers look-only
@@ -54,6 +55,7 @@ func open_tab(key: String) -> void:
 	_tab = key
 	_chooser_slot = {}
 	_armed = false
+	_tk_pool_open = false
 	_active_verb = ""
 	_verb_params = {}
 	super.show_view(view, "", _event_locked)
@@ -109,6 +111,7 @@ func show_view(v: Dictionary, section: String, is_locked: bool) -> void:
 	if v.get("id", "") != view.get("id", "-"):
 		_chooser_slot = {}
 		_armed = false
+		_tk_pool_open = false
 		_active_verb = ""
 		_verb_params = {}
 		_tab = "overview" if bool(v.get("is_player", true)) else "interact"
@@ -1067,6 +1070,7 @@ func _build_cultivation(v: Dictionary, parent: Control) -> void:
 	realm.theme_type_variation = &"TitleLabel"
 	box.add_child(realm)
 	line(_standing_rest(v), box)
+	_build_tribulation_buff_badge(v, box)
 	var cu: Dictionary = v.get("cultivation", {})
 	var bds: Dictionary = v.get("breakdowns", {})
 	if bool(cu.get("top", false)):
@@ -1103,6 +1107,10 @@ func _build_cultivation(v: Dictionary, parent: Control) -> void:
 	row(tr("This attempt"), "%.1f %% " % chance + tr("success"), breakdown_tip(tr("Breakthrough chance"), bds.get("breakthrough", {})), block)
 	row(tr("Qi deviation"), "%.0f %% " % risk + tr("if it fails"), breakdown_tip(tr("Qi deviation chance"), bds.get("backlash", {})), block)
 	row(tr("Bare attempts"), "%d / %d" % [int(bn.bare_attempts), int(bn.bare_cap)], null, block)
+	var tk: Dictionary = bn.get("tribulation", {}) if bn.get("tribulation") is Dictionary else {}
+	var tk_active: bool = bool(tk.get("active", false))
+	if tk_active:
+		_build_tribulation_bottleneck(tk, block)
 	var actions := HBoxContainer.new()
 	block.add_child(actions)
 	if not bool(bn.full):
@@ -1116,6 +1124,18 @@ func _build_cultivation(v: Dictionary, parent: Control) -> void:
 		ask.accessibility_name = ask.text + " " + tr("Confirm or Cancel")
 		block.add_child(ask)
 		block.move_child(ask, actions.get_index())
+		if tk_active:
+			var tk_warn := Label.new()
+			tk_warn.name = "TribulationArmedWarning"
+			var wcnt: int = int(tk.get("wave_count", 3))
+			var warn_txt: String = tr("⚠ On success, Heavenly Tribulation begins immediately (%d waves; losing any wave is death).") % wcnt
+			if bool(tk.get("has_escape_art", false)):
+				warn_txt += " " + str(tk.get("escape_warning", tr("Escape arts cannot flee a Heavenly Tribulation — fleeing fails the tribulation.")))
+			tk_warn.text = warn_txt
+			tk_warn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			tk_warn.add_theme_color_override("font_color", Illustrated.CINNABAR)
+			block.add_child(tk_warn)
+			block.move_child(tk_warn, actions.get_index())
 		var confirm := action_button(tr("Confirm"), "breakthrough", [str(bn.get("pill", "")) != "" and not bool(bn.condition_met), true], actions)
 		confirm.name = "ConfirmBreakthrough"
 		confirm.theme_type_variation = &"CommitButton"
@@ -1138,6 +1158,133 @@ func _build_cultivation(v: Dictionary, parent: Control) -> void:
 		actions.add_child(attempt)
 
 
+func _build_tribulation_bottleneck(tk: Dictionary, block: Control) -> void:
+	var wcnt: int = int(tk.get("wave_count", 3))
+	var pool: Array = Array(tk.get("pool", []))
+	var status := PanelContainer.new()
+	status.name = "TribulationStatus"
+	status.add_theme_stylebox_override("panel", Illustrated.box(Color("#3B1618"), Illustrated.BRASS, 1, 6.0, 2))
+	status.focus_mode = Control.FOCUS_ALL
+	block.add_child(status)
+	var scol := VBoxContainer.new()
+	scol.add_theme_constant_override("separation", 4)
+	status.add_child(scol)
+	var slbl := Label.new()
+	slbl.name = "TribulationStatusLabel"
+	slbl.text = tr("⚠ Thiên Kiếp (Heavenly Tribulation) · %d waves — losing any wave is death") % wcnt
+	slbl.add_theme_color_override("font_color", Illustrated.BONE)
+	slbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	scol.add_child(slbl)
+	status.accessibility_name = slbl.text
+	TooltipLayer.set_tip(status, {
+		"title": tr("Heavenly Tribulation (Thiên Kiếp)"),
+		"fact": tr("%d waves · %d bosses in pool") % [wcnt, pool.size()],
+		"summary": tr("Foreseen fight series with no healing between waves. Full pool and weights are visible; the draw stays hidden until each wave begins."),
+	})
+	if bool(tk.get("has_escape_art", false)):
+		var esc := Label.new()
+		esc.name = "TribulationEscapeWarning"
+		esc.text = "⚠ " + str(tk.get("escape_warning", tr("Escape arts cannot flee a Heavenly Tribulation — fleeing fails the tribulation.")))
+		esc.add_theme_color_override("font_color", Color("#FFD98A"))
+		esc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		scol.add_child(esc)
+	var toggle := Button.new()
+	toggle.name = "ToggleTribulationPool"
+	toggle.toggle_mode = true
+	toggle.button_pressed = _tk_pool_open
+	toggle.text = (tr("Hide boss pool (%d)") if _tk_pool_open else tr("Inspect boss pool (%d bosses)")) % pool.size()
+	toggle.accessibility_name = tr("Toggle Heavenly Tribulation boss pool preview (%d bosses)") % pool.size()
+	TooltipLayer.set_tip(toggle, tr("Show every boss in the tribulation pool with its threat kind, arts, and draw weight (never the draw)."))
+	toggle.pressed.connect(func():
+		_tk_pool_open = not _tk_pool_open
+		_rebuild_keep("cultivation"))
+	scol.add_child(toggle)
+	if _tk_pool_open and not pool.is_empty():
+		var pbox := VBoxContainer.new()
+		pbox.name = "TribulationPoolPreview"
+		pbox.add_theme_constant_override("separation", 3)
+		scol.add_child(pbox)
+		var total_w: float = 0.0
+		for raw_b in pool:
+			if raw_b is Dictionary:
+				total_w += maxf(0.0, float((raw_b as Dictionary).get("weight", 0.0)))
+		for raw_b in pool:
+			if not (raw_b is Dictionary):
+				continue
+			var b: Dictionary = raw_b as Dictionary
+			var bw: float = float(b.get("weight", 1.0))
+			var share_s: String = TribulationScreen.format_pct(bw / total_w) if total_w > 0.0 else "—"
+			var arts_s: String = ", ".join(Array(b.get("arts", [])).map(func(a): return str(a)))
+			var bl := Label.new()
+			bl.text = "• %s [%s · w=%.1f (%s) · ×%.2f] — %s" % [
+				str(b.get("name", b.get("id", "?"))), str(b.get("main_kind", "")), bw, share_s,
+				float(b.get("boss_pool_mult", 1.0)), arts_s]
+			bl.add_theme_color_override("font_color", Illustrated.BONE)
+			bl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			pbox.add_child(bl)
+
+
+func _tribulation_buffs_of(v: Dictionary) -> Array:
+	var raw: Array = Array(v.get("tribulation_buffs", []))
+	if raw.is_empty() and v.get("fate") is Dictionary:
+		raw = Array((v.fate as Dictionary).get("tribulation_buffs", []))
+	if not raw.is_empty():
+		return raw
+	# Fallback: detect tribulation_tempered lines inside breakdowns if no explicit array was attached.
+	var found_lines: Array = []
+	var bds: Dictionary = v.get("breakdowns", {}) if v.get("breakdowns") is Dictionary else {}
+	for bk in bds.keys():
+		var bd_v: Variant = bds[bk]
+		if bd_v is Dictionary:
+			for ln in Array((bd_v as Dictionary).get("lines", [])):
+				var s: String = str(ln)
+				if s.contains("tribulation_tempered"):
+					found_lines.append(s)
+	if not found_lines.is_empty():
+		return [{"source": "tribulation_tempered", "label": "Thiên Kiếp tôi luyện (Tribulation-Tempered)", "lines": found_lines}]
+	return []
+
+
+func _build_tribulation_buff_badge(v: Dictionary, parent: Control) -> void:
+	var buffs: Array = _tribulation_buffs_of(v)
+	if buffs.is_empty():
+		return
+	var badge := PanelContainer.new()
+	badge.name = "TribulationTemperedBadge"
+	badge.add_theme_stylebox_override("panel", Illustrated.box(Illustrated.PAPER_TILE, Illustrated.BRASS, 1, 6.0, 2))
+	badge.focus_mode = Control.FOCUS_ALL
+	parent.add_child(badge)
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 2)
+	badge.add_child(col)
+	var all_lines: Array = []
+	for raw_b in buffs:
+		if not (raw_b is Dictionary):
+			continue
+		var b: Dictionary = raw_b as Dictionary
+		var lbl: String = str(b.get("label", tr("Thiên Kiếp tôi luyện (Tribulation-Tempered)")))
+		var parts: Array = []
+		for raw_m in Array(b.get("mods", [])):
+			if raw_m is Dictionary:
+				parts.append(TribulationScreen.format_mod_line(raw_m as Dictionary))
+		for ln in Array(b.get("lines", [])):
+			parts.append(str(ln))
+		all_lines.append_array(parts)
+		var l := Label.new()
+		l.text = "✦ " + lbl + ((" · " + ", ".join(parts)) if not parts.is_empty() else "")
+		l.add_theme_color_override("font_color", Illustrated.GILT)
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		col.add_child(l)
+	badge.accessibility_name = tr("Tribulation-Tempered lasting buff") + ((": " + ", ".join(all_lines)) if not all_lines.is_empty() else "")
+	TooltipLayer.set_tip(badge, {
+		"id": "tribulation_tempered",
+		"title": tr("Thiên Kiếp tôi luyện (Tribulation-Tempered)"),
+		"fact": tr("Lasting buff (tribulation_tempered)"),
+		"summary": tr("Granted permanently upon surviving Heavenly Tribulation."),
+		"lines": all_lines,
+	})
+
+
 func _arm() -> void:
 	_armed = true
 	_rebuild_keep("cultivation")
@@ -1157,6 +1304,10 @@ func cancel_inline() -> bool:
 		return true
 	if _armed:
 		_disarm()
+		return true
+	if _tk_pool_open:
+		_tk_pool_open = false
+		_rebuild_keep("cultivation")
 		return true
 	if not _chooser_slot.is_empty():
 		_chooser_slot = {}
@@ -1769,6 +1920,16 @@ func _build_fate(v: Dictionary, parent: Control) -> void:
 		row(tr("Thiên mệnh"), tr("none"), null, box)
 	for p in perks:
 		row(tr("Thiên mệnh"), str(p.name), {"title": str(p.name), "summary": str(p.text)}, box)
+	for raw_b in _tribulation_buffs_of(v):
+		if raw_b is Dictionary:
+			var b: Dictionary = raw_b as Dictionary
+			var bparts: Array = []
+			for raw_m in Array(b.get("mods", [])):
+				if raw_m is Dictionary:
+					bparts.append(TribulationScreen.format_mod_line(raw_m as Dictionary))
+			var btext: String = str(b.get("label", tr("Thiên Kiếp tôi luyện (Tribulation-Tempered)"))) + ((" · " + ", ".join(bparts)) if not bparts.is_empty() else "")
+			var r_tk: HBoxContainer = row(tr("Thiên Kiếp"), btext, {"title": str(b.get("label", "tribulation_tempered")), "lines": bparts}, box)
+			r_tk.name = "FateTribulationBuff"
 	row(tr("Renown (danh vọng)"), tr("not tracked yet"), null, box)
 
 
