@@ -40,6 +40,10 @@ const TOP_REALMS := [3, 4]
 const KD_REALM := 2
 ## The worker-process settings (ADR-0003 decision 13).
 const WORKERS_FILE := "combat_rating_workers"
+## Offline precomputed full-panel base ratings for living authored cast and beasts (Core Rule 16a).
+const CAST_RATINGS_FILE := "cast_ratings"
+## Build/combat data files hashed into cast_ratings.json's asset_digest beyond combat_rankings.json data_version.
+const CAST_ASSET_FILES := ["combat_library", "dao_do_map", "items_sets", "items_named", "items_cong_phap", "traits", "combat_rules"]
 
 var ladder: RatingLadder
 ## Callable(c: Character) -> StatSheet used to compile NPCs; defaults to a sheet without the Đạo Đồ.
@@ -447,17 +451,92 @@ func snapshot_prev() -> void:
 		rec["prev_realm"] = int(rec.get("realm", 0))
 
 
-## World generation's ratings (rule 16), outside any season budget: the player's full panel, then coarse panels for
-## every generated NPC of Kết Đan and above, then the NPCs at [param start_place], higher realm first then by id, until
+## Deterministic 16-hex SHA-256 digest of the combat and build data files hashed into cast_ratings.json (Core Rule 16a).
+static func cast_asset_digest(gd: GameData) -> String:
+	var ctx := HashingContext.new()
+	ctx.start(HashingContext.HASH_SHA256)
+	for fid in CAST_ASSET_FILES:
+		ctx.update((fid + "\n").to_utf8_buffer())
+		var content: Dictionary = gd.file(fid) if gd.registry.has_file(fid) else {}
+		ctx.update(JSON.stringify(content, "", true).to_utf8_buffer())
+		ctx.update("\n".to_utf8_buffer())
+	return ctx.finish().hex_encode().substr(0, 16)
+
+
+## Loads offline precomputed full-panel base ratings for living authored cast and beasts (Core Rule 16a).
+## Validates header schema, versions, and asset_digest, then each entry's realm and build_sig; any mismatch or
+## missing file falls back silently to Rule 16 so stale ratings are never applied. Returns applied entry count.
+func _apply_precomputed_cast() -> int:
+	if not _gd.registry.has_file(CAST_RATINGS_FILE):
+		return 0
+	var pre: Dictionary = _gd.file(CAST_RATINGS_FILE)
+	if int(pre.get("schema_version", 0)) != 1:
+		return 0
+	var data_ver: String = str(_knobs.get("data_version", ""))
+	if str(pre.get("data_version", "")) != data_ver:
+		return 0
+	if _gd.registry.has_file(WorldBuilder.HISTORY_FILE):
+		var hist: Dictionary = _gd.file(WorldBuilder.HISTORY_FILE)
+		if int(pre.get("world_data_version", -1)) != int(hist.get("world_data_version", 0)):
+			return 0
+		if str(pre.get("world_history_version", "")) != str(hist.get("data_version", "")):
+			return 0
+	var want_digest: String = str(pre.get("asset_digest", ""))
+	if want_digest == "" or want_digest != cast_asset_digest(_gd):
+		return 0
+	var entries_v: Variant = pre.get("entries", {})
+	if not (entries_v is Dictionary) or (entries_v as Dictionary).is_empty():
+		return 0
+	var entries: Dictionary = entries_v as Dictionary
+	var applied := 0
+	for p in _db.all("people"):
+		if not bool(p.get("alive", true)) or bool(p.get("is_player", false)):
+			continue
+		var ck: String = str(p.get("cast_key", ""))
+		if ck == "" or not entries.has(ck):
+			continue
+		var e_v: Variant = entries[ck]
+		if not (e_v is Dictionary):
+			continue
+		var e: Dictionary = e_v as Dictionary
+		var realm: int = clampi(int(p.get("realm_index", 0)), 0, 4)
+		if int(e.get("realm", -1)) != realm:
+			continue
+		var sig: String = build_sig(p)
+		if str(e.get("sig", "")) != sig:
+			continue
+		var rec: Dictionary = _db.get_record(TABLE, str(p.id))
+		if rec.is_empty():
+			rec = _ensure(str(p.id), realm, int(p.get("stage", 0)))
+		rec["base"] = _snap(float(e.get("base", 0.0)))
+		rec["offset"] = 0.0
+		rec["n"] = 0
+		rec["state"] = RATED
+		rec["realm"] = realm
+		rec["version"] = data_ver
+		rec["sig"] = sig
+		rec["panels"] = 1
+		rec["seeds"] = {"season": -1, "counts": {}}
+		applied += 1
+	return applied
+
+
+## World generation's ratings (rules 16 and 16a), outside any season budget: matching precomputed authored cast and
+## beasts start Rated at zero load fights; the player takes a synchronous full panel; coarse panels then run for
+## unrated NPCs of Kết Đan and above, then unrated NPCs at [param start_place], higher realm first then by id, until
 ## worldgen_fight_budget fights have run. Those NPCs start Stale; the rest stay Provisional. Seeds use season 0.
-## Returns {player_fights, coarse_panels, fights}.
+## Returns {player_fights, precomputed_cast, coarse_panels, fights}.
 func worldgen(game_seed: int, player: Character, player_sheet: StatSheet, start_place: String) -> Dictionary:
 	refresh()
-	var out := {"player_fights": 0, "coarse_panels": 0, "fights": 0}
+	var out := {"player_fights": 0, "precomputed_cast": 0, "coarse_panels": 0, "fights": 0}
+	out.precomputed_cast = _apply_precomputed_cast()
 	if player != null:
 		var done: Dictionary = run_panel(player, player_sheet, game_seed, 0)
 		out.player_fights = int(done.get("fights", 0))
-	var living: Array = _db.all("people").filter(func(x): return bool(x.get("alive", true)) and not bool(x.get("is_player", false)))
+	var living: Array = _db.all("people").filter(func(x):
+		if not bool(x.get("alive", true)) or bool(x.get("is_player", false)):
+			return false
+		return str(_db.get_record(TABLE, str(x.id)).get("state", "")) != RATED)
 	var by_realm := func(x, y):
 		if int(x.realm_index) != int(y.realm_index):
 			return int(x.realm_index) > int(y.realm_index)
@@ -475,6 +554,9 @@ func worldgen(game_seed: int, player: Character, player_sheet: StatSheet, start_
 		var p: FighterProfile = _profile(x)
 		if p != null:
 			b.panels.append(_queue_panel(_db.get_record(TABLE, str(x.id)), p, true, build_sig(x), 0))
+	if b.panels.is_empty():
+		snapshot_prev()
+		return out
 	_prebuild(b)
 	_hand_to_workers(b)
 	b.run(true)

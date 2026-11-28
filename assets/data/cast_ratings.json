@@ -1,0 +1,10628 @@
+{
+ "_doc": "Offline precomputed full-panel Power Rankings bases for every living authored cast member and authored spirit beast (design/gdd/power-rankings.md Core Rule 16a). Written by tools/design/ranking/export_cast_ratings.gd; do not edit by hand. Read by RatingService.worldgen().",
+ "asset_digest": "c6a35e37e3f405e6",
+ "beast_count": 21,
+ "cast_count": 1748,
+ "count": 1769,
+ "data_version": "6c829cf0107774f4",
+ "entries": {
+  "an_chieu_nguyet": {
+   "base": -8407.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "150526425"
+  },
+  "an_coc_vu": {
+   "base": -3934.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1085435267"
+  },
+  "an_lang_thach": {
+   "base": -8549.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1804523049"
+  },
+  "an_lanh_phong": {
+   "base": -7008.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3514098275"
+  },
+  "an_tac_van": {
+   "base": 6105.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3448594697"
+  },
+  "an_thanh_linh": {
+   "base": 31588.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1103910462"
+  },
+  "an_thinh_tuyet": {
+   "base": -4622.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2842453057"
+  },
+  "an_tho_hoa": {
+   "base": -15772.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3962174788"
+  },
+  "an_thu_son": {
+   "base": 11368.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3271499644"
+  },
+  "an_thuy_vu": {
+   "base": 9512.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "442676189"
+  },
+  "an_tieu_han": {
+   "base": -12720.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "234254268"
+  },
+  "an_tieu_mac": {
+   "base": -10102.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1076060101"
+  },
+  "an_toan_chau": {
+   "base": 5935.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3370348237"
+  },
+  "an_tri_le": {
+   "base": -7282.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "874985781"
+  },
+  "au_da_loc": {
+   "base": -12691.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "332155372"
+  },
+  "au_dau_sinh": {
+   "base": -13318.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "886953775"
+  },
+  "au_duong_kien": {
+   "base": 10835.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "751047596"
+  },
+  "au_duong_tan_di": {
+   "base": 20682.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "109189043"
+  },
+  "au_duong_tuyen": {
+   "base": -7195.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2807336330"
+  },
+  "au_duong_tuyet": {
+   "base": 8428.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2407828391"
+  },
+  "au_hanh_van": {
+   "base": 3844.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2369894064"
+  },
+  "au_hoang_ky": {
+   "base": 6972.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1960192248"
+  },
+  "au_thien_tuoc": {
+   "base": -12893.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "231160350"
+  },
+  "au_tieu_linh": {
+   "base": -9887.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1981613732"
+  },
+  "au_tieu_mien": {
+   "base": -8434.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2086116894"
+  },
+  "au_tuong_thu": {
+   "base": -10447.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3342218693"
+  },
+  "au_van_chieu": {
+   "base": -16418.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "125930477"
+  },
+  "ba_lang_nhi": {
+   "base": -8605.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3605619978"
+  },
+  "ba_xuan_son": {
+   "base": -15721.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1275897214"
+  },
+  "bac_dich_thanh": {
+   "base": 5204.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3446514691"
+  },
+  "bac_hai_am": {
+   "base": 41819.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3646686136"
+  },
+  "bac_hy_van": {
+   "base": 1077.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2969032268"
+  },
+  "bac_thanh_ha": {
+   "base": -5006.5,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1877071208"
+  },
+  "bac_thu_quan": {
+   "base": -13174.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2751843251"
+  },
+  "bac_trieu_am": {
+   "base": -11785.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "968278580"
+  },
+  "bach_han_yen": {
+   "base": 5820.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2779339722"
+  },
+  "bach_hop_hoan": {
+   "base": 4854.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2878984831"
+  },
+  "bach_khac_thi": {
+   "base": 8428.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "515130292"
+  },
+  "bach_loc_linh": {
+   "base": -10242.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2186221495"
+  },
+  "bach_loc_sinh": {
+   "base": -9371.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3363901559"
+  },
+  "bach_mien_thanh": {
+   "base": -10366.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "221877122"
+  },
+  "bach_van_khe": {
+   "base": -5831.7,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1863371843"
+  },
+  "bach_vong_ngon": {
+   "base": 24941.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3668656339"
+  },
+  "bang_kich_van": {
+   "base": -9961.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2014271254"
+  },
+  "bang_lanh_toi": {
+   "base": 18426.4,
+   "fights": 32,
+   "realm": 1,
+   "sig": "390599939"
+  },
+  "bang_thach_khanh": {
+   "base": -12374.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1899089078"
+  },
+  "bang_thu_khe": {
+   "base": 7764.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3667050215"
+  },
+  "bang_tinh_bien": {
+   "base": 6434.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2857528256"
+  },
+  "bang_tran_lang": {
+   "base": 5069.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2148260913"
+  },
+  "bang_tran_nhac": {
+   "base": 17824.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "829429212"
+  },
+  "bang_yen_toa": {
+   "base": 16630.8,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1003077730"
+  },
+  "banh_cham_thach": {
+   "base": 5169.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "921658703"
+  },
+  "banh_chu_thiet": {
+   "base": 9365.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2149702979"
+  },
+  "banh_da_hang": {
+   "base": 6131.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3551449690"
+  },
+  "banh_lap_mai": {
+   "base": 7431.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4043937325"
+  },
+  "banh_nhi_ho": {
+   "base": -5831.7,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1014359883"
+  },
+  "banh_tao_nhi": {
+   "base": -12481.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1977648015"
+  },
+  "banh_tieu_dang": {
+   "base": -12455.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1181429011"
+  },
+  "banh_tieu_dien": {
+   "base": -5097.8,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3201903607"
+  },
+  "banh_tieu_thien": {
+   "base": -11048.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3131576122"
+  },
+  "banh_tri_hap": {
+   "base": -15608.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1602592042"
+  },
+  "bao_anh_nhi": {
+   "base": -12323.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "231619597"
+  },
+  "bao_lac_hai": {
+   "base": -11698.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1250310152"
+  },
+  "bao_nham_tinh": {
+   "base": 30905.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3163083631"
+  },
+  "bao_te_hai": {
+   "base": 40442.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3481912824"
+  },
+  "bao_thiet_thu": {
+   "base": 6828.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "375548488"
+  },
+  "bao_thinh_trieu": {
+   "base": 1802.6,
+   "fights": 32,
+   "realm": 0,
+   "sig": "13213819"
+  },
+  "bao_thu_xuong": {
+   "base": 26941.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1143404263"
+  },
+  "bao_thuy_hanh": {
+   "base": -2635.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "946089706"
+  },
+  "bao_tieu_que": {
+   "base": -5020.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1744633029"
+  },
+  "bao_viem_nuong": {
+   "base": -1791.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1954551696"
+  },
+  "bat_phe": {
+   "base": -7957.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1421467584"
+  },
+  "bat_phi": {
+   "base": -8740.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3667645113"
+  },
+  "be_diem_suong": {
+   "base": -15956.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "609808307"
+  },
+  "bi_thiet_nha": {
+   "base": -6841.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "185868699"
+  },
+  "bi_thuan": {
+   "base": -12158.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3425611354"
+  },
+  "bi_tieu_chu": {
+   "base": -13935.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1866436225"
+  },
+  "bi_tieu_tho": {
+   "base": -15673.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3782414665"
+  },
+  "bi_tu_nuong": {
+   "base": -11618.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3795496891"
+  },
+  "bien_am_pham": {
+   "base": 17598.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "771222089"
+  },
+  "bien_ha_huong": {
+   "base": -16538.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "804123585"
+  },
+  "bien_lam_chau": {
+   "base": -8011.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "754653518"
+  },
+  "bien_tieu_linh": {
+   "base": -16760.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1559538976"
+  },
+  "bien_tram_thach": {
+   "base": -8209.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1741226831"
+  },
+  "bien_van_tinh": {
+   "base": 39770.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "712845929"
+  },
+  "bien_vi_dang": {
+   "base": -8011.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1614610101"
+  },
+  "biet_tri_phan": {
+   "base": 17902.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "356200892"
+  },
+  "binh_thiet_phu": {
+   "base": -11947.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1910962266"
+  },
+  "binh_vien_khach": {
+   "base": 8860.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "114145856"
+  },
+  "bo_do_trong": {
+   "base": 12029.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "789283019"
+  },
+  "bo_hanh_lam": {
+   "base": 33262.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "127545464"
+  },
+  "bo_kim_quy": {
+   "base": -12188.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1150489372"
+  },
+  "bo_loc_minh": {
+   "base": -8317.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3196875940"
+  },
+  "bo_ngoc_cham": {
+   "base": 7986.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2492929027"
+  },
+  "bo_tan_chieu": {
+   "base": 39770.2,
+   "fights": 32,
+   "realm": 2,
+   "sig": "118978216"
+  },
+  "bo_tay_sa": {
+   "base": -8305.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "496273064"
+  },
+  "bo_thanh_lang": {
+   "base": -9573.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3551129164"
+  },
+  "bo_thiet_sinh": {
+   "base": -6513.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1958304292"
+  },
+  "bo_tieu_lo": {
+   "base": -9846.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "474408729"
+  },
+  "bo_toa_tuyet": {
+   "base": 33597.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3033890468"
+  },
+  "bo_tra_nhi": {
+   "base": -15977.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3646583863"
+  },
+  "boc_hai_dong": {
+   "base": -6841.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "592072353"
+  },
+  "boc_kinh_thang": {
+   "base": 11192.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1173906116"
+  },
+  "boc_than": {
+   "base": -7534.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2179805309"
+  },
+  "boc_thu_chung": {
+   "base": 11615.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2515575638"
+  },
+  "boc_thu_dao": {
+   "base": -5411.3,
+   "fights": 32,
+   "realm": 0,
+   "sig": "475028290"
+  },
+  "boc_tram_chu": {
+   "base": 29116.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "4146549052"
+  },
+  "boc_tuyet_nha": {
+   "base": -6931.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "886369573"
+  },
+  "boi_tang_ngon": {
+   "base": 4630.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3706648575"
+  },
+  "bui_han": {
+   "base": -7737.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "543464449"
+  },
+  "bui_kien_chung": {
+   "base": 579.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3275560835"
+  },
+  "bui_phieu_binh": {
+   "base": 32927.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3619973925"
+  },
+  "bui_song_khe": {
+   "base": 2299.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "807582703"
+  },
+  "bui_thanh_ha": {
+   "base": -9506.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "937316131"
+  },
+  "bui_thien_do": {
+   "base": 3872.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4083961340"
+  },
+  "bui_to_chi": {
+   "base": -10524.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "42854379"
+  },
+  "bui_truong_tuyen": {
+   "base": -14971.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1266306340"
+  },
+  "cam_diem_nhi": {
+   "base": -12865.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3100841116"
+  },
+  "cam_le_chau": {
+   "base": -4406.5,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1198192873"
+  },
+  "cam_nhu_y": {
+   "base": 2007.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "311282398"
+  },
+  "cam_thiet_binh": {
+   "base": -12691.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "479955274"
+  },
+  "cam_thu_nguyen": {
+   "base": -4917.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3046117031"
+  },
+  "cam_thuy_ngam": {
+   "base": -11315.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1044295518"
+  },
+  "cam_vong_nhi": {
+   "base": -16538.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1953145908"
+  },
+  "can_hai_tri": {
+   "base": 9904.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "680535205"
+  },
+  "can_ho_duong": {
+   "base": -12193.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1792208851"
+  },
+  "can_thu_chuyet": {
+   "base": 5423.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "81858054"
+  },
+  "can_tri_vi": {
+   "base": 12741.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3385224495"
+  },
+  "can_tung_han": {
+   "base": 37888.2,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1254358916"
+  },
+  "canh_bo_anh": {
+   "base": 7532.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2641104452"
+  },
+  "canh_da_tuan": {
+   "base": 7021.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1340877525"
+  },
+  "canh_lac_phong": {
+   "base": -4245.5,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2754289539"
+  },
+  "canh_lenh_ham": {
+   "base": 3268.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2790440285"
+  },
+  "canh_tinh_am": {
+   "base": -10074.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1242761429"
+  },
+  "canh_truong_thien": {
+   "base": 61301.1,
+   "fights": 32,
+   "realm": 3,
+   "sig": "3443484156"
+  },
+  "canh_vu_ca": {
+   "base": 8990.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1654821110"
+  },
+  "cao_hai_mac": {
+   "base": 4569.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "13853046"
+  },
+  "cao_han_chuc": {
+   "base": -11698.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "772294733"
+  },
+  "cao_sa_lang": {
+   "base": 4342.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2304689503"
+  },
+  "cao_thua_phong": {
+   "base": -9199.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2800005350"
+  },
+  "cao_tieu_pham": {
+   "base": -7986.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3515087802"
+  },
+  "cao_van_ca": {
+   "base": -7563.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "605278821"
+  },
+  "cat_chau_nuong": {
+   "base": 13715.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1899531657"
+  },
+  "cat_da_binh": {
+   "base": -6823.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3467671838"
+  },
+  "cat_doan_nhac": {
+   "base": 22816.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "4159693361"
+  },
+  "cat_kim_sa": {
+   "base": -9627.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1251290962"
+  },
+  "cat_lien_chau": {
+   "base": -12920.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3755349975"
+  },
+  "cat_linh_hanh": {
+   "base": 6058.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "694135570"
+  },
+  "cat_linh_thao": {
+   "base": 7021.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3577994366"
+  },
+  "cat_lo_chau": {
+   "base": -12235.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1685473194"
+  },
+  "cat_luu_quang": {
+   "base": 37733.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "507335427"
+  },
+  "cat_minh_huyen": {
+   "base": -9458.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2656582812"
+  },
+  "cat_ngoc_tri": {
+   "base": 6770.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2085005491"
+  },
+  "cat_thanh_diem": {
+   "base": -6120.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "274287356"
+  },
+  "cat_thoi_phong": {
+   "base": 11557.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "507388642"
+  },
+  "cat_tinh_chuy": {
+   "base": -6868.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3465313995"
+  },
+  "cat_tri_co": {
+   "base": 5907.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2441251880"
+  },
+  "cat_viem": {
+   "base": -7709.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2764693715"
+  },
+  "cat_xich_van": {
+   "base": -14528.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3758050998"
+  },
+  "cau_ap_suong": {
+   "base": -11023.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1126744432"
+  },
+  "chan_dinh_lan": {
+   "base": 37648.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1219026005"
+  },
+  "chau_di_an": {
+   "base": -7064.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "822307898"
+  },
+  "chau_phi_van": {
+   "base": 35017.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "10366216"
+  },
+  "chau_tieu_dam": {
+   "base": -4273.2,
+   "fights": 32,
+   "realm": 0,
+   "sig": "901578257"
+  },
+  "chi_da_hanh": {
+   "base": -9848.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1866943062"
+  },
+  "chiem_da_tuan": {
+   "base": 3432.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "198009749"
+  },
+  "chiem_dan_sam": {
+   "base": 10493.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3199659880"
+  },
+  "chiem_dong_nhi": {
+   "base": -15253.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2027230139"
+  },
+  "chiem_han_sa": {
+   "base": -7519.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2706042914"
+  },
+  "chiem_loi_chau": {
+   "base": 2574.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1995714185"
+  },
+  "chiem_nhu_ngoc": {
+   "base": 7479.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1185714081"
+  },
+  "chiem_thinh_ba": {
+   "base": 4000.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3336667977"
+  },
+  "chiem_thinh_phong": {
+   "base": -5020.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "646358416"
+  },
+  "chu_an_thach": {
+   "base": -17590.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2485394959"
+  },
+  "chu_anh_tuyet": {
+   "base": -11099.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2123694987"
+  },
+  "chu_binh_quan": {
+   "base": 25280.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "900550800"
+  },
+  "chu_hoai_son": {
+   "base": 6537.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3203839671"
+  },
+  "chu_hong_diep": {
+   "base": 41483.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3708972174"
+  },
+  "chu_lan_giang": {
+   "base": 39514.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2819446216"
+  },
+  "chu_moc_qua": {
+   "base": -10102.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2713309822"
+  },
+  "chu_ngoc_trich": {
+   "base": -9517.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3262575893"
+  },
+  "chu_nhien_tam": {
+   "base": -7737.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2415152308"
+  },
+  "chu_suong_linh": {
+   "base": -10913.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1980931526"
+  },
+  "chu_thu_dien": {
+   "base": -12108.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1012215799"
+  },
+  "chu_tri_am": {
+   "base": 30451.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2341221165"
+  },
+  "chu_tuyet_thanh": {
+   "base": -9341.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2441663752"
+  },
+  "chuc_dan_sa": {
+   "base": 6770.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "873223704"
+  },
+  "chuc_du_am": {
+   "base": -1657.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3252209802"
+  },
+  "chuc_hieu_ha": {
+   "base": -8017.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "82062870"
+  },
+  "chuc_hieu_nghi": {
+   "base": 11535.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2353275007"
+  },
+  "chuc_minh_lo": {
+   "base": 3498.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2677550917"
+  },
+  "chung_dong_am": {
+   "base": 2360.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1068177211"
+  },
+  "chung_hai_duong": {
+   "base": -10129.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3277343597"
+  },
+  "chung_hong_lo": {
+   "base": 7071.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3566621772"
+  },
+  "chung_minh_hien": {
+   "base": -10308.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "497557462"
+  },
+  "chung_moc_an": {
+   "base": -8900.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1589581024"
+  },
+  "chung_tan_huong": {
+   "base": 27402.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2942814284"
+  },
+  "chung_thiet_tuyen": {
+   "base": 8983.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3662589777"
+  },
+  "chuong_da_mat": {
+   "base": -7439.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3728949425"
+  },
+  "chuong_hoang_sa": {
+   "base": -11562.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "309802153"
+  },
+  "co_chuc_viem": {
+   "base": 1490.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1832023304"
+  },
+  "co_da_lan": {
+   "base": 56454.2,
+   "fights": 40,
+   "realm": 3,
+   "sig": "2690071128"
+  },
+  "co_dong_du": {
+   "base": -7872.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "258948267"
+  },
+  "co_hao_ly": {
+   "base": -5382.7,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1535868777"
+  },
+  "co_hoi_thiet": {
+   "base": -11099.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2064233691"
+  },
+  "co_hong_phien": {
+   "base": -4917.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "23653177"
+  },
+  "co_ky_am": {
+   "base": 8376.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3055971934"
+  },
+  "co_lang_hoa": {
+   "base": -4622.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2990678663"
+  },
+  "co_lang_suong": {
+   "base": 52310.2,
+   "fights": 40,
+   "realm": 3,
+   "sig": "3731749340"
+  },
+  "co_luc_son": {
+   "base": 12300.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4005797291"
+  },
+  "co_minh_thach": {
+   "base": -10939.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2331779819"
+  },
+  "co_tam_nhi": {
+   "base": -9989.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3397670738"
+  },
+  "co_thang_nhi": {
+   "base": -19918.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1700771006"
+  },
+  "co_thien_mon": {
+   "base": -9067.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4137757129"
+  },
+  "co_thiet_liet": {
+   "base": 7035.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3276416840"
+  },
+  "co_tich_dang": {
+   "base": -10284.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4111165707"
+  },
+  "co_tieu_thiet": {
+   "base": -10475.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3402771792"
+  },
+  "co_xich_nguyet": {
+   "base": 4709.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1999273787"
+  },
+  "coc_hieu_tinh": {
+   "base": 3348.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2571590233"
+  },
+  "coc_thu_thanh": {
+   "base": 9279.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3538759296"
+  },
+  "cong_ton_duan": {
+   "base": 27832.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3877974494"
+  },
+  "cu_bang_ngu": {
+   "base": -11125.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2650250861"
+  },
+  "cu_bich_truc": {
+   "base": -11931.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4018975220"
+  },
+  "cu_boi_ngan": {
+   "base": 5482.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2619211650"
+  },
+  "cu_chan_uy": {
+   "base": 9792.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1731189813"
+  },
+  "cu_dong_moc": {
+   "base": 27064.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3173961378"
+  },
+  "cu_lo_nhi": {
+   "base": -10582.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2097162987"
+  },
+  "cu_luc_truc": {
+   "base": 17394.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2520773101"
+  },
+  "cu_luyen_thach": {
+   "base": 6743.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3287876144"
+  },
+  "cu_thuy_bach": {
+   "base": 84751.1,
+   "fights": 40,
+   "realm": 3,
+   "sig": "2358423960"
+  },
+  "cu_tieu_can": {
+   "base": -11099.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3256985364"
+  },
+  "cu_tieu_hanh": {
+   "base": -11785.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1208845599"
+  },
+  "cu_tieu_lang": {
+   "base": -7484.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4124295775"
+  },
+  "cu_tieu_thoa": {
+   "base": -14106.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4006600705"
+  },
+  "cu_tung_gian": {
+   "base": -9063.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "405116438"
+  },
+  "cu_van_ly": {
+   "base": 16600.0,
+   "fights": 32,
+   "realm": 1,
+   "sig": "552351760"
+  },
+  "cuc_xa_tien": {
+   "base": -9146.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "321845237"
+  },
+  "cung_cau_chi": {
+   "base": -4427.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2205392889"
+  },
+  "cung_han_nhan": {
+   "base": -6180.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1646851392"
+  },
+  "cung_hoang_tinh": {
+   "base": -8659.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "746226393"
+  },
+  "cung_hong_to": {
+   "base": -14834.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3869378573"
+  },
+  "cung_mac_suong": {
+   "base": 22083.8,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1741066774"
+  },
+  "cung_tram_van": {
+   "base": 9083.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "611821592"
+  },
+  "cung_truc": {
+   "base": -8493.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2790635209"
+  },
+  "cuu_bat_ngu": {
+   "base": 16825.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3649022093"
+  },
+  "cuu_lac_nhat": {
+   "base": 2191.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1557809435"
+  },
+  "cuu_quy_hoa": {
+   "base": -6180.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2338992351"
+  },
+  "dai_diep_thu": {
+   "base": -11632.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "870927225"
+  },
+  "dai_ho_than": {
+   "base": 11368.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3752187944"
+  },
+  "dai_liet_duong": {
+   "base": 10554.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "733774156"
+  },
+  "dai_song_luc": {
+   "base": -10945.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1486422255"
+  },
+  "dam_kinh_nguyet": {
+   "base": -8508.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2807823872"
+  },
+  "dam_luu_ba": {
+   "base": 8324.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "554192933"
+  },
+  "dam_thanh_giang": {
+   "base": 22857.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1192625217"
+  },
+  "dam_thiem_dang": {
+   "base": 3099.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4097037959"
+  },
+  "dam_thuy_sinh": {
+   "base": -12054.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1105520433"
+  },
+  "dam_tieu_chu": {
+   "base": -8767.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3358123153"
+  },
+  "dam_tieu_do": {
+   "base": -6689.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2114455841"
+  },
+  "dam_tinh_thach": {
+   "base": 12136.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "306279050"
+  },
+  "dam_tri_ma": {
+   "base": -10046.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1025673179"
+  },
+  "dam_tung_lai": {
+   "base": 63377.3,
+   "fights": 32,
+   "realm": 3,
+   "sig": "2937908392"
+  },
+  "dam_van_chung": {
+   "base": 14006.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3841248768"
+  },
+  "dan_muc_lang": {
+   "base": -12127.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "47475390"
+  },
+  "dan_tan_lao": {
+   "base": -7792.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "191397704"
+  },
+  "dang_bich_luu": {
+   "base": 36996.3,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1962108394"
+  },
+  "dang_ham_sa": {
+   "base": -10308.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "488774159"
+  },
+  "dang_hoanh_giang": {
+   "base": 13851.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "745646819"
+  },
+  "dang_liet_hang": {
+   "base": 6922.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3511587298"
+  },
+  "dang_phi_diem": {
+   "base": 15956.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1545061108"
+  },
+  "dang_quai_linh": {
+   "base": 1466.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3143742635"
+  },
+  "dang_quan_binh": {
+   "base": 28640.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "894348178"
+  },
+  "dang_thach_luc": {
+   "base": -15520.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3919283629"
+  },
+  "dang_tieu_ha": {
+   "base": -15067.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3832364074"
+  },
+  "dang_tieu_hoa": {
+   "base": -12506.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3383841690"
+  },
+  "dang_tieu_van": {
+   "base": -11974.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3293620234"
+  },
+  "dao_han_mac": {
+   "base": -13178.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1881592035"
+  },
+  "dao_kinh_trap": {
+   "base": -6662.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3724843462"
+  },
+  "dao_luong_khe": {
+   "base": 7177.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1245179923"
+  },
+  "dao_nguyet_lan": {
+   "base": 4274.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1801255079"
+  },
+  "dao_thach_an": {
+   "base": -12628.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "308817585"
+  },
+  "dap_van": {
+   "base": 18973.6,
+   "fights": 16,
+   "realm": 2,
+   "sig": "3164273968"
+  },
+  "dat_da_lan": {
+   "base": -12802.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4039481073"
+  },
+  "dat_kien_nguu": {
+   "base": -7778.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "542518685"
+  },
+  "dau_hong_ti": {
+   "base": -10639.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3303750200"
+  },
+  "dau_quang_lang": {
+   "base": -16013.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1783154496"
+  },
+  "dau_sa_nhi": {
+   "base": -9034.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2420429552"
+  },
+  "dau_tam_that": {
+   "base": 6580.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3481604682"
+  },
+  "dau_tam_thuy": {
+   "base": -10276.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3589924511"
+  },
+  "dau_thuy_lang": {
+   "base": 6500.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "405745879"
+  },
+  "dau_tien_xuan": {
+   "base": 19711.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1757621464"
+  },
+  "dau_tieu_hoa": {
+   "base": -16306.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1508197584"
+  },
+  "dich_bach_ly": {
+   "base": 6131.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2895620946"
+  },
+  "dich_kinh_lam": {
+   "base": 48948.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2098482461"
+  },
+  "dich_tan_chieu": {
+   "base": -463.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "24679530"
+  },
+  "dich_tieu_chuoc": {
+   "base": -9399.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4077765570"
+  },
+  "dich_tieu_ho": {
+   "base": -8118.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3461449304"
+  },
+  "diem_hai_tao": {
+   "base": 39853.2,
+   "fights": 32,
+   "realm": 2,
+   "sig": "170347003"
+  },
+  "diem_lac_nhan": {
+   "base": 16543.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1270629398"
+  },
+  "diem_tu_to": {
+   "base": 32620.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1775217604"
+  },
+  "dien_han_tac": {
+   "base": 11530.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "395985030"
+  },
+  "dien_hoa_lung": {
+   "base": 885.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2561124438"
+  },
+  "dien_phong_nien": {
+   "base": 36097.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1449323982"
+  },
+  "dien_tieu_mach": {
+   "base": -10125.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "847971463"
+  },
+  "dien_tieu_thach": {
+   "base": -12893.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "521465180"
+  },
+  "dien_xuong_uong": {
+   "base": -10796.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4081153899"
+  },
+  "diep_an_thu": {
+   "base": 9553.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2222234552"
+  },
+  "diep_dan_sa": {
+   "base": -8491.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3099202610"
+  },
+  "diep_lac_phuong": {
+   "base": -12027.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3513129776"
+  },
+  "diep_lanh_thu": {
+   "base": -8430.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "281656158"
+  },
+  "diep_quang_nhi": {
+   "base": -13298.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1394456560"
+  },
+  "diep_to_quyen": {
+   "base": 35043.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "708466520"
+  },
+  "diep_tung_yen": {
+   "base": 4984.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3365969401"
+  },
+  "dieu_duong_hac": {
+   "base": -10971.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3606925648"
+  },
+  "dieu_han_dam": {
+   "base": 3556.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2841717234"
+  },
+  "dieu_lang_nhi": {
+   "base": -14367.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2119180920"
+  },
+  "dieu_luu_ly": {
+   "base": -9627.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2299992927"
+  },
+  "dieu_ngoc_xuyen": {
+   "base": -8375.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2836180036"
+  },
+  "dieu_nhu_lan": {
+   "base": -7767.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2320033866"
+  },
+  "dieu_tan_dan": {
+   "base": 30039.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1810666411"
+  },
+  "dieu_thiet_tien": {
+   "base": -7074.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2527086068"
+  },
+  "dieu_tieu_dang": {
+   "base": -14288.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "467989245"
+  },
+  "dieu_tieu_phong": {
+   "base": -10421.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3517588421"
+  },
+  "dinh_an_thanh": {
+   "base": 1982.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1866631093"
+  },
+  "dinh_bac_thach": {
+   "base": -9846.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3310179527"
+  },
+  "dinh_hoa_lan": {
+   "base": 10835.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2476891706"
+  },
+  "dinh_hong_thu": {
+   "base": -13591.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1181375208"
+  },
+  "dinh_lao_hoe": {
+   "base": -10447.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3726124713"
+  },
+  "dinh_luu_ly": {
+   "base": -9091.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "335269498"
+  },
+  "dinh_ngan_cau": {
+   "base": 1868.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "553089657"
+  },
+  "dinh_thu_hoang": {
+   "base": 6242.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1217415939"
+  },
+  "dinh_tich_coc": {
+   "base": -7074.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "216130343"
+  },
+  "dinh_tieu_chu": {
+   "base": -14102.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "791750551"
+  },
+  "dinh_tieu_tung": {
+   "base": -11647.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3214019710"
+  },
+  "dinh_tuyet_tung": {
+   "base": 7035.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2188641471"
+  },
+  "dinh_van_do": {
+   "base": 16120.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1054947689"
+  },
+  "dinh_van_tac": {
+   "base": 3447.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3347824624"
+  },
+  "dinh_vong_tinh": {
+   "base": -14476.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3742031612"
+  },
+  "do_hoang_lien": {
+   "base": -3429.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "567503477"
+  },
+  "do_lang_quyen": {
+   "base": -9961.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1529289260"
+  },
+  "do_liet_co": {
+   "base": 35290.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2748829012"
+  },
+  "do_ne_huong": {
+   "base": -16252.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3044756574"
+  },
+  "do_suong_nhi": {
+   "base": 17049.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "472572064"
+  },
+  "do_thanh_duan": {
+   "base": -5296.8,
+   "fights": 32,
+   "realm": 0,
+   "sig": "651809000"
+  },
+  "do_tieu_lien": {
+   "base": -7986.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1649193731"
+  },
+  "do_tinh_ha": {
+   "base": 55808.5,
+   "fights": 40,
+   "realm": 3,
+   "sig": "2267516132"
+  },
+  "do_vo_cuu": {
+   "base": 37759.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "980421010"
+  },
+  "do_xich_linh": {
+   "base": 28067.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1086533238"
+  },
+  "do_xuan_trieu": {
+   "base": 9214.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3463063620"
+  },
+  "doan_bat_mien": {
+   "base": -8482.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2839875499"
+  },
+  "doan_han_bich": {
+   "base": -10499.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "873216724"
+  },
+  "doan_hi_hoa": {
+   "base": 14247.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "871390747"
+  },
+  "doan_kim_sa": {
+   "base": 3645.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "940047492"
+  },
+  "doan_ma_kinh": {
+   "base": -10129.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1677955492"
+  },
+  "doan_mai_cot": {
+   "base": -11483.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1111987696"
+  },
+  "doan_moc_thinh": {
+   "base": 9616.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "702815010"
+  },
+  "doan_ngoc_hanh": {
+   "base": 60011.6,
+   "fights": 32,
+   "realm": 3,
+   "sig": "2794535706"
+  },
+  "doan_thai_dau": {
+   "base": -10861.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2898989610"
+  },
+  "doan_thanh_lang": {
+   "base": 37733.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3947429090"
+  },
+  "doan_thi_ngan": {
+   "base": -11119.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "762390752"
+  },
+  "doan_thinh_moc": {
+   "base": -11618.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "201936601"
+  },
+  "doan_thuong_hai": {
+   "base": 55803.3,
+   "fights": 40,
+   "realm": 3,
+   "sig": "3402682643"
+  },
+  "doan_thuong_hi": {
+   "base": -2917.6,
+   "fights": 32,
+   "realm": 0,
+   "sig": "929205349"
+  },
+  "doan_tieu_cam": {
+   "base": -7709.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "256583192"
+  },
+  "doan_to_ba": {
+   "base": 19942.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1084159"
+  },
+  "doan_tri_lung": {
+   "base": -7004.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1088012706"
+  },
+  "doan_truc_nhi": {
+   "base": -13888.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3815798051"
+  },
+  "doanh_han_ngoc": {
+   "base": -7358.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3480394621"
+  },
+  "doanh_mo_vu": {
+   "base": 4288.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "790239797"
+  },
+  "doi_hau_cam": {
+   "base": 5358.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3205128267"
+  },
+  "doi_hoa_mach": {
+   "base": -7764.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3160165844"
+  },
+  "doi_hoa_tam": {
+   "base": -10387.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3660752171"
+  },
+  "doi_hong_kien": {
+   "base": -12516.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1821896689"
+  },
+  "doi_huyen_nghien": {
+   "base": 5686.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "215673678"
+  },
+  "doi_kim_truc": {
+   "base": 8093.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3867370071"
+  },
+  "doi_lang_y": {
+   "base": -12377.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2218673218"
+  },
+  "doi_liet_cuong": {
+   "base": 9044.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2723478674"
+  },
+  "doi_so_cuong": {
+   "base": -12271.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1655687659"
+  },
+  "doi_tam_nuong": {
+   "base": 12629.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2299597863"
+  },
+  "doi_tan_tam": {
+   "base": -14469.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3142733005"
+  },
+  "doi_thach_tam": {
+   "base": 7835.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2961442066"
+  },
+  "doi_thu_kien": {
+   "base": -12297.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1429179299"
+  },
+  "dong_cuu_mon": {
+   "base": -9241.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3172712109"
+  },
+  "dong_duoc_huong": {
+   "base": -8659.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1651708644"
+  },
+  "dong_ho_dao": {
+   "base": 8983.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "356329969"
+  },
+  "dong_hong_lo": {
+   "base": 34127.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3418833602"
+  },
+  "dong_kien_luy": {
+   "base": 35824.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "580674792"
+  },
+  "dong_kien_thach": {
+   "base": 6058.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "430141581"
+  },
+  "dong_luc_y": {
+   "base": -6895.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3963208275"
+  },
+  "dong_thoa": {
+   "base": -2095.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3366929400"
+  },
+  "dong_tieu_uong": {
+   "base": -9761.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "706049030"
+  },
+  "dong_tinh_ho": {
+   "base": 8225.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3034172016"
+  },
+  "dong_to_huong": {
+   "base": -10945.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "202873533"
+  },
+  "dong_to_moc": {
+   "base": -6689.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2337069876"
+  },
+  "dong_vong": {
+   "base": -1849.7,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3918881725"
+  },
+  "dong_vu_thach": {
+   "base": -12802.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "800644590"
+  },
+  "dong_xuyen_van": {
+   "base": -8118.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "128433871"
+  },
+  "du_bon_van": {
+   "base": 8857.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1382148673"
+  },
+  "du_chuc_nhi": {
+   "base": -4406.5,
+   "fights": 32,
+   "realm": 0,
+   "sig": "543818702"
+  },
+  "du_diem_ca": {
+   "base": 18067.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3024585044"
+  },
+  "du_ho_van": {
+   "base": -8836.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1100890465"
+  },
+  "du_hoang_nhi": {
+   "base": -8380.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "295074111"
+  },
+  "du_phong_ngan": {
+   "base": 10249.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3498886216"
+  },
+  "du_tan_hoa": {
+   "base": -12158.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1115395651"
+  },
+  "du_tinh_luu": {
+   "base": 62311.7,
+   "fights": 32,
+   "realm": 3,
+   "sig": "2770057658"
+  },
+  "du_tuc_doan": {
+   "base": 36930.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2416750214"
+  },
+  "dung_tinh_nhi": {
+   "base": -7366.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1160373746"
+  },
+  "duong_bat_oan": {
+   "base": -9276.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "772443896"
+  },
+  "duong_ha_thao": {
+   "base": -8959.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "930647395"
+  },
+  "duong_hao_vu": {
+   "base": 43290.2,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1992493779"
+  },
+  "duong_ho_thu": {
+   "base": 1615.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "216849793"
+  },
+  "duong_kho_chi": {
+   "base": 21340.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1574208501"
+  },
+  "duong_lac_dong": {
+   "base": -6868.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "546592020"
+  },
+  "duong_lo": {
+   "base": 1847.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3596504111"
+  },
+  "duong_mac_chieu": {
+   "base": 1527.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1420969533"
+  },
+  "duong_noan_ha": {
+   "base": -36.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "156435307"
+  },
+  "duong_tam_dao": {
+   "base": 5547.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1933435102"
+  },
+  "duong_tam_mach": {
+   "base": 3297.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2771325877"
+  },
+  "duong_thang_nhi": {
+   "base": -12297.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1501244075"
+  },
+  "duong_thu_tuyen": {
+   "base": 1186.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1187320243"
+  },
+  "duong_tich_chieu": {
+   "base": 11714.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1837963325"
+  },
+  "duong_tieu_kiem": {
+   "base": -12027.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4236970293"
+  },
+  "gia_chi_lo": {
+   "base": -7319.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2678689515"
+  },
+  "gia_hoi_xuan": {
+   "base": 44207.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2601040191"
+  },
+  "gia_muc_tuc": {
+   "base": -6100.2,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2418057401"
+  },
+  "gia_tuyen_phong": {
+   "base": 6972.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "189535790"
+  },
+  "giai_bach_bo": {
+   "base": 16046.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3004050709"
+  },
+  "giai_do_nam": {
+   "base": 3676.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1012134299"
+  },
+  "giai_thanh_nghien": {
+   "base": -10971.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "778947822"
+  },
+  "giai_tieu_hoa": {
+   "base": -13742.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2748755609"
+  },
+  "giai_van_tieu": {
+   "base": 10211.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3794512018"
+  },
+  "gian_binh_chuong": {
+   "base": 11705.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3176063930"
+  },
+  "gian_dang_bo": {
+   "base": 914.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4252780558"
+  },
+  "gian_thiet_son": {
+   "base": -9393.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2255660231"
+  },
+  "gian_thu_dich": {
+   "base": 40822.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "4006729583"
+  },
+  "gian_thu_han": {
+   "base": 6058.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "159121999"
+  },
+  "gian_tieu_dang": {
+   "base": -15673.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2347215028"
+  },
+  "gian_to_y": {
+   "base": 6770.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1167522667"
+  },
+  "gian_van_lo": {
+   "base": 10157.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3604952474"
+  },
+  "giang_bich_sa": {
+   "base": -10714.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2664375504"
+  },
+  "giang_cuu_khuc": {
+   "base": 46784.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2378477470"
+  },
+  "giang_hanh_hoa": {
+   "base": 939.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2996548921"
+  },
+  "giang_hoi_lan": {
+   "base": 16514.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3153720986"
+  },
+  "giang_phong_lo": {
+   "base": -18600.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1172534329"
+  },
+  "giang_suong_lac": {
+   "base": 7641.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1740893618"
+  },
+  "giang_tieu_loan": {
+   "base": -10366.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2812819335"
+  },
+  "giang_trieu_sinh": {
+   "base": -5770.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3935098653"
+  },
+  "giang_vong_pham": {
+   "base": 12670.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1198092186"
+  },
+  "giap_le_han": {
+   "base": 9792.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3142341233"
+  },
+  "giap_tan_hoi": {
+   "base": -3923.3,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1664982158"
+  },
+  "giap_tan_mai": {
+   "base": -9359.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3951923389"
+  },
+  "ha_cuc_thi": {
+   "base": 3268.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3154683552"
+  },
+  "ha_han_lo": {
+   "base": 4838.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1453262261"
+  },
+  "ha_hau_dien_van": {
+   "base": -9627.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3632440536"
+  },
+  "ha_hau_thach": {
+   "base": -7160.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "793408814"
+  },
+  "ha_hau_thanh_bich": {
+   "base": 2677.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2120820961"
+  },
+  "ha_khac_thuy": {
+   "base": -13712.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3559101875"
+  },
+  "ha_kho_sam": {
+   "base": -15338.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "707361862"
+  },
+  "ha_khong_thuy": {
+   "base": 1018.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4050509741"
+  },
+  "ha_lac_vu": {
+   "base": 2007.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "256798291"
+  },
+  "ha_lang_han": {
+   "base": 18880.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "4014175802"
+  },
+  "ha_mach_tue": {
+   "base": -10355.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4139273053"
+  },
+  "ha_ngai_diep": {
+   "base": -7504.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2460608138"
+  },
+  "ha_que_hoa": {
+   "base": -13559.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4190036084"
+  },
+  "ha_thanh_to": {
+   "base": 14579.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "8532641"
+  },
+  "ha_thinh_tung": {
+   "base": 26161.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3395625527"
+  },
+  "ha_thu_dinh": {
+   "base": -10473.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3572783428"
+  },
+  "ha_tieu_bang": {
+   "base": -11632.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "11796624"
+  },
+  "ha_tinh_can": {
+   "base": 15782.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3239483190"
+  },
+  "ha_tri_han": {
+   "base": -11840.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2800096915"
+  },
+  "ha_tuyet_nhan": {
+   "base": -9310.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1502338025"
+  },
+  "ha_vi_lang": {
+   "base": -564.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1849341908"
+  },
+  "ha_vong_tan": {
+   "base": 6907.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2195515576"
+  },
+  "hac_dan_thach": {
+   "base": -571.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "604969432"
+  },
+  "hac_tan_dang": {
+   "base": 10944.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3921786442"
+  },
+  "hac_thu_nhai": {
+   "base": 10781.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3412781353"
+  },
+  "hach_anh_ha": {
+   "base": 31637.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2736110256"
+  },
+  "hach_chi_dien": {
+   "base": -13698.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3861304815"
+  },
+  "hach_chu_lang": {
+   "base": 38118.8,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3284581832"
+  },
+  "hach_dan_tam": {
+   "base": 3099.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3524550694"
+  },
+  "hach_moc_sinh": {
+   "base": 6434.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3412393411"
+  },
+  "hach_than_ha": {
+   "base": -13409.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3694152889"
+  },
+  "hach_tung": {
+   "base": -9427.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3698566216"
+  },
+  "ham_nhat_van": {
+   "base": 2680.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1892940812"
+  },
+  "ham_tan_chung": {
+   "base": 48560.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "640532847"
+  },
+  "ham_thanh_dang": {
+   "base": 15110.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3455058743"
+  },
+  "ham_tieu_vu": {
+   "base": -16617.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1631448027"
+  },
+  "ham_tu_sa": {
+   "base": 3690.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1049414218"
+  },
+  "han_moc_te": {
+   "base": 7961.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2764103218"
+  },
+  "han_ngoc_tieu": {
+   "base": 4217.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "256449717"
+  },
+  "han_son_duoc": {
+   "base": -10747.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2647428246"
+  },
+  "han_thanh_dai": {
+   "base": 2008.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4129975271"
+  },
+  "han_thanh_huong": {
+   "base": 1877.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3721752733"
+  },
+  "han_thuy_mac": {
+   "base": 4854.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1368560411"
+  },
+  "han_tich": {
+   "base": -2816.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "233151942"
+  },
+  "han_tieu_bac": {
+   "base": -12808.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1227601218"
+  },
+  "han_tieu_chuc": {
+   "base": -13842.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3163020995"
+  },
+  "han_vu": {
+   "base": -2285.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4054353080"
+  },
+  "hang_bang_tuong": {
+   "base": -13927.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3826255467"
+  },
+  "hang_co_nhan": {
+   "base": -6042.2,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3279443514"
+  },
+  "hang_da_boi": {
+   "base": 36024.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3400007316"
+  },
+  "hang_dan_ha": {
+   "base": -10017.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1389165610"
+  },
+  "hang_kieu_sinh": {
+   "base": 13317.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "574442590"
+  },
+  "hang_luu_hoa": {
+   "base": 13633.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3727528071"
+  },
+  "hang_minh_sa": {
+   "base": 9392.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "100445556"
+  },
+  "hang_son_quat": {
+   "base": -10890.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "144454819"
+  },
+  "hang_thai_vu": {
+   "base": 2470.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4070806395"
+  },
+  "hang_that_ket": {
+   "base": -13114.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2612261137"
+  },
+  "hang_to_nhung": {
+   "base": -15422.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4043804046"
+  },
+  "hanh_lien_y": {
+   "base": -8605.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2318472365"
+  },
+  "hau_bach_chu": {
+   "base": 15207.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3128138763"
+  },
+  "hau_can_luong": {
+   "base": 4395.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "402621234"
+  },
+  "hau_lang": {
+   "base": -14753.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2507119629"
+  },
+  "hau_ngu": {
+   "base": -12837.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "766507039"
+  },
+  "hau_thach_nhan": {
+   "base": -9573.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1239357812"
+  },
+  "hau_thien_ke": {
+   "base": 4802.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "125647452"
+  },
+  "hau_thiet_anh": {
+   "base": 14738.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1303705009"
+  },
+  "hau_tieu_co": {
+   "base": -6787.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2281879634"
+  },
+  "hau_tieu_luc": {
+   "base": -10888.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2507833772"
+  },
+  "hau_vong_xuan": {
+   "base": 35017.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3293393957"
+  },
+  "hinh_hoang_ba": {
+   "base": -5543.0,
+   "fights": 32,
+   "realm": 0,
+   "sig": "351523374"
+  },
+  "hinh_lac_nhan": {
+   "base": 21422.8,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1456162252"
+  },
+  "hinh_thu_tinh": {
+   "base": 31457.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2970183035"
+  },
+  "hinh_trong_son": {
+   "base": 41289.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2224395612"
+  },
+  "ho_bach_ly": {
+   "base": 2680.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2343811691"
+  },
+  "ho_bach_yen": {
+   "base": -13777.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2743738450"
+  },
+  "ho_dang_son": {
+   "base": -11891.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3500578232"
+  },
+  "ho_dien_liet": {
+   "base": 23459.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2770833432"
+  },
+  "ho_dien_linh": {
+   "base": 6690.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2036332661"
+  },
+  "ho_kinh_dieu": {
+   "base": -19440.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3938939030"
+  },
+  "ho_mac_nhi": {
+   "base": -12586.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2740239442"
+  },
+  "ho_ngan_lan": {
+   "base": -9399.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1478209390"
+  },
+  "ho_ngan_trieu": {
+   "base": -10475.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "373218349"
+  },
+  "ho_quan_lan": {
+   "base": -6237.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1637235358"
+  },
+  "ho_tam_ky": {
+   "base": 11894.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3527787506"
+  },
+  "ho_te_xuyen": {
+   "base": 37012.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2709064806"
+  },
+  "ho_tieu_dam": {
+   "base": -6895.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2161598838"
+  },
+  "ho_trao_ca": {
+   "base": -5972.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4130577770"
+  },
+  "ho_truong_pham": {
+   "base": 18175.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "647132541"
+  },
+  "ho_tu_nuong": {
+   "base": -10102.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2349924832"
+  },
+  "ho_tung_nguyet": {
+   "base": 38698.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3361505538"
+  },
+  "ho_yen_do": {
+   "base": -14006.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4241974409"
+  },
+  "ho_yen_thuy": {
+   "base": -10366.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2577653013"
+  },
+  "hoa_thien_khe": {
+   "base": -7332.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2842307879"
+  },
+  "hoa_trieu_duong": {
+   "base": 64158.5,
+   "fights": 32,
+   "realm": 3,
+   "sig": "2984375056"
+  },
+  "hoa_tuyet_nghi": {
+   "base": -8549.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2285752920"
+  },
+  "hoac_ngo_lo": {
+   "base": -10242.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2499105473"
+  },
+  "hoac_thu_lan": {
+   "base": -11504.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "98822431"
+  },
+  "hoac_tich_ca": {
+   "base": 2110.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2998960782"
+  },
+  "hoac_tuyet_ngan": {
+   "base": -10747.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3832929707"
+  },
+  "hoan_co_bach": {
+   "base": 50019.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3333688564"
+  },
+  "hoan_khach_nhi": {
+   "base": -9172.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1340613095"
+  },
+  "hoan_truc_lung": {
+   "base": -8209.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2338800118"
+  },
+  "hoan_vong_linh": {
+   "base": 6242.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1667688229"
+  },
+  "hoang_anh_sa": {
+   "base": -5181.8,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2681552817"
+  },
+  "hoang_de_sinh": {
+   "base": 15610.4,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1507451660"
+  },
+  "hoang_lan_chi": {
+   "base": -10913.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1318445833"
+  },
+  "hoang_phieu_bong": {
+   "base": -11840.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3498752873"
+  },
+  "hoang_phu_chu": {
+   "base": -11315.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3592630023"
+  },
+  "hoang_phu_duyen": {
+   "base": 15079.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "4082263852"
+  },
+  "hoang_phu_tich": {
+   "base": 16403.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1589149953"
+  },
+  "hoang_thiet_huyen": {
+   "base": -10079.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3919709858"
+  },
+  "hoang_thuy_ho": {
+   "base": -6931.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3001179854"
+  },
+  "hoang_tieu_diep": {
+   "base": 655.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "376788518"
+  },
+  "hoang_tuyet_tinh": {
+   "base": -10582.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "441734372"
+  },
+  "hong_chuan_binh": {
+   "base": 6878.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3983463080"
+  },
+  "hong_lap_nhi": {
+   "base": -11315.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1518517832"
+  },
+  "hong_mac_ky": {
+   "base": 10678.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4207233226"
+  },
+  "hong_moc_huong": {
+   "base": 11368.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3516415186"
+  },
+  "hong_tong": {
+   "base": -2557.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3722758113"
+  },
+  "hong_van_tinh": {
+   "base": 4630.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2486794278"
+  },
+  "hua_bang_nhi": {
+   "base": -10655.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "482514988"
+  },
+  "hua_ngan_son": {
+   "base": -12246.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2718936345"
+  },
+  "hua_niem_tung": {
+   "base": -11289.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "444610026"
+  },
+  "hua_tang_thu": {
+   "base": -9146.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1917242942"
+  },
+  "hua_thanh_diem": {
+   "base": 23955.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "305363377"
+  },
+  "hua_tich_cau": {
+   "base": -12883.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4187863076"
+  },
+  "hua_tich_van": {
+   "base": -10475.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "941877402"
+  },
+  "hua_tra_nuong": {
+   "base": -9680.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3346291517"
+  },
+  "hua_van_cung": {
+   "base": 22835.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2584338479"
+  },
+  "hung_da_linh": {
+   "base": -10183.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2383973583"
+  },
+  "hung_diem_nhi": {
+   "base": 14379.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3873144734"
+  },
+  "hung_liet_nha": {
+   "base": -9846.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "625132856"
+  },
+  "hung_phan_vu": {
+   "base": 41228.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1408110424"
+  },
+  "huong_da_dang": {
+   "base": 43352.6,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3120085363"
+  },
+  "huong_nghien_thach": {
+   "base": -14171.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4107409346"
+  },
+  "huong_thiet_lan": {
+   "base": 8295.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2458087185"
+  },
+  "huong_tieu_lam": {
+   "base": -7764.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4214820226"
+  },
+  "huong_van_chu": {
+   "base": 20972.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1314329767"
+  },
+  "ke_chu_sa": {
+   "base": 27652.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3861819536"
+  },
+  "ke_lang_hoa": {
+   "base": 6799.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2520851904"
+  },
+  "ke_tang_chi": {
+   "base": -7873.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3369051499"
+  },
+  "ke_thanh_khoa": {
+   "base": -8491.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3434670065"
+  },
+  "ke_thinh_dao": {
+   "base": 16825.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2807882528"
+  },
+  "kha_lac_tuyet": {
+   "base": 5100.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "505341571"
+  },
+  "kha_lam_dong": {
+   "base": -10896.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1425927538"
+  },
+  "kha_o_lan": {
+   "base": -16120.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2787979282"
+  },
+  "kha_than_sinh": {
+   "base": -12829.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3477352778"
+  },
+  "kha_thanh_mieu": {
+   "base": -3042.7,
+   "fights": 32,
+   "realm": 0,
+   "sig": "417923256"
+  },
+  "kha_thuy_cung": {
+   "base": 29200.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "463628795"
+  },
+  "kha_tieu_dau": {
+   "base": -13056.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1335507313"
+  },
+  "kha_tinh_ba": {
+   "base": 34734.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "4254650519"
+  },
+  "kha_toan_chau": {
+   "base": 14165.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3062806702"
+  },
+  "kha_trieu_phi": {
+   "base": 37068.3,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1735132859"
+  },
+  "kha_tung_canh": {
+   "base": 6132.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2995865687"
+  },
+  "khang_kien_duc": {
+   "base": 6967.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3582345619"
+  },
+  "khang_lang_sa": {
+   "base": 7954.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "398652408"
+  },
+  "khang_tay_kim": {
+   "base": 22538.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2296006327"
+  },
+  "khang_thach_tuyen": {
+   "base": 10620.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2192320504"
+  },
+  "khang_thien_chuy": {
+   "base": 39103.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "4166941720"
+  },
+  "khang_vien_dac": {
+   "base": 3128.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1947514077"
+  },
+  "khang_vu_ngung": {
+   "base": -8482.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "889250203"
+  },
+  "khanh_mac_thach": {
+   "base": -12164.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3882052862"
+  },
+  "khau_bac_hanh": {
+   "base": -12532.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1583100265"
+  },
+  "khau_bach_thu": {
+   "base": 39134.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1020885920"
+  },
+  "khau_dai_ung": {
+   "base": -8305.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "396093797"
+  },
+  "khau_hai_doi": {
+   "base": -8355.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "68294625"
+  },
+  "khau_hanh_nhi": {
+   "base": -6053.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "536393227"
+  },
+  "khau_muc_van": {
+   "base": 32206.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2790365016"
+  },
+  "khau_ngan_linh": {
+   "base": -13407.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "714040887"
+  },
+  "khau_nhi_dam": {
+   "base": -13000.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2367297425"
+  },
+  "khau_phuc_linh": {
+   "base": 11165.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1568668594"
+  },
+  "khau_thanh_thao": {
+   "base": 7961.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "698461999"
+  },
+  "khau_thien_tu": {
+   "base": 44546.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2451149810"
+  },
+  "khau_thinh_trieu": {
+   "base": -8534.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "340094079"
+  },
+  "khau_tich_nhan": {
+   "base": 6242.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4073875710"
+  },
+  "khau_tieu_cau": {
+   "base": -10633.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1382218812"
+  },
+  "khau_tinh_minh": {
+   "base": -12412.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "602116347"
+  },
+  "khau_toan_lo": {
+   "base": -9454.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2162597131"
+  },
+  "khich_tieu_chung": {
+   "base": -11710.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2239263827"
+  },
+  "khoai_hong_ngac": {
+   "base": 9460.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3922998337"
+  },
+  "khoai_thiet_ung": {
+   "base": 32462.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2863060170"
+  },
+  "khoi_thao_nhi": {
+   "base": -10016.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1141668110"
+  },
+  "khong_da_hanh": {
+   "base": 9316.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3510687925"
+  },
+  "khong_duong_quy": {
+   "base": 38250.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2211890239"
+  },
+  "khong_ich_mau": {
+   "base": -4121.3,
+   "fights": 32,
+   "realm": 0,
+   "sig": "4023229344"
+  },
+  "khong_linh_thanh": {
+   "base": -6131.6,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1794660345"
+  },
+  "khong_te_dan": {
+   "base": 8196.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2260344343"
+  },
+  "khong_thiet_ngung": {
+   "base": -14106.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "75769537"
+  },
+  "khong_tuong_vu": {
+   "base": 6374.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1787627193"
+  },
+  "khong_viem_sinh": {
+   "base": -12947.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "422318627"
+  },
+  "khong_vong_bang": {
+   "base": -10206.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1980285608"
+  },
+  "khong_vu_kieu": {
+   "base": -8281.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2616883085"
+  },
+  "khuat_do_sinh": {
+   "base": 3044.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3915537395"
+  },
+  "khuat_liep_nguyen": {
+   "base": 27829.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "4174779219"
+  },
+  "khuat_phong_pham": {
+   "base": -5972.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "909567616"
+  },
+  "khuc_dang_ha": {
+   "base": -15124.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "112865982"
+  },
+  "khuc_hanh_ca": {
+   "base": -12295.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2163783063"
+  },
+  "khuc_lao_dieu": {
+   "base": -8660.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4250205317"
+  },
+  "khuc_liet_duong": {
+   "base": 9759.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1594287027"
+  },
+  "khuc_phu_thach": {
+   "base": -12715.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4134973558"
+  },
+  "khuc_que_diep": {
+   "base": -10887.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3804667194"
+  },
+  "khuc_thanh_dien": {
+   "base": 7847.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3935807337"
+  },
+  "khuc_tich_ba": {
+   "base": -11509.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3221143322"
+  },
+  "khuc_tieu_thach": {
+   "base": -12829.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1248493812"
+  },
+  "khuong_bich_thach": {
+   "base": -10276.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2677509986"
+  },
+  "khuong_han_ly": {
+   "base": 21604.8,
+   "fights": 32,
+   "realm": 1,
+   "sig": "637234397"
+  },
+  "khuong_lac_huyen": {
+   "base": 7354.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1759292196"
+  },
+  "khuong_lang_thu": {
+   "base": -16481.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "281770968"
+  },
+  "khuong_linh_mai": {
+   "base": -7160.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1131767922"
+  },
+  "khuong_luu_ly": {
+   "base": 28825.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "193278199"
+  },
+  "khuong_luy_thach": {
+   "base": -7439.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3400961717"
+  },
+  "khuong_mach_mon": {
+   "base": -10890.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3577753853"
+  },
+  "khuong_thach_luu": {
+   "base": -11129.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1892413523"
+  },
+  "khuong_thanh_ngoa": {
+   "base": -10807.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2244953727"
+  },
+  "khuong_tieu_kim": {
+   "base": -9545.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2846229822"
+  },
+  "khuong_tram_mac": {
+   "base": 1076.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1910777946"
+  },
+  "khuyet_lac_vu": {
+   "base": -12244.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2495840747"
+  },
+  "khuyet_van_ha": {
+   "base": 35948.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "594355354"
+  },
+  "kien_muc_hai": {
+   "base": 12521.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3972508396"
+  },
+  "kien_vien_chi": {
+   "base": 17652.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1572331799"
+  },
+  "kieu_con_bo": {
+   "base": 8643.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2706040642"
+  },
+  "kieu_dan_lo": {
+   "base": 1146.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "144915291"
+  },
+  "kieu_han_nguyet": {
+   "base": -9876.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1113513042"
+  },
+  "kieu_liet_ca": {
+   "base": -7132.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "158993871"
+  },
+  "kieu_man_lau": {
+   "base": 25453.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2244698699"
+  },
+  "kieu_mo_sa": {
+   "base": -14341.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1575616597"
+  },
+  "kieu_ngan_chau": {
+   "base": 2058.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "49656544"
+  },
+  "kieu_nguyet_chau": {
+   "base": 37993.6,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2700210352"
+  },
+  "kieu_thuy_nhi": {
+   "base": -12027.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2047445572"
+  },
+  "kieu_tieu_vu": {
+   "base": 2964.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4008271665"
+  },
+  "kieu_tinh_son": {
+   "base": 9154.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "542412"
+  },
+  "kieu_tuyet_ky": {
+   "base": 9812.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "126955061"
+  },
+  "kieu_vong_hai": {
+   "base": 16261.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2449283231"
+  },
+  "kieu_vong_thiem": {
+   "base": -11289.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2129041646"
+  },
+  "kim_dac_loc": {
+   "base": -7709.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2356668221"
+  },
+  "kim_hai_yen": {
+   "base": -11948.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2740176395"
+  },
+  "kim_tich_phuc": {
+   "base": 9339.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1217453394"
+  },
+  "kim_tieu_sa": {
+   "base": -12748.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2346054437"
+  },
+  "kim_van_ly": {
+   "base": 35716.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "828445097"
+  },
+  "kinh_nhan_hoi": {
+   "base": 3099.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "735187149"
+  },
+  "kinh_tieu_hoa": {
+   "base": -11891.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1980577875"
+  },
+  "ky_chu_nhi": {
+   "base": -12429.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2013745517"
+  },
+  "ky_chu_sa": {
+   "base": 10211.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1670904426"
+  },
+  "ky_han_bach": {
+   "base": 8048.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3130695204"
+  },
+  "ky_hong_phien": {
+   "base": -10102.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2361919201"
+  },
+  "ky_khinh_ma": {
+   "base": 9889.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2295777542"
+  },
+  "ky_lam_sa": {
+   "base": -8759.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1493290255"
+  },
+  "ky_minh_tien": {
+   "base": -11321.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2805366255"
+  },
+  "ky_minh_uoc": {
+   "base": 8687.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3212353898"
+  },
+  "ky_ngan_chuc": {
+   "base": 36854.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "697099722"
+  },
+  "ky_that_lo": {
+   "base": -12910.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1601348166"
+  },
+  "la_bang_tuyen": {
+   "base": 5420.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1785428210"
+  },
+  "la_dang_huyen": {
+   "base": -243.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1805213415"
+  },
+  "la_doan_cuong": {
+   "base": 7981.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1053498031"
+  },
+  "la_khoi_minh": {
+   "base": -12532.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "873299903"
+  },
+  "la_minh_nhan": {
+   "base": 4110.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1576062105"
+  },
+  "la_ngu_nhi": {
+   "base": -12377.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3254546269"
+  },
+  "la_nhat_hang": {
+   "base": -9204.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3282647821"
+  },
+  "la_thiet_mai": {
+   "base": -7252.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1985640903"
+  },
+  "la_tiem_da": {
+   "base": 14275.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1688160283"
+  },
+  "la_tieu_boi": {
+   "base": -14202.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2398981368"
+  },
+  "la_tieu_hanh": {
+   "base": -12323.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3640370180"
+  },
+  "la_tieu_tam": {
+   "base": -11632.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "168027594"
+  },
+  "la_tinh_nhi": {
+   "base": -10918.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2688025987"
+  },
+  "la_to_lan": {
+   "base": -13441.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1140832563"
+  },
+  "la_to_y": {
+   "base": 233.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "50440295"
+  },
+  "la_trac_thach": {
+   "base": 40899.8,
+   "fights": 32,
+   "realm": 2,
+   "sig": "31160419"
+  },
+  "la_truyen_thanh": {
+   "base": 10889.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2207701135"
+  },
+  "la_tu_chau": {
+   "base": -8456.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "305020504"
+  },
+  "la_tu_vi": {
+   "base": 15987.0,
+   "fights": 32,
+   "realm": 1,
+   "sig": "4116930437"
+  },
+  "lac_dan_thanh": {
+   "base": 30657.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2643707871"
+  },
+  "lac_kim_bang": {
+   "base": -9700.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3034520997"
+  },
+  "lac_ngan_bang": {
+   "base": 7431.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1967176599"
+  },
+  "lac_tam_chan": {
+   "base": 2709.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "939294764"
+  },
+  "lac_to_binh": {
+   "base": 11950.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2395198986"
+  },
+  "lac_truong_cung": {
+   "base": -4917.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1771717970"
+  },
+  "lac_tung_lang": {
+   "base": 2163.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "105971646"
+  },
+  "lac_tuoc_ca": {
+   "base": -9906.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1923010139"
+  },
+  "lai_bat_khuc": {
+   "base": 7078.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3593235329"
+  },
+  "lai_hoanh_chi": {
+   "base": 18673.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2101936608"
+  },
+  "lai_tiet_truong": {
+   "base": 3556.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "497686470"
+  },
+  "lai_tieu_than": {
+   "base": -12594.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "203585359"
+  },
+  "lam_anh_hong": {
+   "base": -4506.6,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3424921117"
+  },
+  "lam_cat_canh": {
+   "base": -9341.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3551443458"
+  },
+  "lam_da_hac": {
+   "base": 19879.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1822387674"
+  },
+  "lam_dich_phong": {
+   "base": -6662.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "622271990"
+  },
+  "lam_dieu_bach": {
+   "base": 7954.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2348933023"
+  },
+  "lam_ham_suong": {
+   "base": 16720.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "36105312"
+  },
+  "lam_khe_ngon": {
+   "base": 18127.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2205914136"
+  },
+  "lam_ngung_phong": {
+   "base": 7703.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2129999909"
+  },
+  "lam_nhan_thanh": {
+   "base": -3923.3,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1039580219"
+  },
+  "lam_nhuan_chi": {
+   "base": 6159.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3749084152"
+  },
+  "lam_te_vu": {
+   "base": -9034.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4182292499"
+  },
+  "lam_thanh_moc": {
+   "base": -11042.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3713920210"
+  },
+  "lam_that_am": {
+   "base": -10366.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3211422885"
+  },
+  "lam_the_ngo": {
+   "base": 1590.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1623093450"
+  },
+  "lam_tieu_tien": {
+   "base": -10529.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2167741381"
+  },
+  "lam_tuyet_dieu": {
+   "base": 27517.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1091069432"
+  },
+  "lam_vu_mi": {
+   "base": -12081.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1286825167"
+  },
+  "lan_bat_nhien": {
+   "base": -7132.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4252390084"
+  },
+  "lan_vien_pham": {
+   "base": 37376.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "254242954"
+  },
+  "lang_dap_tuyet": {
+   "base": 21286.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3041803027"
+  },
+  "lang_han_sinh": {
+   "base": 6664.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2722762415"
+  },
+  "lang_mac_khanh": {
+   "base": 11615.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1006945250"
+  },
+  "lang_ngan_lo": {
+   "base": 6907.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3034261201"
+  },
+  "lang_ngu_dang": {
+   "base": 7763.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3255648053"
+  },
+  "lang_nhi": {
+   "base": -8330.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "552384750"
+  },
+  "lang_tieu_lang": {
+   "base": -7948.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1937157637"
+  },
+  "lanh_nham_nuong": {
+   "base": -8167.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1334298301"
+  },
+  "lanh_trieu_am": {
+   "base": -9304.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2466384016"
+  },
+  "lanh_xuan_gian": {
+   "base": 31250.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "378481139"
+  },
+  "lao_hoang": {
+   "base": 859.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4044292291"
+  },
+  "lao_hong_diep": {
+   "base": -12193.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2090991110"
+  },
+  "lau_mau_le": {
+   "base": -7410.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2802546047"
+  },
+  "lau_tinh_huong": {
+   "base": 8721.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "999657655"
+  },
+  "le_bach_diem": {
+   "base": 11002.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3490789958"
+  },
+  "le_dan_tat": {
+   "base": -7767.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2261022186"
+  },
+  "le_khuong_hoat": {
+   "base": 11781.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "54500392"
+  },
+  "le_tieu_hon": {
+   "base": 66879.6,
+   "fights": 32,
+   "realm": 3,
+   "sig": "2371241678"
+  },
+  "le_tieu_pham": {
+   "base": -10321.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "345270307"
+  },
+  "lich_huong_tram": {
+   "base": 36037.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3734150109"
+  },
+  "lich_minh_chau": {
+   "base": -12133.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "662898569"
+  },
+  "liem_an_loc": {
+   "base": -9986.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2581904750"
+  },
+  "liem_hoa_nhi": {
+   "base": -12127.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1787849084"
+  },
+  "liem_huan_huong": {
+   "base": -8253.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1204562738"
+  },
+  "liem_nhuoc_thuy": {
+   "base": -6302.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "702771379"
+  },
+  "liem_to_cam": {
+   "base": -5489.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2550943464"
+  },
+  "liem_truc_anh": {
+   "base": 7700.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "832562430"
+  },
+  "lien_bat_ngu": {
+   "base": 5941.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3686971480"
+  },
+  "lien_bich_phu": {
+   "base": -11553.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "527447884"
+  },
+  "lien_phi_ma": {
+   "base": -9986.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "250454602"
+  },
+  "lien_que_chi": {
+   "base": -7074.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2505901268"
+  },
+  "lien_than_ha": {
+   "base": -8534.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2574515641"
+  },
+  "lien_thanh_de": {
+   "base": -15746.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "97969969"
+  },
+  "lien_thieu_nghi": {
+   "base": 28939.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1874398389"
+  },
+  "lien_vu_tinh": {
+   "base": -12675.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4289946907"
+  },
+  "lieu_bach_mieu": {
+   "base": -14289.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "909812923"
+  },
+  "lieu_da_thai": {
+   "base": 10508.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3845957996"
+  },
+  "lieu_dinh_suong": {
+   "base": 8428.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2222395132"
+  },
+  "lieu_khe_nhi": {
+   "base": -9780.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1373522792"
+  },
+  "lieu_kien_thach": {
+   "base": -7534.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "827233012"
+  },
+  "lieu_ngu_ca": {
+   "base": 16327.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "917151461"
+  },
+  "lieu_nhung_hoa": {
+   "base": 2680.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2058148008"
+  },
+  "lieu_tay_sa": {
+   "base": -13217.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1591901103"
+  },
+  "lieu_thanh_nhi": {
+   "base": -8257.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1005726000"
+  },
+  "lieu_thinh_kim": {
+   "base": 31540.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "595294225"
+  },
+  "lieu_thoa_nhi": {
+   "base": -13298.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3661638830"
+  },
+  "lieu_thu_trich": {
+   "base": -9848.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3682992655"
+  },
+  "lieu_tieu_do": {
+   "base": -10738.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4044092333"
+  },
+  "lieu_tieu_giang": {
+   "base": -12323.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "166150545"
+  },
+  "lieu_vong_phong": {
+   "base": -9818.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "346017504"
+  },
+  "lo_canh_son": {
+   "base": -10308.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3974466937"
+  },
+  "lo_chau_nuong": {
+   "base": 9279.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "341731136"
+  },
+  "lo_da_huong": {
+   "base": 36406.2,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3120122432"
+  },
+  "lo_hanh_nuong": {
+   "base": -15151.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1861178201"
+  },
+  "lo_hanh_sa": {
+   "base": 5490.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "952390030"
+  },
+  "lo_hong_pham": {
+   "base": 7708.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "588822664"
+  },
+  "lo_khinh_tran": {
+   "base": -8512.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "311879151"
+  },
+  "lo_kien": {
+   "base": -3179.0,
+   "fights": 32,
+   "realm": 0,
+   "sig": "746670157"
+  },
+  "lo_kim_tuyen": {
+   "base": 889.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1761989192"
+  },
+  "lo_kinh_thach": {
+   "base": -9199.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2280202832"
+  },
+  "lo_niem_ca": {
+   "base": 13900.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "47724513"
+  },
+  "lo_niem_xuyen": {
+   "base": -3411.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2919762490"
+  },
+  "lo_phi_suong": {
+   "base": -9304.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1211970871"
+  },
+  "lo_phu_sinh": {
+   "base": -9814.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "676609179"
+  },
+  "lo_tam_chuy": {
+   "base": -8159.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2215691335"
+  },
+  "lo_tan_chau": {
+   "base": -12000.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3600670438"
+  },
+  "lo_thanh_ngan": {
+   "base": 8693.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1853782732"
+  },
+  "lo_thu_ha": {
+   "base": 36020.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3098810856"
+  },
+  "lo_tiem_tiem": {
+   "base": 1253.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1187462"
+  },
+  "lo_tieu_dien": {
+   "base": -12323.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1305823441"
+  },
+  "lo_tinh_sa": {
+   "base": -5436.8,
+   "fights": 32,
+   "realm": 0,
+   "sig": "725521951"
+  },
+  "lo_tinh_thiet": {
+   "base": -7332.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "417722803"
+  },
+  "lo_van_khanh": {
+   "base": 29282.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2519044458"
+  },
+  "lo_xuong_van": {
+   "base": 34937.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2027444958"
+  },
+  "loc_bat_quy": {
+   "base": 11807.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2705480089"
+  },
+  "loc_thao_nhi": {
+   "base": -10714.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "172826045"
+  },
+  "loi_tuyet_hieu": {
+   "base": -8491.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1787023415"
+  },
+  "long_chuoc_sinh": {
+   "base": -11594.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1772834873"
+  },
+  "long_tang_chi": {
+   "base": 990.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "188209366"
+  },
+  "long_thu_chuan": {
+   "base": 6131.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "168526043"
+  },
+  "lu_bang_trieu": {
+   "base": -7239.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2438786227"
+  },
+  "lu_chi_mac": {
+   "base": 5728.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1454228258"
+  },
+  "lu_chu_hong": {
+   "base": 7021.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2613506191"
+  },
+  "lu_doc_dieu": {
+   "base": 16092.4,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2700310618"
+  },
+  "lu_ha_tinh": {
+   "base": 6434.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4229196483"
+  },
+  "lu_hoi_lo": {
+   "base": -1167.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2547946954"
+  },
+  "lu_kiem_pham": {
+   "base": -892.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1087808267"
+  },
+  "lu_ngan_xuyen": {
+   "base": -13258.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "177027370"
+  },
+  "lu_niem_ha": {
+   "base": 5778.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3331734097"
+  },
+  "lu_sa_sam": {
+   "base": 12686.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2264952084"
+  },
+  "lu_tan_chu": {
+   "base": 8893.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1385828050"
+  },
+  "lu_tan_ha": {
+   "base": 25942.7,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1800068323"
+  },
+  "lu_thuy_dien": {
+   "base": -12559.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2804562851"
+  },
+  "lu_tieu_khuc": {
+   "base": -8713.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2047834839"
+  },
+  "lu_truy_phong": {
+   "base": 5273.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "845030278"
+  },
+  "luan_hai_yen": {
+   "base": 5012.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "781375421"
+  },
+  "luc_bong_sa": {
+   "base": 1253.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3723174580"
+  },
+  "luc_dao_hoa": {
+   "base": 20233.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2240347041"
+  },
+  "luc_ha_mieu": {
+   "base": -14450.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2732470963"
+  },
+  "luc_han_chu": {
+   "base": 23217.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3286605631"
+  },
+  "luc_huong_phu": {
+   "base": -5972.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1475706765"
+  },
+  "luc_ke_dien": {
+   "base": 17771.0,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2629103853"
+  },
+  "luc_luu_moc": {
+   "base": 11530.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2455456993"
+  },
+  "luc_mach_thu": {
+   "base": -12158.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "286417010"
+  },
+  "luc_man_thuong": {
+   "base": -8209.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3328872107"
+  },
+  "luc_minh_sanh": {
+   "base": -10447.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3889416148"
+  },
+  "luc_nhi_hoa": {
+   "base": 885.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "12758271"
+  },
+  "luc_nhi_thinh": {
+   "base": 1127.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1066739248"
+  },
+  "luc_thanh_chi": {
+   "base": 4958.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1958115408"
+  },
+  "luc_thanh_sam": {
+   "base": 60508.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1069675685"
+  },
+  "luc_thuong_lam": {
+   "base": 44694.6,
+   "fights": 32,
+   "realm": 2,
+   "sig": "153370694"
+  },
+  "luc_tieu_sam": {
+   "base": -6120.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2685192961"
+  },
+  "luc_tieu_tinh": {
+   "base": -11947.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "347950746"
+  },
+  "luc_tieu_tuyen": {
+   "base": -11509.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "947585229"
+  },
+  "luc_uong_nhi": {
+   "base": -10945.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2784032753"
+  },
+  "luong_bach_tan": {
+   "base": 40617.2,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1243090699"
+  },
+  "luong_bo_khuyet": {
+   "base": -6606.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2458899425"
+  },
+  "luong_coc_nha": {
+   "base": -2558.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2831167256"
+  },
+  "luong_dao_tue": {
+   "base": -10366.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3987968560"
+  },
+  "luong_diem_chi": {
+   "base": -13559.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1261680382"
+  },
+  "luong_diep_nhi": {
+   "base": -10206.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1532692002"
+  },
+  "luong_hoa_tuyen": {
+   "base": 5133.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "791770836"
+  },
+  "luong_kien_sinh": {
+   "base": -9454.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "267408618"
+  },
+  "luong_sa_bang": {
+   "base": 6438.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2122923295"
+  },
+  "luong_tac_bang": {
+   "base": 17775.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3655992997"
+  },
+  "luong_thu_hang": {
+   "base": 15782.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2212136202"
+  },
+  "luu_cam_ho": {
+   "base": -15008.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4174418762"
+  },
+  "luu_han_ngan": {
+   "base": 7477.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3815529674"
+  },
+  "luu_hoa_nha": {
+   "base": -14318.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4036464518"
+  },
+  "luu_thach_khe": {
+   "base": -7504.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1594969850"
+  },
+  "luu_tinh_thach": {
+   "base": -6814.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3551898383"
+  },
+  "luu_tu_nuong": {
+   "base": -11618.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3561725273"
+  },
+  "luyen_dac_bao": {
+   "base": -15364.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "139027237"
+  },
+  "luyen_to_y": {
+   "base": 8404.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1388240006"
+  },
+  "ly_bich_ba": {
+   "base": -7473.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2906242867"
+  },
+  "ly_han_bich": {
+   "base": 40408.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3640552971"
+  },
+  "ly_han_tam": {
+   "base": -7819.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3259568341"
+  },
+  "ly_hanh_lo": {
+   "base": -9359.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3730194139"
+  },
+  "ly_khe_thu": {
+   "base": -4925.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2993357586"
+  },
+  "ly_tang_ky": {
+   "base": 13835.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2297217580"
+  },
+  "ma_dong_lam": {
+   "base": -10778.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2458476801"
+  },
+  "ma_han_chu": {
+   "base": -10475.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1634257117"
+  },
+  "ma_lang_nha": {
+   "base": -8281.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3352696402"
+  },
+  "ma_pha_lang": {
+   "base": 2454.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1512452217"
+  },
+  "ma_thao_nhi": {
+   "base": -15278.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2403369269"
+  },
+  "ma_thiet_cau": {
+   "base": -6213.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "385806528"
+  },
+  "ma_thu_diep": {
+   "base": -9922.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "16301920"
+  },
+  "ma_tieu_hoa": {
+   "base": -9846.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3036957262"
+  },
+  "ma_tin_phi": {
+   "base": -12403.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3020710950"
+  },
+  "ma_tinh_but": {
+   "base": -7737.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2498095702"
+  },
+  "ma_truong_cao": {
+   "base": -9172.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3067363402"
+  },
+  "mac_chiet_chi": {
+   "base": 8740.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1309255764"
+  },
+  "mac_don_moc": {
+   "base": -8740.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2080348444"
+  },
+  "mac_huong_tay": {
+   "base": 8531.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3675750249"
+  },
+  "mac_khien_phong": {
+   "base": 5118.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1311515318"
+  },
+  "mac_kinh_trap": {
+   "base": -3318.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2376178293"
+  },
+  "mac_lam_y": {
+   "base": -14897.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "233038690"
+  },
+  "mac_lien_suong": {
+   "base": -7767.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1165472216"
+  },
+  "mac_ngung_bich": {
+   "base": 5712.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3765099025"
+  },
+  "mac_quy_khu": {
+   "base": 86650.1,
+   "fights": 40,
+   "realm": 4,
+   "sig": "953644413"
+  },
+  "mac_than_nuong": {
+   "base": -15647.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1482562769"
+  },
+  "mac_thang_kieu": {
+   "base": -7008.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3271808371"
+  },
+  "mac_tieu_dien": {
+   "base": -11456.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "879788914"
+  },
+  "mac_tieu_trien": {
+   "base": -10265.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3748397976"
+  },
+  "mac_tinh_loi": {
+   "base": 2110.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2502218143"
+  },
+  "mac_trieu_sinh": {
+   "base": -11535.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2963981169"
+  },
+  "mac_vu": {
+   "base": -9251.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3381915837"
+  },
+  "mach_ngan_suong": {
+   "base": 3072.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2755208644"
+  },
+  "mach_ngan_tru": {
+   "base": 8638.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3759556528"
+  },
+  "mach_phuc_linh": {
+   "base": -6237.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1170747016"
+  },
+  "mach_tieu_dieu": {
+   "base": -14171.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2232076844"
+  },
+  "mach_tieu_ngan": {
+   "base": -15673.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1908064763"
+  },
+  "mach_tue_kim": {
+   "base": 5247.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2792330285"
+  },
+  "mai_doc_ca": {
+   "base": 3373.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2084783389"
+  },
+  "mai_han_tich": {
+   "base": -7266.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3763431181"
+  },
+  "mai_le_tuyen": {
+   "base": 44392.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "144765295"
+  },
+  "mai_lo_tuyet": {
+   "base": 11755.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "289095637"
+  },
+  "mai_ngu_yen": {
+   "base": -17710.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2125238359"
+  },
+  "mai_thu_dien": {
+   "base": 17894.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1110736537"
+  },
+  "mai_tieu_ngai": {
+   "base": -7792.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1095145393"
+  },
+  "mai_tieu_phuc": {
+   "base": -6345.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3177337518"
+  },
+  "man_bang_ha": {
+   "base": 7046.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1853057351"
+  },
+  "man_bo_vong": {
+   "base": -12425.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2846484608"
+  },
+  "man_hac_chau": {
+   "base": -7282.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1922161718"
+  },
+  "man_hai_muoi": {
+   "base": -12516.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "269211014"
+  },
+  "man_luc_yen": {
+   "base": 5728.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "14937162"
+  },
+  "man_tam_van": {
+   "base": -11699.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2750191305"
+  },
+  "man_thanh_truong": {
+   "base": -16252.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1645210907"
+  },
+  "man_ti_truc": {
+   "base": 1590.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3671946613"
+  },
+  "man_tiet_thanh": {
+   "base": 20591.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "879482080"
+  },
+  "man_tin_van": {
+   "base": 8362.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "798767064"
+  },
+  "man_tinh_ba": {
+   "base": 1641.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1232483160"
+  },
+  "man_tu_chi": {
+   "base": 7479.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3063568744"
+  },
+  "man_xich_cau": {
+   "base": -8759.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4240527452"
+  },
+  "manh_da_vu": {
+   "base": 57588.3,
+   "fights": 40,
+   "realm": 3,
+   "sig": "3025306419"
+  },
+  "manh_hoi_lo": {
+   "base": -14171.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "395029673"
+  },
+  "manh_kien_can": {
+   "base": 10781.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1215536703"
+  },
+  "manh_luu_ly": {
+   "base": 36702.3,
+   "fights": 32,
+   "realm": 2,
+   "sig": "670950190"
+  },
+  "manh_thieu_bach": {
+   "base": -5384.8,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1300206088"
+  },
+  "manh_thu_cam": {
+   "base": -6828.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2123692738"
+  },
+  "manh_tieu_ca": {
+   "base": -8686.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2807541058"
+  },
+  "manh_tieu_ngu": {
+   "base": -12403.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2533540545"
+  },
+  "manh_tinh_chi": {
+   "base": 30719.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2685284024"
+  },
+  "manh_trieu_suong": {
+   "base": 8784.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1631329203"
+  },
+  "mao_dao_bi": {
+   "base": -9251.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1975635096"
+  },
+  "mao_dinh_lang": {
+   "base": -8456.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2272741097"
+  },
+  "mao_khai_dan": {
+   "base": 11217.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "331066484"
+  },
+  "mao_tieu_huong": {
+   "base": -14659.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "155555122"
+  },
+  "mat_thu_ninh": {
+   "base": 12555.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2108544004"
+  },
+  "mau_hong_sa": {
+   "base": -9506.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3635271827"
+  },
+  "mau_tri_vien": {
+   "base": 29728.7,
+   "fights": 40,
+   "realm": 2,
+   "sig": "4076639559"
+  },
+  "mau_tu_linh": {
+   "base": 1146.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2842601307"
+  },
+  "me_dich_am": {
+   "base": -8605.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "813248178"
+  },
+  "me_dien_nhi": {
+   "base": 167.7,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1414262850"
+  },
+  "me_hoa_thu": {
+   "base": -12158.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "954903711"
+  },
+  "me_phu_van": {
+   "base": 28534.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2967378219"
+  },
+  "me_thanh_dai": {
+   "base": 8514.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1660143665"
+  },
+  "me_thanh_mach": {
+   "base": -9780.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2273659527"
+  },
+  "me_thiem_nhi": {
+   "base": -9977.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3399821388"
+  },
+  "me_tieu_chuy": {
+   "base": -7948.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3484222328"
+  },
+  "mi_kim_bao": {
+   "base": -10678.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1428156959"
+  },
+  "mi_tuc_thu": {
+   "base": 21778.4,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3437720224"
+  },
+  "mieu_thach_lan": {
+   "base": 17439.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "726616017"
+  },
+  "mieu_truc_sinh": {
+   "base": 1877.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3906202758"
+  },
+  "minh_tao_ha": {
+   "base": -8051.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4258302341"
+  },
+  "mo_bach_cap": {
+   "base": -5410.0,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2181133695"
+  },
+  "mo_cao_yen": {
+   "base": -11632.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1623058488"
+  },
+  "mo_hanh_van": {
+   "base": 13302.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3106782604"
+  },
+  "mo_nguu_tat": {
+   "base": -6931.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "395621975"
+  },
+  "mo_vien_son": {
+   "base": 2910.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2461290092"
+  },
+  "moc_tau_vu": {
+   "base": -14715.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1900552503"
+  },
+  "mong_bach_giac": {
+   "base": -11666.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3000214900"
+  },
+  "mong_bach_lac": {
+   "base": -11125.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "318345453"
+  },
+  "mong_chu_tieu": {
+   "base": 12429.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2598501821"
+  },
+  "mong_loc_nhi": {
+   "base": -8767.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4228055172"
+  },
+  "mong_sa_lien": {
+   "base": -10888.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1748340845"
+  },
+  "mong_thach_sinh": {
+   "base": -6895.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4227015737"
+  },
+  "mong_thiet_lang": {
+   "base": -14450.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "365040646"
+  },
+  "mong_thiet_son": {
+   "base": 10273.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "265993381"
+  },
+  "mong_thuy_huong": {
+   "base": -4952.3,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3158152699"
+  },
+  "mong_tieu_thach": {
+   "base": -10387.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3316882162"
+  },
+  "muc_han_nhan": {
+   "base": 46382.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3406177171"
+  },
+  "muc_hong_sa": {
+   "base": 9915.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2825829259"
+  },
+  "muc_sa_hanh": {
+   "base": 11267.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2808630534"
+  },
+  "muc_tan_vu": {
+   "base": 26448.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3900497257"
+  },
+  "muc_thu_duong": {
+   "base": -7618.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4265133542"
+  },
+  "muc_tiem_uyen": {
+   "base": 30786.9,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2522664102"
+  },
+  "muc_trap_sinh": {
+   "base": 10562.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2685230635"
+  },
+  "na_lac_linh": {
+   "base": -10394.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1512582892"
+  },
+  "ngac_hai_tieu": {
+   "base": 16853.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3012098787"
+  },
+  "ngac_thiem_hong": {
+   "base": 6092.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1578382239"
+  },
+  "ngac_thiet_phong": {
+   "base": -8605.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3363469511"
+  },
+  "ngac_tri_am": {
+   "base": 3940.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "29134545"
+  },
+  "ngac_tri_hoa": {
+   "base": 189.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2807449636"
+  },
+  "ngac_vien_son": {
+   "base": 11863.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "976983674"
+  },
+  "ngai_bach_chi": {
+   "base": 54.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2061951446"
+  },
+  "ngai_dap_sa": {
+   "base": -10831.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1207063492"
+  },
+  "ngai_han_tich": {
+   "base": -10607.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1464141964"
+  },
+  "ngai_hoang_thach": {
+   "base": -10421.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3691896692"
+  },
+  "ngai_luc_hao": {
+   "base": -4121.3,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3350438171"
+  },
+  "ngai_thanh_hao": {
+   "base": 7641.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3463859013"
+  },
+  "ngan_ti": {
+   "base": -10394.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "877201581"
+  },
+  "ngao_tam_phu": {
+   "base": 5625.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1775729480"
+  },
+  "ngao_tuyet_nhi": {
+   "base": -15150.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3234185279"
+  },
+  "nghe_bach_doan": {
+   "base": 9792.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "701058748"
+  },
+  "nghe_hoang_phong": {
+   "base": 7708.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1354019089"
+  },
+  "nghe_hong_dau": {
+   "base": 42116.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2448679317"
+  },
+  "nghe_kho_tuyen": {
+   "base": -10639.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3731987723"
+  },
+  "nghe_tieu_lang": {
+   "base": -4925.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3151956903"
+  },
+  "nghe_tieu_thao": {
+   "base": -12323.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1613704093"
+  },
+  "nghe_tuan_dang": {
+   "base": 885.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3794424081"
+  },
+  "nghe_tung_yen": {
+   "base": -10355.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1743331828"
+  },
+  "nghe_xuan_chi": {
+   "base": 30438.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3029830019"
+  },
+  "nghiem_bac_ha": {
+   "base": -9761.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4037014472"
+  },
+  "nghiem_bac_sinh": {
+   "base": -13742.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1750039390"
+  },
+  "nghiem_bach_truat": {
+   "base": 3798.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "389861045"
+  },
+  "nghiem_ha_kho": {
+   "base": -10167.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3373481353"
+  },
+  "nghiem_hoac_huong": {
+   "base": -8253.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1559125740"
+  },
+  "nghiem_hoi_huong": {
+   "base": -6597.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "873809851"
+  },
+  "nghiem_kim_ngan": {
+   "base": 6907.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2803573452"
+  },
+  "nghiem_linh_chi": {
+   "base": 44800.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3377633813"
+  },
+  "nghiem_ngu_vi": {
+   "base": -7819.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3521119652"
+  },
+  "nghiem_phuc_linh": {
+   "base": -7008.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3506896242"
+  },
+  "nghiem_quy_khu": {
+   "base": 5452.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "792343766"
+  },
+  "nghiem_sa_lo": {
+   "base": -8182.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2803595071"
+  },
+  "nghiem_thu_lo": {
+   "base": -10350.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "179430071"
+  },
+  "nghiem_tieu_tuyet": {
+   "base": -16683.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2108954011"
+  },
+  "nghiem_to_to": {
+   "base": -3814.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "109505938"
+  },
+  "nghiem_tuc_doan": {
+   "base": -12837.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2896058468"
+  },
+  "nghiem_tuyet_ngan": {
+   "base": -16067.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1109165618"
+  },
+  "nghiem_xuyen_khung": {
+   "base": -9022.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "317683270"
+  },
+  "nghieu_lang_hoa": {
+   "base": -10276.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4139667140"
+  },
+  "nghieu_thu_nhan": {
+   "base": -6659.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1066439420"
+  },
+  "nghieu_vong_kinh": {
+   "base": 9339.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3650764580"
+  },
+  "ngo_ba_can": {
+   "base": -9172.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3094139405"
+  },
+  "ngo_bat_tan": {
+   "base": 20506.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "521895843"
+  },
+  "ngo_cau_dang": {
+   "base": 6434.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "29293322"
+  },
+  "ngo_da_do": {
+   "base": -8159.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "893054773"
+  },
+  "ngo_han_dac": {
+   "base": -8330.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1916632211"
+  },
+  "ngo_hoang_thao": {
+   "base": -11086.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "664152253"
+  },
+  "ngo_le_thach": {
+   "base": -10890.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "408742288"
+  },
+  "ngo_tan_tan": {
+   "base": -10861.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2676599196"
+  },
+  "ngo_to_am": {
+   "base": 6132.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4274371863"
+  },
+  "ngoc_dieu": {
+   "base": 18973.6,
+   "fights": 16,
+   "realm": 2,
+   "sig": "461347248"
+  },
+  "ngu_bat_te": {
+   "base": -7008.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "333044084"
+  },
+  "ngu_cau": {
+   "base": -11744.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2456607578"
+  },
+  "ngu_da_pham": {
+   "base": -10445.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3962923310"
+  },
+  "ngu_hoa_lien": {
+   "base": -12429.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "885224642"
+  },
+  "ngu_hoa_sa": {
+   "base": -13178.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4071109654"
+  },
+  "ngu_lam_son": {
+   "base": 63388.9,
+   "fights": 32,
+   "realm": 3,
+   "sig": "1558267165"
+  },
+  "ngu_lap_mai": {
+   "base": -9848.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2243294942"
+  },
+  "ngu_mong_te": {
+   "base": 6105.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3268633887"
+  },
+  "ngu_tran_bac": {
+   "base": 53095.9,
+   "fights": 40,
+   "realm": 3,
+   "sig": "2874999337"
+  },
+  "nguu_dai_huu": {
+   "base": -11293.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1237378213"
+  },
+  "nguu_pha_son": {
+   "base": -9680.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3964087586"
+  },
+  "nguu_thai_diep": {
+   "base": -9251.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1654447811"
+  },
+  "nguu_trong_dinh": {
+   "base": 11646.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4119756186"
+  },
+  "nguy_bach_thach": {
+   "base": -10778.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2356289715"
+  },
+  "nguy_dan_chu": {
+   "base": 9498.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1701422364"
+  },
+  "nguy_ha_lo": {
+   "base": -11048.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2352027771"
+  },
+  "nguy_hong_tao": {
+   "base": -9592.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "649087922"
+  },
+  "nguy_minh_giam": {
+   "base": -4254.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1248343423"
+  },
+  "nguy_thach_hoa": {
+   "base": 3329.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2181150610"
+  },
+  "nguy_thanh_han": {
+   "base": 25500.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2566921086"
+  },
+  "nguy_thu_can": {
+   "base": -10074.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4279538481"
+  },
+  "nguy_tieu_dac": {
+   "base": -14624.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3909315483"
+  },
+  "nguy_tieu_ngu": {
+   "base": -11728.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2333092289"
+  },
+  "nguy_tram_am": {
+   "base": 31789.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3805290618"
+  },
+  "nguyen_hao_khach": {
+   "base": 5878.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2858513734"
+  },
+  "nguyen_man_diep": {
+   "base": -14553.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "142864367"
+  },
+  "nhac_bang_thiem": {
+   "base": 19222.9,
+   "fights": 16,
+   "realm": 2,
+   "sig": "4199710397"
+  },
+  "nhac_chinh_hanh": {
+   "base": 43732.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1755739076"
+  },
+  "nhac_cuu_huong": {
+   "base": -7358.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3927960613"
+  },
+  "nhac_du_huong": {
+   "base": 836.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3805521250"
+  },
+  "nhac_hoa_bi": {
+   "base": 11428.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1424692929"
+  },
+  "nhac_thanh_suong": {
+   "base": 5855.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3487085314"
+  },
+  "nhac_thuan_nhuong": {
+   "base": 35162.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1928483440"
+  },
+  "nhac_truong_tin": {
+   "base": -64.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2908906559"
+  },
+  "nhac_vien_chi": {
+   "base": 8777.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "59427035"
+  },
+  "nham_cuong_thu": {
+   "base": 10375.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2732013764"
+  },
+  "nham_do_han": {
+   "base": 10755.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "458938775"
+  },
+  "nham_dong_tuyet": {
+   "base": -12374.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2667485175"
+  },
+  "nham_lieu_ngan": {
+   "base": 8514.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1956276240"
+  },
+  "nham_thanh_luu": {
+   "base": -11180.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "14881738"
+  },
+  "nham_thu_lang": {
+   "base": 11646.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "240237728"
+  },
+  "nham_tu_ha": {
+   "base": -10102.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3127886049"
+  },
+  "nham_tung_anh": {
+   "base": -10997.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1323897997"
+  },
+  "nhan_bach_cham": {
+   "base": -8959.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "15213078"
+  },
+  "nhan_bich_thuy": {
+   "base": -10102.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1658533783"
+  },
+  "nhan_bich_tuyen": {
+   "base": -14311.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3285253368"
+  },
+  "nhan_doi_nhi": {
+   "base": -11444.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3567015149"
+  },
+  "nhan_quy_vu": {
+   "base": 7425.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2577382754"
+  },
+  "nhan_thu_mac": {
+   "base": -8577.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1332478380"
+  },
+  "nhiem_han_chau": {
+   "base": 1704.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2192247784"
+  },
+  "nhiem_thanh_lam": {
+   "base": 25753.7,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3958318720"
+  },
+  "nhiem_thua_nghiep": {
+   "base": 13245.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1264561894"
+  },
+  "nhiep_co_dang": {
+   "base": 8428.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3298875222"
+  },
+  "nhiep_co_tan": {
+   "base": 68523.1,
+   "fights": 32,
+   "realm": 3,
+   "sig": "1524114469"
+  },
+  "nhiep_hoi_sinh": {
+   "base": -14584.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "674015221"
+  },
+  "nhiep_lang_tuyet": {
+   "base": 7558.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "326289617"
+  },
+  "nhiep_minh_tien": {
+   "base": 29038.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1355856278"
+  },
+  "nhiep_ngoc_am": {
+   "base": 10006.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4017067055"
+  },
+  "nhiep_tan_sa": {
+   "base": 66218.2,
+   "fights": 32,
+   "realm": 3,
+   "sig": "2412542961"
+  },
+  "nhiep_to_han": {
+   "base": 3798.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1605667213"
+  },
+  "nhiep_van_dao": {
+   "base": 17419.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3229532145"
+  },
+  "nhiep_vo_thanh": {
+   "base": 32493.9,
+   "fights": 40,
+   "realm": 2,
+   "sig": "924789948"
+  },
+  "nhieu_ha_loi": {
+   "base": -5428.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1778781774"
+  },
+  "nhieu_kim_chau": {
+   "base": -7948.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1438775741"
+  },
+  "nhieu_lo_hoa": {
+   "base": -8107.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1432079161"
+  },
+  "nhieu_thach_nhu": {
+   "base": -9906.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2807981955"
+  },
+  "nhieu_tieu_yen": {
+   "base": -11289.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2223101605"
+  },
+  "nhieu_tu_uyen": {
+   "base": 18127.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "36467808"
+  },
+  "nhu_thanh_can": {
+   "base": -11589.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "333687471"
+  },
+  "nhu_tri_thu": {
+   "base": -9986.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2484152722"
+  },
+  "nhung_tu_dieu": {
+   "base": -9146.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "856171442"
+  },
+  "ninh_bac_hang": {
+   "base": -10678.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3557088854"
+  },
+  "ninh_bach_ho": {
+   "base": 7177.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3139198091"
+  },
+  "ninh_ha_vien": {
+   "base": 6580.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1837048254"
+  },
+  "ninh_han_chi": {
+   "base": -9573.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3682241787"
+  },
+  "ninh_hoa_van": {
+   "base": 11317.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "309656943"
+  },
+  "ninh_ich_mau": {
+   "base": 7585.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1414527780"
+  },
+  "ninh_tich_dang": {
+   "base": 24281.9,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2481215858"
+  },
+  "ninh_tich_danh": {
+   "base": 6131.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1890597824"
+  },
+  "ninh_truc_thuc": {
+   "base": 41257.8,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2949902443"
+  },
+  "ninh_van_tuoc": {
+   "base": -9034.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4085344095"
+  },
+  "nong_bach_thach": {
+   "base": 5739.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "308039259"
+  },
+  "o_do_nam": {
+   "base": -12019.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2589087359"
+  },
+  "o_lao_nghien": {
+   "base": -7439.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1255314659"
+  },
+  "o_liet_phong": {
+   "base": 15584.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1879235559"
+  },
+  "o_linh_tuoc": {
+   "base": 1110.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1519096235"
+  },
+  "o_ngoc_truc": {
+   "base": -12135.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "593551762"
+  },
+  "o_sa_ho": {
+   "base": -10338.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1144708159"
+  },
+  "o_sa_nhi": {
+   "base": -8959.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2217485883"
+  },
+  "o_thach_tung": {
+   "base": 12292.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2767958650"
+  },
+  "o_thiem_tu": {
+   "base": 28484.7,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2640900179"
+  },
+  "o_tieu_dan": {
+   "base": -15205.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3339711308"
+  },
+  "o_tieu_mac": {
+   "base": -10556.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2369071173"
+  },
+  "o_tieu_sao": {
+   "base": -17403.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "785669840"
+  },
+  "o_tram_chau": {
+   "base": 1903.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2602084635"
+  },
+  "on_bich_de": {
+   "base": -12775.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2809965757"
+  },
+  "on_bich_lien": {
+   "base": -12506.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4070557754"
+  },
+  "on_hoa_mieu": {
+   "base": -10807.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2652239862"
+  },
+  "on_huu_toan": {
+   "base": -8605.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1468972090"
+  },
+  "on_lap_tru": {
+   "base": -1608.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1372249558"
+  },
+  "on_noan_tuyet": {
+   "base": -12660.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "92688537"
+  },
+  "on_sa_ngoc": {
+   "base": 28827.4,
+   "fights": 40,
+   "realm": 2,
+   "sig": "4081974922"
+  },
+  "on_song_ngoc": {
+   "base": 4533.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2834043273"
+  },
+  "on_thanh_luu": {
+   "base": -11430.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "932019545"
+  },
+  "on_the_hoanh": {
+   "base": 8376.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "650752882"
+  },
+  "on_thu_dang": {
+   "base": 28353.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3718442674"
+  },
+  "on_thuc_ha": {
+   "base": 17106.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1920742270"
+  },
+  "on_tich_nhai": {
+   "base": 5091.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3954306883"
+  },
+  "on_tieu_kieu": {
+   "base": -12506.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1038537358"
+  },
+  "on_trong_luong": {
+   "base": 52186.7,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1011641012"
+  },
+  "ong_dinh_hoa": {
+   "base": 10957.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3440871749"
+  },
+  "ong_hai_linh": {
+   "base": 17043.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3789326222"
+  },
+  "ong_kho_sam": {
+   "base": 3913.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2266139442"
+  },
+  "ong_te_do": {
+   "base": 19621.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "455821433"
+  },
+  "ong_thiet_xuyen": {
+   "base": -13976.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2868684215"
+  },
+  "ong_tieu_pham": {
+   "base": -7873.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2623509235"
+  },
+  "ong_tieu_tra": {
+   "base": -10778.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3383898598"
+  },
+  "ong_tinh_hai": {
+   "base": 8558.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "413989080"
+  },
+  "ong_truc_thanh": {
+   "base": -4622.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "847877391"
+  },
+  "ong_vu_hoa": {
+   "base": 9216.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "286078820"
+  },
+  "pham_lanh_van": {
+   "base": 8454.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1105797444"
+  },
+  "pham_thanh_lo": {
+   "base": -12516.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "61912247"
+  },
+  "pham_thu_dien": {
+   "base": 21195.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3848737005"
+  },
+  "pham_thu_uoc": {
+   "base": -7252.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "139236415"
+  },
+  "pham_tich_lien": {
+   "base": -9734.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "433317486"
+  },
+  "phan_ba_sinh": {
+   "base": -4622.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3605602308"
+  },
+  "phan_boi_son": {
+   "base": -11509.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3309592635"
+  },
+  "phan_co_dang": {
+   "base": 34167.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3583277910"
+  },
+  "phan_do_nhuoc": {
+   "base": 6743.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3440126193"
+  },
+  "phan_dong_nhi": {
+   "base": -12645.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "492517850"
+  },
+  "phan_khac_luan": {
+   "base": -12217.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3588887118"
+  },
+  "phan_kien_son": {
+   "base": 8196.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4133042897"
+  },
+  "phan_linh_sach": {
+   "base": -14261.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1549510202"
+  },
+  "phan_lo_kien": {
+   "base": 9512.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2919015872"
+  },
+  "phan_thinh_dao": {
+   "base": -10582.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1343310788"
+  },
+  "phan_tich_lich": {
+   "base": 1292.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3526857034"
+  },
+  "phan_tieu_ho": {
+   "base": -11891.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3165086608"
+  },
+  "phan_tinh_ba": {
+   "base": 2804.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2435844926"
+  },
+  "phan_truyen_phong": {
+   "base": 2480.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "457291380"
+  },
+  "phan_vat_hoa": {
+   "base": 59859.2,
+   "fights": 32,
+   "realm": 3,
+   "sig": "49051086"
+  },
+  "phan_vong_hai": {
+   "base": 37012.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "4216354886"
+  },
+  "phi_dong_canh": {
+   "base": -8066.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2708344403"
+  },
+  "phi_han_cham": {
+   "base": 6078.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2928395117"
+  },
+  "phi_ngoc_thanh": {
+   "base": -8346.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2759621067"
+  },
+  "phi_nhan_tam": {
+   "base": 37966.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3772364136"
+  },
+  "phi_tam_mai": {
+   "base": -10764.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1589115532"
+  },
+  "phi_thanh_giang": {
+   "base": 3322.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4082515185"
+  },
+  "phi_thanh_sa": {
+   "base": 7078.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1999406728"
+  },
+  "phi_thoa_y": {
+   "base": 49879.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2777841138"
+  },
+  "phi_tieu_lam": {
+   "base": -9557.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2533755175"
+  },
+  "phi_tong_thach": {
+   "base": -8209.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2729581496"
+  },
+  "phi_tung_chi": {
+   "base": 11267.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1495067428"
+  },
+  "pho_am_huong": {
+   "base": 36736.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2245711315"
+  },
+  "pho_cuong_dau": {
+   "base": 18518.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "4121106404"
+  },
+  "pho_dich_lam": {
+   "base": 938.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2383091466"
+  },
+  "pho_ket_thang": {
+   "base": -11947.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3930828349"
+  },
+  "pho_ngao_suong": {
+   "base": 13302.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3167276000"
+  },
+  "pho_tieu_diem": {
+   "base": -18711.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2618548423"
+  },
+  "pho_tinh_ngon": {
+   "base": 7425.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "108848626"
+  },
+  "pho_tong_thuc": {
+   "base": -9700.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3684200513"
+  },
+  "phong_bach_ke": {
+   "base": 12555.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2186762626"
+  },
+  "phong_han_nha": {
+   "base": -9573.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1250647623"
+  },
+  "phong_kinh_sa": {
+   "base": 7853.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3776017772"
+  },
+  "phong_tan_thu": {
+   "base": 7641.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3248011611"
+  },
+  "phong_thach_hoc": {
+   "base": 12361.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3245051676"
+  },
+  "phong_tieu_cuu": {
+   "base": -8346.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2471353573"
+  },
+  "phong_tu_gia": {
+   "base": 6434.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2837416839"
+  },
+  "phu_hau_tho": {
+   "base": -5884.2,
+   "fights": 32,
+   "realm": 0,
+   "sig": "852423861"
+  },
+  "phu_hoa_sinh": {
+   "base": -8209.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3789454115"
+  },
+  "phu_lien_chau": {
+   "base": 4838.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1914949575"
+  },
+  "phu_lien_kieu": {
+   "base": 1859.8,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1154223041"
+  },
+  "phu_suong_nguyen": {
+   "base": -10503.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3387589455"
+  },
+  "phu_vu_sinh": {
+   "base": -11632.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3372096884"
+  },
+  "phu_vu_to": {
+   "base": 2462.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2433045993"
+  },
+  "phuc_do_lan": {
+   "base": -9876.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2133366425"
+  },
+  "phuc_lam_sinh": {
+   "base": -5665.2,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3515159984"
+  },
+  "phuc_nguu_nhi": {
+   "base": -11099.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3493765610"
+  },
+  "phuc_thuy_hang": {
+   "base": 13245.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3531089586"
+  },
+  "phung_cam_thao": {
+   "base": -6053.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1128696085"
+  },
+  "phung_co_am": {
+   "base": -14693.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2441885924"
+  },
+  "phung_luc_ngac": {
+   "base": 5907.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3453667010"
+  },
+  "phung_luc_y": {
+   "base": -9119.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "51804237"
+  },
+  "phung_que_chi": {
+   "base": -9304.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3889488865"
+  },
+  "phung_tieu_toa": {
+   "base": -13631.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2510247399"
+  },
+  "phung_toi_hoa": {
+   "base": -9654.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3574858014"
+  },
+  "phung_xich_kim": {
+   "base": 9728.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2200173765"
+  },
+  "phuong_diem_nhi": {
+   "base": -11048.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2980067006"
+  },
+  "phuong_diep_chu": {
+   "base": -11445.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "589096064"
+  },
+  "phuong_doan_vu": {
+   "base": 39407.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1788159673"
+  },
+  "phuong_kim_cham": {
+   "base": 2247.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "952996661"
+  },
+  "phuong_lo_hoa": {
+   "base": 6563.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3693663999"
+  },
+  "phuong_ngoc_sa": {
+   "base": 9357.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1628691244"
+  },
+  "phuong_tieu_lan": {
+   "base": -11677.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "379910596"
+  },
+  "phuong_toan_ngoc": {
+   "base": 14766.0,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2568802846"
+  },
+  "phuong_truc_ngon": {
+   "base": 50498.2,
+   "fights": 40,
+   "realm": 3,
+   "sig": "1669656542"
+  },
+  "phuong_tung_ban": {
+   "base": 4274.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1549861456"
+  },
+  "quach_bat_tram": {
+   "base": 5012.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3922095756"
+  },
+  "quach_do_anh": {
+   "base": -8482.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3055224288"
+  },
+  "quach_lam": {
+   "base": 18973.6,
+   "fights": 16,
+   "realm": 2,
+   "sig": "48155579"
+  },
+  "quach_ngan_dang": {
+   "base": -8491.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "329651786"
+  },
+  "quach_tiep_van": {
+   "base": 45846.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1972617268"
+  },
+  "quach_tieu_dao": {
+   "base": -10394.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2952886659"
+  },
+  "quach_tu_tinh": {
+   "base": 5608.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "939019747"
+  },
+  "quan_anh_ho": {
+   "base": 19849.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3183416881"
+  },
+  "quan_bo_hanh": {
+   "base": -14288.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1428420847"
+  },
+  "quan_da_tu": {
+   "base": -10633.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2591372679"
+  },
+  "quan_dan_phong": {
+   "base": 4088.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1903548488"
+  },
+  "quan_lang_ba": {
+   "base": 10319.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1870494180"
+  },
+  "quan_liem_chu": {
+   "base": -11594.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3087547108"
+  },
+  "quan_loc_nhi": {
+   "base": -11757.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1482210346"
+  },
+  "quan_minh_tuyen": {
+   "base": -8972.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1818207941"
+  },
+  "quan_phuc_thu": {
+   "base": 10300.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "605527375"
+  },
+  "quan_song_dau": {
+   "base": 990.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4117281251"
+  },
+  "quan_suong_thu": {
+   "base": 3044.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "845018760"
+  },
+  "quan_tay_lan": {
+   "base": -12246.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2086749884"
+  },
+  "quan_tay_ngoc": {
+   "base": -10639.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1627019044"
+  },
+  "quan_than_ngon": {
+   "base": -3870.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "855480881"
+  },
+  "quan_thanh_diep": {
+   "base": -11666.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1883055851"
+  },
+  "quan_thap_nhat": {
+   "base": -9506.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1295914100"
+  },
+  "quan_thap_thu": {
+   "base": -7872.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3591383919"
+  },
+  "quan_tich_am": {
+   "base": 9460.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1618472698"
+  },
+  "quan_tieu_kinh": {
+   "base": -9014.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "680647065"
+  },
+  "quan_tuyet_tung": {
+   "base": 19549.4,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3133485529"
+  },
+  "quan_vu_thanh": {
+   "base": 30386.7,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2891449975"
+  },
+  "que_han_chi": {
+   "base": -16694.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1281749716"
+  },
+  "que_hoang_oanh": {
+   "base": -11802.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2703315653"
+  },
+  "que_tuoc": {
+   "base": -8281.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1112501193"
+  },
+  "quy_thu_luy": {
+   "base": 28909.7,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1876129288"
+  },
+  "quy_thuoc": {
+   "base": -12054.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "443050015"
+  },
+  "quy_to_nga": {
+   "base": -16418.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "43354072"
+  },
+  "quyen_thanh_lam": {
+   "base": 43224.6,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2009075706"
+  },
+  "quyen_tieu_mach": {
+   "base": 20498.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2180021021"
+  },
+  "sa_au_lan": {
+   "base": -12660.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1484715575"
+  },
+  "sa_bat_ngu": {
+   "base": -10896.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1585285582"
+  },
+  "sa_dinh_ba": {
+   "base": 2964.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3249802582"
+  },
+  "sa_kinh_nhi": {
+   "base": 1528.6,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1710865881"
+  },
+  "sach_bat_ngon": {
+   "base": -10633.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3336235007"
+  },
+  "sach_truc_thuy": {
+   "base": -8740.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "343181426"
+  },
+  "sai_ket_lam": {
+   "base": 4025.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3702627420"
+  },
+  "sai_mo_kiem": {
+   "base": 32798.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2552536836"
+  },
+  "sai_moc_te": {
+   "base": -9707.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2829900981"
+  },
+  "sai_que_chi": {
+   "base": -8159.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "866822501"
+  },
+  "sai_tan_nhien": {
+   "base": 1527.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3142665202"
+  },
+  "sai_thanh_phong": {
+   "base": 10464.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3850201828"
+  },
+  "sai_thiet_dien": {
+   "base": 11868.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1311491688"
+  },
+  "sai_tieu_dong": {
+   "base": -12412.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "847602294"
+  },
+  "sai_tinh_lan": {
+   "base": -1037.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2612201827"
+  },
+  "sam_bach_chi": {
+   "base": 5765.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1655165402"
+  },
+  "sam_bich_lan": {
+   "base": -14131.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1293099812"
+  },
+  "sam_chuc_nuong": {
+   "base": -12920.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2062408887"
+  },
+  "sam_dao_huong": {
+   "base": 15027.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2459696520"
+  },
+  "sam_lac_thiet": {
+   "base": 12429.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "210545051"
+  },
+  "sam_lang_nhi": {
+   "base": -8463.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1756440002"
+  },
+  "sam_liet_duc": {
+   "base": 6131.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2372369687"
+  },
+  "sam_luy": {
+   "base": -6931.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3813154272"
+  },
+  "sam_nguu_tat": {
+   "base": -5020.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "4045092648"
+  },
+  "sam_thanh_tung": {
+   "base": -11366.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "14580496"
+  },
+  "sam_van_huong": {
+   "base": -11553.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "300589097"
+  },
+  "sam_van_nuong": {
+   "base": 6218.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2267542900"
+  },
+  "sao_an_lan": {
+   "base": 27257.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "870438216"
+  },
+  "so_bang_chi": {
+   "base": -7645.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3115756543"
+  },
+  "so_han_y": {
+   "base": 16574.4,
+   "fights": 32,
+   "realm": 1,
+   "sig": "201675541"
+  },
+  "so_loi_duan": {
+   "base": 1903.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1676833461"
+  },
+  "so_ngoc_ho": {
+   "base": 51947.4,
+   "fights": 40,
+   "realm": 3,
+   "sig": "1359457923"
+  },
+  "so_thanh_dac": {
+   "base": -12481.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3363624973"
+  },
+  "su_hoa_tieu": {
+   "base": -10766.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1261004241"
+  },
+  "su_hoanh_duc": {
+   "base": 58155.2,
+   "fights": 40,
+   "realm": 3,
+   "sig": "3653454599"
+  },
+  "su_man_thanh": {
+   "base": -9091.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3092749209"
+  },
+  "su_ngung_mac": {
+   "base": 31688.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1026714407"
+  },
+  "su_niem_huynh": {
+   "base": 15832.8,
+   "fights": 32,
+   "realm": 1,
+   "sig": "851984826"
+  },
+  "su_pha_bang": {
+   "base": 11892.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2263441374"
+  },
+  "su_que_huong": {
+   "base": 7479.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3660869605"
+  },
+  "su_te_tan": {
+   "base": 9154.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2532799252"
+  },
+  "su_thanh_lam": {
+   "base": -8305.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3020252297"
+  },
+  "su_thu_thuy": {
+   "base": 40822.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "652446729"
+  },
+  "su_truong_ngam": {
+   "base": 22615.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2249871907"
+  },
+  "su_van_hoa": {
+   "base": 2501.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2397350035"
+  },
+  "sung_ngoc_khe": {
+   "base": -1202.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "571828008"
+  },
+  "ta_chuan_thang": {
+   "base": 11499.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "567512709"
+  },
+  "ta_cuu_duong": {
+   "base": 27542.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1494277046"
+  },
+  "ta_ke_tru": {
+   "base": 3604.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "497110431"
+  },
+  "ta_khac_thach": {
+   "base": 15054.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2878839058"
+  },
+  "ta_kinh_gioi": {
+   "base": -5489.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1620966789"
+  },
+  "ta_mac_tru": {
+   "base": 2711.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1372546622"
+  },
+  "ta_ngan_suong": {
+   "base": 4217.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "405772339"
+  },
+  "ta_quy_hac": {
+   "base": -7764.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "790750212"
+  },
+  "ta_quy_hoc": {
+   "base": -10807.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2172572132"
+  },
+  "ta_quy_hong": {
+   "base": -8051.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1704448898"
+  },
+  "ta_quy_nhan": {
+   "base": -10890.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1243411927"
+  },
+  "ta_quy_yen": {
+   "base": -6669.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1802386532"
+  },
+  "ta_thanh_loan": {
+   "base": 15027.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2305725816"
+  },
+  "ta_thanh_thuoc": {
+   "base": 9099.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1439477792"
+  },
+  "ta_thuc_bao": {
+   "base": -5961.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1613370296"
+  },
+  "ta_tieu_bi": {
+   "base": -9818.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3994561781"
+  },
+  "ta_tri_thu": {
+   "base": 3604.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "410216444"
+  },
+  "ta_tri_xuan": {
+   "base": 13579.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "665233674"
+  },
+  "tac_ha_thang": {
+   "base": -8102.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2921461381"
+  },
+  "tan_bach_au": {
+   "base": -6841.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4055451216"
+  },
+  "tan_cuc_hoa": {
+   "base": -6730.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2648096817"
+  },
+  "tan_dao_anh": {
+   "base": 14309.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3102603309"
+  },
+  "tan_lien_am": {
+   "base": 9279.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3891427142"
+  },
+  "tan_mac_bach": {
+   "base": 38107.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1826446800"
+  },
+  "tan_muc_so": {
+   "base": -9557.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2778336283"
+  },
+  "tan_thien_ly": {
+   "base": 11126.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "586084185"
+  },
+  "tan_thu_quan": {
+   "base": 11475.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1609129491"
+  },
+  "tan_thuong_truat": {
+   "base": 9044.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1472060656"
+  },
+  "tan_tieu_duan": {
+   "base": -8605.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "781335199"
+  },
+  "tan_tieu_uyen": {
+   "base": -13623.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "906913070"
+  },
+  "tan_tuyet_than": {
+   "base": 26864.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "743351697"
+  },
+  "tan_xuan_duan": {
+   "base": -10206.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2092179259"
+  },
+  "tang_bach_thong": {
+   "base": 7585.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1871189842"
+  },
+  "tang_ke_ti": {
+   "base": 32772.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "989664394"
+  },
+  "tang_kien": {
+   "base": -7187.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2955118811"
+  },
+  "tang_mo_sinh": {
+   "base": -16334.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3676891505"
+  },
+  "tang_mong_kien": {
+   "base": 7708.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2544466108"
+  },
+  "tang_phan_ly": {
+   "base": -10475.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3418940886"
+  },
+  "tang_tieu_vu": {
+   "base": -10265.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3127260833"
+  },
+  "tang_tuc_lac": {
+   "base": 11938.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "151941379"
+  },
+  "tang_van_tieu": {
+   "base": 20130.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "72322888"
+  },
+  "tao_bach_ma": {
+   "base": -10338.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2148049305"
+  },
+  "tao_bach_sinh": {
+   "base": -10338.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4054301402"
+  },
+  "tao_mac_toan": {
+   "base": 9622.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3431783477"
+  },
+  "tao_mo_tu": {
+   "base": 24311.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "883425189"
+  },
+  "tao_phong_phong": {
+   "base": -4460.7,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1812772837"
+  },
+  "tao_tan_kien": {
+   "base": 42219.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1344760668"
+  },
+  "tap_minh_nhi": {
+   "base": -12660.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3735581822"
+  },
+  "tap_xuan_tra": {
+   "base": -10046.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "585909168"
+  },
+  "tat_da_lang": {
+   "base": -8346.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3350844538"
+  },
+  "tat_hanh_chi": {
+   "base": -8430.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "899394780"
+  },
+  "tat_hanh_vu": {
+   "base": 34277.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "4053972075"
+  },
+  "tat_kim_thanh": {
+   "base": -2968.8,
+   "fights": 32,
+   "realm": 0,
+   "sig": "432042544"
+  },
+  "tat_que_lac": {
+   "base": 9350.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4002591319"
+  },
+  "tat_thien_huong": {
+   "base": 953.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3044309368"
+  },
+  "tat_tieu_phu": {
+   "base": -7873.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3224101837"
+  },
+  "te_lac_bang": {
+   "base": -16932.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1101892040"
+  },
+  "te_luc_tien": {
+   "base": -10685.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "83373815"
+  },
+  "te_niem_quy": {
+   "base": -10183.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2622633736"
+  },
+  "te_thu_anh": {
+   "base": -8209.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1481230208"
+  },
+  "te_thuong_man": {
+   "base": 7822.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2991489074"
+  },
+  "te_tieu_mach": {
+   "base": -7384.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1481272316"
+  },
+  "te_tieu_van": {
+   "base": -9876.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "71139846"
+  },
+  "te_tu_to": {
+   "base": 18350.8,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1655653956"
+  },
+  "te_vong_quy": {
+   "base": 16514.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "739166003"
+  },
+  "thac_bat_lu": {
+   "base": -11891.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2608766596"
+  },
+  "thach_dinh_nhi": {
+   "base": -6603.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4123829509"
+  },
+  "thach_hai_the": {
+   "base": -12715.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2510129509"
+  },
+  "thach_lien_hoan": {
+   "base": 31264.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3092025998"
+  },
+  "thach_thap_dinh": {
+   "base": -7187.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2932464206"
+  },
+  "thach_tieu_lo": {
+   "base": -16079.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4042303618"
+  },
+  "thach_vu_lien": {
+   "base": 8324.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3636841637"
+  },
+  "thai_canh_lau": {
+   "base": 2007.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "725423099"
+  },
+  "thai_han_ngu": {
+   "base": 4984.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2763903906"
+  },
+  "thai_hoa_linh": {
+   "base": -7556.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3705153224"
+  },
+  "thai_huong_doan": {
+   "base": -15723.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2892554489"
+  },
+  "thai_huyen_nhung": {
+   "base": -11770.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3853688138"
+  },
+  "thai_le_tuyet": {
+   "base": 41615.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2813040086"
+  },
+  "thai_tri_mau": {
+   "base": -4622.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1565933893"
+  },
+  "thai_truong_thanh": {
+   "base": -11074.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3706735469"
+  },
+  "thai_van_xa": {
+   "base": 2426.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "721590339"
+  },
+  "tham_bac_than": {
+   "base": 55079.1,
+   "fights": 40,
+   "realm": 3,
+   "sig": "705486419"
+  },
+  "tham_du_van": {
+   "base": 2991.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "766877142"
+  },
+  "tham_han_giang": {
+   "base": 53383.4,
+   "fights": 40,
+   "realm": 3,
+   "sig": "3987862393"
+  },
+  "tham_hoi_y": {
+   "base": -8281.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3744423082"
+  },
+  "tham_huong_nhi": {
+   "base": 11367.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2780335654"
+  },
+  "tham_tho_bich": {
+   "base": 15027.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "301873583"
+  },
+  "tham_tinh_sa": {
+   "base": 15261.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1277236277"
+  },
+  "than_lac_am": {
+   "base": -8799.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3187839364"
+  },
+  "than_ngung_lam": {
+   "base": 11530.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3072881170"
+  },
+  "than_pha_bang": {
+   "base": -4736.6,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3810800897"
+  },
+  "than_thu_nhat": {
+   "base": -6769.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2116025557"
+  },
+  "than_van_cam": {
+   "base": 10909.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1016928817"
+  },
+  "than_vong_giang": {
+   "base": 2738.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "336165231"
+  },
+  "thang_ha_kho": {
+   "base": 11863.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2785904270"
+  },
+  "thang_phuc_tuyet": {
+   "base": 11267.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3692251216"
+  },
+  "thang_tieu_chuc": {
+   "base": -14234.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2674208847"
+  },
+  "thang_tieu_hoa": {
+   "base": -18186.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1477120642"
+  },
+  "thang_vien_hanh": {
+   "base": -8767.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3737150360"
+  },
+  "thang_vo_ta": {
+   "base": 34891.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1389491778"
+  },
+  "thanh_da_cuc": {
+   "base": -10210.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2888616009"
+  },
+  "thanh_dien": {
+   "base": 18973.6,
+   "fights": 16,
+   "realm": 2,
+   "sig": "3443587303"
+  },
+  "thanh_kim_toa": {
+   "base": 530.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4143840397"
+  },
+  "thi_dam_tinh": {
+   "base": 4138.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2288495714"
+  },
+  "thi_moc_huong": {
+   "base": 6131.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2422503220"
+  },
+  "thi_tra_yen": {
+   "base": 8752.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3888519383"
+  },
+  "thi_uyen_yen": {
+   "base": -6244.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3782914011"
+  },
+  "thi_van_binh": {
+   "base": 5358.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1401702624"
+  },
+  "thich_hong_linh": {
+   "base": 31004.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2438263612"
+  },
+  "thich_huyen_yen": {
+   "base": -9199.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4239165100"
+  },
+  "thich_mac_sao": {
+   "base": 2110.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "675221874"
+  },
+  "thich_minh_thu": {
+   "base": 13939.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1063074521"
+  },
+  "thien_thua_cu": {
+   "base": 31564.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3450281547"
+  },
+  "thieu_hoa_tam": {
+   "base": 4088.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3638493536"
+  },
+  "thieu_hong_lo": {
+   "base": 5728.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "763747377"
+  },
+  "thieu_lang_ba": {
+   "base": 38641.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "760635866"
+  },
+  "thieu_mo_canh": {
+   "base": -7792.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1944004768"
+  },
+  "thieu_mo_vu": {
+   "base": -10582.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2083604131"
+  },
+  "thieu_ngan_hong": {
+   "base": 15027.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1626798914"
+  },
+  "thieu_thanh_dai": {
+   "base": 43154.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "132504350"
+  },
+  "thieu_tung_lam": {
+   "base": 5712.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3367199843"
+  },
+  "thieu_van_linh": {
+   "base": 5143.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3051620599"
+  },
+  "thieu_vu_hang": {
+   "base": -9172.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4133792356"
+  },
+  "thieu_xuan_nuong": {
+   "base": -8209.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4113330214"
+  },
+  "thinh_ham_quang": {
+   "base": 1675.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2316184431"
+  },
+  "thinh_han_loi": {
+   "base": -7004.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "555940997"
+  },
+  "thinh_kinh_han": {
+   "base": 30800.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3211154497"
+  },
+  "thinh_phong_dang": {
+   "base": -6603.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "517497870"
+  },
+  "thinh_thieu_hang": {
+   "base": -8066.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4075959062"
+  },
+  "tho_ma_tu": {
+   "base": -12412.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3538878126"
+  },
+  "tho_u_hoang": {
+   "base": 8235.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3881634127"
+  },
+  "thoi_an_phong": {
+   "base": -7404.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3619161817"
+  },
+  "thoi_an_thu": {
+   "base": 3017.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1216677347"
+  },
+  "thoi_duong_giac": {
+   "base": 36966.3,
+   "fights": 32,
+   "realm": 2,
+   "sig": "4218209817"
+  },
+  "thoi_hai_thuy": {
+   "base": -5249.6,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3322208594"
+  },
+  "thoi_khinh_hong": {
+   "base": 90388.0,
+   "fights": 40,
+   "realm": 4,
+   "sig": "2522034446"
+  },
+  "thoi_kim_doi": {
+   "base": -9331.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2928875431"
+  },
+  "thoi_luc_linh": {
+   "base": -10711.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3381460976"
+  },
+  "thoi_tri_tiet": {
+   "base": 36639.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "324399057"
+  },
+  "thoi_vong_pham": {
+   "base": -11236.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1450960863"
+  },
+  "thong_truy_dien": {
+   "base": -9331.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4159857373"
+  },
+  "thong_van_thach": {
+   "base": -8456.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4083764944"
+  },
+  "thu_anh_dam": {
+   "base": -8972.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3635202986"
+  },
+  "thu_ngan_hanh": {
+   "base": 15234.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "888520377"
+  },
+  "thu_phieu_binh": {
+   "base": 26151.8,
+   "fights": 32,
+   "realm": 1,
+   "sig": "151017517"
+  },
+  "thu_tieu_chu": {
+   "base": -15647.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2406558572"
+  },
+  "thu_van_trieu": {
+   "base": 27037.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2332002281"
+  },
+  "thuong_bach_pham": {
+   "base": 34049.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1121697"
+  },
+  "thuong_bich_ngan": {
+   "base": -7491.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1810986948"
+  },
+  "thuong_cu_luan": {
+   "base": 5009.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1589085573"
+  },
+  "thuong_dich_am": {
+   "base": -12893.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1549657844"
+  },
+  "thuong_doc_hoat": {
+   "base": 11816.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2861536017"
+  },
+  "thuong_hai_dong": {
+   "base": -10607.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2290345477"
+  },
+  "thuong_muc": {
+   "base": -10156.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1602072633"
+  },
+  "thuong_ngu_ca": {
+   "base": -10338.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4019060448"
+  },
+  "thuong_quy_vu": {
+   "base": -10939.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1073535140"
+  },
+  "thuong_suong_mi": {
+   "base": -7236.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1496294981"
+  },
+  "thuong_tan_quy": {
+   "base": 9081.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3204974895"
+  },
+  "thuong_thien_dao": {
+   "base": 2008.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "913422392"
+  },
+  "thuong_thu_ha": {
+   "base": 8256.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "94220979"
+  },
+  "thuong_toi_kim": {
+   "base": 8585.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4167755246"
+  },
+  "tich_diem_ti": {
+   "base": -12559.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "588960393"
+  },
+  "tich_lang_tung": {
+   "base": 15287.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1223561121"
+  },
+  "tich_thu_diep": {
+   "base": -5665.2,
+   "fights": 32,
+   "realm": 0,
+   "sig": "154193582"
+  },
+  "tiem_anh": {
+   "base": -9199.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2713341520"
+  },
+  "tiem_nhi": {
+   "base": -6480.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1025825979"
+  },
+  "tien_ban_ha": {
+   "base": 6374.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2533824603"
+  },
+  "tien_hoa_hau": {
+   "base": -9251.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "709259706"
+  },
+  "tien_hoi_nhi": {
+   "base": -6841.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "836812192"
+  },
+  "tien_kho_dang": {
+   "base": 8225.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1944954540"
+  },
+  "tien_ngan_lan": {
+   "base": -237.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "882346894"
+  },
+  "tien_ngu_phan": {
+   "base": 11646.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2891119576"
+  },
+  "tien_phan_vi": {
+   "base": -12266.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "814934113"
+  },
+  "tien_the_lam": {
+   "base": -7767.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2821299210"
+  },
+  "tien_tieu_dong": {
+   "base": -9627.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "816109174"
+  },
+  "tiet_an_suong": {
+   "base": 834.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3265516997"
+  },
+  "tiet_an_thuy": {
+   "base": 7237.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2805438577"
+  },
+  "tiet_bo_van": {
+   "base": -4979.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2762617783"
+  },
+  "tiet_han_bia": {
+   "base": 6067.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "244319429"
+  },
+  "tiet_han_mai": {
+   "base": 34047.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "933207760"
+  },
+  "tiet_hoanh_sa": {
+   "base": 3974.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3516335940"
+  },
+  "tiet_thu_bach": {
+   "base": -7132.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2505132603"
+  },
+  "tiet_van_huan": {
+   "base": -6404.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2087982957"
+  },
+  "tieu_bach_lo": {
+   "base": -11048.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3945259514"
+  },
+  "tieu_hoac_huong": {
+   "base": -11119.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "423712607"
+  },
+  "tieu_hoe_sinh": {
+   "base": -8632.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "550620545"
+  },
+  "tieu_khe_nhi": {
+   "base": -6931.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3154789130"
+  },
+  "tieu_lanh_thu": {
+   "base": -11562.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "547705086"
+  },
+  "tieu_loan": {
+   "base": -892.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3902187302"
+  },
+  "tieu_minh_khe": {
+   "base": -10747.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3865908014"
+  },
+  "tieu_ngoc_hoe": {
+   "base": -7873.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2193100176"
+  },
+  "tieu_ngoc_khe": {
+   "base": -12856.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3819341502"
+  },
+  "tieu_thu_dao": {
+   "base": 11137.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2534621361"
+  },
+  "tieu_thu_tan": {
+   "base": -9742.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4162532057"
+  },
+  "tieu_thu_tuyen": {
+   "base": 7205.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1105069666"
+  },
+  "tieu_thua_am": {
+   "base": 30449.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2493498822"
+  },
+  "tieu_tinh_anh": {
+   "base": 5133.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2412218320"
+  },
+  "tieu_ung_loi": {
+   "base": 4274.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "677234542"
+  },
+  "tieu_uyen_am": {
+   "base": -9172.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1248600150"
+  },
+  "tieu_van_canh": {
+   "base": -11553.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3267183328"
+  },
+  "tieu_van_phong": {
+   "base": 11267.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "253877301"
+  },
+  "tieu_vi": {
+   "base": -2427.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "683618648"
+  },
+  "tieu_vong_hoi": {
+   "base": -10639.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4197315621"
+  },
+  "to_binh_chu": {
+   "base": 15053.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3908077074"
+  },
+  "to_boi_ngam": {
+   "base": -3539.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3540900785"
+  },
+  "to_hieu_chu": {
+   "base": -12081.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1456492549"
+  },
+  "to_lanh_nguyet": {
+   "base": -7900.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1199768297"
+  },
+  "to_lenh_chu": {
+   "base": -9427.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "130688902"
+  },
+  "to_mieu_nhi": {
+   "base": -11867.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1671771997"
+  },
+  "to_mo_van": {
+   "base": -3376.5,
+   "fights": 32,
+   "realm": 0,
+   "sig": "3166597777"
+  },
+  "to_tinh_nghi": {
+   "base": 33639.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "399335241"
+  },
+  "to_van_chieu": {
+   "base": 59502.2,
+   "fights": 32,
+   "realm": 3,
+   "sig": "79012954"
+  },
+  "ton_du_tan": {
+   "base": -11042.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3075788972"
+  },
+  "ton_han_thach": {
+   "base": 20231.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3753622668"
+  },
+  "ton_han_y": {
+   "base": 9553.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4015769802"
+  },
+  "ton_lac_ho": {
+   "base": -7618.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2694394158"
+  },
+  "ton_mach_sinh": {
+   "base": -7767.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "974231598"
+  },
+  "ton_ngan_hoa": {
+   "base": -9225.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "169510915"
+  },
+  "ton_niem_trieu": {
+   "base": -11048.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2120940446"
+  },
+  "ton_thinh_ha": {
+   "base": -6546.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1770051726"
+  },
+  "ton_tuyet_bich": {
+   "base": 15723.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1771596949"
+  },
+  "ton_xich_minh": {
+   "base": -10265.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2647975095"
+  },
+  "tong_bich_linh": {
+   "base": 17290.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1530932442"
+  },
+  "tong_binh_hanh": {
+   "base": 4405.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "659726910"
+  },
+  "tong_loi_nhi": {
+   "base": -8534.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3794004345"
+  },
+  "tong_ngon_hoa": {
+   "base": 6690.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1586917193"
+  },
+  "tong_ngu_lan": {
+   "base": 9622.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2480952068"
+  },
+  "tong_phi_thu": {
+   "base": 14192.3,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3484363848"
+  },
+  "tong_thach_mach": {
+   "base": -11562.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4121638112"
+  },
+  "tong_thanh_mieu": {
+   "base": 5514.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3299537984"
+  },
+  "tong_thoi_kim": {
+   "base": 31771.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "4157266206"
+  },
+  "tong_thu_tin": {
+   "base": 35061.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "820626803"
+  },
+  "tong_tiet_truc": {
+   "base": -10778.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3375833517"
+  },
+  "tong_tieu_cu": {
+   "base": -7252.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3974118236"
+  },
+  "tong_toa_van": {
+   "base": 62059.3,
+   "fights": 32,
+   "realm": 3,
+   "sig": "2097941939"
+  },
+  "tra_ham_tuyen": {
+   "base": 30760.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "1776553887"
+  },
+  "trac_bach_truat": {
+   "base": -4314.9,
+   "fights": 32,
+   "realm": 0,
+   "sig": "4187845877"
+  },
+  "trac_dao_sa": {
+   "base": 7822.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3888734692"
+  },
+  "trac_hong_da": {
+   "base": 9339.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1913130800"
+  },
+  "trac_kinh_phong": {
+   "base": 3361.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2292260832"
+  },
+  "trac_linh_tuyen": {
+   "base": -8660.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2833080035"
+  },
+  "trac_on_tuyen": {
+   "base": -12429.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3830878635"
+  },
+  "trac_thiet_can": {
+   "base": 13939.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3398967181"
+  },
+  "trac_thu_lan": {
+   "base": 2220.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "335652197"
+  },
+  "trac_thuy_boi": {
+   "base": -9304.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3441209151"
+  },
+  "tram_ba_thanh": {
+   "base": -4897.7,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1664732115"
+  },
+  "tram_chau_nhi": {
+   "base": -2785.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1810974143"
+  },
+  "tram_tham_chau": {
+   "base": -13591.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3518266279"
+  },
+  "tram_tich_duong": {
+   "base": 63785.2,
+   "fights": 32,
+   "realm": 3,
+   "sig": "3298553396"
+  },
+  "tran_bach_thao": {
+   "base": -5576.0,
+   "fights": 32,
+   "realm": 0,
+   "sig": "496096362"
+  },
+  "tran_bach_xuyen": {
+   "base": 8266.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1637271150"
+  },
+  "tran_da_minh": {
+   "base": -11891.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3648202174"
+  },
+  "tran_sau_vu": {
+   "base": -10242.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2477929041"
+  },
+  "tran_tuoc_nhi": {
+   "base": -14870.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1454628593"
+  },
+  "trang_hoi_y": {
+   "base": 15428.5,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3106011818"
+  },
+  "trang_thanh_tuyen": {
+   "base": -1745.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3227495022"
+  },
+  "trang_thiet_cuoc": {
+   "base": 12686.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2075256647"
+  },
+  "trang_tieu_da": {
+   "base": -10394.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3408941982"
+  },
+  "trang_tuyen_co": {
+   "base": -9961.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3711599332"
+  },
+  "trang_van_lo": {
+   "base": -7618.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "369908011"
+  },
+  "trang_van_thao": {
+   "base": -9532.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1430706224"
+  },
+  "trau_ket_tuyen": {
+   "base": 3660.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "404491313"
+  },
+  "trau_vong_bang": {
+   "base": -1166.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1311672652"
+  },
+  "tri_ket_thang": {
+   "base": -11830.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1232755445"
+  },
+  "tri_kim_anh": {
+   "base": -8987.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1186394767"
+  },
+  "tri_quy_lo": {
+   "base": -7563.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3472930496"
+  },
+  "tri_truyen_thanh": {
+   "base": -10202.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4065051845"
+  },
+  "tri_van_huong": {
+   "base": 1838.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3931744977"
+  },
+  "tri_vien_lac": {
+   "base": -11099.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1826825696"
+  },
+  "trieu_huyet_y": {
+   "base": 28379.9,
+   "fights": 40,
+   "realm": 2,
+   "sig": "4073495500"
+  },
+  "trieu_ngu_lang": {
+   "base": 44862.9,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1305438292"
+  },
+  "trinh_cam_duong": {
+   "base": -11974.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1573122214"
+  },
+  "trinh_chu_sa": {
+   "base": 25077.9,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3616233770"
+  },
+  "trinh_hai_au": {
+   "base": -5410.0,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2704049433"
+  },
+  "trinh_hi_quang": {
+   "base": 36379.6,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2169207643"
+  },
+  "trinh_hong_tien": {
+   "base": -7384.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1875419873"
+  },
+  "trinh_lang": {
+   "base": -7764.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "700055683"
+  },
+  "trinh_luc_phan": {
+   "base": 3396.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2178048894"
+  },
+  "trinh_ma_thang": {
+   "base": -7620.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3486518752"
+  },
+  "trinh_thu_linh": {
+   "base": 9525.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3999759623"
+  },
+  "trinh_tieu_dau": {
+   "base": -7737.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "467116576"
+  },
+  "trinh_tieu_do": {
+   "base": -9067.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2848726984"
+  },
+  "trinh_to_am": {
+   "base": -218.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1776516602"
+  },
+  "trinh_uc_van": {
+   "base": 20791.6,
+   "fights": 32,
+   "realm": 1,
+   "sig": "207814623"
+  },
+  "trinh_van_phien": {
+   "base": -8900.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2576013080"
+  },
+  "trinh_van_thanh": {
+   "base": -5463.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1006516671"
+  },
+  "trong_khac_ky": {
+   "base": 28097.5,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3234842988"
+  },
+  "truc_linh_lo": {
+   "base": -11119.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2785552672"
+  },
+  "truong_da_dao": {
+   "base": -11404.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "812316880"
+  },
+  "truong_ham_chuoc": {
+   "base": -12188.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3814391268"
+  },
+  "truong_lanh_ha": {
+   "base": 404.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3172249617"
+  },
+  "truong_luyen_phong": {
+   "base": -8011.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2207881886"
+  },
+  "truong_mac_than": {
+   "base": -6120.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "855347575"
+  },
+  "truong_ngan_cau": {
+   "base": -11456.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "471841214"
+  },
+  "truong_vong_thanh": {
+   "base": 8479.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "332103086"
+  },
+  "tu_ban_kiem": {
+   "base": -7160.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2417070268"
+  },
+  "tu_binh_hanh": {
+   "base": 39427.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "1316743390"
+  },
+  "tu_binh_quyen": {
+   "base": 26641.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "762732687"
+  },
+  "tu_cam_tuyen": {
+   "base": 6186.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1482747444"
+  },
+  "tu_do_ngan": {
+   "base": -7165.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2853635712"
+  },
+  "tu_ke_chi": {
+   "base": -4131.8,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1964724634"
+  },
+  "tu_khong_hac_nien": {
+   "base": 52606.4,
+   "fights": 40,
+   "realm": 3,
+   "sig": "2961149060"
+  },
+  "tu_lac_suong": {
+   "base": -8605.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2909993627"
+  },
+  "tu_ma_do": {
+   "base": -8491.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4129858058"
+  },
+  "tu_thien_toan": {
+   "base": -10964.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3444130937"
+  },
+  "tu_tich_coc": {
+   "base": 40259.5,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3545693543"
+  },
+  "tu_tien_suong": {
+   "base": 7981.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3134745950"
+  },
+  "tu_tri_tiet": {
+   "base": 9022.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2707569562"
+  },
+  "tu_van_ha": {
+   "base": 840.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "728845058"
+  },
+  "tuan_le_chinh": {
+   "base": 14855.0,
+   "fights": 32,
+   "realm": 1,
+   "sig": "700356288"
+  },
+  "tuan_tuyet_lien": {
+   "base": -11757.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3730022029"
+  },
+  "tuan_van_mau": {
+   "base": 16004.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "4280766687"
+  },
+  "tuong_bach_luyen": {
+   "base": 31060.0,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2273055815"
+  },
+  "tuong_han_phong": {
+   "base": 7954.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3455017022"
+  },
+  "tuong_lau_thanh": {
+   "base": 32051.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3581962959"
+  },
+  "tuong_ngoc_can": {
+   "base": 8693.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2251989730"
+  },
+  "tuong_tieu_quyen": {
+   "base": -12614.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "371370765"
+  },
+  "tuong_tri_chuan": {
+   "base": 4052.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1127387112"
+  },
+  "tuyen_bich_ha": {
+   "base": 17386.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1951861556"
+  },
+  "tuyen_dang_nhi": {
+   "base": -6730.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1057281536"
+  },
+  "tuyen_thach_nha": {
+   "base": -12057.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3647795857"
+  },
+  "uat_tri_thu": {
+   "base": -8508.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1604466805"
+  },
+  "uc_da_diep": {
+   "base": 7655.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1150479763"
+  },
+  "uc_diep_thanh": {
+   "base": 27969.3,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3470509577"
+  },
+  "uc_ham_ba": {
+   "base": 11863.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2297219394"
+  },
+  "uc_han_chan": {
+   "base": 7290.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1846272486"
+  },
+  "uc_hoang_sa": {
+   "base": 7177.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1878207130"
+  },
+  "uc_ky_sinh": {
+   "base": -10580.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "38941106"
+  },
+  "uc_lang_hoa": {
+   "base": 4497.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1522629517"
+  },
+  "uc_tieu_bong": {
+   "base": -12054.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2298548155"
+  },
+  "uc_van_thuy": {
+   "base": -10475.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3216019984"
+  },
+  "uc_yen_vu": {
+   "base": -13298.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3100026969"
+  },
+  "ung_hac_minh": {
+   "base": 37729.2,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2175441192"
+  },
+  "ung_han_thao": {
+   "base": -5020.1,
+   "fights": 32,
+   "realm": 0,
+   "sig": "939434372"
+  },
+  "ung_ky_son": {
+   "base": -12158.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1623436747"
+  },
+  "ung_lam_tuyen": {
+   "base": -7187.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4213434532"
+  },
+  "ung_le_am": {
+   "base": 16972.0,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2045535903"
+  },
+  "ung_liet_tam": {
+   "base": -7187.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1244730363"
+  },
+  "ung_lo_nhi": {
+   "base": -7764.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3957384697"
+  },
+  "ung_so_hoa": {
+   "base": -7074.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1552394593"
+  },
+  "ung_thinh_thien": {
+   "base": 12319.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1463497351"
+  },
+  "ung_trieu_hong": {
+   "base": 3552.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3094132370"
+  },
+  "uong_binh_tru": {
+   "base": 5829.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2013274474"
+  },
+  "uong_hong_tieu": {
+   "base": -10387.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1093175715"
+  },
+  "uong_lac_chuy": {
+   "base": -8050.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2906426069"
+  },
+  "uong_le_tra": {
+   "base": -12403.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3533224446"
+  },
+  "uong_muc_dich": {
+   "base": 18871.9,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1016910272"
+  },
+  "uong_tam_pham": {
+   "base": 10088.0,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2128756730"
+  },
+  "uong_thach_linh": {
+   "base": -8066.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1636538975"
+  },
+  "uong_tieu_nguu": {
+   "base": -10421.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3288142797"
+  },
+  "uong_tu_ngan": {
+   "base": -9251.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1860341532"
+  },
+  "uong_tuyet_nhan": {
+   "base": -10074.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3423249642"
+  },
+  "uy_chu_dong": {
+   "base": 3348.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3715201192"
+  },
+  "uy_dan_duong": {
+   "base": 41550.0,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2812385027"
+  },
+  "uy_thanh_diem": {
+   "base": 61730.1,
+   "fights": 32,
+   "realm": 3,
+   "sig": "34215163"
+  },
+  "uy_thuong_dien": {
+   "base": 36137.7,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3635846342"
+  },
+  "van_bich_thu": {
+   "base": -9600.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1870123431"
+  },
+  "van_diem_trich": {
+   "base": -8281.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "20771896"
+  },
+  "van_diep_tang": {
+   "base": -12412.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3134985093"
+  },
+  "van_duong_quy": {
+   "base": 22464.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3007232374"
+  },
+  "van_han_dang": {
+   "base": 19658.2,
+   "fights": 32,
+   "realm": 1,
+   "sig": "4185946652"
+  },
+  "van_kien_boi": {
+   "base": -10421.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2103419897"
+  },
+  "van_lao_du": {
+   "base": -8972.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2498458681"
+  },
+  "van_nhan_huong": {
+   "base": 7613.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1081851125"
+  },
+  "van_tang_chi": {
+   "base": 604.2,
+   "fights": 40,
+   "realm": 1,
+   "sig": "148226170"
+  },
+  "van_thuy_dan": {
+   "base": 5430.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2110759067"
+  },
+  "van_tieu_ca": {
+   "base": -4979.4,
+   "fights": 32,
+   "realm": 0,
+   "sig": "2684536599"
+  },
+  "van_tieu_hoa": {
+   "base": -10321.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "164560826"
+  },
+  "van_tieu_tang": {
+   "base": -12323.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4120232192"
+  },
+  "van_truc_y": {
+   "base": -7986.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "383634268"
+  },
+  "van_tu_uyen": {
+   "base": 6580.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2498261870"
+  },
+  "van_tuyet_khanh": {
+   "base": 8256.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "504955191"
+  },
+  "ve_lo_can": {
+   "base": -6302.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2909526231"
+  },
+  "ve_lu_sinh": {
+   "base": 3631.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1220294026"
+  },
+  "ve_soc_linh": {
+   "base": -7792.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3282854105"
+  },
+  "ve_van_co": {
+   "base": 32647.8,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2940640958"
+  },
+  "vi_hoa_ca": {
+   "base": -15415.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1313072327"
+  },
+  "vi_lan_chau": {
+   "base": 1693.8,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3250363775"
+  },
+  "vi_quan_van": {
+   "base": 1653.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "264460611"
+  },
+  "vi_sa_yen": {
+   "base": -8767.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2389132352"
+  },
+  "vi_thanh_am": {
+   "base": 38818.2,
+   "fights": 32,
+   "realm": 2,
+   "sig": "3303031561"
+  },
+  "vi_thua_phong": {
+   "base": 3723.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1091474355"
+  },
+  "vi_tich_hoi": {
+   "base": 9460.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "891299578"
+  },
+  "vi_tu_han": {
+   "base": -8355.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3131846111"
+  },
+  "vien_chuoc": {
+   "base": 26864.1,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2125866595"
+  },
+  "vien_co_yen": {
+   "base": 19684.7,
+   "fights": 32,
+   "realm": 1,
+   "sig": "1281305429"
+  },
+  "vien_hong_kim": {
+   "base": 4905.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1160057925"
+  },
+  "vien_kho_sam": {
+   "base": 9279.7,
+   "fights": 40,
+   "realm": 1,
+   "sig": "2977513853"
+  },
+  "vien_son_thu": {
+   "base": 6132.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3163661664"
+  },
+  "vien_thanh_lo": {
+   "base": 478.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1392653084"
+  },
+  "vien_tich_chieu": {
+   "base": -7819.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1342896032"
+  },
+  "vien_tiem_nhi": {
+   "base": -8305.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2629172262"
+  },
+  "vien_tieu_yen": {
+   "base": -7008.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "401195247"
+  },
+  "vien_tinh_sinh": {
+   "base": -10473.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1038353297"
+  },
+  "viet_da_nhi": {
+   "base": -13178.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3325910796"
+  },
+  "vo_bang_kien": {
+   "base": -7764.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2013767340"
+  },
+  "vo_chu_thach": {
+   "base": -5131.5,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1215752339"
+  },
+  "vo_han_lo": {
+   "base": 12319.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1658166046"
+  },
+  "vo_kinh_son": {
+   "base": 6131.9,
+   "fights": 40,
+   "realm": 1,
+   "sig": "4161950156"
+  },
+  "vu_bich_trieu": {
+   "base": -6662.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "928610711"
+  },
+  "vu_duong_quy": {
+   "base": -8660.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "35736520"
+  },
+  "vu_hanh_lam": {
+   "base": 7021.6,
+   "fights": 40,
+   "realm": 1,
+   "sig": "178276399"
+  },
+  "vu_mai_suong": {
+   "base": -8375.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "127304574"
+  },
+  "vu_ngan_kieu": {
+   "base": -7074.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1250588721"
+  },
+  "vu_ngo_dong": {
+   "base": 38565.7,
+   "fights": 32,
+   "realm": 2,
+   "sig": "473155184"
+  },
+  "vu_nhat_tuyen": {
+   "base": -7224.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4018966339"
+  },
+  "vu_thach_dau": {
+   "base": -8233.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1874168330"
+  },
+  "vu_tinh_giai": {
+   "base": -12748.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3005380964"
+  },
+  "vu_tri_thu": {
+   "base": -9304.4,
+   "fights": 40,
+   "realm": 0,
+   "sig": "939508171"
+  },
+  "vuong_phuc_linh": {
+   "base": -5607.2,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1508874185"
+  },
+  "vuong_thanh_dang": {
+   "base": -6546.1,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1750523160"
+  },
+  "vuong_thanh_lam": {
+   "base": 4056.3,
+   "fights": 40,
+   "realm": 1,
+   "sig": "966425359"
+  },
+  "vuong_tieu_nhi": {
+   "base": -7439.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3534159555"
+  },
+  "vuu_cam_thu": {
+   "base": 31851.6,
+   "fights": 40,
+   "realm": 2,
+   "sig": "2122927602"
+  },
+  "vuu_chuoc_kim": {
+   "base": 31113.2,
+   "fights": 40,
+   "realm": 2,
+   "sig": "3396341029"
+  },
+  "vuu_thien_ma": {
+   "base": -6949.0,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3290067624"
+  },
+  "xa_co_dao": {
+   "base": 7835.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1024936485"
+  },
+  "xa_da_linh": {
+   "base": -10074.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3224043906"
+  },
+  "xa_linh_nhi": {
+   "base": -9609.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "274653017"
+  },
+  "xa_ngu_nuong": {
+   "base": -4952.3,
+   "fights": 32,
+   "realm": 0,
+   "sig": "1102187911"
+  },
+  "xa_tieu_ho": {
+   "base": -12644.2,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2254632163"
+  },
+  "xa_tieu_sa": {
+   "base": -10366.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1495396794"
+  },
+  "xa_trong_son": {
+   "base": 25411.8,
+   "fights": 32,
+   "realm": 1,
+   "sig": "2239090057"
+  },
+  "xich_quan": {
+   "base": 1253.4,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1505576595"
+  },
+  "yen_boi_ngoc": {
+   "base": 40955.1,
+   "fights": 32,
+   "realm": 2,
+   "sig": "2871604680"
+  },
+  "yen_hoi_do": {
+   "base": 17598.1,
+   "fights": 32,
+   "realm": 1,
+   "sig": "3453795763"
+  },
+  "yen_lac_hong": {
+   "base": -10475.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1794384576"
+  },
+  "yen_lac_tu": {
+   "base": -11562.6,
+   "fights": 40,
+   "realm": 0,
+   "sig": "1465947445"
+  },
+  "yen_luc_tuyen": {
+   "base": 11217.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "3297203828"
+  },
+  "yen_luu_huy": {
+   "base": -16961.3,
+   "fights": 40,
+   "realm": 0,
+   "sig": "546685380"
+  },
+  "yen_mach_nhi": {
+   "base": -11931.8,
+   "fights": 40,
+   "realm": 0,
+   "sig": "3214817496"
+  },
+  "yen_thu_hong": {
+   "base": 13803.5,
+   "fights": 40,
+   "realm": 1,
+   "sig": "1229265402"
+  },
+  "yen_thuy_hoa": {
+   "base": -12802.9,
+   "fights": 40,
+   "realm": 0,
+   "sig": "4161298135"
+  },
+  "yen_to_huyen": {
+   "base": -9091.7,
+   "fights": 40,
+   "realm": 0,
+   "sig": "606865802"
+  },
+  "yen_trich_thuy": {
+   "base": 939.1,
+   "fights": 40,
+   "realm": 1,
+   "sig": "561218704"
+  },
+  "yen_tuyet_ngung": {
+   "base": -15797.5,
+   "fights": 40,
+   "realm": 0,
+   "sig": "2752749252"
+  }
+ },
+ "precompute_seed": 0,
+ "schema_version": 1,
+ "world_data_version": 1,
+ "world_history_version": "d9dbb2d43a48b745"
+}

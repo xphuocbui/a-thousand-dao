@@ -47,6 +47,8 @@ func test_qi_carryover_cap_zero_and_curses_cleared_ac28_ac29_ac30() -> void:
 func test_talisman_stock_and_prepared_pill_carry_across_waves_ac31_ac32() -> void:
 	var gd := game_data()
 	var prof := FighterCompiler.from_data("typical", 3, gd)
+	# Pin regen_bonus = 0.0 so this AC-TK-26/31/32 fixture isolates base carry-over independently of typical-r3 Dao Do tuning.
+	prof.regen_bonus = 0.0
 	prof.pill = {"element": "fire", "grade": 3, "fail": false}
 	var seen_stocks: Array = []
 	var seen_pills: Array = []

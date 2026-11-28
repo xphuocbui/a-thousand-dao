@@ -12,7 +12,10 @@ static var _on: GameData
 static func _gd_on() -> GameData:
 	if _on == null:
 		_on = GameData.load_from("res://assets/data")
-		_on.world_gen().people.world_cultivators = 80
+		var cast: int = 0
+		for n in Dictionary(_on.file("world_history").get("living_cast_by_realm", {})).values():
+			cast += int(n)
+		_on.world_gen().people.world_cultivators = cast + 80
 		_on.world_gen().people.world_cultivators_min = 0
 		var k: Dictionary = _on.file("combat_rankings")
 		k["enabled"] = true

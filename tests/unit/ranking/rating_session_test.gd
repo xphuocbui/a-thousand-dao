@@ -14,7 +14,10 @@ static var _on: GameData
 static func _gd_on() -> GameData:
 	if _on == null:
 		_on = GameData.load_from("res://assets/data")
-		_on.world_gen().people.world_cultivators = 80
+		var cast: int = 0
+		for n in Dictionary(_on.file("world_history").get("living_cast_by_realm", {})).values():
+			cast += int(n)
+		_on.world_gen().people.world_cultivators = cast + 80
 		_on.world_gen().people.world_cultivators_min = 0
 		var k: Dictionary = _on.file("combat_rankings")
 		k["enabled"] = true
@@ -45,19 +48,61 @@ func test_world_generation_rates_the_player_and_the_load_set_ac_pr_26() -> void:
 	var s := _session(31)
 	var prec: Dictionary = s.db.get_record(RatingService.TABLE, s.player.id)
 	assert_eq(str(prec.state), RatingService.RATED, "the player is Rated from a full panel")
+	var cast_rated := 0
+	var gen_total := 0
+	var gen_stale := 0
+	var gen_high: Array = []
+	for p in s.db.all("people"):
+		if not p.alive or p.get("is_player", false):
+			continue
+		var rec: Dictionary = s.db.get_record(RatingService.TABLE, p.id)
+		var st: String = str(rec.state)
+		if p.has("cast_key"):
+			assert_eq(st, RatingService.RATED, "%s (authored cast) starts Rated from cast_ratings.json" % p.id)
+			assert_eq(int(rec.n), 0, "%s starts with 0 pair fights" % p.id)
+			cast_rated += 1
+		else:
+			gen_total += 1
+			assert_true(st == RatingService.STALE or st == RatingService.PROVISIONAL, "%s (generated) starts Stale or Provisional" % p.id)
+			if st == RatingService.STALE:
+				gen_stale += 1
+			if int(p.realm_index) >= 2:
+				gen_high.append(p)
+	assert_eq(cast_rated, 1769, "all 1,748 living authored cast + 21 beasts loaded as Rated")
+	assert_true(gen_total > 0, "generated non-cast NPCs exist (%d)" % gen_total)
+	if not gen_high.is_empty():
+		gen_high.sort_custom(func(x, y): return int(x.realm_index) > int(y.realm_index) or (int(x.realm_index) == int(y.realm_index) and RatingService.id_less(x.id, y.id)))
+		assert_eq(str(s.db.get_record(RatingService.TABLE, gen_high[0].id).state), RatingService.STALE, "the strongest generated high-realm NPC got a coarse panel")
+		assert_true(gen_stale > 0, "coarse panels ran for generated NPCs (%d)" % gen_stale)
+	s.shutdown()
+
+
+func test_world_generation_falls_back_to_rule_16_without_cast_ratings_ac_pr_58() -> void:
+	var base := _gd_on()
+	var files_copy: Dictionary = base.registry.files().duplicate()
+	files_copy.erase(RatingService.CAST_RATINGS_FILE)
+	var gd_no_cache := GameData.new()
+	gd_no_cache.setup(DataRegistry.from_files(files_copy))
+	var llm := LlmService.new(gd_no_cache)
+	llm.enabled = false
+	var s := GameSession.new(gd_no_cache, llm, TestFixtures.tree())
+	s.ratings_background = false
+	s.new_game(31, {"mode": "roll", "name": "Thí Sinh", "gender": "male", "origin": "tan_tu"})
+	var prec: Dictionary = s.db.get_record(RatingService.TABLE, s.player.id)
+	assert_eq(str(prec.state), RatingService.RATED, "the player is Rated from a full panel")
 	var high: Array = s.db.find("people", func(p): return p.alive and not p.get("is_player", false) and int(p.realm_index) >= 2)
 	var stale := 0
 	for p in s.db.all("people"):
 		if not p.alive or p.get("is_player", false):
 			continue
 		var st: String = str(s.db.get_record(RatingService.TABLE, p.id).state)
-		assert_true(st == RatingService.STALE or st == RatingService.PROVISIONAL, "%s starts Stale or Provisional" % p.id)
+		assert_true(st == RatingService.STALE or st == RatingService.PROVISIONAL, "%s falls back to Stale or Provisional" % p.id)
 		if st == RatingService.STALE:
 			stale += 1
-	assert_true(stale > 0, "some coarse panels ran (%d)" % stale)
-	if not high.is_empty():
-		high.sort_custom(func(x, y): return int(x.realm_index) > int(y.realm_index) or (int(x.realm_index) == int(y.realm_index) and RatingService.id_less(x.id, y.id)))
-		assert_eq(str(s.db.get_record(RatingService.TABLE, high[0].id).state), RatingService.STALE, "the strongest realm's first NPC got a coarse panel")
+	assert_true(stale > 0, "coarse panels ran under fallback (%d)" % stale)
+	high.sort_custom(func(x, y): return int(x.realm_index) > int(y.realm_index) or (int(x.realm_index) == int(y.realm_index) and RatingService.id_less(x.id, y.id)))
+	assert_eq(str(s.db.get_record(RatingService.TABLE, high[0].id).state), RatingService.STALE, "strongest NPC got a coarse panel under fallback")
+	s.shutdown()
 
 
 func test_the_batch_follows_rule_14s_order_and_never_pairs_the_player_or_beasts_ac_pr_24_13_01() -> void:
@@ -117,15 +162,18 @@ func test_two_batches_are_in_flight_and_pairing_reads_ratings_without_the_last_s
 	s.cultivate(1)
 	assert_true(s._rating_prev != null and s._rating_prev.season == first, "the first season's batch waits a season")
 	assert_true(s._rating_batch != null and s._rating_batch.season == first + 1, "this season's batch is planned")
-	# Provisional ratings follow realm and stage (Formulas G), and the world tick advances stages and can kill NPCs,
-	# so bases may move and dead NPCs become Gone; what must not happen yet is any fight result: no offset or pair
-	# count moves, and no panel makes anyone Rated.
+	# Provisional ratings follow realm and stage (Formulas G), and the world tick advances stages and can kill NPCs
+	# (a precomputed Rated cast member whose build changes in the tick legitimately transitions Rated -> Stale or
+	# Provisional on breakthrough when season 1 plans refresh()); what must not happen yet is any fight result: no
+	# offset or pair count moves, and no Provisional/Stale fighter becomes Rated.
 	var after: Dictionary = _ratings(s)
 	for id in before:
 		if not bool(s.db.get_record("people", str(id)).get("alive", false)):
 			assert_eq([after[id][1], after[id][2], after[id][3]], [before[id][1], before[id][2], RatingService.GONE], "%s: died in the tick with no fight result applied" % id)
 		else:
-			assert_eq([after[id][1], after[id][2], after[id][3]], [before[id][1], before[id][2], before[id][3]], "%s: no fight result applied yet" % id)
+			assert_eq([after[id][1], after[id][2]], [before[id][1], before[id][2]], "%s: offset and n unchanged (no fight result applied yet)" % id)
+			if before[id][3] != RatingService.RATED:
+				assert_true(after[id][3] != RatingService.RATED, "%s: no panel made a non-Rated fighter Rated yet" % id)
 
 
 func test_background_and_blocking_seasons_give_identical_ratings_ac_pr_52() -> void:

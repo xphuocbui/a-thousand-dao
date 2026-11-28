@@ -2,9 +2,10 @@
 
 > **Status**: Approved 2026-11-14 (lean re-review of the ladder revision; the earlier reviews' blockers resolved). **Changed after approval, 2026-11-14 (user decision after the ADR-0003 threading spike):** rule 16 coarse-panels only Kết Đan and above and the player's starting place at load, capped by `worldgen_fight_budget`; the rest start Provisional; Open Questions 7 (resolved) and 9 (new). Calibration (ADR-0003 step 3) raised `rung_div` to 32 by the saturation guard's own remedy and rescaled the rung-counted knobs (Tuning Knobs). A re-review of these changes is recommended. The ladder revision (user decisions from measured fights: ladder panel, measured anchors, coarse panels at load; `design/research/power-rankings-measurements.md`) was re-reviewed and approved the same day. Decisions by the user in-session; specialists consulted in lean mode: `systems-designer` (Formulas), `qa-lead` (Acceptance Criteria). CD-GDD-ALIGN skipped (lean mode)
 > **Changed 2026-11-22 (user decision, HUD design):** rule 13 applies each season's batch one season late, so End turn does not wait for the rating fights. **Built 2026-11-22:** `game_session.gd` holds two batches (`_rating_prev`, `_rating_batch`; `_roll_ratings` at the season's end); a save keeps the unapplied previous batch's results; AC-PR-25's test checks the one-season lag and AC-PR-48's the saved batch; batches run in worker processes (ADR-0003 decision 13; evidence `production/qa/evidence/combat-port/worker-processes-2026-11-22.md`).
+> **Changed 2026-11-28 (user decision, Batch 1):** (1) `combat_reference_fighters.json` refreshed to post-Đạo-Đồ typical reference fighters (`POST_DAO_DO_TYPICAL` via `tools/design/combat_sim/export_reference_fighters.py`, distinct from `combat_library.json`'s pre-Đạo-Đồ character-compiler stand-in base) with `t6_typical_mirror_r0..r4` kept in lockstep; (2) `combat_rankings.json` recalibrated at `k_max = 256`, `rung_div = 32` (`data_version = "6c829cf0107774f4"`, `health_elo = 2088.614`, anchors `[1000.0, 21324.495, 43303.673, 65475.097, 79232.577]`, `0` saturation errors across `2,560` rung gaps); (3) **Rule 16a** added for offline precomputed full-panel base ratings of all `1,748` living authored cast + `21` living authored spirit beasts (`1,769` entries in `assets/data/cast_ratings.json`, written by `tools/design/ranking/export_cast_ratings.gd`), with graceful fallback to rule 16 on version or build-signature mismatch.
 > **Author**: the user + Claude
-> **Last Updated**: 2026-11-14 (ladder revision: Formulas A-C, E-G, Season budget; rules 3, 4, 16; Player Fantasy; Vấn Đỉnh Bảng)
-> **Last Verified**: 2026-11-14
+> **Last Updated**: 2026-11-28 (post-Đạo-Đồ reference fighters & `k_max = 256` calibration; Rule 16a offline cast precompute; AC-PR-05/26/56/58/59)
+> **Last Verified**: 2026-11-28
 > **Implements Pillar**: Pillar 1 (Your Dao, Your Name), Pillar 3 (Power Is Built, Not Given), Pillar 5 (A World That Remembers)
 
 ## Summary
@@ -54,10 +55,14 @@ a won fight); curiosity about who is above them and why; never confusion about w
    panel-rated at their own realm, but never listed in a ranking and never matched.
 2. **One rating per fighter.** A fighter's **rating** is `base + offset` on an Elo-style scale (Formulas A). `base`
    comes from the ladder panel (rule 4); `offset` is learned from fights against real opponents (rules 6-8).
-3. **Anchors and ladders.** Each realm's typical reference fighter (Combat Formulas B, `combat_reference_fighters.json`)
-   has a fixed rating `A_r` (Formulas A), so a realm's typical fighter rates the same in every world and every season.
-   The anchors above Luyện Khí, the ladder rungs' ratings and `health_elo` are measured once per data version by the
-   export tool (Formulas C) and stored with the data; a game never calibrates.
+3. **Anchors and ladders.** Each realm's post-Đạo-Đồ typical reference fighter (`POST_DAO_DO_TYPICAL`, `r = 0..4`,
+   exported by `tools/design/combat_sim/export_reference_fighters.py` into `assets/data/combat_reference_fighters.json`
+   with `t6_typical_mirror_r0..r4` kept in lockstep) has a fixed rating `A_r` (Formulas A), so a realm's typical fighter
+   rates the same in every world and every season. This post-Đạo-Đồ reference profile is distinct from
+   `assets/data/combat_library.json`'s pre-Đạo-Đồ `typical` (Combat Formulas B, `fight.enemy_file("typical", r)`), which
+   remains the character-compiler stand-in base for real characters and `fight.py --selftest`. The anchors above
+   Luyện Khí, the ladder rungs' ratings and `health_elo` are measured once per data version by the export tool
+   (Formulas C) and stored with the data (`assets/data/combat_rankings.json`); a game never calibrates.
 4. **The panel.** A fighter of realm r is panel-rated on realm r's **ladder**: copies of the realm's typical
    fighter scaled from ×1/256 to ×256 in strength, each with a calibrated rating. It searches the ladder for the rung
    it breaks even with, a few fights a rung on either side of the coin order (a warm search from its current rating
@@ -135,13 +140,34 @@ a won fight); curiosity about who is above them and why; never confusion about w
     panel runs in the season batch; a fighter that has just broken through to a new realm; every fighter of an old
     save) takes a **provisional rating**: its realm's anchor moved by its stage (Formulas G). It is shown as
     provisional until its first panel at that realm runs.
-16. **World generation.** When a new game is created, the player's full panel and **coarse** panels (Formulas B: 2
-    fights a probe, stopped at a 4-rung bracket) run while the game loads, outside any season budget, for: every
-    generated NPC of Kết Đan and above, then the NPCs at the player's starting place, in that order (higher realm
-    first, then by id), until `worldgen_fight_budget` fights have run (user decision 2026-11-14, after the
-    threading spike). Those NPCs start **Stale** with their coarse base; every other generated NPC starts
-    **Provisional** (rule 15). The strongest of the world and the player's neighbours are ordered from the first turn,
-    and the season batch refines everyone else by rule 14's order.
+16. **World generation.** When a new game is created, `RatingService.worldgen()` first applies any valid offline
+    precomputed cast ratings (rule 16a), then runs the player's synchronous full panel, and then runs **coarse** panels
+    (Formulas B: `coarse_probe_fights = 2` fights a probe, stopped at a `coarse_bracket`-rung bracket — `32` rungs at
+    `rung_div = 32`, `4` on the illustrative `rung_div = 4` test ladder) while the game loads, outside any season
+    budget, for every remaining **unrated** living non-player fighter (non-cast generated NPCs and any uncached or
+    mismatched cast fallback) of Kết Đan and above, then those at the player's starting place, in that order (higher
+    realm first, then by id), until `worldgen_fight_budget` fights have run (user decision 2026-11-14, amended
+    2026-11-28 for rule 16a). Those coarse-panelled fighters start **Stale** with their coarse base; every other
+    unrated generated NPC starts **Provisional** (rule 15). If no unrated high-realm or local fighters are queued,
+    world generation skips launching the worker pool altogether. `RatingService` runtime panels continue to cover the
+    player, all non-cast generated NPCs, and any cast fighter whose build later changes during play.
+16a. **Offline precomputed cast ratings (user decision 2026-11-28).** Because the fixed world's authored cast and
+    authored spirit beasts are deterministic across every `game_seed` (`WorldBuilder` Steps 1–4b), every living
+    authored cast member (`1,748`) and living authored spirit beast (`21`) in `assets/data/world_history.json` (`1,769`
+    entries total, keyed by `cast_key`, `0` key collisions) has its full-panel base rating precomputed offline by
+    `tools/design/ranking/export_cast_ratings.gd` (via `RatingWorkerPool`, canonical `precompute_seed = 0`, `season = 0`)
+    and stored in `assets/data/cast_ratings.json`. At `worldgen()`, `RatingService` validates the file header
+    (`schema_version == 1`, `data_version` matching `combat_rankings.json`, `world_data_version` and
+    `world_history_version` matching `world_history.json`; `export_cast_ratings.gd --check` also checks `asset_digest`
+    over `combat_library`, `dao_do_map`, `items_sets`, `items_named`, `items_cong_phap`, `traits`, and `combat_rules`)
+    and each living non-player entry's `realm` and live `RatingService.build_sig(p)` against the stored `realm` and
+    `sig`. Every matching fighter loads instantaneously as **Rated** with `base = _snap(entry.base)`, `offset = 0`,
+    `n = 0` (`panels = 1`, `0` load-time fights; `entry.fights` records the offline panel fight count for diagnostics
+    and is not counted in `n`, per Formulas D), with authored beasts still excluded from rankings and matchmaking
+    (rule 1). Any header mismatch aborts the file cleanly, and any missing entry or `realm`/`sig` mismatch skips only
+    that fighter, falling back seamlessly to rule 16 without crashing or applying a stale rating. Because loaded cast
+    records carry their live `sig` and `version`, subsequent build changes, breakthroughs, or data-version updates
+    trigger `Stale` / `Provisional` normally (rules 5, 15, Edge Cases).
 
 ### States and Transitions
 
@@ -149,9 +175,9 @@ The rating state of one fighter:
 
 | State | Meaning | Enters from | Leaves to |
 |---|---|---|---|
-| Provisional | Rated by Formulas G only; shown marked | Created at world generation outside rule 16's load set; created during play; Rated or Stale (it breaks through to a new realm); loaded from an old save (Edge Cases) | Rated (its first panel at its realm runs), Gone (it dies) |
-| Rated | `base` from a panel of its current build | Provisional, Stale (a panel runs) | Stale (its build changes, or a new data version), Provisional (a breakthrough), Gone (it dies) |
-| Stale | Its build changed, or its base is a world-generation coarse panel; keeps its rating until the full panel | Rated (a build change of rule 5, or a new data version); created at world generation (rule 16) | Rated (the panel runs), Provisional (a breakthrough), Gone (it dies) |
+| Provisional | Rated by Formulas G only; shown marked | Created at world generation outside rule 16's load set (non-cast generated NPCs and uncached cast fallback); created during play; Rated or Stale (it breaks through to a new realm); loaded from an old save (Edge Cases) | Rated (its first panel at its realm runs), Gone (it dies) |
+| Rated | `base` from a panel of its current build | Provisional, Stale (a panel runs); loaded at world generation from precomputed cast ratings (rule 16a) | Stale (its build changes, or a new data version), Provisional (a breakthrough), Gone (it dies) |
+| Stale | Its build changed, or its base is a world-generation coarse panel; keeps its rating until the full panel | Rated (a build change of rule 5, or a new data version); created at world generation (rule 16: non-cast generated NPCs and uncached cast fallback) | Rated (the panel runs), Provisional (a breakthrough), Gone (it dies) |
 | Gone | Dead or removed; no longer fights or ranks | Rated, Stale, Provisional | none (its last rating stays on its record for the chronicle) |
 
 A build change or a new data version leaves a Provisional fighter Provisional: its pending panel already compiles
@@ -208,17 +234,21 @@ realm's typical fighter never beats a higher one's, as measured.
 
 ### B. Panel: the ladder search
 
-**The ladder.** Realm r's ladder has rungs `k = −k_max … +k_max`. Rung k is realm r's typical fighter with its
-offence and both pools multiplied by `2^(k / (2 · rung_div))`, so it is `f_k = 2^(k / rung_div)` times as strong
-(damage × health). At `rung_div` 4 and `k_max` 32 the ladder runs from ×1/256 to ×256, about 240 Elo a rung (×1.19).
-Each rung's rating `L_{r,k}` is calibrated (Formulas C); `L_{r,0} = A_r`.
+**The ladder.** Realm r's ladder has rungs `k = −k_max … +k_max`. Rung k is realm r's typical reference fighter
+(`combat_reference_fighters.json`) with its offence (`stage_mult`) and both pools (`n_body`, `n_qi`) multiplied by
+`g = 2^(k / (2 · rung_div))` and its flat block (`block`, `body_block`) divided by `g` (cancelling `stage_mult`'s
+block scaling), so it is `f_k = 2^(k / rung_div)` times as strong (damage × health). At the live defaults (`rung_div`
+32, `k_max` 256) the ladder runs from ×1/256 to ×256, about 56–153 Elo a rung near typical (on the illustrative test
+ladder at `rung_div` 4, `k_max` 32 it also runs ×1/256 to ×256, about 240 Elo a rung, ×1.19). Each rung's rating
+`L_{r,k}` is calibrated (Formulas C); `L_{r,0} = A_r`.
 
 **A probe** is `probe_fights` fights against one rung, half on each side of the coin order; the fighter wins the
 probe when its score is above half.
 
 **The search.** Start at rung `k_0`: the rung whose rating is nearest the fighter's current rating (a **warm**
 search, for a Stale fighter at its own realm) or rung 0 (a **cold** search, for a new fighter or after a
-breakthrough). Step `s_0` is `warm_step` (2) or `cold_step` (8). Probe `k_0`; move by the step in the direction of
+breakthrough). Step `s_0` is `warm_step` (`16` live; `2` illustrative) or `cold_step` (`64` live; `8` illustrative).
+Probe `k_0`; move by the step in the direction of
 the result (up after a win, down after a loss), doubling the step each move, until the result flips or the move
 reaches ±`k_max` (the last probe is then at ±`k_max`). Then bisect the bracket between the last win and the last
 loss until it is 1 rung wide (`coarse_bracket` rungs for a **coarse** search, which uses `coarse_probe_fights`).
@@ -234,12 +264,12 @@ answer when a fighter wins or loses every probe, off the end of the ladder.
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | k_p, n_p, S_p | int, int, float | rung ±k_max; 2 or 4; 0–n_p | the search | Each probe's rung, fights and score (1 a win, 0.5 a draw or the time limit, 0 a loss) |
-| L_{r,k} | float | A_r ± about 7,700 | Formulas C | Calibrated rung ratings |
-| rung_div | int | 4 | data file | Rungs per doubling of strength |
-| k_max | int | 32 | data file | Rungs either side of typical (×1/256 to ×256 at rung_div 4) |
+| L_{r,k} | float | live −27,266 to 99,162 (*illustrative* A_r ± 7,700) | Formulas C | Calibrated rung ratings |
+| rung_div | int | 32 (*illustrative* 4) | data file | Rungs per doubling of strength |
+| k_max | int | 256 (*illustrative* 32) | data file | Rungs either side of typical (×1/256 to ×256 at rung_div 32; same reach at 32 / 4) |
 | probe_fights / coarse_probe_fights | int | 4 / 2 | data file | Fights a probe |
-| warm_step / cold_step | int | 2 / 8 | data file | First step of a warm or cold search |
-| coarse_bracket | int | 4 | data file | Bracket width (rungs) at which a coarse search stops |
+| warm_step / cold_step | int | 16 / 64 (*illustrative* 2 / 8) | data file | First step of a warm or cold search |
+| coarse_bracket | int | 32 (*illustrative* 4) | data file | Bracket width (rungs) at which a coarse search stops |
 | prior_games | float | 1 | data file | Pseudo-games drawn against the start rung |
 | base | float | about L_{r,−k_max} − 400 to L_{r,k_max} + 400 | calculated | The panel base rating |
 
@@ -273,22 +303,36 @@ measure; calibration fails and names the realm and rungs, and `rung_div` is rais
 | s' | float | (0, 1) | calculated | The prior-shrunk share |
 | gap_{r,k} | float | about 200–280 | calculated | Elo between adjacent rungs |
 | calibration_probe_fights | int | 40 | data file | Fights a probe when measuring an anchor |
-| health_elo | float | about 3,000 | calculated | Elo per tenfold of health (Formulas F) |
+| health_elo | float | measured `2,088.614` (*illustrative* ~3,000) | calculated | Elo per tenfold of health (Formulas F) |
 
-**Measured 2026-11-14** (`combat_rankings.json`, `rung_div` 32, `k_max` 192): rung gaps near typical 110–144 Elo;
-anchors 1,000 / 14,195 / 29,506 / 46,842 / 61,627 (realm steps 13,000–17,000 Elo, far above the illustrative 4,400:
-fights are sharper than the health-only measurement suggested); `health_elo` 3,134. The ladder ends carry little
-information (gaps as small as 3.5 Elo at realm 4's far end, where fights stall), well outside where NPCs sit. A
-calibration run is about 770,000 `fight.py` fights, 36 minutes. The illustrative numbers in this section's and
-Formulas A, B, E, G's examples keep the test ladder (240 a rung).
-**In a generated world** (measured run 2026-11-14, `production/qa/evidence/combat-port/ratings-world-2026-11-14.md`):
-the typical fighter is not the realm median. After 4 years, median NPC strength is ×0.65 / ×1.14 / ×2.65 / ×3.6 /
-×5.3 typical by realm, so realm medians show power 68 / 1,100 / 23,100 / 306,000 / 5.1 M; realms never overlap.
-**Kept as is (user decision 2026-11-14):** the anchors stay the typical fighters' ratings (Combat Formulas B, the
-difficulty targets); revisit when the Đạo Đồ and designed builds change where NPCs sit.
-**Output Range:** each gap positive and finite while the guard holds. 5 realms × 64 gaps × 400 fights ≈ 128,000
-fights, about 40 s on `fight.py` (0.3 ms a reference fight) or about 220 s on 8 Godot workers (13.7 ms a fight,
-Open Question 7).
+**Measured 2026-11-28 (post-Đạo-Đồ calibration, live shipped data)** (`assets/data/combat_reference_fighters.json` +
+`assets/data/combat_rankings.json`, `data_version = "6c829cf0107774f4"`, `rung_div = 32`, `k_max = 256`):
+- **Reference fighters (`POST_DAO_DO_TYPICAL`, `export_reference_fighters.py`):** 5 post-Đạo-Đồ typical profiles
+  layered on `fight.enemy_file("typical", r)` (`M = 4.59 / 11.66 / 31.08 / 93.74 / 144.45`, `n_body = 1.44 / 2.78 /
+  5.77 / 12.19 / 14.15`, `ward_pts = 499.4 / 614.7 / 777.2 / 1,037.8 / 1,347.5`, keeping the 3-art reference kit;
+  `combat_library.json`'s pre-Đạo-Đồ `typical` stays untouched as the character-compiler stand-in base). Synced
+  `t6_typical_mirror_r0..r4` 10,000-seed mean fight lengths: **`34.17 / 39.05 / 47.22 / 51.42 / 56.07 s`** (all 5
+  cleanly within `30–60 s`).
+- **Calibrated ladders (`export_rankings_calibration.py --workers 8`, deterministic `ProcessPoolExecutor`):**
+  `5 × 512 = 2,560` rung gaps, **`0` saturation errors** (gaps near typical `56–153` Elo; full range `19.9–357.1`
+  Elo); anchors **`[1000.0, 21324.495, 43303.673, 65475.097, 79232.577]`** (realm steps `20,324.5 / 21,979.2 /
+  22,171.4 / 13,757.5` Elo); **`health_elo = 2088.614`**; ladder spans `−27,265.8..28,283.4` (R0) up to
+  `61,368.6..99,162.1` (R4).
+- **Seed-101 live cohort probe (2026-11-28):** **`0/2` authored Hóa Thần** clipping rung `+256` (`thoi_khinh_hong
+  90,609.0 > mac_quy_khu 86,650.1`, generated `Doãn Tùng 67,796.1`) and **`0/27` Nguyên Anh** clipping
+  (`cu_thuy_bach 85,122.5` down to `phuong_truc_ngon 50,498.2`).
+
+**Earlier baseline (2026-11-14, pre-Đạo-Đồ typicals)** (`rung_div` 32, `k_max` 192): rung gaps near typical 110–144
+Elo; anchors 1,000 / 14,195 / 29,506 / 46,842 / 61,627; `health_elo` 3,134; single-threaded calibration took 36 min
+(~770,000 fights). After Đạo Đồ v5 and World Depth cast authoring raised live builds, pre-Đạo-Đồ typicals caused top
+Nguyên Anh and both authored Hóa Thần to clip `+256`, prompting the 2026-11-28 post-Đạo-Đồ refresh above. The
+illustrative numbers in Formulas A, B, E, G's examples keep the test ladder (240 a rung).
+**In a generated world** (pre-Đạo-Đồ baseline run 2026-11-14, `production/qa/evidence/combat-port/ratings-world-2026-11-14.md`):
+after 4 years, median NPC strength was ×0.65 / ×1.14 / ×2.65 / ×3.6 / ×5.3 pre-Đạo-Đồ typical by realm, showing power
+68 / 1,100 / 23,100 / 306,000 / 5.1 M with non-overlapping realms.
+**Output Range:** each gap positive and finite while the guard holds. At `k_max = 256` and `calibration_fights = 400`,
+calibration runs 5 realms × 512 gaps × 400 fights ≈ 1,024,000 gap fights plus anchor and `health_elo` probes (~8–10 min
+at `--workers 8` in `export_rankings_calibration.py`).
 **Example:** rung k+1 scores 300 wins and 20 draws in 400 against rung k: s' = 310.5 / 401 = 0.7743, so
 gap = 400 · log10(310.5 / 90.5 = 3.431) = **214.2**.
 
@@ -357,7 +401,7 @@ A wins when one draw from the session stream is below P(A). World fights have no
 | eff_khi_van | float | as the duel | Character Stats | Effective khí vận of each side |
 | v | float | 0.05–1 | Combat Formulas K (vitality fraction) | A side's current vitality as a share of full; 1 when uninjured |
 | v_c | float | 0.4 | data file (`combat_rules.json` duel `injured_power_floor`) | Floor on v: at most −1,194 rating for the roll (3,000 · log10 0.4) |
-| health_elo | float | about 3,000 | Formulas C | Elo per tenfold of health, measured |
+| health_elo | float | measured `2,088.614` (*illustrative* ~3,000) | Formulas C | Elo per tenfold of health, measured |
 | khi_van_per_point | float | 0.001 | data file (`combat_rules.json` duel) | Win chance per point of khí vận |
 | p_min, p_max | float | 0.02, 0.98 | data file (`combat_rules.json` duel `min_win_chance`, `max_win_chance`) | Clamp: a Hóa Thần still loses to a Luyện Khí 2 % of the time |
 
@@ -413,20 +457,21 @@ robin and matchmaking first, then about 1,565 of the season's 4,490 Kết Đan p
 quieter season the unused panel share completes the season's Kết Đan slice. Because the slice is shuffled (rule 8), a
 truncated season leaves a random, not id-ordered, share of pairs unplayed.
 
-**World generation** (rule 16): coarse searches for the NPCs of Kết Đan and above (about 230, about 2,300 fights) and
-then the NPCs at the player's starting place, capped at `worldgen_fight_budget` (8,000 fights): about **40 s** at the
-measured rate (12.3 ms a fight single-threaded, about ×2.5 on threads, about 200 fights a second; ADR-0003 spike,
-`production/qa/evidence/combat-port/rating-spike-2026-11-14.md`). A coarse search of every NPC (about 50,000
-fights) would take about 4 minutes at that rate, which is why the load set is limited. The other NPCs start
-Provisional and refine by panels in the background, higher realms first: about 80,000 fights. Build-change panels share the
-same queue, and an NPC refined once can go Stale again, so the drain is not 16 seasons: if the 3,200 fights a season
-of build-change demand were additive it would leave about 1,800 of the 5,000-fight share and take about 44 seasons
-(11 years), with the Luyện Khí refinement last. Which it is, is Open Question 7's measurement.
-**Measured 2026-11-14** (4 years of a 5,177-person world, release build, 16 cores): a full 10,000-fight season takes
-31–47 s on threads; the panel share is full every season (about 170 panels, about 29 fights each) and the queue
-shrinks by about 100 a season, so Trúc Cơ is refined by season 9 and Luyện Khí needs about 8–10 years more; about
-half the planned pair fights drop each season, nearly all from the Kết Đan slice. **Accepted for now (user decision
-2026-11-14):** the defaults stay; revisit with Open Question 9.
+**World generation** (rules 16 and 16a):
+- **With precomputed cast ratings (rule 16a, 2026-11-28):** all `1,748` living authored cast members and `21` living
+  authored spirit beasts (`1,769` entries in `assets/data/cast_ratings.json`) load instantaneously as **Rated** with
+  `0` load-time fights. This eliminates `~63,000` full-panel fights from early-season background panel drain (including
+  every authored Hóa Thần, Nguyên Anh, and nearly every Kết Đan fighter). At `new_game()`, `worldgen()` runs only the
+  player's synchronous full panel plus coarse panels for unrated **non-cast generated NPCs** of Kết Đan and above and
+  at the player's starting place (`~200–700` coarse fights in a 5,000-cultivator world, well below
+  `worldgen_fight_budget = 8,000`), and skips launching the worker pool entirely when no unrated high/local NPCs are
+  queued. Remaining non-cast generated NPCs start Provisional and refine in the background by rule 14's order.
+- **Pre-rule-16a baseline (measured 2026-11-14, without cast precompute):** coarse searches for Kết Đan and above
+  (~230 NPCs, ~2,300 fights) plus the starting place, capped at `worldgen_fight_budget` (8,000 fights), took ~40 s at
+  ~200 fights/s on threads (`production/qa/evidence/combat-port/rating-spike-2026-11-14.md`), leaving ~80,000 fights of
+  Provisional refinement in the background; over 4 years of a 5,177-person world, a full 10,000-fight season took
+  31–47 s on threads, Trúc Cơ finished by season 9, and Luyện Khí needed ~8–10 years more. Worker processes (ADR-0003
+  decision 13) and rule 16a now absorb both the load cost and the authored-cast refinement tail.
 
 ## Edge Cases
 
@@ -444,7 +489,9 @@ half the planned pair fights drop each season, nearly all from the Kết Đan sl
 - **If a fighter runs off the end of its ladder** (wins at rung +`k_max` or loses at −`k_max`): the prior
   (Formulas B) gives a finite rating a few hundred points beyond the end rung, and the panel logs the fighter's id.
   It is ranked correctly against everyone inside the ladder; two fighters both beyond the same end are ordered by
-  their offsets. The 2026-11-14 probe found no generated NPC beyond ×64 of its realm's typical fighter.
+  their offsets. After the 2026-11-28 post-Đạo-Đồ reference refresh at `k_max = 256` (`rung_div = 32`), the seed-`101`
+  live probe measured `0/2` authored Hóa Thần and `0/27` Nguyên Anh off-top (the 2026-11-14 pre-Đạo-Đồ probe had
+  found no generated NPC beyond ×64).
 - **If a fight ends at the time limit or in a draw**: it scores 0.5 for both sides in panels and offsets. World
   fights (Formulas F) have no draws.
 - **If a fighter cannot compile** (the compiler refuses an art or field): it keeps its current rating and state, the
@@ -458,8 +505,11 @@ half the planned pair fights drop each season, nearly all from the Kết Đan sl
   Round robins pair each pair exactly once.
 - **If the player's own panel or event fight applies mid-season**: it applies at once, not in the batch's fixed
   order (rule 13). The order is still deterministic, because it follows the player's play order from the same save.
-- **If beasts are counted**: they add panels to the demand figures of Season budget (one per beast, a coarse panel of 6–10 fights at its
-  realm at world generation, then a warm panel of 12–16 when its build changes) and are rated at world generation like NPCs; their count is data and small beside the NPC population.
+- **If beasts are counted**: the `21` living authored spirit beasts load as `Rated` at `0` load-time fights via
+  `cast_ratings.json` (rule 16a); non-cast generated beasts add panels to the demand figures of Season budget (one per
+  beast, a coarse panel of 6–10 fights at its realm at world generation, then a warm panel of 12–16 when its build
+  changes) and are rated at world generation like non-cast NPCs. Beasts remain excluded from rankings and matchmaking
+  (rule 1); their count is data and small beside the NPC population.
 - **If a fighter dies with fights pending**: its pending fights are dropped; results already applied stand. Its
   last rating stays on its record (Gone).
 - **If a fighter has a panel and pair fights in the same season**: panels apply first, then pair fights (Core Rules rule 13), so the new `offset_keep` halving never discounts that season's fresh results.
@@ -469,6 +519,12 @@ half the planned pair fights drop each season, nearly all from the Kết Đan sl
 - **If the reference fighters or the combat data change** (a new data version): the shipped data carries new
   anchors and ladders (Formulas C), every Rated fighter becomes Stale with its offset carried (Provisional fighters stay Provisional), and the panels spread over the following
   seasons by the usual order (each applying `offset_keep` once).
+- **If precomputed cast ratings are missing or out of date** (`assets/data/cast_ratings.json`, rule 16a): if the file
+  is absent or its `schema_version`, `data_version`, `world_data_version`, or `world_history_version` mismatches the
+  active `combat_rankings.json` / `world_history.json`, the whole file is ignored and every cast member falls back
+  cleanly to rule 16 (coarse panels up to `worldgen_fight_budget`, the rest `Provisional`). If the header matches but
+  a single entry is missing or its stored `realm` or `sig` differs from `RatingService.build_sig(p)`, only that entry
+  is skipped and falls back to rule 16. No crash occurs and no stale rating is ever applied.
 - **If an old save has no ratings**: every living fighter loads as Provisional.
 - **If a world fight pairs an injured fighter**: its roll rating drops by `health_elo·log10(max(v, v_c))` (Formulas F), at
   most about 1,194 points; its stored rating, offset and rank do not change, so an injury never moves a ranking.
@@ -499,9 +555,9 @@ half the planned pair fights drop each season, nearly all from the Kết Đan sl
 | Save / Load | Hard, both ways | Stores each fighter's rating fields and the season's pending work | Built |
 | ADR-0001, ADR-0002 | Constraint | Fights through `CombatService`; keyed streams for every rating fight | Accepted |
 
-**Feature flag.** Power Rankings ships behind its own flag (`combat_rankings.json` `enabled`, off until signed off in
-play), separate from `combat_rules.json` `fight_engine`. Off, the power number is chiến lực and world fights use the
-duel (Edge Cases).
+**Feature flag.** Power Rankings ships behind its own flag (`combat_rankings.json` `enabled`, `true` in shipped data
+since 2026-11-15), separate from `combat_rules.json` `fight_engine`. Off, the power number is chiến lực and world
+fights use the duel (Edge Cases).
 
 **Bidirectional notes** (2026-11-14 revision): added to Combat (rule 17, Formulas K, AC-CB-65), the registry
 (`rating_clash`, `display_power`, new formula and constant entries), ADR-0003 (decisions 9-11), Realms and Sects.
@@ -514,14 +570,14 @@ All in `combat_rankings.json` unless noted. Ranges are starting points to be con
 | Knob | Default | Safe range | Affects |
 |---|---|---|---|
 | `rung_div` | 32 | 24–64 | Rungs per doubling of strength (about 120 Elo a rung at 32, measured); raise if the saturation guard fires. *Raised from 4 on 2026-11-14 by the guard: at 4 adjacent rungs won 96–100 %, because a rung scales linh lực too and linh lực decides sustain fights* |
-| `k_max` | 192 | 192–384 | Ladder reach `2^(k_max / rung_div)` either side: ×1/256 to ×256 at rung_div 32. Keep `k_max / rung_div ≥ 6` (×64, the widest NPC the 2026-11-14 probe found); AC-PR-56 checks it |
+| `k_max` | 256 | 192–384 | Ladder reach `2^(k_max / rung_div)` either side: ×1/256 to ×256 at rung_div 32. Keep `k_max / rung_div ≥ 6` (×64 minimum); AC-PR-56 checks it |
 | `probe_fights` / `coarse_probe_fights` | 4 / 2 | 2–8 / 2–4 | Panel accuracy against compute |
 | `warm_step` / `cold_step` | 16 / 64 | 8–32 / 32–128 | First step of a search; fewer probes when the guess is good (scaled with `rung_div`: the same strength steps as 2 / 8 at rung_div 4) |
 | `coarse_bracket` | 32 | 16–64 | Where a world-generation coarse search stops; world-generation load time (scaled with `rung_div`) |
 | `worldgen_fight_budget` | 8,000 | 2,000–20,000 | Coarse-panel fights at a new game's load (rule 16): about 40 s at 200 fights a second; higher orders more of the world at load and lengthens it |
 | `prior_games` | 1 | 0.5–2 | Finite result off the ladder end; pull toward the start rung |
 | `calibration_fights` / `calibration_probe_fights` | 400 / 40 | 200–800 / 20–80 | Rung-gap and anchor accuracy, once per data version |
-| `health_elo` | measured (about 3,000) | not tuned | Injury on a world-fight roll; written by calibration (Formulas C) |
+| `health_elo` | measured (`2,088.614`, 2026-11-28 calibration) | not tuned | Injury on a world-fight roll; written by calibration (Formulas C) |
 | `K_0` / `K_min` / `n_half` | 48 / 16 / 10 | K 8–64; n_half 5–20 | How fast offsets move and settle |
 | `offset_cap` | 200 | 100–300 | How far real fights can move a rating from its panel base |
 | `offset_keep` | 0.5 | 0.25–0.75 | How much a fighter's earned offset survives a build change |
@@ -592,7 +648,7 @@ Ratings compare within ±0.05 (the stored 0.1).
 - **AC-PR-02** [Logic] Rule 2. **GIVEN** base 1447.0 and offset 11.4, **WHEN** the rating is read, **THEN** it is 1458.4, with base and offset stored separately to 0.1.
 - **AC-PR-03** [Logic] Rule 3, Formulas A. **GIVEN** test calibration data (anchors 1000 / 5400 / 9800 / 14200 / 18300, 240 a rung) and two worlds with different seeds read in seasons 1 and 9, **WHEN** each realm's typical fighter's rating is read, **THEN** it is the stored anchor in every case.
 - **AC-PR-04** [Logic] Rule 3. **GIVEN** anchors, ladders and `health_elo` stored for the data version, **WHEN** a game loads and runs a season, **THEN** calibration runs 0 fights and the stored values are used.
-- **AC-PR-05** [Logic] Rule 4. **GIVEN** fighters at Luyện Khí, Trúc Cơ and Hóa Thần, **WHEN** their panels run, **THEN** every probe is a rung of the fighter's own realm's ladder, within ±32, and rung k's fighter is that realm's typical fighter with offence and both pools ×2^(k/8).
+- **AC-PR-05** [Logic] Rule 4. **GIVEN** fighters at Luyện Khí, Trúc Cơ and Hóa Thần, **WHEN** their panels run, **THEN** every probe is a rung of the fighter's own realm's ladder, within `±k_max` (`±256` at `rung_div = 32`; `±32` on the illustrative `rung_div = 4` test ladder), and rung `k`'s fighter is that realm's typical reference fighter with `stage_mult`, `n_body` and `n_qi` multiplied by `g = 2^(k / (2 · rung_div))` and `block`/`body_block` divided by `g`.
 - **AC-PR-06** [Logic] Rule 4, Formulas B. **GIVEN** a scripted fighter that wins every probe at rung 4 or below and loses above, **WHEN** a cold panel runs, **THEN** it probes rungs 0, 8, 4, 6, 5 in that order, 4 fights each with 2 on each side of the coin order (20 fights, none counted in n), ending at bracket [4, 5]; **WHEN** a warm panel runs from rung 3, **THEN** it probes 3, 5, 4 (12 fights); **WHEN** a coarse panel runs cold, **THEN** it probes 0, 8, 4 at 2 fights each (6 fights).
 - **AC-PR-07** [Logic] Rule 5 (parametrised over its causes other than a breakthrough, which is AC-PR-37). **GIVEN** a Rated fighter at R, **WHEN** any build change of rule 5 happens, **THEN** it is Stale and still rated R until a panel runs.
 - **AC-PR-08** [Logic] Rule 5. **GIVEN** a Rated fighter, **WHEN** it ages a season, travels or gains khí vận, **THEN** it stays Rated and no panel is queued.
@@ -613,7 +669,9 @@ Ratings compare within ±0.05 (the stored 0.1).
 - **AC-PR-23** [Logic] Rule 13. **GIVEN** game seed X, season S and fighters a and b, **WHEN** their fight is seeded with a and b in either order, **THEN** the seed and the result are identical; **AND GIVEN** a Trúc Cơ panel probe's 4 fights against one rung, and a Kết Đan pair that meets in matchmaking and its round robin in the same season, **THEN** every one of those fights has a distinct seed; **AND GIVEN** a fighter whose coarse panel and later full panel both probe rung 4 in one season (or a player whose panel runs for two builds in one season), **THEN** the fights against that rung carry indexes 0, 1, 2, … in run order and no two share a seed; a world-generation panel's seeds use season 0.
 - **AC-PR-24** [Logic] Rule 14. **GIVEN** a queue with the player's Stale panel, a Stale Hóa Thần panel, a Provisional Luyện Khí panel, the Nguyên Anh and Hóa Thần round robin, matchmaking and Kết Đan round-robin pairs, **WHEN** the batch runs, **THEN** they run in exactly that order.
 - **AC-PR-25** [Logic] Rule 14. **GIVEN** `season_fight_budget` 200 and `panel_budget_share` 0.5 in test data and more work than that, **WHEN** a season runs, **THEN** exactly 200 fights run (the player's on-open panel, AC-PR-39, excluded), of which at most 100 are panel fights; **AND GIVEN** only 40 panel fights queued, **THEN** the other 160 are round-robin and matchmaking fights.
-- **AC-PR-26** [Logic] Rules 15, 16. **GIVEN** a new game's world generation (test world of 50 NPCs), **WHEN** loading finishes, **THEN** the player is Rated from a full panel, every generated NPC of Kết Đan and above, then those at the player's starting place, is Stale with a coarse base until `worldgen_fight_budget` (set to 60 in the test data) is spent, every other generated NPC is Provisional, the first season's budget count is 0, and the first season's queue holds their full panels in rule 14's order; **AND GIVEN** a Trúc Cơ stage-2 NPC created during play, **WHEN** its rating is read before its panel runs, **THEN** it is Provisional at 6,127 (test ladder).
+- **AC-PR-26** [Logic] Rules 15, 16, 16a. **GIVEN** a new game's world generation with matching `cast_ratings.json` and non-cast generated NPCs, **WHEN** loading finishes, **THEN** every matching living authored cast member and authored spirit beast starts `Rated` (`offset = 0`, `n = 0`, `0` load-time fights), the player is `Rated` from a synchronous full panel, every unrated non-cast generated NPC (and any uncached cast fallback) of Kết Đan and above, then those at the player's starting place, is `Stale` with a coarse base until `worldgen_fight_budget` (set to 60 in test data) is spent, every other unrated generated NPC is `Provisional`, the first season's budget count is 0, and the first season's queue holds the unrated/stale fighters' full panels in rule 14's order; **AND GIVEN** a Trúc Cơ stage-2 NPC created during play, **WHEN** its rating is read before its panel runs, **THEN** it is Provisional at 6,127 (test ladder).
+- **AC-PR-58** [Logic] Rule 16a. **GIVEN** `assets/data/cast_ratings.json` matching the active `data_version`, `world_data_version`, `world_history_version`, and each living authored cast member's `realm` and `build_sig`, **WHEN** `RatingService.worldgen()` runs, **THEN** matching living cast and authored beasts load as `Rated` (`base` snapped to `0.1`, `offset = 0`, `n = 0`, `panels = 1`, `0` load fights), the player and non-cast generated NPCs still run rule 16 panels, and a post-load build change on a loaded cast member transitions it `Rated -> Stale`; **AND GIVEN** a missing file, mismatched header version, or an entry whose `sig` or `realm` mismatches, **THEN** the affected fighters fall back cleanly to rule 16 (`Stale` coarse panel or `Provisional`) with no crash and no stale rating applied.
+- **AC-PR-59** [Integration] Rules 3, 4, Formulas C. **GIVEN** the post-Đạo-Đồ `combat_reference_fighters.json` (`POST_DAO_DO_TYPICAL`) and `combat_rankings.json` (`k_max = 256`, `rung_div = 32`), **WHEN** `export_reference_fighters.py --check`, `export_rankings_calibration.py --check`, `combat_parity_test.gd`, and a seed-`101` live probe run, **THEN** all `5/5` `t6_typical_mirror_r0..r4` mirrors last `30.0–60.0 s`, calibration has `0` saturation errors across `5 × 512 = 2,560` rung gaps, `0/2` authored Hóa Thần and `0/27` Nguyên Anh clip rung `+256`, and `thoi_khinh_hong` rates above `mac_quy_khu` on base panel rating alone.
 
 **Formulas**
 
@@ -627,7 +685,7 @@ Ratings compare within ±0.05 (the stored 0.1).
 - **AC-PR-34** [Logic] F. **GIVEN** 1450 against 1400 with +10 khí vận, then 2600 against 1000, then 1000 against 2600, **WHEN** P(A) is computed, **THEN** it is 0.581 / 0.98 / 0.02.
 - **AC-PR-34a** [Logic] F. **GIVEN** `health_elo` 3,000 and A (1450, v 0.9) against B (1400, v 1), no khí vận, **WHEN** P(A) is computed, **THEN** it is 0.377 (±0.001); with A at v 0.5 it is 0.02 (the floor); **AND GIVEN** v 0.05 and v 0.4 on one side, **THEN** both use v_c 0.4 (−1,194); stored rating, offset and rank are unchanged after the fight.
 - **AC-PR-54** [Integration] B. **GIVEN** a generated 5,000-NPC world after world-generation coarse panels and one year of refinement, **WHEN** bases are read per realm, **THEN** in each realm with at least 20 NPCs the 10th-to-90th percentile spread of `base` is at least 1,000 points (the 2026-11-14 probe measured ×10 to ×23 in typical-health terms) and no 240-point bin holds more than 25 % of the realm's NPCs; the flag stays off until this passes.
-- **AC-PR-56** [Logic] B, Tuning Knobs. **GIVEN** `combat_rankings.json` with `k_max / rung_div` below 6, **WHEN** the data loads, **THEN** it is refused with the knob names logged; **AND GIVEN** the default 32 / 4, **THEN** it loads and the ladder reaches ×256.
+- **AC-PR-56** [Logic] B, Tuning Knobs. **GIVEN** `combat_rankings.json` with `k_max / rung_div` below 6, **WHEN** the data loads, **THEN** it is refused with the knob names logged; **AND GIVEN** the default `256 / 32`, **THEN** it loads and the ladder reaches ×256.
 - **AC-PR-55** [Integration] B. **GIVEN** 50 sampled NPCs with a cold full panel, **WHEN** each takes a warm panel from its rating and, separately, a coarse one, **THEN** the warm base is within ×1.19 strength of the cold base (`rung_div / 4` rungs: 8 at 32) for at least 90 % and the coarse base within ×1.68 (`3 · rung_div / 4` rungs: 24 at 32) for at least 85 % (Open Question 8). *Rescaled 2026-11-14 (user decision) from the rung counts written at `rung_div` 4; coarse's bar lowered from 90 % because a coarse base only orders a new world until its full panel runs. Measured: warm 100 %, coarse 88 %.*
 - **AC-PR-35** [Logic] G. **GIVEN** the test ladders and Trúc Cơ stage 2, Luyện Khí stage 0 and Hóa Thần stage 3, **WHEN** R_prov is computed, **THEN** it is 6,127 (power 1,460) / 1000 / 19,329.
 
